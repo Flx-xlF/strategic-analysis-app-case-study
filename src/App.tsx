@@ -16,7 +16,7 @@ export const App: React.FC = () => {
     setStreamProgress(0);
 
     const interval = window.setInterval(() => {
-      setStreamProgress((prev) => {
+      setStreamProgress((prev: number) => {
         if (prev >= 100) {
           window.clearInterval(interval);
           setIsStreaming(false);
