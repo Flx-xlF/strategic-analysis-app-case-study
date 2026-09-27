@@ -17,11 +17,11 @@
 Explore the high-density analytical interface and intelligence simulations directly in your browser:  
 👉 **[https://flx-xlf.github.io/strategic-analysis-app-case-study/](https://flx-xlf.github.io/strategic-analysis-app-case-study/)**
 
-* **Pre-Seeded Strategic Scenarios:**
-  * 🚄 **Infrastructure Crisis Briefing:** Simulates an adversarial media inquiry on major timetable revisions, comparing corporate wordings against investigative journalist inquiries.
-  * ⚡ **Proactive Policy Rollout (Scout Mode):** Tests proactive narrative discovery and talking-point generation across national media outlets.
-  * 🛑 **Red Team Validation (Validator Mode):** Simulates an immediate "Headline from Hell", generates a dynamic multi-stakeholder reaction cascade, and calculates second-order risk gauges.
-* **100% Client-Side Simulation:** Runs fully in-browser with zero backend dependencies, pre-compiled deterministic LLM streaming replays, and zero token costs.
+* **Pre-Seeded High-Stakes Scenarios (Designed for Communication Professionals):**
+  * 🚄 **Gotthard-Basistunnel Kapazitätsengpass:** Red-Teaming an infrastructure policy prioritizing international freight corridors over Ticino regional passenger trains. Triggers the adversarial "Headline from Hell", regional stakeholder reactions, and a dynamic 8.7/10 Risk Index.
+  * 🛡️ **Investigativ-Leak «Projekt Nimbostratus»:** High-fidelity media inquiry contradiction audit pitting leaked Azure migration plans against the official 2024 «100% Swiss Sovereign Cloud» doctrine, generating an immediate defensive statement draft.
+  * 🏛️ **Ablösung des physischen Schalterverkaufs:** Countering a viral grassroots petition against the closure of 24 rural ticket desks using the Strategic Content Factory (*Hintergrund-Artikel*, *Social Media*, *Talking Points*, *Q&A Brief*).
+* **100% Client-Side Simulation:** Runs fully in-browser with zero backend dependencies, deterministic LLM streaming replays, and zero cloud costs.
 
 ---
 
@@ -59,7 +59,7 @@ Explore the high-density analytical interface and intelligence simulations direc
 * **Multi-Tenant White-Label Tokens:** Brand-agnostic CSS custom properties enabling rapid tenant re-theming without sacrificing brutalist visual precision.
 
 ### 6. ⚡ Sovereign Stream Transport & Lifecycle Management
-* **Unified Transport Hook:** Centralized stream orchestrator powering all 9 analytical views with resilient error boundaries.
+* **Unified Transport Hook:** Centralized stream orchestrator powering all analytical views with resilient error boundaries.
 * **Atomic Abort Controller:** Instant cancellation of in-flight multi-step inference chains across the client and backend.
 * **Zero-Trust Multi-Tenancy:** Strict tenant boundary enforcement at retrieval, prompt construction, and caching layers.
 
@@ -70,9 +70,8 @@ Explore the high-density analytical interface and intelligence simulations direc
 | Layer | Technology | Engineering Rationale |
 |---|---|---|
 | **Frontend Framework** | React 19 + TypeScript 5.9 | Concurrent rendering, strict typing across data contracts, and zero-runtime bugs |
-| **State Management** | Zustand | Atomic state orchestrator with bidirectional URL synchronization for all 9 views |
 | **Styling & Tokens** | Tailwind CSS + Vanilla CSS Tokens | Custom 1px Swiss Brutalist design system with strict token agnosticism |
-| **Visualization** | Recharts + Framer Motion | High-density temporal trend charts and micro-interaction flow diagrams |
+| **Design Aesthetics** | Swiss Railway Signage Standard | High-density information architecture with zero border-radius and rigid hairlines |
 | **AI Orchestration** | Google Vertex AI + Gemini 2.5 | Enterprise RAG in `europe-west4`, multi-tier fallback (Pro / Flash / Flash-Lite) |
 | **Vector & Retrieval** | Vertex AI Search + Discovery Engine | Parallel semantic search and hybrid reciprocal rank fusion (RRF) |
 | **Backend Core** | Python 3.14 + Flask / Gunicorn | High-concurrency SSE stream endpoints and Pydantic-enforced schemas |
@@ -84,11 +83,11 @@ Explore the high-density analytical interface and intelligence simulations direc
 
 ```mermaid
 flowchart TD
-    subgraph UI ["Swiss Brutalist Frontend (React 19 / Zustand)"]
+    subgraph UI ["Swiss Brutalist Frontend (React 19 / TypeScript)"]
         SC["Strategic Compass (Scout / Validator)"]
         MI["Media Inquiry Workstation"]
         TN["Trending Narratives + Content Factory"]
-        UST["useStreamTransport (Unified Stream Core)"]
+        UST["useMockStream / Stream Transport Core"]
     end
 
     subgraph API ["Backend Orchestration (Python / Flask)"]
@@ -129,11 +128,12 @@ cd strategic-analysis-app-case-study
 # 2. Install dependencies
 npm install
 
-# 3. Launch in Simulation Mode
-npm run dev:mock
-```
+# 3. Start development server
+npm run dev
 
-*The application will boot in **Mock Streaming Mode**, serving pre-recorded SSE response streams for all 9 analytical modules.*
+# 4. Build production bundle (<90 kB gzipped)
+npm run build
+```
 
 ---
 

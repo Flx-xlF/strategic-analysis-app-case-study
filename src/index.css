@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Swiss Railway / Terrain Industrial Palette */
+  --brand-red: #EB0000;
+  --brand-red-dark: #A20013;
+  --brand-black: #000000;
+  --brand-anthracite: #222222;
+  --brand-stone: #666666;
+  --brand-aluminum: #E5E5E5;
+  --brand-cloud: #F5F5F7;
+  --brand-white: #FFFFFF;
+}
+
+body {
+  background-color: var(--brand-cloud);
+  color: var(--brand-black);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Swiss Railway Signage Typography */
+.type-signage {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.type-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Brutalist 1px hairline border utility */
+.swiss-border {
+  border: 1px solid var(--brand-aluminum);
+}
+
+.swiss-border-b {
+  border-bottom: 1px solid var(--brand-aluminum);
+}
+
+.swiss-border-r {
+  border-right: 1px solid var(--brand-aluminum);
+}
+
+.swiss-border-t {
+  border-top: 1px solid var(--brand-aluminum);
+}
+
+.swiss-border-l {
+  border-left: 1px solid var(--brand-aluminum);
+}
+
+/* Hard brutalist offset shadow */
+.shadow-brutalist {
+  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.9);
+}
+
+.shadow-brutalist-red {
+  box-shadow: 4px 4px 0px 0px var(--brand-red);
+}
+
+/* Minimal industrial scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--brand-cloud);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--brand-aluminum);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-stone);
+}
