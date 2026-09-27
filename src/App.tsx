@@ -22,9 +22,9 @@ export const App: React.FC = () => {
           setIsStreaming(false);
           return 100;
         }
-        return prev + 15;
+        return prev + 20;
       });
-    }, 120);
+    }, 100);
   };
 
   const handleAbort = () => {
@@ -34,7 +34,6 @@ export const App: React.FC = () => {
 
   const handleSelectScenario = (sc: ScenarioMeta) => {
     setSelectedScenario(sc);
-    // Auto-align optimal tab with scenario
     if (sc.id === 'gotthard_freight') setActiveTab('cascade');
     else if (sc.id === 'cloud_sovereignty') setActiveTab('inquiry');
     else if (sc.id === 'counter_closure') setActiveTab('trending');
@@ -53,7 +52,7 @@ export const App: React.FC = () => {
       />
 
       {/* Main Content Stage */}
-      <main className="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8">
+      <main className="flex-1 max-w-6xl w-full mx-auto p-4 sm:p-6">
         {activeTab === 'cascade' && (
           <NarrativeCascadeView
             scenarioId={selectedScenario.id}
@@ -79,29 +78,23 @@ export const App: React.FC = () => {
         )}
       </main>
 
-      {/* Swiss Brutalist Footer */}
-      <footer className="bg-brand-black text-white px-4 py-4 swiss-border-t mt-12 text-xs type-mono">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-zinc-400">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 bg-brand-red inline-block"></span>
-            <span className="font-bold text-white tracking-widest uppercase">
-              TERRAIN ANALYTICS
-            </span>
-            <span>— SWISS STRATEGIC MEDIA INTELLIGENCE & ENTERPRISE RAG</span>
+      {/* Utilitarian Footer */}
+      <footer className="bg-white border-t border-brand-aluminum px-4 py-3 mt-8 text-xs type-mono text-zinc-500">
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+          <div>
+            <span>Terrain Analytics</span>
+            <span className="mx-2">·</span>
+            <span>Fallstudie & Architekturübersicht</span>
           </div>
-          <div className="flex items-center gap-4 text-[11px]">
-            <span>100% CLIENT-SIDE DEMO</span>
-            <span>•</span>
+          <div>
             <a
               href="https://github.com/Flx-xlF/strategic-analysis-app-case-study"
               target="_blank"
               rel="noreferrer"
-              className="text-zinc-300 hover:text-white underline underline-offset-4"
+              className="text-zinc-600 hover:text-brand-black underline underline-offset-2"
             >
-              ARCHITECTURE SPECIFICATION
+              Dokumentation auf GitHub
             </a>
-            <span>•</span>
-            <span>SCHEMA/F</span>
           </div>
         </div>
       </footer>

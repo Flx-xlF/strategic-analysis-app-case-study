@@ -3,7 +3,7 @@ export interface ScenarioMeta {
   title: string;
   category: string;
   date: string;
-  urgency: 'HIGH' | 'CRITICAL' | 'ELEVATED';
+  urgency: 'Hoch' | 'Mittel';
   summary: string;
   organization: string;
 }
@@ -11,29 +11,29 @@ export interface ScenarioMeta {
 export const SCENARIOS: ScenarioMeta[] = [
   {
     id: 'gotthard_freight',
-    title: 'Gotthard-Basistunnel: Güterverkehr-Priorisierung vor Regionalzügen',
-    category: 'INFRASTRUKTUR / KRISEN-STRESSTEST',
-    date: '2026-09-28',
-    urgency: 'CRITICAL',
-    summary: 'Nach Sanierungsverzögerung stehen nur 60% Trassenkapazität bereit. Die GL plant, internationale Güterzüge vorzuziehen; Direktverbindungen ins Tessin werden um 35% gekappt.',
+    title: 'Gotthard-Basistunnel: Priorisierung Gütertransit',
+    category: 'Infrastruktur & Betrieb',
+    date: '28.09.2026',
+    urgency: 'Hoch',
+    summary: 'Eingeschränkte Trassenkapazität. Geplante Vorrangregelung für Güterverkehr führt zu Reduktion von Direktverbindungen ins Tessin.',
     organization: 'Bundesbahnen / BAV'
   },
   {
     id: 'cloud_sovereignty',
-    title: 'Investigativ-Leak: Cloud-Egress & US-Hyperscaler ("Projekt Nimbostratus")',
-    category: 'MEDIENANFRAGE / DOKTRIN-AUDIT',
-    date: '2026-09-27',
-    urgency: 'HIGH',
-    summary: 'SonntagsZeitung konfrontiert das Unternehmen mit internen RFP-Folien zur Verlegung der Kundenstammdaten auf Azure – im offenen Widerspruch zur Doktrin "100% Swiss Sovereign".',
-    organization: 'Konzernleitung / IT-Governance'
+    title: 'Medienanfrage: Cloud-Migration & Rechenzentren',
+    category: 'Medienanfrage',
+    date: '27.09.2026',
+    urgency: 'Hoch',
+    summary: 'Recherche der SonntagsZeitung zu Ausschreibungsunterlagen für Cloud-Infrastrukturen und Abgleich mit bestehenden Doktrinen.',
+    organization: 'IT-Governance'
   },
   {
     id: 'counter_closure',
-    title: 'Ablösung des Schalterverkaufs: Petition gegen digitale Diskriminierung',
-    category: 'TRENDING / META-STRATEGIE',
-    date: '2026-09-26',
-    urgency: 'ELEVATED',
-    summary: 'Pro Senectute, Behindertenorganisationen und 42 Gemeindepräsidenten mobilisieren gegen die Schliessung von 24 Regional-Schaltern. Die Petition erreicht viralen Kipp-Punkt.',
-    organization: 'Vertrieb & Personenverkehr'
+    title: 'Schalterabbau: Petition zu digitaler Barrierefreiheit',
+    category: 'Öffentliche Debatte',
+    date: '26.09.2026',
+    urgency: 'Mittel',
+    summary: 'Mobilisierung von Seniorenverbänden und Gemeinden bezüglich der Reduktion bedienter Schalter an 24 Standorten.',
+    organization: 'Vertrieb'
   }
 ];

@@ -28,160 +28,160 @@ export interface CascadeData {
 
 export const CASCADE_FIXTURES: Record<string, CascadeData> = {
   gotthard_freight: {
-    communication: "Kapazitätsbündelung auf der Gotthard-Achse: Temporäre Trassenpriorisierung internationaler Güterkorridore zur Sicherung der volkswirtschaftlichen Versorgungsketten der Schweiz.",
-    headline_from_hell: "BUND OPFERT TESSINER PENDLER FÜR DEUTSCHE GÜTERZÜGE – SÜDEN VOM NETZ ABGEHÄNGT",
+    communication: "Kapazitätsbündelung auf der Gotthard-Achse: Temporäre Trassenpriorisierung internationaler Güterkorridore zur Sicherung der volkswirtschaftlichen Versorgungsketten.",
+    headline_from_hell: "BUND OPFERT TESSINER PENDLER FÜR INTERNATIONALE GÜTERZÜGE",
     risk_score: 8.7,
     vulnerabilities: [
       {
-        topic: "Föderales Ungleichgewicht",
-        explanation: "Die Formulierung 'volkswirtschaftliche Gesamteffizienz' wird im Tessin als Zynismus der Deutschschweizer Zentrale interpretiert."
+        topic: "Regionales Ungleichgewicht",
+        explanation: "Der Begriff 'volkswirtschaftliche Gesamteffizienz' erweckt den Eindruck einer Bevorzugung überregionaler Interessen gegenüber den Randregionen."
       },
       {
-        topic: "Verletzung des Service Public Mandats",
-        explanation: "Keine verbindliche Zusage für adäquate Taktfrequenz-Kompensation im regionalen Pendlerverkehr."
+        topic: "Grundversorgungsauftrag",
+        explanation: "Fehlende Zusagen zu verbindlichen Taktzeiten und Ersatzkonzepten im regionalen Personenverkehr."
       },
       {
-        topic: "Mangelnde Transparenz der Trassenvergabekriterien",
-        explanation: "Keine Offenlegung, warum Transitgüter (BACI-Korridor) Vorrang vor Binnenpendlern geniessen."
+        topic: "Priorisierungskriterien",
+        explanation: "Die Kriterien der Trassenvergabe zwischen Güter- und Personenverkehr werden nicht transparent dargelegt."
       }
     ],
     stakeholder_reactions: [
       {
-        stakeholder: "Regierungsrat Kanton Tessin (Dipartimento delle istituzioni)",
-        likely_reaction: "Scharfe Verurteilung & Einberufung der Tessiner Bundeshaus-Deputation",
-        reasoning: "Empörung über 'Bürger zweiter Klasse'. Drohung mit staatsrechtlicher Beschwerde wegen Verletzung des verfassungsmässigen Grundversorgungsauftrags.",
-        dossier_citation: "Pressemitteilung Staatsrat TI vom 14.04: 'Die Isolation des Südens ist inakzeptabel'",
+        stakeholder: "Regierungsrat Kanton Tessin",
+        likely_reaction: "Kritik & Einberufung der Bundeshaus-Deputation",
+        reasoning: "Ablehnung der Einschränkungen mit Verweis auf den verfassungsmässigen Grundversorgungsauftrag.",
+        dossier_citation: "Medienmitteilung Staatsrat TI: 'Gleichwertige Erreichbarkeit muss gewährleistet bleiben'",
         sentiment: "negative"
       },
       {
         stakeholder: "Wirtschaftsverbände (economiesuisse, ASTAG)",
-        likely_reaction: "Verhalten positiv, Drängen auf vertragliche Verbindlichkeit",
-        reasoning: "Begrüssen die Bevorzugung von Just-in-Time-Lieferketten, fordern jedoch absolute Termintreue auf dem Rhein-Alpen-Korridor.",
-        dossier_citation: "Positionspapier Logistik 2026: 'Stillstand im Transit gefährdet die Schweizer Binnenwirtschaft'",
+        likely_reaction: "Zustimmung mit Vorbehalt",
+        reasoning: "Unterstützung für den Erhalt von Lieferketten, Forderung nach verlässlichen Zeitfenstern.",
+        dossier_citation: "Stellungnahme Güterkorridore 2026",
         sentiment: "positive"
       },
       {
-        stakeholder: "Pendlerallianz & Pro Bahn Schweiz",
-        likely_reaction: "Aufruf zu Mahnwachen an Bahnhöfen Lugano und Bellinzona",
-        reasoning: "Kritik an der Umwandlung von IC-Zügen in überfüllte RegioExpress-Verbindungen mit 45 Minuten Reisezeitverlängerung.",
-        dossier_citation: "Resolution Fahrgastverband: 'Schluss mit der Benachteiligung der Randregionen'",
+        stakeholder: "Pendlerorganisationen (Pro Bahn)",
+        likely_reaction: "Öffentlicher Protest",
+        reasoning: "Kritik an verlängerten Fahrzeiten und fehlenden direkten Alternativverbindungen.",
+        dossier_citation: "Resolution Fahrgastverband Nord-Süd",
         sentiment: "negative"
       },
       {
         stakeholder: "Bundesamt für Verkehr (BAV)",
-        likely_reaction: "Formelle Neutralität bei gleichzeitigem Prüfauftrag",
-        reasoning: "Akzeptiert betriebliche Notwendigkeit, verlangt aber sofortigen Ersatzverkehr mit Schnellbussen via San Bernardino.",
-        dossier_citation: "Aufsichtsschreiben BAV: 'Vollständige Prüfung der Zumutbarkeit nach Art. 12 PBG'",
+        likely_reaction: "Prüfungsauftrag",
+        reasoning: "Betriebliche Begründung wird verlangt; Prüfung von Ersatzbussen wird angeordnet.",
+        dossier_citation: "Aufsichtsschreiben BAV",
         sentiment: "mixed"
       }
     ],
     second_order_effects: [
       {
-        effect: "Dringliche Interpellation in der Bundeshaus-Herbstsession durch Tessiner Fraktionen.",
+        effect: "Parlamentarische Vorstösse in der kommenden Wintersession.",
         probability: "high",
         timeframe: "48-72 Stunden"
       },
       {
-        effect: "Signifikanter Umstieg auf den Individualverkehr mit Stau kollabierend am Gotthard-Strassentunnel (A2).",
+        effect: "Verlagerung von Personenverkehr auf die Strasse (A2).",
         probability: "high",
         timeframe: "1-2 Wochen"
       },
       {
-        effect: "Reputationsverlust des Bahn-Klimabonus bei Umweltverbänden (VCS / WWF).",
+        effect: "Kritik an der Zuverlässigkeit des Bahnangebots.",
         probability: "medium",
         timeframe: "Mittelfristig"
       }
     ],
     management_summary: {
-      diagnosis: "Kommunikative Vollkatastrophe bei Beibehaltung der rein betriebswirtschaftlichen Tonalität. Die 'Versorgungsketten'-Argumentation verfängt bei Pendlern nicht.",
-      impact: "Unmittelbare Eskalation auf Regierungs- und Bundesratsebene mit akuter Beschädigung des nationalen Zusammenhalts-Narrativs.",
-      verdict: "RED TEAM VETO: Botschaft sofort stoppen. Ankündigung nur zusammen mit massivem Tessin-Kompensationspaket (Gutscheine, Shuttle-Busse, Ticket-Rabatte) veröffentlichen."
+      diagnosis: "Die rein betriebswirtschaftliche Begründung stösst bei Pendlern und Kantonsbehörden auf deutlichen Widerstand.",
+      impact: "Rasche Ausweitung der Debatte auf die politische Ebene und Belastung der Beziehungen zu den Standortkantonen.",
+      verdict: "Empfehlung: Kommunikation erst nach Vorliegen konkreter Ersatz- und Kompensationsmassnahmen für den Kanton Tessin freigeben."
     }
   },
   cloud_sovereignty: {
-    communication: "Evolution unserer digitalen Plattform: Schrittweise Migration ausgewählter Nicht-Echtzeit-Infrastrukturen in modernste europäische Cloud-Rechenzentren zur Kostenoptimierung.",
-    headline_from_hell: "SCHWEIZER PASSAGIERDATEN LANDEN IN US-CLOUD – INTERNES SPARPROGRAMM ENTLARVT",
+    communication: "Weiterentwicklung der IT-Infrastruktur: Schrittweise Nutzung europäischer Cloud-Rechenzentren für standardisierte Applikationen.",
+    headline_from_hell: "DATENMANAGEMENT: FRAGEN ZUR EINHALTUNG DER SOUVERÄNITÄTSDOKTRIN",
     risk_score: 8.2,
     vulnerabilities: [
       {
-        topic: "Bruch der öffentlichen Souveränitäts-Garantie",
-        explanation: "Im Geschäftsbericht 2024 wurde explizit 'Zero US-Cloud Storage für Schweizer Reisedaten' zugesichert."
+        topic: "Abweichung von bisherigen Vorgaben",
+        explanation: "Frühere Berichte betonten die ausschliessliche Datenspeicherung in der Schweiz."
       },
       {
-        topic: "Angriffsfläche CLOUD Act",
-        explanation: "US-Behördenzugriff bleibt rechtlich ungelöst trotz Verschlüsselungszusicherungen."
+        topic: "Rechtliche Rahmenbedingungen",
+        explanation: "Zugriffsrechte ausländischer Behörden müssen bei Vergabeentscheiden klar adressiert werden."
       }
     ],
     stakeholder_reactions: [
       {
         stakeholder: "Eidgenössischer Datenschutz- und Öffentlichkeitsbeauftragter (EDÖB)",
-        likely_reaction: "Einleitung einer formellen Sachverhaltsabklärung",
-        reasoning: "Prüfung, ob die Risikoanalyse den verschärften DSG-Standards 2024 entspricht.",
-        dossier_citation: "EDÖB Leitfaden Cloud-Einsatz Bundesnahe Betriebe",
+        likely_reaction: "Sachverhaltsabklärung",
+        reasoning: "Prüfung der Einhaltung geltender Datenschutzbestimmungen.",
+        dossier_citation: "EDÖB Leitfaden Cloud-Einsatz",
         sentiment: "negative"
       },
       {
-        stakeholder: "Gewerkschaften (SEV / Syndicom)",
-        likely_reaction: "Mobilisierung gegen IT-Stellenabbau",
-        reasoning: "Kritik an drohendem Verlust Schweizer Fachkompetenz und IT-Arbeitsplätze an Übersee-Provider.",
-        dossier_citation: "Gemeinsame Resolution: 'Hände weg von unserer Dateninfrastruktur'",
+        stakeholder: "Personalverbände",
+        likely_reaction: "Forderung nach Transparenz",
+        reasoning: "Fragen zu internen Kompetenzen und Auswirkungen auf Arbeitsplätze.",
+        dossier_citation: "Mitteilung Personalausschuss",
         sentiment: "negative"
       }
     ],
     second_order_effects: [
       {
-        effect: "Gezielte Vertrauenskrise bei B2B-Grosskunden und GA-Business-Abos.",
+        effect: "Rückfragen institutioneller Kunden zu Datensicherheit.",
         probability: "high",
         timeframe: "3-5 Tage"
       }
     ],
     management_summary: {
-      diagnosis: "Gefährliche Diskrepanz zwischen politischer Rhetorik und technischer Beschaffungsrealität.",
-      impact: "Hohes Risiko eines parlamentarischen Untersuchungsauftrags (GPK-Vorprüfung).",
-      verdict: "HOLD: Wording muss zwingend auf 'Schweizer Sovereignty Shield' und Ende-zu-Ende-HSM-Schlüsselkontrolle umgestellt werden."
+      diagnosis: "Bestehende Doktrinen und neue Ausschreibungsunterlagen weisen Klärungsbedarf auf.",
+      impact: "Mögliche regulatorische Nachfragen und Vertrauensverlust bei sicherheitsbewussten Kunden.",
+      verdict: "Empfehlung: Technische Sicherheitsarchitektur (Schlüsselverwaltung, Verschlüsselung) vor Veröffentlichung präzisieren."
     }
   },
   counter_closure: {
-    communication: "Zukunftsorientierter Service: Fokussierung unserer Präsenz an Bahnhöfen auf persönliche Reisebegleitung und digitale Selbstbedienungsterminals.",
-    headline_from_hell: "BAHN SCHLIESST TICKETHALEN FÜR SENIOREN: 'WER KEIN SMARTPHONE HAT, BLEIBT ZUHAUSE'",
+    communication: "Anpassung des Vertriebsangebots: Ausbau persönlicher Reisebegleitung vor Ort und moderner Schalterterminals.",
+    headline_from_hell: "KRITIK AN SCHALTERREDUKTION: BARRIEREFREIHEIT IM FOKUS",
     risk_score: 7.4,
     vulnerabilities: [
       {
-        topic: "Euphemistische Beschönigung",
-        explanation: "Die Umbenennung von Schliessungen in 'zukunftsorientierten Service' erzeugt Wut und Zynismus."
+        topic: "Wahrnehmung von Einsparungen",
+        explanation: "Anpassungen werden vorwiegend als Leistungsabbau wahrgenommen."
       },
       {
-        topic: "Recht auf physische Teilhabe",
-        explanation: "Behindertengleichstellungsgesetz (BehiG) wird als Hebel gegen die Massnahme aktiviert."
+        topic: "Barrierefreiheit",
+        explanation: "Vulnerable Gruppen verlangen leicht zugängliche physische Alternativen."
       }
     ],
     stakeholder_reactions: [
       {
-        stakeholder: "Pro Senectute & Schweizerischer Seniorenrat",
-        likely_reaction: "Offener Protestbrief an das Departement UVEK",
-        reasoning: "Digitaler Ausschluss von über 350'000 Bürgerinnen und Bürgern ohne digitales Banking/Smartphone.",
-        dossier_citation: "Seniorenstudie 2025: 'Digitale Hürden im öffentlichen Raum'",
+        stakeholder: "Senioren- und Behindertenorganisationen",
+        likely_reaction: "Stellungnahme an Behörden",
+        reasoning: "Forderung nach barrierefreiem Zugang zu Fahrausweisen ohne Smartphone-Pflicht.",
+        dossier_citation: "Positionspapier Barrierefreies Reisen",
         sentiment: "negative"
       },
       {
-        stakeholder: "Schweizerischer Gemeindeverband",
-        likely_reaction: "Entzug des Bahnhofs-Zentrumsbeitrags",
-        reasoning: "Gemeinden sehen Bahnhofsentwertung und Vereinsamung der Dorfzentren.",
-        dossier_citation: "Gemeindepolitische Rundschau 02/26",
+        stakeholder: "Gemeindevertretungen",
+        likely_reaction: "Intervention bei Kantonen",
+        reasoning: "Bedenken bezüglich der Attraktivität kleinerer Bahnhöfe.",
+        dossier_citation: "Gemeindeverband Protokoll",
         sentiment: "negative"
       }
     ],
     second_order_effects: [
       {
-        effect: "Kantonale Standesinitiativen zur gesetzlichen Schalterpflicht an Knotenbahnhöfen.",
+        effect: "Kantonale Anfragen zur Grundversorgung im ländlichen Raum.",
         probability: "high",
-        timeframe: "Herbstsession"
+        timeframe: "Kommende Session"
       }
     ],
     management_summary: {
-      diagnosis: "Empathieloses Technokraten-Wording löst Generationenkonflikt aus.",
-      impact: "Langfristiger Reputationsschaden bei einer der treuesten Kundengruppen (Generalabonnement Senior).",
-      verdict: "REVISION: Nicht die Technologie ins Zentrum stellen, sondern das Modell 'Mobiler Schalter / Gemeinde-Partner'."
+      diagnosis: "Die Massnahme erfordert ein klares Bekenntnis zu alternativen, niederschwelligen Betreuungsangeboten.",
+      impact: "Reputationsrisiko insbesondere in Randregionen und bei älteren Zielgruppen.",
+      verdict: "Empfehlung: Begleitmassnahmen (Telefonbestellung, Vor-Ort-Assistenz) gleichwertig kommunizieren."
     }
   }
 };
