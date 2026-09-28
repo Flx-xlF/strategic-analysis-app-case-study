@@ -10,30 +10,30 @@ export interface ScenarioMeta {
 
 export const SCENARIOS: ScenarioMeta[] = [
   {
-    id: 'gotthard_freight',
-    title: 'Gotthard-Basistunnel: Priorisierung Gütertransit',
-    category: 'Infrastruktur & Betrieb',
+    id: 'alpine_transit_crisis',
+    title: 'Alpen-Basistunnel: Verdacht auf Cyber-Sabotage',
+    category: 'Krisenkommunikation & Infrastruktur',
     date: '28.09.2026',
     urgency: 'Hoch',
-    summary: 'Eingeschränkte Trassenkapazität. Geplante Vorrangregelung für Güterverkehr führt zu Reduktion von Direktverbindungen ins Tessin.',
-    organization: 'Bundesbahnen / BAV'
+    summary: 'Totalausfall der Leitsysteme im wichtigsten Alpenübergang. Auf Social Media kursieren unbestätigte Gerüchte über einen ausländischen Cyberangriff. Die Medienintelligenz analysiert die Verbreitung und steuert das Wording.',
+    organization: 'Nationale Transportnetze (NTN)'
   },
   {
-    id: 'cloud_sovereignty',
-    title: 'Medienanfrage: Cloud-Migration & Rechenzentren',
-    category: 'Medienanfrage',
+    id: 'esg_investigation',
+    title: 'Medienanfrage: ESG-Verstöße bei Staudamm-Projekt',
+    category: 'Investigative Recherche & ESG',
     date: '27.09.2026',
     urgency: 'Hoch',
-    summary: 'Recherche der SonntagsZeitung zu Ausschreibungsunterlagen für Cloud-Infrastrukturen und Abgleich mit bestehenden Doktrinen.',
-    organization: 'IT-Governance'
+    summary: 'Das Recherchedesk einer Sonntagszeitung konfrontiert das Unternehmen mit angeblichen Menschenrechtsverletzungen bei einem asiatischen Subunternehmer für Baukomponenten.',
+    organization: 'AlpenEnergie Konzern'
   },
   {
-    id: 'counter_closure',
-    title: 'Schalterabbau: Petition zu digitaler Barrierefreiheit',
-    category: 'Öffentliche Debatte',
+    id: 'health_data_breach',
+    title: 'Öffentliche Debatte: Cloud-Migration von Gesundheitsdaten',
+    category: 'Reputationsmanagement & Public Affairs',
     date: '26.09.2026',
     urgency: 'Mittel',
-    summary: 'Mobilisierung von Seniorenverbänden und Gemeinden bezüglich der Reduktion bedienter Schalter an 24 Standorten.',
-    organization: 'Vertrieb'
+    summary: 'Eine geplante Migration von e-Patientendossiers auf internationale Server löst eine koordinierte Kampagne von Datenschutz-NGOs aus. Das System misst die Emotionalisierung in Echtzeit.',
+    organization: 'Eidgenössisches Gesundheitsportal'
   }
 ];

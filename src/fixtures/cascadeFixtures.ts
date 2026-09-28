@@ -27,161 +27,131 @@ export interface CascadeData {
 }
 
 export const CASCADE_FIXTURES: Record<string, CascadeData> = {
-  gotthard_freight: {
-    communication: "Kapazitätsbündelung auf der Gotthard-Achse: Temporäre Trassenpriorisierung internationaler Güterkorridore zur Sicherung der volkswirtschaftlichen Versorgungsketten.",
-    headline_from_hell: "BUND OPFERT TESSINER PENDLER FÜR INTERNATIONALE GÜTERZÜGE",
-    risk_score: 8.7,
+  alpine_transit_crisis: {
+    communication: "Laufende Diagnose einer Stellwerkstörung im Alpen-Basistunnel. Experten arbeiten an der Behebung. Keine Hinweise auf externe Manipulation.",
+    headline_from_hell: "HACKER-ANGRIFF AUF ALPEN-TUNNEL: WAREN PASSAGIERE IN LEBENSGEFAHR?",
+    risk_score: 9.4,
     vulnerabilities: [
       {
-        topic: "Regionales Ungleichgewicht",
-        explanation: "Der Begriff 'volkswirtschaftliche Gesamteffizienz' erweckt den Eindruck einer Bevorzugung überregionaler Interessen gegenüber den Randregionen."
+        topic: "Informationsvakuum",
+        explanation: "Die ersten 45 Minuten ohne offizielle Diagnose liessen Raum für Spekulationen auf Social Media."
       },
       {
-        topic: "Grundversorgungsauftrag",
-        explanation: "Fehlende Zusagen zu verbindlichen Taktzeiten und Ersatzkonzepten im regionalen Personenverkehr."
+        topic: "Fehlende 'Proof of Life' Kommunikation",
+        explanation: "Bilder von evakuierten Zügen fehlen, was Gerüchte über eingeschlossene Personen befeuert."
       },
       {
-        topic: "Priorisierungskriterien",
-        explanation: "Die Kriterien der Trassenvergabe zwischen Güter- und Personenverkehr werden nicht transparent dargelegt."
+        topic: "Geopolitischer Kontext",
+        explanation: "Aktuelle Spannungen verstärken die Glaubhaftigkeit von Cyber-Gerüchten."
       }
     ],
     stakeholder_reactions: [
       {
-        stakeholder: "Regierungsrat Kanton Tessin",
-        likely_reaction: "Kritik & Einberufung der Bundeshaus-Deputation",
-        reasoning: "Ablehnung der Einschränkungen mit Verweis auf den verfassungsmässigen Grundversorgungsauftrag.",
-        dossier_citation: "Medienmitteilung Staatsrat TI: 'Gleichwertige Erreichbarkeit muss gewährleistet bleiben'",
+        stakeholder: "Sicherheitskommission des Parlaments",
+        likely_reaction: "Forderung nach Sondersitzung",
+        reasoning: "Angst vor Verletzlichkeit kritischer Infrastrukturen.",
+        dossier_citation: "Interpellation 'Schutz kritischer Knotenpunkte'",
         sentiment: "negative"
       },
       {
-        stakeholder: "Wirtschaftsverbände (economiesuisse, ASTAG)",
-        likely_reaction: "Zustimmung mit Vorbehalt",
-        reasoning: "Unterstützung für den Erhalt von Lieferketten, Forderung nach verlässlichen Zeitfenstern.",
-        dossier_citation: "Stellungnahme Güterkorridore 2026",
-        sentiment: "positive"
-      },
-      {
-        stakeholder: "Pendlerorganisationen (Pro Bahn)",
-        likely_reaction: "Öffentlicher Protest",
-        reasoning: "Kritik an verlängerten Fahrzeiten und fehlenden direkten Alternativverbindungen.",
-        dossier_citation: "Resolution Fahrgastverband Nord-Süd",
-        sentiment: "negative"
-      },
-      {
-        stakeholder: "Bundesamt für Verkehr (BAV)",
-        likely_reaction: "Prüfungsauftrag",
-        reasoning: "Betriebliche Begründung wird verlangt; Prüfung von Ersatzbussen wird angeordnet.",
-        dossier_citation: "Aufsichtsschreiben BAV",
+        stakeholder: "Kantonale Rettungskräfte",
+        likely_reaction: "Bereitschaft & Frustration",
+        reasoning: "Unklare Informationslage erschwert die Dispositionsplanung.",
+        dossier_citation: "Einsatzprotokoll Pikettdienst",
         sentiment: "mixed"
+      },
+      {
+        stakeholder: "Logistik- & Speditionsverbände",
+        likely_reaction: "Forderung nach Umleitungsplänen",
+        reasoning: "Hohe wirtschaftliche Ausfälle pro Stunde Stillstand.",
+        dossier_citation: "Notfallplan Güterverkehr 2026",
+        sentiment: "negative"
       }
     ],
     second_order_effects: [
       {
-        effect: "Parlamentarische Vorstösse in der kommenden Wintersession.",
+        effect: "Politische Vorstösse zur Aufstockung des Cybersicherheits-Budgets.",
         probability: "high",
-        timeframe: "48-72 Stunden"
+        timeframe: "Innerhalb 48h"
       },
       {
-        effect: "Verlagerung von Personenverkehr auf die Strasse (A2).",
+        effect: "Internationale Berichterstattung über Vulnerabilität der Nord-Süd-Achse.",
         probability: "high",
-        timeframe: "1-2 Wochen"
+        timeframe: "Sofort"
+      }
+    ],
+    management_summary: {
+      diagnosis: "Ein technischer Defekt transformiert sich durch Social Media Dynamik in eine nationale Sicherheitskrise.",
+      impact: "Massiver Reputationsschaden, wenn das Narrativ 'Cyberangriff' nicht sofort durch transparente technische Fakten dekonstruiert wird.",
+      verdict: "Empfehlung: Sofortige Pressekonferenz mit Chef-Ingenieur. Fokus auf triviale Fehlerursache (z.B. Hardwaredefekt) um Verschwörungstheorien zu ersticken."
+    }
+  },
+  esg_investigation: {
+    communication: "Wir nehmen die Hinweise ernst und haben eine externe Sonderprüfung des Zulieferers angeordnet.",
+    headline_from_hell: "MENSCHENRECHTSVERLETZUNGEN: STAATSBETRIEB BAUT STAUDAMM MIT ZWANGSARBEIT",
+    risk_score: 8.8,
+    vulnerabilities: [
+      {
+        topic: "Prüfungs-Versagen",
+        explanation: "Wie konnte der Zulieferer das interne Zertifizierungsaudit bestehen?"
       },
       {
-        effect: "Kritik an der Zuverlässigkeit des Bahnangebots.",
+        topic: "Sub-Contracting Ketten",
+        explanation: "Fehlende Sichtbarkeit in Tier-2 und Tier-3 Lieferanten."
+      }
+    ],
+    stakeholder_reactions: [
+      {
+        stakeholder: "NGOs (Amnesty, Public Eye)",
+        likely_reaction: "Kampagnen-Eskalation",
+        reasoning: "Forderung nach generellem Ausschluss des Zulieferers.",
+        dossier_citation: "NGO-Watchlist 2026",
+        sentiment: "negative"
+      }
+    ],
+    second_order_effects: [
+      {
+        effect: "Ausschluss von nachhaltigen Investmentfonds (ESG-Downgrade).",
         probability: "medium",
-        timeframe: "Mittelfristig"
+        timeframe: "1-2 Monate"
       }
     ],
     management_summary: {
-      diagnosis: "Die rein betriebswirtschaftliche Begründung stösst bei Pendlern und Kantonsbehörden auf deutlichen Widerstand.",
-      impact: "Rasche Ausweitung der Debatte auf die politische Ebene und Belastung der Beziehungen zu den Standortkantonen.",
-      verdict: "Empfehlung: Kommunikation erst nach Vorliegen konkreter Ersatz- und Kompensationsmassnahmen für den Kanton Tessin freigeben."
+      diagnosis: "Klassisches 'Say-Do' Gap zwischen internen Richtlinien und Realität auf der Baustelle.",
+      impact: "Gefährdung von 'Green Bonds' und nachhaltigen Finanzierungen.",
+      verdict: "Empfehlung: Radikale Transparenz. Offenlegung der Audit-Prozesse und sofortige Sistierung des Vertrags."
     }
   },
-  cloud_sovereignty: {
-    communication: "Weiterentwicklung der IT-Infrastruktur: Schrittweise Nutzung europäischer Cloud-Rechenzentren für standardisierte Applikationen.",
-    headline_from_hell: "DATENMANAGEMENT: FRAGEN ZUR EINHALTUNG DER SOUVERÄNITÄTSDOKTRIN",
-    risk_score: 8.2,
+  health_data_breach: {
+    communication: "Sichere Verschlüsselung garantiert, dass Patientendaten in der Cloud absolut geschützt bleiben.",
+    headline_from_hell: "PATIENTENDATEN AN DIE USA VERKAUFT: DATENSCHÜTZER SCHLAGEN ALARM",
+    risk_score: 7.2,
     vulnerabilities: [
       {
-        topic: "Abweichung von bisherigen Vorgaben",
-        explanation: "Frühere Berichte betonten die ausschliessliche Datenspeicherung in der Schweiz."
-      },
-      {
-        topic: "Rechtliche Rahmenbedingungen",
-        explanation: "Zugriffsrechte ausländischer Behörden müssen bei Vergabeentscheiden klar adressiert werden."
+        topic: "Technische Komplexität",
+        explanation: "'Bring Your Own Key' (BYOK) ist für Laien schwer verständlich."
       }
     ],
     stakeholder_reactions: [
       {
-        stakeholder: "Eidgenössischer Datenschutz- und Öffentlichkeitsbeauftragter (EDÖB)",
-        likely_reaction: "Sachverhaltsabklärung",
-        reasoning: "Prüfung der Einhaltung geltender Datenschutzbestimmungen.",
-        dossier_citation: "EDÖB Leitfaden Cloud-Einsatz",
-        sentiment: "negative"
-      },
-      {
-        stakeholder: "Personalverbände",
-        likely_reaction: "Forderung nach Transparenz",
-        reasoning: "Fragen zu internen Kompetenzen und Auswirkungen auf Arbeitsplätze.",
-        dossier_citation: "Mitteilung Personalausschuss",
+        stakeholder: "Konsumentenschutz",
+        likely_reaction: "Warnung an Patienten",
+        reasoning: "Angst vor 'Gläsernen Patienten'.",
+        dossier_citation: "Konsumenten-Info Q3",
         sentiment: "negative"
       }
     ],
     second_order_effects: [
       {
-        effect: "Rückfragen institutioneller Kunden zu Datensicherheit.",
+        effect: "Rückgang bei der Eröffnung neuer Patientendossiers.",
         probability: "high",
-        timeframe: "3-5 Tage"
+        timeframe: "Quartal 4"
       }
     ],
     management_summary: {
-      diagnosis: "Bestehende Doktrinen und neue Ausschreibungsunterlagen weisen Klärungsbedarf auf.",
-      impact: "Mögliche regulatorische Nachfragen und Vertrauensverlust bei sicherheitsbewussten Kunden.",
-      verdict: "Empfehlung: Technische Sicherheitsarchitektur (Schlüsselverwaltung, Verschlüsselung) vor Veröffentlichung präzisieren."
-    }
-  },
-  counter_closure: {
-    communication: "Anpassung des Vertriebsangebots: Ausbau persönlicher Reisebegleitung vor Ort und moderner Schalterterminals.",
-    headline_from_hell: "KRITIK AN SCHALTERREDUKTION: BARRIEREFREIHEIT IM FOKUS",
-    risk_score: 7.4,
-    vulnerabilities: [
-      {
-        topic: "Wahrnehmung von Einsparungen",
-        explanation: "Anpassungen werden vorwiegend als Leistungsabbau wahrgenommen."
-      },
-      {
-        topic: "Barrierefreiheit",
-        explanation: "Vulnerable Gruppen verlangen leicht zugängliche physische Alternativen."
-      }
-    ],
-    stakeholder_reactions: [
-      {
-        stakeholder: "Senioren- und Behindertenorganisationen",
-        likely_reaction: "Stellungnahme an Behörden",
-        reasoning: "Forderung nach barrierefreiem Zugang zu Fahrausweisen ohne Smartphone-Pflicht.",
-        dossier_citation: "Positionspapier Barrierefreies Reisen",
-        sentiment: "negative"
-      },
-      {
-        stakeholder: "Gemeindevertretungen",
-        likely_reaction: "Intervention bei Kantonen",
-        reasoning: "Bedenken bezüglich der Attraktivität kleinerer Bahnhöfe.",
-        dossier_citation: "Gemeindeverband Protokoll",
-        sentiment: "negative"
-      }
-    ],
-    second_order_effects: [
-      {
-        effect: "Kantonale Anfragen zur Grundversorgung im ländlichen Raum.",
-        probability: "high",
-        timeframe: "Kommende Session"
-      }
-    ],
-    management_summary: {
-      diagnosis: "Die Massnahme erfordert ein klares Bekenntnis zu alternativen, niederschwelligen Betreuungsangeboten.",
-      impact: "Reputationsrisiko insbesondere in Randregionen und bei älteren Zielgruppen.",
-      verdict: "Empfehlung: Begleitmassnahmen (Telefonbestellung, Vor-Ort-Assistenz) gleichwertig kommunizieren."
+      diagnosis: "Hoch emotionale Debatte, bei der technische Argumente ungehört verhallen.",
+      impact: "Verlangsamung der Digitalisierungsstrategie im Gesundheitswesen.",
+      verdict: "Empfehlung: Fokusgruppen mit Ärzten bilden, die als vertrauenswürdige Botschafter die Sicherheit bestätigen."
     }
   }
 };
