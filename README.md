@@ -1,6 +1,6 @@
 # 🇨🇭 Terrain Analytics (Architecture & Demo)
 
-> Industrial-grade Strategic Media Intelligence & Enterprise RAG platform. Built with an adversarial Narrative Cascade engine, Media Inquiry contradiction detection, Swiss Brutalist high-density UI, and zero-trust multi-tenant isolation.
+> Industrial-grade Strategic Media Intelligence & Enterprise RAG platform. Users can upload any documents (PDFs, media inquiries, press statements, strategy dossiers, guidelines), which are automatically analyzed, structured, and indexed by AI into actionable strategic intelligence. Built with an adversarial stress-testing engine, contradiction detection, Swiss Brutalist high-density UI, and zero-trust multi-tenant isolation.
 
 [![Architecture Case Study](https://img.shields.io/badge/Architecture-Case_Study-000000?style=flat-square&logo=gitbook&logoColor=white)](#-architecture-overview)
 [![Live Demo](https://img.shields.io/badge/Interactive_Sandbox-GitHub_Pages-EB0000?style=flat-square&logo=github)](https://flx-xlf.github.io/strategic-analysis-app-case-study/)
@@ -18,9 +18,9 @@ Explore the high-density analytical interface and intelligence simulations direc
 👉 **[https://flx-xlf.github.io/strategic-analysis-app-case-study/](https://flx-xlf.github.io/strategic-analysis-app-case-study/)**
 
 * **Pre-Seeded High-Stakes Scenarios (Designed for Communication Professionals):**
-  * 🚄 **Gotthard-Basistunnel Kapazitätsengpass:** Red-Teaming an infrastructure policy prioritizing international freight corridors over Ticino regional passenger trains. Triggers the adversarial "Headline from Hell", regional stakeholder reactions, and a dynamic 8.7/10 Risk Index.
-  * 🛡️ **Investigativ-Leak «Projekt Nimbostratus»:** High-fidelity media inquiry contradiction audit pitting leaked Azure migration plans against the official 2024 «100% Swiss Sovereign Cloud» doctrine, generating an immediate defensive statement draft.
-  * 🏛️ **Ablösung des physischen Schalterverkaufs:** Countering a viral grassroots petition against the closure of 24 rural ticket desks using the Strategic Content Factory (*Hintergrund-Artikel*, *Social Media*, *Talking Points*, *Q&A Brief*).
+  * 🚄 **Alpen-Basistunnel (Verdacht auf Cyber-Sabotage):** Krisenkommunikation & Infrastruktur — Red-Teaming einer Krisenlage nach Leitsystem-Totalausfall, mediale Zuspitzung und Stakeholder-Gegenreaktionen.
+  * 🛡️ **Medienanfrage: ESG-Verstöße bei Staudamm-Projekt:** Investigative Recherche & ESG — Prüfung eingehender Investigativ-Fragen gegen bestehende Unternehmensdoktrinen und Erkennung von Widersprüchen.
+  * 🏛️ **Öffentliche Debatte: Cloud-Migration von Gesundheitsdaten:** Reputationsmanagement & Public Affairs — Frühwarn-Monitoring viraler Diskussionen und Generierung freigabefähiger Vorlagen (*Hintergrund*, *Social Media*, *Talking Points*, *Q&A*).
 * **100% Client-Side Simulation:** Runs fully in-browser with zero backend dependencies, deterministic LLM streaming replays, and zero cloud costs.
 
 ---
@@ -48,17 +48,22 @@ Explore the high-density analytical interface and intelligence simulations direc
   * **Talking Points:** Framing guardrails, psychological hooks, and verbatim soundbites for spokespersons.
   * **Q&A Briefs:** Defensive answers for potential high-friction press inquiries.
 
-### 4. 📚 Multi-Lane Enterprise RAG & Truth Ledger
+### 4. 📄 Universal Document Ingestion & AI Structuring
+* **Flexible Any-Document Upload:** Users can upload any corporate or institutional documents—such as media inquiries, policy papers, strategy dossiers, press releases, reports, or internal guidelines.
+* **Automated AI Analysis & Structuring:** Ingested documents are immediately parsed, vectorized, and structured into verified knowledge assets, extracting core theses, institutional stances, and factual citations without manual curation.
+* **Seamless Analytical Synthesis:** Structured content feeds directly into contradiction auditing, stakeholder cascade simulations, and channel-specific briefing generators.
+
+### 5. 📚 Multi-Lane Enterprise RAG & Truth Ledger
 * **Hybrid Retrieval Architecture:** Parallel lane retrieval orchestrating Vertex AI Discovery Engine, dense vector search (`text-embedding-004`), and sovereign relational stores.
 * **Truth Ledger Fact-Checking:** Binds every LLM claim to exact line citations inside the official document corpus.
 * **Resilient Ingestion Pipeline:** Cloud-native two-pass ingestion featuring post-hoc deduplication, exponential backoff, and robust rate-limit safeguarding.
 
-### 5. 🇨🇭 Swiss Brutalist High-Density UI
+### 6. 🇨🇭 Swiss Brutalist High-Density UI
 * **The 1px Hairline Law:** Absolute zero `border-radius` ($0\text{px}$ across all primitives), unified 1px aluminum structural grids, and functional high-density layouts.
 * **Railway Signage Typography:** Monospaced, high-tracking signage typography for telemetry badges paired with legible, tightly leaded sans-serif typography for narrative synthesis.
 * **Multi-Tenant White-Label Tokens:** Brand-agnostic CSS custom properties enabling rapid tenant re-theming without sacrificing brutalist visual precision.
 
-### 6. ⚡ Sovereign Stream Transport & Lifecycle Management
+### 7. ⚡ Sovereign Stream Transport & Lifecycle Management
 * **Unified Transport Hook:** Centralized stream orchestrator powering all analytical views with resilient error boundaries.
 * **Atomic Abort Controller:** Instant cancellation of in-flight multi-step inference chains across the client and backend.
 * **Zero-Trust Multi-Tenancy:** Strict tenant boundary enforcement at retrieval, prompt construction, and caching layers.
