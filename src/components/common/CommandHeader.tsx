@@ -31,10 +31,6 @@ export const CommandHeader: React.FC<Props> = ({
           <span className="type-ui font-bold text-white tracking-widest">
             TERRAIN ANALYTICS
           </span>
-          <span className="text-sbb-stone text-xs">/</span>
-          <span className="type-mono text-[10px] text-zinc-400">
-            STRATEGISCHE MEDIENINTELLIGENZ
-          </span>
         </div>
 
         <div className="flex items-center gap-4 type-mono text-[10px] text-zinc-400">
@@ -61,7 +57,7 @@ export const CommandHeader: React.FC<Props> = ({
                 : 'bg-white text-sbb-stone hover:bg-sbb-cloud'
             }`}
           >
-            NARRATIVE CASCADE
+            BOTSCHAFTS-STRESSTEST
           </button>
 
           <button
@@ -83,7 +79,7 @@ export const CommandHeader: React.FC<Props> = ({
                 : 'bg-white text-sbb-stone hover:bg-sbb-cloud'
             }`}
           >
-            CONTENT FACTORY
+            BRIEFINGS & VORLAGEN
           </button>
         </div>
 

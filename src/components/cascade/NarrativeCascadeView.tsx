@@ -26,8 +26,8 @@ export const NarrativeCascadeView: React.FC<Props> = ({
   return (
     <div className="space-y-4">
       <DataPlateSignage
-        label="NARRATIVE CASCADE // ADVERSARIAL STRESS-TEST"
-        metadata="STAKEHOLDER-SIMULATION & RISIKOBEWERTUNG"
+        label="BOTSCHAFTS-STRESSTEST // REAKTIONSSIMULATION"
+        metadata="STAKEHOLDER-ABGLEICH & RISIKOBEWERTUNG"
       />
 
       <div className="flex flex-col bg-sbb-aluminum gap-[1px]">

@@ -30,7 +30,7 @@ export const TrendingFactoryView: React.FC<Props> = ({
   return (
     <div className="space-y-4">
       <DataPlateSignage
-        label="CONTENT FACTORY // STRATEGISCHE NARRATIVE & BLUEPRINTS"
+        label="BRIEFINGS & VORLAGEN // THEMEN-NARRATIVE"
         metadata={`AKTIVES NARRATIV: ${activeCard.topic}`}
       />
 
