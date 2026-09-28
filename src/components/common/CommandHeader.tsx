@@ -42,9 +42,7 @@ export const CommandHeader: React.FC<Props> = ({
           <span className="type-ui font-black text-white tracking-[0.2em] text-[11px]">
             TERRAIN ANALYTICS
           </span>
-          <span className="hidden md:inline-block text-zinc-500 font-mono text-[10px]">
-            // EXECUTIVE MEDIA INTELLIGENCE // SANDBOX DEMO
-          </span>
+
         </div>
 
         <div className="flex items-center gap-5 text-[10px] font-mono">
@@ -186,17 +184,6 @@ export const CommandHeader: React.FC<Props> = ({
             <p className="text-xs text-sbb-stone leading-relaxed max-w-4xl">
               {selectedScenario.summary}
             </p>
-          </div>
-
-          <div className="shrink-0 flex items-center gap-2 border-t lg:border-t-0 pt-2 lg:pt-0 border-sbb-aluminum">
-            <div className="px-3 py-1.5 bg-sbb-cloud border border-sbb-aluminum text-left">
-              <div className="type-caption text-sbb-stone text-[9px]">DEMO-ZIELGRUPPE</div>
-              <div className="type-mono font-bold text-[11px] text-sbb-black">KOMMUNIKATIONS-LEITUNG</div>
-            </div>
-            <div className="px-3 py-1.5 bg-sbb-cloud border border-sbb-aluminum text-left">
-              <div className="type-caption text-sbb-stone text-[9px]">ANALYSE-MODUS</div>
-              <div className="type-mono font-bold text-[11px] text-sbb-red">KI-ECHTZEIT-SIMULATION</div>
-            </div>
           </div>
         </div>
       </div>

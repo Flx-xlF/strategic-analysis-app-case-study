@@ -84,17 +84,17 @@ export const App: React.FC = () => {
           <div className="flex items-center gap-3">
             <div className="w-2.5 h-2.5 bg-sbb-red" />
             <span className="font-bold text-sbb-black">TERRAIN STRATEGIC MEDIA INTELLIGENCE</span>
-            <span className="text-zinc-400">// HIGH-PRECISION SWISS EDITORIAL ENGINE</span>
+            
           </div>
           <div className="flex items-center gap-6">
-            <span className="text-zinc-500">100% DETERMINISTISCHE CLIENT-SIDE SANDBOX</span>
+            
             <a
               href="https://github.com/Flx-xlF/strategic-analysis-app-case-study"
               target="_blank"
               rel="noreferrer"
               className="text-sbb-black font-bold hover:text-sbb-red transition-colors underline underline-offset-4"
             >
-              QUELLCODE & DOKU
+              QUELLCODE & DOKUMENTATION
             </a>
           </div>
         </div>

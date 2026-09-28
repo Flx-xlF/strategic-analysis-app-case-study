@@ -119,7 +119,7 @@ export const MediaInquiryView: React.FC<Props> = ({
             01
           </span>
           <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-stone">
-            GEGENÜBERSTELLUNG // ANFRAGE VS. UNTERNEHMENS-DOKTRIN
+            GEGENÜBERSTELLUNG: ANFRAGE VS. DOKTRIN
           </span>
         </div>
 
@@ -202,7 +202,7 @@ export const MediaInquiryView: React.FC<Props> = ({
               02
             </span>
             <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-red">
-              WIDERSPRUCHS-BEFUNDE // STRATEGISCHE DISKREPANZ-MATRIX
+              IDENTIFIZIERTE WIDERSPRÜCHE & DISKREPANZEN
             </span>
           </div>
           <span className="text-xs font-mono text-sbb-stone">
@@ -286,7 +286,7 @@ export const MediaInquiryView: React.FC<Props> = ({
             03
           </span>
           <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-stone">
-            FREIGABEFÄHIGER ANTWORTENTWURF // EMPFOHLENE STELLUNGNAHME
+            FREIGABEFÄHIGER ANTWORTENTWURF
           </span>
         </div>
 
@@ -295,7 +295,7 @@ export const MediaInquiryView: React.FC<Props> = ({
             <div>
               <div className="flex items-center gap-2 text-xs font-mono font-bold text-sbb-red uppercase tracking-wider mb-1">
                 <Sparkles className="w-4 h-4" />
-                <span>KI-GENERIERTE DEFENSIVE SPRACHREGELUNG</span>
+                <span>EMPFOHLENE DEFENSIVE SPRACHREGELUNG</span>
               </div>
               <h3 className="text-lg font-bold text-sbb-black">
                 Autorisierter Entwurf für schriftliche Rückmeldung

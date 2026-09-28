@@ -82,7 +82,7 @@ export const TrendingFactoryView: React.FC<Props> = ({
           <div>
             <div className="flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-sbb-red uppercase mb-1.5">
               <Sparkles className="w-4 h-4" />
-              <span>MODUL 03 // CONTENT-FACTORY</span>
+              <span>MODUL 03 // BRIEFINGS & VORLAGEN</span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-black text-sbb-black tracking-tight">
               Themen-Narrative & Kanal-Briefings
@@ -154,7 +154,7 @@ export const TrendingFactoryView: React.FC<Props> = ({
               01
             </span>
             <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-stone">
-              DETEKTIERTE NARRATIVE // THEMA WÄHLEN
+              AKTUELLE THEMEN & NARRATIVE
             </span>
           </div>
           <span className="text-xs font-mono text-sbb-stone">
@@ -234,7 +234,7 @@ export const TrendingFactoryView: React.FC<Props> = ({
             02
           </span>
           <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-stone">
-            CONTENT-STUDIO // KANAL-SPEZIFISCHE SYNTHESE
+            KANAL-SPEZIFISCHE VORLAGEN
           </span>
         </div>
 

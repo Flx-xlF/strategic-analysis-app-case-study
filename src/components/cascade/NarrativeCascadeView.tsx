@@ -104,7 +104,7 @@ export const NarrativeCascadeView: React.FC<Props> = ({
             01
           </span>
           <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-stone">
-            GEPLANTE BOTSCHAFT // AUSGANGSLAGE
+            GEPLANTE BOTSCHAFT (AUSGANGSLAGE)
           </span>
         </div>
 
@@ -129,14 +129,14 @@ export const NarrativeCascadeView: React.FC<Props> = ({
         </div>
       </div>
 
-      {/* ═══ STEP 02: MEDIALE ZUSPITZUNG (HEADLINE FROM HELL) ═══ */}
+      {/* ═══ STEP 02: MEDIALE ZUSPITZUNG ═══ */}
       <div className="space-y-3">
         <div className="flex items-center gap-3">
           <span className="w-7 h-7 bg-sbb-red text-white font-mono text-xs font-bold flex items-center justify-center">
             02
           </span>
           <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-red">
-            MEDIALE ZUSPITZUNG // HEADLINE FROM HELL
+            MEDIALE ZUSPITZUNG
           </span>
         </div>
 
@@ -192,7 +192,7 @@ export const NarrativeCascadeView: React.FC<Props> = ({
               03
             </span>
             <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-stone">
-              STAKEHOLDER-REAKTIONEN // ERSTREAKTION INNERHALB 24H
+              STAKEHOLDER-REAKTIONEN (INNERHALB 24H)
             </span>
           </div>
           <span className="text-[10px] font-mono text-sbb-stone hidden sm:inline-block">
@@ -215,7 +215,7 @@ export const NarrativeCascadeView: React.FC<Props> = ({
               04
             </span>
             <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-stone">
-              FOLGEWIRKUNGEN ZWEITER ORDNUNG // POLITISCHE & FINANZIELLE KASKADE
+              FOLGEWIRKUNGEN ZWEITER ORDNUNG
             </span>
           </div>
 
@@ -259,7 +259,7 @@ export const NarrativeCascadeView: React.FC<Props> = ({
             05
           </span>
           <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-stone">
-            STRATEGISCHE WEICHENSTELLUNG // MANAGEMENT-DIAGNOSE
+            STRATEGISCHE WEICHENSTELLUNG
           </span>
         </div>
 
@@ -287,7 +287,7 @@ export const NarrativeCascadeView: React.FC<Props> = ({
             <div className="border-t-2 border-sbb-black pt-5 bg-sbb-cloud/40 -mx-6 -mb-6 sm:-mx-8 sm:-mb-8 p-6 sm:p-8">
               <div className="flex items-center gap-2 text-xs font-mono font-bold text-sbb-red uppercase tracking-wider mb-2">
                 <Lightbulb className="w-4 h-4" />
-                <span>KONKRETE HANDLUNGSEMPFEHLUNG DER STRATEGIEABTEILUNG</span>
+                <span>KONKRETE HANDLUNGSEMPFEHLUNG</span>
               </div>
               <p className="text-base font-bold text-sbb-black leading-relaxed">
                 {data.management_summary?.verdict}
