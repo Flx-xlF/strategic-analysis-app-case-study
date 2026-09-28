@@ -3,66 +3,48 @@
 @tailwind utilities;
 
 :root {
-  /* Swiss Railway / Terrain Industrial Palette */
-  --brand-red: #EB0000;
-  --brand-red-dark: #A20013;
-  --brand-black: #000000;
-  --brand-anthracite: #222222;
-  --brand-stone: #666666;
-  --brand-aluminum: #E5E5E5;
-  --brand-cloud: #F5F5F7;
-  --brand-white: #FFFFFF;
+  /* Terrain / SBB Industrial Colors */
+  --sbb-red: #EB0000;
+  --sbb-red-dark: #A20013;
+  --sbb-black: #000000;
+  --sbb-anthracite: #222222;
+  --sbb-stone: #666666;
+  --sbb-aluminum: #E5E5E5;
+  --sbb-cloud: #F5F5F7;
+  --sbb-white: #FFFFFF;
+
+  /* Brand Aliases */
+  --brand-red: var(--sbb-red);
+  --brand-red-dark: var(--sbb-red-dark);
+  --brand-black: var(--sbb-black);
+  --brand-anthracite: var(--sbb-anthracite);
+  --brand-stone: var(--sbb-stone);
+  --brand-aluminum: var(--sbb-aluminum);
+  --brand-cloud: var(--sbb-cloud);
+  --brand-white: var(--sbb-white);
+
+  /* Swiss Spacing Scale */
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
 }
 
 body {
-  background-color: var(--brand-cloud);
-  color: var(--brand-black);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--sbb-cloud);
+  color: var(--sbb-black);
   margin: 0;
   padding: 0;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Swiss Railway Signage Typography */
-.type-signage {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.65rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  font-weight: 800;
-}
-
-.type-mono {
-  font-family: 'JetBrains Mono', monospace;
-}
-
-/* Brutalist 1px hairline border utility */
-.swiss-border {
-  border: 1px solid var(--brand-aluminum);
-}
-
-.swiss-border-b {
-  border-bottom: 1px solid var(--brand-aluminum);
-}
-
-.swiss-border-r {
-  border-right: 1px solid var(--brand-aluminum);
-}
-
-.swiss-border-t {
-  border-top: 1px solid var(--brand-aluminum);
-}
-
-.swiss-border-l {
-  border-left: 1px solid var(--brand-aluminum);
-}
-
-/* Hard brutalist offset shadow */
-.shadow-brutalist {
-  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.9);
-}
-
-.shadow-brutalist-red {
-  box-shadow: 4px 4px 0px 0px var(--brand-red);
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
 }
 
 /* Minimal industrial scrollbars */
@@ -72,13 +54,69 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--brand-cloud);
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--brand-aluminum);
+  background: #CCCCCC;
+  border-radius: 0px !important;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--brand-stone);
+  background: #999999;
+}
+
+/* --- TERRAIN TYPOGRAPHY (EXACT MATCH TO ACTUAL APP) --- */
+
+@layer components {
+  /* Section Headers */
+  .type-h1 {
+    @apply font-sans font-bold text-2xl md:text-3xl tracking-tight leading-[1] text-left;
+  }
+
+  /* Card Titles / Block Headers */
+  .type-h2 {
+    @apply font-sans font-medium text-base tracking-normal leading-tight text-left;
+  }
+
+  /* Narrative Card Titles */
+  .type-card-title {
+    @apply font-sans font-bold text-[14px] leading-tight text-sbb-black;
+  }
+
+  /* Main Body Text (Narratives & Syntheses) */
+  .type-body {
+    @apply font-sans font-normal text-[12px] leading-snug text-sbb-black;
+  }
+
+  /* UI Elements (Technical Signage & Labels) */
+  .type-ui {
+    @apply font-mono font-medium text-[10px] uppercase tracking-[0.15em] text-sbb-stone text-left;
+  }
+
+  /* Metadata / Small Labels */
+  .type-caption {
+    @apply font-mono font-normal text-[10px] text-left;
+  }
+
+  /* Data / Technical / Badges / Accents */
+  .type-mono {
+    @apply font-mono text-[10px] tracking-[0.15em] text-left;
+  }
+
+  /* Accent numbers */
+  .type-accent-number {
+    @apply font-black text-3xl md:text-4xl leading-none tracking-tighter uppercase text-left;
+  }
+
+  /* Section Title */
+  .section-overline {
+    @apply font-mono font-medium text-[10px] uppercase tracking-[0.15em] text-sbb-stone;
+  }
+
+  /* Section Divider: The Swiss hairline */
+  .swiss-hairline {
+    border: 0;
+    border-top: 1px solid var(--sbb-aluminum);
+  }
 }

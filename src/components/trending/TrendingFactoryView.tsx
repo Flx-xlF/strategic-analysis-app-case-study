@@ -1,11 +1,19 @@
 import React, { useState } from 'react';
 import { TRENDING_FIXTURES, ContentFormatId, FormatBlueprint } from '../../fixtures/trendingFixtures';
+import { DataPlateGrid, DataPlateCell, DataPlateSignage } from '../ui/DataPlate';
 
 interface Props {
   scenarioId: string;
   isStreaming: boolean;
   streamProgress: number;
 }
+
+const FORMAT_TABS: Array<{ id: ContentFormatId; label: string }> = [
+  { id: 'hintergrund', label: 'Hintergrundartikel' },
+  { id: 'social', label: 'Social Media' },
+  { id: 'talking_points', label: 'Talking Points' },
+  { id: 'qa_brief', label: 'Q&A Brief' },
+];
 
 export const TrendingFactoryView: React.FC<Props> = ({
   scenarioId,
@@ -20,16 +28,14 @@ export const TrendingFactoryView: React.FC<Props> = ({
   const blueprint: FormatBlueprint = data.blueprints[selectedFormat];
 
   return (
-    <div className="space-y-5">
-      {/* Top Header */}
-      <div className="flex items-center justify-between pb-2 border-b border-brand-aluminum">
-        <h2 className="type-signage text-zinc-900">
-          Aktuelle Themen & Narrative
-        </h2>
-      </div>
+    <div className="space-y-4">
+      <DataPlateSignage
+        label="CONTENT FACTORY // STRATEGISCHE NARRATIVE & BLUEPRINTS"
+        metadata={`AKTIVES NARRATIV: ${activeCard.topic}`}
+      />
 
-      {/* Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5">
+      {/* Narrative Cards Seam Grid */}
+      <DataPlateGrid className="grid-cols-1 md:grid-cols-3">
         {data.cards.map((card, idx) => {
           const isSelected = idx === activeStoryIndex;
 
@@ -37,117 +43,80 @@ export const TrendingFactoryView: React.FC<Props> = ({
             <div
               key={card.id}
               onClick={() => setActiveStoryIndex(idx)}
-              className={`bg-white p-3.5 swiss-border cursor-pointer transition-all ${
-                isSelected
-                  ? 'border-brand-black bg-zinc-50'
-                  : 'hover:border-zinc-400'
+              className={`p-5 flex flex-col justify-between cursor-pointer transition-all ${
+                isSelected 
+                  ? 'bg-white shadow-[inset_0_-3px_0_0_var(--sbb-red)]' 
+                  : 'bg-white/80 hover:bg-white'
               }`}
             >
-              <div className="flex items-center justify-between mb-1.5">
-                <span className="type-mono text-[9px] bg-zinc-100 text-zinc-800 px-1 py-0.2 font-medium">
-                  {card.topic}
-                </span>
-                <span className="type-mono text-[10px] text-zinc-600 font-medium">
-                  {card.velocity_change}
-                </span>
+              <div>
+                <div className="flex items-center justify-between mb-2">
+                  <span className="type-ui text-sbb-stone font-bold">
+                    {card.topic}
+                  </span>
+                  <span className="type-mono text-[10px] text-sbb-red font-black">
+                    {card.velocity_change}
+                  </span>
+                </div>
+
+                <h3 className="type-card-title mb-2">
+                  {card.headline}
+                </h3>
+
+                <p className="type-body text-sbb-stone leading-relaxed mb-4">
+                  {card.summary}
+                </p>
               </div>
 
-              <h3 className="font-semibold text-xs text-zinc-900 leading-snug mb-1.5 font-sans">
-                {card.headline}
-              </h3>
-
-              <p className="text-[11px] text-zinc-600 line-clamp-2 mb-2">
-                {card.summary}
-              </p>
-
-              <div className="space-y-1 pt-1.5 border-t border-brand-aluminum">
-                <div className="flex justify-between text-[10px] type-mono text-zinc-500">
-                  <span>Dynamik:</span>
-                  <span className="font-medium text-zinc-800">{card.tipping_point_score} / 100</span>
-                </div>
-                <div className="h-1 bg-brand-cloud w-full flex overflow-hidden border border-brand-aluminum">
-                  <div style={{ width: `${card.sentiment_split.negative}%` }} className="bg-brand-red" />
-                  <div style={{ width: `${card.sentiment_split.neutral}%` }} className="bg-zinc-400" />
-                  <div style={{ width: `${card.sentiment_split.positive}%` }} className="bg-zinc-800" />
-                </div>
+              <div className="pt-2 border-t border-sbb-aluminum flex items-center justify-between type-mono text-[10px] text-sbb-stone">
+                <span>DYNAMIK:</span>
+                <span className="font-bold text-sbb-black">{card.tipping_point_score} / 100</span>
               </div>
             </div>
           );
         })}
-      </div>
+      </DataPlateGrid>
 
-      {/* Content Factory */}
-      <div className="bg-white swiss-border p-4 mt-5">
-        <div className="pb-2 mb-3 border-b border-brand-aluminum flex items-center justify-between">
-          <span className="type-signage text-zinc-800">
-            Briefing-Erstellung: {activeCard.topic}
-          </span>
+      {/* Content Factory Chassis */}
+      <div className="flex flex-col bg-sbb-aluminum gap-[1px]">
+        {/* Format Selector Bar (Direct Port from actual app FormatSelector) */}
+        <div className="flex gap-[1px] bg-sbb-aluminum">
+          {FORMAT_TABS.map(fmt => (
+            <button
+              key={fmt.id}
+              onClick={() => setSelectedFormat(fmt.id)}
+              className={`flex-1 px-4 py-2.5 type-ui font-black uppercase tracking-widest text-[10px] transition-all cursor-pointer ${
+                selectedFormat === fmt.id
+                  ? 'bg-sbb-black text-white'
+                  : 'bg-white text-sbb-stone hover:bg-sbb-cloud'
+              }`}
+            >
+              {fmt.label}
+            </button>
+          ))}
         </div>
 
-        {/* Format Selector Tabs */}
-        <div className="flex flex-wrap gap-1 bg-brand-aluminum p-1 mb-3">
-          <button
-            onClick={() => setSelectedFormat('hintergrund')}
-            className={`flex-1 min-w-[120px] px-3 py-1.5 text-xs type-signage transition-all ${
-              selectedFormat === 'hintergrund'
-                ? 'bg-brand-black text-white'
-                : 'bg-white text-zinc-700 hover:bg-brand-cloud'
-            }`}
-          >
-            Hintergrundartikel
-          </button>
-
-          <button
-            onClick={() => setSelectedFormat('social')}
-            className={`flex-1 min-w-[120px] px-3 py-1.5 text-xs type-signage transition-all ${
-              selectedFormat === 'social'
-                ? 'bg-brand-black text-white'
-                : 'bg-white text-zinc-700 hover:bg-brand-cloud'
-            }`}
-          >
-            Social Media
-          </button>
-
-          <button
-            onClick={() => setSelectedFormat('talking_points')}
-            className={`flex-1 min-w-[120px] px-3 py-1.5 text-xs type-signage transition-all ${
-              selectedFormat === 'talking_points'
-                ? 'bg-brand-black text-white'
-                : 'bg-white text-zinc-700 hover:bg-brand-cloud'
-            }`}
-          >
-            Talking Points
-          </button>
-
-          <button
-            onClick={() => setSelectedFormat('qa_brief')}
-            className={`flex-1 min-w-[120px] px-3 py-1.5 text-xs type-signage transition-all ${
-              selectedFormat === 'qa_brief'
-                ? 'bg-brand-black text-white'
-                : 'bg-white text-zinc-700 hover:bg-brand-cloud'
-            }`}
-          >
-            Q&A Leitfaden
-          </button>
-        </div>
-
-        {/* Context Badges */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-3 bg-brand-cloud/60 p-2.5 border border-brand-aluminum text-[11px]">
+        {/* Blueprint Metadata Row */}
+        <div className="bg-sbb-cloud/40 p-4 grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
           <div>
-            <span className="text-zinc-500 font-medium mr-1.5">Zielgruppe:</span>
-            <span className="text-zinc-800">{blueprint.target_audience}</span>
+            <span className="type-ui text-sbb-stone block mb-1">Zielgruppe</span>
+            <span className="type-body text-sbb-black">{blueprint.target_audience}</span>
           </div>
           <div>
-            <span className="text-zinc-500 font-medium mr-1.5">Fokus:</span>
-            <span className="text-zinc-800">{blueprint.psychological_objective}</span>
+            <span className="type-ui text-sbb-stone block mb-1">Strategischer Fokus</span>
+            <span className="type-body text-sbb-black">{blueprint.psychological_objective}</span>
           </div>
         </div>
 
-        {/* Content */}
-        <div className="bg-white p-4 border border-brand-aluminum text-xs text-zinc-800 leading-relaxed whitespace-pre-line border-l-2 border-l-brand-black font-sans">
-          {blueprint.blueprint_content}
-        </div>
+        {/* Blueprint Content Cell */}
+        <DataPlateCell className="bg-white">
+          <div className="type-body text-sbb-black max-w-[65ch] leading-relaxed whitespace-pre-line p-4 bg-sbb-cloud/20 border-l-2 border-sbb-black">
+            {blueprint.blueprint_content}
+          </div>
+        </DataPlateCell>
       </div>
     </div>
   );
 };
+
+export default TrendingFactoryView;

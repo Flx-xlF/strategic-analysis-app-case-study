@@ -11,43 +11,37 @@ export const RiskGauge: React.FC<Props> = ({ score, verdict }) => {
   const isMedium = score >= 4.0 && score < 7.0;
 
   return (
-    <div className="bg-white p-4 swiss-border flex flex-col gap-2">
+    <div className="flex flex-col gap-2">
       <div className="flex items-center justify-between">
-        <span className="type-signage text-zinc-500">
-          Risikoindex
+        <span className="type-ui text-sbb-stone font-black">
+          RISIKO-INDEX
         </span>
         <span
-          className={`type-mono font-bold text-lg ${
-            isHigh ? 'text-brand-red' : isMedium ? 'text-amber-600' : 'text-zinc-800'
+          className={`type-mono font-black text-base ${
+            isHigh ? 'text-sbb-red' : isMedium ? 'text-amber-600' : 'text-sbb-black'
           }`}
         >
-          {score.toFixed(1)} / 10
+          {score.toFixed(1)}/10
         </span>
       </div>
 
-      {/* Bar Gauge */}
-      <div className="h-2 bg-brand-cloud w-full relative overflow-hidden border border-brand-aluminum">
+      {/* Progress Bar */}
+      <div className="h-2 bg-sbb-cloud w-full relative overflow-hidden">
         <div
-          className={`h-full transition-all duration-500 ${
-            isHigh ? 'bg-brand-red' : isMedium ? 'bg-amber-600' : 'bg-zinc-800'
+          className={`absolute top-0 left-0 h-full transition-all duration-700 ${
+            isHigh ? 'bg-sbb-red' : isMedium ? 'bg-amber-600' : 'bg-sbb-black'
           }`}
           style={{ width: `${pct}%` }}
         />
       </div>
 
-      <div className="flex justify-between type-mono text-[9px] text-zinc-400">
-        <span>Gering (0.0)</span>
-        <span>Mittel (5.0)</span>
-        <span>Erhöht (10.0)</span>
-      </div>
-
       {verdict && (
-        <div className="mt-1 pt-2 border-t border-brand-aluminum/60">
-          <p className="text-xs text-zinc-700 leading-snug">
-            {verdict}
-          </p>
-        </div>
+        <p className="type-body text-sbb-stone italic text-[11px] mt-1">
+          {verdict}
+        </p>
       )}
     </div>
   );
 };
+
+export default RiskGauge;

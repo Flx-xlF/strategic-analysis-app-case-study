@@ -40,7 +40,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-brand-cloud text-brand-black flex flex-col font-sans">
+    <div className="min-h-screen bg-sbb-cloud text-sbb-black flex flex-col font-sans">
       <CommandHeader
         activeTab={activeTab}
         setActiveTab={setActiveTab}
@@ -51,8 +51,8 @@ export const App: React.FC = () => {
         onAbort={handleAbort}
       />
 
-      {/* Main Content Stage */}
-      <main className="flex-1 max-w-6xl w-full mx-auto p-4 sm:p-6">
+      {/* Main Workspace Stage */}
+      <main className="flex-1 max-w-[1600px] w-full mx-auto p-4 sm:p-6 lg:p-8">
         {activeTab === 'cascade' && (
           <NarrativeCascadeView
             scenarioId={selectedScenario.id}
@@ -78,22 +78,22 @@ export const App: React.FC = () => {
         )}
       </main>
 
-      {/* Utilitarian Footer */}
-      <footer className="bg-white border-t border-brand-aluminum px-4 py-3 mt-8 text-xs type-mono text-zinc-500">
-        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
-          <div>
-            <span>Terrain Analytics</span>
-            <span className="mx-2">·</span>
-            <span>Fallstudie & Architekturübersicht</span>
+      {/* Industrial Brutalist Footer */}
+      <footer className="bg-white border-t border-sbb-aluminum px-6 py-3.5 mt-8 text-xs type-mono text-sbb-stone">
+        <div className="max-w-[1600px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 bg-sbb-red" />
+            <span className="font-bold text-sbb-black">TERRAIN ANALYTICS</span>
+            <span>// ARCHITEKTUR-FALLSTUDIE // 100% CLIENT-SIDE SANDBOX</span>
           </div>
           <div>
             <a
               href="https://github.com/Flx-xlF/strategic-analysis-app-case-study"
               target="_blank"
               rel="noreferrer"
-              className="text-zinc-600 hover:text-brand-black underline underline-offset-2"
+              className="text-sbb-stone hover:text-sbb-black underline underline-offset-2"
             >
-              Dokumentation auf GitHub
+              DOKUMENTATION AUF GITHUB
             </a>
           </div>
         </div>
