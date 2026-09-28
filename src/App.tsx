@@ -24,7 +24,7 @@ export const App: React.FC = () => {
         }
         return prev + 20;
       });
-    }, 100);
+    }, 120);
   };
 
   const handleAbort = () => {
@@ -34,13 +34,13 @@ export const App: React.FC = () => {
 
   const handleSelectScenario = (sc: ScenarioMeta) => {
     setSelectedScenario(sc);
-    if (sc.id === 'gotthard_freight') setActiveTab('cascade');
-    else if (sc.id === 'cloud_sovereignty') setActiveTab('inquiry');
-    else if (sc.id === 'counter_closure') setActiveTab('trending');
+    if (sc.id === 'alpine_transit_crisis') setActiveTab('cascade');
+    else if (sc.id === 'esg_investigation') setActiveTab('inquiry');
+    else if (sc.id === 'health_data_breach') setActiveTab('trending');
   };
 
   return (
-    <div className="min-h-screen bg-sbb-cloud text-sbb-black flex flex-col font-sans">
+    <div className="min-h-screen bg-[#F4F4F6] text-sbb-black flex flex-col font-sans selection:bg-sbb-red selection:text-white">
       <CommandHeader
         activeTab={activeTab}
         setActiveTab={setActiveTab}
@@ -51,8 +51,8 @@ export const App: React.FC = () => {
         onAbort={handleAbort}
       />
 
-      {/* Main Workspace Stage */}
-      <main className="flex-1 max-w-[1600px] w-full mx-auto p-4 sm:p-6 lg:p-8">
+      {/* Main Workspace Stage with generous whitespace and clear structural focus */}
+      <main className="flex-1 max-w-[1600px] w-full mx-auto px-6 sm:px-10 py-8 lg:py-10">
         {activeTab === 'cascade' && (
           <NarrativeCascadeView
             scenarioId={selectedScenario.id}
@@ -79,21 +79,22 @@ export const App: React.FC = () => {
       </main>
 
       {/* Industrial Brutalist Footer */}
-      <footer className="bg-white border-t border-sbb-aluminum px-6 py-3.5 mt-8 text-xs type-mono text-sbb-stone">
-        <div className="max-w-[1600px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 bg-sbb-red" />
-            <span className="font-bold text-sbb-black">TERRAIN ANALYTICS</span>
-            <span>// ARCHITEKTUR-FALLSTUDIE // 100% CLIENT-SIDE SANDBOX</span>
+      <footer className="bg-white border-t border-sbb-aluminum px-8 py-5 mt-12 text-xs type-mono text-sbb-stone">
+        <div className="max-w-[1600px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="w-2.5 h-2.5 bg-sbb-red" />
+            <span className="font-bold text-sbb-black">TERRAIN STRATEGIC MEDIA INTELLIGENCE</span>
+            <span className="text-zinc-400">// HIGH-PRECISION SWISS EDITORIAL ENGINE</span>
           </div>
-          <div>
+          <div className="flex items-center gap-6">
+            <span className="text-zinc-500">100% DETERMINISTISCHE CLIENT-SIDE SANDBOX</span>
             <a
               href="https://github.com/Flx-xlF/strategic-analysis-app-case-study"
               target="_blank"
               rel="noreferrer"
-              className="text-sbb-stone hover:text-sbb-black underline underline-offset-2"
+              className="text-sbb-black font-bold hover:text-sbb-red transition-colors underline underline-offset-4"
             >
-              DOKUMENTATION AUF GITHUB
+              QUELLCODE & DOKU
             </a>
           </div>
         </div>
