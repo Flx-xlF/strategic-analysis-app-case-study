@@ -58,6 +58,7 @@ export const CommandHeader: React.FC<Props> = ({
   const isEn = lang === 'en';
 
   return (
+    <>
     <header className="bg-white border-b border-sbb-aluminum sticky top-0 z-40">
       {/* Level 1: System Telemetry Bar */}
       <div className="bg-sbb-black text-white px-6 sm:px-8 py-2.5 flex items-center justify-between border-b border-zinc-800">
@@ -195,31 +196,31 @@ export const CommandHeader: React.FC<Props> = ({
                 </p>
               </div>
 
-              {/* Column 2 */}
+              {/* Column 2: Process Integration for Management & Teams */}
               <div className="space-y-2 border-r border-zinc-200 pr-4 last:border-r-0">
                 <div className="font-mono font-bold text-sbb-black uppercase tracking-wider flex items-center gap-1.5">
                   <Layers className="w-3.5 h-3.5 text-sbb-red" />
-                  <span>{isEn ? '2. TWO-WAY OPERATING MODEL' : '2. ZWEI-WEGE-STEUERUNG'}</span>
+                  <span>{isEn ? '2. PROCESS VALUE (MGMT & TEAMS)' : '2. PROZESSNUTZEN (MGMT & TEAMS)'}</span>
                 </div>
                 <p>
                   {isEn ? (
                     <>
-                      <strong>Direction 1: Outside-In (Measure):</strong> Ingests external coverage and LLM synthesis across US, EU, CH, APAC. Measures cosine alignment against defined corporate narratives without oversimplifying into naive sentiment.
+                      <strong>For Management (Steering):</strong> Replaces clipping binders with a 5-minute weekly decision radar—connecting external narrative pull-through (`Cosine`) and anomaly spikes (`z-score`) directly to market-access and reputation priorities.
                     </>
                   ) : (
                     <>
-                      <strong>Richtung 1: Outside-In (Messen):</strong> Analysiert Medienberichte und KI-Antwortmaschinen regional (US, EU, CH, APAC). Misst Cosinus-Übereinstimmung gegen Soll-Narrative statt naiver Sentiment-Scores.
+                      <strong>Für das Management (Steuerung):</strong> Ersetzt Pressespiegel durch ein 5-Minuten-Entscheidungsradar, das Narrativ-Durchdringung (`Cosine`) und Risiko-Spikes (`z-Score`) direkt mit Market-Access-Prioritäten verknüpft.
                     </>
                   )}
                 </p>
                 <p>
                   {isEn ? (
                     <>
-                      <strong>Direction 2: Top-Down (Enable):</strong> Defines non-negotiable core guardrails and cascades regional playbooks for media, social, and LLM search discoverability (GEO).
+                      <strong>For Comms Teams (Execution):</strong> Eliminates SharePoint hunting and blank-page prompt guesswork. Teams adapt pre-cleared Golden Sources (`GS-01`–`GS-03`) with human-in-the-loop Legal/MLR gates, cutting alignment from days to hours.
                     </>
                   ) : (
                     <>
-                      <strong>Richtung 2: Top-Down (Befähigen):</strong> Definiert globale Leitplanken und kaskadiert passgenaue regionale Playbooks für Medien, Social Media und KI-Auffindbarkeit (GEO).
+                      <strong>Für Teams (Umsetzung):</strong> Beseitigt Dokumentensuche und Prompt-Raten. Länderteams nutzen vorab geprüfte Golden Sources (`GS-01`–`GS-03`) mit klaren Legal/MLR-Freigabepunkten und sparen Tage in der Abstimmung.
                     </>
                   )}
                 </p>
@@ -377,14 +378,6 @@ export const CommandHeader: React.FC<Props> = ({
             </div>
           </div>
         </div>
-
-        {/* Status Callout */}
-        <div className="flex items-center gap-3 shrink-0">
-          <div className="text-[11px] font-mono text-sbb-stone border border-sbb-aluminum px-3 py-1.5 bg-sbb-cloud">
-            <span className="font-bold text-sbb-black">{isEn ? 'ACTIVE REGION: ' : 'REGION: '}</span>
-            <span className="text-sbb-red font-bold uppercase">{selectedRegion}</span>
-          </div>
-        </div>
       </div>
 
       {/* Level 3: Two-Way Strategic Operating Model Navigation (2 Columns) */}
@@ -452,13 +445,14 @@ export const CommandHeader: React.FC<Props> = ({
             >
               <span className={`text-[10px] font-black ${activeTab === 'cascade' ? 'text-white/80' : 'opacity-60'}`}>04</span>
               <ShieldCheck className={`w-3.5 h-3.5 ${activeTab === 'cascade' ? 'text-white' : 'text-sbb-red'}`} />
-              <span className="truncate">{isEn ? 'Draft Stress-Test' : 'Entwurf-Stresstest'}</span>
+              <span className="truncate">{isEn ? 'Stress-Test & Inquiry' : 'Stresstest & Anfrage'}</span>
             </button>
           </div>
         </div>
       </div>
+    </header>
 
-      {/* Level 4: Executive Scenario Context Banner */}
+      {/* Level 4: Non-Sticky Executive Scenario Context Banner */}
       <div className="px-6 sm:px-8 py-3 bg-white border-b border-sbb-aluminum">
         <div className="max-w-[1600px] mx-auto flex flex-col lg:flex-row lg:items-center justify-between gap-3">
           <div className="space-y-0.5">
@@ -479,7 +473,7 @@ export const CommandHeader: React.FC<Props> = ({
           </div>
         </div>
       </div>
-    </header>
+    </>
   );
 };
 

@@ -180,57 +180,56 @@ export const TrendingFactoryView: React.FC<Props> = ({
             </div>
           )}
 
-          {/* Enterprise IT Integration Outlook Strip */}
+          {/* Process Integration: Concrete Value for Management vs. Operational Teams */}
           <div className="pt-3 border-t border-zinc-200">
-            <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-sbb-black mb-2 flex items-center justify-between">
-              <span>
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2.5">
+              <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-sbb-black">
                 {isEn
-                  ? 'REALISTIC IT INTEGRATION OUTLOOK (HOW THIS PLUGS INTO EXISTING CORPORATE INFRASTRUCTURE)'
-                  : 'REALISTISCHER IT-INTEGRATIONSAUSBLICK (EINBETTUNG IN BESTEHENDE KONZERN-SYSTEME)'}
+                  ? 'PROCESS INTEGRATION: HOW THIS WORKFLOW IMPROVES MANAGEMENT STEERING & TEAM EXECUTION'
+                  : 'PROZESS-INTEGRATION: KONKRETER MEHRWERT FÜR MANAGEMENT-STEUERUNG & TEAM-UMSETZUNG'}
               </span>
-              <span className="text-zinc-500 font-normal">
-                {isEn ? 'Zero Shadow IT // Standard APIs' : 'Keine Schatten-IT // Standard-APIs'}
+              <span className="text-[10px] font-mono text-sbb-red font-bold">
+                {isEn ? 'Embedded in Daily/Weekly Routines // Human-in-the-Loop' : 'Eingebettet in Regelprozesse // Human-in-the-Loop'}
               </span>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-2 text-[11px] font-sans">
-              <div className="p-2.5 bg-white border border-zinc-200">
-                <div className="font-mono text-[10px] font-bold text-sbb-black uppercase mb-0.5">
-                  {isEn ? '1. Document Systems' : '1. Dokumentensysteme'}
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-[11px] font-sans">
+              {/* Management Value */}
+              <div className="p-3 bg-white border border-zinc-200 space-y-1">
+                <div className="font-mono text-[10px] font-bold text-sbb-black uppercase flex items-center justify-between">
+                  <span>{isEn ? '1. For Management (Steering)' : '1. Für das Management (Steuerung)'}</span>
+                  <span className="text-emerald-700">5-Min Radar</span>
                 </div>
                 <p className="text-zinc-600 leading-snug">
                   {isEn
-                    ? 'Read-only connectors to Veeva Vault (PromoMats/MedComms) & SharePoint via Graph API. Enforces existing RBAC & approval status.'
-                    : 'Lese-Schnittstellen zu Veeva Vault (PromoMats/MedComms) & SharePoint via Graph API. Übernimmt bestehende Rechte (RBAC) & Freigabestatus.'}
+                    ? 'Replaces static clipping books with a weekly 5-minute pull-through & risk radar. Shows where regional narratives drift and where executive intervention is needed.'
+                    : 'Ersetzt statische Pressespiegel durch ein 5-Minuten-Entscheidungsradar. Zeigt sofort, wo regionale Narrative abdriften und wo Führungsentscheide nötig sind.'}
                 </p>
               </div>
-              <div className="p-2.5 bg-white border border-zinc-200">
-                <div className="font-mono text-[10px] font-bold text-sbb-black uppercase mb-0.5">
-                  {isEn ? '2. External Feeds' : '2. Externe Datenfeeds'}
+
+              {/* Team Value */}
+              <div className="p-3 bg-white border border-zinc-200 space-y-1">
+                <div className="font-mono text-[10px] font-bold text-sbb-black uppercase flex items-center justify-between">
+                  <span>{isEn ? '2. For Comms Teams (Speed)' : '2. Für Kommunikations-Teams (Tempo)'}</span>
+                  <span className="text-emerald-700">{isEn ? 'Days → Hours' : 'Tage → Stunden'}</span>
                 </div>
                 <p className="text-zinc-600 leading-snug">
                   {isEn
-                    ? 'Ingests existing licensed media/social streams (Factiva, Meltwater, Talkwalker) + scheduled regional API probes for LLM search engines.'
-                    : 'Nutzt bestehende Medien-/Social-Abos (Factiva, Meltwater, Talkwalker) + geplante regionale API-Abfragen für KI-Suchmaschinen.'}
+                    ? 'Eliminates SharePoint hunting and prompt guesswork. Affiliates adapt pre-cleared Golden Sources (GS-01–GS-03), cutting Legal/MLR alignment cycles from days to hours.'
+                    : 'Kein Suchen in SharePoint-Ordnern oder Raten bei Prompts: Länderteams nutzen vorab geprüfte Golden Sources (GS-01–GS-03) und verkürzen MLR-Freigaben von Tagen auf Stunden.'}
                 </p>
               </div>
-              <div className="p-2.5 bg-white border border-zinc-200">
-                <div className="font-mono text-[10px] font-bold text-sbb-black uppercase mb-0.5">
-                  {isEn ? '3. Cloud & AI Gateway' : '3. Cloud & AI Gateway'}
+
+              {/* Human Governance Gate */}
+              <div className="p-3 bg-white border border-zinc-200 space-y-1">
+                <div className="font-mono text-[10px] font-bold text-sbb-black uppercase flex items-center justify-between">
+                  <span>{isEn ? '3. Governance Gate (Control)' : '3. Governance-Gate (Kontrolle)'}</span>
+                  <span className="text-sbb-red">{isEn ? 'Mandatory Sign-Off' : 'Pflicht-Freigabe'}</span>
                 </div>
                 <p className="text-zinc-600 leading-snug">
                   {isEn
-                    ? 'Statistical clustering runs in corporate cloud (Azure/AWS/Databricks). LLMs route via internal Enterprise AI Gateway (zero data retention).'
-                    : 'Statistik-Pipeline läuft in der Firmen-Cloud (Azure/AWS/Databricks). LLMs laufen über das interne AI Gateway (Zero Data Retention).'}
-                </p>
-              </div>
-              <div className="p-2.5 bg-white border border-zinc-200">
-                <div className="font-mono text-[10px] font-bold text-sbb-black uppercase mb-0.5">
-                  {isEn ? '4. SSO & Audit Trail' : '4. SSO & Audit-Trail'}
-                </div>
-                <p className="text-zinc-600 leading-snug">
-                  {isEn
-                    ? 'Entra ID / Okta authentication. Logs exact source document IDs and timestamps for every playbook to support compliance review.'
-                    : 'Entra ID / Okta Login. Protokolliert Quell-Dokument-IDs und Zeitstempel für jedes Playbook zur Unterstützung der Compliance-Prüfung.'}
+                    ? 'AI never auto-publishes. Every regional playbook and stress-tested draft logs its Golden Source ID and requires human Comms + Legal/Regulatory sign-off before release.'
+                    : 'Keine automatische Publikation durch KI: Jedes Playbook referenziert seine Golden-Source-ID und durchläuft vor Veröffentlichung die reguläre Kommunikations- und Rechtsfreigabe.'}
                 </p>
               </div>
             </div>
@@ -309,48 +308,11 @@ export const TrendingFactoryView: React.FC<Props> = ({
             </span>
           </div>
 
-          {/* Region Switcher */}
-          <div className="flex items-center gap-1 bg-sbb-cloud p-1 border border-sbb-aluminum">
-            <button
-              onClick={() => onSelectRegion('all')}
-              className={`px-3 py-1 font-mono text-xs font-bold transition-all cursor-pointer ${
-                selectedRegion === 'all' ? 'bg-sbb-black text-white' : 'text-sbb-stone hover:text-sbb-black'
-              }`}
-            >
-              {isEn ? 'GLOBAL' : 'GLOBAL'}
-            </button>
-            <button
-              onClick={() => onSelectRegion('us')}
-              className={`px-3 py-1 font-mono text-xs font-bold transition-all cursor-pointer ${
-                selectedRegion === 'us' ? 'bg-sbb-black text-white' : 'text-sbb-stone hover:text-sbb-black'
-              }`}
-            >
-              US
-            </button>
-            <button
-              onClick={() => onSelectRegion('eu')}
-              className={`px-3 py-1 font-mono text-xs font-bold transition-all cursor-pointer ${
-                selectedRegion === 'eu' ? 'bg-sbb-black text-white' : 'text-sbb-stone hover:text-sbb-black'
-              }`}
-            >
-              EU
-            </button>
-            <button
-              onClick={() => onSelectRegion('ch')}
-              className={`px-3 py-1 font-mono text-xs font-bold transition-all cursor-pointer ${
-                selectedRegion === 'ch' ? 'bg-sbb-black text-white' : 'text-sbb-stone hover:text-sbb-black'
-              }`}
-            >
-              CH (HQ)
-            </button>
-            <button
-              onClick={() => onSelectRegion('apac')}
-              className={`px-3 py-1 font-mono text-xs font-bold transition-all cursor-pointer ${
-                selectedRegion === 'apac' ? 'bg-sbb-black text-white' : 'text-sbb-stone hover:text-sbb-black'
-              }`}
-            >
-              APAC
-            </button>
+          {/* Single-Source Region Scope Indicator */}
+          <div className="flex items-center gap-2 font-mono text-[10px] text-sbb-stone uppercase bg-white border border-sbb-aluminum px-3 py-1">
+            <Globe2 className="w-3 h-3 text-sbb-red" />
+            <span>{isEn ? 'Header Region Scope:' : 'Regionsfilter (Header):'}</span>
+            <span className="font-bold text-sbb-black">{selectedRegion.toUpperCase()}</span>
           </div>
         </div>
 

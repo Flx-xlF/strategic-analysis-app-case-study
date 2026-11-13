@@ -88,7 +88,7 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
         whatYouSee:
           'Before generating any guidance, the system filters 1.42M internal SharePoint and Veeva Vault files down to 42 approved "Golden Sources" (GS-01 to GS-03) and quarantines outdated affiliate decks. It then cascades tailored messaging for US, EU, CH, and APAC.',
         whyItMatters:
-          'Focuses on Enablement over single-product execution. Global Comms sets the non-negotiable legal and strategic guardrails once, empowering regional Corporate Affairs, Market Access, and country comms teams to act fast without drifting off-message.',
+          'Solves the hardest part of AI adoption—process integration: Management gets a 5-minute steering radar on narrative pull-through, while regional teams start from pre-cleared Golden Sources that cut Legal/MLR review cycles from days to hours.',
         tryThisLabel: 'Filter Playbook to Switzerland (CH)',
         targetTab: 'trending',
         targetRegion: 'all',
@@ -157,7 +157,7 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
       whatYouSee:
         'Vor jeder Textausgabe filtert das System 1,42 Mio. interne SharePoint- und Veeva-Dateien auf 42 freigegebene "Golden Sources" (GS-01 bis GS-03) und sperrt veraltete Länder-Decks. Darauf basierend entstehen Playbooks für US, EU, CH und APAC.',
       whyItMatters:
-        'Fokus auf Befähigung (Enablement) statt Einzel-PR: Globale Kommunikation definiert rechtssichere Leitplanken einmalig und befähigt Länderorganisationen zu konsistenter, schneller Umsetzung.',
+        'Löst die Kernhürde bei KI-Integration – die Prozess-Einbettung: Das Management erhält ein 5-Minuten-Radar zur Narrativ-Durchdringung, während Länderteams mit geprüften Golden Sources arbeiten und MLR-Freigaben von Tagen auf Stunden verkürzen.',
       tryThisLabel: 'Playbook auf Schweiz (CH) filtern',
       targetTab: 'trending',
       targetRegion: 'all',
@@ -190,6 +190,15 @@ export const QuickTourBar: React.FC<Props> = ({
   showConceptGuide,
   onToggleConceptGuide
 }) => {
+  React.useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   const isEn = lang === 'en';
@@ -219,64 +228,161 @@ export const QuickTourBar: React.FC<Props> = ({
   };
 
   return (
-    <section
+    <div
+      role="dialog"
+      aria-modal="true"
       aria-label={isEn ? '90-Second Executive Quick Tour' : '90-Sekunden Kurz-Tour'}
-      className="bg-sbb-black text-white border-b-2 border-sbb-red px-6 sm:px-8 py-5 transition-all"
+      onClick={onClose}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/55 backdrop-blur-sm"
     >
-      <div className="max-w-[1600px] mx-auto space-y-4">
-        {/* Top Row: Tour Title, Step Selector Pills, and Prev/Next/Close Controls */}
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-3.5 border-b border-zinc-800">
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="w-full max-w-3xl bg-sbb-black text-white border border-zinc-700 border-t-4 border-t-sbb-red shadow-none flex flex-col max-h-[90vh] overflow-y-auto"
+      >
+        {/* Modal Header: Tour Badge + Close/Skip */}
+        <div className="px-6 py-4 border-b border-zinc-800 flex items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <span className="bg-sbb-red text-white font-mono text-[10px] font-black uppercase tracking-widest px-2.5 py-1 flex items-center gap-1.5 shrink-0">
               <Compass className="w-3.5 h-3.5" />
               <span>{isEn ? '90s RECRUITING & EXECUTIVE TOUR' : '90s RECRUITING- & EXECUTIVE-TOUR'}</span>
             </span>
-            <span className="text-xs font-mono text-zinc-400 hidden sm:inline">
-              {isEn
-                ? 'Interactive guide — clicking any step automatically switches the view below'
-                : 'Interaktiver Guide — Klick auf einen Schritt steuert automatisch die Ansicht unten'}
+            <span className="text-[11px] font-mono text-zinc-400 hidden sm:inline">
+              {isEn ? 'Introduction & Mandate Fit' : 'Einführung & Mandats-Abgleich'}
             </span>
           </div>
 
-          {/* 5 Step Navigation Pills */}
-          <div className="flex flex-wrap items-center gap-1.5">
-            {steps.map((step, idx) => {
-              const isCurrent = idx === currentStep;
-              const isCompleted = idx < currentStep;
-              return (
-                <button
-                  key={step.stepNumber}
-                  onClick={() => onSelectStep(idx)}
-                  className={`px-2.5 py-1 font-mono text-[11px] font-bold uppercase tracking-wider transition-all cursor-pointer border flex items-center gap-1.5 ${
-                    isCurrent
-                      ? 'bg-sbb-red text-white border-sbb-red'
-                      : isCompleted
-                      ? 'bg-zinc-900 text-zinc-200 border-zinc-700 hover:border-zinc-500'
-                      : 'bg-zinc-950 text-zinc-400 border-zinc-800 hover:text-white hover:border-zinc-600'
-                  }`}
-                >
-                  {isCompleted && <CheckCircle2 className="w-3 h-3 text-emerald-400 shrink-0" />}
-                  <span>{step.stepNumber}</span>
-                  <span className="hidden xl:inline">{step.shortLabel}</span>
-                </button>
-              );
-            })}
+          <button
+            onClick={onClose}
+            className="px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-zinc-400 hover:text-white border border-zinc-800 hover:border-zinc-600 transition-colors flex items-center gap-1.5 cursor-pointer"
+            title={isEn ? 'Skip Intro (Esc)' : 'Intro überspringen (Esc)'}
+          >
+            <X className="w-3.5 h-3.5" />
+            <span>{isEn ? 'Skip Intro' : 'Intro überspringen'}</span>
+          </button>
+        </div>
 
-            <div className="h-4 w-px bg-zinc-800 mx-1 hidden sm:block" />
+        {/* Step Progress Rail */}
+        <div className="px-6 py-3 bg-zinc-950 border-b border-zinc-800 flex flex-wrap items-center gap-1.5">
+          {steps.map((step, idx) => {
+            const isCurrent = idx === currentStep;
+            const isCompleted = idx < currentStep;
+            return (
+              <button
+                key={step.stepNumber}
+                onClick={() => onSelectStep(idx)}
+                className={`px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-wider transition-all cursor-pointer border flex items-center gap-1.5 ${
+                  isCurrent
+                    ? 'bg-sbb-red text-white border-sbb-red'
+                    : isCompleted
+                    ? 'bg-zinc-900 text-zinc-200 border-zinc-700 hover:border-zinc-500'
+                    : 'bg-zinc-950 text-zinc-400 border-zinc-800 hover:text-white hover:border-zinc-600'
+                }`}
+              >
+                {isCompleted && <CheckCircle2 className="w-3 h-3 text-emerald-400 shrink-0" />}
+                <span>{step.stepNumber}</span>
+                <span className="hidden md:inline">{step.shortLabel}</span>
+              </button>
+            );
+          })}
+        </div>
 
-            {/* Prev / Next Buttons */}
+        {/* Modal Body */}
+        <div className="p-6 space-y-5">
+          {/* Headline */}
+          <div className="space-y-1.5 border-l-2 border-sbb-red pl-4">
+            <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest text-zinc-400">
+              <span className="text-sbb-red font-black">
+                {isEn ? `STEP ${activeStep.stepNumber} OF 05` : `SCHRITT ${activeStep.stepNumber} VON 05`}
+              </span>
+              <span>//</span>
+              <span className="text-white font-bold">{activeStep.shortLabel}</span>
+            </div>
+            <h3 className="text-lg font-bold text-white leading-snug">
+              {activeStep.headline}
+            </h3>
+          </div>
+
+          {/* Two-Column Briefing */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="space-y-2 bg-zinc-900/90 border border-zinc-800 p-4">
+              <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-400 flex items-center gap-1.5">
+                <Globe className="w-3.5 h-3.5 text-sbb-red" />
+                <span>{isEn ? 'WHAT THIS VIEW SHOWS' : 'WAS DIESE ANSICHT ZEIGT'}</span>
+              </div>
+              <p className="text-xs text-zinc-200 leading-relaxed">{activeStep.whatYouSee}</p>
+            </div>
+
+            <div className="space-y-2 bg-zinc-900/90 border border-zinc-800 p-4 flex flex-col justify-between">
+              <div className="space-y-2">
+                <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-400 flex items-center gap-1.5">
+                  <Sparkles className="w-3.5 h-3.5 text-sbb-red" />
+                  <span>
+                    {isEn
+                      ? 'WHY IT MATTERS FOR GLOBAL ENABLEMENT'
+                      : 'RELEVANZ FÜR GLOBAL ENABLEMENT'}
+                  </span>
+                </div>
+                <p className="text-xs text-zinc-200 leading-relaxed">{activeStep.whyItMatters}</p>
+              </div>
+
+              {currentStep !== 1 && (
+                <div className="pt-3 mt-3 border-t border-zinc-800 flex items-center justify-between gap-2">
+                  <button
+                    onClick={handleQuickAction}
+                    className="w-full px-3 py-1.5 bg-zinc-800 hover:bg-zinc-700 text-white font-mono text-[10px] font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-1.5 cursor-pointer border border-zinc-700"
+                  >
+                    {currentStep === 4 ? (
+                      <Server className="w-3 h-3 text-sbb-red" />
+                    ) : (
+                      <ArrowRight className="w-3 h-3 text-sbb-red" />
+                    )}
+                    <span>
+                      {currentStep === 0 || currentStep === 2
+                        ? selectedScenarioId === 'pluvicto_access_debate'
+                          ? isEn
+                            ? 'Switch to Novartis MFN Pricing Case'
+                            : 'Zum Novartis MFN-Preisszenario wechseln'
+                          : isEn
+                          ? 'Compare with Novartis Pluvicto Case'
+                          : 'Mit Novartis Pluvicto-Fall vergleichen'
+                        : currentStep === 4
+                        ? showConceptGuide
+                          ? isEn
+                            ? 'Hide IT & Method Panel Behind'
+                            : 'IT- & Methodik-Panel ausblenden'
+                          : isEn
+                          ? 'Open IT & Method Panel Behind'
+                          : 'IT- & Methodik-Panel öffnen'
+                        : activeStep.tryThisLabel}
+                    </span>
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Modal Footer: Navigation */}
+        <div className="px-6 py-4 bg-zinc-950 border-t border-zinc-800 flex flex-wrap items-center justify-between gap-3">
+          <button
+            onClick={() => onSelectStep(Math.max(0, currentStep - 1))}
+            disabled={currentStep === 0}
+            className={`px-3 py-1.5 font-mono text-[11px] font-bold uppercase border transition-colors flex items-center gap-1.5 ${
+              currentStep === 0
+                ? 'border-zinc-800 text-zinc-600 cursor-not-allowed'
+                : 'border-zinc-700 bg-zinc-900 text-white hover:bg-zinc-800 cursor-pointer'
+            }`}
+          >
+            <ArrowLeft className="w-3.5 h-3.5" />
+            <span>{isEn ? 'Prev' : 'Zurück'}</span>
+          </button>
+
+          <div className="flex items-center gap-2.5">
             <button
-              onClick={() => onSelectStep(Math.max(0, currentStep - 1))}
-              disabled={currentStep === 0}
-              className={`px-2.5 py-1 font-mono text-[11px] font-bold uppercase border transition-colors flex items-center gap-1 ${
-                currentStep === 0
-                  ? 'border-zinc-800 text-zinc-600 cursor-not-allowed'
-                  : 'border-zinc-700 bg-zinc-900 text-white hover:bg-zinc-800 cursor-pointer'
-              }`}
-              title={isEn ? 'Previous Step' : 'Vorheriger Schritt'}
+              onClick={onClose}
+              className="px-3 py-1.5 font-mono text-[11px] font-bold uppercase border border-zinc-700 bg-zinc-900 text-zinc-200 hover:text-white hover:border-zinc-500 transition-colors cursor-pointer"
             >
-              <ArrowLeft className="w-3 h-3" />
-              <span className="hidden sm:inline">{isEn ? 'Prev' : 'Zurück'}</span>
+              {isEn ? 'Explore This View' : 'Diese Ansicht öffnen'}
             </button>
 
             <button
@@ -287,7 +393,7 @@ export const QuickTourBar: React.FC<Props> = ({
                   onClose();
                 }
               }}
-              className="px-3 py-1 font-mono text-[11px] font-black uppercase border border-sbb-red bg-sbb-red text-white hover:bg-red-700 transition-colors flex items-center gap-1.5 cursor-pointer"
+              className="px-4 py-1.5 font-mono text-[11px] font-black uppercase border border-sbb-red bg-sbb-red text-white hover:bg-red-700 transition-colors flex items-center gap-1.5 cursor-pointer"
             >
               <span>
                 {currentStep < steps.length - 1
@@ -295,102 +401,15 @@ export const QuickTourBar: React.FC<Props> = ({
                     ? 'Next Step'
                     : 'Nächster Schritt'
                   : isEn
-                  ? 'Finish Tour'
-                  : 'Tour beenden'}
+                  ? 'Enter Live Workspace'
+                  : 'Zur Live-Ansicht'}
               </span>
-              <ArrowRight className="w-3 h-3" />
+              <ArrowRight className="w-3.5 h-3.5" />
             </button>
-
-            <button
-              onClick={onClose}
-              className="ml-1 px-2 py-1 font-mono text-[10px] uppercase tracking-wider text-zinc-400 hover:text-white border border-transparent hover:border-zinc-700 transition-colors flex items-center gap-1 cursor-pointer"
-              title={isEn ? 'Close Quick Tour' : 'Kurz-Tour schliessen'}
-            >
-              <X className="w-3.5 h-3.5" />
-              <span className="hidden md:inline">{isEn ? 'Close' : 'Schliessen'}</span>
-            </button>
-          </div>
-        </div>
-
-        {/* Bottom Row: 12-Column Swiss Briefing Grid for Current Step */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start pt-1">
-          {/* Headline & Step Indicator (4 Cols) */}
-          <div className="lg:col-span-4 space-y-2 border-l-2 border-sbb-red pl-4">
-            <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest text-zinc-400">
-              <span className="text-sbb-red font-black">
-                {isEn ? `STEP ${activeStep.stepNumber} OF 05` : `SCHRITT ${activeStep.stepNumber} VON 05`}
-              </span>
-              <span>//</span>
-              <span className="text-white font-bold">{activeStep.shortLabel}</span>
-            </div>
-            <h3 className="text-sm sm:text-base font-bold text-white leading-snug">
-              {activeStep.headline}
-            </h3>
-          </div>
-
-          {/* What You See on Screen (4 Cols) */}
-          <div className="lg:col-span-4 space-y-1.5 bg-zinc-900/90 border border-zinc-800 p-3.5">
-            <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-400 flex items-center gap-1.5">
-              <Globe className="w-3 h-3 text-sbb-red" />
-              <span>{isEn ? 'WHAT YOU ARE LOOKING AT BELOW:' : 'WAS SIE UNTEN SEHEN:'}</span>
-            </div>
-            <p className="text-xs text-zinc-200 leading-relaxed">{activeStep.whatYouSee}</p>
-          </div>
-
-          {/* Mandate Fit & Quick Action (4 Cols) */}
-          <div className="lg:col-span-4 space-y-2.5 bg-zinc-900/90 border border-zinc-800 p-3.5 flex flex-col justify-between">
-            <div className="space-y-1.5">
-              <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-400 flex items-center gap-1.5">
-                <Sparkles className="w-3 h-3 text-sbb-red" />
-                <span>
-                  {isEn
-                    ? 'WHY IT MATTERS FOR GLOBAL COMMS ENABLEMENT:'
-                    : 'RELEVANZ FÜR GLOBAL COMMS ENABLEMENT:'}
-                </span>
-              </div>
-              <p className="text-xs text-zinc-200 leading-relaxed">{activeStep.whyItMatters}</p>
-            </div>
-
-            {currentStep !== 1 && (
-              <div className="pt-2 border-t border-zinc-800 flex items-center justify-between gap-2">
-                <span className="text-[10px] font-mono text-zinc-400 uppercase">
-                  {isEn ? 'Interactive Action:' : 'Interaktive Aktion:'}
-                </span>
-                <button
-                  onClick={handleQuickAction}
-                  className="px-2.5 py-1 bg-zinc-800 hover:bg-sbb-red text-white font-mono text-[10px] font-bold uppercase tracking-wider transition-colors flex items-center gap-1.5 cursor-pointer border border-zinc-700"
-                >
-                  {currentStep === 4 ? (
-                    <Server className="w-3 h-3" />
-                  ) : (
-                    <ArrowRight className="w-3 h-3" />
-                  )}
-                  <span>
-                    {currentStep === 0 || currentStep === 2
-                      ? selectedScenarioId === 'pluvicto_access_debate'
-                        ? isEn
-                          ? 'Switch to Novartis MFN Pricing Case'
-                          : 'Zum Novartis MFN-Preisszenario wechseln'
-                        : isEn
-                        ? 'Compare with Novartis Pluvicto Case'
-                        : 'Mit Novartis Pluvicto-Fall vergleichen'
-                      : currentStep === 4
-                      ? showConceptGuide
-                        ? isEn
-                          ? 'Hide IT & Method Panel Above'
-                          : 'IT- & Methodik-Panel oben ausblenden'
-                        : isEn
-                        ? 'Open IT & Method Panel Above'
-                        : 'IT- & Methodik-Panel oben öffnen'
-                      : activeStep.tryThisLabel}
-                  </span>
-                </button>
-              </div>
-            )}
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

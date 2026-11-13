@@ -119,41 +119,11 @@ export const GeoAuditView: React.FC<Props> = ({
             </span>
           </div>
 
-          {/* Regional Filter for Centroids */}
-          <div className="flex items-center gap-1 bg-sbb-cloud p-1 border border-sbb-aluminum">
-            <Filter className="w-3.5 h-3.5 text-zinc-500 ml-1" />
-            <button
-              onClick={() => onSelectRegion('all')}
-              className={`px-2 py-0.5 font-mono text-xs font-bold transition-all ${
-                selectedRegion === 'all' ? 'bg-sbb-black text-white' : 'text-sbb-stone hover:text-sbb-black'
-              }`}
-            >
-              ALL
-            </button>
-            <button
-              onClick={() => onSelectRegion('us')}
-              className={`px-2 py-0.5 font-mono text-xs font-bold transition-all ${
-                selectedRegion === 'us' ? 'bg-sbb-black text-white' : 'text-sbb-stone hover:text-sbb-black'
-              }`}
-            >
-              US
-            </button>
-            <button
-              onClick={() => onSelectRegion('eu')}
-              className={`px-2 py-0.5 font-mono text-xs font-bold transition-all ${
-                selectedRegion === 'eu' ? 'bg-sbb-black text-white' : 'text-sbb-stone hover:text-sbb-black'
-              }`}
-            >
-              EU
-            </button>
-            <button
-              onClick={() => onSelectRegion('ch')}
-              className={`px-2 py-0.5 font-mono text-xs font-bold transition-all ${
-                selectedRegion === 'ch' ? 'bg-sbb-black text-white' : 'text-sbb-stone hover:text-sbb-black'
-              }`}
-            >
-              CH
-            </button>
+          {/* Single-Source Region Scope Indicator */}
+          <div className="flex items-center gap-2 font-mono text-[10px] text-sbb-stone uppercase bg-white border border-sbb-aluminum px-3 py-1">
+            <Filter className="w-3 h-3 text-sbb-red" />
+            <span>{isEn ? 'Header Region Scope:' : 'Regionsfilter (Header):'}</span>
+            <span className="font-bold text-sbb-black">{selectedRegion.toUpperCase()}</span>
           </div>
         </div>
 
@@ -193,18 +163,106 @@ export const GeoAuditView: React.FC<Props> = ({
         </div>
       </div>
 
-      {/* ═══ STEP 02: STAKEHOLDER QUERY & AI SYNTHESIS ═══ */}
+      {/* ═══ STEP 02: STAKEHOLDER QUERY, VISUAL NARRATIVE GAP & AI SYNTHESIS ═══ */}
       <div className="space-y-3">
         <div className="flex items-center gap-3">
           <span className="w-7 h-7 bg-sbb-black text-white font-mono text-xs font-bold flex items-center justify-center">
             02
           </span>
           <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-stone">
-            {isEn ? 'WHAT STAKEHOLDERS SEE IN AI ANSWER ENGINES' : 'WAS STAKEHOLDER IN KI-ANTWORTMASCHINEN LESEN'}
+            {isEn ? 'VISUALIZING THE GAP: CORPORATE NARRATIVE VS. AI SEARCH OUTPUT' : 'VISUELLER ABGLEICH: UNTERNEHMENS-NARRATIV VS. KI-SUCHAUSGABE'}
           </span>
         </div>
 
         <div className="bg-white border border-sbb-aluminum p-6 sm:p-8 shadow-sm space-y-6">
+          {/* Visual Comparison Strip: Corporate Benchmark vs. Current LLM Output vs. Post-GEO Output */}
+          <div className="p-5 bg-sbb-cloud/60 border border-sbb-aluminum space-y-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2 border-b border-zinc-200">
+              <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-sbb-black">
+                {isEn
+                  ? 'NARRATIVE PULL-THROUGH & DISTORTION METER (TARGET BENCHMARK VS. LLM REALITY)'
+                  : 'NARRATIV-DURCHDRINGUNG & VERZERRUNGS-METER (SOLL-BENCHMARK VS. KI-REALITÄT)'}
+              </span>
+              <span className="text-[10px] font-mono text-sbb-stone">
+                {isEn ? `Engine Audited: ${data.queried_engine}` : `Geprüfte Engine: ${data.queried_engine}`}
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 font-mono text-xs">
+              {/* Bar 1: Source Cluster Alignment with Corporate Pillars */}
+              <div className="p-3.5 bg-white border border-zinc-200 space-y-2">
+                <div className="flex items-center justify-between text-[10px] text-sbb-stone uppercase font-bold">
+                  <span>{isEn ? '1. SCRAPED MEDIA ALIGNMENT' : '1. MEDIEN-ÜBEREINSTIMMUNG'}</span>
+                  <span className="text-sbb-red font-bold">
+                    {Math.round(
+                      (data.active_cluster.centroid_articles.reduce((acc, a) => acc + a.cosine_to_target, 0) /
+                        Math.max(1, data.active_cluster.centroid_articles.length)) *
+                        100
+                    )}
+                    % {isEn ? 'Fit' : 'Fit'}
+                  </span>
+                </div>
+                <div className="w-full h-2.5 bg-zinc-200 flex overflow-hidden">
+                  <div
+                    className="h-full bg-amber-500"
+                    style={{
+                      width: `${Math.round(
+                        (data.active_cluster.centroid_articles.reduce((acc, a) => acc + a.cosine_to_target, 0) /
+                          Math.max(1, data.active_cluster.centroid_articles.length)) *
+                          100
+                      )}%`
+                    }}
+                  />
+                </div>
+                <p className="text-[11px] font-sans text-zinc-600 leading-snug">
+                  {isEn
+                    ? 'External trade articles omit corporate context, creating an incomplete retrieval base for LLMs.'
+                    : 'Externe Fachartikel lassen Unternehmenskontext weg und erzeugen eine verzerrte Datenbasis für LLMs.'}
+                </p>
+              </div>
+
+              {/* Bar 2: Unsupervised LLM Search Output (Before GEO) */}
+              <div className="p-3.5 bg-red-50/40 border border-red-200 space-y-2">
+                <div className="flex items-center justify-between text-[10px] uppercase font-bold">
+                  <span className="text-sbb-black">{isEn ? '2. CURRENT LLM OUTPUT (RAW)' : '2. AKTUELLE KI-ANTWORT (ROH)'}</span>
+                  <span className="text-sbb-red">{data.hallucination_rate}% {isEn ? 'Distorted' : 'Verzerrt'}</span>
+                </div>
+                <div className="w-full h-2.5 bg-zinc-200 flex overflow-hidden">
+                  <div
+                    className="h-full bg-zinc-600"
+                    style={{ width: `${Math.max(0, 100 - data.hallucination_rate)}%` }}
+                    title={isEn ? 'Accurate Context' : 'Korrekter Kontext'}
+                  />
+                  <div
+                    className="h-full bg-sbb-red"
+                    style={{ width: `${Math.min(100, data.hallucination_rate)}%` }}
+                    title={isEn ? 'Hallucinated / Conflated Claims' : 'Halluzinierte / vermischte Aussagen'}
+                  />
+                </div>
+                <div className="flex justify-between text-[9px] text-zinc-600">
+                  <span>{100 - data.hallucination_rate}% {isEn ? 'Corporate Facts' : 'Faktentreu'}</span>
+                  <span className="text-sbb-red font-bold">{data.hallucination_rate}% {isEn ? 'Narrative Drift' : 'Narrativ-Drift'}</span>
+                </div>
+              </div>
+
+              {/* Bar 3: Search-Grounded LLM Output (After GEO Fact Block) */}
+              <div className="p-3.5 bg-emerald-50/40 border border-emerald-300 space-y-2">
+                <div className="flex items-center justify-between text-[10px] uppercase font-bold">
+                  <span className="text-emerald-950">{isEn ? '3. AFTER GEO FACT SCHEMA' : '3. NACH GEO-FAKTENSCHEMA'}</span>
+                  <span className="text-emerald-700">~95% {isEn ? 'Aligned' : 'Konsistent'}</span>
+                </div>
+                <div className="w-full h-2.5 bg-zinc-200 flex overflow-hidden">
+                  <div className="h-full bg-emerald-600" style={{ width: '95%' }} />
+                  <div className="h-full bg-amber-400" style={{ width: '5%' }} />
+                </div>
+                <div className="flex justify-between text-[9px] text-emerald-900">
+                  <span className="font-bold">95% {isEn ? 'Verified Pull-Through' : 'Verifizierte Übernahme'}</span>
+                  <span>~5% {isEn ? 'Stochastic Variance' : 'Restvarianz'}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Simulated Query Bar */}
           <div className="bg-sbb-cloud/80 p-4 border border-sbb-aluminum flex items-center gap-3">
             <Search className="w-5 h-5 text-sbb-red shrink-0" />
