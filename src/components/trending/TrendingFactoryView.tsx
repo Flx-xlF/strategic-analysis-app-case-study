@@ -110,8 +110,8 @@ export const TrendingFactoryView: React.FC<Props> = ({
             </h1>
             <p className="text-sm text-sbb-stone mt-1 max-w-3xl leading-relaxed">
               {isEn
-                ? 'Aligns corporate communications again across global silos: filters 1.42M internal files into 42 canonical Golden Sources, strips negative framings, and equips regional teams with bridging playbooks that reinforce the main narrative.'
-                : 'Richtet die Unternehmenskommunikation über globale Silos hinweg wieder konsistent aus: filtert 1,42 Mio. Dateien auf 42 Golden Sources, verhindert Negativ-Frames und befähigt Länderteams mit klaren Bridging-Playbooks.'}
+                ? 'Aligns global and country teams around 42 verified Golden Sources (filtering out 1.42M unapproved vault files) and enforces shared GEO standards so every regional adaptation consistently reinforces the company’s position in media and AI search.'
+                : 'Richtet globale und lokale Teams auf 42 geprüfte Golden Sources aus (aus 1,42 Mio. Vault-Dateien) und verankert gemeinsame GEO-Standards, damit jede regionale Adaption die Unternehmensposition in Medien und KI-Suche konsistent stärkt.'}
             </p>
           </div>
 
@@ -407,13 +407,13 @@ export const TrendingFactoryView: React.FC<Props> = ({
               <div className="space-y-0.5">
                 <span className="text-xs font-mono font-bold uppercase tracking-wider text-sbb-black block">
                   {isEn
-                    ? 'STRATEGIC & GEO WORKING SCAFFOLD (BRIDGING LOCKED // REQUIRES HUMAN ITERATION)'
-                    : 'STRATEGISCHES & GEO-ARBEITSGERÜST (BRIDGING FIXIERT // MENSCHLICHE ITERATION ERFORDERLICH)'}
+                    ? 'SHARED GEO FRAMEWORK & REGIONAL WORKING SCAFFOLD (REQUIRES HUMAN ITERATION)'
+                    : 'GEMEINSAMES GEO-FRAMEWORK & REGIONALES ARBEITSGERÜST (MENSCHLICHE ITERATION ERFORDERLICH)'}
                 </span>
                 <span className="text-[11px] text-sbb-stone block">
                   {isEn
-                    ? 'No single LLM pass yields ready-to-send copy. AI strips negative framings, proposes bridging tactics, and structures GEO facts; humans iterate the final 20%.'
-                    : 'Kein einzelner LLM-Lauf liefert versandfertige Texte. Die KI eliminiert Negativ-Frames, schlägt Bridging-Taktiken vor und strukturiert GEO-Fakten; das Team iteriert den Feinschliff.'}
+                    ? 'Gives every team a consistent GEO structure anchored in Golden Sources GS-01–GS-03 so AI search engines and journalists receive the same verified facts; human specialists iterate the final 20%.'
+                    : 'Gibt jedem Team eine konsistente GEO-Struktur auf Basis der Golden Sources GS-01–GS-03, damit KI-Suchmaschinen und Medien dieselben geprüften Fakten erhalten; das Team iteriert die letzten 20%.'}
                 </span>
               </div>
 

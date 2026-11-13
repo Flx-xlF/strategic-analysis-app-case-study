@@ -1,6 +1,6 @@
 # Terrain: Two-Way Strategic Communications & GEO Prototype
 
-> **The Core Premise:** In the age of capable LLMs and AI search, traditional PR tools have lost their grip. Internally, global communications easily fragment across regional silos, millions of vault files, and ad-hoc AI prompting; externally, AI answer engines synthesize global coverage before stakeholders ever read a press release. **The key challenge today is finding effective ways to align corporate communications *again*—and to actively shape public and AI reception *again*.**
+> **The Core Premise:** When stakeholders ask AI search engines before reading a press release, fragmented communication becomes a global risk. Internally, company messaging easily splinters across regional teams, millions of vault files, and uncoordinated AI use; externally, AI answer engines pick up those contradictions and turn them into the public record. **The goal of this prototype is simple: get global teams working from the same verified facts and AI-search (GEO) standards—so the company’s own voice, not outside speculation, shapes public perception and AI answers.**
 
 [![Live Demo](https://img.shields.io/badge/Live_Demo-GitHub_Pages-EB0000?style=flat-square&logo=github)](https://flx-xlf.github.io/strategic-analysis-app-case-study/)
 [![Stack](https://img.shields.io/badge/Stack-React_19_%7C_TypeScript_5.9_%7C_Tailwind-black?style=flat-square)](https://react.dev/)
@@ -11,12 +11,12 @@
 
 ## Why This Prototype Exists
 
-To regain narrative consistency inside a complex enterprise and influence public reception outside, communications teams must solve two connected problems:
+To keep global messaging consistent inside a large enterprise and ensure the company's perspective comes through clearly in public media and AI search, communications teams have to solve two connected problems:
 
-1. **Shaping Public & AI Reception Again (Direction 1: Outside-In):**
-   Every week brings tens of thousands of news articles, forum threads, and AI-generated answers. You cannot paste 50,000 articles into an LLM without it making things up, and you cannot trust standard automated sentiment scores (*"76% Neutral"*), because formal trade coverage often hides serious market-access or pricing risks. By combining statistical filtering (`MinHash` + `HDBSCAN` + $z$-score velocity) with targeted LLM audits and **Generative Engine Optimization (GEO)** fact blocks, teams can spot narrative drift early and correct distorted AI search answers.
-2. **Aligning Corporate Communications Again (Direction 2: Top-Down):**
-   Large enterprises hold millions of internal files across SharePoint and Veeva Vault. Pointing a standard chatbot at all of them pulls outdated slides or unapproved drafts. This system locks onto 42 approved **"Golden Sources"**, flags conflicting regional files, strips negative framings (so corporate statements never repeat an accusation into headlines or AI search indices), and proposes **bridging tactics** that reconnect every regional response to the company's main narrative.
+1. **Auditing Public & AI Reception (Direction 1: Outside-In):**
+   Every week brings tens of thousands of news articles, forum threads, and AI-generated answers. You cannot paste 50,000 articles into an LLM without it making things up, and you cannot trust standard sentiment scores (*"76% Neutral"*), because polite trade coverage often hides serious market-access or pricing risks. Instead, this system first uses statistical filtering (`MinHash` deduplication, `HDBSCAN` topic clustering, and $z$-score spike detection) to narrow the noise down to the few topics gaining real momentum. It then checks how the company’s core arguments are coming across in regional media and AI search engines—pinpointing where AI answers mix up facts or repeat critics' claims, so communications leadership knows where to step in and correct the record.
+2. **Aligning Global Teams Around Shared Facts & GEO Standards (Direction 2: Top-Down):**
+   Large enterprises hold millions of internal files across SharePoint and Veeva Vault. Pointing a standard chatbot at all of them pulls outdated slides and conflicting local drafts. To ensure every team consistently reinforces the company's position—both in traditional media and in AI search—this system locks onto 42 approved **"Golden Sources"** and flags outdated regional files. From there, it gives global and country teams a shared **Generative Engine Optimization (GEO) framework** to follow: publishing clear, machine-readable facts that AI search engines can cite accurately, and stress-testing sensitive drafts from multiple stakeholder angles before anything goes out.
 
 ---
 
@@ -63,8 +63,7 @@ To regain narrative consistency inside a complex enterprise and influence public
 
 ## Realistic Boundaries of AI (What It Can and Cannot Do)
 
-* **No "one-shot, ready-to-send" answers—LLMs provide the multi-angle challenge and bridging scaffold; humans iterate:** An LLM will never produce a finished, ready-to-send executive statement in a single pass. Its time-saving value lies in building the **GEO framework**, **strategic scaffold**, and **multi-angle challenge** (simulating how US policymakers, European HTA bodies, Swiss stakeholders, and journalists will react simultaneously)—which human communicators then iterate.
-* **Negative-frame hygiene & bridging to the main corporate narrative:** Under deadline pressure, defensive drafts often repeat a journalist's accusation to deny it (e.g., *"We are not boycotting EU patients"*). Repeating negative framing is damaging both in traditional media and in **GEO** (where search-grounded LLMs index the co-occurring negative keywords on the company's own domain). The workflow uses LLMs to strip hostile framing and propose disciplined **bridging tactics** (*Acknowledge → Bridge → Core Pillar*) that actively reinforce the company's main narrative.
+* **No "one-shot, ready-to-send" answers—LLMs provide the GEO framework and multi-angle challenge; humans iterate:** An LLM will never produce a finished, ready-to-send executive statement in a single pass. Its real value is giving teams a structured **GEO framework** and a fast **multi-angle stress-test**—simulating how US policymakers, European HTA bodies, Swiss stakeholders, and journalists will react at the same time, and flagging if a draft accidentally repeats a critic's accusation—so human communicators can refine the final text with full context.
 * **GEO reduces errors, but does not control third-party LLMs:** Publishing machine-readable facts (`Schema.org` / structured Q&As) on corporate web pages does *not* guarantee 100% obedience by external AI models. However, in search-grounded evaluation runs ($n=20$), structured fact blocks reduced distorted summaries from ~45% to ~5% compared to traditional PR prose.
 * **AI flags patterns; humans make the call:** Statistical models and LLMs are good at spotting volume spikes, clustering texts, and checking drafts against approved wording. Deciding how to weigh legal risk, regulatory timing, and public trust remains a human leadership task.
 

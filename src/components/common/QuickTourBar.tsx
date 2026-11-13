@@ -45,11 +45,11 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
       {
         stepNumber: '01',
         shortLabel: 'Core Premise',
-        headline: 'In the Age of AI Search: How Do We Align Corporate Comms Again—and Shape Public Reception Again?',
+        headline: 'Speaking With One Voice When AI Synthesizes Everything: Shaping Public & AI Reception',
         whatYouSee:
-          'As AI search engines synthesize global coverage in real time and teams use LLMs across silos, traditional PR tools have lost their grip. This prototype explores how to align corporate communications again (Direction 2: Top-Down) and actively shape public & AI reception again (Direction 1: Outside-In).',
+          'When stakeholders ask AI search engines before reading a press release, fragmented messaging becomes a global risk. This prototype shows how global teams can work from the same verified facts and GEO standards (Top-Down) while tracking where media and AI answers distort the company’s position (Outside-In).',
         whyItMatters:
-          'Built as a practical strategy & enablement case study: it shows how statistical filtering, Generative Engine Optimization (GEO), Golden Source governance, and disciplined bridging tactics restore narrative consistency across US, EU, CH, and APAC.',
+          'Connects statistical media filtering and AI-search (GEO) audits with shared Golden Source playbooks—so the company’s own voice, not outside speculation, shapes public perception across US, EU, CH, and APAC.',
         tryThisLabel: 'Switch to Pluvicto Scenario',
         targetTab: 'cockpit',
         targetRegion: 'all',
@@ -96,12 +96,12 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
       },
       {
         stepNumber: '05',
-        shortLabel: 'Bridging, Iteration & IT',
-        headline: '04 Multi-Angle Challenge, Bridging Tactics, Human Iteration & IT Fit',
+        shortLabel: 'Stress-Test, GEO & IT',
+        headline: '04 Multi-Angle Stress-Test, Shared GEO Standards, Human Iteration & IT Fit',
         whatYouSee:
-          'An LLM never delivers a ready-to-send answer in one shot. Instead, it acts as a multi-angle challenger—stripping negative framings/accusations (vital for GEO), proposing bridging tactics back to the main corporate narrative, and exposing blind spots for human iteration.',
+          'An LLM never delivers a finished, ready-to-send answer in one pass. Its strategic value is testing drafts across conflicting stakeholder angles simultaneously, enforcing GEO standards (such as keeping negative accusations out of company statements), and giving humans a strong scaffold to iterate.',
         whyItMatters:
-          'Under time pressure, humans risk repeating hostile frames. The LLM provides the multi-angle challenge, negative-frame hygiene, and GEO scaffold; humans provide judgment, iteration, and Legal/IT alignment (Veeva Vault, SharePoint, Enterprise AI Gateway).',
+          'Combines automated multi-angle challenge and GEO frameworks with human editorial judgment and enterprise IT governance (Veeva Vault, SharePoint, Enterprise AI Gateway).',
         tryThisLabel: 'Toggle Enterprise IT & Method Guide',
         targetTab: 'cascade',
         targetRegion: 'all',
@@ -114,11 +114,11 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
     {
       stepNumber: '01',
       shortLabel: 'Grundthese',
-      headline: 'Im Zeitalter von KI-Suche: Wie richten wir Kommunikation wieder konsistent aus – und prägen Rezeption wieder wirksam?',
+      headline: 'Mit einer Stimme sprechen, wenn KI alles zusammenfasst: Öffentliche Wahrnehmung & KI-Suche steuern',
       whatYouSee:
-        'Weil KI-Antwortmaschinen weltweite Quellen in Echtzeit zusammenfassen und Teams LLMs oft isoliert nutzen, greifen klassische PR-Instrumente zu kurz. Dieser Prototyp zeigt, wie wir Unternehmenskommunikation wieder ausrichten (Top-Down) und öffentliche/KI-Rezeption wieder aktiv prägen (Outside-In).',
+        'Wenn Stakeholder KI-Suchmaschinen vor jeder Pressemitteilung befragen, werden widersprüchliche Botschaften zum globalen Risiko. Dieser Prototyp zeigt, wie Teams weltweit auf Basis derselben Fakten und GEO-Standards arbeiten (Top-Down) und Verzerrungen in Medien sowie KI-Antworten frühzeitig korrigieren (Outside-In).',
       whyItMatters:
-        'Verbindet statistische Rezeptionsanalyse und Generative Engine Optimization (GEO) mit verbindlichen Golden Sources, Negativ-Frame-Hygiene, Bridging-Taktiken und menschlicher Iteration über US, EU, CH und APAC hinweg.',
+        'Verbindet statistische Medienanalyse und KI-Such-Audits (GEO) mit verbindlichen Golden-Source-Playbooks – damit die eigene Position und nicht externe Spekulation die Wahrnehmung in US, EU, CH und APAC prägt.',
       tryThisLabel: 'Zum Pluvicto-Szenario wechseln',
       targetTab: 'cockpit',
       targetRegion: 'all',
@@ -165,12 +165,12 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
     },
     {
       stepNumber: '05',
-      shortLabel: 'Bridging, Iteration & IT',
-      headline: '04 Multi-Winkel-Challenge, Bridging-Taktiken, Iteration & IT-Integration',
+      shortLabel: 'Stresstest, GEO & IT',
+      headline: '04 Multi-Winkel-Stresstest, GEO-Standards, Menschliche Iteration & IT-Integration',
       whatYouSee:
-        'Ein LLM liefert nie auf Knopfdruck die perfekte, versandfertige Antwort. Es dient als Multi-Winkel-Challenger: Es eliminiert Negativ-Framings (zentral für GEO), schlägt Bridging-Taktiken zum Haupt-Narrativ vor und deckt Flanken für die menschliche Iteration auf.',
+        'Ein LLM liefert nie im ersten Durchlauf die fertige Antwort. Sein Wert liegt darin, Entwürfe simultan aus fünf kritischen Stakeholder-Perspektiven zu prüfen, verbindliche GEO-Standards zu sichern (keine Übernahme fremder Vorwürfe) und ein belastbares Gerüst für die menschliche Iteration zu liefern.',
       whyItMatters:
-        'Unter Zeitdruck wiederholen Menschen oft ungewollt den Vorwurf. Die KI liefert Negativ-Frame-Hygiene, Bridging-Vorschläge und Multi-Winkel-Challenge; der Mensch übernimmt Urteilskraft, Iteration und Legal/IT-Integration.',
+        'Verbindet systematische Multi-Winkel-Prüfung und gemeinsame GEO-Frameworks mit menschlicher Urteilskraft sowie sauberer IT-Governance (Veeva Vault, SharePoint, Enterprise AI Gateway).',
       tryThisLabel: 'IT- & Methodik-Guide ein-/ausblenden',
       targetTab: 'cascade',
       targetRegion: 'all',

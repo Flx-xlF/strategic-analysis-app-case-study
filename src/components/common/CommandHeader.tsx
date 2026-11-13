@@ -169,11 +169,11 @@ export const CommandHeader: React.FC<Props> = ({
             <div className="mb-5 p-3.5 bg-white border-l-4 border-sbb-red border border-zinc-200 text-xs text-sbb-black leading-relaxed">
               {isEn ? (
                 <>
-                  <strong>THE CORE PREMISE IN THE AGE OF AI SEARCH:</strong> As capable LLMs and AI answer engines synthesize global fragments in real time, traditional PR tools have lost their grip. The strategic mandate today is to <strong>align corporate communications again</strong> (eliminating internal contradictions across vaults and affiliates) and <strong>successfully influence public reception again</strong> (through statistical reception intelligence, GEO fact structures, negative-frame hygiene, and disciplined bridging to the main narrative).
+                  <strong>THE CORE PREMISE:</strong> When stakeholders ask AI search engines before reading a press release, fragmented communication becomes a global risk. Internally, messaging easily splinters across regional silos and millions of vault files; externally, AI answer engines turn those contradictions into the public record. <strong>This system gets global teams working from the same verified Golden Sources and shared GEO frameworks—so the company’s own voice shapes public perception and AI search.</strong>
                 </>
               ) : (
                 <>
-                  <strong>DIE KERNTHESE IM ZEITALTER VON KI-SUCHE:</strong> Da leistungsfähige LLMs und KI-Antwortmaschinen globale Fragmente in Echtzeit bündeln, greifen klassische PR-Mittel zu kurz. Die Schlüsselaufgabe heute lautet, <strong>Unternehmenskommunikation wieder konsistent auszurichten</strong> (Widersprüche zwischen Silos und Länder-Vaults auflösen) und <strong>öffentliche Rezeption wieder wirksam zu prägen</strong> (durch Rezeptions-Forensik, GEO-Strukturen, Verzicht auf Negativ-Frames und gezieltes Bridging zum Haupt-Narrativ).
+                  <strong>DIE KERNTHESE:</strong> Wenn Stakeholder KI-Suchmaschinen vor jeder Pressemitteilung befragen, wird fragmentierte Kommunikation zum globalen Risiko. Intern zersplittern Botschaften leicht zwischen Ländersilos und Millionen Vault-Dateien; extern machen KI-Antwortmaschinen diese Widersprüche zum öffentlichen Bild. <strong>Dieses System verankert verbindliche Golden Sources und gemeinsame GEO-Standards für alle Teams – damit die eigene Stimme öffentliche Wahrnehmung und KI-Suche prägt.</strong>
                 </>
               )}
             </div>
@@ -259,11 +259,11 @@ export const CommandHeader: React.FC<Props> = ({
                 <p>
                   {isEn ? (
                     <>
-                      <strong>No one-shot answers — Bridging &amp; Human Iteration:</strong> An LLM never delivers a ready-to-send answer in one pass. Its value lies in <strong>stripping negative framings</strong> (critical for GEO), proposing <strong>bridging tactics</strong> back to the main corporate narrative, and running <strong>multi-angle challenges</strong>—which humans then iterate.
+                      <strong>No one-shot answers — GEO Frameworks &amp; Human Iteration:</strong> An LLM never delivers a ready-to-send answer in one pass. Its value lies in providing shared <strong>GEO frameworks</strong>, running simultaneous <strong>multi-angle challenges</strong>, and keeping hostile framing out of company drafts—giving humans a rigorous scaffold to iterate.
                     </>
                   ) : (
                     <>
-                      <strong>Keine One-Shot-Antworten — Bridging &amp; Iteration:</strong> Ein LLM liefert nie im ersten Wurf versandfertige Antworten. Sein Wert liegt im <strong>Vermeiden von Negativ-Frames</strong> (wichtig für GEO), klugen <strong>Bridging-Taktiken</strong> zum Haupt-Narrativ und <strong>Multi-Winkel-Challenges</strong> als Basis für menschliche Iteration.
+                      <strong>Keine One-Shot-Antworten — GEO-Standards &amp; Iteration:</strong> Ein LLM liefert nie im ersten Wurf versandfertige Antworten. Sein Wert liegt in verbindlichen <strong>GEO-Strukturen</strong>, simultanen <strong>Multi-Winkel-Stresstests</strong> und dem Schutz vor Negativ-Frames als Basis für die menschliche Iteration.
                     </>
                   )}
                 </p>

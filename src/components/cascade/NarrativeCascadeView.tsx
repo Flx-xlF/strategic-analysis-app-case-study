@@ -124,8 +124,8 @@ export const NarrativeCascadeView: React.FC<Props> = ({
             </span>
             <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-stone">
               {isEn
-                ? 'ITERATIVE STRESS-TEST: MULTI-ANGLE CHALLENGE & BRIDGING → HUMAN REFINEMENT'
-                : 'ITERATIVER STRESSTEST: MULTI-WINKEL-CHALLENGE & BRIDGING → MENSCHLICHE ITERATION'}
+                ? 'ITERATIVE STRESS-TEST: MULTI-ANGLE CHALLENGE & GEO ALIGNMENT → HUMAN REFINEMENT'
+                : 'ITERATIVER STRESSTEST: MULTI-WINKEL-CHALLENGE & GEO-ABGLEICH → MENSCHLICHE ITERATION'}
             </span>
           </div>
 
