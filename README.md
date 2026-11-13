@@ -1,150 +1,99 @@
-# 🇨🇭 Terrain Analytics (Architecture & Demo)
+# Terrain: Two-Way Strategic Communications & GEO Prototype
 
-> Industrial-grade Strategic Media Intelligence & Enterprise RAG platform. Users can upload any documents (PDFs, media inquiries, press statements, strategy dossiers, guidelines), which are automatically analyzed, structured, and indexed by AI into actionable strategic intelligence. Built with an adversarial stress-testing engine, contradiction detection, Swiss Brutalist high-density UI, and zero-trust multi-tenant isolation.
+> A working prototype exploring a practical question for global communications teams: **How do we track how our company is portrayed across tens of thousands of news articles and AI search answers—and how do we help regional teams respond quickly with consistent, fact-checked messaging?**
 
-[![Architecture Case Study](https://img.shields.io/badge/Architecture-Case_Study-000000?style=flat-square&logo=gitbook&logoColor=white)](#-architecture-overview)
-[![Live Demo](https://img.shields.io/badge/Interactive_Sandbox-GitHub_Pages-EB0000?style=flat-square&logo=github)](https://flx-xlf.github.io/strategic-analysis-app-case-study/)
-[![Frontend](https://img.shields.io/badge/Frontend-React_19_%7C_TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://react.dev/)
-[![AI Engine](https://img.shields.io/badge/AI_Engine-Gemini_2.5_%7C_Vertex_AI-8E75B2?style=flat-square&logo=googlegemini&logoColor=white)](https://cloud.google.com/vertex-ai)
-[![Design System](https://img.shields.io/badge/Design_System-Swiss_Brutalist_1px-black?style=flat-square)](https://flx-xlf.github.io/strategic-analysis-app-case-study/)
-[![License: Case Study](https://img.shields.io/badge/License-Case_Study_%2F_Proprietary-lightgrey?style=flat-square)](LICENSE)
-[![Ko-fi](https://img.shields.io/badge/Ko--fi-Tip_Me-FF5E5B?style=flat-square&logo=kofi)](https://ko-fi.com/flxxlf)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-GitHub_Pages-EB0000?style=flat-square&logo=github)](https://flx-xlf.github.io/strategic-analysis-app-case-study/)
+[![Stack](https://img.shields.io/badge/Stack-React_19_%7C_TypeScript_5.9_%7C_Tailwind-black?style=flat-square)](https://react.dev/)
+
+👉 **Live Interactive Prototype:** [https://flx-xlf.github.io/strategic-analysis-app-case-study/](https://flx-xlf.github.io/strategic-analysis-app-case-study/)
 
 ---
 
-## 🧭 Interactive Sandbox Demo
+## Why This Prototype Exists
 
-Explore the high-density analytical interface and intelligence simulations directly in your browser:  
-👉 **[https://flx-xlf.github.io/strategic-analysis-app-case-study/](https://flx-xlf.github.io/strategic-analysis-app-case-study/)**
+Global corporate communications teams face two practical data problems that standard monitoring tools and standalone chat prompts cannot solve:
 
-* **Pre-Seeded High-Stakes Scenarios (Designed for Communication Professionals):**
-  * 🚄 **Alpen-Basistunnel (Verdacht auf Cyber-Sabotage):** Krisenkommunikation & Infrastruktur — Red-Teaming einer Krisenlage nach Leitsystem-Totalausfall, mediale Zuspitzung und Stakeholder-Gegenreaktionen.
-  * 🛡️ **Medienanfrage: ESG-Verstöße bei Staudamm-Projekt:** Investigative Recherche & ESG — Prüfung eingehender Investigativ-Fragen gegen bestehende Unternehmensdoktrinen und Erkennung von Widersprüchen.
-  * 🏛️ **Öffentliche Debatte: Cloud-Migration von Gesundheitsdaten:** Reputationsmanagement & Public Affairs — Frühwarn-Monitoring viraler Diskussionen und Generierung freigabefähiger Vorlagen (*Hintergrund*, *Social Media*, *Talking Points*, *Q&A*).
-* **100% Client-Side Simulation:** Runs fully in-browser with zero backend dependencies, deterministic LLM streaming replays, and zero cloud costs.
+1. **Outside-In (Analyzing the external mountain of data):**
+   Every week brings tens of thousands of news articles, forum threads, and AI-generated summaries. You cannot paste 50,000 articles into an LLM without it making things up. And you cannot trust standard automated sentiment scores (e.g., *"74% Neutral"*), because polite trade press coverage often hides serious business risks—such as insurance payers questioning a clinical trial subgroup to push down drug reimbursement.
+2. **Top-Down (Managing the internal mountain of documents):**
+   Large enterprises hold millions of internal files across SharePoint, Veeva Vault, and shared drives. Pointing a standard RAG chatbot at all of them retrieves outdated slides or unapproved drafts. Communications teams need a strict filter that locks onto a small number of approved "Golden Sources" and translates them into clear regional playbooks for the US, Europe, Switzerland, and Asia-Pacific.
 
 ---
 
-## ✨ Key Features
+## How the Two-Way System Works
 
-### 1. 🧭 Strategic Compass & Adversarial Narrative Cascade
-* **Dual Operational Modes:** 
-  * **Scout Mode:** Scans emergent narratives across national media to detect unaddressed thematic opportunities.
-  * **Validator Mode:** Subjects planned communications to ruthless Red Team stress-testing before public release.
-* **Dynamic Stakeholder Flow:** Simulates communications ripple effects:
-  $$\text{Draft Message} \longrightarrow \text{Adversarial Headline} \longrightarrow \text{Stakeholder Reactions} \longrightarrow \text{Second-Order Effects} \longrightarrow \text{Risk Index (0–10)}$$
-* **Contextual Dossier Evidence:** Each simulated reaction node cites grounded source articles with interactive confidence scores.
-
-### 2. 🔍 Media Inquiry Mode & Contradiction Auditing
-* **High-Fidelity Comparative Extraction:** Compares official institutional stances (*Wordings / Q&As*) directly against incoming journalist questions and investigative drafts.
-* **Contradiction Detection:** Surfaces subtle discrepancies between historical press statements and current positioning before statements are issued.
-* **Structured Synthesis:** Dissects arguments into structured components: *Core Thesis*, *Stated Position*, *Detected Friction Points*, and *Recommended Clarification*.
-
-### 3. 🏭 Trending Narratives & Content Factory
-* **Viral Tipping-Point Detection:** Identifies fast-moving stories across regional news outlets before they reach national saturation.
-* **Meta-Communication Blueprints:** Instead of generic PR copy, the **Content Factory** generates targeted strategic blueprints:
-  * **Hintergrund-Artikel:** Narrative architecture and contextual depth for investigative journalists.
-  * **Social Media:** Fact-dense, neutral rebuttals tailored for rapid-response channels.
-  * **Talking Points:** Framing guardrails, psychological hooks, and verbatim soundbites for spokespersons.
-  * **Q&A Briefs:** Defensive answers for potential high-friction press inquiries.
-
-### 4. 📄 Universal Document Ingestion & AI Structuring
-* **Flexible Any-Document Upload:** Users can upload any corporate or institutional documents—such as media inquiries, policy papers, strategy dossiers, press releases, reports, or internal guidelines.
-* **Automated AI Analysis & Structuring:** Ingested documents are immediately parsed, vectorized, and structured into verified knowledge assets, extracting core theses, institutional stances, and factual citations without manual curation.
-* **Seamless Analytical Synthesis:** Structured content feeds directly into contradiction auditing, stakeholder cascade simulations, and channel-specific briefing generators.
-
-### 5. 📚 Multi-Lane Enterprise RAG & Truth Ledger
-* **Hybrid Retrieval Architecture:** Parallel lane retrieval orchestrating Vertex AI Discovery Engine, dense vector search (`text-embedding-004`), and sovereign relational stores.
-* **Truth Ledger Fact-Checking:** Binds every LLM claim to exact line citations inside the official document corpus.
-* **Resilient Ingestion Pipeline:** Cloud-native two-pass ingestion featuring post-hoc deduplication, exponential backoff, and robust rate-limit safeguarding.
-
-### 6. 🇨🇭 Swiss Brutalist High-Density UI
-* **The 1px Hairline Law:** Absolute zero `border-radius` ($0\text{px}$ across all primitives), unified 1px aluminum structural grids, and functional high-density layouts.
-* **Railway Signage Typography:** Monospaced, high-tracking signage typography for telemetry badges paired with legible, tightly leaded sans-serif typography for narrative synthesis.
-* **Multi-Tenant White-Label Tokens:** Brand-agnostic CSS custom properties enabling rapid tenant re-theming without sacrificing brutalist visual precision.
-
-### 7. ⚡ Sovereign Stream Transport & Lifecycle Management
-* **Unified Transport Hook:** Centralized stream orchestrator powering all analytical views with resilient error boundaries.
-* **Atomic Abort Controller:** Instant cancellation of in-flight multi-step inference chains across the client and backend.
-* **Zero-Trust Multi-Tenancy:** Strict tenant boundary enforcement at retrieval, prompt construction, and caching layers.
-
----
-
-## 🛠️ Technology Stack
-
-| Layer | Technology | Engineering Rationale |
-|---|---|---|
-| **Frontend Framework** | React 19 + TypeScript 5.9 | Concurrent rendering, strict typing across data contracts, and zero-runtime bugs |
-| **Styling & Tokens** | Tailwind CSS + Vanilla CSS Tokens | Custom 1px Swiss Brutalist design system with strict token agnosticism |
-| **Design Aesthetics** | Swiss Railway Signage Standard | High-density information architecture with zero border-radius and rigid hairlines |
-| **AI Orchestration** | Google Vertex AI + Gemini 2.5 | Enterprise RAG in `europe-west4`, multi-tier fallback (Pro / Flash / Flash-Lite) |
-| **Vector & Retrieval** | Vertex AI Search + Discovery Engine | Parallel semantic search and hybrid reciprocal rank fusion (RRF) |
-| **Backend Core** | Python 3.14 + Flask / Gunicorn | High-concurrency SSE stream endpoints and Pydantic-enforced schemas |
-| **Data Persistence** | Google Cloud Storage + Cloud Firestore | Tenant-partitioned document vaults and sharded response caching |
-
----
-
-## 🏛️ System Architecture
-
-```mermaid
-flowchart TD
-    subgraph UI ["Swiss Brutalist Frontend (React 19 / TypeScript)"]
-        SC["Strategic Compass (Scout / Validator)"]
-        MI["Media Inquiry Workstation"]
-        TN["Trending Narratives + Content Factory"]
-        UST["useMockStream / Stream Transport Core"]
-    end
-
-    subgraph API ["Backend Orchestration (Python / Flask)"]
-        CR["Context & Tenant Router"]
-        PE["Agnostic Prompt Engine (Doctrine Hoisting)"]
-        RE["Parallel Retrieval Engine"]
-    end
-
-    subgraph Intelligence ["Google Cloud Platform (europe-west4)"]
-        VAI["Vertex AI Discovery Engine"]
-        GEM["Gemini 2.5 Multi-Tier (Pro / Flash)"]
-        FS["Cloud Firestore (Tenant-Partitioned Cache)"]
-        GCS["Cloud Storage (Truth Ledger Corpus)"]
-    end
-
-    SC & MI & TN --> UST
-    UST -- "SSE Stream Requests" --> CR
-    CR --> PE
-    CR --> RE
-    RE -- "Parallel Vector RRF" --> VAI
-    RE -- "Corpus Verification" --> GCS
-    PE & RE -- "Context-Injected Prompts" --> GEM
-    GEM -- "Tokens + Stream Chunks" --> UST
-    CR -- "Two-Phase Caching" --> FS
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────┐
+│                         DIRECTION 1: OUTSIDE-IN (ANALYZE & MEASURE)                  │
+│                                                                                      │
+│  48,000+ Raw Items ──► MinHash Dedup ──► HDBSCAN Clusters ──► z-Score & Cosine Check │
+│                                                                      │               │
+│                                                                      ▼               │
+│               [01 Regional Cockpit] ◄────────► [02 Cluster & AI Answer Audit]        │
+└──────────────────────────────────────────┬───────────────────────────────────────────┘
+                                           │
+                          HUMAN EDITORIAL & LEGAL JUDGMENT
+                                           │
+┌──────────────────────────────────────────▼───────────────────────────────────────────┐
+│                         DIRECTION 2: TOP-DOWN (DEFINE & ENABLE)                      │
+│                                                                                      │
+│  1.42M Internal Files ──► Status Filter ──► 42 Golden Sources ──► Conflict Alerts    │
+│                                                                      │               │
+│                                                                      ▼               │
+│             [03 Regional Playbooks] ◄────────► [04 Draft Stress-Test & Inquiry Check]│
+└──────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
+### Direction 1: Outside-In (Modules 01 & 02)
+* **Statistical filtering before LLMs:** Instead of feeding raw noise into an AI model, a 4-stage pipeline first collapses wire reprints (`MinHash`), groups articles into topic clusters (`HDBSCAN`), and measures volume spikes ($z$-score) and alignment with company messaging (cosine similarity). LLMs are only used at the end to read the ~340 representative cluster texts.
+* **Regional Cockpit (`01`):** Compares how a topic is framed across **North America (US)**, **Europe (EU)**, **Switzerland (CH)**, and **Asia-Pacific (APAC)** across traditional media, social forums, and AI search engines.
+* **Cluster & AI Answer Audit (`02`):** Shows the actual articles driving a cluster and audits what AI answer engines (ChatGPT, Perplexity, Gemini) tell doctors, investors, or journalists. Clickable red highlights show where the AI distorts facts—and how providing a structured fact block (**Generative Engine Optimization / GEO**) reduces those errors.
+
+### Direction 2: Top-Down (Modules 03 & 04)
+* **Global-to-Regional Playbook (`03`):** Filters 1.42M internal documents down to 42 approved "Golden Sources" and flags outdated files in regional folders that contradict new data. Cascades global core messages into regional templates (`FDA`, `EMA`, `Swissmedic`, `APAC`) across background briefings, social posts, executive talking points, and Q&As.
+* **Draft Stress-Test & Inquiry Check (`04A` & `04B`):**
+  * **04A (Draft Stress-Test):** Compares an uncalibrated draft (`Draft A`) against a corrected version (`Draft B`) to preview likely critical headlines and 48-hour reactions from payers, regulators, and patient groups.
+  * **04B (Journalist Inquiry Check):** Breaks down tough investigative press questions into the underlying trap, the legal/regulatory boundary, and a clear, plain-language response.
+
 ---
 
-## 🚀 Interactive Exploration
+## Realistic Boundaries of AI (What It Can and Cannot Do)
 
-To explore the frontend interface locally without configuring Google Cloud Platform or Vertex AI credentials:
+* **GEO reduces errors, but does not control third-party LLMs:** Publishing machine-readable facts (`Schema.org` / structured Q&As) on corporate web pages does *not* guarantee 100% obedience by external AI models. However, in search-grounded evaluation runs ($n=20$), structured fact blocks reduced distorted summaries from ~45% to ~5% compared to traditional PR prose.
+* **AI flags patterns; humans make the call:** Statistical models and LLMs are good at spotting volume spikes, clustering texts, and checking drafts against approved wording. Deciding how to weigh legal risk, regulatory timing, and public trust remains a human leadership task.
+
+---
+
+## How This Integrates Into an Existing Enterprise IT Environment (Realistic Outlook)
+
+This repository is a **client-side prototype** (running entirely in the browser with pre-built scenarios for fast review). In a real global pharmaceutical environment such as Novartis, this system would not be built as a standalone "shadow IT" silo. While exact internal configurations vary, a production deployment realistically connects to four existing enterprise layers:
+
+| Layer | Existing Corporate Systems | How This System Connects |
+|---|---|---|
+| **1. External Feeds (Outside-In)** | Licensed media & social aggregators (*Factiva, Meltwater, Talkwalker*) + public LLM APIs | Ingests article streams via standard REST webhooks; runs scheduled regional prompts against search-grounded LLMs to audit public AI answers. |
+| **2. Document Governance (Top-Down)** | **Veeva Vault** (*PromoMats / MedComms*) & **Microsoft SharePoint / M365** | Connects read-only via Veeva API and Microsoft Graph API. Strictly inherits existing **Role-Based Access Control (RBAC)** and only indexes documents marked `Approved` / `Effective`. |
+| **3. Cloud Compute & Private AI** | Corporate Cloud VPC (*Azure / AWS*) + Data Platform (*Databricks / Snowflake*) | Statistical clustering (MinHash, HDBSCAN) runs as scheduled Python jobs. All LLM calls route through the internal **Enterprise AI Gateway** (zero data retention, no training on company data, GDPR/FADP/GxP compliant). |
+| **4. Identity & Compliance Audit** | Corporate SSO (*Entra ID / Okta*) & MLR Review Workflows | Authenticates users via SSO and logs an immutable audit trail (which Golden Source document ID and version backed each generated draft). |
+
+---
+
+## Pre-Loaded Scenarios (EN / DE)
+
+Switch between **English (`EN`)** and **German (`DE`)** and filter by world region (`ALL`, `US`, `EU`, `CH`, `APAC`) across four scenarios:
+1. **Phase III Oncology Readout (Default):** Handling subgroup questions, US/EU payer pushback, patient reassurance, and AI search distortions.
+2. **Alpine Base Tunnel Disruption:** Communicating hardware diagnostics and passenger safety while countering cross-border cyber-sabotage rumors.
+3. **Supply Chain Labor Standards Inquiry:** Aligning Comms, Legal, and Procurement under EU due diligence rules (CSDDD) after NGO allegations.
+4. **Cloud Infrastructure for Health Records:** Explaining cryptographic key custody (BYOK) in plain language to skeptical physicians and citizens.
+
+---
+
+## Running Locally
 
 ```bash
-# 1. Clone the case study repository
 git clone https://github.com/Flx-xlF/strategic-analysis-app-case-study.git
 cd strategic-analysis-app-case-study
-
-# 2. Install dependencies
 npm install
-
-# 3. Start development server
 npm run dev
-
-# 4. Build production bundle (<90 kB gzipped)
-npm run build
 ```
 
----
-
-## 📄 Case Study Notice & Attribution
-
-This repository is published as a **Public Architecture Case Study & Technical Showcase**. The underlying proprietary production ingestion services, live enterprise API endpoints, and private corporate datasets remain closed source.
-
-Built with care (and a bit of madness) by [schema/f](https://github.com/Flx-xlF).  
-☕ Enjoy my work? [Tip me on Ko-fi](https://ko-fi.com/flxxlf).
+*Note: Built as a conceptual and functional case study demonstrating practical AI enablement, statistical filtering, and cross-functional governance for corporate communications.*

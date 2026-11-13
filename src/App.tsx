@@ -1,43 +1,29 @@
 import React, { useState } from 'react';
-import { SCENARIOS, ScenarioMeta } from './fixtures/scenarios';
+import { getScenarios, ScenarioMeta, Language } from './fixtures/scenarios';
+import { WorldRegionId } from './fixtures/cockpitFixtures';
 import { CommandHeader, ActiveTab } from './components/common/CommandHeader';
-import { NarrativeCascadeView } from './components/cascade/NarrativeCascadeView';
-import { MediaInquiryView } from './components/inquiry/MediaInquiryView';
+import { NarrativeCockpitView } from './components/cockpit/NarrativeCockpitView';
+import { GeoAuditView } from './components/geo/GeoAuditView';
 import { TrendingFactoryView } from './components/trending/TrendingFactoryView';
+import { StressTestAndInquiryView } from './components/cascade/StressTestAndInquiryView';
 
 export const App: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<ActiveTab>('cascade');
-  const [selectedScenario, setSelectedScenario] = useState<ScenarioMeta>(SCENARIOS[0]);
-  const [isStreaming, setIsStreaming] = useState(false);
-  const [streamProgress, setStreamProgress] = useState(100);
+  const [lang, setLang] = useState<Language>('en');
+  const [activeTab, setActiveTab] = useState<ActiveTab>('cockpit');
+  const [selectedRegion, setSelectedRegion] = useState<WorldRegionId>('all');
+  const [showConceptGuide, setShowConceptGuide] = useState<boolean>(false);
+  
+  // Keep scenarios in sync with current language
+  const scenariosList = getScenarios(lang);
+  const [selectedScenarioId, setSelectedScenarioId] = useState<string>(scenariosList[0].id);
 
-  const handleSimulate = () => {
-    setIsStreaming(true);
-    setStreamProgress(0);
-
-    const interval = window.setInterval(() => {
-      setStreamProgress((prev: number) => {
-        if (prev >= 100) {
-          window.clearInterval(interval);
-          setIsStreaming(false);
-          return 100;
-        }
-        return prev + 20;
-      });
-    }, 120);
-  };
-
-  const handleAbort = () => {
-    setIsStreaming(false);
-    setStreamProgress(100);
-  };
+  const selectedScenario = scenariosList.find(s => s.id === selectedScenarioId) || scenariosList[0];
 
   const handleSelectScenario = (sc: ScenarioMeta) => {
-    setSelectedScenario(sc);
-    if (sc.id === 'alpine_transit_crisis') setActiveTab('cascade');
-    else if (sc.id === 'esg_investigation') setActiveTab('inquiry');
-    else if (sc.id === 'health_data_breach') setActiveTab('trending');
+    setSelectedScenarioId(sc.id);
   };
+
+  const isEn = lang === 'en';
 
   return (
     <div className="min-h-screen bg-[#F4F4F6] text-sbb-black flex flex-col font-sans selection:bg-sbb-red selection:text-white">
@@ -45,35 +31,58 @@ export const App: React.FC = () => {
         activeTab={activeTab}
         setActiveTab={setActiveTab}
         selectedScenario={selectedScenario}
+        scenariosList={scenariosList}
         onSelectScenario={handleSelectScenario}
-        onSimulate={handleSimulate}
-        isStreaming={isStreaming}
-        onAbort={handleAbort}
+        selectedRegion={selectedRegion}
+        onSelectRegion={setSelectedRegion}
+        showConceptGuide={showConceptGuide}
+        onToggleConceptGuide={() => setShowConceptGuide(prev => !prev)}
+        lang={lang}
+        setLang={setLang}
       />
 
-      {/* Main Workspace Stage with generous whitespace and clear structural focus */}
+      {/* Main Workspace Stage */}
       <main className="flex-1 max-w-[1600px] w-full mx-auto px-6 sm:px-10 py-8 lg:py-10">
-        {activeTab === 'cascade' && (
-          <NarrativeCascadeView
+        {activeTab === 'cockpit' && (
+          <NarrativeCockpitView
             scenarioId={selectedScenario.id}
-            isStreaming={isStreaming}
-            streamProgress={streamProgress}
+            lang={lang}
+            selectedRegion={selectedRegion}
+            onSelectRegion={setSelectedRegion}
+            onNavigateTab={setActiveTab}
+            isStreaming={false}
+            streamProgress={100}
           />
         )}
 
-        {activeTab === 'inquiry' && (
-          <MediaInquiryView
+        {activeTab === 'geo' && (
+          <GeoAuditView
             scenarioId={selectedScenario.id}
-            isStreaming={isStreaming}
-            streamProgress={streamProgress}
+            lang={lang}
+            selectedRegion={selectedRegion}
+            onSelectRegion={setSelectedRegion}
+            isStreaming={false}
+            streamProgress={100}
           />
         )}
 
         {activeTab === 'trending' && (
           <TrendingFactoryView
             scenarioId={selectedScenario.id}
-            isStreaming={isStreaming}
-            streamProgress={streamProgress}
+            lang={lang}
+            selectedRegion={selectedRegion}
+            onSelectRegion={setSelectedRegion}
+            isStreaming={false}
+            streamProgress={100}
+          />
+        )}
+
+        {activeTab === 'cascade' && (
+          <StressTestAndInquiryView
+            scenarioId={selectedScenario.id}
+            lang={lang}
+            isStreaming={false}
+            streamProgress={100}
           />
         )}
       </main>
@@ -83,18 +92,21 @@ export const App: React.FC = () => {
         <div className="max-w-[1600px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <div className="w-2.5 h-2.5 bg-sbb-red" />
-            <span className="font-bold text-sbb-black">TERRAIN STRATEGIC MEDIA INTELLIGENCE</span>
-            
+            <span className="font-bold text-sbb-black">TERRAIN STRATEGIC COMMS COCKPIT & ENABLEMENT ARCHITECTURE</span>
+            <span className="text-zinc-400">//</span>
+            <span>{isEn ? 'Two-Way Statistical & LLM Sandbox' : 'Zwei-Wege-System für statistische & LLM-Reputationssteuerung'}</span>
           </div>
           <div className="flex items-center gap-6">
-            
+            <span className="text-zinc-400">
+              {isEn ? 'Outside-In Measurement ↔ Top-Down Regional Enablement' : 'Outside-In Messung ↔ Top-Down Regionale Befähigung'}
+            </span>
             <a
               href="https://github.com/Flx-xlF/strategic-analysis-app-case-study"
               target="_blank"
               rel="noreferrer"
               className="text-sbb-black font-bold hover:text-sbb-red transition-colors underline underline-offset-4"
             >
-              QUELLCODE & DOKUMENTATION
+              {isEn ? 'SOURCE CODE & ARCHITECTURE' : 'QUELLCODE & DOKUMENTATION'}
             </a>
           </div>
         </div>

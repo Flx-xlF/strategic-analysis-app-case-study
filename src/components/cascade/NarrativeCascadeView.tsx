@@ -1,5 +1,6 @@
-import React from 'react';
-import { CASCADE_FIXTURES } from '../../fixtures/cascadeFixtures';
+import React, { useState } from 'react';
+import { Language } from '../../fixtures/scenarios';
+import { getCascadeData, CascadeVersionData } from '../../fixtures/cascadeFixtures';
 import { CascadeNode } from './CascadeNode';
 import { RiskGauge } from './RiskGauge';
 import { 
@@ -10,160 +11,240 @@ import {
   Layers, 
   Lightbulb, 
   ShieldAlert, 
-  TrendingUp, 
-  Users 
+  CheckCircle2, 
+  Sparkles,
+  RefreshCw
 } from 'lucide-react';
 
 interface Props {
   scenarioId: string;
+  lang: Language;
   isStreaming: boolean;
   streamProgress: number;
 }
 
 export const NarrativeCascadeView: React.FC<Props> = ({
   scenarioId,
+  lang,
   isStreaming,
   streamProgress
 }) => {
-  const data = CASCADE_FIXTURES[scenarioId] || CASCADE_FIXTURES.alpine_transit_crisis;
+  const [selectedVersion, setSelectedVersion] = useState<'draftA' | 'draftB'>('draftA');
+  const isEn = lang === 'en';
+
+  const data: CascadeVersionData = getCascadeData(lang, scenarioId, selectedVersion);
+  const isDraftA = selectedVersion === 'draftA';
 
   return (
     <div className="space-y-8">
       {/* ═══ WAYFINDING HEADER & EXECUTIVE TELEMETRY RIBBON ═══ */}
-      <div className="bg-white border border-sbb-aluminum p-6 sm:p-8 shadow-sm">
+      <div className="bg-white border border-sbb-aluminum p-6 sm:p-8">
         <div className="flex flex-col md:flex-row md:items-center justify-between pb-6 mb-6 border-b border-zinc-100 gap-4">
           <div>
             <div className="flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-sbb-red uppercase mb-1.5">
               <Layers className="w-4 h-4" />
-              <span>MODUL 01 // BOTSCHAFTS-STRESSTEST</span>
+              <span>{isEn ? 'DIRECTION 2: TOP-DOWN // 04A DRAFT STRESS-TEST' : 'RICHTUNG 2: TOP-DOWN // 04A ENTWURF-STRESSTEST'}</span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-black text-sbb-black tracking-tight">
-              Kaskadensimulation & Stakeholder-Resonanz
+              {isEn ? 'Draft Stress-Test & 48h Stakeholder Reception' : 'Entwurf-Stresstest & 48h Stakeholder-Reaktion'}
             </h1>
             <p className="text-sm text-sbb-stone mt-1 max-w-3xl leading-relaxed">
-              Prüft, wie ein interner Kommunikationsentwurf in den Medien zugespitzt wird und welche Gegenreaktionen bei Schlüsselakteuren innerhalb von 48 Stunden ausgelöst werden.
+              {isEn
+                ? 'Tests how a draft statement is likely to be picked up by the media and how key stakeholders will react within 48 hours—comparing an uncalibrated draft (Draft A) against a corrected version (Draft B).'
+                : 'Prüft, wie ein Entwurf in den Medien aufgegriffen wird und wie wichtige Stakeholder innerhalb von 48 Stunden reagieren – im direkten Vergleich zwischen Erstentwurf (Entwurf A) und korrigierter Fassung (Entwurf B).'}
             </p>
           </div>
 
           <div className="flex items-center gap-3 shrink-0">
-            <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-sbb-cloud border border-sbb-aluminum font-mono text-xs text-sbb-black font-bold">
-              <span className="w-2 h-2 rounded-full bg-sbb-red animate-pulse" />
-              <span>STRESSTEST BEREIT</span>
+            <span className={`inline-flex items-center gap-2 px-3 py-1.5 border font-mono text-xs font-bold ${
+              isDraftA 
+                ? 'bg-red-50 text-sbb-red border-red-200' 
+                : 'bg-emerald-50 text-emerald-800 border-emerald-200'
+            }`}>
+              <span className={`w-2 h-2 ${isDraftA ? 'bg-sbb-red' : 'bg-emerald-600'}`} />
+              <span>{data.version_badge}</span>
             </span>
           </div>
         </div>
 
         {/* Executive KPI Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 pt-2">
-          <div className="p-4 bg-sbb-cloud/50 border-l-2 border-sbb-red">
+          <div className={`p-4 bg-sbb-cloud/50 border-l-2 ${data.risk_score >= 7 ? 'border-sbb-red' : 'border-emerald-600'}`}>
             <div className="text-[10px] font-mono text-sbb-stone uppercase tracking-wider mb-1">
-              RISIKO-SCORE
+              {isEn ? 'REPUTATION RISK SCORE' : 'RISIKO-SCORE'}
             </div>
-            <div className="text-2xl font-black text-sbb-red tracking-tight">
-              {data.risk_score} <span className="text-xs font-normal text-sbb-stone">/ 10</span>
+            <div className={`text-2xl font-black tracking-tight ${data.risk_score >= 7 ? 'text-sbb-red' : 'text-emerald-700'}`}>
+              {data.risk_score} <span className="text-xs font-normal text-sbb-stone font-mono">/ 10</span>
             </div>
-            <div className="text-[10px] font-mono text-sbb-stone mt-1">Erhöhtes Reputationsrisiko</div>
+            <div className="text-[10px] font-mono text-sbb-stone mt-1">{data.risk_level}</div>
           </div>
 
           <div className="p-4 bg-sbb-cloud/50 border-l-2 border-zinc-800">
             <div className="text-[10px] font-mono text-sbb-stone uppercase tracking-wider mb-1">
-              STAKEHOLDER-NODES
+              {isEn ? 'STAKEHOLDER NODES' : 'STAKEHOLDER-NODES'}
             </div>
             <div className="text-2xl font-black text-sbb-black tracking-tight">
               {data.stakeholder_reactions.length}
             </div>
-            <div className="text-[10px] font-mono text-sbb-stone mt-1">Überwachte Akteure</div>
+            <div className="text-[10px] font-mono text-sbb-stone mt-1">{isEn ? 'Simulated Actors' : 'Überwachte Akteure'}</div>
           </div>
 
           <div className="p-4 bg-sbb-cloud/50 border-l-2 border-zinc-800">
             <div className="text-[10px] font-mono text-sbb-stone uppercase tracking-wider mb-1">
-              SCHWACHSTELLEN
+              {isEn ? 'VULNERABILITIES' : 'SCHWACHSTELLEN'}
             </div>
             <div className="text-2xl font-black text-sbb-black tracking-tight">
               {data.vulnerabilities.length}
             </div>
-            <div className="text-[10px] font-mono text-sbb-stone mt-1">Kritische Angriffsflächen</div>
+            <div className="text-[10px] font-mono text-sbb-stone mt-1">{isEn ? 'Identified Weak Spots' : 'Kritische Angriffsflächen'}</div>
           </div>
 
           <div className="p-4 bg-sbb-cloud/50 border-l-2 border-zinc-800">
             <div className="text-[10px] font-mono text-sbb-stone uppercase tracking-wider mb-1">
-              ZEITLICHE DYNAMIK
+              {isEn ? 'ESCALATION WINDOW' : 'ZEITLICHE DYNAMIK'}
             </div>
             <div className="text-2xl font-black text-sbb-black tracking-tight">
-              &lt; 2h
+              {isDraftA ? '< 2h' : 'Stable'}
             </div>
-            <div className="text-[10px] font-mono text-sbb-stone mt-1">Bis Boulevard-Zuspitzung</div>
+            <div className="text-[10px] font-mono text-sbb-stone mt-1">
+              {isDraftA 
+                ? (isEn ? 'Until Media Sensationalism' : 'Bis Boulevard-Zuspitzung') 
+                : (isEn ? 'Controlled News Cadence' : 'Kontrollierte Berichterstattung')}
+            </div>
           </div>
         </div>
       </div>
 
-      {/* ═══ STEP 01: INPUT STRATEGY ═══ */}
+      {/* ═══ STEP 01: INPUT STRATEGY WITH INTERACTIVE DRAFT COMPARISON ═══ */}
       <div className="space-y-3">
-        <div className="flex items-center gap-3">
-          <span className="w-7 h-7 bg-sbb-black text-white font-mono text-xs font-bold flex items-center justify-center">
-            01
-          </span>
-          <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-stone">
-            GEPLANTE BOTSCHAFT (AUSGANGSLAGE)
-          </span>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div className="flex items-center gap-3">
+            <span className="w-7 h-7 bg-sbb-black text-white font-mono text-xs font-bold flex items-center justify-center">
+              01
+            </span>
+            <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-stone">
+              {isEn ? 'COMMUNICATION DRAFT UNDER EVALUATION' : 'GEPLANTE BOTSCHAFT (AUSGANGSLAGE)'}
+            </span>
+          </div>
+
+          {/* Interactive Version Switcher */}
+          <div className="flex items-center gap-1 bg-sbb-cloud p-1 border border-sbb-aluminum">
+            <button
+              onClick={() => setSelectedVersion('draftA')}
+              className={`px-3 py-1 font-mono text-xs font-bold transition-all cursor-pointer ${
+                selectedVersion === 'draftA'
+                  ? 'bg-sbb-black text-white shadow-xs'
+                  : 'text-sbb-stone hover:text-sbb-black'
+              }`}
+            >
+              {isEn ? 'Version A: Uncalibrated' : 'Version A: Rohentwurf'}
+            </button>
+            <button
+              onClick={() => setSelectedVersion('draftB')}
+              className={`px-3 py-1 font-mono text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
+                selectedVersion === 'draftB'
+                  ? 'bg-emerald-700 text-white shadow-xs'
+                  : 'text-sbb-stone hover:text-sbb-black'
+              }`}
+            >
+              <CheckCircle2 className="w-3.5 h-3.5" />
+              <span>{isEn ? 'Version B: Calibrated Fix' : 'Version B: Gestresstet'}</span>
+            </button>
+          </div>
         </div>
 
-        <div className="bg-white border border-sbb-aluminum p-6 sm:p-8 shadow-sm">
+        <div className={`bg-white border p-6 sm:p-8 shadow-sm transition-all ${
+          isDraftA ? 'border-sbb-aluminum' : 'border-emerald-600 ring-1 ring-emerald-200'
+        }`}>
           <div className="flex items-center justify-between pb-3 mb-4 border-b border-zinc-100">
-            <span className="text-xs font-mono font-bold text-sbb-stone uppercase tracking-wider">
-              INTERNER ENTWURF DER MEDIENMITTEILUNG (TEXTVORLAGE)
+            <span className="text-xs font-mono font-bold text-sbb-stone uppercase tracking-wider flex items-center gap-2">
+              <span>{data.version_label}</span>
             </span>
-            <span className="text-[10px] font-mono text-zinc-400">STATUS: IN PRÜFUNG</span>
+            <span className={`text-[10px] font-mono px-2 py-0.5 border ${
+              isDraftA ? 'bg-zinc-100 text-zinc-600 border-zinc-300' : 'bg-emerald-50 text-emerald-800 border-emerald-300 font-bold'
+            }`}>
+              {isDraftA ? (isEn ? 'STATUS: HIGH SCRUTINY' : 'STATUS: UNGEFILTERT') : (isEn ? 'STATUS: APPROVED WORDING' : 'STATUS: FREIGEGEBEN')}
+            </span>
           </div>
-          <p className="text-lg sm:text-xl font-medium text-sbb-black leading-relaxed italic border-l-4 border-sbb-black pl-5 py-1">
+
+          <p className="text-base sm:text-lg font-medium text-sbb-black leading-relaxed italic border-l-4 border-sbb-black pl-5 py-1">
             «{data.communication}»
           </p>
+
+          <div className="mt-4 pt-3 border-t border-zinc-100 flex items-center justify-between text-xs font-mono text-sbb-stone">
+            <span>
+              {isDraftA 
+                ? (isEn ? '💡 Tip: Click "Version B: Calibrated Fix" to see how phrasing changes reduce risk.' : '💡 Tipp: Klicken Sie oben auf "Version B: Gestresstestet", um die Risikosenkung zu vergleichen.')
+                : (isEn ? '✓ Grounded with primary endpoints & explicit patient reassurance.' : '✓ Verankert mit primären Endpunkten & klarer Patientenberuhigung.')}
+            </span>
+            <button
+              onClick={() => setSelectedVersion(isDraftA ? 'draftB' : 'draftA')}
+              className="text-sbb-red hover:underline flex items-center gap-1 font-bold"
+            >
+              <RefreshCw className="w-3 h-3" />
+              <span>{isEn ? 'Toggle Draft' : 'Entwurf wechseln'}</span>
+            </button>
+          </div>
         </div>
       </div>
 
       {/* Flow Indicator */}
       <div className="flex justify-center -my-3">
-        <div className="flex items-center gap-2 px-3 py-1 bg-white border border-sbb-aluminum shadow-xs font-mono text-[10px] text-sbb-stone">
-          <ArrowDown className="w-3.5 h-3.5 text-sbb-red" />
-          <span>ALGORITHMISCHE SIMULATION DES MEDIALEN ECHO-EFFEKTS</span>
+        <div className="flex items-center gap-2 px-3 py-1 bg-white border border-sbb-aluminum font-mono text-[10px] text-sbb-stone">
+          <ArrowDown className={`w-3.5 h-3.5 ${isDraftA ? 'text-sbb-red' : 'text-emerald-600'}`} />
+          <span>{isEn ? 'PROJECTED MEDIA & STAKEHOLDER REACTION (48H)' : 'ERWARTETE MEDIEN- & STAKEHOLDER-REAKTION (48H)'}</span>
         </div>
       </div>
 
-      {/* ═══ STEP 02: MEDIALE ZUSPITZUNG ═══ */}
+      {/* ═══ STEP 02: MEDIALE ZUSPITZUNG (PROJECTED CRITICAL HEADLINE) ═══ */}
       <div className="space-y-3">
         <div className="flex items-center gap-3">
-          <span className="w-7 h-7 bg-sbb-red text-white font-mono text-xs font-bold flex items-center justify-center">
+          <span className={`w-7 h-7 text-white font-mono text-xs font-bold flex items-center justify-center ${
+            isDraftA ? 'bg-sbb-red' : 'bg-emerald-700'
+          }`}>
             02
           </span>
-          <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-red">
-            MEDIALE ZUSPITZUNG
+          <span className={`font-mono text-xs font-bold uppercase tracking-widest ${
+            isDraftA ? 'text-sbb-red' : 'text-emerald-800'
+          }`}>
+            {isEn ? 'MEDIA ECHO SIMULATION: PROJECTED CRITICAL HEADLINE' : 'MEDIALE ECHO-SIMULATION: ERWARTETE KRITISCHE SCHLAGZEILE'}
           </span>
         </div>
 
-        <div className="bg-white border-2 border-sbb-red p-6 sm:p-8 shadow-sm relative overflow-hidden">
-          <div className="absolute top-0 right-0 bg-sbb-red text-white font-mono text-[10px] font-bold px-3 py-1 uppercase tracking-widest flex items-center gap-1.5">
+        <div className={`bg-white border-2 p-6 sm:p-8 relative overflow-hidden ${
+          isDraftA ? 'border-sbb-red' : 'border-zinc-800'
+        }`}>
+          <div className={`absolute top-0 right-0 font-mono text-[10px] font-bold px-3 py-1 uppercase tracking-widest flex items-center gap-1.5 ${
+            isDraftA ? 'bg-sbb-red text-white' : 'bg-zinc-800 text-white'
+          }`}>
             <Flame className="w-3 h-3" />
-            <span>WORST-CASE BOULEVARD-TITEL</span>
+            <span>{isDraftA ? (isEn ? 'PROJECTED CRITICAL HEADLINE' : 'KRITISCHE SCHLAGZEILE') : (isEn ? 'CALIBRATED COVERAGE HEADLINE' : 'SACHLICHE BERICHTERSTATTUNG')}</span>
           </div>
 
-          <div className="text-[11px] font-mono text-sbb-red uppercase tracking-wider font-bold mb-2 flex items-center gap-2">
-            <AlertTriangle className="w-4 h-4" />
-            <span>ERWARTETE TITELZEILE (LEITMEDIEN / BOULEVARD)</span>
+          <div className="text-[11px] font-mono text-sbb-stone uppercase tracking-wider font-bold mb-2 flex items-center gap-2">
+            <AlertTriangle className={`w-4 h-4 ${isDraftA ? 'text-sbb-red' : 'text-zinc-600'}`} />
+            <span>{isEn ? 'PROJECTED MEDIA RECEPTION' : 'ERWARTETE TITELZEILE (LEITMEDIEN / BOULEVARD)'}</span>
           </div>
 
-          <h2 className="text-2xl sm:text-4xl font-black text-sbb-red tracking-tight leading-tight uppercase my-4">
+          <h2 className={`text-xl sm:text-3xl font-black tracking-tight leading-tight uppercase my-4 ${
+            isDraftA ? 'text-sbb-red' : 'text-sbb-black'
+          }`}>
             {data.headline_from_hell}
           </h2>
 
           {/* Vulnerability Tags */}
-          <div className="mt-6 pt-5 border-t border-red-100">
+          <div className="mt-6 pt-5 border-t border-zinc-100">
             <div className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider mb-3">
-              IDENTIFIZIERTE SCHWACHSTELLEN IM NARRATIV:
+              {isEn ? 'IDENTIFIED NARRATIVE VULNERABILITIES:' : 'IDENTIFIZIERTE SCHWACHSTELLEN IM NARRATIV:'}
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {data.vulnerabilities.map((v, i) => (
-                <div key={i} className="p-3 bg-red-50/60 border border-red-200">
-                  <div className="font-bold text-xs text-sbb-red font-mono uppercase mb-1">
+                <div key={i} className={`p-3 border ${
+                  isDraftA ? 'bg-red-50/60 border-red-200' : 'bg-zinc-50 border-zinc-200'
+                }`}>
+                  <div className={`font-bold text-xs font-mono uppercase mb-1 ${
+                    isDraftA ? 'text-sbb-red' : 'text-zinc-800'
+                  }`}>
                     0{i + 1} // {v.topic}
                   </div>
                   <p className="text-xs text-zinc-700 leading-snug">
@@ -180,11 +261,11 @@ export const NarrativeCascadeView: React.FC<Props> = ({
       <div className="flex justify-center -my-3">
         <div className="flex items-center gap-2 px-3 py-1 bg-white border border-sbb-aluminum shadow-xs font-mono text-[10px] text-sbb-stone">
           <ArrowDown className="w-3.5 h-3.5 text-zinc-600" />
-          <span>DIREKTE AUSWIRKUNGEN AUF STAKEHOLDER & MEINUNGSBILDNER</span>
+          <span>{isEn ? 'KEY STAKEHOLDER & INFLUENCER REACTIONS (24-48H)' : 'DIREKTE AUSWIRKUNGEN AUF STAKEHOLDER & MEINUNGSBILDNER'}</span>
         </div>
       </div>
 
-      {/* ═══ STEP 03: STAKEHOLDER-DYNAMIK ═══ */}
+      {/* ═══ STEP 03: STAKEHOLDER DYNAMICS ═══ */}
       <div className="space-y-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -192,11 +273,11 @@ export const NarrativeCascadeView: React.FC<Props> = ({
               03
             </span>
             <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-stone">
-              STAKEHOLDER-REAKTIONEN (INNERHALB 24H)
+              {isEn ? 'STAKEHOLDER COUNTER-REACTIONS' : 'STAKEHOLDER-REAKTIONEN (INNERHALB 24H)'}
             </span>
           </div>
           <span className="text-[10px] font-mono text-sbb-stone hidden sm:inline-block">
-            {data.stakeholder_reactions.length} AKTEURE SIMULIERT
+            {data.stakeholder_reactions.length} {isEn ? 'ACTORS SIMULATED' : 'AKTEURE SIMULIERT'}
           </span>
         </div>
 
@@ -215,7 +296,7 @@ export const NarrativeCascadeView: React.FC<Props> = ({
               04
             </span>
             <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-stone">
-              FOLGEWIRKUNGEN ZWEITER ORDNUNG
+              {isEn ? 'SECOND-ORDER REPUTATIONAL & BUSINESS EFFECTS' : 'FOLGEWIRKUNGEN ZWEITER ORDNUNG'}
             </span>
           </div>
 
@@ -226,14 +307,14 @@ export const NarrativeCascadeView: React.FC<Props> = ({
                   <div>
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-[10px] font-mono font-bold uppercase text-sbb-stone">
-                        FOLGEEFFEKT 0{i + 1}
+                        {isEn ? `IMPACT 0${i + 1}` : `FOLGEEFFEKT 0${i + 1}`}
                       </span>
                       <span className={`text-[9px] font-mono font-bold px-2 py-0.5 uppercase ${
                         effect.probability === 'high' 
                           ? 'bg-red-100 text-sbb-red' 
                           : 'bg-zinc-200 text-zinc-700'
                       }`}>
-                        WAHRSCHEINLICHKEIT: {effect.probability === 'high' ? 'HOCH' : 'MITTEL'}
+                        {isEn ? `PROBABILITY: ${effect.probability.toUpperCase()}` : `WAHRSCHEINLICHKEIT: ${effect.probability === 'high' ? 'HOCH' : 'MITTEL'}`}
                       </span>
                     </div>
                     <p className="text-sm font-bold text-sbb-black mb-3">
@@ -243,7 +324,7 @@ export const NarrativeCascadeView: React.FC<Props> = ({
 
                   <div className="pt-2 border-t border-zinc-200 flex items-center gap-1.5 text-[10px] font-mono text-sbb-stone">
                     <Clock className="w-3 h-3 text-sbb-red" />
-                    <span>ERWARTETES ZEITFENSTER: {effect.timeframe}</span>
+                    <span>{isEn ? `TIMEFRAME: ${effect.timeframe}` : `ERWARTETES ZEITFENSTER: ${effect.timeframe}`}</span>
                   </div>
                 </div>
               ))}
@@ -252,14 +333,14 @@ export const NarrativeCascadeView: React.FC<Props> = ({
         </div>
       )}
 
-      {/* ═══ STEP 05: MANAGEMENT SUMMARY & VERDICT ═══ */}
+      {/* ═══ STEP 05: STRATEGIC WEICHENSTELLUNG / MANAGEMENT SUMMARY ═══ */}
       <div className="space-y-3">
         <div className="flex items-center gap-3">
           <span className="w-7 h-7 bg-sbb-black text-white font-mono text-xs font-bold flex items-center justify-center">
             05
           </span>
           <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-stone">
-            STRATEGISCHE WEICHENSTELLUNG
+            {isEn ? 'STRATEGIC DECISION FRAMEWORK & VERDICT' : 'STRATEGISCHE WEICHENSTELLUNG'}
           </span>
         </div>
 
@@ -268,54 +349,48 @@ export const NarrativeCascadeView: React.FC<Props> = ({
           <div className="lg:col-span-2 bg-white border border-sbb-aluminum p-6 sm:p-8 shadow-sm space-y-6">
             <div>
               <div className="text-xs font-mono font-bold uppercase tracking-wider text-sbb-stone mb-2">
-                DIAGNOSE DER AUSGANGSLAGE
+                {isEn ? 'SITUATIONAL DIAGNOSIS' : 'DIAGNOSE DER AUSGANGSLAGE'}
               </div>
               <p className="text-base text-sbb-black leading-relaxed font-medium">
-                {data.management_summary?.diagnosis}
+                {data.management_summary.diagnosis}
               </p>
             </div>
 
             <div className="border-t border-zinc-100 pt-5">
               <div className="text-xs font-mono font-bold uppercase tracking-wider text-sbb-stone mb-2">
-                REPUTATIVE AUSWIRKUNG BEI UNVERÄNDERTER KOMMUNIKATION
+                {isEn ? 'REPUTATIONAL IMPACT IF UNMODIFIED' : 'REPUTATIVE AUSWIRKUNG BEI UNVERÄNDERTER KOMMUNIKATION'}
               </div>
               <p className="text-sm text-zinc-700 leading-relaxed">
-                {data.management_summary?.impact}
+                {data.management_summary.impact}
               </p>
             </div>
 
             <div className="border-t-2 border-sbb-black pt-5 bg-sbb-cloud/40 -mx-6 -mb-6 sm:-mx-8 sm:-mb-8 p-6 sm:p-8">
               <div className="flex items-center gap-2 text-xs font-mono font-bold text-sbb-red uppercase tracking-wider mb-2">
                 <Lightbulb className="w-4 h-4" />
-                <span>KONKRETE HANDLUNGSEMPFEHLUNG</span>
+                <span>{isEn ? 'STRATEGIC ACTION RECOMMENDATION' : 'KONKRETE HANDLUNGSEMPFEHLUNG'}</span>
               </div>
               <p className="text-base font-bold text-sbb-black leading-relaxed">
-                {data.management_summary?.verdict}
+                {data.management_summary.verdict}
               </p>
             </div>
           </div>
 
-          {/* Risk Gauge & Action Checklist */}
+          {/* Risk Gauge & Immediate Actions */}
           <div className="bg-white border border-sbb-aluminum p-6 sm:p-8 shadow-sm flex flex-col justify-between">
             <RiskGauge score={data.risk_score} />
 
             <div className="mt-6 pt-5 border-t border-zinc-100">
               <div className="text-[10px] font-mono text-sbb-stone uppercase tracking-wider mb-3">
-                SOFORT-MASSNAHMEN FÜR DIE MEDIENSTELLE
+                {isEn ? 'IMMEDIATE ENABLEMENT ACTIONS' : 'SOFORT-MASSNAHMEN FÜR DIE MEDIENSTELLE'}
               </div>
               <ul className="space-y-2 text-xs text-zinc-700 font-mono">
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-sbb-red shrink-0" />
-                  <span>Sprachregelung angleichen</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-sbb-red shrink-0" />
-                  <span>Standortkantone vorinformieren</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-sbb-red shrink-0" />
-                  <span>Q&A für Hintergrundgespräche</span>
-                </li>
+                {data.immediate_actions?.map((act, i) => (
+                  <li key={i} className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 bg-sbb-red shrink-0 mt-1" />
+                    <span>{act}</span>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
