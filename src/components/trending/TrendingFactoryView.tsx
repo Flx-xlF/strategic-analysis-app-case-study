@@ -106,12 +106,12 @@ export const TrendingFactoryView: React.FC<Props> = ({
               <span>{isEn ? 'DIRECTION 2: TOP-DOWN (DEFINE & ENABLE) // MODULE 03' : 'RICHTUNG 2: TOP-DOWN (DEFINIEREN & BEFÄHIGEN) // MODUL 03'}</span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-black text-sbb-black tracking-tight">
-              {isEn ? 'Global Narrative Definition & Regional Enablement Playbook' : 'Globale Narrativ-Definition & Regionales Playbook'}
+              {isEn ? 'Core Narrative Definition & Multi-Region GEO Playbook' : 'Kern-Narrativ-Definition & Multi-Regionen GEO-Playbook'}
             </h1>
             <p className="text-sm text-sbb-stone mt-1 max-w-3xl leading-relaxed">
               {isEn
-                ? 'Prevents cross-regional incoherence from diluting the company’s voice: locks onto 42 verified Golden Sources (across 1.42M vault files) and provides shared GEO standards so global and local teams gain consistent traction across media and AI search.'
-                : 'Verhindert, dass regionale Inkohärenz die Unternehmensstimme schwächt: verankert 42 geprüfte Golden Sources (aus 1,42 Mio. Vault-Dateien) und gemeinsame GEO-Standards, damit Teams weltweit in Medien und KI-Suche konsistent Traktion aufbauen.'}
+                ? 'Prevents cross-regional incoherence from diluting corporate communications: locks onto 42 verified Golden Sources (across 1.42M vault files) and enforces shared, channel-adapted GEO standards so central and regional teams gain consistent traction across media and AI search.'
+                : 'Verhindert, dass regionale Inkohärenz die Unternehmenskommunikation schwächt: verankert 42 geprüfte Golden Sources (aus 1,42 Mio. Vault-Dateien) und verbindliche, kanal-adaptierte GEO-Standards, damit zentrale und regionale Teams in Medien und KI-Suche konsistent Traktion aufbauen.'}
             </p>
           </div>
 
@@ -244,7 +244,7 @@ export const TrendingFactoryView: React.FC<Props> = ({
             01
           </span>
           <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-stone">
-            {isEn ? 'GLOBAL CORE NARRATIVE, CORPORATE GEO FRAMEWORK & GUARDRAILS' : 'GLOBALES KERN-NARRATIV, CORPORATE GEO-FRAMEWORK & LEITPLANKEN'}
+            {isEn ? 'CENTRAL CORE NARRATIVE, MANDATORY GEO FRAMEWORK & GUARDRAILS' : 'ZENTRALES KERN-NARRATIV, VERBINDLICHES GEO-FRAMEWORK & LEITPLANKEN'}
           </span>
         </div>
 
@@ -299,11 +299,11 @@ export const TrendingFactoryView: React.FC<Props> = ({
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
               <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-sbb-black">
                 {isEn
-                  ? 'MANDATORY 4-RULE CORPORATE GEO FRAMEWORK (HOW TEAMS TARGET AI SEARCH COHERENTLY):'
-                  : 'VERBINDLICHES 4-REGEL CORPORATE GEO-FRAMEWORK (WIE TEAMS KI-SUCHE KOHÄRENT ADRESSIEREN):'}
+                  ? 'MANDATORY 4-RULE CORPORATE GEO FRAMEWORK (ENFORCED ACROSS ALL CHANNELS):'
+                  : 'VERBINDLICHES 4-REGEL CORPORATE GEO-FRAMEWORK (KANALÜBERGREIFEND VERBINDLICH):'}
               </span>
               <span className="text-[10px] font-mono text-emerald-800 bg-emerald-50 border border-emerald-200 px-2 py-0.5 font-bold">
-                {isEn ? 'Enforced Across All 4 Regional Hubs' : 'Verbindlich für alle 4 Regionen'}
+                {isEn ? 'Enforced Across All Regional & Cantonal Hubs' : 'Verbindlich für alle Regional- & Kantons-Hubs'}
               </span>
             </div>
 
@@ -325,8 +325,8 @@ export const TrendingFactoryView: React.FC<Props> = ({
                 </div>
                 <p className="text-[11px] text-zinc-700 leading-snug">
                   {isEn
-                    ? 'Use identical canonical terms across US, EU, CH, and APAC so AI search engines do not misread regional phrasing variations as contradictions.'
-                    : 'Identische Schlüsselbegriffe über US, EU, CH und APAC nutzen, damit KI-Suchmaschinen regionale Nuancen nicht als Widerspruch werten.'}
+                    ? 'Use identical canonical terms across all regions and cantons so AI search engines do not misread local phrasing variations as contradictions.'
+                    : 'Identische Schlüsselbegriffe über alle Regionen und Kantone nutzen, damit KI-Suchmaschinen lokale Nuancen nicht als Widerspruch werten.'}
                 </p>
               </div>
 
@@ -413,16 +413,16 @@ export const TrendingFactoryView: React.FC<Props> = ({
             <div className="text-sbb-black leading-snug">
               {isEn ? (
                 <>
-                  <strong className="font-mono uppercase text-sbb-red">Why Owned Corporate Stories Are Key for GEO:</strong> While press releases target journalists (who may only quote a fragment), <strong>Corporate Stories</strong> published on our own high-authority domain are crawled directly by AI search engines—delivering our complete narrative and structured facts without gatekeeper filtering.
+                  <strong className="font-mono uppercase text-sbb-red">Channel-Adapted GEO Across All Measures:</strong> While <strong>Owned Corporate Stories</strong> serve as high-authority direct-to-AI primary sources, <strong>press releases</strong> and <strong>media inquiry answers</strong> must follow the exact same GEO rules—preventing hostile quotes in press articles from feeding negative keywords into AI search engines.
                 </>
               ) : (
                 <>
-                  <strong className="font-mono uppercase text-sbb-red">Warum Corporate Stories für GEO entscheidend sind:</strong> Während Medienmitteilungen an Journalisten gehen (die oft nur Teile zitieren), werden <strong>Corporate Stories</strong> auf unserer eigenen Domain direkt von KI-Suchmaschinen gecrawlt – und liefern unser vollständiges Narrativ samt Fakten ohne Gatekeeper-Filterung.
+                  <strong className="font-mono uppercase text-sbb-red">Kanal-adaptiertes GEO für alle Massnahmen:</strong> Während <strong>Owned Corporate Stories</strong> als direkte Primärquellen für KI-Modelle fungieren, müssen <strong>Medienmitteilungen</strong> und <strong>Medienantworten</strong> denselben GEO-Regeln folgen – damit Pressezitate nicht ungewollt Negativbegriffe in KI-Suchindizes einspeisen.
                 </>
               )}
             </div>
             <span className="font-mono text-[10px] font-bold uppercase px-2 py-0.5 bg-white border border-zinc-300 text-sbb-black shrink-0">
-              {isEn ? 'Owned Domain → Direct AI Retrieval' : 'Eigene Domain → Direktes KI-Retrieval'}
+              {isEn ? 'Mandatory GEO Across All Channels' : 'Verbindliches GEO über alle Kanäle'}
             </span>
           </div>
           {/* Format Selector Tabs */}

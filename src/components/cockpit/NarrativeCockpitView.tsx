@@ -83,7 +83,7 @@ export const NarrativeCockpitView: React.FC<Props> = ({
           <div className="flex items-center gap-3 shrink-0">
             <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-sbb-cloud border border-sbb-aluminum font-mono text-xs text-sbb-black font-bold">
               <Globe2 className="w-4 h-4 text-sbb-red" />
-              <span>{isEn ? 'REGIONAL GRANULARITY: 4 HUBS' : 'REGIONALE GRANULARITÄT: 4 HUBS'}</span>
+              <span>{isEn ? 'GRANULARITY: MARKETS / REGIONS / CANTONS' : 'GRANULARITÄT: MÄRKTE / REGIONEN / KANTONE'}</span>
             </span>
           </div>
         </div>
@@ -197,7 +197,7 @@ export const NarrativeCockpitView: React.FC<Props> = ({
           <table className="w-full text-left border-collapse">
             <thead>
               <tr className="bg-sbb-cloud/80 border-b border-sbb-aluminum text-[10px] font-mono uppercase text-sbb-stone">
-                <th className="p-4 font-bold">{isEn ? 'WORLD REGION & CONTEXT' : 'WELTREGION & REGULIERUNG'}</th>
+                <th className="p-4 font-bold">{isEn ? 'REGIONAL HUB & CONTEXT' : 'REGIONALER HUB & REGULIERUNG'}</th>
                 <th className="p-4 font-bold">{isEn ? 'STATISTICAL METRICS' : 'STATISTISCHE KENNZAHLEN'}</th>
                 <th className="p-4 font-bold">{isEn ? 'LEGACY MEDIA FRAME' : 'LEIT- & FACHMEDIEN'}</th>
                 <th className="p-4 font-bold">{isEn ? 'SOCIAL & FORUMS' : 'SOCIAL MEDIA & FOREN'}</th>

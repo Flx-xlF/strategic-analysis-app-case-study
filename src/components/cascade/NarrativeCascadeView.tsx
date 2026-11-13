@@ -46,12 +46,12 @@ export const NarrativeCascadeView: React.FC<Props> = ({
               <span>{isEn ? 'DIRECTION 2: TOP-DOWN // 04A DRAFT STRESS-TEST' : 'RICHTUNG 2: TOP-DOWN // 04A ENTWURF-STRESSTEST'}</span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-black text-sbb-black tracking-tight">
-              {isEn ? 'Draft Stress-Test & 48h Stakeholder Reception' : 'Entwurf-Stresstest & 48h Stakeholder-Reaktion'}
+              {isEn ? 'Press Release & Statement Stress-Test (Adapted GEO + 48h Reception)' : 'Medienmitteilungen- & Statement-Stresstest (GEO + 48h Reaktion)'}
             </h1>
             <p className="text-sm text-sbb-stone mt-1 max-w-3xl leading-relaxed">
               {isEn
-                ? 'Audits drafts against the Corporate GEO Framework and simulates 48-hour reactions across media, payers, regulators, and AI search—showing why repeating negative frames in Iteration 1 poisons AI search indices and how Iteration 2 delivers the company’s own narrative.'
-                : 'Prüft Entwürfe gegen das Corporate GEO-Framework und simuliert 48-Stunden-Reaktionen von Medien, Behörden und KI-Suche – zeigt, warum Negativ-Frames in Iteration 1 KI-Indizes vergiften und wie Iteration 2 das eigene Narrativ durchsetzt.'}
+                ? 'Audits releases and statements against the channel-adapted GEO Framework and simulates 48-hour reactions across media, payers, regulators, and AI search—showing why repeating negative frames in Iteration 1 poisons AI search indices and how Iteration 2 delivers the company’s own narrative.'
+                : 'Prüft Medienmitteilungen und Statements gegen das kanal-adaptierte GEO-Framework und simuliert 48-Stunden-Reaktionen von Medien, Behörden und KI-Suche – zeigt, warum Negativ-Frames in Iteration 1 KI-Indizes vergiften und wie Iteration 2 das eigene Narrativ durchsetzt.'}
             </p>
           </div>
 

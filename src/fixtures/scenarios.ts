@@ -14,12 +14,12 @@ export const SCENARIOS_DATA: Record<Language, ScenarioMeta[]> = {
   en: [
     {
       id: 'oncology_trial_update',
-      title: 'Global Pharma Narrative: U.S. Reference Pricing (MFN), $23B Capex & EU/Swiss Access',
+      title: 'Biopharma Corporate Narrative: U.S. Reference Pricing (MFN), $23B Capex & EU/Swiss Access',
       category: 'Corporate Narrative & International Public Affairs',
       date: '13.11.2026',
       urgency: 'High',
-      summary: 'Following U.S. Most-Favored-Nation (MFN) reference pricing and a $23B U.S. manufacturing commitment, a global pharmaceutical group calls for a rethink of European and Swiss price controls. Comms must align Washington, Brussels, and Basel without triggering "patient boycott" or "HQ exodus" rumors.',
-      organization: 'Global Biopharma Corporate Affairs & Communications'
+      summary: 'Following U.S. Most-Favored-Nation (MFN) reference pricing and a $23B U.S. manufacturing commitment, a biopharmaceutical group calls for a rethink of European and Swiss price controls. Comms must align Washington, Brussels, and Basel without triggering "patient boycott" or "HQ exodus" rumors.',
+      organization: 'Biopharma Corporate Affairs & Communications'
     },
     {
       id: 'pluvicto_access_debate',
@@ -61,12 +61,12 @@ export const SCENARIOS_DATA: Record<Language, ScenarioMeta[]> = {
   de: [
     {
       id: 'oncology_trial_update',
-      title: 'Globales Pharma-Narrativ: US-Referenzpreise (MFN), 23-Mrd.-$-Investition & EU/CH-Marktzugang',
+      title: 'Biopharma-Konzernnarrativ: US-Referenzpreise (MFN), 23-Mrd.-$-Investition & EU/CH-Marktzugang',
       category: 'Konzern-Narrativ & Internationale Public Affairs',
       date: '13.11.2026',
       urgency: 'Hoch',
-      summary: 'Nach US-Referenzpreis-Vereinbarungen (Most Favored Nation) und einer 23-Mrd.-Dollar-Investition in den USA fordert ein globaler Pharmakonzern ein Umdenken bei europäischen und Schweizer Medikamentenpreisen. Die Kommunikation muss USA, EU und den Heimmarkt Schweiz ohne "Boykott"- oder "Abwanderungs"-Schlagzeilen ausbalancieren.',
-      organization: 'Global Biopharma Corporate Affairs & Kommunikation'
+      summary: 'Nach US-Referenzpreis-Vereinbarungen (Most Favored Nation) und einer 23-Mrd.-Dollar-Investition in den USA fordert ein Biopharma-Konzern ein Umdenken bei europäischen und Schweizer Medikamentenpreisen. Die Kommunikation muss USA, EU und den Heimmarkt Schweiz ohne "Boykott"- oder "Abwanderungs"-Schlagzeilen ausbalancieren.',
+      organization: 'Biopharma Corporate Affairs & Kommunikation'
     },
     {
       id: 'pluvicto_access_debate',

@@ -45,11 +45,11 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
       {
         stepNumber: '01',
         shortLabel: 'Core Premise',
-        headline: 'Gaining Traction in the AI Shift: Why Coherence Across Global Comms Matters Now',
+        headline: 'Gaining Traction in the AI Shift: Why Coherence Across Corporate Comms Matters Now',
         whatYouSee:
-          'Classic PR was built around press releases aimed at media outlets. In the age of AI search, answer engines synthesize global press coverage, forums, and regional pages all at once. Even slight incoherence across regional adaptations and internal files dilutes the power of corporate communications.',
+          'Classic PR was built around press releases aimed at media outlets. In the age of AI search, answer engines synthesize press coverage, forums, and regional pages all at once. Even slight incoherence across central and regional teams, cantons, and internal files dilutes the power of corporate communications.',
         whyItMatters:
-          'Shows how global comms can operate differently during this shift: auditing where narratives lose traction in media and AI search (Outside-In) while building tight coherence around verified Golden Sources and shared GEO standards (Top-Down).',
+          'Shows how corporate comms can operate differently during this shift: auditing where narratives lose traction in media and AI search (Outside-In) while building tight coherence around verified Golden Sources and shared, channel-adapted GEO standards (Top-Down).',
         tryThisLabel: 'Switch to Oncology RLT Scenario',
         targetTab: 'cockpit',
         targetRegion: 'all',
@@ -84,11 +84,11 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
       {
         stepNumber: '04',
         shortLabel: 'GEO Playbook & Stories',
-        headline: '03 Regional Playbook: Golden Sources, 4-Rule GEO Framework & Owned Corporate Stories',
+        headline: '03 Multi-Region Playbook: Golden Sources, 4-Rule GEO Framework & Channel Adaptation',
         whatYouSee:
-          'Filters 1.42M internal files down to 42 approved "Golden Sources" (GS-01 to GS-03) and equips US, EU, CH, and APAC teams with a 4-Rule Corporate GEO Framework across owned Corporate Stories, social posts, talking points, and Q&As.',
+          'Filters 1.42M internal files down to 42 approved "Golden Sources" (GS-01 to GS-03) and equips central and regional teams with a mandatory 4-Rule Corporate GEO Framework across owned Corporate Stories, press releases, media answers, talking points, and Q&As.',
         whyItMatters:
-          'While press releases depend on what journalists quote, GEO-structured Corporate Stories on the company’s own domain are crawled directly by AI search engines—giving global teams a coherent way to deliver the company’s full narrative.',
+          'While Owned Corporate Stories act as high-authority direct-to-AI primary sources, press releases and media inquiry answers follow the exact same GEO rules—ensuring third-party journalist quotes reinforce the company’s narrative in AI search.',
         tryThisLabel: 'Filter Playbook to Switzerland (CH)',
         targetTab: 'trending',
         targetRegion: 'all',
@@ -99,7 +99,7 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
         shortLabel: 'Stress-Test, GEO & IT',
         headline: '04 Multi-Angle Stress-Test, GEO Accusation Hygiene, Human Iteration & IT Fit',
         whatYouSee:
-          'An LLM never delivers a ready-to-send answer in one pass. Instead, it tests drafts across 5 stakeholder angles simultaneously and enforces GEO hygiene: stripping negative accusations (which otherwise get indexed against the company’s own domain by AI search engines) and bridging to our own narrative.',
+          'An LLM never delivers a ready-to-send answer in one pass. Instead, it tests drafts across regional stakeholder angles simultaneously and enforces GEO hygiene: stripping negative accusations (which otherwise get indexed against the company’s own domain by AI search engines) and bridging to our own narrative.',
         whyItMatters:
           'Provides decision-ready context and a GEO-safe scaffold at the push of a button—leaving final nuance, trade-offs, and sign-off to human leadership within existing IT governance (Veeva Vault, SharePoint, AI Gateway).',
         tryThisLabel: 'Toggle Enterprise IT & Method Guide',
@@ -114,11 +114,11 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
     {
       stepNumber: '01',
       shortLabel: 'Grundthese',
-      headline: 'Traktion im KI-Wandel gewinnen: Warum Kohärenz in der globalen Kommunikation jetzt entscheidend ist',
+      headline: 'Traktion im KI-Wandel gewinnen: Warum Kohärenz in der Unternehmenskommunikation jetzt entscheidend ist',
       whatYouSee:
-        'Klassische PR setzte auf Medienmitteilungen für Journalisten. Im Zeitalter der KI-Suche bündeln Antwortmaschinen weltweit Medienberichte, Foren und Länderseiten simultan. Selbst kleine Inkohärenzen zwischen regionalen Adaptionen und internen Dokumenten schwächen dabei die Durchschlagskraft der Kommunikation.',
+        'Klassische PR setzte auf Medienmitteilungen für Journalisten. Im Zeitalter der KI-Suche bündeln Antwortmaschinen Medienberichte, Foren und regionale Seiten simultan. Selbst kleine Inkohärenzen zwischen zentralen und regionalen Teams oder Kantonen schwächen dabei die Durchschlagskraft der Kommunikation.',
       whyItMatters:
-        'Zeigt, wie globale Kommunikation in diesem Wandel wieder Traktion aufbaut: durch Audits von Medien und KI-Suche (Outside-In) sowie hohe Kohärenz über verbindliche Golden Sources und gemeinsame GEO-Standards (Top-Down).',
+        'Zeigt, wie Unternehmenskommunikation in diesem Wandel wieder Traktion aufbaut: durch Audits von Medien und KI-Suche (Outside-In) sowie hohe Kohärenz über verbindliche Golden Sources und kanal-adaptierte GEO-Standards (Top-Down).',
       tryThisLabel: 'Zum Onkologie-RLT-Szenario wechseln',
       targetTab: 'cockpit',
       targetRegion: 'all',
@@ -153,11 +153,11 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
     {
       stepNumber: '04',
       shortLabel: 'GEO-Playbook & Stories',
-      headline: '03 Regionales Playbook: Golden Sources, 4-Regel GEO-Framework & Corporate Stories',
+      headline: '03 Multi-Regionen-Playbook: Golden Sources, 4-Regel GEO-Framework & Kanal-Adaptierung',
       whatYouSee:
-        'Filtert 1,42 Mio. interne Dateien auf 42 freigegebene "Golden Sources" (GS-01 bis GS-03) und gibt Teams in US, EU, CH und APAC ein 4-Regel GEO-Framework für eigene Corporate Stories, Social-Posts, Talking Points und Q&As.',
+        'Filtert 1,42 Mio. interne Dateien auf 42 freigegebene "Golden Sources" (GS-01 bis GS-03) und gibt zentralen sowie regionalen Teams ein verbindliches 4-Regel GEO-Framework für Corporate Stories, Medienmitteilungen, Medienantworten und Q&As.',
       whyItMatters:
-        'Während Medienmitteilungen durch Journalisten gefiltert werden, crawlen KI-Suchmaschinen GEO-strukturierte Corporate Stories direkt auf der Unternehmens-Domain – und übernehmen so das vollständige eigene Narrativ.',
+        'Während Owned Corporate Stories als primäre KI-Quellen fungieren, folgen Medienmitteilungen und Statements denselben GEO-Regeln – damit Zitate in Drittmedien das eigene Narrativ in der KI-Suche stärken.',
       tryThisLabel: 'Playbook auf Schweiz (CH) filtern',
       targetTab: 'trending',
       targetRegion: 'all',
@@ -168,7 +168,7 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
       shortLabel: 'Stresstest, GEO & IT',
       headline: '04 Multi-Winkel-Stresstest, GEO-Vorwurfshygiene, Menschliche Iteration & IT-Integration',
       whatYouSee:
-        'Ein LLM liefert nie im ersten Durchlauf die fertige Antwort. Es prüft Entwürfe simultan aus fünf Stakeholder-Perspektiven und sichert GEO-Hygiene: Es streicht Negativ-Vorwürfe (die KI-Suchmaschinen sonst auf der eigenen Domain indexieren) und baut Brücken zum eigenen Narrativ.',
+        'Ein LLM liefert nie im ersten Durchlauf die fertige Antwort. Es prüft Entwürfe simultan aus regionalen Stakeholder-Perspektiven und sichert GEO-Hygiene: Es streicht Negativ-Vorwürfe (die KI-Suchmaschinen sonst auf der eigenen Domain indexieren) und baut Brücken zum eigenen Narrativ.',
       whyItMatters:
         'Liefert Entscheidungskontext und ein GEO-sicheres Arbeitsgerüst auf Knopfdruck – während Feinschliff und Freigabe beim Menschen innerhalb bestehender IT-Governance (Veeva Vault, SharePoint, AI Gateway) bleiben.',
       tryThisLabel: 'IT- & Methodik-Guide ein-/ausblenden',

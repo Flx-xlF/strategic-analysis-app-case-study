@@ -169,11 +169,11 @@ export const CommandHeader: React.FC<Props> = ({
             <div className="mb-5 p-3.5 bg-white border-l-4 border-sbb-red border border-zinc-200 text-xs text-sbb-black leading-relaxed">
               {isEn ? (
                 <>
-                  <strong>THE CORE PREMISE:</strong> Classic PR relied on press releases aimed at media outlets. In the age of AI search, answer engines continuously synthesize coverage, forums, and corporate channels across borders—meaning <strong>incoherence</strong> across regional adaptations and internal files directly weakens the power of corporate communications. <strong>This system helps global teams gain traction in the AI shift: auditing media and AI answers (Outside-In) while building tight coherence around verified Golden Sources and shared GEO standards (Top-Down).</strong>
+                  <strong>THE CORE PREMISE:</strong> Classic PR relied on press releases aimed at media outlets. In the age of AI search, answer engines continuously synthesize coverage, forums, and corporate channels across regions and cantons—meaning <strong>incoherence</strong> across central and regional teams and internal files directly weakens the power of corporate communications. <strong>This system helps teams gain traction in the AI shift: auditing media and AI answers (Outside-In) while building tight coherence around verified Golden Sources and shared, channel-adapted GEO standards (Top-Down).</strong>
                 </>
               ) : (
                 <>
-                  <strong>DIE KERNTHESE:</strong> Klassische PR setzte auf Medienmitteilungen für Journalisten. Im Zeitalter der KI-Suche bündeln Antwortmaschinen fortlaufend Berichte, Foren und Unternehmenskanäle über Ländergrenzen hinweg – wodurch <strong>Inkohärenz</strong> zwischen regionalen Adaptionen und internen Dokumenten die Durchschlagskraft der Kommunikation direkt schwächt. <strong>Dieses System schafft Traktion im KI-Wandel: durch Audits von Medien und KI-Antworten (Outside-In) sowie hohe Kohärenz über verbindliche Golden Sources und gemeinsame GEO-Standards (Top-Down).</strong>
+                  <strong>DIE KERNTHESE:</strong> Klassische PR setzte auf Medienmitteilungen für Journalisten. Im Zeitalter der KI-Suche bündeln Antwortmaschinen fortlaufend Berichte, Foren und Unternehmenskanäle über Regionen und Kantone hinweg – wodurch <strong>Inkohärenz</strong> zwischen zentralen und regionalen Teams und internen Dokumenten die Durchschlagskraft der Kommunikation direkt schwächt. <strong>Dieses System schafft Traktion im KI-Wandel: durch Audits von Medien und KI-Antworten (Outside-In) sowie hohe Kohärenz über verbindliche Golden Sources und kanal-adaptierte GEO-Standards (Top-Down).</strong>
                 </>
               )}
             </div>
@@ -213,7 +213,7 @@ export const CommandHeader: React.FC<Props> = ({
               <div className="space-y-2 border-r border-zinc-200 pr-4 last:border-r-0">
                 <div className="font-mono font-bold text-sbb-black uppercase tracking-wider flex items-center gap-1.5">
                   <Layers className="w-3.5 h-3.5 text-sbb-red" />
-                  <span>{isEn ? '2. PROCESS VALUE (MGMT & TEAMS)' : '2. PROZESSNUTZEN (MGMT & TEAMS)'}</span>
+                  <span>{isEn ? '2. PROCESS VALUE (MGMT & REGIONAL TEAMS)' : '2. PROZESSNUTZEN (MGMT & TEAMS)'}</span>
                 </div>
                 <p>
                   {isEn ? (
@@ -229,11 +229,11 @@ export const CommandHeader: React.FC<Props> = ({
                 <p>
                   {isEn ? (
                     <>
-                      <strong>For Comms Teams (GEO Framework &amp; Corporate Stories):</strong> Teams apply a shared <strong>4-Rule Corporate GEO Framework</strong> anchored in Golden Sources (`GS-01`–`GS-03`) to publish owned <strong>Corporate Stories</strong> that AI search engines crawl directly—cutting alignment from days to hours.
+                      <strong>For Central &amp; Regional Teams (Channel-Adapted GEO):</strong> Teams apply a shared <strong>4-Rule Corporate GEO Framework</strong> anchored in Golden Sources (`GS-01`–`GS-03`) across owned <strong>Corporate Stories</strong>, press releases, and media answers—ensuring consistent retrieval across media and AI search while cutting alignment from days to hours.
                     </>
                   ) : (
                     <>
-                      <strong>Für Teams (GEO-Framework &amp; Corporate Stories):</strong> Teams nutzen ein <strong>4-Regel GEO-Framework</strong> und geprüfte Golden Sources (`GS-01`–`GS-03`), um eigene <strong>Corporate Stories</strong> als direkte Quelle für KI-Suchmaschinen zu publizieren.
+                      <strong>Für zentrale &amp; regionale Teams (Kanal-adaptiertes GEO):</strong> Teams nutzen ein <strong>4-Regel GEO-Framework</strong> und geprüfte Golden Sources (`GS-01`–`GS-03`) über <strong>Corporate Stories</strong>, Medienmitteilungen und Q&amp;As hinweg – für konsistentes KI-Retrieval und schnellere Freigaben.
                     </>
                   )}
                 </p>

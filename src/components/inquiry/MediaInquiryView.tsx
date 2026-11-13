@@ -57,8 +57,8 @@ export const MediaInquiryView: React.FC<Props> = ({
             </h1>
             <p className="text-sm text-sbb-stone mt-1 max-w-3xl leading-relaxed">
               {isEn
-                ? 'Applies the Corporate GEO Framework to incoming press inquiries: exposes loaded accusations that must never be repeated into headlines or AI search indices, verifies legal boundaries, and builds an affirmative response that delivers the company’s own narrative.'
-                : 'Wendet das Corporate GEO-Framework auf Medienanfragen an: deckt geladene Vorwürfe auf, die weder in Schlagzeilen noch in KI-Suchindizes wiederholt werden dürfen, prüft Rechtsgrenzen und liefert ein Gerüst für das eigene Unternehmens-Narrativ.'}
+                ? 'Applies the channel-adapted GEO Framework to media answers (where journalist quotes become top retrieval sources for AI search engines): exposes loaded traps that must never be repeated, verifies legal boundaries, and builds an affirmative response that delivers the company’s own narrative.'
+                : 'Wendet das kanal-adaptierte GEO-Framework auf Medienantworten an (deren Zitate in Presseartikeln zu primären KI-Retrieval-Quellen werden): deckt Fallen auf, die nie wiederholt werden dürfen, prüft Rechtsgrenzen und liefert ein Gerüst für das eigene Unternehmens-Narrativ.'}
             </p>
           </div>
 
