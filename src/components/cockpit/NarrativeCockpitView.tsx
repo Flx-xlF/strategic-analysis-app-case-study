@@ -75,8 +75,8 @@ export const NarrativeCockpitView: React.FC<Props> = ({
             </h1>
             <p className="text-sm text-sbb-stone mt-1 max-w-3xl leading-relaxed">
               {isEn
-                ? 'Synthesizes massive external streams (legacy media, social, and LLM answer engines) by world region, filtering syndicated noise through statistical models before applying forensic LLM reading.'
-                : 'Aggregiert externe Medien, Social Media und KI-Antwortmaschinen nach Weltregionen. Statistische Modelle filtern Dubletten und Rauschen, bevor Sprachmodelle die Cluster forensisch bewerten.'}
+                ? 'To successfully influence public reception again in the age of AI search, communications must first see where narratives drift. Filters 48,000+ media, forum, and LLM items statistically before applying forensic LLM reading.'
+                : 'Um öffentliche Rezeption im Zeitalter von KI-Suche wieder wirksam zu prägen, muss sichtbar sein, wo Narrative abdriften. Filtert Zehntausende Medien-, Foren- und KI-Outputs statistisch vor der forensischen LLM-Prüfung.'}
             </p>
           </div>
 

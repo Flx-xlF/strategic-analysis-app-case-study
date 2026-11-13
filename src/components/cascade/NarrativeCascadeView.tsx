@@ -115,7 +115,7 @@ export const NarrativeCascadeView: React.FC<Props> = ({
         </div>
       </div>
 
-      {/* ═══ STEP 01: INPUT STRATEGY WITH INTERACTIVE DRAFT COMPARISON ═══ */}
+      {/* ═══ STEP 01: MULTI-ANGLE CHALLENGE, BRIDGING & HUMAN ITERATION LOOP ═══ */}
       <div className="space-y-3">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div className="flex items-center gap-3">
@@ -123,11 +123,13 @@ export const NarrativeCascadeView: React.FC<Props> = ({
               01
             </span>
             <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-stone">
-              {isEn ? 'COMMUNICATION DRAFT UNDER EVALUATION' : 'GEPLANTE BOTSCHAFT (AUSGANGSLAGE)'}
+              {isEn
+                ? 'ITERATIVE STRESS-TEST: MULTI-ANGLE CHALLENGE & BRIDGING → HUMAN REFINEMENT'
+                : 'ITERATIVER STRESSTEST: MULTI-WINKEL-CHALLENGE & BRIDGING → MENSCHLICHE ITERATION'}
             </span>
           </div>
 
-          {/* Interactive Version Switcher */}
+          {/* Interactive Iteration Switcher */}
           <div className="flex items-center gap-1 bg-sbb-cloud p-1 border border-sbb-aluminum">
             <button
               onClick={() => setSelectedVersion('draftA')}
@@ -137,7 +139,7 @@ export const NarrativeCascadeView: React.FC<Props> = ({
                   : 'text-sbb-stone hover:text-sbb-black'
               }`}
             >
-              {isEn ? 'Version A: Uncalibrated' : 'Version A: Rohentwurf'}
+              {isEn ? 'Iteration 1: Initial Draft' : 'Iteration 1: Rohentwurf'}
             </button>
             <button
               onClick={() => setSelectedVersion('draftB')}
@@ -148,8 +150,44 @@ export const NarrativeCascadeView: React.FC<Props> = ({
               }`}
             >
               <CheckCircle2 className="w-3.5 h-3.5" />
-              <span>{isEn ? 'Version B: Calibrated Fix' : 'Version B: Gestresstet'}</span>
+              <span>{isEn ? 'Iteration 2: Bridged & Refined' : 'Iteration 2: Mit Bridging iteriert'}</span>
             </button>
+          </div>
+        </div>
+
+        {/* 3-Step Practitioner Loop Explain Strip */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs bg-white border border-sbb-aluminum p-4">
+          <div className="p-3 bg-sbb-cloud/50 border border-zinc-200">
+            <div className="font-mono text-[10px] font-bold uppercase text-sbb-black mb-1">
+              {isEn ? '1. INITIAL DRAFT (ITERATION 1)' : '1. ERSTER ENTWURF (ITERATION 1)'}
+            </div>
+            <p className="text-zinc-600 leading-snug">
+              {isEn
+                ? 'Addresses the immediate topic, but either sounds defensive or leaves flanks open that critics and media in other jurisdictions can weaponize.'
+                : 'Reagiert direkt auf das Thema, wirkt unter Zeitdruck jedoch oft defensiv oder lässt Flanken offen, die Kritiker in anderen Märkten ausnutzen.'}
+            </p>
+          </div>
+
+          <div className="p-3 bg-red-50/40 border border-red-200">
+            <div className="font-mono text-[10px] font-bold uppercase text-sbb-red mb-1">
+              {isEn ? '2. LLM MULTI-ANGLE CHALLENGE & BRIDGING' : '2. LLM MULTI-WINKEL-CHALLENGE & BRIDGING'}
+            </div>
+            <p className="text-zinc-700 leading-snug">
+              {isEn
+                ? 'Simulates 5 conflicting stakeholder angles at once (impossible for one human in 15 mins), strips negative framings, and proposes bridges back to the core narrative.'
+                : 'Simuliert simultan 5 gegensätzliche Stakeholder-Winkel, streicht Negativ-Framings und schlägt Brücken (Bridging) zurück zum Haupt-Narrativ vor.'}
+            </p>
+          </div>
+
+          <div className="p-3 bg-emerald-50/40 border border-emerald-300">
+            <div className="font-mono text-[10px] font-bold uppercase text-emerald-900 mb-1">
+              {isEn ? '3. HUMAN JUDGMENT & ITERATION (ITERATION 2)' : '3. MENSCHLICHE URTEILSKRAFT & ITERATION (ITERATION 2)'}
+            </div>
+            <p className="text-zinc-700 leading-snug">
+              {isEn
+                ? 'Comms leadership selects the strongest bridge, refines tone and trade-offs so the answer shapes public reception in favor of the main narrative, and routes to Legal.'
+                : 'Die Kommunikationsleitung wählt die tragfähigste Brücke, schärft den Ton zur aktiven Steuerung der Rezeption und gibt Iteration 2 in die Rechtsprüfung.'}
+            </p>
           </div>
         </div>
 
@@ -163,7 +201,13 @@ export const NarrativeCascadeView: React.FC<Props> = ({
             <span className={`text-[10px] font-mono px-2 py-0.5 border ${
               isDraftA ? 'bg-zinc-100 text-zinc-600 border-zinc-300' : 'bg-emerald-50 text-emerald-800 border-emerald-300 font-bold'
             }`}>
-              {isDraftA ? (isEn ? 'STATUS: HIGH SCRUTINY' : 'STATUS: UNGEFILTERT') : (isEn ? 'STATUS: APPROVED WORDING' : 'STATUS: FREIGEGEBEN')}
+              {isDraftA
+                ? isEn
+                  ? 'STATUS: PRE-CHALLENGE DRAFT (TRIGGERS NEGATIVE FRAMES)'
+                  : 'STATUS: ROHENTWURF (LÖST NEGATIV-FRAMES AUS)'
+                : isEn
+                ? 'STATUS: HUMAN-ITERATED WITH BRIDGING TO CORE NARRATIVE'
+                : 'STATUS: MENSCHLICH ITERIERT MIT BRIDGING ZUM KERN-NARRATIV'}
             </span>
           </div>
 
@@ -174,15 +218,15 @@ export const NarrativeCascadeView: React.FC<Props> = ({
           <div className="mt-4 pt-3 border-t border-zinc-100 flex items-center justify-between text-xs font-mono text-sbb-stone">
             <span>
               {isDraftA 
-                ? (isEn ? '💡 Tip: Click "Version B: Calibrated Fix" to see how phrasing changes reduce risk.' : '💡 Tipp: Klicken Sie oben auf "Version B: Gestresstestet", um die Risikosenkung zu vergleichen.')
-                : (isEn ? '✓ Grounded with primary endpoints & explicit patient reassurance.' : '✓ Verankert mit primären Endpunkten & klarer Patientenberuhigung.')}
+                ? (isEn ? '💡 Click "Iteration 2: Bridged & Refined" to see how bridging tactics and human iteration close the vulnerabilities.' : '💡 Klicken Sie auf "Iteration 2", um zu sehen, wie Bridging-Taktiken und menschliche Iteration die Flanken schliessen.')
+                : (isEn ? '✓ Zero repetition of hostile frames; actively bridges back to core corporate narrative & GEO facts.' : '✓ Keine Wiederholung feindlicher Frames; schlägt aktiv die Brücke zum Unternehmens-Narrativ & GEO-Fakten.')}
             </span>
             <button
               onClick={() => setSelectedVersion(isDraftA ? 'draftB' : 'draftA')}
-              className="text-sbb-red hover:underline flex items-center gap-1 font-bold"
+              className="text-sbb-red hover:underline flex items-center gap-1 font-bold cursor-pointer"
             >
               <RefreshCw className="w-3 h-3" />
-              <span>{isEn ? 'Toggle Draft' : 'Entwurf wechseln'}</span>
+              <span>{isEn ? 'Compare Iterations' : 'Iterationen vergleichen'}</span>
             </button>
           </div>
         </div>

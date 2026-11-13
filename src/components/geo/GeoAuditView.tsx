@@ -431,12 +431,14 @@ export const GeoAuditView: React.FC<Props> = ({
           <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-zinc-100 gap-3">
             <div>
               <h3 className="text-lg font-bold text-sbb-black">
-                {isEn ? 'Replacing Narrative PR Fluff with Machine-Readable Entity Schemas' : 'PR-Floskeln durch maschinenlesbare Entity-Schemata ersetzen'}
+                {isEn
+                  ? 'Shaping AI Reception Again: Negative-Frame Hygiene & GEO Fact Bridging'
+                  : 'KI-Rezeption wieder prägen: Negativ-Frame-Hygiene & GEO-Fakten-Bridging'}
               </h3>
-              <p className="text-xs text-sbb-stone mt-0.5">
+              <p className="text-xs text-sbb-stone mt-0.5 max-w-3xl leading-relaxed">
                 {isEn 
-                  ? 'LLMs prioritize direct semantic key-value relationships over continuous narrative prose.' 
-                  : 'Große Sprachmodelle verarbeiten strukturierte Key-Value-Beziehungen nachweislich verlässlicher als ausschweifende Floskeln.'}
+                  ? 'Repeating an accusation to deny it ("We are not boycotting patients") embeds hostile keywords on your own domain—training LLMs to repeat the attack. Effective GEO strips negative frames and bridges directly to affirmative, verifiable corporate facts.' 
+                  : 'Wer Vorwürfe wiederholt, um sie zu dementieren ("Wir boykottieren keine Patienten"), verankert Negativ-Begriffe auf der eigenen Domain – und füttert KI-Suchmaschinen mit dem Angriffs-Frame. GEO streicht Negativ-Frames und baut affirmative Fakten-Brücken.'}
               </p>
             </div>
 

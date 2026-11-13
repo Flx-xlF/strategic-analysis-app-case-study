@@ -44,12 +44,12 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
     return [
       {
         stepNumber: '01',
-        shortLabel: 'Mandate & Scope',
-        headline: 'Why This Prototype Exists: Connecting Outside-In Analytics with Top-Down Enablement',
+        shortLabel: 'Core Premise',
+        headline: 'In the Age of AI Search: How Do We Align Corporate Comms Again—and Shape Public Reception Again?',
         whatYouSee:
-          'A functional prototype built to test how Global Corporate Communications Strategy & Enablement can link quantitative reputation measurement (Direction 1: Outside-In) directly to regional playbook execution (Direction 2: Top-Down).',
+          'As AI search engines synthesize global coverage in real time and teams use LLMs across silos, traditional PR tools have lost their grip. This prototype explores how to align corporate communications again (Direction 2: Top-Down) and actively shape public & AI reception again (Direction 1: Outside-In).',
         whyItMatters:
-          'Demonstrates practical AI/GEO literacy and process design without claiming to replace enterprise IT. It pairs 2 real-life Novartis cases (US MFN Reference Pricing & Pluvicto HTA access) with 3 cross-sector scenarios to show how the methodology scales across complex, regulated matrices.',
+          'Built as a practical strategy & enablement case study: it shows how statistical filtering, Generative Engine Optimization (GEO), Golden Source governance, and disciplined bridging tactics restore narrative consistency across US, EU, CH, and APAC.',
         tryThisLabel: 'Switch to Pluvicto Scenario',
         targetTab: 'cockpit',
         targetRegion: 'all',
@@ -96,12 +96,12 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
       },
       {
         stepNumber: '05',
-        shortLabel: 'Stress-Test, Legal & IT',
-        headline: '04 Pre-Release Stress-Test, Media Inquiry Check & Enterprise IT Fit',
+        shortLabel: 'Bridging, Iteration & IT',
+        headline: '04 Multi-Angle Challenge, Bridging Tactics, Human Iteration & IT Fit',
         whatYouSee:
-          'Simulates how US, EU, and Swiss stakeholders will react over 48 hours to two competing executive drafts (Draft A vs. Draft B), checks live FT / NZZ journalist questions against Legal/MLR guardrails, and outlines how this layer plugs into existing corporate IT.',
+          'An LLM never delivers a ready-to-send answer in one shot. Instead, it acts as a multi-angle challenger—stripping negative framings/accusations (vital for GEO), proposing bridging tactics back to the main corporate narrative, and exposing blind spots for human iteration.',
         whyItMatters:
-          'Enablement only succeeds when Comms, Legal/Compliance, and IT speak the same language. Click the button on the right to inspect how this workflow connects read-only to Veeva Vault, SharePoint (Graph API), and an internal Enterprise AI Gateway.',
+          'Under time pressure, humans risk repeating hostile frames. The LLM provides the multi-angle challenge, negative-frame hygiene, and GEO scaffold; humans provide judgment, iteration, and Legal/IT alignment (Veeva Vault, SharePoint, Enterprise AI Gateway).',
         tryThisLabel: 'Toggle Enterprise IT & Method Guide',
         targetTab: 'cascade',
         targetRegion: 'all',
@@ -113,12 +113,12 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
   return [
     {
       stepNumber: '01',
-      shortLabel: 'Mandat & Fokus',
-      headline: 'Warum dieser Prototyp existiert: Outside-In Analyse trifft Top-Down Befähigung',
+      shortLabel: 'Grundthese',
+      headline: 'Im Zeitalter von KI-Suche: Wie richten wir Kommunikation wieder konsistent aus – und prägen Rezeption wieder wirksam?',
       whatYouSee:
-        'Ein funktionaler Prototyp, der zeigt, wie Global Corporate Communications Strategy & Enablement quantitative Reputationsmessung (Richtung 1: Outside-In) direkt mit regionalen Playbooks (Richtung 2: Top-Down) verbindet.',
+        'Weil KI-Antwortmaschinen weltweite Quellen in Echtzeit zusammenfassen und Teams LLMs oft isoliert nutzen, greifen klassische PR-Instrumente zu kurz. Dieser Prototyp zeigt, wie wir Unternehmenskommunikation wieder ausrichten (Top-Down) und öffentliche/KI-Rezeption wieder aktiv prägen (Outside-In).',
       whyItMatters:
-        'Belegt praktische KI-/GEO-Kompetenz und Prozessdesign, ohne den Anspruch einer eigenen Konzern-IT zu erheben. Kombiniert 2 reale Novartis-Fälle (US-MFN-Referenzpreise & Pluvicto HTA-Zugang) mit 3 branchenübergreifenden Szenarien.',
+        'Verbindet statistische Rezeptionsanalyse und Generative Engine Optimization (GEO) mit verbindlichen Golden Sources, Negativ-Frame-Hygiene, Bridging-Taktiken und menschlicher Iteration über US, EU, CH und APAC hinweg.',
       tryThisLabel: 'Zum Pluvicto-Szenario wechseln',
       targetTab: 'cockpit',
       targetRegion: 'all',
@@ -165,12 +165,12 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
     },
     {
       stepNumber: '05',
-      shortLabel: 'Stresstest, Recht & IT',
-      headline: '04 Entwurf-Stresstest, Medienanfragen-Check & Enterprise-IT-Integration',
+      shortLabel: 'Bridging, Iteration & IT',
+      headline: '04 Multi-Winkel-Challenge, Bridging-Taktiken, Iteration & IT-Integration',
       whatYouSee:
-        'Simuliert die 48h-Reaktion von US-, EU- und Schweizer Stakeholdern auf zwei Statement-Varianten (Entwurf A vs. B), prüft FT/NZZ-Journalistenfragen gegen Compliance-Vorgaben und zeigt die Einbettung in bestehende IT.',
+        'Ein LLM liefert nie auf Knopfdruck die perfekte, versandfertige Antwort. Es dient als Multi-Winkel-Challenger: Es eliminiert Negativ-Framings (zentral für GEO), schlägt Bridging-Taktiken zum Haupt-Narrativ vor und deckt Flanken für die menschliche Iteration auf.',
       whyItMatters:
-        'Enablement gelingt nur, wenn Kommunikation, Recht/Compliance und IT dieselbe Sprache sprechen. Per Klick rechts öffnen Sie die Architektur-Übersicht (Veeva Vault, SharePoint Graph API, Enterprise AI Gateway).',
+        'Unter Zeitdruck wiederholen Menschen oft ungewollt den Vorwurf. Die KI liefert Negativ-Frame-Hygiene, Bridging-Vorschläge und Multi-Winkel-Challenge; der Mensch übernimmt Urteilskraft, Iteration und Legal/IT-Integration.',
       tryThisLabel: 'IT- & Methodik-Guide ein-/ausblenden',
       targetTab: 'cascade',
       targetRegion: 'all',

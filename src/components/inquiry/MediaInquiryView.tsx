@@ -108,15 +108,15 @@ export const MediaInquiryView: React.FC<Props> = ({
             </div>
           </div>
 
-          <div className="p-4 bg-sbb-cloud/50 border-l-2 border-emerald-600">
+          <div className="p-4 bg-sbb-cloud/50 border-l-2 border-amber-500">
             <div className="text-[10px] font-mono text-sbb-stone uppercase tracking-wider mb-1">
-              {isEn ? 'ALIGNMENT STATUS' : 'ANTWORT-STATUS'}
+              {isEn ? 'WORKFLOW STATUS' : 'PROZESS-STATUS'}
             </div>
-            <div className="text-base font-bold text-emerald-700">
-              {isEn ? 'DEFENSIBLE DRAFT READY' : 'ENTWURF BEREIT'}
+            <div className="text-base font-bold text-sbb-black">
+              {isEn ? 'BRIDGING SCAFFOLD READY' : 'BRIDGING-GERÜST BEREIT'}
             </div>
-            <div className="text-[10px] font-mono text-sbb-stone mt-1">
-              {isEn ? 'Legal & Regulatory Cleared' : 'Freigabe durch Medienstelle'}
+            <div className="text-[10px] font-mono text-amber-800 font-bold mt-1">
+              {isEn ? 'Awaiting Human & Legal Iteration' : 'Menschliche & Legal-Iteration nötig'}
             </div>
           </div>
         </div>
@@ -281,12 +281,14 @@ export const MediaInquiryView: React.FC<Props> = ({
                   </div>
                 </div>
 
-                {/* Cross-functional translation breakdown: The Trap, The Legal Boundary, The Translation */}
+                {/* Cross-functional translation breakdown: Loaded Frame (Never Repeat), Legal Boundary, Bridging Tactic */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3 my-4 p-4 bg-sbb-cloud/40 border border-sbb-aluminum">
                   <div className="space-y-1">
-                    <div className="flex items-center gap-1.5 text-[10px] font-mono font-bold uppercase text-sbb-red">
-                      <Target className="w-3.5 h-3.5" />
-                      <span>{isEn ? 'THE INQUIRY TRAP' : 'DIE INTERVIEW-FALLE'}</span>
+                    <div className="flex items-center justify-between gap-1 text-[10px] font-mono font-bold uppercase text-sbb-red">
+                      <span className="flex items-center gap-1.5">
+                        <Target className="w-3.5 h-3.5" />
+                        <span>{isEn ? '1. NEGATIVE FRAME (DO NOT REPEAT)' : '1. NEGATIV-FRAME (NIE WIEDERHOLEN)'}</span>
+                      </span>
                     </div>
                     <p className="text-xs text-zinc-700 leading-snug">
                       {c.inquiry_trap}
@@ -296,7 +298,7 @@ export const MediaInquiryView: React.FC<Props> = ({
                   <div className="space-y-1 border-t md:border-t-0 md:border-l border-zinc-200 pt-3 md:pt-0 md:pl-3">
                     <div className="flex items-center gap-1.5 text-[10px] font-mono font-bold uppercase text-zinc-800">
                       <Scale className="w-3.5 h-3.5 text-zinc-600" />
-                      <span>{isEn ? 'LEGAL / REGULATORY GUARDRAIL' : 'LEGAL / COMPLIANCE-GRENZE'}</span>
+                      <span>{isEn ? '2. LEGAL / REGULATORY GUARDRAIL' : '2. LEGAL / COMPLIANCE-GRENZE'}</span>
                     </div>
                     <p className="text-xs text-zinc-700 leading-snug">
                       {c.legal_boundary}
@@ -306,7 +308,7 @@ export const MediaInquiryView: React.FC<Props> = ({
                   <div className="space-y-1 border-t md:border-t-0 md:border-l border-zinc-200 pt-3 md:pt-0 md:pl-3">
                     <div className="flex items-center gap-1.5 text-[10px] font-mono font-bold uppercase text-emerald-800">
                       <FileCheck2 className="w-3.5 h-3.5 text-emerald-600" />
-                      <span>{isEn ? 'PLAIN-LANGUAGE ANSWER' : 'LAIENTAUGLICHE FORMULIERUNG'}</span>
+                      <span>{isEn ? '3. BRIDGING TACTIC → CORE NARRATIVE' : '3. BRIDGING-TAKTIK → KERN-NARRATIV'}</span>
                     </div>
                     <p className="text-xs text-zinc-800 font-medium leading-snug">
                       {c.clear_translation}
@@ -317,7 +319,7 @@ export const MediaInquiryView: React.FC<Props> = ({
                 {/* Tactical Assessment */}
                 <div className="mt-3 pt-3 border-t border-zinc-100">
                   <div className="text-[10px] font-mono text-sbb-stone uppercase tracking-wider mb-1 font-bold">
-                    {isEn ? 'STRATEGIC SPOKESPERSON ADVISORY:' : 'STRATEGISCHE EINSCHÄTZUNG & EMPFOHLENE POSITIONIERUNG:'}
+                    {isEn ? 'STRATEGIC SPOKESPERSON ADVISORY (BRIDGING & GEO HYGIENE):' : 'STRATEGISCHE EINSCHÄTZUNG (BRIDGING & GEO-HYGIENE):'}
                   </div>
                   <p className="text-sm text-zinc-800 leading-relaxed font-sans">
                     {c.assessment}
@@ -329,26 +331,34 @@ export const MediaInquiryView: React.FC<Props> = ({
         </div>
       </div>
 
-      {/* ═══ STEP 03: RECOMMENDED STATEMENT STUDIO ═══ */}
+      {/* ═══ STEP 03: WORKING RESPONSE SCAFFOLD FOR HUMAN ITERATION ═══ */}
       <div className="space-y-3">
         <div className="flex items-center gap-3">
           <span className="w-7 h-7 bg-sbb-black text-white font-mono text-xs font-bold flex items-center justify-center">
             03
           </span>
           <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-stone">
-            {isEn ? 'ACTIONABLE, LEGALLY SECURE STATEMENT DRAFT' : 'FREIGABEFÄHIGER ANTWORTENTWURF'}
+            {isEn
+              ? 'WORKING RESPONSE SCAFFOLD (NEGATIVE FRAMES STRIPPED // FOR HUMAN ITERATION)'
+              : 'ANTWORT-ARBEITSGERÜST (OHNE NEGATIV-FRAMES // FÜR MENSCHLICHE ITERATION)'}
           </span>
         </div>
 
         <div className="bg-white border-2 border-sbb-black p-6 sm:p-8 shadow-sm">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 mb-6 border-b border-zinc-200 gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 mb-5 border-b border-zinc-200 gap-4">
             <div>
               <div className="flex items-center gap-2 text-xs font-mono font-bold text-sbb-red uppercase tracking-wider mb-1">
                 <Sparkles className="w-4 h-4" />
-                <span>{isEn ? 'AUTHORIZED DEFENSIVE WORDING' : 'EMPFOHLENE DEFENSIVE SPRACHREGELUNG'}</span>
+                <span>
+                  {isEn
+                    ? 'BRIDGING SCAFFOLD TO CORE NARRATIVE (NOT ONE-SHOT READY-TO-SEND)'
+                    : 'BRIDGING-GERÜST ZUM KERN-NARRATIV (NICHT UNGEPRÜFT VERSANDFERTIG)'}
+                </span>
               </div>
               <h3 className="text-lg font-bold text-sbb-black">
-                {isEn ? 'Approved Statement for Written Attribution' : 'Autorisierter Entwurf für schriftliche Rückmeldung'}
+                {isEn
+                  ? 'Baseline Draft Avoiding Accusation Echoes — Requires Spokesperson Iteration'
+                  : 'Basis-Entwurf ohne Vorwurfs-Wiederholung — Erfordert Feinjustierung durch Mediensprecher'}
               </h3>
             </div>
 
@@ -359,15 +369,50 @@ export const MediaInquiryView: React.FC<Props> = ({
               {copied ? (
                 <>
                   <Check className="w-4 h-4 text-emerald-400" />
-                  <span>{isEn ? 'Copied to Clipboard' : 'In Zwischenablage kopiert'}</span>
+                  <span>{isEn ? 'Scaffold Copied' : 'Gerüst kopiert'}</span>
                 </>
               ) : (
                 <>
                   <Copy className="w-4 h-4 text-zinc-400" />
-                  <span>{isEn ? 'Copy Statement' : 'Stellungnahme kopieren'}</span>
+                  <span>{isEn ? 'Copy Working Scaffold' : 'Arbeitsgerüst kopieren'}</span>
                 </>
               )}
             </button>
+          </div>
+
+          {/* Mandatory Human Iteration & Bridging Checklist Before Sending */}
+          <div className="mb-5 p-4 bg-amber-50/70 border border-amber-300 space-y-2">
+            <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-amber-950">
+              {isEn
+                ? 'HOW LLM SCAFFOLDING & HUMAN ITERATION WORK TOGETHER BEFORE SENDING:'
+                : 'WIE KI-BRIDGING & MENSCHLICHE ITERATION VOR DEM VERSAND ZUSAMMENSPIELEN:'}
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs text-zinc-800">
+              <div className="bg-white p-2.5 border border-amber-200">
+                <span className="font-mono font-bold text-sbb-red block text-[10px] uppercase mb-0.5">
+                  {isEn ? '1. Zero Negative-Frame Echo (GEO)' : '1. Kein Negativ-Echo (GEO)'}
+                </span>
+                {isEn
+                  ? 'LLM strips loaded accusations ("boycott", "exodus", "sabotage") so the company never repeats negative keywords that poison headlines and AI search indices.'
+                  : 'Das LLM streicht geladene Begriffe ("Boykott", "Abwanderung"), damit das Unternehmen nie Negativ-Frames wiederholt, die Schlagzeilen und KI-Suche vergiften.'}
+              </div>
+              <div className="bg-white p-2.5 border border-amber-200">
+                <span className="font-mono font-bold text-emerald-800 block text-[10px] uppercase mb-0.5">
+                  {isEn ? '2. Bridging to Main Narrative' : '2. Bridging zum Haupt-Narrativ'}
+                </span>
+                {isEn
+                  ? 'Proposes structured bridges (Acknowledge concern → Pivot → Core Pillar) so the answer actively contributes to the company’s overarching narrative.'
+                  : 'Schlägt tragfähige Brücken vor (Anliegen aufgreifen → Pivot → Kernsäule), sodass die Antwort aktiv auf das übergeordnete Unternehmens-Narrativ einzahlt.'}
+              </div>
+              <div className="bg-white p-2.5 border border-amber-200">
+                <span className="font-mono font-bold text-sbb-black block text-[10px] uppercase mb-0.5">
+                  {isEn ? '3. Human Judgment & Sign-Off' : '3. Menschliche Iteration & Freigabe'}
+                </span>
+                {isEn
+                  ? 'Spokesperson iterates tone, decides what belongs on the record vs. background, and secures final Legal/Compliance clearance.'
+                  : 'Mediensprecher iteriert Tonalität, entscheidet über Zitat vs. Hintergrundgespräch und holt die finale Rechtsfreigabe ein.'}
+              </div>
+            </div>
           </div>
 
           {/* Statement Content */}

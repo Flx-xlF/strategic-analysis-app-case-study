@@ -110,8 +110,8 @@ export const TrendingFactoryView: React.FC<Props> = ({
             </h1>
             <p className="text-sm text-sbb-stone mt-1 max-w-3xl leading-relaxed">
               {isEn
-                ? 'Governs millions of internal enterprise documents into canonical golden sources, sets non-negotiable global guardrails, and cascades tailored playbooks to regional communications affiliates.'
-                : 'Filtert Millionen interner Unternehmensdokumente auf verbindliche Golden Sources, definiert globale Leitplanken und kaskadiert passgenaue Playbooks an regionale Kommunikationsstellen.'}
+                ? 'Aligns corporate communications again across global silos: filters 1.42M internal files into 42 canonical Golden Sources, strips negative framings, and equips regional teams with bridging playbooks that reinforce the main narrative.'
+                : 'Richtet die Unternehmenskommunikation über globale Silos hinweg wieder konsistent aus: filtert 1,42 Mio. Dateien auf 42 Golden Sources, verhindert Negativ-Frames und befähigt Länderteams mit klaren Bridging-Playbooks.'}
             </p>
           </div>
 
@@ -402,28 +402,79 @@ export const TrendingFactoryView: React.FC<Props> = ({
           </div>
 
           {/* Blueprint Editor Preview */}
-          <div className="p-6 sm:p-8 space-y-6">
-            <div className="flex items-center justify-between pb-3 border-b border-zinc-100">
-              <span className="text-xs font-mono font-bold uppercase tracking-wider text-sbb-stone">
-                {isEn ? 'GENERATED ALIGNED ASSET (CANONICAL WORDING LOCKED)' : 'GENERIERTE VORLAGE (FREIGABEFÄHIG)'}
-              </span>
+          <div className="p-6 sm:p-8 space-y-5">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-zinc-100 gap-3">
+              <div className="space-y-0.5">
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-sbb-black block">
+                  {isEn
+                    ? 'STRATEGIC & GEO WORKING SCAFFOLD (BRIDGING LOCKED // REQUIRES HUMAN ITERATION)'
+                    : 'STRATEGISCHES & GEO-ARBEITSGERÜST (BRIDGING FIXIERT // MENSCHLICHE ITERATION ERFORDERLICH)'}
+                </span>
+                <span className="text-[11px] text-sbb-stone block">
+                  {isEn
+                    ? 'No single LLM pass yields ready-to-send copy. AI strips negative framings, proposes bridging tactics, and structures GEO facts; humans iterate the final 20%.'
+                    : 'Kein einzelner LLM-Lauf liefert versandfertige Texte. Die KI eliminiert Negativ-Frames, schlägt Bridging-Taktiken vor und strukturiert GEO-Fakten; das Team iteriert den Feinschliff.'}
+                </span>
+              </div>
 
               <button
                 onClick={handleCopy}
-                className="px-4 py-2 bg-sbb-black hover:bg-zinc-800 text-white font-mono text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer"
+                className="px-4 py-2 bg-sbb-black hover:bg-zinc-800 text-white font-mono text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer shrink-0 self-start sm:self-auto"
               >
                 {copied ? (
                   <>
                     <Check className="w-3.5 h-3.5 text-emerald-400" />
-                    <span>{isEn ? 'Copied' : 'Kopiert'}</span>
+                    <span>{isEn ? 'Scaffold Copied' : 'Gerüst kopiert'}</span>
                   </>
                 ) : (
                   <>
                     <Copy className="w-3.5 h-3.5 text-zinc-400" />
-                    <span>{isEn ? 'Copy Blueprint' : 'Vorlage kopieren'}</span>
+                    <span>{isEn ? 'Copy Working Scaffold' : 'Arbeitsgerüst kopieren'}</span>
                   </>
                 )}
               </button>
+            </div>
+
+            {/* 3-Pillar Practitioner Strip: Negative-Frame Hygiene + Bridging to Core Narrative + Human Iteration */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+              <div className="p-3 bg-red-50/40 border border-red-200">
+                <div className="font-mono text-[10px] font-bold uppercase text-sbb-red mb-1">
+                  {isEn
+                    ? '1. NEGATIVE-FRAME & GEO HYGIENE:'
+                    : '1. NEGATIV-FRAME- & GEO-HYGIENE:'}
+                </div>
+                <p className="text-zinc-700 leading-snug">
+                  {isEn
+                    ? 'Prevents repeating hostile accusations ("boycott", "exodus") in corporate text—avoiding defensive headlines and keeping toxic keywords out of LLM search indices.'
+                    : 'Verhindert die Wiederholung fremder Vorwürfe ("Boykott", "Abwanderung") im eigenen Text – schützt vor defensiven Schlagzeilen und negativer KI-Indexierung (GEO).'}
+                </p>
+              </div>
+
+              <div className="p-3 bg-emerald-50/40 border border-emerald-300">
+                <div className="font-mono text-[10px] font-bold uppercase text-emerald-900 mb-1">
+                  {isEn
+                    ? '2. BRIDGING TO MAIN NARRATIVE:'
+                    : '2. BRIDGING ZUM KERN-NARRATIV:'}
+                </div>
+                <p className="text-zinc-700 leading-snug">
+                  {isEn
+                    ? 'Proposes disciplined pivots (Acknowledge stake → Bridge → Core Pillar GS-01–GS-03) so every local response actively advances the company’s main narrative.'
+                    : 'Schlägt strukturierte Übergänge vor (Anliegen anerkennen → Brücke → Kernbotschaft GS-01–GS-03), damit jede Antwort auf das Haupt-Narrativ einzahlt.'}
+                </p>
+              </div>
+
+              <div className="p-3 bg-amber-50/60 border border-amber-300">
+                <div className="font-mono text-[10px] font-bold uppercase text-amber-900 mb-1">
+                  {isEn
+                    ? '3. HUMAN ITERATION (THE FINAL 20%):'
+                    : '3. MENSCHLICHE ITERATION (LETZTE 20%):'}
+                </div>
+                <p className="text-zinc-800 leading-snug">
+                  {isEn
+                    ? 'Comms specialists calibrate local stakeholder nuance, executive voice, timing, and final Legal/MLR sign-off before publication.'
+                    : 'Kommunikationsprofis justieren lokale Tonalität, politische Sensibilität, Timing und holen die finale Legal/MLR-Freigabe ein.'}
+                </p>
+              </div>
             </div>
 
             <div className="bg-sbb-cloud/40 p-6 sm:p-8 border-l-4 border-sbb-black text-sm text-sbb-black leading-relaxed whitespace-pre-line font-mono max-w-4xl">
