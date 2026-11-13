@@ -14,12 +14,21 @@ export const SCENARIOS_DATA: Record<Language, ScenarioMeta[]> = {
   en: [
     {
       id: 'oncology_trial_update',
-      title: 'Phase III Oncology Readout: Subgroup Variance & Access Debate',
-      category: 'Clinical Comms & Regulatory Alignment',
-      date: '08.11.2026',
+      title: 'Novartis: U.S. Reference Pricing (MFN), $23B Capex & EU/Swiss Access Debate',
+      category: 'Corporate Narrative & International Public Affairs',
+      date: '13.11.2026',
       urgency: 'High',
-      summary: 'Initial subgroup readout in Cohort B shows ambiguous efficacy variance. Critics and patient advocacy groups risk interpreting this as overall trial failure, jeopardizing upcoming reimbursement reviews and regulatory filings.',
-      organization: 'Global Innovative Medicines Division'
+      summary: 'Following U.S. Most-Favored-Nation (MFN) reference pricing and a $23B U.S. manufacturing commitment, Novartis calls for a rethink of European and Swiss price controls. Comms must align Washington, Brussels, and Basel without triggering "patient boycott" or "HQ exodus" rumors.',
+      organization: 'Novartis Corporate Affairs & Global Communications'
+    },
+    {
+      id: 'pluvicto_access_debate',
+      title: 'Novartis Pluvicto: FDA Approval vs. European HTA & NICE Reimbursement Lockout',
+      category: 'Frontier Medicine Value & Health Technology Assessment',
+      date: '10.11.2026',
+      urgency: 'High',
+      summary: 'While the FDA greenlit pre-chemotherapy prostate cancer radioligand therapy (PSMAfore), EMA regulatory pushback and UK NICE cost-effectiveness hurdles create an acute transatlantic access gap.',
+      organization: 'Novartis Innovative Medicines / Oncology Division'
     },
     {
       id: 'alpine_transit_crisis',
@@ -52,12 +61,21 @@ export const SCENARIOS_DATA: Record<Language, ScenarioMeta[]> = {
   de: [
     {
       id: 'oncology_trial_update',
-      title: 'Phase-III-Onkologie-Readout: Subgruppen-Varianz & Erstattungsdebatte',
-      category: 'Klinische Kommunikation & Zulassung',
-      date: '08.11.2026',
+      title: 'Novartis: US-Referenzpreise (MFN), 23-Mrd.-$-Investition & EU/CH-Marktzugang',
+      category: 'Konzern-Narrativ & Internationale Public Affairs',
+      date: '13.11.2026',
       urgency: 'Hoch',
-      summary: 'Erste Subgruppen-Ergebnisse in Kohorte B zeigen uneinheitliche Wirksamkeitsdaten. Medien und Patientenorganisationen drohen dies als Studienversagen auszulegen, was Erstattungsverhandlungen gefährdet.',
-      organization: 'Globale Onkologie-Sparte'
+      summary: 'Nach US-Referenzpreis-Vereinbarungen (Most Favored Nation) und einer 23-Mrd.-Dollar-Investition in den USA fordert Novartis ein Umdenken bei europäischen und Schweizer Medikamentenpreisen. Die Kommunikation muss USA, EU und den Heimmarkt Schweiz ohne "Boykott"- oder "Abwanderungs"-Schlagzeilen ausbalancieren.',
+      organization: 'Novartis Corporate Affairs & Global Communications'
+    },
+    {
+      id: 'pluvicto_access_debate',
+      title: 'Novartis Pluvicto: FDA-Zulassung vs. Europäische HTA- & NICE-Erstattungshürden',
+      category: 'Frontier-Medizin Nutzenbewertung & HTA',
+      date: '10.11.2026',
+      urgency: 'Hoch',
+      summary: 'Während die US-FDA die Radioligandentherapie vor Chemotherapie (PSMAfore) zulässt, führen EMA-Bedenken und eine NICE-Ablehnung in Grossbritannien zu einer transatlantischen Versorgungslücke.',
+      organization: 'Novartis Innovative Medicines / Onkologie-Sparte'
     },
     {
       id: 'alpine_transit_crisis',

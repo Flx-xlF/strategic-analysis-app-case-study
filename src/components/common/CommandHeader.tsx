@@ -14,7 +14,8 @@ import {
   Database,
   Layers,
   ArrowRight,
-  Server
+  Server,
+  Compass
 } from 'lucide-react';
 
 export type ActiveTab = 'cockpit' | 'geo' | 'trending' | 'cascade';
@@ -29,6 +30,8 @@ interface Props {
   onSelectRegion: (reg: WorldRegionId) => void;
   showConceptGuide: boolean;
   onToggleConceptGuide: () => void;
+  showQuickTour?: boolean;
+  onToggleQuickTour?: () => void;
   lang: Language;
   setLang: (lang: Language) => void;
   // Optional legacy props for backwards compatibility
@@ -47,6 +50,8 @@ export const CommandHeader: React.FC<Props> = ({
   onSelectRegion,
   showConceptGuide,
   onToggleConceptGuide,
+  showQuickTour = false,
+  onToggleQuickTour,
   lang,
   setLang
 }) => {
@@ -73,6 +78,21 @@ export const CommandHeader: React.FC<Props> = ({
           </div>
 
           <div className="hidden md:block h-3 w-px bg-zinc-700" />
+
+          {/* 90-Second Recruiting & Executive Quick Tour Toggle */}
+          {onToggleQuickTour && (
+            <button
+              onClick={onToggleQuickTour}
+              className={`px-2.5 py-1 font-mono text-[10px] font-bold tracking-wider uppercase transition-colors cursor-pointer border flex items-center gap-1.5 ${
+                showQuickTour
+                  ? 'bg-sbb-red text-white border-sbb-red'
+                  : 'bg-zinc-900 text-white border-sbb-red/80 hover:bg-sbb-red hover:border-sbb-red'
+              }`}
+            >
+              <Compass className="w-3 h-3" />
+              <span>{isEn ? '90s Quick Tour' : '90s Kurz-Tour'}</span>
+            </button>
+          )}
 
           {/* Concept, Method & IT Integration Toggle */}
           <button

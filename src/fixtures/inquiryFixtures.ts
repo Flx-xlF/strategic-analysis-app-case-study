@@ -27,46 +27,44 @@ export interface InquiryData {
 export const INQUIRY_FIXTURES: Record<Language, Record<string, InquiryData>> = {
   en: {
     oncology_trial_update: {
-      outlet: "Global Biopharma Intelligence",
-      journalist: "E. Vance & M. Thorne",
-      deadline: "Today, 17:00 CET",
-      inquiry_text: `Dear Corporate Communications Team,
+      outlet: "Financial Times & Neue Zürcher Zeitung (Joint Desk)",
+      journalist: "Hannah Kuchler & Swiss Economics Desk",
+      deadline: "Today, 16:30 CET",
+      inquiry_text: `Dear Novartis Media Relations,
 
-We are preparing an in-depth article on the newly disclosed Phase III readout for Onco-701.
+We are reporting on CEO Vas Narasimhan's recent statements in London and Basel calling for a 'complete rethink' of European and Swiss drug pricing policies.
 
-Sources indicate that in Cohort B, the study failed to achieve statistical superiority over existing standard of care. 
-
-We request your prompt response to the following questions:
-1. Does the company acknowledge that Onco-701 failed to demonstrate efficacy in Cohort B patients?
-2. Will you restrict your upcoming FDA and EMA regulatory filings to exclude this subgroup?
-3. How do you respond to health economist assessments calling your projected pricing unsupportable in light of these subgroup findings?`,
-      official_wording_title: "Clinical Trial Disclosure & Regulatory Governance Policy (SOP-MED-402)",
-      official_wording_quote: "«The company communicates clinical results based on primary pre-specified endpoints approved in formal statistical analysis plans. Subgroup evaluations are inherently exploratory. Spokespersons shall not speculate on final approved labeling or negotiated reimbursement parameters prior to health authority determinations.»",
-      compliance_authority: "Global Regulatory Affairs & Legal Compliance",
+We request your official response on the record to the following questions by 16:30 CET:
+1. Does your pledge to align U.S. launch prices with wealthy nations (MFN) mean Novartis will deliberately delay or withhold launches of upcoming therapies (such as ianalumab) in Switzerland and the EU if authorities refuse higher price demands?
+2. Following your $23 billion U.S. manufacturing commitment, is Novartis gradually shifting its corporate center of gravity and executive leadership away from Basel?
+3. How do you respond to Swiss and European healthcare payers who argue Novartis is using U.S. trade pressure to force public healthcare funds to subsidize American margins?`,
+      official_wording_title: "Global Pricing, Launch Governance & Footprint Policy (GS-01 / GS-02)",
+      official_wording_quote: "«Novartis advocates pricing frameworks that fairly reflect therapeutic value across OECD economies to support continuous innovation. Capital expenditure across localized U.S. production facilities serves domestic supply resilience. Basel remains the permanent corporate headquarters, executive governance seat, and global scientific nerve center. Spokespersons shall strictly reject characterizations of launch sequencing as patient boycotts.»",
+      compliance_authority: "Executive Committee & Corporate Legal Governance",
       contradictions: [
         {
           severity: "HIGH",
-          title: "Premature Admission of 'Failure' vs. Protocol Intent",
-          quote_journalist: "Does the company acknowledge that Onco-701 failed to demonstrate efficacy in Cohort B?",
-          quote_doctrine: "Primary endpoint was met; subgroup evaluations are exploratory and underpowered.",
-          inquiry_trap: "Trying to force an on-the-record soundbite conceding 'trial failure' to anchor future price negotiations.",
-          legal_boundary: "Securities law and regulatory compliance prohibit misrepresenting pre-specified trial design as an endpoint failure.",
-          clear_translation: "Reaffirm that the primary trial goal (overall survival) was met with high significance, and explain plainly why exploratory subsets cannot be declared 'failed'.",
-          assessment: "Under no circumstances use the journalist's framing of 'failure'. Re-anchor in the protocol-defined primary endpoint: overall survival benefit for the intention-to-treat population."
+          title: "Extortion / Patient Boycott Trap vs. Value Assessment Policy",
+          quote_journalist: "Will Novartis deliberately delay or withhold launches in Switzerland and the EU to protect US prices?",
+          quote_doctrine: "Zero patient boycott; Novartis collaborates on value-based access models without compromising patient care.",
+          inquiry_trap: "Trying to provoke an executive quote conceding that Novartis will 'punish' European or Swiss patients to protect U.S. commercial revenues.",
+          legal_boundary: "Antitrust regulations prohibit anti-competitive collective withholding threats; public affairs must ground sequencing strictly in evidence-based health economics.",
+          clear_translation: "Explain clearly that innovative therapies cannot launch under arbitrary reference caps that distort international access, and reiterate ongoing compassionate and regulatory submissions.",
+          assessment: "Unequivocally dismantle the premise of 'withholding care'. Frame launch sequencing as an evidence-driven, country-by-country value dialogue."
         },
         {
-          severity: "MEDIUM",
-          title: "Speculation on Regulatory Label Scope",
-          quote_journalist: "Will you restrict your upcoming FDA and EMA regulatory filings to exclude this subgroup?",
-          quote_doctrine: "Spokespersons shall not speculate on final approved labeling prior to agency determination.",
-          inquiry_trap: "Pressing the company to concede label narrowing before regulatory dossiers are formally submitted.",
-          legal_boundary: "FDA/EMA regulations strictly govern statements regarding pending drug applications and prospective indication scope.",
-          clear_translation: "State that full clinical dossiers are being submitted as scheduled, and that regulatory agencies review the holistic totality of evidence.",
-          assessment: "Remind the reporter that regulatory filings submit the complete dataset, and final labeling is determined through statutory scientific review by health authorities."
+          severity: "HIGH",
+          title: "Basel Headquarter Exodus Rumor vs. Capital Allocation Reality",
+          quote_journalist: "Is Novartis gradually shifting its corporate center of gravity away from Basel following the $23B US capex?",
+          quote_doctrine: "Basel remains the permanent corporate headquarters, executive seat, and scientific nerve center.",
+          inquiry_trap: "Establishing a narrative of corporate desertion of Switzerland (Standort Schweiz) to spark political backlash in Bern.",
+          legal_boundary: "Corporate governance and Swiss stock exchange (SIX) disclosure rules govern statements on corporate domicile and headquarters.",
+          clear_translation: "Reaffirm without ambiguity that the $23B investment expands manufacturing capacity for American patients in America, while Basel's corporate and R&D role is unchanged and growing.",
+          assessment: "Deliver a crisp, unequivocal statement on Basel's permanent status as global headquarters."
         }
       ],
-      recommended_statement: "The Phase III study met its primary endpoint, demonstrating a statistically significant and clinically meaningful overall survival improvement across the intended patient population. Exploratory subgroup analyses showed clinical activity consistent with the broader cohort, and full safety and efficacy data will be presented at an upcoming medical congress. We look forward to advancing our regulatory submissions with health authorities globally.",
-      strategic_advisory: "Strictly adhere to the term 'exploratory subgroup analysis'. Do not engage in hypothetical pricing or reimbursement debates while regulatory filings are active."
+      recommended_statement: "Novartis is committed to ensuring patients worldwide benefit from breakthrough medical innovation. Under U.S. Most-Favored-Nation reference rules, healthcare systems in high-income nations must modernize pricing frameworks to reflect the genuine therapeutic and economic value of innovation, rather than imposing blunt price cuts that export distortions globally. Our $23 billion U.S. investment expands domestic manufacturing across 10 sites to secure tariff-resilient supply for American patients. Basel remains our undisputed corporate headquarters and scientific core as we partner constructively with Swiss (BAG) and European authorities to ensure rapid, sustainable patient access.",
+      strategic_advisory: "Decouple the $23B U.S. manufacturing expansion from HQ identity. Reaffirm Basel unambiguously, and reject any framing of launch sequencing as a 'patient boycott'."
     },
     alpine_transit_crisis: {
       outlet: "Keystone-SDA News Agency",
@@ -129,6 +127,35 @@ We request your responses:
       recommended_statement: "Upholding human rights and labor standards is non-negotiable across our organization. The supplier in question passed an independent third-party audit in December 2025. In light of the new allegations presented, we have immediately suspended all active purchase orders and commissioned an independent forensic investigation on the ground. We will act decisively based on the findings.",
       strategic_advisory: "Demonstrate swift institutional action. Avoid defensive arguments about Tier-2 vs Tier-3 designations; focus on the immediate contract freeze."
     },
+    pluvicto_access_debate: {
+      outlet: "The Guardian & Health Policy Watch",
+      journalist: "Sarah Boseley & Health Team",
+      deadline: "Today, 18:00 CET",
+      inquiry_text: `Dear Novartis Media Relations,
+
+Following the UK NICE final guidance refusing routine NHS funding for Pluvicto in advanced prostate cancer, and reports that Novartis withdrew its European regulatory submission:
+
+1. Does Novartis accept the NICE appraisal finding that Pluvicto is not cost-effective at £20,000 per dose?
+2. Why is Pluvicto approved in the US prior to chemotherapy while European health authorities claim the data is insufficient?
+3. Will Novartis offer a meaningful price discount so NHS patients do not miss out on this therapy?`,
+      official_wording_title: "Radioligand Clinical Data & Value-Based Access Policy (GS-01 / GS-03)",
+      official_wording_quote: "«Pluvicto is clinically proven in the Phase III PSMAfore trial to double radiographic progression-free survival (HR 0.41). Appraisals by NICE reflect cost-per-QALY threshold methodologies rather than biological efficacy. Novartis actively offers flexible managed-access models that account for total acute care cost offsets.»",
+      compliance_authority: "Global Oncology Affairs & Legal Counsel",
+      contradictions: [
+        {
+          severity: "HIGH",
+          title: "Economic Threshold vs. Biological Efficacy Trap",
+          quote_journalist: "Does Novartis accept that Pluvicto is not cost-effective and insufficient for approval?",
+          quote_doctrine: "PSMAfore proved a statistically significant doubling of rPFS; NICE appraisal is purely economic.",
+          inquiry_trap: "Conflating statutory cost-effectiveness thresholds with clinical drug failure.",
+          legal_boundary: "Securities and regulatory compliance prohibit accepting inaccurate claims of clinical failure.",
+          clear_translation: "Distinguish firmly between proven clinical survival benefits and economic budget calculations.",
+          assessment: "Reiterate the HR 0.41 rPFS doubling first, then address ongoing commercial pricing dialogues."
+        }
+      ],
+      recommended_statement: "The clinical benefit of Pluvicto is proven: the Phase III PSMAfore study demonstrated a statistically significant doubling of radiographic progression-free survival (HR 0.41, p<0.001) in men with prostate cancer prior to chemotherapy. While health technology assessment methodologies differ by country—leading to FDA approval in the U.S.—we are actively working with UK NICE and European health authorities to find sustainable, value-based reimbursement solutions that recognize the therapy's ability to offset downstream acute hospitalizations.",
+      strategic_advisory: "Ground the response in the HR 0.41 statistic and patient quality of life. Do not engage in speculative price concession percentages."
+    },
     health_data_breach: {
       outlet: "National Daily News Desk",
       journalist: "F. Müller",
@@ -155,46 +182,44 @@ We request your responses:
   },
   de: {
     oncology_trial_update: {
-      outlet: "Biopharma Insights International",
-      journalist: "E. Vance & M. Thorne",
-      deadline: "Heute, 17:00 Uhr",
+      outlet: "Neue Zürcher Zeitung & Financial Times (Gemeinsames Desk)",
+      journalist: "Wirtschaftsredaktion Inland & European Healthcare",
+      deadline: "Heute, 16:30 Uhr",
       inquiry_text: `Sehr geehrte Damen und Herren,
 
-wir recherchieren für einen Schwerpunktartikel zu den neuen Phase-III-Ergebnissen Ihres Wirkstoffs Onco-701.
+wir recherchieren zu den Äusserungen von CEO Vas Narasimhan, der ein 'grundlegendes Umdenken' bei europäischen und Schweizer Medikamentenpreisen fordert.
 
-Aus informierten Kreisen hören wir, dass die Studie in der wichtigen Subgruppe 'Kohorte B' keine statistische Überlegenheit gegenüber dem Behandlungsstandard nachweisen konnte.
-
-Wir bitten um Beantwortung folgender Fragen:
-1. Bestätigen Sie, dass Onco-701 in Kohorte B gescheitert ist?
-2. Werden Sie bei den Zulassungsanträgen bei FDA und Swissmedic diesen Patientenkreis ausklammern?
-3. Wie rechtfertigen Sie Ihre Preisvorstellungen angesichts dieser ernüchternden Subgruppen-Daten?`,
-      official_wording_title: "Klinische Publizitäts- & Governance-Richtlinie (SOP-MED-402)",
-      official_wording_quote: "«Die Kommunikation klinischer Daten basiert auf den im Studienprotokoll formal definierten primären Endpunkten. Subgruppen-Analysen sind explorativ. Sprecher dürfen vor Abschluss behördlicher Nutzenbewertungen nicht über finale Erstattungspreise oder Indikationsgrenzen spekulieren.»",
-      compliance_authority: "Globale Zulassung & Legal Compliance",
+Wir bitten um Beantwortung folgender Fragen bis 16:30 Uhr:
+1. Bedeutet Ihre US-Referenzpreis-Vereinbarung (MFN), dass Novartis künftige Medikamente (wie Ianalumab) in der Schweiz und der EU bewusst verzögert oder gar nicht einführt, falls Preisnachlässe gefordert werden?
+2. Verlagert Novartis mit der 23-Milliarden-Investition in US-Werke schrittweise sein unternehmerisches Schwergewicht und die Führung weg von Basel?
+3. Wie reagieren Sie auf Vorwürfe Schweizer Kassen, Novartis nutze US-Handelsdrohungen, um europäische Beitragszahler unter Druck zu setzen?`,
+      official_wording_title: "Konzern-Governance zu Preisgestaltung & Standort Basel (GS-01 / GS-02)",
+      official_wording_quote: "«Novartis setzt sich für faire, wertbasierte Erstattungsmodelle in allen OECD-Staaten ein. Die 23-Mrd.-$-Investition in den USA stärkt die lokale Versorgungssicherheit. Basel bleibt der weltweite Hauptsitz, Sitz der Geschäftsleitung und zentrales Forschungszentrum. Spekulationen über Patientenboykotte sind entschieden zurückzuweisen.»",
+      compliance_authority: "Konzernleitung & Rechtsdienst",
       contradictions: [
         {
           severity: "HOCH",
-          title: "Vorwurf des Studienversagens vs. Studienprotokoll",
-          quote_journalist: "Bestätigen Sie, dass Onco-701 in Kohorte B gescheitert ist?",
-          quote_doctrine: "Der primäre Endpunkt Gesamtüberleben wurde signifikant erreicht; Subgruppen sind explorativ.",
-          inquiry_trap: "Der Journalist will ein Zitat provozieren, das das Wort 'gescheitert' enthält, um künftige Preisverhandlungen zu schwächen.",
-          legal_boundary: "Kapitalmarktrecht und regulatorische Vorgaben verbieten es, ein vorab definiertes Studiendesign fälschlich als Misserfolg darzustellen.",
-          clear_translation: "Klarstellen, dass das Studienziel (Gesamtüberleben) mit hoher Signifikanz erreicht wurde und Subgruppen statistisch für explorative Trends angelegt waren.",
-          assessment: "Das Wording des Journalisten ('gescheitert') keinesfalls übernehmen. Auf den primären Endpunkt fokussieren: statistisch signifikanter Überlebensvorteil der Gesamtkohorte."
+          title: "Boykott-Falle vs. Partnerschaftlicher Erstattungsdialog",
+          quote_journalist: "Wird Novartis die Einführung in der Schweiz und der EU verzögern, um US-Preise zu schützen?",
+          quote_doctrine: "Null Boykott; partnerschaftlicher Dialog mit dem BAG und HTA-Stellen für wertbasierte Erstattung.",
+          inquiry_trap: "Der Journalist will ein Zitat provozieren, wonach Novartis europäische oder Schweizer Patienten erpresst.",
+          legal_boundary: "Kartell- und wettbewerbsrechtliche Grenzen verbieten konditionierte Boykott-Drohungen.",
+          clear_translation: "Klarstellen, dass künstlich gedrückte Preise internationale Verzerrungen erzeugen, und belegen, dass klinische Studien und Härtefallprogramme unverändert weiterlaufen.",
+          assessment: "Den Vorwurf eines Boykotts kategorisch entkräften. Markteinführungen als evidenzbasierten Dialog darstellen."
         },
         {
-          severity: "MITTEL",
-          title: "Spekulation über künftige Zulassungsgrenzen",
-          quote_journalist: "Werden Sie Kohorte B beim Zulassungsantrag ausklammern?",
-          quote_doctrine: "Keine Spekulation über Indikationseinschränkungen vor behördlicher Begutachtung.",
-          inquiry_trap: "Versuch, das Unternehmen zu einem vorzeitigen Rückzug aus einer Sub-Indikation zu drängen.",
-          legal_boundary: "Zulassungsgesetze verlangen die Einreichung des Gesamtdossiers; finale Indikationen obliegen den Behörden.",
-          clear_translation: "Betonen, dass die Daten termingerecht eingereicht werden und die Zulassungsbehörden die Gesamtheit der klinischen Evidenz beurteilen.",
-          assessment: "Erklären, dass die Dossiers vollständig eingereicht werden und die finale Fachinformation im behördlichen Prüfverfahren festgelegt wird."
+          severity: "HOCH",
+          title: "Abwanderungs-Gerücht vs. Investitionswirklichkeit",
+          quote_journalist: "Verlagert Novartis das Schwergewicht schrittweise weg von Basel in die USA?",
+          quote_doctrine: "Basel bleibt der dauerhafte Hauptsitz, Sitz der Geschäftsleitung und Forschungszentrale.",
+          inquiry_trap: "Konstruktion einer Schwächung des Standorts Schweiz zur Auslösung politischer Vorstösse in Bern.",
+          legal_boundary: "Börsenrechtliche Vorgaben (SIX) regeln Mitteilungen zum Konzernsitz und Governance-Strukturen.",
+          clear_translation: "Unmissverständlich bekräftigen: 23 Mrd. $ bauen Produktion in den USA für US-Patienten aus, während Basel das weltweite Herz des Konzerns bleibt.",
+          assessment: "Ein klares, unerschütterliches Bekenntnis zu Basel als weltweitem Hauptsitz abgeben."
         }
       ],
-      recommended_statement: "Die Phase-III-Studie hat ihren primären Endpunkt erreicht und einen statistisch signifikanten sowie klinisch bedeutsamen Gesamtüberlebensvorteil für die Gesamtpopulation nachgewiesen. Die explorativen Subgruppen-Analysen zeigen ein konsistentes Wirksamkeits- und Sicherheitsprofil. Die vollständigen Daten werden an einem kommenden Fachkongress präsentiert. Wir bereiten die Zulassungsanträge weltweit planmässig vor.",
-      strategic_advisory: "Konsequent den Begriff 'explorative Subgruppenanalyse' verwenden. Keine Spekulationen über Erstattungspreise während laufender Verfahren."
+      recommended_statement: "Novartis setzt sich dafür ein, dass Patientinnen und Patienten weltweit von medizinischem Fortschritt profitieren. Unter den neuen US-Referenzpreisregeln (MFN) müssen wohlhabende Industriestaaten ihre Erstattungssysteme so weiterentwickeln, dass echter therapeutischer Mehrwert anerkannt wird, anstatt durch starre Preisdeckel weltweite Verzerrungen zu erzeugen. Unsere 23-Milliarden-Dollar-Investition in den USA baut an 10 Standorten eine zollresistente Produktion für US-Patienten auf. Basel bleibt unser unbestrittener weltweiter Hauptsitz und das wissenschaftliche Herz des Unternehmens; mit dem Schweizer BAG und europäischen Behörden führen wir einen konstruktiven Dialog für zukunftsfähige Erstattungsmodelle.",
+      strategic_advisory: "Die 23-Mrd.-$-US-Investition strikt von der Standortfrage trennen. Klares Bekenntnis zu Basel abgeben und jegliche Boykott-Rhetorik zurückweisen."
     },
     alpine_transit_crisis: {
       outlet: "Nachrichtenagentur Keystone-SDA",
@@ -256,6 +281,35 @@ Wir bitten um Stellungnahme:
       ],
       recommended_statement: "Die Einhaltung von Menschenrechten und Arbeitsstandards ist für uns nicht verhandelbar. Der erwähnte Lieferant hat im Dezember 2025 ein unabhängiges Zertifizierungsaudit bestanden. Aufgrund der neuen Hinweise haben wir sämtliche weiteren Vergaben an das Unternehmen per sofort sistiert und eine unabhängige Vor-Ort-Untersuchung beauftragt. Wir werden die Ergebnisse transparent kommunizieren.",
       strategic_advisory: "Handlungsstärke belegen (sofortiger Vergabestopp). Nicht in bürokratische Ausflüchte zu Tier-2/Tier-3 flüchten."
+    },
+    pluvicto_access_debate: {
+      outlet: "The Guardian & Europäischer Gesundheitsdienst",
+      journalist: "Rechercheteam Gesundheitspolitik",
+      deadline: "Heute, 18:00 Uhr",
+      inquiry_text: `Sehr geehrte Damen und Herren,
+
+nach der Entscheidung des britischen NICE, Pluvicto nicht für den Routineeinsatz im NHS zu empfehlen, und dem Rückzug des europäischen Zulassungsantrags bitten wir um Stellungnahme:
+
+1. Akzeptiert Novartis die Einschätzung von NICE, dass Pluvicto bei 20.000 Pfund pro Dosis unwirtschaftlich ist?
+2. Warum ist Pluvicto in den USA vor Chemotherapie zugelassen, während europäische Behörden die Datenlage als unzureichend ansehen?
+3. Wird Novartis Preisnachlässe gewähren, damit Patienten in Europa und Grossbritannien nicht leer ausgehen?`,
+      official_wording_title: "Radioliganden-Evidenz & Nutzenbewertungs-Richtlinie (GS-01 / GS-03)",
+      official_wording_quote: "«Pluvicto belegt in der Phase-III-Studie PSMAfore eine signifikante Verdopplung des progressionsfreien Überlebens (HR 0.41). Die NICE-Bewertung reflektiert gesundheitsökonomische Kostenschwellen, nicht die klinische Wirksamkeit. Novartis bietet flexible Erstattungsmodelle an, die Spitalentlastungen berücksichtigen.»",
+      compliance_authority: "Onkologie-Leitung & Legal",
+      contradictions: [
+        {
+          severity: "HOCH",
+          title: "Wirtschaftliche HTA-Schwelle vs. Biologische Wirksamkeit",
+          quote_journalist: "Akzeptiert Novartis, dass Pluvicto unzureichend und unwirtschaftlich ist?",
+          quote_doctrine: "PSMAfore belegt signifikante Verdopplung des rPFS; NICE-Verfahren ist rein ökonomisch.",
+          inquiry_trap: "Verwechslung von Wirtschaftlichkeitsgrenzen mit klinischem Studienversagen.",
+          legal_boundary: "Regulatorische Pflicht zur korrekten Darstellung klinischer Studienergebnisse.",
+          clear_translation: "Klar zwischen der belegten Wirksamkeit und methodischen HTA-Budgetmodellen unterscheiden.",
+          assessment: "Zuerst die signifikante rPFS-Verdopplung (HR 0.41) herausstellen, dann auf flexible Erstattungsdialoge verweisen."
+        }
+      ],
+      recommended_statement: "Der klinische Nutzen von Pluvicto ist wissenschaftlich belegt: Die Phase-III-Studie PSMAfore zeigte eine statistisch signifikante Verdopplung des progressionsfreien Überlebens (HR 0.41, p<0.001) vor Chemotherapie. Während die Zulassungssysteme international divergieren – was zur US-Zulassung durch die FDA führte –, arbeiten wir aktiv mit dem britischen NICE und europäischen Behörden an wertbasierten Modellen, die Entlastungen im Spitalbereich berücksichtigen.",
+      strategic_advisory: "Immer mit den rPFS-Studiendaten eröffnen. Keine öffentlichen Spekulationen über prozentuale Rabatte anstellen."
     },
     health_data_breach: {
       outlet: "Tageszeitung Inland",

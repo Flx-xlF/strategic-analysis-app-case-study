@@ -61,33 +61,33 @@ export const TRENDING_FIXTURES: Record<Language, Record<string, TrendingScenario
         raw_enterprise_files: 1420000,
         active_governed_records: 18400,
         canonical_golden_sources: 42,
-        legacy_conflicts_flagged: 9,
+        legacy_conflicts_flagged: 7,
         conflict_details: [
           {
-            vault_location: 'Europe Commercial SharePoint / German Affiliate Vault',
-            document_title: 'Onco-701_Market_Access_Briefing_DE_v2.1_2024.pdf',
-            conflict_reason: 'Document still quotes Phase II exploratory biomarker cutoff ratios, contradicting the definitive Phase III statistical analysis plan.',
-            action_required: 'Immediate deprecation lock; replace with Canonical Wording Pack SOP-MED-402.'
+            vault_location: 'Veeva Vault / European Commercial Access Archive',
+            document_title: 'EU_Launch_Sequencing_Strategy_Deck_2023_v4.pptx',
+            conflict_reason: 'Document still specifies unconditional simultaneous European launches, contradicting the 2026 MFN Launch Sequencing Policy (GS-01) where artificial price suppression in reference baskets can jeopardize global pricing.',
+            action_required: 'Locked & deprecated; replaced by Canonical Golden Source GS-01.'
           },
           {
-            vault_location: 'Global Medical Affairs / Investigator Deck Archive',
-            document_title: 'Cohort_B_Preliminary_Efficacy_SlideDeck_Draft_Jul2026.pptx',
-            conflict_reason: 'Draft presentation separates Cohort B as standalone study group without intention-to-treat survival context.',
-            action_required: 'Archived to Historical; all commercial affiliate liaisons notified.'
+            vault_location: 'SharePoint / Swiss Public Affairs Working Vault',
+            document_title: 'Draft_Response_BAG_Cost_Containment_Packages.docx',
+            conflict_reason: 'Draft contained aggressive wording ("withholding future medicines from Swiss patients"), which violates Corporate Communications guardrails against soundbites that trigger boycott allegations.',
+            action_required: 'Archived; replaced with constructive dialogue framework in GS-02/GS-03.'
           }
         ]
       },
-      global_core_thesis: 'Phase III Onco-701 delivers a statistically significant overall survival benefit across the intention-to-treat population (HR 0.68, p<0.001). Exploratory subgroup analyses showed clinical activity consistent with the broad patient group, and global filings proceed on schedule with consistent safety.',
+      global_core_thesis: "Sustainable innovation requires health systems across wealthy OECD nations to reward clinical value. Our $23B investment localizes U.S. manufacturing across 10 facilities while Basel remains Novartis's corporate and research headquarters; we actively engage European and Swiss authorities on modernized access frameworks without compromising patient care.",
       global_proof_points: [
-        'Primary endpoint: Overall survival (HR 0.68, p<0.001) met with high clinical significance.',
-        'Intention-to-treat (ITT) population design verified by independent data monitoring committee.',
-        'Exploratory subgroup Cohort B was not powered for standalone statistical separation.',
-        'Patient safety profile is proven; current patients must continue therapy without disruption.'
+        'GS-01: Reinvestment in breakthrough therapies requires high-income nations to value true clinical benefit fairly.',
+        'GS-02: $23B U.S. capex localizes supply against geopolitical tariffs; global corporate headquarters remains permanently in Basel.',
+        'GS-03: Active collaboration with Swiss BAG and European HTA bodies on flexible value-based pricing, with zero patient boycotts.',
+        'Supply continuity: Compassionate use, clinical trials, and regulatory filings proceed on schedule globally.'
       ],
       global_guardrails: [
-        'NEVER use the phrase "subgroup failure" or "mixed study results".',
-        'DO NOT speculate on local country reimbursement discount percentages or tentative formulary tiering.',
-        'DO NOT provide prospective clinical guidance outside the pre-approved investigator brochure.'
+        'NEVER use phrasing suggesting Novartis is "punishing", "boycotting", or "withholding therapies" from European or Swiss patients.',
+        'DO NOT allow media to frame the $23B U.S. manufacturing investment as an exit from or downsizing of Basel.',
+        'DO NOT debate individual national rebate percentages in press statements before health authority determinations.'
       ],
       regional_adaptations: {
         all: {
@@ -872,6 +872,102 @@ A: No. Assembly facilities continue on schedule utilizing qualified alternative 
         qa_brief: { id: 'qa_brief', label: 'Q&A', target_audience: 'Desk', psychological_objective: 'Facts', blueprint_content: 'Supply chain audit.' }
       }
     },
+    pluvicto_access_debate: {
+      scenario_id: 'pluvicto_access_debate',
+      corpus_gate: {
+        raw_enterprise_files: 920000,
+        active_governed_records: 14200,
+        canonical_golden_sources: 36,
+        legacy_conflicts_flagged: 5,
+        conflict_details: [
+          {
+            vault_location: 'Veeva MedComms / UK Access Vault',
+            document_title: 'NICE_Submission_Draft_Historical_2024.docx',
+            conflict_reason: 'Draft used legacy QALY comparator models that did not incorporate downstream acute hospital day offsets.',
+            action_required: 'Superseded by Radioligand HEOR Model GS-03.'
+          }
+        ]
+      },
+      global_core_thesis: 'Pluvicto is clinically proven to double radiographic progression-free survival in pre-chemotherapy prostate cancer. We are working constructively with European HTA bodies and UK NICE to align on value-based reimbursement frameworks that reflect acute hospitalization offsets.',
+      global_proof_points: [
+        'PSMAfore demonstrated a statistically significant doubling of rPFS (HR 0.41, p<0.001).',
+        'FDA approval confirms strong clinical benefit-risk balance prior to toxic taxane chemotherapy.',
+        'Dedicated radioligand manufacturing hubs in New Jersey and Indiana ensure unbroken global supply.'
+      ],
+      global_guardrails: [
+        'DO NOT allow trade media to conflate UK NICE cost-per-QALY refusal with clinical failure.',
+        'Clarify that EMA withdrawal was due to trial comparator design nuances, not clinical safety or efficacy.'
+      ],
+      regional_adaptations: {
+        all: {
+          region_id: 'all',
+          region_label: 'Global (All Regions)',
+          regulatory_anchor: 'PSMAfore Protocol & Radioligand Clinical Overview',
+          regional_lead_frame: 'Pivotal precision oncology milestone moving radioligands to pre-chemotherapy patients.',
+          blueprints: {
+            hintergrund: { id: 'hintergrund', label: 'Global Science Briefing', target_audience: 'Medical Editors', psychological_objective: 'Anchor rPFS doubling.', blueprint_content: 'PSMAfore data confirms doubling of radiographic progression-free survival.' },
+            social: { id: 'social', label: 'Patient Channel', target_audience: 'Patients', psychological_objective: 'Reassurance.', blueprint_content: 'Advancing precision radioligand therapy for men with advanced prostate cancer.' },
+            talking_points: { id: 'talking_points', label: 'Spokesperson Talking Points', target_audience: 'Media Desk', psychological_objective: 'Clinical clarity.', blueprint_content: 'Lead with rPFS doubling and quality-of-life benefits.' },
+            qa_brief: { id: 'qa_brief', label: 'Field Q&A', target_audience: 'Comms', psychological_objective: 'Direct facts.', blueprint_content: 'NICE evaluated cost-effectiveness thresholds, not biological efficacy.' }
+          }
+        },
+        us: {
+          region_id: 'us',
+          region_label: 'North America (US / FDA & Payers)',
+          regulatory_anchor: 'US FDA Expanded Prescribing Information',
+          regional_lead_frame: 'Commercial availability and reimbursement rollout across comprehensive cancer centers.',
+          blueprints: {
+            hintergrund: { id: 'hintergrund', label: 'US Clinical & Reimbursement Brief', target_audience: 'US Oncology Media', psychological_objective: 'Formulary inclusion.', blueprint_content: 'FDA approved expanded indication for pre-chemotherapy mCRPC.' },
+            social: { id: 'social', label: 'US Patient Voice', target_audience: 'Advocacy Groups', psychological_objective: 'Support.', blueprint_content: 'Expanding access to targeted prostate cancer therapy before chemotherapy.' },
+            talking_points: { id: 'talking_points', label: 'Payer Talking Points', target_audience: 'Access Teams', psychological_objective: 'Value justification.', blueprint_content: 'Offsets late-stage acute hospitalizations and emergency visits.' },
+            qa_brief: { id: 'qa_brief', label: 'US Access Q&A', target_audience: 'Hotlines', psychological_objective: 'Clarity.', blueprint_content: 'Commercial Medicare and commercial health plans are active.' }
+          }
+        },
+        eu: {
+          region_id: 'eu',
+          region_label: 'Europe (EU / EMA & HTA)',
+          regulatory_anchor: 'EMA Regulatory Framework & Joint Clinical Assessment',
+          regional_lead_frame: 'Partnering with national health authorities to overcome health economic hurdles.',
+          blueprints: {
+            hintergrund: { id: 'hintergrund', label: 'European HTA Briefing', target_audience: 'Health Economists', psychological_objective: 'Separate cost from clinical data.', blueprint_content: 'Clinical efficacy is verified; pricing discussions continue with national bodies.' },
+            social: { id: 'social', label: 'EU Affiliate Outreach', target_audience: 'Clinicians', psychological_objective: 'Trust.', blueprint_content: 'Commitment to finding sustainable patient access pathways across Europe.' },
+            talking_points: { id: 'talking_points', label: 'European Spokesperson Points', target_audience: 'National Teams', psychological_objective: 'Alignment.', blueprint_content: 'Distinguish between UK NICE economic thresholds and verified clinical benefit.' },
+            qa_brief: { id: 'qa_brief', label: 'HTA Negotiation Q&A', target_audience: 'Pricing Teams', psychological_objective: 'Defense.', blueprint_content: 'Flexible managed entry and outcomes-based contracts are offered.' }
+          }
+        },
+        ch: {
+          region_id: 'ch',
+          region_label: 'Switzerland (Swissmedic & Nuclear Centers)',
+          regulatory_anchor: 'Swissmedic Authorization & Specialities List (SL)',
+          regional_lead_frame: 'Supporting university hospital infrastructure and patient access in Switzerland.',
+          blueprints: {
+            hintergrund: { id: 'hintergrund', label: 'Schweizer Fachpresse Dossier', target_audience: 'Medizinische Fachpresse', psychological_objective: 'Zentrumsversorgung sichern.', blueprint_content: 'Ausbau nuklearmedizinischer Behandlungskapazitäten an Schweizer Zentren.' },
+            social: { id: 'social', label: 'Konzernsitz Social Media', target_audience: 'Fachkreise', psychological_objective: 'Information.', blueprint_content: 'Präzisions-Radioligandentherapie an Schweizer Spitälern verfügbar.' },
+            talking_points: { id: 'talking_points', label: 'Talking Points Schweiz', target_audience: 'Sprecher', psychological_objective: 'Klarheit.', blueprint_content: 'Erfolgreiche Zusammenarbeit mit Schweizer Spitälern und Kassen.' },
+            qa_brief: { id: 'qa_brief', label: 'Q&A Schweiz', target_audience: 'Medienteam', psychological_objective: 'Präzision.', blueprint_content: 'Vergütung erfolgt über die bewährten Schweizer Spezialitätenlisten-Mechanismen.' }
+          }
+        },
+        apac: {
+          region_id: 'apac',
+          region_label: 'Asia-Pacific (APAC / PMDA & Regional Access)',
+          regulatory_anchor: 'Regional Registration Dossiers',
+          regional_lead_frame: 'Expanding radioligand center readiness across key regional markets.',
+          blueprints: {
+            hintergrund: { id: 'hintergrund', label: 'APAC Access Briefing', target_audience: 'Regional Press', psychological_objective: 'Progress.', blueprint_content: 'Bridging data and regional center readiness advancing as planned.' },
+            social: { id: 'social', label: 'Regional Information', target_audience: 'Community', psychological_objective: 'Assurance.', blueprint_content: 'Partnering across Asia-Pacific to advance radioligand clinical infrastructure.' },
+            talking_points: { id: 'talking_points', label: 'Regional Points', target_audience: 'Directors', psychological_objective: 'Focus.', blueprint_content: 'Global clinical results confirm meaningful progression-free survival extension.' },
+            qa_brief: { id: 'qa_brief', label: 'APAC Q&A', target_audience: 'Hotlines', psychological_objective: 'Support.', blueprint_content: 'Local regulatory reviews are progressing in alignment with agency timelines.' }
+          }
+        }
+      },
+      cards: [],
+      blueprints: {
+        hintergrund: { id: 'hintergrund', label: 'Briefing', target_audience: 'Press', psychological_objective: 'Facts', blueprint_content: 'Radioligand trial results.' },
+        social: { id: 'social', label: 'Social', target_audience: 'Patients', psychological_objective: 'Reassurance', blueprint_content: 'Therapy access.' },
+        talking_points: { id: 'talking_points', label: 'Points', target_audience: 'Spokespersons', psychological_objective: 'Clarity', blueprint_content: 'rPFS doubling.' },
+        qa_brief: { id: 'qa_brief', label: 'Q&A', target_audience: 'Media Desk', psychological_objective: 'Answers', blueprint_content: 'NICE appraisal context.' }
+      }
+    },
     health_data_breach: {
       scenario_id: 'health_data_breach',
       corpus_gate: {
@@ -1133,27 +1229,33 @@ A: By mathematically locking data files before they ever touch cloud storage ser
         raw_enterprise_files: 1420000,
         active_governed_records: 18400,
         canonical_golden_sources: 42,
-        legacy_conflicts_flagged: 9,
+        legacy_conflicts_flagged: 7,
         conflict_details: [
           {
-            vault_location: 'Europe Commercial SharePoint / German Affiliate Vault',
-            document_title: 'Onco-701_Market_Access_Briefing_DE_v2.1_2024.pdf',
-            conflict_reason: 'Dokument zitiert veraltete Phase-II-Biomarker-Grenzwerte und widerspricht dem Phase-III-Studienprotokoll.',
-            action_required: 'Sperrung für Affiliates; ersetzt durch Canonical Wording Pack SOP-MED-402.'
+            vault_location: 'Veeva Vault / Europäisches Marktzugangs-Archiv',
+            document_title: 'EU_Launch_Sequencing_Strategy_Deck_2023_v4.pptx',
+            conflict_reason: 'Dokument postuliert bedingungslose parallele Markteinführungen in Europa, was der 2026 MFN-Strategie (GS-01) widerspricht, bei der unbedachte Referenzpreise die globale Erstattung gefährden.',
+            action_required: 'Gesperrt und archiviert; ersetzt durch Canonical Golden Source GS-01.'
+          },
+          {
+            vault_location: 'SharePoint / Schweizer Public Affairs Arbeitsordner',
+            document_title: 'Entwurf_BAG_Kostendaempfung_Stellungnahme.docx',
+            conflict_reason: 'Entwurf enthielt konfrontative Drohungen ("Verzicht auf Einreichungen in der Schweiz"), was den Governance-Richtlinien gegen Boykott-Rhetorik widerspricht.',
+            action_required: 'Archiviert; ersetzt durch das partnerschaftliche Dialogmodell in GS-02/GS-03.'
           }
         ]
       },
-      global_core_thesis: 'Phase III Onco-701 belegt einen statistisch signifikanten Gesamtüberlebensvorteil in der Intention-to-Treat-Population (HR 0.68, p<0.001). Explorative Subgruppen-Analysen zeigen eine konsistente Wirksamkeit; weltweite Zulassungsanträge laufen planmässig.',
+      global_core_thesis: 'Nachhaltige Spitzenforschung erfordert, dass OECD-Staaten den therapeutischen Nutzen fair anerkennen. Unsere 23-Mrd.-$-Investition baut die US-Produktion an 10 Standorten aus, während Basel unverändert der Konzernsitz und Forschungsstandort bleibt; wir suchen den aktiven Dialog mit europäischen Behörden und dem BAG für flexible Zugangsmodelle.',
       global_proof_points: [
-        'Primärer Endpunkt: Gesamtüberleben (HR 0.68, p<0.001) mit hoher klinischer Signifikanz erreicht.',
-        'Intention-to-Treat (ITT) Studiendesign durch unabhängiges Komitee verifiziert.',
-        'Explorative Subgruppe Kohorte B war statistisch nicht auf Einzelsignifikanz ausgelegt.',
-        'Patientensicherheit bestätigt; Therapien werden ohne Unterbruch fortgeführt.'
+        'GS-01: Reinvestitionen in Forschung setzen faire Erstattung in allen wohlhabenden Industriestaaten voraus.',
+        'GS-02: 23 Mrd. $ US-Investition sichert Versorgung gegen Zölle; der weltweite Hauptsitz bleibt unerschütterlich in Basel.',
+        'GS-03: Konstruktiver Austausch mit dem Schweizer BAG und europäischen HTA-Stellen zu wertbasierten Modellen ohne Boykotte.',
+        'Versorgungssicherheit: Härtefallprogramme, Studien und Zulassungsverfahren laufen termingerecht weiter.'
       ],
       global_guardrails: [
-        'NIEMALS den Begriff "Subgruppen-Versagen" oder "gemischte Studienergebnisse" verwenden.',
-        'KEINE Spekulationen über prozentuale Erstattungsabschläge vor behördlichen Nutzenbewertungen.',
-        'KEINE klinischen Empfehlungen ausserhalb der genehmigten Prüfarzt-Information abgeben.'
+        'NIEMALS Formulierungen verwenden, die suggerieren, Novartis wolle Patienten in Europa oder der Schweiz "bestrafen" oder "Medikamente vorenthalten".',
+        'KEINE Berichterstattung unwidersprochen lassen, die den US-Produktionsausbau als Abkehr von Basel deutet.',
+        'KEINE Vorwegnahme prozentualer Preisabschläge in Medienstatements vor behördlichen Abschlüssen.'
       ],
       regional_adaptations: {
         all: {
@@ -1738,6 +1840,102 @@ A: Nein. Die Montage läuft planmässig mit freigegebenen Alternativkontingenten
         social: { id: 'social', label: 'Social', target_audience: 'Öffentlichkeit', psychological_objective: 'Haltung', blueprint_content: 'Nulltoleranz.' },
         talking_points: { id: 'talking_points', label: 'Points', target_audience: 'Führung', psychological_objective: 'Verantwortung', blueprint_content: 'Durchgreifen.' },
         qa_brief: { id: 'qa_brief', label: 'Q&A', target_audience: 'Desk', psychological_objective: 'Fakten', blueprint_content: 'Audit läuft.' }
+      }
+    },
+    pluvicto_access_debate: {
+      scenario_id: 'pluvicto_access_debate',
+      corpus_gate: {
+        raw_enterprise_files: 920000,
+        active_governed_records: 14200,
+        canonical_golden_sources: 36,
+        legacy_conflicts_flagged: 5,
+        conflict_details: [
+          {
+            vault_location: 'Veeva MedComms / UK Access Archiv',
+            document_title: 'NICE_Einreichung_Entwurf_2024.docx',
+            conflict_reason: 'Entwurf nutzte alte Kostenmodelle, die Einsparungen bei Notfalleinweisungen nicht berücksichtigten.',
+            action_required: 'Ersetzt durch Radioliganden-Nutzenmodell GS-03.'
+          }
+        ]
+      },
+      global_core_thesis: 'Pluvicto verdoppelt nachweislich das progressionsfreie Überleben bei Prostatakrebs vor Chemotherapie. Wir arbeiten eng mit europäischen Behörden und dem britischen NICE an wertbasierten Erstattungsmodellen, die Spitalentlastungen berücksichtigen.',
+      global_proof_points: [
+        'PSMAfore belegt statistisch signifikante Verdopplung des rPFS (HR 0.41, p<0.001).',
+        'US-FDA-Zulassung bestätigt hervorragendes Nutzen-Risiko-Profil vor belastender Chemotherapie.',
+        'Spezialisierte Radioliganden-Produktionszentren sichern lückenlose weltweite Versorgung.'
+      ],
+      global_guardrails: [
+        'NICHT zulassen, dass die britische NICE-Kostenablehnung mit klinischem Unvermögen gleichgesetzt wird.',
+        'Klarstellen, dass der EMA-Rückzug auf Studiendesignfragen beruhte, nicht auf Sicherheitsmängeln.'
+      ],
+      regional_adaptations: {
+        all: {
+          region_id: 'all',
+          region_label: 'Gesamtverkehr (Alle Regionen)',
+          regulatory_anchor: 'PSMAfore-Protokoll & Klinische Radioliganden-Übersicht',
+          regional_lead_frame: 'Meilenstein der Präzisionsonkologie für Patienten vor Chemotherapie.',
+          blueprints: {
+            hintergrund: { id: 'hintergrund', label: 'Wissenschaftliches Dossier', target_audience: 'Fachmedien', psychological_objective: 'rPFS-Verdopplung verankern.', blueprint_content: 'PSMAfore bestätigt Verdopplung des progressionsfreien Überlebens.' },
+            social: { id: 'social', label: 'Patientenkanäle', target_audience: 'Patienten', psychological_objective: 'Zuversicht.', blueprint_content: 'Fortschritt bei zielgerichteter Radioligandentherapie gegen Prostatakrebs.' },
+            talking_points: { id: 'talking_points', label: 'Sprecherpunkte', target_audience: 'Medienstelle', psychological_objective: 'Klinische Klarheit.', blueprint_content: 'rPFS-Vorteil und Lebensqualität in den Vordergrund stellen.' },
+            qa_brief: { id: 'qa_brief', label: 'Q&A Leitfaden', target_audience: 'Kommunikation', psychological_objective: 'Fakten.', blueprint_content: 'NICE bewertete Kostenschwellen, nicht die biologische Wirksamkeit.' }
+          }
+        },
+        us: {
+          region_id: 'us',
+          region_label: 'Nordamerika (USA / FDA & Kassen)',
+          regulatory_anchor: 'US FDA Fachinformation',
+          regional_lead_frame: 'Breite Verfügbarkeit und Kostendeckung an spezialisierten Zentren.',
+          blueprints: {
+            hintergrund: { id: 'hintergrund', label: 'US Klinisches Dossier', target_audience: 'US-Medien', psychological_objective: 'Erstattung sichern.', blueprint_content: 'FDA erteilt Zulassung vor Chemotherapie.' },
+            social: { id: 'social', label: 'US Patienteninformation', target_audience: 'Verbände', psychological_objective: 'Begleitung.', blueprint_content: 'Erweiterter Zugang zu zielgerichteter Krebstherapie.' },
+            talking_points: { id: 'talking_points', label: 'Kassen-Talking Points', target_audience: 'Access-Teams', psychological_objective: 'Wertbeleg.', blueprint_content: 'Vermeidet teure Akutaufenthalte und Notfallbehandlungen.' },
+            qa_brief: { id: 'qa_brief', label: 'US Q&A', target_audience: 'Hotline', psychological_objective: 'Sicherheit.', blueprint_content: 'Kostenübernahme durch US-Kassen läuft planmässig.' }
+          }
+        },
+        eu: {
+          region_id: 'eu',
+          region_label: 'Europa (EU / EMA & HTA)',
+          regulatory_anchor: 'Europäische HTA-Zusammenarbeit',
+          regional_lead_frame: 'Konstruktive Partnerschaft zur Überwindung gesundheitsökonomischer Hürden.',
+          blueprints: {
+            hintergrund: { id: 'hintergrund', label: 'Europäisches HTA-Briefing', target_audience: 'Ökonomen', psychological_objective: 'Kosten von Evidenz trennen.', blueprint_content: 'Klinische Wirksamkeit ist unbestritten; Preisdialoge laufen.' },
+            social: { id: 'social', label: 'EU Affiliate Kommunikation', target_audience: 'Fachkreise', psychological_objective: 'Vertrauen.', blueprint_content: 'Einsatz für nachhaltige Versorgungslösungen in Europa.' },
+            talking_points: { id: 'talking_points', label: 'Punkte für EU-Sprecher', target_audience: 'Länderteams', psychological_objective: 'Einheitlichkeit.', blueprint_content: 'Wirtschaftliche HTA-Schwellenwerte klar von Wirksamkeitsdaten trennen.' },
+            qa_brief: { id: 'qa_brief', label: 'HTA Q&A', target_audience: 'Verhandlungsteams', psychological_objective: 'Präzision.', blueprint_content: 'Flexible Erstattungsmodelle werden aktiv angeboten.' }
+          }
+        },
+        ch: {
+          region_id: 'ch',
+          region_label: 'Schweiz (Swissmedic & Nuklearmedizin)',
+          regulatory_anchor: 'Swissmedic & Spezialitätenliste',
+          regional_lead_frame: 'Stärkung nuklearmedizinischer Zentren und sichere Versorgung in der Schweiz.',
+          blueprints: {
+            hintergrund: { id: 'hintergrund', label: 'Schweizer Fachdossier', target_audience: 'Fachmedien', psychological_objective: 'Zentrumsversorgung stärken.', blueprint_content: 'Ausbau der Spitalinfrastruktur für Radioliganden.' },
+            social: { id: 'social', label: 'Konzernsitz Social Media', target_audience: 'Fachpublikum', psychological_objective: 'Fakten.', blueprint_content: 'Präzisions-Radioliganden an Schweizer Unispitälern im Einsatz.' },
+            talking_points: { id: 'talking_points', label: 'Sprecherpunkte Schweiz', target_audience: 'Sprecher', psychological_objective: 'Klarheit.', blueprint_content: 'Verlässliche Partnerschaft mit Schweizer Zentren und Spitälern.' },
+            qa_brief: { id: 'qa_brief', label: 'Q&A Schweiz', target_audience: 'Medienteam', psychological_objective: 'Vergütung.', blueprint_content: 'Erstattung erfolgt über etablierte Listenmechanismen.' }
+          }
+        },
+        apac: {
+          region_id: 'apac',
+          region_label: 'Asien-Pazifik (APAC / PMDA)',
+          regulatory_anchor: 'Regionale Zulassungen',
+          regional_lead_frame: 'Vorbereitung nuklearmedizinischer Zentren in der Region.',
+          blueprints: {
+            hintergrund: { id: 'hintergrund', label: 'APAC Briefing', target_audience: 'Fachpresse', psychological_objective: 'Fortschritt.', blueprint_content: 'Lokale Zulassungsvorbereitungen schreiten planmässig voran.' },
+            social: { id: 'social', label: 'Patienteninfo APAC', target_audience: 'Öffentlichkeit', psychological_objective: 'Orientierung.', blueprint_content: 'Aufbau von Radioliganden-Kapazitäten im asiatisch-pazifischen Raum.' },
+            talking_points: { id: 'talking_points', label: 'Talking Points', target_audience: 'Direktoren', psychological_objective: 'Fokus.', blueprint_content: 'Globale Studiendaten belegen klaren Überlebensvorteil.' },
+            qa_brief: { id: 'qa_brief', label: 'Q&A APAC', target_audience: 'Hotlines', psychological_objective: 'Antworten.', blueprint_content: 'Zulassungsprozesse verlaufen in enger Abstimmung mit den Behörden.' }
+          }
+        }
+      },
+      cards: [],
+      blueprints: {
+        hintergrund: { id: 'hintergrund', label: 'Dossier', target_audience: 'Presse', psychological_objective: 'Fakten', blueprint_content: 'Studiendaten.' },
+        social: { id: 'social', label: 'Social', target_audience: 'Patienten', psychological_objective: 'Zuversicht', blueprint_content: 'Therapiezugang.' },
+        talking_points: { id: 'talking_points', label: 'Points', target_audience: 'Sprecher', psychological_objective: 'Klarheit', blueprint_content: 'rPFS-Vorteil.' },
+        qa_brief: { id: 'qa_brief', label: 'Q&A', target_audience: 'Medienteam', psychological_objective: 'Antworten', blueprint_content: 'NICE-Bewertung.' }
       }
     },
     health_data_breach: {

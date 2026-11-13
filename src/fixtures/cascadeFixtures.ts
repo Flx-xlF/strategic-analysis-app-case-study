@@ -43,125 +43,125 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
     oncology_trial_update: {
       draftA: {
         version_id: 'draftA',
-        version_label: 'Draft A: Technical / Ambiguous Wording',
-        version_badge: 'HIGH EXPOSURE',
-        communication: "Phase III trial data for Onco-701 met primary endpoint in overall population; however, pre-specified subgroup analysis in Cohort B demonstrated statistically non-significant separation from standard of care (p=0.12). Further biomarker evaluations are ongoing.",
-        headline_from_hell: "BREAKTHROUGH CANCER DRUG FAILS KEY PATIENT SUBGROUP — PAYERS QUESTION REIMBURSEMENT VALUE",
-        risk_score: 8.9,
-        risk_level: 'High Reputational Risk',
+        version_label: 'Draft A: Blunt Soundbite / Uncalibrated Public Affairs',
+        version_badge: 'CRITICAL EXPOSURE',
+        communication: "Because U.S. Most-Favored-Nation rules now tie American revenues to foreign price benchmarks, Novartis will no longer launch innovative medicines in European or Swiss markets that refuse to match U.S. pricing, while redirecting $23 billion of capital expenditure into our American manufacturing footprint.",
+        headline_from_hell: "NOVARTIS THREATENS TO WITHHOLD NEW CANCER DRUGS FROM EUROPE AND SWITZERLAND WHILE SHIFTING $23B TO US",
+        risk_score: 9.1,
+        risk_level: 'Severe Political Backlash',
         vulnerabilities: [
           {
-            topic: "Ambiguous Statistical Phrasing",
-            explanation: "Stating 'non-significant separation' without clinical context leads reporters to write that the drug does not work for that entire demographic."
+            topic: "Boycott Framing",
+            explanation: "Phrasing 'will no longer launch' is instantly seized by health authorities as an illegal threat to patient health and access."
           },
           {
-            topic: "Missing Patient Assurance",
-            explanation: "No clear statement on safety or guidance for patients currently enrolled on the therapy."
+            topic: "Standort Schweiz Abandonment",
+            explanation: "Contrasting US investments with Swiss/EU friction triggers political panic in Basel and Bern over headquarter flight."
           },
           {
-            topic: "Payer Leverage",
-            explanation: "Health technology assessment (HTA) bodies immediately use the headline to push for price cuts or restricted label coverage."
+            topic: "Antitrust & Payer Leverage",
+            explanation: "European competition regulators interpret blunt conditional launch threats as abusive market dominance tactics."
           }
         ],
         stakeholder_reactions: [
           {
-            stakeholder: "Patient Advocacy Groups",
-            likely_reaction: "Alarm & Urgent Clarification",
-            reasoning: "Patients with Cohort B biomarker characteristics fear their treatment will be denied or discontinued.",
-            dossier_citation: "Advisory Council Briefing Q3 2026",
+            stakeholder: "Swiss Federal Office of Public Health (BAG)",
+            likely_reaction: "Public Rebukes & Stiff Resistance",
+            reasoning: "Interprets statement as corporate extortion against statutory Swiss healthcare cost-containment measures.",
+            dossier_citation: "BAG Health Insurance Reference Basket Minutes",
             sentiment: "negative"
           },
           {
-            stakeholder: "Health Technology Assessment (HTA) Bodies",
-            likely_reaction: "Reimbursement Restriction",
-            reasoning: "Will argue that reimbursement should only cover Cohorts A and C, cutting addressable patient population by 30%.",
-            dossier_citation: "Comparative Effectiveness Dossier Ref-88",
+            stakeholder: "European Payer & HTA Coalitions",
+            likely_reaction: "Solidarity Standoff",
+            reasoning: "European health ministers unite to enforce statutory reference price caps and mandatory clawbacks.",
+            dossier_citation: "EU Joint Clinical Assessment Liaison Briefing",
             sentiment: "negative"
           },
           {
-            stakeholder: "Clinical Investigators (KOLs)",
-            likely_reaction: "Defensive Wait-and-See",
-            reasoning: "Physicians need clear subgroup biological rationale before defending the trial in academic commentary.",
-            dossier_citation: "Investigator Meeting Notes Oct 2026",
-            sentiment: "mixed"
+            stakeholder: "Swiss Media & Basel Employees",
+            likely_reaction: "Anxiety Over Corporate Drift",
+            reasoning: "Fear that the $23B US commitment marks the beginning of the end for Basel as the global operational heart.",
+            dossier_citation: "Basel-Stadt Economic Affairs Monitoring",
+            sentiment: "negative"
           }
         ],
         second_order_effects: [
           {
-            effect: "Competitor communications teams launch 'comparative efficacy' whispering campaigns with medical trade press.",
+            effect: "Parliamentary interpellations in Bern questioning pharma tax frameworks in Basel-Stadt.",
             probability: "high",
             timeframe: "Within 24–48 hours"
           },
           {
-            effect: "Analyst consensus downgrades peak sales expectations due to anticipated label narrowing.",
+            effect: "Frontier LLMs summarize Novartis as having 'boycotted European healthcare'.",
             probability: "high",
-            timeframe: "Next financial call"
+            timeframe: "Immediate indexing"
           }
         ],
         management_summary: {
-          diagnosis: "Clinical researchers wrote for peers, not for public or payer interpretation. The draft invites negative framing by separating overall trial success from subgroup nuances.",
-          impact: "Severe risk of narrative lock: once the story is branded as a 'subgroup failure', subsequent regulatory filings face skeptical public scrutiny.",
-          verdict: "Recommendation: Anchor the primary endpoint first (statistically significant overall survival benefit), clarify that Cohort B was underpowered for standalone significance, and confirm safety continuity for current patients."
+          diagnosis: "Aggressive commercial frustration was vented directly into public channels, converting a legitimate policy debate on innovation incentives into a toxic public relations crisis.",
+          impact: "Destroys goodwill with European and Swiss health authorities; triggers investor alarm over European market access.",
+          verdict: "Recommendation: Immediately re-anchor in Golden Sources GS-01 and GS-02: lead with fair international innovation reward, reaffirm permanent Basel commitment, and frame discussions as partnership for modern value assessment."
         },
         immediate_actions: [
-          "Brief medical science liaisons (MSLs) with clear statistical talking points",
-          "Pre-brief patient advocacy leads under embargo",
-          "Prepare scientific Q&A addressing biological plausibility of Cohort B"
+          "Retract aggressive draft before embargo lifts",
+          "Issue explicit reaffirmation of Basel global headquarters status",
+          "Re-align affiliate comms on constructive value-based pricing wording"
         ]
       },
       draftB: {
         version_id: 'draftB',
-        version_label: 'Draft B: Calibrated / Stress-Tested Wording',
+        version_label: 'Draft B: Grounded in GS-01 & GS-02 / Stress-Tested Wording',
         version_badge: 'CALIBRATED & SECURE',
-        communication: "Pivotal Phase III trial confirms statistically significant overall survival benefit (HR 0.68, p<0.001) for Onco-701 across the broad patient population. As expected in exploratory subgroup analyses, Cohort B mirrored the positive clinical trajectory of the overall cohort, with definitive biomarker stratification advancing to regulatory submission as planned. Patient safety profile remains consistent.",
-        headline_from_hell: "PHASE III TRIAL CONFIRMS OVERALL SURVIVAL BENEFIT; REGULATORY FILINGS PROCEED ON SCHEDULE",
-        risk_score: 2.8,
-        risk_level: 'Controlled & Defensible',
+        communication: "To ensure patients worldwide continue to benefit from transformative medicines, healthcare systems across high-income OECD nations must fairly recognize clinical value and avoid unintended international reference distortions under U.S. MFN frameworks. Our $23 billion U.S. investment expands domestic manufacturing across 10 sites to secure tariff-resilient supply for American patients, while Basel remains our undisputed corporate headquarters and scientific core as we partner constructively with Swiss (BAG) and European health authorities.",
+        headline_from_hell: "NOVARTIS EXPANDS U.S. MANUFACTURING BY $23B AND ADVOCATES MODERNIZED EUROPEAN VALUE-BASED PRICING",
+        risk_score: 2.6,
+        risk_level: 'Controlled & Authoritative',
         vulnerabilities: [
           {
-            topic: "Remaining Technical Scrutiny",
-            explanation: "Specialized trade outlets will still request exact forest-plot subgroup data at upcoming medical congress."
+            topic: "Ongoing Technical Policy Debate",
+            explanation: "Health economists will continue to scrutinize specific outcome-based contracting metrics, but the reputational threat is neutralized."
           }
         ],
         stakeholder_reactions: [
           {
-            stakeholder: "Patient Advocacy Groups",
-            likely_reaction: "Reassured Continuity",
-            reasoning: "Clear focus on overall survival benefit and safe patient continuity prevents panic.",
-            dossier_citation: "Advisory Council Briefing Q3 2026",
+            stakeholder: "Swiss Federal Office of Public Health (BAG)",
+            likely_reaction: "Constructive Dialogue Cadence",
+            reasoning: "Recognizes ongoing partnership on innovative payment models without perceived blackmail.",
+            dossier_citation: "BAG Health Insurance Reference Basket Minutes",
             sentiment: "positive"
           },
           {
-            stakeholder: "Health Technology Assessment (HTA) Bodies",
-            likely_reaction: "Standard Review Cadence",
-            reasoning: "Primary outcome is foregrounded; discussions remain focused on holistic clinical value.",
-            dossier_citation: "Comparative Effectiveness Dossier Ref-88",
+            stakeholder: "European Payer & HTA Coalitions",
+            likely_reaction: "Measured Engagement",
+            reasoning: "Discussions remain focused on health economics rather than corporate boycotts.",
+            dossier_citation: "EU Joint Clinical Assessment Liaison Briefing",
             sentiment: "mixed"
           },
           {
-            stakeholder: "Clinical Investigators (KOLs)",
-            likely_reaction: "Supportive Positioning",
-            reasoning: "Investigator quotes align directly with the primary study design and scientific consensus.",
-            dossier_citation: "Investigator Meeting Notes Oct 2026",
+            stakeholder: "Swiss Media & Basel Employees",
+            likely_reaction: "Reassured Pride",
+            reasoning: "Explicit reaffirmation of Basel as the global scientific and corporate headquarters quells relocation anxiety.",
+            dossier_citation: "Basel-Stadt Economic Affairs Monitoring",
             sentiment: "positive"
           }
         ],
         second_order_effects: [
           {
-            effect: "Trade press focuses on overall filing timeline rather than speculative subgroup disputes.",
+            effect: "Policy coverage focuses on sustainable global healthcare financing rather than corporate threats.",
             probability: "high",
             timeframe: "Standard news cycle"
           }
         ],
         management_summary: {
-          diagnosis: "Balanced scientific narrative that protects patient confidence while remaining 100% compliant with regulatory reporting standards.",
-          impact: "Minimizes commercial and reputation friction; preserves broad label potential.",
-          verdict: "Recommendation: Approved for publication alongside investigator slide deck and investor relations readout."
+          diagnosis: "Balanced corporate communication that protects European and Swiss patient trust while firmly advancing the strategic necessity of international pricing reform.",
+          impact: "Preserves collaborative relationships with regulators and payers; shields corporate reputation from boycott charges.",
+          verdict: "Recommendation: Approved for executive speeches, investor briefings, and tier-1 policy media outreach."
         },
         immediate_actions: [
-          "Deploy aligned Q&A deck across global commercial and regional affiliate teams",
-          "Publish plain-language summary for patient community on corporate newsroom",
-          "Ensure GEO structured schema is embedded in release for search engine indexing"
+          "Deploy regional briefing packs to US, EU, and Swiss affiliate media teams",
+          "Publish machine-readable GEO fact block on corporate newsroom",
+          "Host confidential background briefing for Swiss economic journalists"
         ]
       }
     },
@@ -378,6 +378,108 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
         ]
       }
     },
+    pluvicto_access_debate: {
+      draftA: {
+        version_id: 'draftA',
+        version_label: 'Draft A: Uncalibrated Medical Affairs Note',
+        version_badge: 'CRITICAL EXPOSURE',
+        communication: "Following EMA and UK NICE refusals to fund Pluvicto at requested price points in pre-chemotherapy prostate cancer, Novartis has discontinued European pre-chemo filings, while focusing commercial expansion on the US market where the FDA granted label approval.",
+        headline_from_hell: "NOVARTIS ABANDONS EUROPEAN PATIENTS AFTER UK AND EU REJECT PROSTATE CANCER THERAPY PLUVICTO",
+        risk_score: 9.3,
+        risk_level: 'Acute Reputational Fallout',
+        vulnerabilities: [
+          {
+            topic: "Conflating Pricing with Clinical Worth",
+            explanation: "Invites media to conclude that European authorities rejected the drug because it doesn't work, rather than over comparator methodology."
+          },
+          {
+            topic: "Transatlantic Abandonment Perception",
+            explanation: "Creates outrage among European patient groups who feel deprioritized relative to American patients."
+          }
+        ],
+        stakeholder_reactions: [
+          {
+            stakeholder: "European Prostate Cancer Advocacy Groups",
+            likely_reaction: "Public Protests & Accusations",
+            reasoning: "Patients demand to know why a proven life-extending radioligand therapy is accessible in the US but withheld in Europe.",
+            dossier_citation: "European Patient Forum Briefing",
+            sentiment: "negative"
+          },
+          {
+            stakeholder: "UK NICE & European HTA Reviewers",
+            likely_reaction: "Defensive Hardening",
+            reasoning: "Reiterate that drugmakers must price therapies within statutory cost-effectiveness thresholds.",
+            dossier_citation: "NICE Appraisal Consultation Document",
+            sentiment: "negative"
+          }
+        ],
+        second_order_effects: [
+          {
+            effect: "AI search engines claim Pluvicto was withdrawn due to clinical failure.",
+            probability: "high",
+            timeframe: "Immediate"
+          }
+        ],
+        management_summary: {
+          diagnosis: "Draft creates the impression that Novartis walks away from European cancer patients when pricing is challenged.",
+          impact: "Irreparable harm to commercial relations across EU member states.",
+          verdict: "Recommendation: Anchor proven rPFS doubling, explain trial crossover nuances, and highlight dedicated value-based solutions."
+        },
+        immediate_actions: [
+          "Deploy clinical facts highlighting rPFS doubling",
+          "Engage patient advocacy groups with compassionate access details",
+          "Separate UK NICE cost threshold from biological efficacy"
+        ]
+      },
+      draftB: {
+        version_id: 'draftB',
+        version_label: 'Draft B: Grounded Clinical & Economic Wording',
+        version_badge: 'CALIBRATED & SECURE',
+        communication: "The Phase III PSMAfore trial demonstrated a statistically significant doubling of radiographic progression-free survival (HR 0.41, p<0.001) for Pluvicto prior to chemotherapy, validating its clinical benefit. While regulatory and HTA frameworks vary by region—with the U.S. FDA granting approval—Novartis remains actively engaged with European and UK authorities to establish tailored, value-based access models that recognize total hospital cost offsets.",
+        headline_from_hell: "PHASE III DATA CONFIRMS SIGNIFICANT SURVIVAL BENEFIT AS NOVARTIS WORKS WITH HEALTH AUTHORITIES ON ACCESS",
+        risk_score: 2.7,
+        risk_level: 'Controlled & Defensible',
+        vulnerabilities: [
+          {
+            topic: "Ongoing Reimbursement Discussions",
+            explanation: "Access will take time in individual countries, but the clinical validity of the medicine is fully protected."
+          }
+        ],
+        stakeholder_reactions: [
+          {
+            stakeholder: "European Prostate Cancer Advocacy Groups",
+            likely_reaction: "Constructive Pressure on Payers",
+            reasoning: "Focus shifts from blaming Novartis to urging public health systems to fund proven precision therapies.",
+            dossier_citation: "European Patient Forum Briefing",
+            sentiment: "positive"
+          },
+          {
+            stakeholder: "UK NICE & European HTA Reviewers",
+            likely_reaction: "Openness to Flexible Contracts",
+            reasoning: "Appreciates focus on hospitalization offsets and structured managed-entry agreements.",
+            dossier_citation: "NICE Appraisal Consultation Document",
+            sentiment: "mixed"
+          }
+        ],
+        second_order_effects: [
+          {
+            effect: "Trade press reports on clinical breakthrough while tracking national pricing reviews constructively.",
+            probability: "high",
+            timeframe: "Standard cycle"
+          }
+        ],
+        management_summary: {
+          diagnosis: "Protects the scientific integrity of the radioligand platform while positioning the company as a collaborative partner for healthcare access.",
+          impact: "Preserves international pricing baselines and maintains high clinical confidence.",
+          verdict: "Recommendation: Approved for oncology communications and HTA stakeholder briefings."
+        },
+        immediate_actions: [
+          "Distribute evidence dossier highlighting hospitalization offsets",
+          "Equip country medical directors with statistical crossover talking points",
+          "Embed GEO structured fact blocks in regional press materials"
+        ]
+      }
+    },
     health_data_breach: {
       draftA: {
         version_id: 'draftA',
@@ -467,125 +569,125 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
     oncology_trial_update: {
       draftA: {
         version_id: 'draftA',
-        version_label: 'Entwurf A: Technisch-akademischer Rohentwurf',
-        version_badge: 'HOHE ANGRIFFSFLÄCHE',
-        communication: "Die Phase-III-Studiendaten für Onco-701 erreichten den primären Endpunkt in der Gesamtpopulation; in der präspezifizierten Subgruppe Kohorte B zeigte sich jedoch eine statistisch nicht signifikante Trennung zum Standard (p=0.12). Weitere Biomarker-Analysen dauern an.",
-        headline_from_hell: "HOFFNUNGSTRÄGER IN DER KREBSTHERAPIE SCHEITERT IN WICHTIGER PATIENTENGRUPPE",
-        risk_score: 8.9,
-        risk_level: 'Kritisches Reputationsrisiko',
+        version_label: 'Entwurf A: Unkalibriertes Public-Affairs-Statement',
+        version_badge: 'KRITISCHE ANGRIFFSFLÄCHE',
+        communication: "Weil US-Regeln künftig amerikanische Preise an ausländische Referenzwerte koppeln, wird Novartis innovative Therapien nicht mehr in europäischen oder Schweizer Märkten einführen, die unsere Preise nicht mitgehen, während wir 23 Milliarden Dollar in die US-Produktion umschichten.",
+        headline_from_hell: "NOVARTIS DROHT MIT LIEFERSTOPP FÜR EUROPA UND SCHWEIZ BEI GLEICHZEITIGEM 23-MRD-US-AUSBAU",
+        risk_score: 9.1,
+        risk_level: 'Schwere politische Gegenreaktion',
         vulnerabilities: [
           {
-            topic: "Missverständliche Statistik-Begriffe",
-            explanation: "Die Formulierung 'nicht signifikante Trennung' ohne Kontext verleitet Laien und Medien zur Annahme, das Medikament sei wirkungslos."
+            topic: "Boykott-Vorwurf",
+            explanation: "Die Formulierung 'nicht mehr einführen' wird von Behörden und Medien umgehend als Erpressung auf dem Rücken von Patienten gewertet."
           },
           {
-            topic: "Fehlende Patienten-Beruhigung",
-            explanation: "Keine Orientierung für aktuell behandelte Krebspatienten zur Fortführung der Therapie."
+            topic: "Verunsicherung über den Standort Basel",
+            explanation: "Die Gegenüberstellung von US-Investitionen und Schweizer HTA-Konflikten schürt Gerüchte über eine schrittweise Abwanderung aus Basel."
           },
           {
-            topic: "Angriffsfläche für Kostenträger",
-            explanation: "Krankenkassen und Erstattungsbehörden (HTA) nutzen solche Zitate, um Indikationseinschränkungen oder Preisabschläge durchzusetzen."
+            topic: "Kartellrechtliches Risiko",
+            explanation: "Regulatoren prüfen, ob konditionierte Marktzulassungsdrohungen den Missbrauch von Marktmacht darstellen."
           }
         ],
         stakeholder_reactions: [
           {
-            stakeholder: "Patientenorganisationen",
-            likely_reaction: "Verunsicherung & Dringliche Nachfragen",
-            reasoning: "Patienten mit Biomarker-Merkmalen aus Kohorte B fürchten den Behandlungsabbruch.",
-            dossier_citation: "Patientenbeirat Protokoll Q3 2026",
+            stakeholder: "Bundesamt für Gesundheit (BAG)",
+            likely_reaction: "Harte öffentliche Zurückweisung",
+            reasoning: "Wertung als unzulässige Drohung gegen das gesetzliche Preisfestsetzungsverfahren.",
+            dossier_citation: "BAG Protokolle Preisvergleichsausland",
             sentiment: "negative"
           },
           {
-            stakeholder: "Erstattungsbehörden & Kassen",
-            likely_reaction: "Forderung nach Indikationseinschränkung",
-            reasoning: "Verlangen Ausschluss von Kohorte B aus der Erstattung, was 30% des Patientenpotenzials betrifft.",
-            dossier_citation: "Nutzenbewertungs-Dossier Ref-88",
+            stakeholder: "Europäische Erstattungsbehörden",
+            likely_reaction: "Solidarisches Abwehrverhalten",
+            reasoning: "Europäische Gesundheitsminister stellen sich hinter strikte gesetzliche Preisobergrenzen.",
+            dossier_citation: "EU Joint Clinical Assessment Koordination",
             sentiment: "negative"
           },
           {
-            stakeholder: "Prüfärzte & Onkologen (KOLs)",
-            likely_reaction: "Abwartende Haltung",
-            reasoning: "Mediziner fordern biologische Plausibilität, bevor sie die Daten öffentlich verteidigen.",
-            dossier_citation: "Investigator Meeting Basel Okt 2026",
-            sentiment: "mixed"
+            stakeholder: "Schweizer Öffentlichkeit & Basler Belegschaft",
+            likely_reaction: "Sorge vor Bedeutungsverlust",
+            reasoning: "Befürchtung, das 23-Mrd.-US-Paket leite den schleichenden Rückzug aus Basel ein.",
+            dossier_citation: "Wirtschaftsstandort Basel Monitoring",
+            sentiment: "negative"
           }
         ],
         second_order_effects: [
           {
-            effect: "Mitbewerber streuen Zweifel an der Robustheit der Gesamtdaten in Fachmedien.",
+            effect: "Dringliche parlamentarische Vorstösse in Bern zur Standortattraktivität.",
             probability: "high",
             timeframe: "Innerhalb 24–48h"
           },
           {
-            effect: "Finanzanalysten korrigieren Umsatzpotenzial aufgrund drohender Indikationseinschränkung nach unten.",
+            effect: "KI-Modelle stufen Novartis als Unternehmen ein, das 'Patienten erpresst'.",
             probability: "high",
-            timeframe: "Beim nächsten Earnings Call"
+            timeframe: "Sofortige Indizierung"
           }
         ],
         management_summary: {
-          diagnosis: "Klinische Forscher haben für Fachkollegen formuliert, nicht für Öffentlichkeit und Kostenträger. Die Trennung von Gesamterfolg und Subgruppe lädt zu Falschinterpretationen ein.",
-          impact: "Gefahr eines Narrativ-Schadens vor den entscheidenden Zulassungs- und Erstattungsverhandlungen.",
-          verdict: "Empfehlung: Primären Endpunkt (Gesamtüberleben) ins Zentrum stellen, Kohorte B als exploratorischen Trend einordnen und Therapiekontinuität zusichern."
+          diagnosis: "Berechtigte wirtschaftliche Reformanliegen wurden in aggressive Droh-Rhetorik verpackt und zerstören den politischen Konsens.",
+          impact: "Massiver Reputationsverlust am Heimmarkt und verhärtete Fronten bei Erstattungsverhandlungen weltweit.",
+          verdict: "Empfehlung: Umgehende Rückbesinnung auf GS-01 und GS-02: faire Innovationsvergütung fordern, unerschütterliche Standorttreue zu Basel betonen und partnerschaftliche Lösungen suchen."
         },
         immediate_actions: [
-          "Medical Science Liaisons mit statistischen Talking Points ausstatten",
-          "Patientenorganisationen unter Embargo vorinformieren",
-          "Wissenschaftliches Q&A zur biologischen Plausibilität bereitstellen"
+          "Verbreitung des Entwurfs vor Ablauf des Embargos stoppen",
+          "Klares Bekenntnis zum Hauptsitz Basel als wissenschaftliches Zentrum publizieren",
+          "Länderteams auf partnerschaftliche Reform-Sprachregelungen einschwören"
         ]
       },
       draftB: {
         version_id: 'draftB',
-        version_label: 'Entwurf B: Kalibrierte & gestresstestete Fassung',
-        version_badge: 'KALIBRIERT & ROBUST',
-        communication: "Die zulassungsrelevante Phase-III-Studie bestätigt einen statistisch signifikanten Gesamtüberlebensvorteil (HR 0.68, p<0.001) für Onco-701 über die gesamte Patientenpopulation. Wie bei explorativen Subgruppenanalysen üblich, spiegelte Kohorte B den positiven Trend der Gesamtkohorte wider; die Einreichung bei den Behörden erfolgt planmässig. Das Sicherheitsprofil ist unverändert positiv.",
-        headline_from_hell: "PHASE-III-STUDIE BESTÄTIGT ÜBERLEBENSVORTEIL; ZULASSUNGSVERFAHREN LÄUFT PLANMÄSSIG",
-        risk_score: 2.8,
-        risk_level: 'Kontrolliert & Belastbar',
+        version_label: 'Entwurf B: Auf GS-01 & GS-02 gestütztes / gestresstestetes Wording',
+        version_badge: 'KALIBRIERT & SOUVERÄN',
+        communication: "Damit Patientinnen und Patienten weltweit von bahnbrechenden Medikamenten profitieren, müssen OECD-Gesundheitssysteme den klinischen Nutzen fair anerkennen und unbeabsichtigte internationale Referenzverzerrungen unter US-Regeln vermeiden. Unsere 23-Milliarden-Dollar-Investition baut die US-Produktion an 10 Standorten für lokale Versorgungssicherheit aus, während Basel unverändert unser weltweiter Hauptsitz und wissenschaftliches Herz bleibt; mit dem BAG und europäischen Behörden suchen wir den aktiven Dialog für zeitgemässe Erstattungsmodelle.",
+        headline_from_hell: "NOVARTIS INVESTIERT 23 MILLIARDEN IN US-PRODUKTION UND FORDERNT MODERNISIERTE NUTZENBEWERTUNG IN EUROPA",
+        risk_score: 2.6,
+        risk_level: 'Kontrolliert & Glaubwürdig',
         vulnerabilities: [
           {
-            topic: "Restliche Fachfragen am Kongress",
-            explanation: "Spezialisierte Fachjournalisten werden die detaillierten Forest Plots am nächsten Onkologie-Kongress analysieren."
+            topic: "Laufende Fachdiskussion",
+            explanation: "Detailfragen zu gesundheitsökonomischen Modellen bleiben bestehen, der Vorwurf eines Patientenboykotts ist jedoch vollständig entkräftet."
           }
         ],
         stakeholder_reactions: [
           {
-            stakeholder: "Patientenorganisationen",
-            likely_reaction: "Beruhigte Kontinuität",
-            reasoning: "Klarer Fokus auf das Gesamtüberleben und die Fortführung laufender Behandlungen.",
-            dossier_citation: "Patientenbeirat Protokoll Q3 2026",
+            stakeholder: "Bundesamt für Gesundheit (BAG)",
+            likely_reaction: "Sachlicher Verhandlungsverlauf",
+            reasoning: "Anerkennt die Gesprächsbereitschaft für innovative Preismodelle ohne Druckversuche.",
+            dossier_citation: "BAG Protokolle Preisvergleichsausland",
             sentiment: "positive"
           },
           {
-            stakeholder: "Erstattungsbehörden & Kassen",
-            likely_reaction: "Regulärer Prüfungsablauf",
-            reasoning: "Der Gesamtnutzen steht im Vordergrund; die Diskussion bleibt sachlich und evidenzbasiert.",
-            dossier_citation: "Nutzenbewertungs-Dossier Ref-88",
+            stakeholder: "Europäische Erstattungsbehörden",
+            likely_reaction: "Regulärer Austausch",
+            reasoning: "Die Diskussion verbleibt im Rahmen evidenzbasierter HTA-Prüfungen.",
+            dossier_citation: "EU Joint Clinical Assessment Koordination",
             sentiment: "mixed"
           },
           {
-            stakeholder: "Prüfärzte & Onkologen (KOLs)",
-            likely_reaction: "Aktive Unterstützung",
-            reasoning: "Die Aussagen decken sich mit dem wissenschaftlichen Studienprotokoll und schaffen Vertrauen.",
-            dossier_citation: "Investigator Meeting Basel Okt 2026",
+            stakeholder: "Schweizer Öffentlichkeit & Basler Belegschaft",
+            likely_reaction: "Beruhigtes Vertrauen",
+            reasoning: "Das klare Bekenntnis zu Basel als Forschungszentrale zerstreut Abwanderungsängste.",
+            dossier_citation: "Wirtschaftsstandort Basel Monitoring",
             sentiment: "positive"
           }
         ],
         second_order_effects: [
           {
-            effect: "Fachberichterstattung konzentriert sich auf den geplanten Zulassungstermin statt auf Subgruppen-Spekulationen.",
+            effect: "Berichterstattung konzentriert sich auf zukunftsfähige Gesundheitssysteme statt auf Drohungen.",
             probability: "high",
             timeframe: "Regulärer Nachrichtenzyklus"
           }
         ],
         management_summary: {
-          diagnosis: "Ausgewogenes wissenschaftliches Wording, das Patienten schützt und den regulatorischen Vorgaben zu 100% entspricht.",
-          impact: "Minimiert Reibungsverluste bei Marktzugang und Erstattung.",
-          verdict: "Empfehlung: Freigabe zur Veröffentlichung gemeinsam mit dem wissenschaftlichen Foliensatz."
+          diagnosis: "Souveränes Wording, das das Vertrauen von Schweizer und europäischen Patienten schützt und strategische Reformnotwendigkeiten klar benennt.",
+          impact: "Erhält partnerschaftliche Beziehungen zu Behörden und schützt die Unternehmensreputation.",
+          verdict: "Empfehlung: Freigabe für Reden der Geschäftsleitung, Investoren-Calls und Hintergrundgespräche mit Wirtschaftsjournalisten."
         },
         immediate_actions: [
-          "Abgestimmtes Q&A-Dossier an globale und regionale Affiliate-Teams verteilen",
-          "Laientaugliche Patienten-Information im Newsroom publizieren",
-          "GEO-strukturierte Fakten-Schema für Suchmaschinen und KI-Assistenten hinterlegen"
+          "Abgestimmte Botschaften an Kommunikationsleiter in den USA, der EU und der Schweiz senden",
+          "GEO-strukturierten Faktenblock im Newsroom online stellen",
+          "Hintergrund-Briefing für Schweizer Leitmedien anbieten"
         ]
       }
     },
@@ -799,6 +901,108 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
           "Wöchentliche Lageberichte für den Compliance-Ausschuss aufsetzen",
           "Ersatzlieferanten zur Abdeckung von Liefermengen aktivieren",
           "Einkaufsleitung über geschärfte Prüfkriterien informieren"
+        ]
+      }
+    },
+    pluvicto_access_debate: {
+      draftA: {
+        version_id: 'draftA',
+        version_label: 'Entwurf A: Unkalibriertes medizinisches Statement',
+        version_badge: 'KRITISCHE ANGRIFFSFLÄCHE',
+        communication: "Nachdem EMA und das britische NICE eine Erstattung von Pluvicto vor Chemotherapie zu den geforderten Preisen abgelehnt haben, zieht Novartis die europäischen Anträge zurück und konzentriert sich auf den US-Markt, wo die FDA die Zulassung erteilt hat.",
+        headline_from_hell: "NOVARTIS ZIEHT KREBSMEDIKAMENT PLUVICTO AUS EUROPA ZURÜCK NACH ABLEHNUNG DURCH BEHÖRDEN",
+        risk_score: 9.3,
+        risk_level: 'Akuter Reputationsschaden',
+        vulnerabilities: [
+          {
+            topic: "Verwechslung von Wirtschaftlichkeit und Wirksamkeit",
+            explanation: "Verleitet Medien zur Annahme, das Medikament sei klinisch gescheitert statt an Kostenschwellen gescheitert."
+          },
+          {
+            topic: "Eindruck des Verlassens europäischer Patienten",
+            explanation: "Schürt Wut bei Patientenverbänden, die eine Benachteiligung gegenüber US-Patienten beklagen."
+          }
+        ],
+        stakeholder_reactions: [
+          {
+            stakeholder: "Patientenverbände Europa",
+            likely_reaction: "Öffentliche Empörung",
+            reasoning: "Verlangen Aufklärung, warum ein lebensverlängerndes Mittel in den USA zugänglich ist, in Europa aber nicht.",
+            dossier_citation: "Europäisches Patientenforum Protokoll",
+            sentiment: "negative"
+          },
+          {
+            stakeholder: "NICE & Europäische HTA-Behörden",
+            likely_reaction: "Verhärtete Fronten",
+            reasoning: "Verweisen auf gesetzliche Budgetgrenzen und verlangen Preisnachlässe.",
+            dossier_citation: "NICE Bewertungsbericht",
+            sentiment: "negative"
+          }
+        ],
+        second_order_effects: [
+          {
+            effect: "Suchmaschinen und KI-Assistenten behaupten fälschlich, Pluvicto sei wirkungslos.",
+            probability: "high",
+            timeframe: "Sofortige Indizierung"
+          }
+        ],
+        management_summary: {
+          diagnosis: "Erzeugt den falschen Eindruck, Novartis lasse Krebspatienten in Europa im Stich, wenn Preisforderungen nicht erfüllt werden.",
+          impact: "Schwerer Schaden für das Vertrauen in europäische Zulassungsprozesse.",
+          verdict: "Empfehlung: Belegte Wirksamkeit (rPFS-Verdopplung) betonen und partnerschaftliche Erstattungsmodelle anbieten."
+        },
+        immediate_actions: [
+          "Klinische Studiendaten zum rPFS aktiv kommunizieren",
+          "Patientenorganisationen über Härtefall- und Vorabzugangswege informieren",
+          "Wirtschaftliche NICE-Kostenschwellen sauber von klinischer Evidenz trennen"
+        ]
+      },
+      draftB: {
+        version_id: 'draftB',
+        version_label: 'Entwurf B: Evidenzbasierte & gestresstestete Fassung',
+        version_badge: 'KALIBRIERT & BELASTBAR',
+        communication: "Die Phase-III-Studie PSMAfore belegt eine statistisch signifikante Verdopplung des progressionsfreien Überlebens (HR 0.41, p<0.001) für Pluvicto vor Chemotherapie und bestätigt den hohen klinischen Nutzen. Während Zulassungs- und Erstattungssysteme regional variieren – mit einer erfolgten Zulassung durch die US-FDA –, bleibt Novartis im aktiven Dialog mit europäischen und britischen Behörden für flexible Erstattungsmodelle, die Spitalentlastungen berücksichtigen.",
+        headline_from_hell: "STUDIE BESTÄTIGT ÜBERLEBENSVORTEIL BEI PROSTATAKREBS: NOVARTIS ARBEITET AN ZUGANGSLÖSUNGEN",
+        risk_score: 2.7,
+        risk_level: 'Kontrolliert & Glaubwürdig',
+        vulnerabilities: [
+          {
+            topic: "Laufende Erstattungsabklärungen",
+            explanation: "Nationale Marktzugangsprozesse brauchen Zeit, die klinische Reputation des Wirkstoffs ist jedoch gesichert."
+          }
+        ],
+        stakeholder_reactions: [
+          {
+            stakeholder: "Patientenverbände Europa",
+            likely_reaction: "Konstruktiver Appell an Kostenträger",
+            reasoning: "Fokus richtet sich auf die Kassen, moderne Präzisionsonkologie zügig zu finanzieren.",
+            dossier_citation: "Europäisches Patientenforum Protokoll",
+            sentiment: "positive"
+          },
+          {
+            stakeholder: "NICE & Europäische HTA-Behörden",
+            likely_reaction: "Gesprächsbereitschaft für Sonderverträge",
+            reasoning: "Begrüssen die Bereitschaft zu risikoteilenden Erstattungsmodellen.",
+            dossier_citation: "NICE Bewertungsbericht",
+            sentiment: "mixed"
+          }
+        ],
+        second_order_effects: [
+          {
+            effect: "Fachberichterstattung fokussiert auf den therapeutischen Fortschritt statt auf Rückzugsvorwürfe.",
+            probability: "high",
+            timeframe: "Regulärer Zyklus"
+          }
+        ],
+        management_summary: {
+          diagnosis: "Sichert die wissenschaftliche Exzellenz der Radioliganden-Plattform und positioniert Novartis als verlässlichen Gesundheitspartner.",
+          impact: "Schützt die globale Preisstabilität und bewahrt das Vertrauen der behandelnden Onkologen.",
+          verdict: "Empfehlung: Freigabe für Onkologie-Kommunikation und HTA-Dialoge."
+        },
+        immediate_actions: [
+          "Evidenzdossier zu vermiedenen Spitaltagen bereitstellen",
+          "Medizinische Leiter der Länderorganisationen mit Argumentarien ausstatten",
+          "GEO-Faktenstruktur im Newsroom hinterlegen"
         ]
       }
     },

@@ -45,6 +45,10 @@ Global corporate communications teams face two practical data problems that stan
 ```
 
 ### Direction 1: Outside-In (Modules 01 & 02)
+
+> [!TIP]
+> **90-Second Recruiting & Executive Quick Tour:** When you open the live demo, an interactive **90-Second Guided Tour** (`01 Mandate & Scope` → `02 Outside-In Measurement` → `03 GEO & AI Search Audit` → `04 Regional Playbooks` → `05 Stress-Test & IT Fit`) is active at the top of the workspace. Clicking `Next Step →` automatically switches the tabs, regional filters, and scenario comparisons hands-free. You can dismiss or re-open it at any time via the `[ ▶ 90s Quick Tour ]` button in the header.
+
 * **Statistical filtering before LLMs:** Instead of feeding raw noise into an AI model, a 4-stage pipeline first collapses wire reprints (`MinHash`), groups articles into topic clusters (`HDBSCAN`), and measures volume spikes ($z$-score) and alignment with company messaging (cosine similarity). LLMs are only used at the end to read the ~340 representative cluster texts.
 * **Regional Cockpit (`01`):** Compares how a topic is framed across **North America (US)**, **Europe (EU)**, **Switzerland (CH)**, and **Asia-Pacific (APAC)** across traditional media, social forums, and AI search engines.
 * **Cluster & AI Answer Audit (`02`):** Shows the actual articles driving a cluster and audits what AI answer engines (ChatGPT, Perplexity, Gemini) tell doctors, investors, or journalists. Clickable red highlights show where the AI distorts facts—and how providing a structured fact block (**Generative Engine Optimization / GEO**) reduces those errors.
@@ -79,11 +83,12 @@ This repository is a **client-side prototype** (running entirely in the browser 
 
 ## Pre-Loaded Scenarios (EN / DE)
 
-Switch between **English (`EN`)** and **German (`DE`)** and filter by world region (`ALL`, `US`, `EU`, `CH`, `APAC`) across four scenarios:
-1. **Phase III Oncology Readout (Default):** Handling subgroup questions, US/EU payer pushback, patient reassurance, and AI search distortions.
-2. **Alpine Base Tunnel Disruption:** Communicating hardware diagnostics and passenger safety while countering cross-border cyber-sabotage rumors.
-3. **Supply Chain Labor Standards Inquiry:** Aligning Comms, Legal, and Procurement under EU due diligence rules (CSDDD) after NGO allegations.
-4. **Cloud Infrastructure for Health Records:** Explaining cryptographic key custody (BYOK) in plain language to skeptical physicians and citizens.
+Switch between **English (`EN`)** and **German (`DE`)** and filter by world region (`ALL`, `US`, `EU`, `CH`, `APAC`) across five realistic scenarios:
+1. **Novartis Corporate Narrative: U.S. Reference Pricing (MFN), $23B Capex & EU/Swiss Access (Primary Default):** Reconciling the White House MFN agreement and a $23B U.S. localized manufacturing expansion with Vas Narasimhan's call for European/Swiss pricing reform—preventing "patient boycott" headlines in Brussels and "headquarter exodus" rumors in Basel.
+2. **Novartis Pluvicto: FDA Approval vs. European HTA & UK NICE Reimbursement (Frontier Medicine):** Communicating a clinically proven progression-free survival doubling (PSMAfore) while navigating European comparator disputes and UK cost-per-QALY rejections.
+3. **Alpine Base Tunnel Disruption:** Communicating hardware diagnostics and passenger safety while countering cross-border cyber-sabotage rumors.
+4. **Supply Chain Labor Standards Inquiry:** Aligning Comms, Legal, and Procurement under EU due diligence rules (CSDDD) after NGO allegations.
+5. **Cloud Infrastructure for Health Records:** Explaining cryptographic key custody (BYOK) in plain language to skeptical physicians and citizens.
 
 ---
 

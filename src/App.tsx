@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { getScenarios, ScenarioMeta, Language } from './fixtures/scenarios';
 import { WorldRegionId } from './fixtures/cockpitFixtures';
 import { CommandHeader, ActiveTab } from './components/common/CommandHeader';
+import { QuickTourBar, getTourSteps } from './components/common/QuickTourBar';
 import { NarrativeCockpitView } from './components/cockpit/NarrativeCockpitView';
 import { GeoAuditView } from './components/geo/GeoAuditView';
 import { TrendingFactoryView } from './components/trending/TrendingFactoryView';
@@ -12,6 +13,8 @@ export const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<ActiveTab>('cockpit');
   const [selectedRegion, setSelectedRegion] = useState<WorldRegionId>('all');
   const [showConceptGuide, setShowConceptGuide] = useState<boolean>(false);
+  const [showQuickTour, setShowQuickTour] = useState<boolean>(true);
+  const [tourStep, setTourStep] = useState<number>(0);
   
   // Keep scenarios in sync with current language
   const scenariosList = getScenarios(lang);
@@ -21,6 +24,31 @@ export const App: React.FC = () => {
 
   const handleSelectScenario = (sc: ScenarioMeta) => {
     setSelectedScenarioId(sc.id);
+  };
+
+  const handleSelectTourStep = (stepIndex: number) => {
+    const steps = getTourSteps(lang);
+    const target = steps[stepIndex];
+    if (!target) return;
+
+    setTourStep(stepIndex);
+    setActiveTab(target.targetTab);
+    if (target.targetRegion) {
+      setSelectedRegion(target.targetRegion);
+    }
+    if (typeof target.openConceptGuide === 'boolean') {
+      setShowConceptGuide(target.openConceptGuide);
+    }
+  };
+
+  const handleToggleQuickTour = () => {
+    setShowQuickTour(prev => {
+      const nextState = !prev;
+      if (nextState) {
+        handleSelectTourStep(0);
+      }
+      return nextState;
+    });
   };
 
   const isEn = lang === 'en';
@@ -37,8 +65,22 @@ export const App: React.FC = () => {
         onSelectRegion={setSelectedRegion}
         showConceptGuide={showConceptGuide}
         onToggleConceptGuide={() => setShowConceptGuide(prev => !prev)}
+        showQuickTour={showQuickTour}
+        onToggleQuickTour={handleToggleQuickTour}
         lang={lang}
         setLang={setLang}
+      />
+
+      <QuickTourBar
+        isOpen={showQuickTour}
+        currentStep={tourStep}
+        onSelectStep={handleSelectTourStep}
+        onClose={() => setShowQuickTour(false)}
+        lang={lang}
+        onSelectScenarioById={setSelectedScenarioId}
+        selectedScenarioId={selectedScenario.id}
+        showConceptGuide={showConceptGuide}
+        onToggleConceptGuide={() => setShowConceptGuide(prev => !prev)}
       />
 
       {/* Main Workspace Stage */}

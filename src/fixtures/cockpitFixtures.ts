@@ -75,117 +75,117 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
         {
           id: 'pillar_1',
           pillar_number: '01',
-          title: 'Primary Efficacy Proven',
-          core_thesis: 'Phase III Onco-701 met its pre-specified primary endpoint, demonstrating statistically significant and clinically meaningful overall survival (HR 0.68, p<0.001) across the broad patient population.',
-          target_vector_anchor: 'Ref: CSR-701 §4.2 (Primary OS Endpoint)',
+          title: 'Fair Global Innovation Reward (GS-01)',
+          core_thesis: 'Tying U.S. launch prices to foreign reference baskets requires wealthy OECD health systems to value true clinical benefit. Suppressing European and Swiss prices threatens global R&D reinvestment.',
+          target_vector_anchor: 'Ref: GS-01 §3.2 (Novartis Global Pricing & Launch Sequencing Framework)',
           mandatory_proof_points: [
-            'Statistically significant overall survival benefit (p<0.001)',
-            'Intention-to-treat (ITT) population design verified',
-            'Full primary data submission to FDA, EMA, Swissmedic on schedule'
+            'Global R&D reinvestment depends on sustainable pricing across all high-income markets',
+            'Artificial price cuts in reference baskets distort international access and create launch friction',
+            'Novartis advocates modernized value-based assessment rather than blunt budget caps'
           ]
         },
         {
           id: 'pillar_2',
           pillar_number: '02',
-          title: 'Exploratory Subgroup Nature & Patient Safety',
-          core_thesis: 'Cohort B was an exploratory subgroup not statistically powered for standalone significance; its clinical benefit trajectory aligns with the overall study population with verified safety continuity.',
-          target_vector_anchor: 'Ref: SAP-701 §3.1 (Exploratory Subgroups)',
+          title: 'Dual Commitment: $23B US Footprint & Basel Global R&D Heart (GS-02)',
+          core_thesis: 'Our $23B 5-year investment expands U.S. manufacturing across 10 facilities so American patients receive locally produced therapies, while Basel remains the corporate headquarters and global scientific nerve center.',
+          target_vector_anchor: 'Ref: GS-02 (Corporate Footprint & Capital Allocation Review)',
           mandatory_proof_points: [
-            'Exploratory subgroup per pre-approved Statistical Analysis Plan (SAP)',
-            'Zero new safety or toxicity signals across any subgroup',
-            'Current patients instructed to maintain regimens without interruption'
+            '$23B capex expands U.S. production (e.g. radioligand facilities in IN and NJ; San Diego R&D)',
+            'Corporate headquarters, core governance, and primary research remain firmly anchored in Basel',
+            'Supply localization insulates critical patient therapies against geopolitical trade tariffs'
           ]
         },
         {
           id: 'pillar_3',
           pillar_number: '03',
-          title: 'Holistic Clinical Value & Access',
-          core_thesis: 'The proven survival extension supports broad regulatory approval and sustainable patient access across healthcare systems globally.',
-          target_vector_anchor: 'Ref: HEOR-701 (Global Clinical Value Dossier)',
+          title: 'Constructive Patient Access & Value Modernization (GS-03)',
+          core_thesis: 'Novartis does not boycott patients. We actively partner with European HTA bodies and the Swiss BAG on flexible access models, while sequencing launches to preserve international reference integrity.',
+          target_vector_anchor: 'Ref: GS-03 (Health Economics & International Access Principles)',
           mandatory_proof_points: [
-            'Health economics model anchored in primary overall survival',
-            'Broad label potential preserved without premature concessions',
-            'Global regulatory submissions proceeding as planned in Q1 2027'
+            'No patient boycott: compassionate use and managed access programs continue actively',
+            'Constructive dialogue with Swiss BAG and European authorities to modernize pricing benchmarks',
+            'Test cases (such as ianalumab and Pluvicto) showcase value-based contracting alternatives'
           ]
         }
       ],
       regional_synthesis: [
         {
           region_id: 'us',
-          region_name: 'North America (US / FDA)',
-          regulatory_context: 'Payer PBM Scrutiny & FDA Label Review',
-          raw_volume: 19400,
-          deduped_volume: 6820,
-          velocity_z_score: 3.8,
-          velocity_trend: '+3.8σ Anomaly (Breakout)',
-          cosine_alignment: 0.38,
-          pull_through_status: 'AT_RISK',
-          status_label: 'Payer Pushback & Subgroup Conflation',
-          legacy_media_frame: 'Payer & Price Scrutiny: "Subgroup variance casts doubt on premium pricing justification."',
-          social_forum_frame: 'Patient Anxiety: "Will US commercial insurers refuse coverage for Cohort B biomarker profiles?"',
-          llm_synthesis_frame: 'AI Answer Distortion: Frontier LLMs hallucinate that the drug "failed key patients" and advise pausing therapy.',
-          llm_hallucination_rate: 52,
-          strategic_risk_summary: 'Pillar 1 lands in academic headlines, but Pillar 3 is completely inverted by health-economic commentators anchoring price negotiations to subgroup variance.'
+          region_name: 'North America (US / MFN & Capex)',
+          regulatory_context: 'White House MFN Dialogue & FDA Launch Pace',
+          raw_volume: 21400,
+          deduped_volume: 7850,
+          velocity_z_score: 2.4,
+          velocity_trend: '+2.4σ Sustained Momentum',
+          cosine_alignment: 0.78,
+          pull_through_status: 'ALIGNED',
+          status_label: 'Supply Localization Welcomed',
+          legacy_media_frame: 'Industrial Resilience: "$23B domestic investment and MFN alignment tariff-proofs supply of breakthrough medicines."',
+          social_forum_frame: 'Policy Commentators: Praise for building American clinical manufacturing hubs.',
+          llm_synthesis_frame: 'Accurate Economic Overview: Correctly captures the multi-billion-dollar domestic manufacturing expansion.',
+          llm_hallucination_rate: 14,
+          strategic_risk_summary: 'US narrative is strongly aligned; key focus is maintaining disciplined messaging on net pricing commitments.'
         },
         {
           region_id: 'eu',
-          region_name: 'Europe (EU / EMA & HTA)',
-          regulatory_context: 'EMA Central Review & HTA Reimbursement Bodies',
-          raw_volume: 14200,
-          deduped_volume: 5110,
-          velocity_z_score: 2.1,
-          velocity_trend: '+2.1σ Elevated',
-          cosine_alignment: 0.54,
-          pull_through_status: 'MIXED',
-          status_label: 'HTA Evidence Scrutiny',
-          legacy_media_frame: 'Comparative Effectiveness: "Solid survival gain, but European HTA bodies may push for restricted label."',
-          social_forum_frame: 'Clinical Community Debate: Oncologists discussing statistical power of exploratory subsets.',
-          llm_synthesis_frame: 'Regulatory Conflation: AI answer engines confuse EMA submission timeline with preliminary advisory committee dates.',
-          llm_hallucination_rate: 38,
-          strategic_risk_summary: 'Media is scientifically balanced, but risk of regional HTA bodies pre-empting label restrictions based on uncalibrated trade press framing.'
+          region_name: 'Europe (EU / Pricing Reform Pushback)',
+          regulatory_context: 'EU Joint Clinical Assessment & National HTA Bodies',
+          raw_volume: 16800,
+          deduped_volume: 5920,
+          velocity_z_score: 3.9,
+          velocity_trend: '+3.9σ Narrative Outbreak',
+          cosine_alignment: 0.34,
+          pull_through_status: 'AT_RISK',
+          status_label: 'Launch Delay Backlash',
+          legacy_media_frame: 'Pricing Standoff: "Pharma chiefs warn Europe: Raise drug prices or face delayed access to new therapies."',
+          social_forum_frame: 'Healthcare Policy Forums: Accusing drugmakers of holding European patients hostage to protect US margins.',
+          llm_synthesis_frame: 'Severe Distortion: LLMs falsely report that Novartis announced an official freeze on all European oncology filings.',
+          llm_hallucination_rate: 48,
+          strategic_risk_summary: 'Critical narrative divergence. Payer commentary weaponizes CEO comments on European competitiveness into allegations of access withholding.'
         },
         {
           region_id: 'ch',
-          region_name: 'Switzerland (HQ / Swissmedic)',
-          regulatory_context: 'Corporate Affairs, Investor Community & Swissmedic',
-          raw_volume: 4820,
-          deduped_volume: 1640,
-          velocity_z_score: 0.4,
-          velocity_trend: '+0.4σ Baseline Normal',
-          cosine_alignment: 0.82,
-          pull_through_status: 'ALIGNED',
-          status_label: 'Pipeline Success Anchored',
-          legacy_media_frame: 'R&D Pipeline Success: "Pivotal Phase III milestone confirms oncology innovation leadership with minor subgroup nuances."',
-          social_forum_frame: 'Low Volume / Factual: Investor and life-science community reposting official corporate release.',
-          llm_synthesis_frame: 'Accurate Retrieval: AI search engines correctly cite the corporate newsroom release as canonical ground truth.',
-          llm_hallucination_rate: 15,
-          strategic_risk_summary: 'Domestic and HQ reception is solid; key narrative pillars are intact and well-understood by business media.'
+          region_name: 'Switzerland (HQ & BAG Reference Basket)',
+          regulatory_context: 'Standort Schweiz, BAG Pricing Packages & Swissmedic',
+          raw_volume: 6420,
+          deduped_volume: 2240,
+          velocity_z_score: 3.5,
+          velocity_trend: '+3.5σ Domestic Debate',
+          cosine_alignment: 0.41,
+          pull_through_status: 'AT_RISK',
+          status_label: 'Dual Anxiety: Basel Weight & BAG Access',
+          legacy_media_frame: 'National Scrutiny: "23 billion for the US: Is Novartis shifting weight away from Basel while warning Bern on drug prices?"',
+          social_forum_frame: 'Domestic Opinion Leaders: Debating whether Swiss cost-containment rules in international baskets will delay patient access.',
+          llm_synthesis_frame: 'Corporate Entity Confusion: AI search blends the $23B US capex with rumors of HQ relocation.',
+          llm_hallucination_rate: 42,
+          strategic_risk_summary: 'High reputational sensitivity. Need immediate reassurance on Basel HQ permanence and collaborative dialogue with the Federal Office of Public Health (BAG).'
         },
         {
           region_id: 'apac',
-          region_name: 'Asia-Pacific (APAC / PMDA & NMPA)',
-          regulatory_context: 'Bridging Study Timelines & Regional Health Ministries',
-          raw_volume: 10000,
-          deduped_volume: 3740,
-          velocity_z_score: 1.6,
-          velocity_trend: '+1.6σ Moderate Growth',
-          cosine_alignment: 0.48,
+          region_name: 'Asia-Pacific (APAC / PMDA & Reference Floors)',
+          regulatory_context: 'Pricing Approvals & Regional Health Authorities',
+          raw_volume: 8900,
+          deduped_volume: 3100,
+          velocity_z_score: 1.5,
+          velocity_trend: '+1.5σ Moderate',
+          cosine_alignment: 0.58,
           pull_through_status: 'MIXED',
-          status_label: 'Local Filing Timeline Uncertainty',
-          legacy_media_frame: 'Access Timelines: "When will local regulatory filings follow the US and European submissions?"',
-          social_forum_frame: 'Patient Access Groups: Inquiries about regional trial inclusion and clinical trial expansion.',
-          llm_synthesis_frame: 'Outdated Synthesis: LLMs mix older Phase II Asian subgroup data with current Phase III global results.',
-          llm_hallucination_rate: 45,
-          strategic_risk_summary: 'Lack of proactive localized Asian filing statements creates an information vacuum filled by outdated Phase II data.'
+          status_label: 'Global Reference Floor Monitoring',
+          legacy_media_frame: 'Market Access: "How global reference pricing agreements will shape Asian drug listing negotiations."',
+          social_forum_frame: 'Clinical Observers: Monitoring availability dates for upcoming frontier therapies.',
+          llm_synthesis_frame: 'Mixed Synthesis: General summaries of international trade trends.',
+          llm_hallucination_rate: 26,
+          strategic_risk_summary: 'Quiet but watching for precedent in European reference price disputes.'
         }
       ],
       surface_nlp_vs_forensic_reality: {
-        commercial_nlp_sentiment: '74% NEUTRAL / INFORMATIVE (Score 0.82)',
-        commercial_nlp_confidence: 'High statistical confidence across 17,310 deduplicated records',
-        commercial_nlp_blindspot: 'Standard NLP sentiment categorizes polite medical journal prose and formal health-policy commentary as "Neutral" because it lacks hostile profanity or angry consumer keywords.',
-        forensic_reality_verdict: 'CRITICAL COMMERCIAL VALUE THREAT IN US & EU',
-        forensic_reality_subtext: 'Cluster #02 ("Subgroup Efficacy Doubt") experienced a +3.8σ breakout among Tier-1 US and EU health-policy outlets with a low 0.38 cosine alignment score. Payers are systematically establishing "subgroup failure" as their baseline before reimbursement negotiations open.',
-        statistical_proof_anchor: 'z = +3.8σ velocity anomaly | Cosine alignment 0.38 | 52% LLM hallucination rate in North America'
+        commercial_nlp_sentiment: '76% NEUTRAL / POLICY ANALYSIS (Score 0.84)',
+        commercial_nlp_confidence: 'High statistical confidence across 19,350 deduplicated records',
+        commercial_nlp_blindspot: 'Standard NLP sentiment scores formal health-policy coverage and parliamentary inquiries as "Neutral" because they lack emotional profanity or consumer outrage keywords.',
+        forensic_reality_verdict: 'ACUTE POLITICAL & REPUTATIONAL BACKLASH IN EU & SWITZERLAND',
+        forensic_reality_subtext: 'Cluster #01 ("Launch Delay Fears & Basel Footprint") experienced a +3.9σ breakout across European and Swiss tier-1 outlets. Payer bodies in Brussels and commentators in Bern are framing pricing reform as an ultimatum against patients.',
+        statistical_proof_anchor: 'z = +3.9σ velocity outbreak | Cosine alignment 0.34 in EU | 48% AI answer distortion rate'
       }
     },
     alpine_transit_crisis: {
@@ -412,6 +412,124 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
         statistical_proof_anchor: 'z = +3.4σ European velocity | Cosine alignment 0.42 | 42% LLM bias rate'
       }
     },
+    pluvicto_access_debate: {
+      scenario_id: 'pluvicto_access_debate',
+      timeframe: 'Last 72 Hours (Transatlantic Health Economics)',
+      pipeline: {
+        raw_ingested_72h: 31200,
+        minhash_deduped_unique: 11400,
+        syndicated_reprints_collapsed: 19800,
+        hdbscan_clusters_identified: 11,
+        off_topic_noise_filtered_pct: 86,
+        peak_z_score: '+4.2σ',
+        peak_anomaly_summary: 'Major breakout following FDA approval and UK NICE cost-effectiveness rejection.',
+        centroid_texts_analyzed_by_llm: 280
+      },
+      target_narratives: [
+        {
+          id: 'p_pillar_1',
+          pillar_number: '01',
+          title: 'Clinically Proven rPFS Doubling (PSMAfore / GS-01)',
+          core_thesis: 'PSMAfore demonstrated a clinically meaningful doubling of radiographic progression-free survival (HR 0.41) in pre-taxane mCRPC, supporting the FDA label expansion.',
+          target_vector_anchor: 'Ref: PSMAfore §2.1 (Clinical Study Report)',
+          mandatory_proof_points: [
+            'Radiographic progression-free survival doubled with high statistical significance (HR 0.41)',
+            'FDA approved broad pre-chemo indication based on robust rPFS and favorable safety profile',
+            'Crossover from control arm explains overall survival confounding in secondary analyses'
+          ]
+        },
+        {
+          id: 'p_pillar_2',
+          pillar_number: '02',
+          title: 'Targeted Radioligand Value & Hospital Offset (GS-03)',
+          core_thesis: 'Precision radioligand therapy delivers targeted radiation directly to cancer cells, reducing debilitating chemotherapy toxicities and delaying costly acute inpatient admissions.',
+          target_vector_anchor: 'Ref: GS-03 (Radioligand Health Economics & Outcomes Research)',
+          mandatory_proof_points: [
+            'Targeted precision mechanism preserves patient quality of life vs. cytotoxic chemotherapy',
+            'Offsets downstream hospitalizations, emergency visits, and intensive palliative care costs',
+            'Dedicated patient assistance and value-based installment programs offered to healthcare systems'
+          ]
+        }
+      ],
+      regional_synthesis: [
+        {
+          region_id: 'us',
+          region_name: 'North America (US / FDA Expanded Label)',
+          regulatory_context: 'FDA Label Expansion & Commercial Payer Rollout',
+          raw_volume: 16200,
+          deduped_volume: 5800,
+          velocity_z_score: 3.4,
+          velocity_trend: '+3.4σ High Velocity',
+          cosine_alignment: 0.82,
+          pull_through_status: 'ALIGNED',
+          status_label: 'Pre-Chemo Standard of Care Established',
+          legacy_media_frame: 'Clinical Landmark: "FDA expands Pluvicto label to pre-chemotherapy prostate cancer based on PSMAfore."',
+          social_forum_frame: 'Oncology Community: High enthusiasm for avoiding taxane chemotherapy side effects.',
+          llm_synthesis_frame: 'Accurate Approval Detail: Correctly cites the expanded FDA indication.',
+          llm_hallucination_rate: 12,
+          strategic_risk_summary: 'Strong commercial and clinical momentum in the US market.'
+        },
+        {
+          region_id: 'eu',
+          region_name: 'Europe (EU / EMA Withdrawal & NICE Rejection)',
+          regulatory_context: 'EMA CHMP Objections & UK NICE Cost-Effectiveness',
+          raw_volume: 11800,
+          deduped_volume: 4200,
+          velocity_z_score: 4.2,
+          velocity_trend: '+4.2σ Acute Debate',
+          cosine_alignment: 0.31,
+          pull_through_status: 'AT_RISK',
+          status_label: 'Reimbursement Deadlock',
+          legacy_media_frame: 'Cost Scrutiny: "NICE rejects £20,000 prostate cancer drug Pluvicto; European access hits brick wall."',
+          social_forum_frame: 'UK & EU Patient Advocates: Outrage over lack of public funding for proven therapy.',
+          llm_synthesis_frame: 'Severe Hallucination: AI engines report that Pluvicto was withdrawn due to "lack of clinical efficacy in Europeans."',
+          llm_hallucination_rate: 54,
+          strategic_risk_summary: 'Severe reputational risk. LLMs confuse regulatory comparator debates with clinical failure.'
+        },
+        {
+          region_id: 'ch',
+          region_name: 'Switzerland (Swissmedic & Specialized Centers)',
+          regulatory_context: 'Swissmedic Authorization & Domestic Nuclear Medicine',
+          raw_volume: 3200,
+          deduped_volume: 1400,
+          velocity_z_score: 1.1,
+          velocity_trend: '+1.1σ Moderate',
+          cosine_alignment: 0.68,
+          pull_through_status: 'MIXED',
+          status_label: 'Hospital Infrastructure Readiness',
+          legacy_media_frame: 'Precision Medicine: "Swiss university hospitals expand radioligand treatment suites."',
+          social_forum_frame: 'Medical Specialists: Discussing isotope supply chain logistics.',
+          llm_synthesis_frame: 'Mostly Factual: Covers specialized medical centers.',
+          llm_hallucination_rate: 18,
+          strategic_risk_summary: 'Domestic focus is on medical center capacity and reimbursement list inclusion.'
+        },
+        {
+          region_id: 'apac',
+          region_name: 'Asia-Pacific (PMDA & Regional Rollout)',
+          regulatory_context: 'Bridging Studies & Local Approvals',
+          raw_volume: 0,
+          deduped_volume: 0,
+          velocity_z_score: 0,
+          velocity_trend: 'Baseline',
+          cosine_alignment: 0.70,
+          pull_through_status: 'ALIGNED',
+          status_label: 'Monitoring Transatlantic Outcome',
+          legacy_media_frame: 'Trade press tracking global timelines.',
+          social_forum_frame: 'None.',
+          llm_synthesis_frame: 'General overview.',
+          llm_hallucination_rate: 10,
+          strategic_risk_summary: 'Low exposure.'
+        }
+      ],
+      surface_nlp_vs_forensic_reality: {
+        commercial_nlp_sentiment: '71% NEUTRAL / MEDICAL ANALYSIS (Score 0.79)',
+        commercial_nlp_confidence: 'High',
+        commercial_nlp_blindspot: 'Standard NLP misses that the NICE cost-effectiveness rejection is being cited by international payers as proof of unaffordability.',
+        forensic_reality_verdict: 'TRANSATLANTIC ACCESS CHASM',
+        forensic_reality_subtext: 'While the US embraces the pre-chemo indication, European HTA skepticism and AI hallucinations claim the drug is ineffective, threatening international reimbursement benchmarks.',
+        statistical_proof_anchor: 'z = +4.2σ European spike | Cosine alignment 0.31 | 54% LLM distortion rate in EU'
+      }
+    },
     health_data_breach: {
       scenario_id: 'health_data_breach',
       timeframe: 'Last 48 Hours (Healthcare & Privacy Ingestion)',
@@ -537,117 +655,117 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
         {
           id: 'pillar_1',
           pillar_number: '01',
-          title: 'Primäre Wirksamkeit belegt',
-          core_thesis: 'Die Phase-III-Studie erreichte ihren primären Endpunkt und belegt einen statistisch signifikanten sowie klinisch bedeutsamen Gesamtüberlebensvorteil (HR 0.68, p<0.001) in der Gesamtpopulation.',
-          target_vector_anchor: 'Ref: CSR-701 §4.2 (Primärer OS-Endpunkt)',
+          title: 'Faire globale Innovationsvergütung (GS-01)',
+          core_thesis: 'Die Koppelung von US-Einführungspreisen an ausländische Referenzkörbe erfordert, dass wohlhabende OECD-Gesundheitssysteme den klinischen Nutzen fair anerkennen. Gedrückte Preise in Europa gefährden weltweite F&E-Investitionen.',
+          target_vector_anchor: 'Ref: GS-01 §3.2 (Novartis Globale Preis- & Marktzugangsrichtlinie)',
           mandatory_proof_points: [
-            'Statistisch signifikanter Überlebensvorteil (p<0.001)',
-            'Intention-to-Treat (ITT) Studiendesign bestätigt',
-            'Planmässige Einreichung bei FDA, EMA und Swissmedic'
+            'Weltweite Reinvestitionen in Forschung setzen nachhaltige Erstattung in allen Industriestaaten voraus',
+            'Künstliche Preissenkungen in Referenzkörben verzerren den internationalen Zugang und verzögern Launches',
+            'Novartis fordert ein modernisiertes, wertbasiertes Modell statt starrer Budgetdeckel'
           ]
         },
         {
           id: 'pillar_2',
           pillar_number: '02',
-          title: 'Explorative Subgruppe & Therapiesicherheit',
-          core_thesis: 'Kohorte B war eine explorative Subgruppe ohne statistische Power für einen Einzelsignifikanznachweis; der klinische Trend ist konsistent mit der Gesamtkohorte bei gesicherter Therapiekontinuität.',
-          target_vector_anchor: 'Ref: SAP-701 §3.1 (Explorative Subgruppen)',
+          title: 'Doppeltes Bekenntnis: 23-Mrd.-$-US-Präsenz & F&E-Kern Basel (GS-02)',
+          core_thesis: 'Unsere 5-Jahres-Investition über 23 Mrd. $ erweitert die US-Produktion an 10 Standorten für lokale Versorgungssicherheit. Basel bleibt der globale Konzernsitz und das wissenschaftliche Herz.',
+          target_vector_anchor: 'Ref: GS-02 (Konzernstandort- & Kapitalallokationsbericht)',
           mandatory_proof_points: [
-            'Explorative Subgruppe gemäss vorab genehmigtem Studienplan (SAP)',
-            'Null neue Sicherheitssignale in allen Subgruppen',
-            'Patienten führen laufende Therapien unverändert fort'
+            '23 Mrd. $ Investitionen erweitern die US-Produktion (z. B. Radioliganden in IN & NJ; San Diego F&E)',
+            'Konzernsitz, Haupt-Governance und Spitzenforschung verbleiben unerschütterlich in Basel',
+            'Lokale Produktion schützt versorgungsrelevante Therapien vor geopolitischen Zöllen'
           ]
         },
         {
           id: 'pillar_3',
           pillar_number: '03',
-          title: 'Ganzheitlicher klinischer Wert & Marktzugang',
-          core_thesis: 'Der belegte Überlebensvorteil rechtfertigt eine breite Zulassung und eine nachhaltige Erstattung durch Gesundheitssysteme weltweit.',
-          target_vector_anchor: 'Ref: HEOR-701 (Nutzenbewertungs-Dossier)',
+          title: 'Konstruktiver Patientenzugang & Nutzenmodernisierung (GS-03)',
+          core_thesis: 'Novartis boykottiert keine Patienten. Wir arbeiten aktiv mit europäischen HTA-Behörden und dem BAG an flexiblen Modellen, während Markteinführungen sorgfältig gestaffelt werden.',
+          target_vector_anchor: 'Ref: GS-03 (Gesundheitsökonomie & Internationale Marktzugangsgrundsätze)',
           mandatory_proof_points: [
-            'Gesundheitsökonomisches Modell stützt sich auf das Gesamtüberleben',
-            'Breites Indikationspotenzial ohne vorzeitige Abstriche gewahrt',
-            'Zulassungsanträge weltweit termingerecht in Q1 2027'
+            'Kein Patientenboykott: Härtefall- und Vorabzugangsprogramme (Compassionate Use) laufen unverändert',
+            'Konstruktiver Dialog mit dem BAG und europäischen Kassen zur Modernisierung von Preisreferenzen',
+            'Testfälle (wie Ianalumab und Pluvicto) demonstrieren wertbasierte Vergütungsalternativen'
           ]
         }
       ],
       regional_synthesis: [
         {
           region_id: 'us',
-          region_name: 'Nordamerika (USA / FDA & Payer)',
-          regulatory_context: 'PBM-Kostendruck & FDA-Zulassungsprüfung',
-          raw_volume: 19400,
-          deduped_volume: 6820,
-          velocity_z_score: 3.8,
-          velocity_trend: '+3.8σ Anomalie (Ausbruch)',
-          cosine_alignment: 0.38,
-          pull_through_status: 'AT_RISK',
-          status_label: 'Payer-Kostendruck & Subgruppen-Fokus',
-          legacy_media_frame: 'Kostendruck: "Subgruppen-Varianz nährt Zweifel an Rechtfertigung des Premiumpreises."',
-          social_forum_frame: 'Patientensorge: "Werden US-Kassen die Kostenübernahme für Kohorte-B-Profile verweigern?"',
-          llm_synthesis_frame: 'KI-Verzerrung: Sprachmodelle behaupten, das Medikament sei "gescheitert" und raten zum Therapieabbruch.',
-          llm_hallucination_rate: 52,
-          strategic_risk_summary: 'Säule 1 wird zwar wissenschaftlich zitiert, Säule 3 wird jedoch von Gesundheitsökonomen verdreht, um künftige Preisverhandlungen zu belasten.'
+          region_name: 'Nordamerika (USA / MFN & Investitionen)',
+          regulatory_context: 'US-Regierungsdialog MFN & FDA-Einführungstempo',
+          raw_volume: 21400,
+          deduped_volume: 7850,
+          velocity_z_score: 2.4,
+          velocity_trend: '+2.4σ Stabiles Momentum',
+          cosine_alignment: 0.78,
+          pull_through_status: 'ALIGNED',
+          status_label: 'Lokale Produktion begrüsst',
+          legacy_media_frame: 'Standortstärkung: "23-Mrd.-$-Investition und MFN-Abkommen sichern US-Versorgung mit innovativen Medikamenten."',
+          social_forum_frame: 'Wirtschaftskreise: Lob für den Ausbau amerikanischer F&E- und Produktionszentren.',
+          llm_synthesis_frame: 'Präziser Wirtschaftsüberblick: Erfasst die milliardenstarke US-Produktionsexpansion korrekt.',
+          llm_hallucination_rate: 14,
+          strategic_risk_summary: 'US-Narrativ ist stabil verankert; Fokus liegt auf der Einhaltung von Netto-Preisabsprachen.'
         },
         {
           region_id: 'eu',
-          region_name: 'Europa (EU / EMA & HTA-Behörden)',
-          regulatory_context: 'EMA-Zulassung & HTA-Nutzenbewertung',
-          raw_volume: 14200,
-          deduped_volume: 5110,
-          velocity_z_score: 2.1,
-          velocity_trend: '+2.1σ Erhöht',
-          cosine_alignment: 0.54,
-          pull_through_status: 'MIXED',
-          status_label: 'HTA-Evidenzprüfung',
-          legacy_media_frame: 'Nutzenbewertung: "Solider Überlebensvorteil, aber HTA-Stellen könnten engere Indikation fordern."',
-          social_forum_frame: 'Onkologen-Debatte über statistische Power von Subgruppen.',
-          llm_synthesis_frame: 'Regulatorische Verwechslung von Einreichungsterminen bei der EMA.',
-          llm_hallucination_rate: 38,
-          strategic_risk_summary: 'Sachliche Fachpresse, aber Risiko, dass europäische Kassen eine Indikationseinschränkung vorwegnehmen.'
+          region_name: 'Europa (EU / Gegenwind bei Preisreform)',
+          regulatory_context: 'EU Joint Clinical Assessment & Nationale HTA-Stellen',
+          raw_volume: 16800,
+          deduped_volume: 5920,
+          velocity_z_score: 3.9,
+          velocity_trend: '+3.9σ Narrativer Ausbruch',
+          cosine_alignment: 0.34,
+          pull_through_status: 'AT_RISK',
+          status_label: 'Gefahr von "Launch-Verzögerungs"-Vorwürfen',
+          legacy_media_frame: 'Preiskonflikt: "Pharmabosse fordern Brüssel heraus: Höhere Preise oder verzögerter Zugang zu neuen Therapien."',
+          social_forum_frame: 'Gesundheitspolitische Foren: Vorwurf, Patienten als Geiseln für US-Margen einzuspannen.',
+          llm_synthesis_frame: 'Schwere Verzerrung: KI-Modelle behaupten fälschlicherweise, Novartis habe einen offiziellen Zulassungsstopp in Europa verhängt.',
+          llm_hallucination_rate: 48,
+          strategic_risk_summary: 'Kritische Abweichung. Kostenträger instrumentalisieren Narasimhans Warnungen zu Wettbewerbsfähigkeit als vermeintliche Erpressung.'
         },
         {
           region_id: 'ch',
-          region_name: 'Schweiz (HQ / Swissmedic)',
-          regulatory_context: 'Konzernsitz, Investoren & Swissmedic',
-          raw_volume: 4820,
-          deduped_volume: 1640,
-          velocity_z_score: 0.4,
-          velocity_trend: '+0.4σ Normaler Baseline-Wert',
-          cosine_alignment: 0.82,
-          pull_through_status: 'ALIGNED',
-          status_label: 'Pipeline-Erfolg verankert',
-          legacy_media_frame: 'F&E-Erfolg: "Zulassungsstudie bestätigt Onkologie-Führungsposition mit erwarteten Subgruppen-Details."',
-          social_forum_frame: 'Geringes Volumen / Faktual: Weiterverbreitung der offiziellen Konzernmitteilung.',
-          llm_synthesis_frame: 'Präzise Recherche: KI-Assistenten zitieren die Newsroom-Mitteilung korrekt.',
-          llm_hallucination_rate: 15,
-          strategic_risk_summary: 'Solide Resonanz im Heimmarkt; Kernbotschaften sind in der Wirtschaftspresse verankert.'
+          region_name: 'Schweiz (Konzernsitz & BAG-Referenzkorb)',
+          regulatory_context: 'Standort Schweiz, BAG-Kostendämpfungspakete & Swissmedic',
+          raw_volume: 6420,
+          deduped_volume: 2240,
+          velocity_z_score: 3.5,
+          velocity_trend: '+3.5σ Inländische Debatte',
+          cosine_alignment: 0.41,
+          pull_through_status: 'AT_RISK',
+          status_label: 'Doppelsorge: Basel-Gewicht & BAG-Zugang',
+          legacy_media_frame: 'Standortdebatte: "23 Milliarden für die USA: Verliert Basel an Gewicht und drohen Schweizer Patienten Verzögerungen?"',
+          social_forum_frame: 'Meinungsführer: Debatte, ob starre BAG-Preissenkungen in internationalen Referenzkörben den Zugang zu neuen Therapien bremsen.',
+          llm_synthesis_frame: 'Verwechslung von Standorten: KI vermischt US-Investitionen mit Gerüchten über eine Verlegung des Konzernsitzes.',
+          llm_hallucination_rate: 42,
+          strategic_risk_summary: 'Hohe politische Sensibilität. Dringender Bedarf für ein klares Bekenntnis zu Basel und einen konstruktiven Dialog mit dem BAG.'
         },
         {
           region_id: 'apac',
-          region_name: 'Asien-Pazifik (APAC / PMDA & NMPA)',
-          regulatory_context: 'Regionale Zulassungsfristen & Ministerien',
-          raw_volume: 10000,
-          deduped_volume: 3740,
-          velocity_z_score: 1.6,
-          velocity_trend: '+1.6σ Moderates Wachstum',
-          cosine_alignment: 0.48,
+          region_name: 'Asien-Pazifik (APAC / PMDA & Preisreferenzgrenzen)',
+          regulatory_context: 'Erstattungsverhandlungen & Lokale Ministerien',
+          raw_volume: 8900,
+          deduped_volume: 3100,
+          velocity_z_score: 1.5,
+          velocity_trend: '+1.5σ Moderat',
+          cosine_alignment: 0.58,
           pull_through_status: 'MIXED',
-          status_label: 'Unklare regionale Zeitpläne',
-          legacy_media_frame: 'Verfügbarkeit: "Wann folgen lokale Zulassungsanträge nach den USA und Europa?"',
-          social_forum_frame: 'Patientengruppen fragen nach lokalen Studienkohorten.',
-          llm_synthesis_frame: 'Veraltete Daten: KI vermischt alte Phase-II-Daten mit aktuellen Phase-III-Ergebnissen.',
-          llm_hallucination_rate: 45,
-          strategic_risk_summary: 'Das Fehlen proaktiver lokaler Mitteilungen erzeugt ein Vakuum, das von veralteten Daten gefüllt wird.'
+          status_label: 'Beobachtung globaler Referenzpreisgrenzen',
+          legacy_media_frame: 'Marktzugang: "Wie globale Referenzpreisabkommen die Verhandlungen in Asien beeinflussen."',
+          social_forum_frame: 'Medizinische Beobachter: Prüfen Einführungstermine für künftige Onkologie-Therapien.',
+          llm_synthesis_frame: 'Allgemeine Zusammenfassung über Handelstrends.',
+          llm_hallucination_rate: 26,
+          strategic_risk_summary: 'Ruhige Lage; aufmerksame Beobachtung europäischer Präzedenzfälle.'
         }
       ],
       surface_nlp_vs_forensic_reality: {
-        commercial_nlp_sentiment: '74% NEUTRAL / INFORMATIV (Score 0.82)',
-        commercial_nlp_confidence: 'Hoch (auf Basis von 17.310 deduplizierten Datensätzen)',
-        commercial_nlp_blindspot: 'Standard-NLP stuft die formelle Fachsprache der Gesundheitspolitiker als "neutral" ein, weil keine Vulgärsprache oder wütende Verbraucherbegriffe vorkommen.',
-        forensic_reality_verdict: 'KRITISCHES KOMMERZIELLES ERSTATTUNGSRISIKO IN USA & EU',
-        forensic_reality_subtext: 'Cluster #02 ("Subgruppen-Wirksamkeitszweifel") verzeichnete einen +3.8σ Ausbruch bei Leitmedien mit einem niedrigen Cosinus-Wert von 0.38. Kostenträger etablieren "Subgruppen-Schwäche" als Hebel für künftige Preisabschläge.',
-        statistical_proof_anchor: 'z = +3.8σ Anomalie | Cosinus-Ähnlichkeit 0.38 | 52% KI-Synthese-Verzerrung in den USA'
+        commercial_nlp_sentiment: '76% NEUTRAL / FACHPOLITISCH (Score 0.84)',
+        commercial_nlp_confidence: 'Hohe statistische Konfidenz über 19.350 deduplizierte Meldungen',
+        commercial_nlp_blindspot: 'Standard-NLP stuft die diplomatische Fachsprache der Gesundheitspolitiker als "neutral" ein, weil keine Vulgärsprache oder wütende Verbraucherbegriffe vorkommen.',
+        forensic_reality_verdict: 'AKUTER POLITISCHER GEGENWIND IN EUROPA & DER SCHWEIZ',
+        forensic_reality_subtext: 'Cluster #01 ("Einführungsverzögerungen & Basel-Gewicht") verzeichnet einen +3.9σ Ausbruch. Europäische Kassen und Bundespolitiker in Bern deuten die Reformforderungen als Ultimatum gegen die Versorgung.',
+        statistical_proof_anchor: 'z = +3.9σ Anomalie | Cosinus-Ähnlichkeit 0.34 in EU | 48% KI-Verzerrungsrate'
       }
     },
     alpine_transit_crisis: {
@@ -860,6 +978,124 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
         forensic_reality_verdict: 'CSDDD-HAFTUNGSRISIKO IN EUROPA',
         forensic_reality_subtext: 'Europäische Medien verknüpfen den Einzelfall direkt mit gesetzlichen Sorgfaltspflichten.',
         statistical_proof_anchor: 'z = +3.4σ Europa-Dynamik | Cosinus-Ähnlichkeit 0.42 | 42% KI-Verzerrungsrate'
+      }
+    },
+    pluvicto_access_debate: {
+      scenario_id: 'pluvicto_access_debate',
+      timeframe: 'Letzte 72 Stunden (Transatlantische Nutzenbewertung)',
+      pipeline: {
+        raw_ingested_72h: 31200,
+        minhash_deduped_unique: 11400,
+        syndicated_reprints_collapsed: 19800,
+        hdbscan_clusters_identified: 11,
+        off_topic_noise_filtered_pct: 86,
+        peak_z_score: '+4.2σ',
+        peak_anomaly_summary: 'Ausbruch nach FDA-Zulassung und NICE-Erstattungsablehnung in Grossbritannien.',
+        centroid_texts_analyzed_by_llm: 280
+      },
+      target_narratives: [
+        {
+          id: 'p_pillar_1',
+          pillar_number: '01',
+          title: 'Klinisch belegte Verdopplung des rPFS (PSMAfore / GS-01)',
+          core_thesis: 'Die PSMAfore-Studie belegt eine klinisch signifikante Verdopplung des progressionsfreien Überlebens (HR 0.41) vor Chemotherapie und begründet die US-Zulassung.',
+          target_vector_anchor: 'Ref: PSMAfore §2.1 (Klinischer Studienbericht)',
+          mandatory_proof_points: [
+            'Radiografisch progressionsfreies Überleben verdoppelt (HR 0.41, p<0.001)',
+            'FDA erteilt breite Vor-Chemo-Zulassung gestützt auf rPFS und Verträglichkeit',
+            'Patientenübertritte (Crossover) erklären statistische Einflüsse beim Gesamtüberleben'
+          ]
+        },
+        {
+          id: 'p_pillar_2',
+          pillar_number: '02',
+          title: 'Gezielter Radioliganden-Wert & Spitalentlastung (GS-03)',
+          core_thesis: 'Präzisions-Radioligandentherapie schont Patienten vor belastender Chemotoxizität und senkt teure stationäre Akutaufenthalte.',
+          target_vector_anchor: 'Ref: GS-03 (Radioliganden Gesundheitsökonomie & Versorgungsforschung)',
+          mandatory_proof_points: [
+            'Präziser Bestrahlungsmechanismus schont Lebensqualität im Vergleich zur Chemotherapie',
+            'Vermeidung von Notfalleinweisungen und kostenintensiven Spitalaufenthalten',
+            'Flexible Erstattungs- und Ratenzahlungsmodelle für Gesundheitssysteme'
+          ]
+        }
+      ],
+      regional_synthesis: [
+        {
+          region_id: 'us',
+          region_name: 'Nordamerika (USA / Erweiterte FDA-Zulassung)',
+          regulatory_context: 'FDA-Label-Erweiterung & Payer-Einführung',
+          raw_volume: 16200,
+          deduped_volume: 5800,
+          velocity_z_score: 3.4,
+          velocity_trend: '+3.4σ Hohe Dynamik',
+          cosine_alignment: 0.82,
+          pull_through_status: 'ALIGNED',
+          status_label: 'Standard vor Chemotherapie etabliert',
+          legacy_media_frame: 'Klinischer Meilenstein: "FDA erweitert Pluvicto-Zulassung vor Chemotherapie auf Basis von PSMAfore."',
+          social_forum_frame: 'Onkologie-Fachkreise: Hohe Zustimmung zur Vermeidung von Chemotherapie-Nebenwirkungen.',
+          llm_synthesis_frame: 'Präzise Berichterstattung: Gibt die Indikation korrekt wieder.',
+          llm_hallucination_rate: 12,
+          strategic_risk_summary: 'Starke Dynamik und breite Akzeptanz im US-Markt.'
+        },
+        {
+          region_id: 'eu',
+          region_name: 'Europa (EU / EMA-Rückzug & NICE-Ablehnung)',
+          regulatory_context: 'EMA CHMP-Vorbehalte & Britische NICE-Kostenbewertung',
+          raw_volume: 11800,
+          deduped_volume: 4200,
+          velocity_z_score: 4.2,
+          velocity_trend: '+4.2σ Akute Kontroverse',
+          cosine_alignment: 0.31,
+          pull_through_status: 'AT_RISK',
+          status_label: 'Erstattungs-Blockade',
+          legacy_media_frame: 'Kostendruck: "NICE lehnt 20.000-Pfund-Therapie Pluvicto ab; europäischer Zugang blockiert."',
+          social_forum_frame: 'Patientenorganisationen: Empörung über fehlende Kostenübernahme.',
+          llm_synthesis_frame: 'Schwere Halluzination: KI behauptet fälschlich, Pluvicto wirke bei Europäern klinisch nicht.',
+          llm_hallucination_rate: 54,
+          strategic_risk_summary: 'Reputationsgefahr: KI verwechselt methodische Kontrollarm-Fragen mit klinischem Versagen.'
+        },
+        {
+          region_id: 'ch',
+          region_name: 'Schweiz (Swissmedic & Nuklearmedizin)',
+          regulatory_context: 'Swissmedic-Zulassung & Spezialisierte Zentren',
+          raw_volume: 3200,
+          deduped_volume: 1400,
+          velocity_z_score: 1.1,
+          velocity_trend: '+1.1σ Moderat',
+          cosine_alignment: 0.68,
+          pull_through_status: 'MIXED',
+          status_label: 'Spitalkapazitäten im Aufbau',
+          legacy_media_frame: 'Spitzenmedizin: "Schweizer Unispitäler rüsten Radioliganden-Suiten auf."',
+          social_forum_frame: 'Fachärzte: Diskussion über logistische Isotopen-Lieferketten.',
+          llm_synthesis_frame: 'Überwiegend sachlich: Berichtet über spezialisierte Zentren.',
+          llm_hallucination_rate: 18,
+          strategic_risk_summary: 'Inländischer Fokus liegt auf Zentren-Kapazitäten und Spezialitätenliste.'
+        },
+        {
+          region_id: 'apac',
+          region_name: 'Asien-Pazifik (PMDA & Regionale Einführung)',
+          regulatory_context: 'Überbrückungsstudien & Lokale Zulassungen',
+          raw_volume: 0,
+          deduped_volume: 0,
+          velocity_z_score: 0,
+          velocity_trend: 'Baseline',
+          cosine_alignment: 0.70,
+          pull_through_status: 'ALIGNED',
+          status_label: 'Transatlantische HTA-Beobachtung',
+          legacy_media_frame: 'Fachpresse beobachtet globale Zeitpläne.',
+          social_forum_frame: 'Keine.',
+          llm_synthesis_frame: 'Allgemein.',
+          llm_hallucination_rate: 10,
+          strategic_risk_summary: 'Geringe Exposition.'
+        }
+      ],
+      surface_nlp_vs_forensic_reality: {
+        commercial_nlp_sentiment: '71% NEUTRAL / FACHMEDIZINISCH (Score 0.79)',
+        commercial_nlp_confidence: 'Hoch',
+        commercial_nlp_blindspot: 'Standard-NLP übersieht, dass die NICE-Ablehnung von Kassen als Beleg für Unwirtschaftlichkeit gewertet wird.',
+        forensic_reality_verdict: 'TRANSATLANTISCHE VERSORGUNGSKLUFT',
+        forensic_reality_subtext: 'Während die USA die Indikation rasch adaptieren, führen europäische HTA-Zweifel und KI-Halluzinationen zu Reputations- und Preisrisiken.',
+        statistical_proof_anchor: 'z = +4.2σ Europa-Spike | Cosinus-Ähnlichkeit 0.31 | 54% KI-Verzerrung in EU'
       }
     },
     health_data_breach: {
