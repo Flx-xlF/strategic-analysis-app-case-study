@@ -199,11 +199,11 @@ export const CommandHeader: React.FC<Props> = ({
                 <p>
                   {isEn ? (
                     <>
-                      <strong>Internal corporate mountain:</strong> 1.42M enterprise files exist across vaults. Simple RAG pulls outdated drafts. Temporal validity gating locks 42 canonical Golden Sources.
+                      <strong>Internal corporate mountain:</strong> Hundreds of thousands of enterprise files exist across vaults. Simple RAG pulls outdated drafts. Temporal validity gating locks only approved, topic-specific canonical Golden Sources.
                     </>
                   ) : (
                     <>
-                      <strong>Interner Dokumentenberg:</strong> 1.42 Mio. Dateien lagern in SharePoint/Vaults. Einfaches RAG zieht veraltete Entwürfe. Gültigkeitsfilter sperren Altbestände und sichern 42 verbindliche Golden Sources.
+                      <strong>Interner Dokumentenberg:</strong> Hunderttausende Dateien lagern in SharePoint/Vaults. Einfaches RAG zieht veraltete Entwürfe. Gültigkeitsfilter sperren Altbestände und sichern geprüfte, themenspezifische Golden Sources.
                     </>
                   )}
                 </p>

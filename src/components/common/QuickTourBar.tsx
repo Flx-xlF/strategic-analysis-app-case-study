@@ -86,7 +86,7 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
         shortLabel: 'GEO Playbook & Stories',
         headline: '03 Multi-Region Playbook: Golden Sources, 4-Rule GEO Framework & Channel Adaptation',
         whatYouSee:
-          'Filters 1.42M internal files down to 42 approved "Golden Sources" (GS-01 to GS-03) and equips central and regional teams with a mandatory 4-Rule Corporate GEO Framework across owned Corporate Stories, press releases, media answers, talking points, and Q&As.',
+          'Filters hundreds of thousands of internal vault files down to a small set of approved, topic-specific "Golden Sources" (GS-01 to GS-03) and equips central and regional teams with a mandatory 4-Rule Corporate GEO Framework across owned Corporate Stories, press releases, media answers, talking points, and Q&As.',
         whyItMatters:
           'While Owned Corporate Stories act as high-authority direct-to-AI primary sources, press releases and media inquiry answers follow the exact same GEO rules—ensuring third-party journalist quotes reinforce the company’s narrative in AI search.',
         tryThisLabel: 'Filter Playbook to Switzerland (CH)',
@@ -155,7 +155,7 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
       shortLabel: 'GEO-Playbook & Stories',
       headline: '03 Multi-Regionen-Playbook: Golden Sources, 4-Regel GEO-Framework & Kanal-Adaptierung',
       whatYouSee:
-        'Filtert 1,42 Mio. interne Dateien auf 42 freigegebene "Golden Sources" (GS-01 bis GS-03) und gibt zentralen sowie regionalen Teams ein verbindliches 4-Regel GEO-Framework für Corporate Stories, Medienmitteilungen, Medienantworten und Q&As.',
+        'Filtert Hunderttausende interne Vault-Dateien auf wenige freigegebene, themenspezifische "Golden Sources" (GS-01 bis GS-03) und gibt zentralen sowie regionalen Teams ein verbindliches 4-Regel GEO-Framework für Corporate Stories, Medienmitteilungen, Medienantworten und Q&As.',
       whyItMatters:
         'Während Owned Corporate Stories als primäre KI-Quellen fungieren, folgen Medienmitteilungen und Statements denselben GEO-Regeln – damit Zitate in Drittmedien das eigene Narrativ in der KI-Suche stärken.',
       tryThisLabel: 'Playbook auf Schweiz (CH) filtern',

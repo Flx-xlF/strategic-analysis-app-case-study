@@ -110,8 +110,8 @@ export const TrendingFactoryView: React.FC<Props> = ({
             </h1>
             <p className="text-sm text-sbb-stone mt-1 max-w-3xl leading-relaxed">
               {isEn
-                ? 'Prevents cross-regional incoherence from diluting corporate communications: locks onto 42 verified Golden Sources (across 1.42M vault files) and enforces shared, channel-adapted GEO standards so central and regional teams gain consistent traction across media and AI search.'
-                : 'Verhindert, dass regionale Inkohärenz die Unternehmenskommunikation schwächt: verankert 42 geprüfte Golden Sources (aus 1,42 Mio. Vault-Dateien) und verbindliche, kanal-adaptierte GEO-Standards, damit zentrale und regionale Teams in Medien und KI-Suche konsistent Traktion aufbauen.'}
+                ? `Prevents cross-regional incoherence from diluting corporate communications: filters ${data.corpus_gate.raw_enterprise_files.toLocaleString()} internal vault files down to ${data.corpus_gate.canonical_golden_sources} verified, topic-specific Golden Sources and enforces shared, channel-adapted GEO standards so central and regional teams gain consistent traction across media and AI search.`
+                : `Verhindert, dass regionale Inkohärenz die Unternehmenskommunikation schwächt: filtert ${data.corpus_gate.raw_enterprise_files.toLocaleString()} interne Vault-Dateien auf ${data.corpus_gate.canonical_golden_sources} geprüfte, themenspezifische Golden Sources und setzt verbindliche, kanal-adaptierte GEO-Standards durch, damit zentrale und regionale Teams in Medien und KI-Suche konsistent Traktion aufbauen.`}
             </p>
           </div>
 
@@ -128,7 +128,11 @@ export const TrendingFactoryView: React.FC<Props> = ({
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-zinc-200 pb-2">
             <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase text-sbb-black">
               <Database className="w-4 h-4 text-sbb-red" />
-              <span>{isEn ? 'INTERNAL CORPUS GOVERNANCE GATE (NAVIGATING 1,400,000+ ENTERPRISE FILES)' : 'INTERNER DOKUMENTEN-FILTER (BEWÄLTIGUNG VON ÜBER 1,4 MIO. UNTERNEHMENSDOKUMENTEN)'}</span>
+              <span>
+                {isEn
+                  ? `INTERNAL CORPUS GOVERNANCE GATE (FILTERING ${data.corpus_gate.raw_enterprise_files.toLocaleString()} ENTERPRISE FILES TO ${data.corpus_gate.canonical_golden_sources} GOLDEN SOURCES)`
+                  : `INTERNER DOKUMENTEN-FILTER (${data.corpus_gate.raw_enterprise_files.toLocaleString()} UNTERNEHMENSDOKUMENTE → ${data.corpus_gate.canonical_golden_sources} GOLDEN SOURCES)`}
+              </span>
             </div>
             <span className="text-[10px] font-mono text-zinc-500">
               {isEn ? 'Veeva Vault + SharePoint + Regulatory Repositories' : 'Veeva Vault + SharePoint + Rechtsarchive'}

@@ -12,10 +12,10 @@ export interface FormatBlueprint {
 }
 
 export interface InternalCorpusGate {
-  raw_enterprise_files: number; // 1,420,000
-  active_governed_records: number; // 18,400
-  canonical_golden_sources: number; // 42
-  legacy_conflicts_flagged: number; // 14
+  raw_enterprise_files: number;
+  active_governed_records: number;
+  canonical_golden_sources: number;
+  legacy_conflicts_flagged: number;
   conflict_details: Array<{
     vault_location: string;
     document_title: string;
@@ -58,9 +58,9 @@ export const TRENDING_FIXTURES: Record<Language, Record<string, TrendingScenario
     oncology_trial_update: {
       scenario_id: 'oncology_trial_update',
       corpus_gate: {
-        raw_enterprise_files: 1420000,
+        raw_enterprise_files: 1280000,
         active_governed_records: 18400,
-        canonical_golden_sources: 42,
+        canonical_golden_sources: 34,
         legacy_conflicts_flagged: 7,
         conflict_details: [
           {
@@ -1226,9 +1226,9 @@ A: By mathematically locking data files before they ever touch cloud storage ser
     oncology_trial_update: {
       scenario_id: 'oncology_trial_update',
       corpus_gate: {
-        raw_enterprise_files: 1420000,
+        raw_enterprise_files: 1280000,
         active_governed_records: 18400,
-        canonical_golden_sources: 42,
+        canonical_golden_sources: 34,
         legacy_conflicts_flagged: 7,
         conflict_details: [
           {
