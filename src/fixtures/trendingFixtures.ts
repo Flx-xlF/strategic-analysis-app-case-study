@@ -77,7 +77,7 @@ export const TRENDING_FIXTURES: Record<Language, Record<string, TrendingScenario
           }
         ]
       },
-      global_core_thesis: "Sustainable innovation requires health systems across wealthy OECD nations to reward clinical value. Our $23B investment localizes U.S. manufacturing across 10 facilities while Basel remains Novartis's corporate and research headquarters; we actively engage European and Swiss authorities on modernized access frameworks without compromising patient care.",
+      global_core_thesis: "Sustainable innovation requires health systems across wealthy OECD nations to reward clinical value. Our $23B investment localizes U.S. manufacturing across 10 facilities while Basel remains the company's corporate and research headquarters; we actively engage European and Swiss authorities on modernized access frameworks without compromising patient care.",
       global_proof_points: [
         'GS-01: Reinvestment in breakthrough therapies requires high-income nations to value true clinical benefit fairly.',
         'GS-02: $23B U.S. capex localizes supply against geopolitical tariffs; global corporate headquarters remains permanently in Basel.',
@@ -85,7 +85,7 @@ export const TRENDING_FIXTURES: Record<Language, Record<string, TrendingScenario
         'Supply continuity: Compassionate use, clinical trials, and regulatory filings proceed on schedule globally.'
       ],
       global_guardrails: [
-        'NEVER use phrasing suggesting Novartis is "punishing", "boycotting", or "withholding therapies" from European or Swiss patients.',
+        'NEVER use phrasing suggesting the company is "punishing", "boycotting", or "withholding therapies" from European or Swiss patients.',
         'DO NOT allow media to frame the $23B U.S. manufacturing investment as an exit from or downsizing of Basel.',
         'DO NOT debate individual national rebate percentages in press statements before health authority determinations.'
       ],
@@ -408,7 +408,7 @@ Technicians have replaced the physical relay component. Operational test runs ar
 • Tunnel operations temporarily paused due to a localized electrical relay defect (R-400).
 • All trains were safely rerouted to stations within minutes; passenger safety was guaranteed at all times.
 • Maintenance crews have completed the hardware replacement; full service resumes at 20:00 CET.
-• Real-time travel schedules and panoramic mountain detours: sbb.ch/166`
+• Real-time travel schedules and panoramic mountain detours: rail-network.ch/transit-update`
             },
             talking_points: {
               id: 'talking_points',
@@ -542,7 +542,7 @@ A: Point strictly to verified hardware telemetry. State clearly: 'The signaling 
 • Wegen eines Relaisdefekts im Stellwerk Faido ist der Tunnel bis 20:00 Uhr gesperrt.
 • Reisende nutzen die Gotthard-Panoramastrecke (Reisezeitverlängerung ca. 45-60 Min.).
 • Alle Züge wurden sicher zurückgeführt. Sicherheit war zu jedem Zeitpunkt gewährleistet.
-• Fahrplan in der SBB Mobile App aktualisiert.`
+• Fahrplan in der Rail Mobile App aktualisiert.`
             },
             talking_points: {
               id: 'talking_points',
@@ -888,9 +888,9 @@ A: No. Assembly facilities continue on schedule utilizing qualified alternative 
           }
         ]
       },
-      global_core_thesis: 'Pluvicto is clinically proven to double radiographic progression-free survival in pre-chemotherapy prostate cancer. We are working constructively with European HTA bodies and UK NICE to align on value-based reimbursement frameworks that reflect acute hospitalization offsets.',
+      global_core_thesis: 'Lu-177 RLT is clinically proven to double radiographic progression-free survival in pre-chemotherapy prostate cancer. We are working constructively with European HTA bodies and UK NICE to align on value-based reimbursement frameworks that reflect acute hospitalization offsets.',
       global_proof_points: [
-        'PSMAfore demonstrated a statistically significant doubling of rPFS (HR 0.41, p<0.001).',
+        'RLT-01 demonstrated a statistically significant doubling of rPFS (HR 0.41, p<0.001).',
         'FDA approval confirms strong clinical benefit-risk balance prior to toxic taxane chemotherapy.',
         'Dedicated radioligand manufacturing hubs in New Jersey and Indiana ensure unbroken global supply.'
       ],
@@ -902,10 +902,10 @@ A: No. Assembly facilities continue on schedule utilizing qualified alternative 
         all: {
           region_id: 'all',
           region_label: 'Global (All Regions)',
-          regulatory_anchor: 'PSMAfore Protocol & Radioligand Clinical Overview',
+          regulatory_anchor: 'RLT-01 Protocol & Radioligand Clinical Overview',
           regional_lead_frame: 'Pivotal precision oncology milestone moving radioligands to pre-chemotherapy patients.',
           blueprints: {
-            hintergrund: { id: 'hintergrund', label: 'Global Science Briefing', target_audience: 'Medical Editors', psychological_objective: 'Anchor rPFS doubling.', blueprint_content: 'PSMAfore data confirms doubling of radiographic progression-free survival.' },
+            hintergrund: { id: 'hintergrund', label: 'Global Science Briefing', target_audience: 'Medical Editors', psychological_objective: 'Anchor rPFS doubling.', blueprint_content: 'RLT-01 data confirms doubling of radiographic progression-free survival.' },
             social: { id: 'social', label: 'Patient Channel', target_audience: 'Patients', psychological_objective: 'Reassurance.', blueprint_content: 'Advancing precision radioligand therapy for men with advanced prostate cancer.' },
             talking_points: { id: 'talking_points', label: 'Spokesperson Talking Points', target_audience: 'Media Desk', psychological_objective: 'Clinical clarity.', blueprint_content: 'Lead with rPFS doubling and quality-of-life benefits.' },
             qa_brief: { id: 'qa_brief', label: 'Field Q&A', target_audience: 'Comms', psychological_objective: 'Direct facts.', blueprint_content: 'NICE evaluated cost-effectiveness thresholds, not biological efficacy.' }
@@ -1253,7 +1253,7 @@ A: By mathematically locking data files before they ever touch cloud storage ser
         'Versorgungssicherheit: Härtefallprogramme, Studien und Zulassungsverfahren laufen termingerecht weiter.'
       ],
       global_guardrails: [
-        'NIEMALS Formulierungen verwenden, die suggerieren, Novartis wolle Patienten in Europa oder der Schweiz "bestrafen" oder "Medikamente vorenthalten".',
+        'NIEMALS Formulierungen verwenden, die suggerieren, the company wolle Patienten in Europa oder der Schweiz "bestrafen" oder "Medikamente vorenthalten".',
         'KEINE Berichterstattung unwidersprochen lassen, die den US-Produktionsausbau als Abkehr von Basel deutet.',
         'KEINE Vorwegnahme prozentualer Preisabschläge in Medienstatements vor behördlichen Abschlüssen.'
       ],
@@ -1384,7 +1384,7 @@ Das Bauteil wurde ersetzt; nach obligatorischen Testfahrten wird der Vollbetrieb
 • Tunnelbetrieb wegen eines Relaisdefekts (R-400) im Stellwerk Faido vorübergehend unterbrochen.
 • Alle Passagiere wurden umgehend und sicher an Bahnhöfe geleitet; Sicherheit war zu jedem Zeitpunkt garantiert.
 • Instandsetzungsarbeiten sind abgeschlossen; Vollbetrieb ab 20:00 Uhr.
-• Züge verkehren über die Panoramastrecke (+45-60 Min.). Aktueller Fahrplan: sbb.ch/166`
+• Züge verkehren über die Panoramastrecke (+45-60 Min.). Aktueller Fahrplan: bahn-netz.ch/betriebslage`
             },
             talking_points: {
               id: 'talking_points',
@@ -1502,7 +1502,7 @@ A: Unbestätigte Social-Media-Behauptungen interpretierten die vorsorgliche Sich
               label: 'Schweizer Mediendossier',
               target_audience: 'Schweizer Tagesmedien & Regionalpresse',
               psychological_objective: 'Präzise Information über Bauteilaustausch und Messfahrten.',
-              blueprint_content: `### MEDIENMITTEILUNG SBB INFRASTRUKTUR
+              blueprint_content: `### MEDIENMITTEILUNG BAHN-INFRASTRUKTUR
 - **Ereignis:** Um 06:42 Uhr führte ein Kurzschluss am Relais R-400 im Stellwerk Faido zu einer automatischen Rotausleuchtung der Signale.
 - **Evakuation & Betreuung:** Alle Reisezüge wurden innert 12 Minuten kontrolliert in die Bahnhöfe Erstfeld und Biasca zurückgezogen.
 - **Instandstellung:** Techniker haben das Relais ausgetauscht. Nach Messfahrten wird die Strecke um 20:00 Uhr freigegeben.`
@@ -1515,13 +1515,13 @@ A: Unbestätigte Social-Media-Behauptungen interpretierten die vorsorgliche Sich
               blueprint_content: `Verkehrsmeldung Gotthard:
 • Basistunnel nach Relaisdefekt bis 20:00 Uhr gesperrt.
 • Züge verkehren via Gotthard-Panoramastrecke (Reisezeitverlängerung ca. 45-60 Min.).
-• Billette behalten ihre Gültigkeit; SBB Kundenbegleiter stehen an den Bahnhöfen im Einsatz.
+• Billette behalten ihre Gültigkeit; Kundenbegleiter stehen an den Bahnhöfen im Einsatz.
 • Nächstes Update im Online-Fahrplan.`
             },
             talking_points: {
               id: 'talking_points',
               label: 'Sprecherbriefing Schweiz',
-              target_audience: 'Mediensprecher SBB',
+              target_audience: 'Mediensprecher Bahnbetrieb',
               psychological_objective: 'Kompetenz und Verlässlichkeit ausstrahlen.',
               blueprint_content: `- "Die Sicherheit unserer Kundinnen und Kunden stand zu jeder Sekunde an erster Stelle; das Sicherheitskonzept hat tadellos funktioniert."
 - "Es handelt sich um einen rein mechanischen Defekt, der behoben wurde."
@@ -1858,9 +1858,9 @@ A: Nein. Die Montage läuft planmässig mit freigegebenen Alternativkontingenten
           }
         ]
       },
-      global_core_thesis: 'Pluvicto verdoppelt nachweislich das progressionsfreie Überleben bei Prostatakrebs vor Chemotherapie. Wir arbeiten eng mit europäischen Behörden und dem britischen NICE an wertbasierten Erstattungsmodellen, die Spitalentlastungen berücksichtigen.',
+      global_core_thesis: 'Lu-177 RLT verdoppelt nachweislich das progressionsfreie Überleben bei Prostatakrebs vor Chemotherapie. Wir arbeiten eng mit europäischen Behörden und dem britischen NICE an wertbasierten Erstattungsmodellen, die Spitalentlastungen berücksichtigen.',
       global_proof_points: [
-        'PSMAfore belegt statistisch signifikante Verdopplung des rPFS (HR 0.41, p<0.001).',
+        'RLT-01 belegt statistisch signifikante Verdopplung des rPFS (HR 0.41, p<0.001).',
         'US-FDA-Zulassung bestätigt hervorragendes Nutzen-Risiko-Profil vor belastender Chemotherapie.',
         'Spezialisierte Radioliganden-Produktionszentren sichern lückenlose weltweite Versorgung.'
       ],
@@ -1872,10 +1872,10 @@ A: Nein. Die Montage läuft planmässig mit freigegebenen Alternativkontingenten
         all: {
           region_id: 'all',
           region_label: 'Gesamtverkehr (Alle Regionen)',
-          regulatory_anchor: 'PSMAfore-Protokoll & Klinische Radioliganden-Übersicht',
+          regulatory_anchor: 'RLT-01-Protokoll & Klinische Radioliganden-Übersicht',
           regional_lead_frame: 'Meilenstein der Präzisionsonkologie für Patienten vor Chemotherapie.',
           blueprints: {
-            hintergrund: { id: 'hintergrund', label: 'Wissenschaftliches Dossier', target_audience: 'Fachmedien', psychological_objective: 'rPFS-Verdopplung verankern.', blueprint_content: 'PSMAfore bestätigt Verdopplung des progressionsfreien Überlebens.' },
+            hintergrund: { id: 'hintergrund', label: 'Wissenschaftliches Dossier', target_audience: 'Fachmedien', psychological_objective: 'rPFS-Verdopplung verankern.', blueprint_content: 'RLT-01 bestätigt Verdopplung des progressionsfreien Überlebens.' },
             social: { id: 'social', label: 'Patientenkanäle', target_audience: 'Patienten', psychological_objective: 'Zuversicht.', blueprint_content: 'Fortschritt bei zielgerichteter Radioligandentherapie gegen Prostatakrebs.' },
             talking_points: { id: 'talking_points', label: 'Sprecherpunkte', target_audience: 'Medienstelle', psychological_objective: 'Klinische Klarheit.', blueprint_content: 'rPFS-Vorteil und Lebensqualität in den Vordergrund stellen.' },
             qa_brief: { id: 'qa_brief', label: 'Q&A Leitfaden', target_audience: 'Kommunikation', psychological_objective: 'Fakten.', blueprint_content: 'NICE bewertete Kostenschwellen, nicht die biologische Wirksamkeit.' }

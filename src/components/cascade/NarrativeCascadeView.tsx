@@ -50,8 +50,8 @@ export const NarrativeCascadeView: React.FC<Props> = ({
             </h1>
             <p className="text-sm text-sbb-stone mt-1 max-w-3xl leading-relaxed">
               {isEn
-                ? 'Tests how a draft statement is likely to be picked up by the media and how key stakeholders will react within 48 hours—comparing an uncalibrated draft (Draft A) against a corrected version (Draft B).'
-                : 'Prüft, wie ein Entwurf in den Medien aufgegriffen wird und wie wichtige Stakeholder innerhalb von 48 Stunden reagieren – im direkten Vergleich zwischen Erstentwurf (Entwurf A) und korrigierter Fassung (Entwurf B).'}
+                ? 'Audits drafts against the Corporate GEO Framework and simulates 48-hour reactions across media, payers, regulators, and AI search—showing why repeating negative frames in Iteration 1 poisons AI search indices and how Iteration 2 delivers the company’s own narrative.'
+                : 'Prüft Entwürfe gegen das Corporate GEO-Framework und simuliert 48-Stunden-Reaktionen von Medien, Behörden und KI-Suche – zeigt, warum Negativ-Frames in Iteration 1 KI-Indizes vergiften und wie Iteration 2 das eigene Narrativ durchsetzt.'}
             </p>
           </div>
 
@@ -159,34 +159,34 @@ export const NarrativeCascadeView: React.FC<Props> = ({
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs bg-white border border-sbb-aluminum p-4">
           <div className="p-3 bg-sbb-cloud/50 border border-zinc-200">
             <div className="font-mono text-[10px] font-bold uppercase text-sbb-black mb-1">
-              {isEn ? '1. INITIAL DRAFT (ITERATION 1)' : '1. ERSTER ENTWURF (ITERATION 1)'}
+              {isEn ? '1. INITIAL DRAFT (GEO & FLANK RISK)' : '1. ERSTER ENTWURF (GEO- & FLANKEN-RISIKO)'}
             </div>
             <p className="text-zinc-600 leading-snug">
               {isEn
-                ? 'Addresses the immediate topic, but either sounds defensive or leaves flanks open that critics and media in other jurisdictions can weaponize.'
-                : 'Reagiert direkt auf das Thema, wirkt unter Zeitdruck jedoch oft defensiv oder lässt Flanken offen, die Kritiker in anderen Märkten ausnutzen.'}
+                ? 'Addresses the topic directly, but repeats negative frames or leaves flanks open—causing both journalists and AI search engines to index the critic’s accusation alongside our brand.'
+                : 'Reagiert direkt auf das Thema, wiederholt jedoch Negativ-Frames oder lässt Flanken offen – wodurch Medien und KI-Suchmaschinen den Vorwurf direkt mit dem Unternehmen verknüpfen.'}
             </p>
           </div>
 
           <div className="p-3 bg-red-50/40 border border-red-200">
             <div className="font-mono text-[10px] font-bold uppercase text-sbb-red mb-1">
-              {isEn ? '2. LLM MULTI-ANGLE CHALLENGE & BRIDGING' : '2. LLM MULTI-WINKEL-CHALLENGE & BRIDGING'}
+              {isEn ? '2. GEO FRAMEWORK & MULTI-ANGLE CHALLENGE' : '2. GEO-FRAMEWORK & MULTI-WINKEL-CHALLENGE'}
             </div>
             <p className="text-zinc-700 leading-snug">
               {isEn
-                ? 'Simulates 5 conflicting stakeholder angles at once (impossible for one human in 15 mins), strips negative framings, and proposes bridges back to the core narrative.'
-                : 'Simuliert simultan 5 gegensätzliche Stakeholder-Winkel, streicht Negativ-Framings und schlägt Brücken (Bridging) zurück zum Haupt-Narrativ vor.'}
+                ? 'Tests 5 stakeholder angles at once, flags any accusation echo that would pollute AI search retrieval (GEO-03), and proposes affirmative bridges to our Golden Sources (GEO-04).'
+                : 'Prüft simultan 5 Stakeholder-Winkel, markiert Vorwurfs-Echos, die KI-Suchindizes belasten würden (GEO-03), und schlägt Brücken zu den Golden Sources vor (GEO-04).'}
             </p>
           </div>
 
           <div className="p-3 bg-emerald-50/40 border border-emerald-300">
             <div className="font-mono text-[10px] font-bold uppercase text-emerald-900 mb-1">
-              {isEn ? '3. HUMAN JUDGMENT & ITERATION (ITERATION 2)' : '3. MENSCHLICHE URTEILSKRAFT & ITERATION (ITERATION 2)'}
+              {isEn ? '3. HUMAN ITERATION & DECISION CONTEXT' : '3. MENSCHLICHE ITERATION & ENTSCHEIDUNG'}
             </div>
             <p className="text-zinc-700 leading-snug">
               {isEn
-                ? 'Comms leadership selects the strongest bridge, refines tone and trade-offs so the answer shapes public reception in favor of the main narrative, and routes to Legal.'
-                : 'Die Kommunikationsleitung wählt die tragfähigste Brücke, schärft den Ton zur aktiven Steuerung der Rezeption und gibt Iteration 2 in die Rechtsprüfung.'}
+                ? 'With full stakeholder context available at the push of a button, leadership selects the strongest bridge, refines tone so our own narrative leads, and routes Iteration 2 to Legal.'
+                : 'Mit vollem Kontext auf Knopfdruck wählt die Führung die tragfähigste Brücke, schärft den Ton zugunsten des eigenen Narrativs und gibt Iteration 2 in die Rechtsprüfung.'}
             </p>
           </div>
         </div>

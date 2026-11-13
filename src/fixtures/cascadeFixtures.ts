@@ -45,8 +45,8 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
         version_id: 'draftA',
         version_label: 'Draft A: Blunt Soundbite / Uncalibrated Public Affairs',
         version_badge: 'CRITICAL EXPOSURE',
-        communication: "Because U.S. Most-Favored-Nation rules now tie American revenues to foreign price benchmarks, Novartis will no longer launch innovative medicines in European or Swiss markets that refuse to match U.S. pricing, while redirecting $23 billion of capital expenditure into our American manufacturing footprint.",
-        headline_from_hell: "NOVARTIS THREATENS TO WITHHOLD NEW CANCER DRUGS FROM EUROPE AND SWITZERLAND WHILE SHIFTING $23B TO US",
+        communication: "Because U.S. Most-Favored-Nation rules now tie American revenues to foreign price benchmarks, the company will no longer launch innovative medicines in European or Swiss markets that refuse to match U.S. pricing, while redirecting $23 billion of capital expenditure into our American manufacturing footprint.",
+        headline_from_hell: "PHARMA GROUP THREATENS TO WITHHOLD NEW CANCER DRUGS FROM EUROPE AND SWITZERLAND WHILE SHIFTING $23B TO US",
         risk_score: 9.1,
         risk_level: 'Severe Political Backlash',
         vulnerabilities: [
@@ -93,7 +93,7 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
             timeframe: "Within 24–48 hours"
           },
           {
-            effect: "Frontier LLMs summarize Novartis as having 'boycotted European healthcare'.",
+            effect: "Frontier LLMs summarize the company as having 'boycotted European healthcare'.",
             probability: "high",
             timeframe: "Immediate indexing"
           }
@@ -114,7 +114,7 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
         version_label: 'Draft B: Grounded in GS-01 & GS-02 / Stress-Tested Wording',
         version_badge: 'CALIBRATED & SECURE',
         communication: "To ensure patients worldwide continue to benefit from transformative medicines, healthcare systems across high-income OECD nations must fairly recognize clinical value and avoid unintended international reference distortions under U.S. MFN frameworks. Our $23 billion U.S. investment expands domestic manufacturing across 10 sites to secure tariff-resilient supply for American patients, while Basel remains our undisputed corporate headquarters and scientific core as we partner constructively with Swiss (BAG) and European health authorities.",
-        headline_from_hell: "NOVARTIS EXPANDS U.S. MANUFACTURING BY $23B AND ADVOCATES MODERNIZED EUROPEAN VALUE-BASED PRICING",
+        headline_from_hell: "PHARMA GROUP EXPANDS U.S. MANUFACTURING BY $23B AND ADVOCATES MODERNIZED EUROPEAN VALUE-BASED PRICING",
         risk_score: 2.6,
         risk_level: 'Controlled & Authoritative',
         vulnerabilities: [
@@ -383,8 +383,8 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
         version_id: 'draftA',
         version_label: 'Draft A: Uncalibrated Medical Affairs Note',
         version_badge: 'CRITICAL EXPOSURE',
-        communication: "Following EMA and UK NICE refusals to fund Pluvicto at requested price points in pre-chemotherapy prostate cancer, Novartis has discontinued European pre-chemo filings, while focusing commercial expansion on the US market where the FDA granted label approval.",
-        headline_from_hell: "NOVARTIS ABANDONS EUROPEAN PATIENTS AFTER UK AND EU REJECT PROSTATE CANCER THERAPY PLUVICTO",
+        communication: "Following EMA and UK NICE refusals to fund Lu-177 RLT at requested price points in pre-chemotherapy prostate cancer, the company has discontinued European pre-chemo filings, while focusing commercial expansion on the US market where the FDA granted label approval.",
+        headline_from_hell: "PHARMA GROUP ABANDONS EUROPEAN PATIENTS AFTER UK AND EU REJECT PROSTATE CANCER THERAPY LU-177 RLT",
         risk_score: 9.3,
         risk_level: 'Acute Reputational Fallout',
         vulnerabilities: [
@@ -415,13 +415,13 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
         ],
         second_order_effects: [
           {
-            effect: "AI search engines claim Pluvicto was withdrawn due to clinical failure.",
+            effect: "AI search engines claim Lu-177 RLT was withdrawn due to clinical failure.",
             probability: "high",
             timeframe: "Immediate"
           }
         ],
         management_summary: {
-          diagnosis: "Draft creates the impression that Novartis walks away from European cancer patients when pricing is challenged.",
+          diagnosis: "Draft creates the impression that the company walks away from European cancer patients when pricing is challenged.",
           impact: "Irreparable harm to commercial relations across EU member states.",
           verdict: "Recommendation: Anchor proven rPFS doubling, explain trial crossover nuances, and highlight dedicated value-based solutions."
         },
@@ -435,8 +435,8 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
         version_id: 'draftB',
         version_label: 'Draft B: Grounded Clinical & Economic Wording',
         version_badge: 'CALIBRATED & SECURE',
-        communication: "The Phase III PSMAfore trial demonstrated a statistically significant doubling of radiographic progression-free survival (HR 0.41, p<0.001) for Pluvicto prior to chemotherapy, validating its clinical benefit. While regulatory and HTA frameworks vary by region—with the U.S. FDA granting approval—Novartis remains actively engaged with European and UK authorities to establish tailored, value-based access models that recognize total hospital cost offsets.",
-        headline_from_hell: "PHASE III DATA CONFIRMS SIGNIFICANT SURVIVAL BENEFIT AS NOVARTIS WORKS WITH HEALTH AUTHORITIES ON ACCESS",
+        communication: "The Phase III RLT-01 trial demonstrated a statistically significant doubling of radiographic progression-free survival (HR 0.41, p<0.001) for Lu-177 RLT prior to chemotherapy, validating its clinical benefit. While regulatory and HTA frameworks vary by region—with the U.S. FDA granting approval—the company remains actively engaged with European and UK authorities to establish tailored, value-based access models that recognize total hospital cost offsets.",
+        headline_from_hell: "PHASE III DATA CONFIRMS SIGNIFICANT SURVIVAL BENEFIT AS COMPANY WORKS WITH HEALTH AUTHORITIES ON ACCESS",
         risk_score: 2.7,
         risk_level: 'Controlled & Defensible',
         vulnerabilities: [
@@ -449,7 +449,7 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
           {
             stakeholder: "European Prostate Cancer Advocacy Groups",
             likely_reaction: "Constructive Pressure on Payers",
-            reasoning: "Focus shifts from blaming Novartis to urging public health systems to fund proven precision therapies.",
+            reasoning: "Focus shifts from blaming the company to urging public health systems to fund proven precision therapies.",
             dossier_citation: "European Patient Forum Briefing",
             sentiment: "positive"
           },
@@ -571,8 +571,8 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
         version_id: 'draftA',
         version_label: 'Entwurf A: Unkalibriertes Public-Affairs-Statement',
         version_badge: 'KRITISCHE ANGRIFFSFLÄCHE',
-        communication: "Weil US-Regeln künftig amerikanische Preise an ausländische Referenzwerte koppeln, wird Novartis innovative Therapien nicht mehr in europäischen oder Schweizer Märkten einführen, die unsere Preise nicht mitgehen, während wir 23 Milliarden Dollar in die US-Produktion umschichten.",
-        headline_from_hell: "NOVARTIS DROHT MIT LIEFERSTOPP FÜR EUROPA UND SCHWEIZ BEI GLEICHZEITIGEM 23-MRD-US-AUSBAU",
+        communication: "Weil US-Regeln künftig amerikanische Preise an ausländische Referenzwerte koppeln, wird the company innovative Therapien nicht mehr in europäischen oder Schweizer Märkten einführen, die unsere Preise nicht mitgehen, während wir 23 Milliarden Dollar in die US-Produktion umschichten.",
+        headline_from_hell: "PHARMAKONZERN DROHT MIT LIEFERSTOPP FÜR EUROPA UND SCHWEIZ BEI GLEICHZEITIGEM 23-MRD-US-AUSBAU",
         risk_score: 9.1,
         risk_level: 'Schwere politische Gegenreaktion',
         vulnerabilities: [
@@ -619,7 +619,7 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
             timeframe: "Innerhalb 24–48h"
           },
           {
-            effect: "KI-Modelle stufen Novartis als Unternehmen ein, das 'Patienten erpresst'.",
+            effect: "KI-Modelle stufen the company als Unternehmen ein, das 'Patienten erpresst'.",
             probability: "high",
             timeframe: "Sofortige Indizierung"
           }
@@ -640,7 +640,7 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
         version_label: 'Entwurf B: Auf GS-01 & GS-02 gestütztes / gestresstestetes Wording',
         version_badge: 'KALIBRIERT & SOUVERÄN',
         communication: "Damit Patientinnen und Patienten weltweit von bahnbrechenden Medikamenten profitieren, müssen OECD-Gesundheitssysteme den klinischen Nutzen fair anerkennen und unbeabsichtigte internationale Referenzverzerrungen unter US-Regeln vermeiden. Unsere 23-Milliarden-Dollar-Investition baut die US-Produktion an 10 Standorten für lokale Versorgungssicherheit aus, während Basel unverändert unser weltweiter Hauptsitz und wissenschaftliches Herz bleibt; mit dem BAG und europäischen Behörden suchen wir den aktiven Dialog für zeitgemässe Erstattungsmodelle.",
-        headline_from_hell: "NOVARTIS INVESTIERT 23 MILLIARDEN IN US-PRODUKTION UND FORDERNT MODERNISIERTE NUTZENBEWERTUNG IN EUROPA",
+        headline_from_hell: "PHARMAKONZERN INVESTIERT 23 MILLIARDEN IN US-PRODUKTION UND FORDERNT MODERNISIERTE NUTZENBEWERTUNG IN EUROPA",
         risk_score: 2.6,
         risk_level: 'Kontrolliert & Glaubwürdig',
         vulnerabilities: [
@@ -909,8 +909,8 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
         version_id: 'draftA',
         version_label: 'Entwurf A: Unkalibriertes medizinisches Statement',
         version_badge: 'KRITISCHE ANGRIFFSFLÄCHE',
-        communication: "Nachdem EMA und das britische NICE eine Erstattung von Pluvicto vor Chemotherapie zu den geforderten Preisen abgelehnt haben, zieht Novartis die europäischen Anträge zurück und konzentriert sich auf den US-Markt, wo die FDA die Zulassung erteilt hat.",
-        headline_from_hell: "NOVARTIS ZIEHT KREBSMEDIKAMENT PLUVICTO AUS EUROPA ZURÜCK NACH ABLEHNUNG DURCH BEHÖRDEN",
+        communication: "Nachdem EMA und das britische NICE eine Erstattung von Lu-177 RLT vor Chemotherapie zu den geforderten Preisen abgelehnt haben, zieht the company die europäischen Anträge zurück und konzentriert sich auf den US-Markt, wo die FDA die Zulassung erteilt hat.",
+        headline_from_hell: "PHARMAKONZERN ZIEHT KREBSMEDIKAMENT LU-177 RLT AUS EUROPA ZURÜCK NACH ABLEHNUNG DURCH BEHÖRDEN",
         risk_score: 9.3,
         risk_level: 'Akuter Reputationsschaden',
         vulnerabilities: [
@@ -941,13 +941,13 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
         ],
         second_order_effects: [
           {
-            effect: "Suchmaschinen und KI-Assistenten behaupten fälschlich, Pluvicto sei wirkungslos.",
+            effect: "Suchmaschinen und KI-Assistenten behaupten fälschlich, Lu-177 RLT sei wirkungslos.",
             probability: "high",
             timeframe: "Sofortige Indizierung"
           }
         ],
         management_summary: {
-          diagnosis: "Erzeugt den falschen Eindruck, Novartis lasse Krebspatienten in Europa im Stich, wenn Preisforderungen nicht erfüllt werden.",
+          diagnosis: "Erzeugt den falschen Eindruck, the company lasse Krebspatienten in Europa im Stich, wenn Preisforderungen nicht erfüllt werden.",
           impact: "Schwerer Schaden für das Vertrauen in europäische Zulassungsprozesse.",
           verdict: "Empfehlung: Belegte Wirksamkeit (rPFS-Verdopplung) betonen und partnerschaftliche Erstattungsmodelle anbieten."
         },
@@ -961,8 +961,8 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
         version_id: 'draftB',
         version_label: 'Entwurf B: Evidenzbasierte & gestresstestete Fassung',
         version_badge: 'KALIBRIERT & BELASTBAR',
-        communication: "Die Phase-III-Studie PSMAfore belegt eine statistisch signifikante Verdopplung des progressionsfreien Überlebens (HR 0.41, p<0.001) für Pluvicto vor Chemotherapie und bestätigt den hohen klinischen Nutzen. Während Zulassungs- und Erstattungssysteme regional variieren – mit einer erfolgten Zulassung durch die US-FDA –, bleibt Novartis im aktiven Dialog mit europäischen und britischen Behörden für flexible Erstattungsmodelle, die Spitalentlastungen berücksichtigen.",
-        headline_from_hell: "STUDIE BESTÄTIGT ÜBERLEBENSVORTEIL BEI PROSTATAKREBS: NOVARTIS ARBEITET AN ZUGANGSLÖSUNGEN",
+        communication: "Die Phase-III-Studie RLT-01 belegt eine statistisch signifikante Verdopplung des progressionsfreien Überlebens (HR 0.41, p<0.001) für Lu-177 RLT vor Chemotherapie und bestätigt den hohen klinischen Nutzen. Während Zulassungs- und Erstattungssysteme regional variieren – mit einer erfolgten Zulassung durch die US-FDA –, bleibt the company im aktiven Dialog mit europäischen und britischen Behörden für flexible Erstattungsmodelle, die Spitalentlastungen berücksichtigen.",
+        headline_from_hell: "STUDIE BESTÄTIGT ÜBERLEBENSVORTEIL BEI PROSTATAKREBS: UNTERNEHMEN ARBEITET AN ZUGANGSLÖSUNGEN",
         risk_score: 2.7,
         risk_level: 'Kontrolliert & Glaubwürdig',
         vulnerabilities: [
@@ -995,7 +995,7 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
           }
         ],
         management_summary: {
-          diagnosis: "Sichert die wissenschaftliche Exzellenz der Radioliganden-Plattform und positioniert Novartis als verlässlichen Gesundheitspartner.",
+          diagnosis: "Sichert die wissenschaftliche Exzellenz der Radioliganden-Plattform und positioniert the company als verlässlichen Gesundheitspartner.",
           impact: "Schützt die globale Preisstabilität und bewahrt das Vertrauen der behandelnden Onkologen.",
           verdict: "Empfehlung: Freigabe für Onkologie-Kommunikation und HTA-Dialoge."
         },

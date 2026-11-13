@@ -34,7 +34,7 @@ export const StressTestAndInquiryView: React.FC<Props> = ({
       <div className="bg-white border border-sbb-aluminum p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div className="flex items-center gap-2 text-xs font-mono font-bold text-sbb-stone uppercase tracking-wider">
           <ShieldCheck className="w-4 h-4 text-sbb-red" />
-          <span>{isEn ? 'DIRECTION 2: TOP-DOWN // MODULE 04: PRE-RELEASE GOVERNANCE & DEFENSE' : 'RICHTUNG 2: TOP-DOWN // MODUL 04: PRE-RELEASE PRÜFUNG & DEFENSIVE'}</span>
+          <span>{isEn ? 'DIRECTION 2: TOP-DOWN // MODULE 04: GEO FRAMEWORK STRESS-TEST & INQUIRY DEFENSE' : 'RICHTUNG 2: TOP-DOWN // MODUL 04: GEO-FRAMEWORK-STRESSTEST & ANFRAGE-PRÜFUNG'}</span>
         </div>
 
         <div className="flex items-center gap-2 bg-sbb-cloud p-1 border border-sbb-aluminum">
@@ -47,7 +47,7 @@ export const StressTestAndInquiryView: React.FC<Props> = ({
             }`}
           >
             <Layers className="w-3.5 h-3.5 text-sbb-red" />
-            <span>{isEn ? 'A. Draft Stress-Test (Before vs After)' : 'A. Botschafts-Stresstest (Vorher vs Nachher)'}</span>
+            <span>{isEn ? 'A. Draft & GEO Stress-Test (Before vs After)' : 'A. Entwurf- & GEO-Stresstest (Vorher vs Nachher)'}</span>
           </button>
 
           <button
@@ -59,7 +59,7 @@ export const StressTestAndInquiryView: React.FC<Props> = ({
             }`}
           >
             <ShieldAlert className="w-3.5 h-3.5 text-sbb-red" />
-            <span>{isEn ? 'B. Journalist Inquiry & Legal Audit' : 'B. Medienanfrage- & Rechts-Audit'}</span>
+            <span>{isEn ? 'B. Journalist Inquiry & GEO Narrative Pivot' : 'B. Medienanfrage & GEO-Narrativ-Brücke'}</span>
           </button>
         </div>
       </div>

@@ -65,8 +65,8 @@ export const TrendingFactoryView: React.FC<Props> = ({
   }> = [
     { 
       id: 'hintergrund', 
-      label: isEn ? 'Background Dossier' : 'Hintergrund-Dossier', 
-      subtitle: isEn ? 'Science & Business Press' : 'Wirtschafts- & Fachpresse',
+      label: isEn ? 'Corporate Story (Owned GEO)' : 'Corporate Story (Owned GEO)', 
+      subtitle: isEn ? 'Corporate Newsroom & AI Search' : 'Newsroom & KI-Such-Quelle',
       icon: FileText 
     },
     { 
@@ -197,13 +197,13 @@ export const TrendingFactoryView: React.FC<Props> = ({
               {/* Management Value */}
               <div className="p-3 bg-white border border-zinc-200 space-y-1">
                 <div className="font-mono text-[10px] font-bold text-sbb-black uppercase flex items-center justify-between">
-                  <span>{isEn ? '1. For Management (Steering)' : '1. Für das Management (Steuerung)'}</span>
-                  <span className="text-emerald-700">5-Min Radar</span>
+                  <span>{isEn ? '1. For Leadership (Decision Support)' : '1. Für Führungskräfte (Entscheidungskontext)'}</span>
+                  <span className="text-emerald-700">{isEn ? 'On-Demand Context' : 'Kontext auf Knopfdruck'}</span>
                 </div>
                 <p className="text-zinc-600 leading-snug">
                   {isEn
-                    ? 'Replaces static clipping books with a weekly 5-minute pull-through & risk radar. Shows where regional narratives drift and where executive intervention is needed.'
-                    : 'Ersetzt statische Pressespiegel durch ein 5-Minuten-Entscheidungsradar. Zeigt sofort, wo regionale Narrative abdriften und wo Führungsentscheide nötig sind.'}
+                    ? 'Assists leadership in taking fast, informed decisions by providing cross-regional reception, regulatory trade-offs, and Golden Source alignment at the push of a button.'
+                    : 'Unterstützt Führungskräfte bei Entscheidungen, indem regionaler Rezeptionskontext, regulatorische Zielkonflikte und Golden-Source-Abgleiche auf Knopfdruck bereitstehen.'}
                 </p>
               </div>
 
@@ -237,14 +237,14 @@ export const TrendingFactoryView: React.FC<Props> = ({
         </div>
       </div>
 
-      {/* ═══ STEP 01: GLOBAL CORE THESIS & GUARDRAILS (HQ) ═══ */}
+      {/* ═══ STEP 01: GLOBAL CORE THESIS, CORPORATE GEO FRAMEWORK & GUARDRAILS (HQ) ═══ */}
       <div className="space-y-3">
         <div className="flex items-center gap-3">
           <span className="w-7 h-7 bg-sbb-black text-white font-mono text-xs font-bold flex items-center justify-center">
             01
           </span>
           <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-stone">
-            {isEn ? 'GLOBAL CORE NARRATIVE & NON-NEGOTIABLE GUARDRAILS' : 'GLOBALES KERN-NARRATIV & VERBINDLICHE LEITPLANKEN (HQ)'}
+            {isEn ? 'GLOBAL CORE NARRATIVE, CORPORATE GEO FRAMEWORK & GUARDRAILS' : 'GLOBALES KERN-NARRATIV, CORPORATE GEO-FRAMEWORK & LEITPLANKEN'}
           </span>
         </div>
 
@@ -293,6 +293,66 @@ export const TrendingFactoryView: React.FC<Props> = ({
               </ul>
             </div>
           </div>
+
+          {/* 4-Rule Corporate GEO Framework Delivered to All Teams */}
+          <div className="pt-4 border-t border-zinc-200 space-y-2.5">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+              <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-sbb-black">
+                {isEn
+                  ? 'MANDATORY 4-RULE CORPORATE GEO FRAMEWORK (HOW TEAMS TARGET AI SEARCH COHERENTLY):'
+                  : 'VERBINDLICHES 4-REGEL CORPORATE GEO-FRAMEWORK (WIE TEAMS KI-SUCHE KOHÄRENT ADRESSIEREN):'}
+              </span>
+              <span className="text-[10px] font-mono text-emerald-800 bg-emerald-50 border border-emerald-200 px-2 py-0.5 font-bold">
+                {isEn ? 'Enforced Across All 4 Regional Hubs' : 'Verbindlich für alle 4 Regionen'}
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+              <div className="p-3 bg-sbb-cloud/50 border border-sbb-aluminum space-y-1">
+                <div className="font-mono text-[10px] font-bold text-sbb-black uppercase">
+                  {isEn ? 'GEO-01 // Fact-Claim Pairing' : 'GEO-01 // Fakt-Claim-Kopplung'}
+                </div>
+                <p className="text-[11px] text-zinc-700 leading-snug">
+                  {isEn
+                    ? 'Pair every core claim with its exact numerical proof point in the same paragraph so AI retrieval chunking never separates claim from evidence.'
+                    : 'Jede Kernaussage im selben Absatz mit dem exakten Zahlenbeleg koppeln, damit KI-Chunking Behauptung und Evidenz nie trennt.'}
+                </p>
+              </div>
+
+              <div className="p-3 bg-sbb-cloud/50 border border-sbb-aluminum space-y-1">
+                <div className="font-mono text-[10px] font-bold text-sbb-black uppercase">
+                  {isEn ? 'GEO-02 // Terminology Lock' : 'GEO-02 // Terminologie-Kohärenz'}
+                </div>
+                <p className="text-[11px] text-zinc-700 leading-snug">
+                  {isEn
+                    ? 'Use identical canonical terms across US, EU, CH, and APAC so AI search engines do not misread regional phrasing variations as contradictions.'
+                    : 'Identische Schlüsselbegriffe über US, EU, CH und APAC nutzen, damit KI-Suchmaschinen regionale Nuancen nicht als Widerspruch werten.'}
+                </p>
+              </div>
+
+              <div className="p-3 bg-red-50/40 border border-red-200 space-y-1">
+                <div className="font-mono text-[10px] font-bold text-sbb-red uppercase">
+                  {isEn ? 'GEO-03 // Zero Accusation Echo' : 'GEO-03 // Kein Vorwurfs-Echo'}
+                </div>
+                <p className="text-[11px] text-zinc-700 leading-snug">
+                  {isEn
+                    ? 'Never repeat an accusation ("boycott", "exodus") to deny it—repeating negative frames on corporate channels anchors those keywords to our entity in AI search indices.'
+                    : 'Vorwürfe ("Boykott", "Abwanderung") nie zur Verneinung wiederholen – sonst verknüpfen KI-Suchindizes die eigene Domain direkt mit dem Negativ-Frame.'}
+                </p>
+              </div>
+
+              <div className="p-3 bg-emerald-50/40 border border-emerald-300 space-y-1">
+                <div className="font-mono text-[10px] font-bold text-emerald-900 uppercase">
+                  {isEn ? 'GEO-04 // Narrative Delivery' : 'GEO-04 // Eigenes Narrativ liefern'}
+                </div>
+                <p className="text-[11px] text-zinc-700 leading-snug">
+                  {isEn
+                    ? 'Bridge immediately from the stakeholder question into our affirmative core narrative (GS-01–GS-03) so AI engines synthesize our position, not the critic’s.'
+                    : 'Sofort vom Thema über eine Brücke in das eigene affirmative Kern-Narrativ (GS-01–GS-03) führen, damit KI-Antworten unsere Position synthetisieren.'}
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -334,18 +394,37 @@ export const TrendingFactoryView: React.FC<Props> = ({
         </div>
       </div>
 
-      {/* ═══ STEP 03: 3-CHANNEL EXECUTION BLUEPRINTS ═══ */}
+      {/* ═══ STEP 03: 4-FORMAT EXECUTION BLUEPRINTS (INCLUDING OWNED CORPORATE STORIES FOR GEO) ═══ */}
       <div className="space-y-3">
         <div className="flex items-center gap-3">
           <span className="w-7 h-7 bg-sbb-black text-white font-mono text-xs font-bold flex items-center justify-center">
             03
           </span>
           <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-stone">
-            {isEn ? 'THREE-CHANNEL ENABLEMENT BLUEPRINTS' : 'DREI-KANAL-VORLAGEN (MEDIEN, SOCIAL, LLM)'}
+            {isEn
+              ? 'FOUR-FORMAT REGIONAL ENABLEMENT: CORPORATE STORIES (OWNED GEO), SOCIAL, TALKING POINTS & Q&A'
+              : 'VIER-FORMAT-BEFÄHIGUNG: CORPORATE STORIES (OWNED GEO), SOCIAL, TALKING POINTS & Q&A'}
           </span>
         </div>
 
         <div className="bg-white border border-sbb-aluminum">
+          {/* Strategic GEO Role of Owned Corporate Stories Banner */}
+          <div className="px-6 py-3.5 bg-sbb-cloud/70 border-b border-sbb-aluminum flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
+            <div className="text-sbb-black leading-snug">
+              {isEn ? (
+                <>
+                  <strong className="font-mono uppercase text-sbb-red">Why Owned Corporate Stories Are Key for GEO:</strong> While press releases target journalists (who may only quote a fragment), <strong>Corporate Stories</strong> published on our own high-authority domain are crawled directly by AI search engines—delivering our complete narrative and structured facts without gatekeeper filtering.
+                </>
+              ) : (
+                <>
+                  <strong className="font-mono uppercase text-sbb-red">Warum Corporate Stories für GEO entscheidend sind:</strong> Während Medienmitteilungen an Journalisten gehen (die oft nur Teile zitieren), werden <strong>Corporate Stories</strong> auf unserer eigenen Domain direkt von KI-Suchmaschinen gecrawlt – und liefern unser vollständiges Narrativ samt Fakten ohne Gatekeeper-Filterung.
+                </>
+              )}
+            </div>
+            <span className="font-mono text-[10px] font-bold uppercase px-2 py-0.5 bg-white border border-zinc-300 text-sbb-black shrink-0">
+              {isEn ? 'Owned Domain → Direct AI Retrieval' : 'Eigene Domain → Direktes KI-Retrieval'}
+            </span>
+          </div>
           {/* Format Selector Tabs */}
           <div className="grid grid-cols-2 md:grid-cols-4 border-b border-sbb-aluminum bg-sbb-cloud/40">
             {formatTabs.map(fmt => {
@@ -440,26 +519,26 @@ export const TrendingFactoryView: React.FC<Props> = ({
               <div className="p-3 bg-red-50/40 border border-red-200">
                 <div className="font-mono text-[10px] font-bold uppercase text-sbb-red mb-1">
                   {isEn
-                    ? '1. NEGATIVE-FRAME & GEO HYGIENE:'
-                    : '1. NEGATIV-FRAME- & GEO-HYGIENE:'}
+                    ? '1. GEO NEGATIVE-FRAME HYGIENE (RULE GEO-03):'
+                    : '1. GEO NEGATIV-FRAME-HYGIENE (REGEL GEO-03):'}
                 </div>
                 <p className="text-zinc-700 leading-snug">
                   {isEn
-                    ? 'Prevents repeating hostile accusations ("boycott", "exodus") in corporate text—avoiding defensive headlines and keeping toxic keywords out of LLM search indices.'
-                    : 'Verhindert die Wiederholung fremder Vorwürfe ("Boykott", "Abwanderung") im eigenen Text – schützt vor defensiven Schlagzeilen und negativer KI-Indexierung (GEO).'}
+                    ? 'Repeating an accusation to deny it causes AI search engines to index our own authoritative domain with the critic’s keyword attached to our brand. The scaffold strips all negative frames.'
+                    : 'Wer Vorwürfe zur Verneinung wiederholt, sorgt dafür, dass KI-Suchmaschinen unsere eigene Domain mit dem Negativbegriff indexieren. Das Gerüst eliminiert alle Negativ-Frames.'}
                 </p>
               </div>
 
               <div className="p-3 bg-emerald-50/40 border border-emerald-300">
                 <div className="font-mono text-[10px] font-bold uppercase text-emerald-900 mb-1">
                   {isEn
-                    ? '2. BRIDGING TO MAIN NARRATIVE:'
-                    : '2. BRIDGING ZUM KERN-NARRATIV:'}
+                    ? '2. DELIVERING OUR NARRATIVE FOR GEO (RULE GEO-04):'
+                    : '2. EIGENES NARRATIV FÜR GEO LIEFERN (REGEL GEO-04):'}
                 </div>
                 <p className="text-zinc-700 leading-snug">
                   {isEn
-                    ? 'Proposes disciplined pivots (Acknowledge stake → Bridge → Core Pillar GS-01–GS-03) so every local response actively advances the company’s main narrative.'
-                    : 'Schlägt strukturierte Übergänge vor (Anliegen anerkennen → Brücke → Kernbotschaft GS-01–GS-03), damit jede Antwort auf das Haupt-Narrativ einzahlt.'}
+                    ? 'Uses disciplined bridging (Acknowledge → Bridge → Core Pillar GS-01–GS-03) so AI retrieval pipelines and journalists extract and synthesize the company’s own narrative.'
+                    : 'Nutzt gezieltes Bridging (Anliegen → Brücke → Kernsäule GS-01–GS-03), damit KI-Retrieval-Pipelines und Medien das eigene Unternehmens-Narrativ übernehmen.'}
                 </p>
               </div>
 

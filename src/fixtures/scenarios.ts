@@ -14,21 +14,21 @@ export const SCENARIOS_DATA: Record<Language, ScenarioMeta[]> = {
   en: [
     {
       id: 'oncology_trial_update',
-      title: 'Novartis: U.S. Reference Pricing (MFN), $23B Capex & EU/Swiss Access Debate',
+      title: 'Global Pharma Narrative: U.S. Reference Pricing (MFN), $23B Capex & EU/Swiss Access',
       category: 'Corporate Narrative & International Public Affairs',
       date: '13.11.2026',
       urgency: 'High',
-      summary: 'Following U.S. Most-Favored-Nation (MFN) reference pricing and a $23B U.S. manufacturing commitment, Novartis calls for a rethink of European and Swiss price controls. Comms must align Washington, Brussels, and Basel without triggering "patient boycott" or "HQ exodus" rumors.',
-      organization: 'Novartis Corporate Affairs & Global Communications'
+      summary: 'Following U.S. Most-Favored-Nation (MFN) reference pricing and a $23B U.S. manufacturing commitment, a global pharmaceutical group calls for a rethink of European and Swiss price controls. Comms must align Washington, Brussels, and Basel without triggering "patient boycott" or "HQ exodus" rumors.',
+      organization: 'Global Biopharma Corporate Affairs & Communications'
     },
     {
       id: 'pluvicto_access_debate',
-      title: 'Novartis Pluvicto: FDA Approval vs. European HTA & NICE Reimbursement Lockout',
+      title: 'Oncology Radioligand Therapy: FDA Approval vs. European HTA & NICE Reimbursement',
       category: 'Frontier Medicine Value & Health Technology Assessment',
       date: '10.11.2026',
       urgency: 'High',
-      summary: 'While the FDA greenlit pre-chemotherapy prostate cancer radioligand therapy (PSMAfore), EMA regulatory pushback and UK NICE cost-effectiveness hurdles create an acute transatlantic access gap.',
-      organization: 'Novartis Innovative Medicines / Oncology Division'
+      summary: 'While the FDA greenlit pre-chemotherapy prostate cancer radioligand therapy (Phase III RLT-01), EMA regulatory pushback and UK NICE cost-effectiveness hurdles create an acute transatlantic access gap.',
+      organization: 'Oncology & Precision Medicine Division'
     },
     {
       id: 'alpine_transit_crisis',
@@ -37,7 +37,7 @@ export const SCENARIOS_DATA: Record<Language, ScenarioMeta[]> = {
       date: '28.09.2026',
       urgency: 'High',
       summary: 'Complete shutdown of signalling systems across a major transit route. Speculation about foreign cyber sabotage spreads on social media. The comms team must de-escalate with plain technical facts.',
-      organization: 'National Transport Network (SBB)'
+      organization: 'National Rail & Transit Network'
     },
     {
       id: 'esg_investigation',
@@ -61,21 +61,21 @@ export const SCENARIOS_DATA: Record<Language, ScenarioMeta[]> = {
   de: [
     {
       id: 'oncology_trial_update',
-      title: 'Novartis: US-Referenzpreise (MFN), 23-Mrd.-$-Investition & EU/CH-Marktzugang',
+      title: 'Globales Pharma-Narrativ: US-Referenzpreise (MFN), 23-Mrd.-$-Investition & EU/CH-Marktzugang',
       category: 'Konzern-Narrativ & Internationale Public Affairs',
       date: '13.11.2026',
       urgency: 'Hoch',
-      summary: 'Nach US-Referenzpreis-Vereinbarungen (Most Favored Nation) und einer 23-Mrd.-Dollar-Investition in den USA fordert Novartis ein Umdenken bei europäischen und Schweizer Medikamentenpreisen. Die Kommunikation muss USA, EU und den Heimmarkt Schweiz ohne "Boykott"- oder "Abwanderungs"-Schlagzeilen ausbalancieren.',
-      organization: 'Novartis Corporate Affairs & Global Communications'
+      summary: 'Nach US-Referenzpreis-Vereinbarungen (Most Favored Nation) und einer 23-Mrd.-Dollar-Investition in den USA fordert ein globaler Pharmakonzern ein Umdenken bei europäischen und Schweizer Medikamentenpreisen. Die Kommunikation muss USA, EU und den Heimmarkt Schweiz ohne "Boykott"- oder "Abwanderungs"-Schlagzeilen ausbalancieren.',
+      organization: 'Global Biopharma Corporate Affairs & Kommunikation'
     },
     {
       id: 'pluvicto_access_debate',
-      title: 'Novartis Pluvicto: FDA-Zulassung vs. Europäische HTA- & NICE-Erstattungshürden',
+      title: 'Onkologie-Radioligandentherapie: FDA-Zulassung vs. Europäische HTA- & NICE-Erstattungshürden',
       category: 'Frontier-Medizin Nutzenbewertung & HTA',
       date: '10.11.2026',
       urgency: 'Hoch',
-      summary: 'Während die US-FDA die Radioligandentherapie vor Chemotherapie (PSMAfore) zulässt, führen EMA-Bedenken und eine NICE-Ablehnung in Grossbritannien zu einer transatlantischen Versorgungslücke.',
-      organization: 'Novartis Innovative Medicines / Onkologie-Sparte'
+      summary: 'Während die US-FDA die Radioligandentherapie vor Chemotherapie (Phase-III-Studie RLT-01) zulässt, führen EMA-Bedenken und eine NICE-Ablehnung in Grossbritannien zu einer transatlantischen Versorgungslücke.',
+      organization: 'Onkologie- & Präzisionsmedizin-Sparte'
     },
     {
       id: 'alpine_transit_crisis',
@@ -84,7 +84,7 @@ export const SCENARIOS_DATA: Record<Language, ScenarioMeta[]> = {
       date: '28.09.2026',
       urgency: 'Hoch',
       summary: 'Totalausfall der Leitsysteme im wichtigsten Alpenübergang. Auf Social Media kursieren unbestätigte Gerüchte über einen ausländischen Cyberangriff. Die Medienstelle muss mit nüchternen Fakten deeskalieren.',
-      organization: 'Nationale Transportnetze (SBB)'
+      organization: 'Nationale Schienen- & Transportnetze'
     },
     {
       id: 'esg_investigation',

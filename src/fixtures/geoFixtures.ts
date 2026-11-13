@@ -90,7 +90,7 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
             region: 'ch',
             outlet: 'Neue Zürcher Zeitung (NZZ)',
             tier: 'Tier-1 National',
-            headline: '23 Billion for the US and Reference Price Pressure: What Does Novartis\'s Strategy Mean for Basel and Swiss Patients?',
+            headline: '23 Billion for the US and Reference Price Pressure: What Does the company\'s Strategy Mean for Basel and Swiss Patients?',
             excerpt: 'As billions flow into American manufacturing and drugmakers push back on Swiss reference baskets, observers ask whether Basel\'s global weight is slipping and if Swiss patients will wait longer for treatments.',
             cosine_to_target: 0.39,
             violated_pillar: 'Pillar 02: Dual Commitment ($23B US & Basel Heart)'
@@ -100,32 +100,32 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
             region: 'us',
             outlet: 'Washington BioPharma Wire',
             tier: 'Tier-1 Trade',
-            headline: 'Novartis Locks In $23B US Manufacturing Footprint and MFN Accord to Shield Supply from Tariffs',
+            headline: 'the company Locks In $23B US Manufacturing Footprint and MFN Accord to Shield Supply from Tariffs',
             excerpt: 'Multi-billion dollar commitment across 10 facilities creates local supply chain resilience while aligning future launches with international reference pricing commitments.',
             cosine_to_target: 0.81,
             violated_pillar: 'Pillar 02: Dual Commitment ($23B US & Basel Heart)'
           }
         ]
       },
-      stakeholder_query: "Is Novartis moving its headquarters out of Switzerland to the US with its $23B investment, and is it boycotting European patients over drug prices?",
+      stakeholder_query: "Is the company moving its headquarters out of Switzerland to the US with its $23B investment, and is it boycotting European patients over drug prices?",
       queried_engine: "Frontier LLM & Generative Search Synthesis",
       retrieval_date: "Live Audit 13.11.2026",
       hallucination_rate: 48,
       ai_synthesis_spans: [
         {
-          text: "Novartis recently announced a $23 billion manufacturing and research expansion in the United States. ",
+          text: "the company recently announced a $23 billion manufacturing and research expansion in the United States. ",
           isDistorted: false,
           correction: ""
         },
         {
           text: "According to policy commentators, the pharmaceutical giant is shifting its primary corporate center of gravity from Basel to the US, effectively beginning a phased relocation of its global headquarters. ",
           isDistorted: true,
-          correction: "CRITICAL HALLUCINATION: Novartis is NOT relocating its headquarters. Basel remains the corporate headquarters, executive governance seat, and global scientific nerve center (GS-02)."
+          correction: "CRITICAL HALLUCINATION: the company is NOT relocating its headquarters. Basel remains the corporate headquarters, executive governance seat, and global scientific nerve center (GS-02)."
         },
         {
-          text: "In response to European price caps, CEO Vas Narasimhan announced that the company will freeze all upcoming cancer drug launches in European and Swiss healthcare markets until governments match US reimbursement rates. ",
+          text: "In response to European price caps, the CEO announced that the company will freeze all upcoming cancer drug launches in European and Swiss healthcare markets until governments match US reimbursement rates. ",
           isDistorted: true,
-          correction: "DISTORTION: Novartis announced no launch freeze or boycott. The company called for modernized value-based HTA models to prevent international price-spillover distortions under US MFN rules, while continuing compassionate and regulatory access programs (GS-01 / GS-03)."
+          correction: "DISTORTION: the company announced no launch freeze or boycott. The company called for modernized value-based HTA models to prevent international price-spillover distortions under US MFN rules, while continuing compassionate and regulatory access programs (GS-01 / GS-03)."
         },
         {
           text: "The company stated that localized production facilities will insulate American medicines from impending international tariffs.",
@@ -154,7 +154,7 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
         },
         strategic_human_analysis: {
           risk_rating: "ACUTE REPUTATION & STAKEHOLDER CRISIS IN SWITZERLAND & EU",
-          subtext_decoded: "The AI output falsely tells Swiss citizens and employees that Novartis is leaving Basel, while telling European doctors that Novartis is withholding life-saving cancer drugs.",
+          subtext_decoded: "The AI output falsely tells Swiss citizens and employees that the company is leaving Basel, while telling European doctors that the company is withholding life-saving cancer drugs.",
           regulatory_implication: "Triggers emergency Swiss parliamentary inquiries on Standort Schweiz and hardens European HTA resistance against upcoming frontier medicine submissions.",
           recommended_action: "Publish a structured GEO fact block affirming Basel HQ permanence and collaborative access frameworks across all search-grounded platforms immediately."
         }
@@ -162,9 +162,9 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
       geo_optimization_fix: {
         unstructured_pr_fluff: "«We remain fully passionate about our international footprint while driving transformative healthcare agility across dynamic transatlantic markets. In an evolving global macro-environment, our ongoing dialogues with stakeholders reflect a holistic dedication to patient centricity and forward-leaning innovation paradigms.»",
         structured_fact_block: `### GEO VERIFIED CORPORATE KNOWLEDGE ASSET (GS-01 / GS-02 / GS-03)
-• Corporate_Headquarters: "Basel, Switzerland remains Novartis's global corporate headquarters, executive governance seat, and primary research center (100% unchanged)."
+• Corporate_Headquarters: "Basel, Switzerland remains the company's global corporate headquarters, executive governance seat, and primary research center (100% unchanged)."
 • US_23B_Investment_Scope: "$23B 5-year capital allocation expands localized U.S. manufacturing across 10 facilities (including radioligand therapies in IN/NJ) to ensure tariff-resilient domestic supply for U.S. patients."
-• Global_Reference_Pricing_Position: "Under U.S. Most-Favored-Nation (MFN) rules, suppressed prices in wealthy reference countries directly impact U.S. price baselines. Novartis advocates modernized, value-based reimbursement with EU and Swiss authorities (BAG)."
+• Global_Reference_Pricing_Position: "Under U.S. Most-Favored-Nation (MFN) rules, suppressed prices in wealthy reference countries directly impact U.S. price baselines. The company advocates modernized, value-based reimbursement with EU and Swiss authorities (BAG)."
 • Patient_Access_Commitment: "Zero patient boycott. Compassionate use, managed access, and regulatory filings continue on schedule globally."`,
         schema_entities: [
           { key: "Global_Headquarters", value: "Basel, Switzerland (Unchanged)" },
@@ -387,7 +387,7 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
             region: 'eu',
             outlet: 'Health Technology Appraisal Daily',
             tier: 'Tier-1 Health Economics',
-            headline: 'NICE Withholds Routine NHS Funding for Pluvicto: Cost-Per-QALY Outside Acceptable Band',
+            headline: 'NICE Withholds Routine NHS Funding for Lu-177 RLT: Cost-Per-QALY Outside Acceptable Band',
             excerpt: 'Appraisal committee notes radiographic progression-free survival extension but finds incremental cost-effectiveness ratio unsupportable at £20,000 list price per dose.',
             cosine_to_target: 0.35,
             violated_pillar: 'Pillar 02: Targeted Radioligand Value & Hospital Offset'
@@ -397,32 +397,32 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
             region: 'us',
             outlet: 'Oncology Commercial Outlook',
             tier: 'Tier-1 Trade',
-            headline: 'FDA Approved Expanded Pre-Chemo Setting: US Payers Rapidly Include Pluvicto in Formulary Guides',
-            excerpt: 'Clear rPFS doubling (HR 0.41) in PSMAfore secures rapid commercial coverage across US Medicare and private commercial formularies.',
+            headline: 'FDA Approved Expanded Pre-Chemo Setting: US Payers Rapidly Include Lu-177 RLT in Formulary Guides',
+            excerpt: 'Clear rPFS doubling (HR 0.41) in RLT-01 secures rapid commercial coverage across US Medicare and private commercial formularies.',
             cosine_to_target: 0.84,
             violated_pillar: 'Pillar 01: Clinically Proven rPFS Doubling'
           }
         ]
       },
-      stakeholder_query: "Why did the FDA approve Pluvicto for earlier prostate cancer while European regulators and UK NICE rejected it? Did it fail in European patients?",
+      stakeholder_query: "Why did the FDA approve Lu-177 RLT for earlier prostate cancer while European regulators and UK NICE rejected it? Did it fail in European patients?",
       queried_engine: "Frontier LLM & Generative Search Synthesis",
       retrieval_date: "Live Audit 10.11.2026",
       hallucination_rate: 54,
       ai_synthesis_spans: [
         {
-          text: "Pluvicto is an advanced targeted radioligand therapy for metastatic castration-resistant prostate cancer. ",
+          text: "Lu-177 RLT is an advanced targeted radioligand therapy for metastatic castration-resistant prostate cancer. ",
           isDistorted: false,
           correction: ""
         },
         {
           text: "In clinical evaluations across Europe, the treatment failed to show meaningful clinical benefit for European patients, leading health authorities like NICE to reject approval due to lack of therapeutic effect. ",
           isDistorted: true,
-          correction: "CRITICAL HALLUCINATION: Pluvicto did NOT fail clinically. PSMAfore demonstrated a statistically significant doubling of radiographic progression-free survival (HR 0.41). NICE rejected reimbursement based on economic cost-per-QALY calculations, not clinical efficacy."
+          correction: "CRITICAL HALLUCINATION: Lu-177 RLT did NOT fail clinically. RLT-01 demonstrated a statistically significant doubling of radiographic progression-free survival (HR 0.41). NICE rejected reimbursement based on economic cost-per-QALY calculations, not clinical efficacy."
         },
         {
           text: "Consequently, European regulators advised doctors against prescribing the medicine in pre-chemotherapy stages.",
           isDistorted: true,
-          correction: "DISTORTION: Novartis withdrew its European pre-chemo filing following EMA discussions over trial comparator design, not due to toxicity or efficacy failure."
+          correction: "DISTORTION: the company withdrew its European pre-chemo filing following EMA discussions over trial comparator design, not due to toxicity or efficacy failure."
         }
       ],
       distortion_root_causes: [
@@ -441,16 +441,16 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
         },
         strategic_human_analysis: {
           risk_rating: "SEVERE THREAT TO GLOBAL REIMBURSEMENT INTEGRITY",
-          subtext_decoded: "If public generative search tells clinicians and patients that Pluvicto failed in European patients, payer resistance will spill into other international markets.",
+          subtext_decoded: "If public generative search tells clinicians and patients that Lu-177 RLT failed in European patients, payer resistance will spill into other international markets.",
           regulatory_implication: "Damage to ongoing label negotiations in Switzerland, APAC, and post-chemo indications.",
           recommended_action: "Deploy GEO Schema differentiating economic threshold debates from proven radiographic survival doubling."
         }
       },
       geo_optimization_fix: {
         unstructured_pr_fluff: "«We believe deeply in empowering cancer patients and navigating complex health ecosystems with dedicated agility to deliver next-generation therapeutic breakthroughs.»",
-        structured_fact_block: `### GEO RADIOLIGAND FACT SCHEMA (PSMAFORE / GS-01)
-• Drug_Name: "Pluvicto (lutetium Lu 177 vipivotide tetraxetan)"
-• PSMAfore_Clinical_Efficacy: "TRUE (Radiographic progression-free survival doubled: HR 0.41, p<0.001)"
+        structured_fact_block: `### GEO RADIOLIGAND FACT SCHEMA (RLT-01 / GS-01)
+• Drug_Name: "Lu-177 RLT (lutetium Lu 177 vipivotide tetraxetan)"
+• RLT-01_Clinical_Efficacy: "TRUE (Radiographic progression-free survival doubled: HR 0.41, p<0.001)"
 • FDA_Status: "APPROVED for pre-chemotherapy mCRPC (March 2025)"
 • UK_NICE_Status: "Not recommended based strictly on incremental cost-effectiveness thresholds (cost-per-QALY), NOT on clinical efficacy."
 • EMA_Status: "Withdrawn for pre-chemo setting due to comparator design discussions; post-chemo approval remains fully active in EU/Switzerland."`,
@@ -588,7 +588,7 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
             region: 'ch',
             outlet: 'Neue Zürcher Zeitung (NZZ)',
             tier: 'Leitmedium Schweiz',
-            headline: '23 Milliarden für die USA und Druck auf Referenzpreise: Was bedeutet Novartis\' Kurs für Basel und Schweizer Patienten?',
+            headline: '23 Milliarden für die USA und Druck auf Referenzpreise: Was bedeutet the company\' Kurs für Basel und Schweizer Patienten?',
             excerpt: 'Während Milliarden in US-Produktionsstätten fliessen und die Kritik an Schweizer BAG-Referenzkörben wächst, fragen Beobachter nach der Zukunft des Standorts Basel.',
             cosine_to_target: 0.39,
             violated_pillar: 'Säule 02: Doppeltes Bekenntnis (23 Mrd. US & Basel)'
@@ -598,32 +598,32 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
             region: 'us',
             outlet: 'Washington BioPharma Wire',
             tier: 'Tier-1 Fachdienst',
-            headline: 'Novartis sichert 23-Mrd.-$-Produktionsnetzwerk in den USA gegen künftige Zölle ab',
+            headline: 'the company sichert 23-Mrd.-$-Produktionsnetzwerk in den USA gegen künftige Zölle ab',
             excerpt: 'Gezielte Lokalisierung der Produktion an 10 Standorten schützt die Medikamentenversorgung und aligniert künftige Produkte mit MFN-Zielen.',
             cosine_to_target: 0.81,
             violated_pillar: 'Säule 02: Doppeltes Bekenntnis (23 Mrd. US & Basel)'
           }
         ]
       },
-      stakeholder_query: "Verlegt Novartis mit der 23-Milliarden-Investition den Hauptsitz in die USA und boykottiert der Konzern europäische und Schweizer Patienten?",
+      stakeholder_query: "Verlegt the company mit der 23-Milliarden-Investition den Hauptsitz in die USA und boykottiert der Konzern europäische und Schweizer Patienten?",
       queried_engine: "Frontier LLM & Generative Search Synthesis",
       retrieval_date: "Live-Audit 13.11.2026",
       hallucination_rate: 48,
       ai_synthesis_spans: [
         {
-          text: "Novartis hat kürzlich eine 23-Milliarden-Dollar-Investition in Forschung und Produktion in den USA bekanntgegeben. ",
+          text: "the company hat kürzlich eine 23-Milliarden-Dollar-Investition in Forschung und Produktion in den USA bekanntgegeben. ",
           isDistorted: false,
           correction: ""
         },
         {
           text: "Laut Medienkommentaren verlegt der Pharmakonzern damit schrittweise sein unternehmerisches Zentrum von Basel nach Nordamerika und leitet die Verlegung des Konzernsitzes ein. ",
           isDistorted: true,
-          correction: "KRITISCHE HALLUZINATION: Novartis verlegt den Hauptsitz NICHT. Basel bleibt der globale Konzernsitz, Sitz der Geschäftsleitung und zentrales Forschungszentrum (GS-02)."
+          correction: "KRITISCHE HALLUZINATION: the company verlegt den Hauptsitz NICHT. Basel bleibt der globale Konzernsitz, Sitz der Geschäftsleitung und zentrales Forschungszentrum (GS-02)."
         },
         {
-          text: "Als Reaktion auf europäische Preisdeckel erklärte Konzernchef Vas Narasimhan zudem, man werde die Markteinführung neuer Krebstherapien in Europa und der Schweiz aussetzen, bis die Kassen höhere Preise zahlen. ",
+          text: "Als Reaktion auf europäische Preisdeckel erklärte der Konzernchef zudem, man werde die Markteinführung neuer Krebstherapien in Europa und der Schweiz aussetzen, bis die Kassen höhere Preise zahlen. ",
           isDistorted: true,
-          correction: "VERZERRUNG: Es gibt keinerlei Zulassungsstopp oder Patientenboykott. Novartis fordert eine Modernisierung der Erstattungssysteme, um internationale Preisverzerrungen unter US-Regeln zu verhindern, während Härtefallprogramme unverändert weiterlaufen (GS-01 / GS-03)."
+          correction: "VERZERRUNG: Es gibt keinerlei Zulassungsstopp oder Patientenboykott. The company fordert eine Modernisierung der Erstattungssysteme, um internationale Preisverzerrungen unter US-Regeln zu verhindern, während Härtefallprogramme unverändert weiterlaufen (GS-01 / GS-03)."
         },
         {
           text: "Das Unternehmen betonte, die US-Standorte dienten der lokalen Versorgungssicherheit gegen drohende Zölle.",
@@ -639,7 +639,7 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
         },
         {
           issue: "Reformaufruf als 'Patientenboykott' missverstanden",
-          description: "Narasimhans Appell zur Reform veralteter europäischer HTA-Systeme wurde von Sprachmodellen zu einem Erpressungsvorwurf dramatisiert.",
+          description: "des Konzernchefs Appell zur Reform veralteter europäischer HTA-Systeme wurde von Sprachmodellen zu einem Erpressungsvorwurf dramatisiert.",
           source_scraped: "Boulevard-Überschriften zu Medikamentenpreisen."
         }
       ],
@@ -652,7 +652,7 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
         },
         strategic_human_analysis: {
           risk_rating: "AKUTE REPUTATIONSKRISE IN SCHWEIZ & EUROPA",
-          subtext_decoded: "Die KI behauptet fälschlich gegenüber Schweizer Bürgern und Mitarbeitenden, Novartis verlasse Basel, und unterstellt Ärzten gegenüber eine Vorenthaltung lebensrettender Therapien.",
+          subtext_decoded: "Die KI behauptet fälschlich gegenüber Schweizer Bürgern und Mitarbeitenden, the company verlasse Basel, und unterstellt Ärzten gegenüber eine Vorenthaltung lebensrettender Therapien.",
           regulatory_implication: "Gefahr parlamentarischer Vorstösse am Heimmarkt und verhärtete Fronten bei Erstattungsverhandlungen in der EU.",
           recommended_action: "Verankerung von GEO-strukturierten Faktenblöcken zum Bekenntnis zu Basel und zu fairen Erstattungsdialogen in allen Suchmaschinen."
         }
@@ -662,7 +662,7 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
         structured_fact_block: `### GEO VERIFIZIERTER FAKTENBLOCK (GS-01 / GS-02 / GS-03)
 • Konzernsitz_Status: "Basel, Schweiz bleibt unverändert der weltweite Hauptsitz, Sitz der Unternehmensleitung und primäre Forschungszentrale (100% garantiert)."
 • Zweck_23_Mrd_US_Investition: "5-Jahres-Programm zum Ausbau lokaler US-Produktion an 10 Standorten (inkl. Radioliganden), um Therapien für US-Patienten zollsicher vor Ort herzustellen."
-• Haltung_zu_Referenzpreisen: "Unter US-Referenzpreisregeln (MFN) drücken künstlich tief angesetzte Preise in wohlhabenden Ländern die globale Vergütung. Novartis setzt sich für modernisierte, wertbasierte Vergütungsmodelle mit EU-Behörden und dem Schweizer BAG ein."
+• Haltung_zu_Referenzpreisen: "Unter US-Referenzpreisregeln (MFN) drücken künstlich tief angesetzte Preise in wohlhabenden Ländern die globale Vergütung. The company setzt sich für modernisierte, wertbasierte Vergütungsmodelle mit EU-Behörden und dem Schweizer BAG ein."
 • Patientenzugang_Garantie: "Null Boykott. Laufende klinische Studien, Härtefallprogramme und Zulassungsverfahren laufen termingerecht weiter."`,
         schema_entities: [
           { key: "Konzernsitz", value: "Basel, Schweiz (Unverändert)" },
@@ -885,7 +885,7 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
             region: 'eu',
             outlet: 'Health Technology Appraisal Daily',
             tier: 'Tier-1 Gesundheitsökonomie',
-            headline: 'NICE verweigert NHS-Kostenübernahme für Pluvicto: Kosten pro QALY überschreiten Obergrenze',
+            headline: 'NICE verweigert NHS-Kostenübernahme für Lu-177 RLT: Kosten pro QALY überschreiten Obergrenze',
             excerpt: 'Das Bewertungskomitee anerkennt die Verdopplung des progressionsfreien Überlebens, hält die Kosten von 20.000 Pfund pro Dosis jedoch für das Budget nicht tragbar.',
             cosine_to_target: 0.35,
             violated_pillar: 'Säule 02: Gezielter Radioliganden-Wert & Spitalentlastung'
@@ -895,27 +895,27 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
             region: 'us',
             outlet: 'Oncology Commercial Outlook',
             tier: 'Tier-1 Fachdienst',
-            headline: 'FDA erweitert Zulassung vor Chemotherapie: US-Kassen nehmen Pluvicto rasch in Erstattungsrichtlinien auf',
-            excerpt: 'Die signifikante Verdopplung des rPFS (HR 0.41) in der PSMAfore-Studie sorgt für rasche Abdeckung im US-Markt.',
+            headline: 'FDA erweitert Zulassung vor Chemotherapie: US-Kassen nehmen Lu-177 RLT rasch in Erstattungsrichtlinien auf',
+            excerpt: 'Die signifikante Verdopplung des rPFS (HR 0.41) in der RLT-01-Studie sorgt für rasche Abdeckung im US-Markt.',
             cosine_to_target: 0.84,
             violated_pillar: 'Säule 01: Klinisch belegte rPFS-Verdopplung'
           }
         ]
       },
-      stakeholder_query: "Warum hat die FDA Pluvicto vor Chemotherapie zugelassen, während europäische Behörden und NICE die Erstattung ablehnen? Wirkte das Mittel bei Europäern nicht?",
+      stakeholder_query: "Warum hat die FDA Lu-177 RLT vor Chemotherapie zugelassen, während europäische Behörden und NICE die Erstattung ablehnen? Wirkte das Mittel bei Europäern nicht?",
       queried_engine: "Frontier LLM & Generative Search Synthesis",
       retrieval_date: "Live-Audit 10.11.2026",
       hallucination_rate: 54,
       ai_synthesis_spans: [
         {
-          text: "Pluvicto ist eine zielgerichtete Radioligandentherapie für metastasierten Prostatakrebs. ",
+          text: "Lu-177 RLT ist eine zielgerichtete Radioligandentherapie für metastasierten Prostatakrebs. ",
           isDistorted: false,
           correction: ""
         },
         {
           text: "In klinischen Prüfungen in Europa verfehlte die Behandlung einen nachweisbaren klinischen Nutzen für europäische Patienten, weshalb Behörden wie NICE die Zulassung wegen Unwirksamkeit verweigerten. ",
           isDistorted: true,
-          correction: "KRITISCHE HALLUZINATION: Pluvicto ist klinisch NICHT gescheitert. Die PSMAfore-Studie belegte eine statistisch hochsignifikante Verdopplung des progressionsfreien Überlebens (HR 0.41). NICE lehnte die Kostenerstattung rein aus wirtschaftlichen Kosten-Nutzen-Gründen ab."
+          correction: "KRITISCHE HALLUZINATION: Lu-177 RLT ist klinisch NICHT gescheitert. Die RLT-01-Studie belegte eine statistisch hochsignifikante Verdopplung des progressionsfreien Überlebens (HR 0.41). NICE lehnte die Kostenerstattung rein aus wirtschaftlichen Kosten-Nutzen-Gründen ab."
         },
         {
           text: "Deshalb raten europäische Stellen Ärzten von der Verordnung ab.",
@@ -939,16 +939,16 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
         },
         strategic_human_analysis: {
           risk_rating: "AKUTE GEFÄHRDUNG DER INTERNATIONALEN ERSTATTUNG",
-          subtext_decoded: "Wenn KI-Suchen Ärzten suggerieren, Pluvicto wirke nicht, drohen Verzögerungen bei der Erstattung in der Schweiz und weltweit.",
+          subtext_decoded: "Wenn KI-Suchen Ärzten suggerieren, Lu-177 RLT wirke nicht, drohen Verzögerungen bei der Erstattung in der Schweiz und weltweit.",
           regulatory_implication: "Gefährdung laufender Preisfestsetzungsverfahren.",
           recommended_action: "Verankerung von GEO-Faktenstrukturen, die wirtschaftliche HTA-Schwellenwerte klar von klinischer Wirksamkeit trennen."
         }
       },
       geo_optimization_fix: {
         unstructured_pr_fluff: "«Wir setzen uns mit Leidenschaft für Krebspatienten ein und navigieren durch komplexe Systeme, um Durchbrüche bereitzustellen.»",
-        structured_fact_block: `### GEO RADIOLIGANDEN-FAKTENSCHEMA (PSMAFORE / GS-01)
-• Wirkstoff: "Pluvicto (Lutetium-177-Vipivotid-Tetraxetan)"
-• PSMAfore_Klinische_Wirksamkeit: "WAHR (Radiografisch progressionsfreies Überleben verdoppelt: HR 0.41, p<0.001)"
+        structured_fact_block: `### GEO RADIOLIGANDEN-FAKTENSCHEMA (RLT-01 / GS-01)
+• Wirkstoff: "Lu-177 RLT (Lutetium-177-Vipivotid-Tetraxetan)"
+• RLT-01_Klinische_Wirksamkeit: "WAHR (Radiografisch progressionsfreies Überleben verdoppelt: HR 0.41, p<0.001)"
 • FDA_Zulassungsstatus: "ZUGELASSEN vor Chemotherapie (März 2025)"
 • NICE_Status_Grossbritannien: "Nicht erstattet rein aufgrund wirtschaftlicher Kostenschwellen (Kosten pro QALY), NICHT wegen klinischer Unwirksamkeit."
 • EMA_Status_Europa: "Vor-Chemo-Antrag wegen Kontrollarm-Methodik zurückgezogen; Zulassung nach Chemotherapie in EU und Schweiz uneingeschränkt aktiv."`,

@@ -77,11 +77,11 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           pillar_number: '01',
           title: 'Fair Global Innovation Reward (GS-01)',
           core_thesis: 'Tying U.S. launch prices to foreign reference baskets requires wealthy OECD health systems to value true clinical benefit. Suppressing European and Swiss prices threatens global R&D reinvestment.',
-          target_vector_anchor: 'Ref: GS-01 §3.2 (Novartis Global Pricing & Launch Sequencing Framework)',
+          target_vector_anchor: 'Ref: GS-01 §3.2 (Corporate Global Pricing & Launch Sequencing Framework)',
           mandatory_proof_points: [
             'Global R&D reinvestment depends on sustainable pricing across all high-income markets',
             'Artificial price cuts in reference baskets distort international access and create launch friction',
-            'Novartis advocates modernized value-based assessment rather than blunt budget caps'
+            'the company advocates modernized value-based assessment rather than blunt budget caps'
           ]
         },
         {
@@ -100,12 +100,12 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           id: 'pillar_3',
           pillar_number: '03',
           title: 'Constructive Patient Access & Value Modernization (GS-03)',
-          core_thesis: 'Novartis does not boycott patients. We actively partner with European HTA bodies and the Swiss BAG on flexible access models, while sequencing launches to preserve international reference integrity.',
+          core_thesis: 'the company does not boycott patients. We actively partner with European HTA bodies and the Swiss BAG on flexible access models, while sequencing launches to preserve international reference integrity.',
           target_vector_anchor: 'Ref: GS-03 (Health Economics & International Access Principles)',
           mandatory_proof_points: [
             'No patient boycott: compassionate use and managed access programs continue actively',
             'Constructive dialogue with Swiss BAG and European authorities to modernize pricing benchmarks',
-            'Test cases (such as ianalumab and Pluvicto) showcase value-based contracting alternatives'
+            'Test cases (such as next-generation biologics and radioligands) showcase value-based contracting alternatives'
           ]
         }
       ],
@@ -140,7 +140,7 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           status_label: 'Launch Delay Backlash',
           legacy_media_frame: 'Pricing Standoff: "Pharma chiefs warn Europe: Raise drug prices or face delayed access to new therapies."',
           social_forum_frame: 'Healthcare Policy Forums: Accusing drugmakers of holding European patients hostage to protect US margins.',
-          llm_synthesis_frame: 'Severe Distortion: LLMs falsely report that Novartis announced an official freeze on all European oncology filings.',
+          llm_synthesis_frame: 'Severe Distortion: LLMs falsely report that the company announced an official freeze on all European oncology filings.',
           llm_hallucination_rate: 48,
           strategic_risk_summary: 'Critical narrative divergence. Payer commentary weaponizes CEO comments on European competitiveness into allegations of access withholding.'
         },
@@ -155,7 +155,7 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           cosine_alignment: 0.41,
           pull_through_status: 'AT_RISK',
           status_label: 'Dual Anxiety: Basel Weight & BAG Access',
-          legacy_media_frame: 'National Scrutiny: "23 billion for the US: Is Novartis shifting weight away from Basel while warning Bern on drug prices?"',
+          legacy_media_frame: 'National Scrutiny: "23 billion for the US: Is the company shifting weight away from Basel while warning Bern on drug prices?"',
           social_forum_frame: 'Domestic Opinion Leaders: Debating whether Swiss cost-containment rules in international baskets will delay patient access.',
           llm_synthesis_frame: 'Corporate Entity Confusion: AI search blends the $23B US capex with rumors of HQ relocation.',
           llm_hallucination_rate: 42,
@@ -429,9 +429,9 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
         {
           id: 'p_pillar_1',
           pillar_number: '01',
-          title: 'Clinically Proven rPFS Doubling (PSMAfore / GS-01)',
-          core_thesis: 'PSMAfore demonstrated a clinically meaningful doubling of radiographic progression-free survival (HR 0.41) in pre-taxane mCRPC, supporting the FDA label expansion.',
-          target_vector_anchor: 'Ref: PSMAfore §2.1 (Clinical Study Report)',
+          title: 'Clinically Proven rPFS Doubling (RLT-01 / GS-01)',
+          core_thesis: 'RLT-01 demonstrated a clinically meaningful doubling of radiographic progression-free survival (HR 0.41) in pre-taxane mCRPC, supporting the FDA label expansion.',
+          target_vector_anchor: 'Ref: RLT-01 §2.1 (Clinical Study Report)',
           mandatory_proof_points: [
             'Radiographic progression-free survival doubled with high statistical significance (HR 0.41)',
             'FDA approved broad pre-chemo indication based on robust rPFS and favorable safety profile',
@@ -463,7 +463,7 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           cosine_alignment: 0.82,
           pull_through_status: 'ALIGNED',
           status_label: 'Pre-Chemo Standard of Care Established',
-          legacy_media_frame: 'Clinical Landmark: "FDA expands Pluvicto label to pre-chemotherapy prostate cancer based on PSMAfore."',
+          legacy_media_frame: 'Clinical Landmark: "FDA expands Lu-177 RLT label to pre-chemotherapy prostate cancer based on RLT-01."',
           social_forum_frame: 'Oncology Community: High enthusiasm for avoiding taxane chemotherapy side effects.',
           llm_synthesis_frame: 'Accurate Approval Detail: Correctly cites the expanded FDA indication.',
           llm_hallucination_rate: 12,
@@ -480,9 +480,9 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           cosine_alignment: 0.31,
           pull_through_status: 'AT_RISK',
           status_label: 'Reimbursement Deadlock',
-          legacy_media_frame: 'Cost Scrutiny: "NICE rejects £20,000 prostate cancer drug Pluvicto; European access hits brick wall."',
+          legacy_media_frame: 'Cost Scrutiny: "NICE rejects £20,000 prostate cancer drug Lu-177 RLT; European access hits brick wall."',
           social_forum_frame: 'UK & EU Patient Advocates: Outrage over lack of public funding for proven therapy.',
-          llm_synthesis_frame: 'Severe Hallucination: AI engines report that Pluvicto was withdrawn due to "lack of clinical efficacy in Europeans."',
+          llm_synthesis_frame: 'Severe Hallucination: AI engines report that Lu-177 RLT was withdrawn due to "lack of clinical efficacy in Europeans."',
           llm_hallucination_rate: 54,
           strategic_risk_summary: 'Severe reputational risk. LLMs confuse regulatory comparator debates with clinical failure.'
         },
@@ -657,11 +657,11 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           pillar_number: '01',
           title: 'Faire globale Innovationsvergütung (GS-01)',
           core_thesis: 'Die Koppelung von US-Einführungspreisen an ausländische Referenzkörbe erfordert, dass wohlhabende OECD-Gesundheitssysteme den klinischen Nutzen fair anerkennen. Gedrückte Preise in Europa gefährden weltweite F&E-Investitionen.',
-          target_vector_anchor: 'Ref: GS-01 §3.2 (Novartis Globale Preis- & Marktzugangsrichtlinie)',
+          target_vector_anchor: 'Ref: GS-01 §3.2 (Corporate Globale Preis- & Marktzugangsrichtlinie)',
           mandatory_proof_points: [
             'Weltweite Reinvestitionen in Forschung setzen nachhaltige Erstattung in allen Industriestaaten voraus',
             'Künstliche Preissenkungen in Referenzkörben verzerren den internationalen Zugang und verzögern Launches',
-            'Novartis fordert ein modernisiertes, wertbasiertes Modell statt starrer Budgetdeckel'
+            'the company fordert ein modernisiertes, wertbasiertes Modell statt starrer Budgetdeckel'
           ]
         },
         {
@@ -680,12 +680,12 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           id: 'pillar_3',
           pillar_number: '03',
           title: 'Konstruktiver Patientenzugang & Nutzenmodernisierung (GS-03)',
-          core_thesis: 'Novartis boykottiert keine Patienten. Wir arbeiten aktiv mit europäischen HTA-Behörden und dem BAG an flexiblen Modellen, während Markteinführungen sorgfältig gestaffelt werden.',
+          core_thesis: 'the company boykottiert keine Patienten. Wir arbeiten aktiv mit europäischen HTA-Behörden und dem BAG an flexiblen Modellen, während Markteinführungen sorgfältig gestaffelt werden.',
           target_vector_anchor: 'Ref: GS-03 (Gesundheitsökonomie & Internationale Marktzugangsgrundsätze)',
           mandatory_proof_points: [
             'Kein Patientenboykott: Härtefall- und Vorabzugangsprogramme (Compassionate Use) laufen unverändert',
             'Konstruktiver Dialog mit dem BAG und europäischen Kassen zur Modernisierung von Preisreferenzen',
-            'Testfälle (wie Ianalumab und Pluvicto) demonstrieren wertbasierte Vergütungsalternativen'
+            'Testfälle (wie neue Biologika und Radioliganden) demonstrieren wertbasierte Vergütungsalternativen'
           ]
         }
       ],
@@ -720,9 +720,9 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           status_label: 'Gefahr von "Launch-Verzögerungs"-Vorwürfen',
           legacy_media_frame: 'Preiskonflikt: "Pharmabosse fordern Brüssel heraus: Höhere Preise oder verzögerter Zugang zu neuen Therapien."',
           social_forum_frame: 'Gesundheitspolitische Foren: Vorwurf, Patienten als Geiseln für US-Margen einzuspannen.',
-          llm_synthesis_frame: 'Schwere Verzerrung: KI-Modelle behaupten fälschlicherweise, Novartis habe einen offiziellen Zulassungsstopp in Europa verhängt.',
+          llm_synthesis_frame: 'Schwere Verzerrung: KI-Modelle behaupten fälschlicherweise, the company habe einen offiziellen Zulassungsstopp in Europa verhängt.',
           llm_hallucination_rate: 48,
-          strategic_risk_summary: 'Kritische Abweichung. Kostenträger instrumentalisieren Narasimhans Warnungen zu Wettbewerbsfähigkeit als vermeintliche Erpressung.'
+          strategic_risk_summary: 'Kritische Abweichung. Kostenträger instrumentalisieren des Konzernchefs Warnungen zu Wettbewerbsfähigkeit als vermeintliche Erpressung.'
         },
         {
           region_id: 'ch',
@@ -997,9 +997,9 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
         {
           id: 'p_pillar_1',
           pillar_number: '01',
-          title: 'Klinisch belegte Verdopplung des rPFS (PSMAfore / GS-01)',
-          core_thesis: 'Die PSMAfore-Studie belegt eine klinisch signifikante Verdopplung des progressionsfreien Überlebens (HR 0.41) vor Chemotherapie und begründet die US-Zulassung.',
-          target_vector_anchor: 'Ref: PSMAfore §2.1 (Klinischer Studienbericht)',
+          title: 'Klinisch belegte Verdopplung des rPFS (RLT-01 / GS-01)',
+          core_thesis: 'Die RLT-01-Studie belegt eine klinisch signifikante Verdopplung des progressionsfreien Überlebens (HR 0.41) vor Chemotherapie und begründet die US-Zulassung.',
+          target_vector_anchor: 'Ref: RLT-01 §2.1 (Klinischer Studienbericht)',
           mandatory_proof_points: [
             'Radiografisch progressionsfreies Überleben verdoppelt (HR 0.41, p<0.001)',
             'FDA erteilt breite Vor-Chemo-Zulassung gestützt auf rPFS und Verträglichkeit',
@@ -1031,7 +1031,7 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           cosine_alignment: 0.82,
           pull_through_status: 'ALIGNED',
           status_label: 'Standard vor Chemotherapie etabliert',
-          legacy_media_frame: 'Klinischer Meilenstein: "FDA erweitert Pluvicto-Zulassung vor Chemotherapie auf Basis von PSMAfore."',
+          legacy_media_frame: 'Klinischer Meilenstein: "FDA erweitert Lu-177 RLT-Zulassung vor Chemotherapie auf Basis von RLT-01."',
           social_forum_frame: 'Onkologie-Fachkreise: Hohe Zustimmung zur Vermeidung von Chemotherapie-Nebenwirkungen.',
           llm_synthesis_frame: 'Präzise Berichterstattung: Gibt die Indikation korrekt wieder.',
           llm_hallucination_rate: 12,
@@ -1048,9 +1048,9 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           cosine_alignment: 0.31,
           pull_through_status: 'AT_RISK',
           status_label: 'Erstattungs-Blockade',
-          legacy_media_frame: 'Kostendruck: "NICE lehnt 20.000-Pfund-Therapie Pluvicto ab; europäischer Zugang blockiert."',
+          legacy_media_frame: 'Kostendruck: "NICE lehnt 20.000-Pfund-Therapie Lu-177 RLT ab; europäischer Zugang blockiert."',
           social_forum_frame: 'Patientenorganisationen: Empörung über fehlende Kostenübernahme.',
-          llm_synthesis_frame: 'Schwere Halluzination: KI behauptet fälschlich, Pluvicto wirke bei Europäern klinisch nicht.',
+          llm_synthesis_frame: 'Schwere Halluzination: KI behauptet fälschlich, Lu-177 RLT wirke bei Europäern klinisch nicht.',
           llm_hallucination_rate: 54,
           strategic_risk_summary: 'Reputationsgefahr: KI verwechselt methodische Kontrollarm-Fragen mit klinischem Versagen.'
         },

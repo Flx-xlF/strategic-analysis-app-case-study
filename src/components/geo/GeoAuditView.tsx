@@ -432,13 +432,13 @@ export const GeoAuditView: React.FC<Props> = ({
             <div>
               <h3 className="text-lg font-bold text-sbb-black">
                 {isEn
-                  ? 'Shaping AI Reception Again: Negative-Frame Hygiene & GEO Fact Bridging'
-                  : 'KI-Rezeption wieder prägen: Negativ-Frame-Hygiene & GEO-Fakten-Bridging'}
+                  ? 'Deploying GEO via Owned Corporate Stories & Structured Fact Schemas'
+                  : 'GEO-Umsetzung über eigene Corporate Stories & strukturierte Faktenschemata'}
               </h3>
               <p className="text-xs text-sbb-stone mt-0.5 max-w-3xl leading-relaxed">
                 {isEn 
-                  ? 'Repeating an accusation to deny it ("We are not boycotting patients") embeds hostile keywords on your own domain—training LLMs to repeat the attack. Effective GEO strips negative frames and bridges directly to affirmative, verifiable corporate facts.' 
-                  : 'Wer Vorwürfe wiederholt, um sie zu dementieren ("Wir boykottieren keine Patienten"), verankert Negativ-Begriffe auf der eigenen Domain – und füttert KI-Suchmaschinen mit dem Angriffs-Frame. GEO streicht Negativ-Frames und baut affirmative Fakten-Brücken.'}
+                  ? 'Press releases alone are filtered by media outlets. By embedding this structured GEO Fact Schema into owned Corporate Stories and newsroom hubs—while stripping accusation echoes ("boycott", "exodus")—search-grounded LLMs retrieve and cite the company’s own narrative directly from its authoritative domain.' 
+                  : 'Medienmitteilungen werden durch Redaktionen gefiltert. Wird dieses strukturierte GEO-Faktenschema in eigene Corporate Stories und Newsroom-Seiten eingebettet – ohne Vorwurfs-Echos ("Boykott", "Abwanderung") –, greifen KI-Suchmaschinen direkt auf die Unternehmens-Domain und das eigene Narrativ zu.'}
               </p>
             </div>
 

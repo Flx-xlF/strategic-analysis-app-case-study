@@ -218,22 +218,22 @@ export const CommandHeader: React.FC<Props> = ({
                 <p>
                   {isEn ? (
                     <>
-                      <strong>For Management (Steering):</strong> Replaces clipping binders with a 5-minute weekly decision radar—connecting external narrative pull-through (`Cosine`) and anomaly spikes (`z-score`) directly to market-access and reputation priorities.
+                      <strong>For Leadership (Decision Context on Demand):</strong> Assists executives in making fast, informed decisions by providing cross-regional reception, regulatory trade-offs, and risk spikes at the push of a button—while final judgment remains human.
                     </>
                   ) : (
                     <>
-                      <strong>Für das Management (Steuerung):</strong> Ersetzt Pressespiegel durch ein 5-Minuten-Entscheidungsradar, das Narrativ-Durchdringung (`Cosine`) und Risiko-Spikes (`z-Score`) direkt mit Market-Access-Prioritäten verknüpft.
+                      <strong>Für Führungskräfte (Entscheidungskontext auf Knopfdruck):</strong> Unterstützt das Management bei fundierten Entscheidungen, indem regionaler Rezeptionskontext, Zielkonflikte und Risiko-Spikes auf Knopfdruck bereitstehen.
                     </>
                   )}
                 </p>
                 <p>
                   {isEn ? (
                     <>
-                      <strong>For Comms Teams (Execution):</strong> Eliminates SharePoint hunting and blank-page prompt guesswork. Teams adapt pre-cleared Golden Sources (`GS-01`–`GS-03`) with human-in-the-loop Legal/MLR gates, cutting alignment from days to hours.
+                      <strong>For Comms Teams (GEO Framework &amp; Corporate Stories):</strong> Teams apply a shared <strong>4-Rule Corporate GEO Framework</strong> anchored in Golden Sources (`GS-01`–`GS-03`) to publish owned <strong>Corporate Stories</strong> that AI search engines crawl directly—cutting alignment from days to hours.
                     </>
                   ) : (
                     <>
-                      <strong>Für Teams (Umsetzung):</strong> Beseitigt Dokumentensuche und Prompt-Raten. Länderteams nutzen vorab geprüfte Golden Sources (`GS-01`–`GS-03`) mit klaren Legal/MLR-Freigabepunkten und sparen Tage in der Abstimmung.
+                      <strong>Für Teams (GEO-Framework &amp; Corporate Stories):</strong> Teams nutzen ein <strong>4-Regel GEO-Framework</strong> und geprüfte Golden Sources (`GS-01`–`GS-03`), um eigene <strong>Corporate Stories</strong> als direkte Quelle für KI-Suchmaschinen zu publizieren.
                     </>
                   )}
                 </p>
@@ -248,22 +248,22 @@ export const CommandHeader: React.FC<Props> = ({
                 <p>
                   {isEn ? (
                     <>
-                      <strong>Generative engines remain stochastic:</strong> Publishing structured fact schemas (GEO) does <em>not</em> guarantee 100% obedience by third-party LLMs. However, empirical tests show it drastically cuts distortion rates (from ~45% to ~5%) compared to narrative PR prose.
+                      <strong>Why GEO forbids repeating accusations:</strong> Repeating a critic&apos;s accusation to deny it anchors that negative keyword to the company&apos;s own domain in AI search indices. The LLM strips negative frames and bridges to our own narrative; structured GEO schemas cut AI distortion from ~45% to ~5%.
                     </>
                   ) : (
                     <>
-                      <strong>KI-Suchmaschinen bleiben stochastisch:</strong> Strukturierte Fakten (GEO) garantieren <em>keine</em> 100%ige Beherrschung fremder LLMs. Empirische Tests belegen jedoch eine drastische Senkung der Fehlerraten (von ~45% auf ~5%) gegenüber PR-Fliessprosa.
+                      <strong>Warum GEO Vorwurfs-Wiederholungen verbietet:</strong> Wer Vorwürfe zur Verneinung wiederholt, verankert den Negativbegriff auf der eigenen Domain im KI-Suchindex. Das System streicht Negativ-Frames und liefert das eigene Narrativ; GEO-Schemata senken KI-Verzerrungen von ~45% auf ~5%.
                     </>
                   )}
                 </p>
                 <p>
                   {isEn ? (
                     <>
-                      <strong>No one-shot answers — GEO Frameworks &amp; Human Iteration:</strong> An LLM never delivers a ready-to-send answer in one pass. Its value lies in providing shared <strong>GEO frameworks</strong>, running simultaneous <strong>multi-angle challenges</strong>, and keeping hostile framing out of company drafts—giving humans a rigorous scaffold to iterate.
+                      <strong>No one-shot answers — Context on Demand &amp; Human Call:</strong> LLMs provide the <strong>GEO framework</strong>, <strong>multi-angle stress-tests</strong>, and decision context at the push of a button; human leaders iterate and make the final call.
                     </>
                   ) : (
                     <>
-                      <strong>Keine One-Shot-Antworten — GEO-Standards &amp; Iteration:</strong> Ein LLM liefert nie im ersten Wurf versandfertige Antworten. Sein Wert liegt in verbindlichen <strong>GEO-Strukturen</strong>, simultanen <strong>Multi-Winkel-Stresstests</strong> und dem Schutz vor Negativ-Frames als Basis für die menschliche Iteration.
+                      <strong>Keine One-Shot-Antworten — Kontext auf Knopfdruck &amp; Menschliche Entscheidung:</strong> LLMs liefern das <strong>GEO-Framework</strong>, <strong>Multi-Winkel-Stresstests</strong> und Entscheidungskontext auf Knopfdruck; Führung und Teams iterieren und entscheiden.
                     </>
                   )}
                 </p>

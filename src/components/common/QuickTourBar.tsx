@@ -50,7 +50,7 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
           'Classic PR was built around press releases aimed at media outlets. In the age of AI search, answer engines synthesize global press coverage, forums, and regional pages all at once. Even slight incoherence across regional adaptations and internal files dilutes the power of corporate communications.',
         whyItMatters:
           'Shows how global comms can operate differently during this shift: auditing where narratives lose traction in media and AI search (Outside-In) while building tight coherence around verified Golden Sources and shared GEO standards (Top-Down).',
-        tryThisLabel: 'Switch to Pluvicto Scenario',
+        tryThisLabel: 'Switch to Oncology RLT Scenario',
         targetTab: 'cockpit',
         targetRegion: 'all',
         openConceptGuide: false
@@ -58,11 +58,11 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
       {
         stepNumber: '02',
         shortLabel: 'Outside-In Measurement',
-        headline: '01 Regional Cockpit: Why Standard "AI Sentiment" Fails in Regulated Industries',
+        headline: '01 Regional Cockpit: Decision-Ready Context at the Push of a Button',
         whatYouSee:
           'We filtered the view to EU (Europe). Out of 48,420 raw articles and posts, standard NLP scores coverage as "76% Neutral" because journalists use formal financial and clinical language. Yet our statistical velocity funnel flags a +3.9σ escalation in EU/Swiss patient-access criticism.',
         whyItMatters:
-          'Moves reputation measurement beyond clipping books and vanity sentiment scores. Combining deterministic filtering (MinHash + HDBSCAN + z-score velocity) with targeted LLM reads gives leadership an early warning radar tied to real market-access stakes.',
+          'Assists leadership in making fast, informed decisions by synthesizing cross-regional reception, narrative pull-through, and market-access risks at the push of a button—while final judgment remains human.',
         tryThisLabel: 'Reset Filter to ALL Regions',
         targetTab: 'cockpit',
         targetRegion: 'eu',
@@ -73,22 +73,22 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
         shortLabel: 'GEO & AI Search Audit',
         headline: '02 Cluster & AI Audit: Generative Engine Optimization (GEO) in Practice',
         whatYouSee:
-          'While press releases target journalists, stakeholders increasingly query ChatGPT, Perplexity, and Gemini directly. When AI engines scrape varied regional coverage and unstructured PR prose—such as around Novartis’s $23B US expansion—incoherence across sources causes LLMs to conflate facts.',
+          'While press releases target journalists, stakeholders increasingly query ChatGPT, Perplexity, and Gemini directly. When AI engines scrape varied regional coverage and unstructured PR prose—such as around a $23B US manufacturing expansion—incoherence across sources causes LLMs to conflate facts.',
         whyItMatters:
           'Directly operationalizes Generative Engine Optimization (GEO). By auditing where AI engines misinterpret corporate context and publishing machine-readable GEO Fact Blocks (side-by-side on this screen), comms teams can cut LLM distortion rates from ~48% down to ~5%.',
-        tryThisLabel: 'Inspect Pluvicto GEO Audit',
+        tryThisLabel: 'Inspect Oncology RLT GEO Audit',
         targetTab: 'geo',
         targetRegion: 'all',
         openConceptGuide: false
       },
       {
         stepNumber: '04',
-        shortLabel: 'Regional Enablement',
-        headline: '03 Regional Playbook: Enabling Global & Country Teams via "Golden Sources"',
+        shortLabel: 'GEO Playbook & Stories',
+        headline: '03 Regional Playbook: Golden Sources, 4-Rule GEO Framework & Owned Corporate Stories',
         whatYouSee:
-          'Before generating any guidance, the system filters 1.42M internal SharePoint and Veeva Vault files down to 42 approved "Golden Sources" (GS-01 to GS-03) and quarantines outdated affiliate decks. It then cascades tailored messaging for US, EU, CH, and APAC.',
+          'Filters 1.42M internal files down to 42 approved "Golden Sources" (GS-01 to GS-03) and equips US, EU, CH, and APAC teams with a 4-Rule Corporate GEO Framework across owned Corporate Stories, social posts, talking points, and Q&As.',
         whyItMatters:
-          'Solves the hardest part of AI adoption—process integration: Management gets a 5-minute steering radar on narrative pull-through, while regional teams start from pre-cleared Golden Sources that cut Legal/MLR review cycles from days to hours.',
+          'While press releases depend on what journalists quote, GEO-structured Corporate Stories on the company’s own domain are crawled directly by AI search engines—giving global teams a coherent way to deliver the company’s full narrative.',
         tryThisLabel: 'Filter Playbook to Switzerland (CH)',
         targetTab: 'trending',
         targetRegion: 'all',
@@ -97,11 +97,11 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
       {
         stepNumber: '05',
         shortLabel: 'Stress-Test, GEO & IT',
-        headline: '04 Multi-Angle Stress-Test, Shared GEO Standards, Human Iteration & IT Fit',
+        headline: '04 Multi-Angle Stress-Test, GEO Accusation Hygiene, Human Iteration & IT Fit',
         whatYouSee:
-          'An LLM never delivers a finished, ready-to-send answer in one pass. Its strategic value is testing drafts across conflicting stakeholder angles simultaneously, enforcing GEO standards (such as keeping negative accusations out of company statements), and giving humans a strong scaffold to iterate.',
+          'An LLM never delivers a ready-to-send answer in one pass. Instead, it tests drafts across 5 stakeholder angles simultaneously and enforces GEO hygiene: stripping negative accusations (which otherwise get indexed against the company’s own domain by AI search engines) and bridging to our own narrative.',
         whyItMatters:
-          'Combines automated multi-angle challenge and GEO frameworks with human editorial judgment and enterprise IT governance (Veeva Vault, SharePoint, Enterprise AI Gateway).',
+          'Provides decision-ready context and a GEO-safe scaffold at the push of a button—leaving final nuance, trade-offs, and sign-off to human leadership within existing IT governance (Veeva Vault, SharePoint, AI Gateway).',
         tryThisLabel: 'Toggle Enterprise IT & Method Guide',
         targetTab: 'cascade',
         targetRegion: 'all',
@@ -119,7 +119,7 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
         'Klassische PR setzte auf Medienmitteilungen für Journalisten. Im Zeitalter der KI-Suche bündeln Antwortmaschinen weltweit Medienberichte, Foren und Länderseiten simultan. Selbst kleine Inkohärenzen zwischen regionalen Adaptionen und internen Dokumenten schwächen dabei die Durchschlagskraft der Kommunikation.',
       whyItMatters:
         'Zeigt, wie globale Kommunikation in diesem Wandel wieder Traktion aufbaut: durch Audits von Medien und KI-Suche (Outside-In) sowie hohe Kohärenz über verbindliche Golden Sources und gemeinsame GEO-Standards (Top-Down).',
-      tryThisLabel: 'Zum Pluvicto-Szenario wechseln',
+      tryThisLabel: 'Zum Onkologie-RLT-Szenario wechseln',
       targetTab: 'cockpit',
       targetRegion: 'all',
       openConceptGuide: false
@@ -127,11 +127,11 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
     {
       stepNumber: '02',
       shortLabel: 'Outside-In Messung',
-      headline: '01 Regionales Cockpit: Warum klassisches "KI-Sentiment" in regulierten Branchen versagt',
+      headline: '01 Regionales Cockpit: Entscheidungsrelevanter Kontext auf Knopfdruck',
       whatYouSee:
         'Die Ansicht ist auf EU gefiltert. Aus 48.420 Rohartikeln meldet Standard-NLP "76% Neutral", da Fachmedien sachlich formulieren. Unser statistischer Trichter erkennt jedoch frühzeitig eine +3.9σ Eskalation in der europäischen Zugangsdebatte.',
       whyItMatters:
-        'Ersetzt reine Pressespiegel und oberflächliche Sentiment-Werte durch belastbare Frühwarn-Indikatoren (MinHash + HDBSCAN + z-Score Dynamik + gezielter LLM-Pass), direkt verknüpft mit Market-Access-Risiken.',
+        'Unterstützt Führungskräfte bei fundierten Entscheidungen, indem regionaler Rezeptionskontext und Market-Access-Risiken auf Knopfdruck bereitstehen – während die finale Abwägung beim Menschen bleibt.',
       tryThisLabel: 'Filter auf ALLE Regionen setzen',
       targetTab: 'cockpit',
       targetRegion: 'eu',
@@ -145,19 +145,19 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
         'Während Medienmitteilungen an Journalisten adressiert sind, befragen Stakeholder zunehmend direkt ChatGPT, Perplexity und Gemini. Treffen KI-Modelle auf uneinheitliche regionale Berichte und unstrukturierte PR-Prosa – etwa zur 23-Mrd.-USD-Investition –, führen diese Inkohärenzen zu Kontextfehlern.',
       whyItMatters:
         'Setzt Generative Engine Optimization (GEO) konkret um: Durch das Auditieren von KI-Antworten und strukturierte GEO-Faktenblöcke lassen sich Halluzinationsraten in KI-Suchmaschinen von ~48% auf ~5% senken.',
-      tryThisLabel: 'Pluvicto GEO-Audit ansehen',
+      tryThisLabel: 'Onkologie-RLT GEO-Audit ansehen',
       targetTab: 'geo',
       targetRegion: 'all',
       openConceptGuide: false
     },
     {
       stepNumber: '04',
-      shortLabel: 'Regionale Befähigung',
-      headline: '03 Regionales Playbook: Globale Leitplanken & "Golden Sources" für Länderteams',
+      shortLabel: 'GEO-Playbook & Stories',
+      headline: '03 Regionales Playbook: Golden Sources, 4-Regel GEO-Framework & Corporate Stories',
       whatYouSee:
-        'Vor jeder Textausgabe filtert das System 1,42 Mio. interne SharePoint- und Veeva-Dateien auf 42 freigegebene "Golden Sources" (GS-01 bis GS-03) und sperrt veraltete Länder-Decks. Darauf basierend entstehen Playbooks für US, EU, CH und APAC.',
+        'Filtert 1,42 Mio. interne Dateien auf 42 freigegebene "Golden Sources" (GS-01 bis GS-03) und gibt Teams in US, EU, CH und APAC ein 4-Regel GEO-Framework für eigene Corporate Stories, Social-Posts, Talking Points und Q&As.',
       whyItMatters:
-        'Löst die Kernhürde bei KI-Integration – die Prozess-Einbettung: Das Management erhält ein 5-Minuten-Radar zur Narrativ-Durchdringung, während Länderteams mit geprüften Golden Sources arbeiten und MLR-Freigaben von Tagen auf Stunden verkürzen.',
+        'Während Medienmitteilungen durch Journalisten gefiltert werden, crawlen KI-Suchmaschinen GEO-strukturierte Corporate Stories direkt auf der Unternehmens-Domain – und übernehmen so das vollständige eigene Narrativ.',
       tryThisLabel: 'Playbook auf Schweiz (CH) filtern',
       targetTab: 'trending',
       targetRegion: 'all',
@@ -166,11 +166,11 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
     {
       stepNumber: '05',
       shortLabel: 'Stresstest, GEO & IT',
-      headline: '04 Multi-Winkel-Stresstest, GEO-Standards, Menschliche Iteration & IT-Integration',
+      headline: '04 Multi-Winkel-Stresstest, GEO-Vorwurfshygiene, Menschliche Iteration & IT-Integration',
       whatYouSee:
-        'Ein LLM liefert nie im ersten Durchlauf die fertige Antwort. Sein Wert liegt darin, Entwürfe simultan aus fünf kritischen Stakeholder-Perspektiven zu prüfen, verbindliche GEO-Standards zu sichern (keine Übernahme fremder Vorwürfe) und ein belastbares Gerüst für die menschliche Iteration zu liefern.',
+        'Ein LLM liefert nie im ersten Durchlauf die fertige Antwort. Es prüft Entwürfe simultan aus fünf Stakeholder-Perspektiven und sichert GEO-Hygiene: Es streicht Negativ-Vorwürfe (die KI-Suchmaschinen sonst auf der eigenen Domain indexieren) und baut Brücken zum eigenen Narrativ.',
       whyItMatters:
-        'Verbindet systematische Multi-Winkel-Prüfung und gemeinsame GEO-Frameworks mit menschlicher Urteilskraft sowie sauberer IT-Governance (Veeva Vault, SharePoint, Enterprise AI Gateway).',
+        'Liefert Entscheidungskontext und ein GEO-sicheres Arbeitsgerüst auf Knopfdruck – während Feinschliff und Freigabe beim Menschen innerhalb bestehender IT-Governance (Veeva Vault, SharePoint, AI Gateway) bleiben.',
       tryThisLabel: 'IT- & Methodik-Guide ein-/ausblenden',
       targetTab: 'cascade',
       targetRegion: 'all',
@@ -340,11 +340,11 @@ export const QuickTourBar: React.FC<Props> = ({
                       {currentStep === 0 || currentStep === 2
                         ? selectedScenarioId === 'pluvicto_access_debate'
                           ? isEn
-                            ? 'Switch to Novartis MFN Pricing Case'
-                            : 'Zum Novartis MFN-Preisszenario wechseln'
+                            ? 'Switch to Global Pharma MFN Pricing Case'
+                            : 'Zum Pharma-MFN-Preisszenario wechseln'
                           : isEn
-                          ? 'Compare with Novartis Pluvicto Case'
-                          : 'Mit Novartis Pluvicto-Fall vergleichen'
+                          ? 'Compare with Oncology Radioligand Case'
+                          : 'Mit Onkologie-Radioliganden-Fall vergleichen'
                         : currentStep === 4
                         ? showConceptGuide
                           ? isEn

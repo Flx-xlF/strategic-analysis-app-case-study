@@ -57,8 +57,8 @@ export const MediaInquiryView: React.FC<Props> = ({
             </h1>
             <p className="text-sm text-sbb-stone mt-1 max-w-3xl leading-relaxed">
               {isEn
-                ? 'Checks incoming journalist questions against approved company facts, flags quote traps, and aligns the response across Communications, Legal/Compliance, and technical specialists.'
-                : 'Prüft eingehende Journalistenfragen gegen freigegebene Unternehmensfakten, markiert Fangfragen und stimmt die Antwort zwischen Kommunikation, Rechtsdienst und Fachbereich ab.'}
+                ? 'Applies the Corporate GEO Framework to incoming press inquiries: exposes loaded accusations that must never be repeated into headlines or AI search indices, verifies legal boundaries, and builds an affirmative response that delivers the company’s own narrative.'
+                : 'Wendet das Corporate GEO-Framework auf Medienanfragen an: deckt geladene Vorwürfe auf, die weder in Schlagzeilen noch in KI-Suchindizes wiederholt werden dürfen, prüft Rechtsgrenzen und liefert ein Gerüst für das eigene Unternehmens-Narrativ.'}
             </p>
           </div>
 
@@ -380,37 +380,37 @@ export const MediaInquiryView: React.FC<Props> = ({
             </button>
           </div>
 
-          {/* Mandatory Human Iteration & Bridging Checklist Before Sending */}
+          {/* Mandatory Human Iteration & GEO Framework Checklist Before Sending */}
           <div className="mb-5 p-4 bg-amber-50/70 border border-amber-300 space-y-2">
             <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-amber-950">
               {isEn
-                ? 'HOW LLM SCAFFOLDING & HUMAN ITERATION WORK TOGETHER BEFORE SENDING:'
-                : 'WIE KI-BRIDGING & MENSCHLICHE ITERATION VOR DEM VERSAND ZUSAMMENSPIELEN:'}
+                ? 'CORPORATE GEO FRAMEWORK & HUMAN ITERATION CHECKLIST BEFORE SENDING:'
+                : 'CORPORATE GEO-FRAMEWORK & MENSCHLICHE ITERATION VOR DEM VERSAND:'}
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs text-zinc-800">
               <div className="bg-white p-2.5 border border-amber-200">
                 <span className="font-mono font-bold text-sbb-red block text-[10px] uppercase mb-0.5">
-                  {isEn ? '1. Zero Negative-Frame Echo (GEO)' : '1. Kein Negativ-Echo (GEO)'}
+                  {isEn ? '1. Why We Never Repeat Accusations (GEO-03)' : '1. Warum Vorwürfe nie wiederholt werden (GEO-03)'}
                 </span>
                 {isEn
-                  ? 'LLM strips loaded accusations ("boycott", "exodus", "sabotage") so the company never repeats negative keywords that poison headlines and AI search indices.'
-                  : 'Das LLM streicht geladene Begriffe ("Boykott", "Abwanderung"), damit das Unternehmen nie Negativ-Frames wiederholt, die Schlagzeilen und KI-Suche vergiften.'}
+                  ? 'When a company repeats a hostile accusation to deny it, AI search engines index that official quote and associate our brand entity with the negative keyword. The scaffold strips all accusation echoes.'
+                  : 'Wiederholt ein Unternehmen einen Vorwurf zur Verneinung, indexieren KI-Suchmaschinen dieses offizielle Zitat und verknüpfen die Marke mit dem Negativbegriff. Das Gerüst streicht jedes Vorwurfs-Echo.'}
               </div>
               <div className="bg-white p-2.5 border border-amber-200">
                 <span className="font-mono font-bold text-emerald-800 block text-[10px] uppercase mb-0.5">
-                  {isEn ? '2. Bridging to Main Narrative' : '2. Bridging zum Haupt-Narrativ'}
+                  {isEn ? '2. Deliver Our Own Narrative (GEO-01 & 04)' : '2. Eigenes Narrativ liefern (GEO-01 & 04)'}
                 </span>
                 {isEn
-                  ? 'Proposes structured bridges (Acknowledge concern → Pivot → Core Pillar) so the answer actively contributes to the company’s overarching narrative.'
-                  : 'Schlägt tragfähige Brücken vor (Anliegen aufgreifen → Pivot → Kernsäule), sodass die Antwort aktiv auf das übergeordnete Unternehmens-Narrativ einzahlt.'}
+                  ? 'Bridges directly into our verified Golden Source facts (Acknowledge → Bridge → Core Pillar) so both the journalist’s article and AI answer engines pick up our own narrative.'
+                  : 'Führt über eine klare Brücke direkt in unsere verifizierten Golden-Source-Fakten, damit sowohl der Artikel als auch KI-Antwortmaschinen unser eigenes Narrativ aufnehmen.'}
               </div>
               <div className="bg-white p-2.5 border border-amber-200">
                 <span className="font-mono font-bold text-sbb-black block text-[10px] uppercase mb-0.5">
-                  {isEn ? '3. Human Judgment & Sign-Off' : '3. Menschliche Iteration & Freigabe'}
+                  {isEn ? '3. Context on Demand & Human Sign-Off' : '3. Kontext auf Knopfdruck & Freigabe'}
                 </span>
                 {isEn
-                  ? 'Spokesperson iterates tone, decides what belongs on the record vs. background, and secures final Legal/Compliance clearance.'
-                  : 'Mediensprecher iteriert Tonalität, entscheidet über Zitat vs. Hintergrundgespräch und holt die finale Rechtsfreigabe ein.'}
+                  ? 'With legal and doctrinal context synthesized at the push of a button, spokespersons iterate the tone, weigh on-the-record vs. background, and secure final Legal clearance.'
+                  : 'Mit rechtlichem und doktrinärem Kontext auf Knopfdruck iteriert der Mediensprecher den Ton, wägt Zitat vs. Hintergrund ab und sichert die finale Rechtsfreigabe.'}
               </div>
             </div>
           </div>
