@@ -65,8 +65,8 @@ export const GeoAuditView: React.FC<Props> = ({
             </h1>
             <p className="text-sm text-sbb-stone mt-1 max-w-3xl leading-relaxed">
               {isEn
-                ? 'Drills into statistically identified clusters, inspects raw centroid articles from trade outlets, and audits where frontier LLMs hallucinate or misrepresent corporate trial endpoints.'
-                : 'Analysiert statistisch isolierte Themencluster im Detail, prüft Originaltexte von Fachmedien und deckt auf, wo KI-Antwortmaschinen Falschinformationen synthetisieren.'}
+                ? 'Examines how trade media coverage and incoherent regional sources get synthesized by AI answer engines—pinpointing where LLMs distort corporate facts and how structured GEO standards restore clarity.'
+                : 'Untersucht, wie Fachmedienberichte und inkohärente regionale Quellen von KI-Antwortmaschinen zusammengezogen werden – zeigt präzise, wo LLMs Fakten verzerren und wie strukturierte GEO-Standards Klarheit schaffen.'}
             </p>
           </div>
 

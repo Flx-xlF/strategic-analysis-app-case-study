@@ -169,11 +169,11 @@ export const CommandHeader: React.FC<Props> = ({
             <div className="mb-5 p-3.5 bg-white border-l-4 border-sbb-red border border-zinc-200 text-xs text-sbb-black leading-relaxed">
               {isEn ? (
                 <>
-                  <strong>THE CORE PREMISE:</strong> When stakeholders ask AI search engines before reading a press release, fragmented communication becomes a global risk. Internally, messaging easily splinters across regional silos and millions of vault files; externally, AI answer engines turn those contradictions into the public record. <strong>This system gets global teams working from the same verified Golden Sources and shared GEO frameworks—so the company’s own voice shapes public perception and AI search.</strong>
+                  <strong>THE CORE PREMISE:</strong> Classic PR relied on press releases aimed at media outlets. In the age of AI search, answer engines continuously synthesize coverage, forums, and corporate channels across borders—meaning <strong>incoherence</strong> across regional adaptations and internal files directly weakens the power of corporate communications. <strong>This system helps global teams gain traction in the AI shift: auditing media and AI answers (Outside-In) while building tight coherence around verified Golden Sources and shared GEO standards (Top-Down).</strong>
                 </>
               ) : (
                 <>
-                  <strong>DIE KERNTHESE:</strong> Wenn Stakeholder KI-Suchmaschinen vor jeder Pressemitteilung befragen, wird fragmentierte Kommunikation zum globalen Risiko. Intern zersplittern Botschaften leicht zwischen Ländersilos und Millionen Vault-Dateien; extern machen KI-Antwortmaschinen diese Widersprüche zum öffentlichen Bild. <strong>Dieses System verankert verbindliche Golden Sources und gemeinsame GEO-Standards für alle Teams – damit die eigene Stimme öffentliche Wahrnehmung und KI-Suche prägt.</strong>
+                  <strong>DIE KERNTHESE:</strong> Klassische PR setzte auf Medienmitteilungen für Journalisten. Im Zeitalter der KI-Suche bündeln Antwortmaschinen fortlaufend Berichte, Foren und Unternehmenskanäle über Ländergrenzen hinweg – wodurch <strong>Inkohärenz</strong> zwischen regionalen Adaptionen und internen Dokumenten die Durchschlagskraft der Kommunikation direkt schwächt. <strong>Dieses System schafft Traktion im KI-Wandel: durch Audits von Medien und KI-Antworten (Outside-In) sowie hohe Kohärenz über verbindliche Golden Sources und gemeinsame GEO-Standards (Top-Down).</strong>
                 </>
               )}
             </div>

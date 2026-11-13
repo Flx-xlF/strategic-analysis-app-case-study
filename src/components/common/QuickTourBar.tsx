@@ -45,11 +45,11 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
       {
         stepNumber: '01',
         shortLabel: 'Core Premise',
-        headline: 'Speaking With One Voice When AI Synthesizes Everything: Shaping Public & AI Reception',
+        headline: 'Gaining Traction in the AI Shift: Why Coherence Across Global Comms Matters Now',
         whatYouSee:
-          'When stakeholders ask AI search engines before reading a press release, fragmented messaging becomes a global risk. This prototype shows how global teams can work from the same verified facts and GEO standards (Top-Down) while tracking where media and AI answers distort the company’s position (Outside-In).',
+          'Classic PR was built around press releases aimed at media outlets. In the age of AI search, answer engines synthesize global press coverage, forums, and regional pages all at once. Even slight incoherence across regional adaptations and internal files dilutes the power of corporate communications.',
         whyItMatters:
-          'Connects statistical media filtering and AI-search (GEO) audits with shared Golden Source playbooks—so the company’s own voice, not outside speculation, shapes public perception across US, EU, CH, and APAC.',
+          'Shows how global comms can operate differently during this shift: auditing where narratives lose traction in media and AI search (Outside-In) while building tight coherence around verified Golden Sources and shared GEO standards (Top-Down).',
         tryThisLabel: 'Switch to Pluvicto Scenario',
         targetTab: 'cockpit',
         targetRegion: 'all',
@@ -73,7 +73,7 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
         shortLabel: 'GEO & AI Search Audit',
         headline: '02 Cluster & AI Audit: Generative Engine Optimization (GEO) in Practice',
         whatYouSee:
-          'Stakeholders increasingly ask ChatGPT, Perplexity, and Gemini complex questions before reading press releases—such as whether Novartis’s $23B US expansion means leaving Basel or delaying EU launches. Unstructured PR prose causes LLMs to conflate facts and hallucinate.',
+          'While press releases target journalists, stakeholders increasingly query ChatGPT, Perplexity, and Gemini directly. When AI engines scrape varied regional coverage and unstructured PR prose—such as around Novartis’s $23B US expansion—incoherence across sources causes LLMs to conflate facts.',
         whyItMatters:
           'Directly operationalizes Generative Engine Optimization (GEO). By auditing where AI engines misinterpret corporate context and publishing machine-readable GEO Fact Blocks (side-by-side on this screen), comms teams can cut LLM distortion rates from ~48% down to ~5%.',
         tryThisLabel: 'Inspect Pluvicto GEO Audit',
@@ -114,11 +114,11 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
     {
       stepNumber: '01',
       shortLabel: 'Grundthese',
-      headline: 'Mit einer Stimme sprechen, wenn KI alles zusammenfasst: Öffentliche Wahrnehmung & KI-Suche steuern',
+      headline: 'Traktion im KI-Wandel gewinnen: Warum Kohärenz in der globalen Kommunikation jetzt entscheidend ist',
       whatYouSee:
-        'Wenn Stakeholder KI-Suchmaschinen vor jeder Pressemitteilung befragen, werden widersprüchliche Botschaften zum globalen Risiko. Dieser Prototyp zeigt, wie Teams weltweit auf Basis derselben Fakten und GEO-Standards arbeiten (Top-Down) und Verzerrungen in Medien sowie KI-Antworten frühzeitig korrigieren (Outside-In).',
+        'Klassische PR setzte auf Medienmitteilungen für Journalisten. Im Zeitalter der KI-Suche bündeln Antwortmaschinen weltweit Medienberichte, Foren und Länderseiten simultan. Selbst kleine Inkohärenzen zwischen regionalen Adaptionen und internen Dokumenten schwächen dabei die Durchschlagskraft der Kommunikation.',
       whyItMatters:
-        'Verbindet statistische Medienanalyse und KI-Such-Audits (GEO) mit verbindlichen Golden-Source-Playbooks – damit die eigene Position und nicht externe Spekulation die Wahrnehmung in US, EU, CH und APAC prägt.',
+        'Zeigt, wie globale Kommunikation in diesem Wandel wieder Traktion aufbaut: durch Audits von Medien und KI-Suche (Outside-In) sowie hohe Kohärenz über verbindliche Golden Sources und gemeinsame GEO-Standards (Top-Down).',
       tryThisLabel: 'Zum Pluvicto-Szenario wechseln',
       targetTab: 'cockpit',
       targetRegion: 'all',
@@ -142,7 +142,7 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
       shortLabel: 'GEO & KI-Such-Audit',
       headline: '02 Cluster & KI-Audit: Generative Engine Optimization (GEO) in der Praxis',
       whatYouSee:
-        'Stakeholder befragen zunehmend ChatGPT, Perplexity und Gemini vor klassischen Kanälen – etwa ob die 23-Mrd.-USD-Investition in den USA einen Rückzug aus Basel bedeutet. Reine PR-Prosa führt bei LLMs zu Kontextfehlern.',
+        'Während Medienmitteilungen an Journalisten adressiert sind, befragen Stakeholder zunehmend direkt ChatGPT, Perplexity und Gemini. Treffen KI-Modelle auf uneinheitliche regionale Berichte und unstrukturierte PR-Prosa – etwa zur 23-Mrd.-USD-Investition –, führen diese Inkohärenzen zu Kontextfehlern.',
       whyItMatters:
         'Setzt Generative Engine Optimization (GEO) konkret um: Durch das Auditieren von KI-Antworten und strukturierte GEO-Faktenblöcke lassen sich Halluzinationsraten in KI-Suchmaschinen von ~48% auf ~5% senken.',
       tryThisLabel: 'Pluvicto GEO-Audit ansehen',

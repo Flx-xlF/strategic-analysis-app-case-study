@@ -110,8 +110,8 @@ export const TrendingFactoryView: React.FC<Props> = ({
             </h1>
             <p className="text-sm text-sbb-stone mt-1 max-w-3xl leading-relaxed">
               {isEn
-                ? 'Aligns global and country teams around 42 verified Golden Sources (filtering out 1.42M unapproved vault files) and enforces shared GEO standards so every regional adaptation consistently reinforces the company’s position in media and AI search.'
-                : 'Richtet globale und lokale Teams auf 42 geprüfte Golden Sources aus (aus 1,42 Mio. Vault-Dateien) und verankert gemeinsame GEO-Standards, damit jede regionale Adaption die Unternehmensposition in Medien und KI-Suche konsistent stärkt.'}
+                ? 'Prevents cross-regional incoherence from diluting the company’s voice: locks onto 42 verified Golden Sources (across 1.42M vault files) and provides shared GEO standards so global and local teams gain consistent traction across media and AI search.'
+                : 'Verhindert, dass regionale Inkohärenz die Unternehmensstimme schwächt: verankert 42 geprüfte Golden Sources (aus 1,42 Mio. Vault-Dateien) und gemeinsame GEO-Standards, damit Teams weltweit in Medien und KI-Suche konsistent Traktion aufbauen.'}
             </p>
           </div>
 
