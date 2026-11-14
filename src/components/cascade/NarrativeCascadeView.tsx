@@ -124,8 +124,8 @@ export const NarrativeCascadeView: React.FC<Props> = ({
             </span>
             <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-stone">
               {isEn
-                ? 'ITERATIVE STRESS-TEST: MULTI-ANGLE CHALLENGE & GEO ALIGNMENT → HUMAN REFINEMENT'
-                : 'ITERATIVER STRESSTEST: MULTI-WINKEL-CHALLENGE & GEO-ABGLEICH → MENSCHLICHE ITERATION'}
+                ? 'COMPARE DRAFTS: INITIAL VERSION VS. REVISED VERSION'
+                : 'ENTWÜRFE VERGLEICHEN: ROHENTWURF VS. ÜBERARBEITETE VERSION'}
             </span>
           </div>
 
@@ -152,42 +152,6 @@ export const NarrativeCascadeView: React.FC<Props> = ({
               <CheckCircle2 className="w-3.5 h-3.5" />
               <span>{isEn ? 'Iteration 2: Bridged & Refined' : 'Iteration 2: Mit Bridging iteriert'}</span>
             </button>
-          </div>
-        </div>
-
-        {/* 3-Step Practitioner Loop Explain Strip */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs bg-white border border-sbb-aluminum p-4">
-          <div className="p-3 bg-sbb-cloud/50 border border-zinc-200">
-            <div className="font-mono text-[10px] font-bold uppercase text-sbb-black mb-1">
-              {isEn ? '1. INITIAL DRAFT (GEO & FLANK RISK)' : '1. ERSTER ENTWURF (GEO- & FLANKEN-RISIKO)'}
-            </div>
-            <p className="text-zinc-600 leading-snug">
-              {isEn
-                ? 'Addresses the topic directly, but repeats negative frames or leaves flanks open—causing both journalists and AI search engines to index the critic’s accusation alongside our brand.'
-                : 'Reagiert direkt auf das Thema, wiederholt jedoch Negativ-Frames oder lässt Flanken offen – wodurch Medien und KI-Suchmaschinen den Vorwurf direkt mit dem Unternehmen verknüpfen.'}
-            </p>
-          </div>
-
-          <div className="p-3 bg-red-50/40 border border-red-200">
-            <div className="font-mono text-[10px] font-bold uppercase text-red-700 mb-1">
-              {isEn ? '2. GEO FRAMEWORK & MULTI-ANGLE CHALLENGE' : '2. GEO-FRAMEWORK & MULTI-WINKEL-CHALLENGE'}
-            </div>
-            <p className="text-zinc-700 leading-snug">
-              {isEn
-                ? 'Tests 5 stakeholder angles at once, flags accusation echoes that BM25 + dense vector hybrid retrieval would index against our brand (GEO-03), and pairs quotable stats (+31%–41% lift) with affirmative bridges (GEO-04).'
-                : 'Prüft simultan 5 Stakeholder-Winkel, markiert Vorwurfs-Echos im BM25 + Dense-Vector-Retrieval (GEO-03) und koppelt zitierfähige Zahlen (+31%–41% Lift) mit affirmativem Bridging (GEO-04).'}
-            </p>
-          </div>
-
-          <div className="p-3 bg-emerald-50/40 border border-emerald-300">
-            <div className="font-mono text-[10px] font-bold uppercase text-emerald-900 mb-1">
-              {isEn ? '3. HUMAN ITERATION & DECISION CONTEXT' : '3. MENSCHLICHE ITERATION & ENTSCHEIDUNG'}
-            </div>
-            <p className="text-zinc-700 leading-snug">
-              {isEn
-                ? 'With full stakeholder context available at the push of a button, leadership selects the strongest bridge, refines tone so our own narrative leads, and routes Iteration 2 to Legal.'
-                : 'Mit vollem Kontext auf Knopfdruck wählt die Führung die tragfähigste Brücke, schärft den Ton zugunsten des eigenen Narrativs und gibt Iteration 2 in die Rechtsprüfung.'}
-            </p>
           </div>
         </div>
 
@@ -394,7 +358,7 @@ export const NarrativeCascadeView: React.FC<Props> = ({
             05
           </span>
           <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-stone">
-            {isEn ? 'STRATEGIC DECISION FRAMEWORK & VERDICT' : 'STRATEGISCHE WEICHENSTELLUNG'}
+            {isEn ? 'SUMMARY & RECOMMENDED NEXT STEPS' : 'ZUSAMMENFASSUNG & NÄCHSTE SCHRITTE'}
           </span>
         </div>
 

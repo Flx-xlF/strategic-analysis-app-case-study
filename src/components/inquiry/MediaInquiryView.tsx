@@ -380,41 +380,6 @@ export const MediaInquiryView: React.FC<Props> = ({
             </button>
           </div>
 
-          {/* Mandatory Human Iteration & GEO Framework Checklist Before Sending */}
-          <div className="mb-5 p-4 bg-amber-50/70 border border-amber-300 space-y-2">
-            <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-amber-950">
-              {isEn
-                ? 'CORPORATE GEO FRAMEWORK & HUMAN ITERATION CHECKLIST BEFORE SENDING:'
-                : 'CORPORATE GEO-FRAMEWORK & MENSCHLICHE ITERATION VOR DEM VERSAND:'}
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs text-zinc-800">
-              <div className="bg-white p-2.5 border border-amber-200">
-                <span className="font-mono font-bold text-red-700 block text-[10px] uppercase mb-0.5">
-                  {isEn ? '1. Zero Negative-Frame Co-Occurrence (GEO-03)' : '1. Keine Negativ-Frame-Kookkurrenz (GEO-03)'}
-                </span>
-                {isEn
-                  ? 'Repeating a hostile accusation to deny it causes BM25 + dense vector hybrid retrieval to index our official quote and anchor our brand entity to the negative keyword. The scaffold strips all accusation echoes.'
-                  : 'Wiederholt ein Unternehmen einen Vorwurf zur Verneinung, indexiert Hybrid-Retrieval (BM25 + Dense Vector) dieses Zitat und verknüpft die Marke mit dem Negativbegriff. Das Gerüst streicht jedes Vorwurfs-Echo.'}
-              </div>
-              <div className="bg-white p-2.5 border border-amber-200">
-                <span className="font-mono font-bold text-emerald-800 block text-[10px] uppercase mb-0.5">
-                  {isEn ? '2. Affirmative Bridging & Stat Lift (GEO-01 & 04)' : '2. Affirmatives Bridging & Zahlen-Lift (GEO-01 & 04)'}
-                </span>
-                {isEn
-                  ? 'Bridges directly into verified Golden Source facts and quotable statistics (+31%–41% earned-media lift) so both the journalist’s article and AI answer engines absorb our own narrative.'
-                  : 'Führt direkt in verifizierte Golden-Source-Fakten und zitierfähige Zahlen (+31%–41% Earned-Media-Lift), damit Presseartikel und KI-Suchmaschinen unser eigenes Narrativ übernehmen.'}
-              </div>
-              <div className="bg-white p-2.5 border border-amber-200">
-                <span className="font-mono font-bold text-sbb-black block text-[10px] uppercase mb-0.5">
-                  {isEn ? '3. Context on Demand & Human Sign-Off' : '3. Kontext auf Knopfdruck & Freigabe'}
-                </span>
-                {isEn
-                  ? 'With legal and doctrinal context synthesized at the push of a button, spokespersons iterate the tone, weigh on-the-record vs. background, and secure final Legal clearance.'
-                  : 'Mit rechtlichem und doktrinärem Kontext auf Knopfdruck iteriert der Mediensprecher den Ton, wägt Zitat vs. Hintergrund ab und sichert die finale Rechtsfreigabe.'}
-              </div>
-            </div>
-          </div>
-
           {/* Statement Content */}
           <div className="bg-sbb-cloud/40 p-6 border-l-4 border-sbb-black text-base text-sbb-black leading-relaxed whitespace-pre-line max-w-4xl font-sans mb-6">
             {data.recommended_statement}

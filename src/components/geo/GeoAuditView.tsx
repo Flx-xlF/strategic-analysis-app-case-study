@@ -68,20 +68,9 @@ export const GeoAuditView: React.FC<Props> = ({
             </h1>
             <p className="text-sm text-sbb-stone mt-1 max-w-3xl leading-relaxed">
               {isEn
-                ? 'Examines how trade media coverage and incoherent regional sources get synthesized via query fan-out (5–11 parallel sub-queries)—pinpointing where LLMs distort corporate facts across n=20 runs and how answer-first GEO restores factual fidelity.'
-                : 'Untersucht, wie Fachmedienberichte und inkohärente regionale Quellen per Query Fan-Out (5–11 parallele Sub-Anfragen) zusammengezogen werden – zeigt über n=20 Läufe präzise, wo LLMs Fakten verzerren und wie Answer-First GEO Fakten-Treue sichert.'}
+                ? 'Inspects the representative articles driving this cluster, where AI search engines mix up or omit facts across n=20 test runs, and how clear opening facts fix the summary.'
+                : 'Zeigt die repräsentativen Artikel dieses Clusters, wo KI-Suchmaschinen Fakten über n=20 Testläufe verzerren und wie klare Fakten am Textanfang die Zusammenfassung korrigieren.'}
             </p>
-            <div className="mt-2.5 flex flex-wrap items-center gap-2 text-[10px] font-mono text-zinc-700">
-              <span className="px-2 py-0.5 bg-sbb-cloud border border-zinc-300 font-bold">
-                {isEn ? '~70% Zero-Click Searches' : '~70% Zero-Click-Suchen'}
-              </span>
-              <span className="px-2 py-0.5 bg-sbb-cloud border border-zinc-300 font-bold">
-                {isEn ? '<1% AI Referral Traffic' : '<1% KI-Referral-Traffic'}
-              </span>
-              <span className="px-2 py-0.5 bg-red-50 border border-red-200 text-red-700 font-bold">
-                {isEn ? '<0.1% Single-Run Ranking Repeatability (n=20 Multi-Run Audit)' : '<0,1% Wiederholbarkeit bei Einzel-Läufen (n=20 Audit)'}
-              </span>
-            </div>
           </div>
 
           <div className="flex items-center gap-3 shrink-0">
@@ -222,8 +211,8 @@ export const GeoAuditView: React.FC<Props> = ({
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2 border-b border-zinc-200">
               <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-sbb-black">
                 {isEn
-                  ? 'NARRATIVE PULL-THROUGH & DISTORTION METER (TARGET BENCHMARK VS. LLM REALITY)'
-                  : 'NARRATIV-DURCHDRINGUNG & VERZERRUNGS-METER (SOLL-BENCHMARK VS. KI-REALITÄT)'}
+                  ? 'SOURCE ALIGNMENT & AI ANSWER CHECK'
+                  : 'QUELLEN-ABGLEICH & KI-ANTWORT-CHECK'}
               </span>
               <span className="text-[10px] font-mono text-sbb-stone">
                 {isEn ? `Engine Audited: ${data.queried_engine}` : `Geprüfte Engine: ${data.queried_engine}`}
@@ -298,8 +287,8 @@ export const GeoAuditView: React.FC<Props> = ({
                   <div className="h-full bg-amber-400" style={{ width: '5%' }} />
                 </div>
                 <div className="flex justify-between text-[10px] text-emerald-900">
-                  <span className="font-bold">95% {isEn ? 'Citation Absorption (n=20 runs)' : 'Fakten-Absorption (n=20 Läufe)'}</span>
-                  <span>~5% {isEn ? 'Stochastic Variance' : 'Restvarianz'}</span>
+                  <span className="font-bold">95% {isEn ? 'Accurate in Test Runs (n=20)' : 'Korrekt in Testläufen (n=20)'}</span>
+                  <span>~5% {isEn ? 'Remaining Variance' : 'Restabweichung'}</span>
                 </div>
               </div>
             </div>
@@ -484,7 +473,7 @@ export const GeoAuditView: React.FC<Props> = ({
             03
           </span>
           <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-stone">
-            {isEn ? 'ANSWER-FIRST GEO PASSAGE ENGINEERING: SURVIVING RERANKING & DRIVING ABSORPTION' : 'ANSWER-FIRST GEO-PASSAGEN: RERANKING ÜBERSTEHEN & FAKTEN-ABSORPTION SICHERN'}
+            {isEn ? 'BEFORE & AFTER: REWRITING VAGUE PR COPY INTO CLEAR FACTS' : 'VORHER & NACHHER: VAGE PR-PROSA VS. KLARE FAKTEN'}
           </span>
         </div>
 
@@ -493,13 +482,13 @@ export const GeoAuditView: React.FC<Props> = ({
             <div>
               <h3 className="text-lg font-bold text-sbb-black">
                 {isEn
-                  ? 'Deploying Answer-First HTML Passage Blocks Across Owned Stories & Earned Media'
-                  : 'Einsatz von Answer-First HTML-Passagen in Corporate Stories & Medienarbeit'}
+                  ? 'Front-Loading Core Facts for Newsrooms, Owned Pages & AI Search'
+                  : 'Kernaussagen und Fakten an den Anfang stellen'}
               </h3>
               <p className="text-xs text-sbb-stone mt-0.5 max-w-3xl leading-relaxed">
                 {isEn 
-                  ? 'Empirical GEO research shows Schema.org tags and llms.txt offer no causal citation lift, and single-run AI rankings repeat <0.1%. Surviving the reranker cutoff and reducing distorted summaries (~45% → ~5% across n=20 runs) requires answer-first SSR HTML passage blocks (opening 30%, +61.5% absorption lift) for non-JS crawlers (OAI-SearchBot, PerplexityBot, Claude-SearchBot) paired with quotable earned-media stats (+31%–41% lift).' 
-                  : 'Empirische GEO-Studien zeigen: Schema.org und llms.txt bieten keinen Zitier-Lift, und Einzel-Rankings wiederholen sich zu <0,1%. Weniger KI-Verzerrungen (~45% → ~5% über n=20 Läufe) erfordern Answer-First SSR HTML-Passagen (erste 30%, +61,5% Lift) für Non-JS-Crawler (OAI-SearchBot, PerplexityBot, Claude-SearchBot) sowie zitierfähige Presse-Zahlen (+31%–41% Lift).'}
+                  ? 'Vague PR intros get cut off when search engines retrieve passages. Putting the core conclusion and key numbers in the opening paragraph gives AI search engines and journalists clear facts to cite.' 
+                  : 'Vage PR-Einleitungen fallen beim Such-Retrieval oft weg. Wer Kernaussage und Zahlen direkt in den ersten Absatz stellt, gibt KI-Suchmaschinen und Medien klare Fakten zum Zitieren.'}
               </p>
             </div>
 

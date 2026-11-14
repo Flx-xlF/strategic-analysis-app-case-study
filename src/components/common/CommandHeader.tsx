@@ -61,7 +61,7 @@ export const CommandHeader: React.FC<Props> = ({
           <div className="flex items-center gap-3 min-w-0">
             <div className="w-2.5 h-2.5 bg-sbb-red shrink-0" />
             <span className="type-ui font-black text-white tracking-[0.16em] sm:tracking-[0.2em] text-[10px] sm:text-[11px] truncate">
-              TERRAIN // TWO-WAY STRATEGIC COMMS COCKPIT
+              TERRAIN // COMMS & AI SEARCH PROTOTYPE
             </span>
           </div>
 

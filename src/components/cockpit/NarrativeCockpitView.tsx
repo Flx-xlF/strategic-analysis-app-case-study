@@ -72,7 +72,7 @@ export const NarrativeCockpitView: React.FC<Props> = ({
               <span>{isEn ? 'DIRECTION 1: OUTSIDE-IN (ANALYZE & MEASURE) // MODULE 01' : 'RICHTUNG 1: OUTSIDE-IN (ANALYSIEREN & MESSEN) // MODUL 01'}</span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-black text-sbb-black tracking-tight">
-              {isEn ? 'Regional Narrative Synthesis & LLM Intelligence Cockpit' : 'Regionales Reputations- & KI-Synthese-Cockpit'}
+              {isEn ? 'Regional Media & AI Search Cockpit' : 'Regionales Medien- & KI-Such-Cockpit'}
             </h1>
             <p className="text-sm text-sbb-stone mt-1 max-w-3xl leading-relaxed">
               {isEn
@@ -98,7 +98,7 @@ export const NarrativeCockpitView: React.FC<Props> = ({
               01
             </span>
             <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-red">
-              {isEn ? 'EXECUTIVE DIAGNOSIS: WHY SURFACE METRICS OVERLOOK CRISES' : 'EXECUTIVE-DIAGNOSE: WARUM STANDARD-SCORES KRISEN ÜBERSEHEN'}
+              {isEn ? 'WHY SURFACE SENTIMENT SCORES MISS EMERGING RISKS' : 'WARUM OBERFLÄCHLICHES SENTIMENT RISIKEN ÜBERSIEHT'}
             </span>
           </div>
           <span className="text-[10px] font-mono text-sbb-stone hidden sm:inline">
@@ -193,7 +193,7 @@ export const NarrativeCockpitView: React.FC<Props> = ({
               02
             </span>
             <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-stone">
-              {isEn ? 'WORLD REGION SYNTHESIS: STATISTICAL & CHANNEL DIVERGENCE' : 'REGIONALE SYNTHESE: STATISTISCHE & KANAL-DIVERGENZ'}
+              {isEn ? 'REGIONAL BREAKDOWN ACROSS MEDIA, FORUMS & AI SEARCH' : 'REGIONALER VERGLEICH: MEDIEN, FOREN & KI-SUCHE'}
             </span>
           </div>
 
@@ -365,7 +365,7 @@ export const NarrativeCockpitView: React.FC<Props> = ({
               03
             </span>
             <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-stone">
-              {isEn ? 'METHODOLOGY & BENCHMARK: STATISTICAL FUNNEL & HQ NARRATIVE PILLARS' : 'METHODIK & MASSSTAB: DATENTRICHTER & UNTERNEHMENS-NARRATIVE'}
+              {isEn ? 'FILTERING PIPELINE & CORE NARRATIVE PILLARS' : 'FILTER-PIPELINE & KERNARGUMENTE'}
             </span>
           </div>
           <span className="text-[10px] font-mono text-sbb-stone hidden sm:inline">
@@ -376,7 +376,7 @@ export const NarrativeCockpitView: React.FC<Props> = ({
         {/* 4-Stage Statistical + LLM Filtering Pipeline Funnel */}
         <div className="bg-white border border-sbb-aluminum p-6 space-y-3">
           <div className="flex items-center justify-between text-[10px] font-mono uppercase tracking-wider text-sbb-stone font-bold">
-            <span>{isEn ? 'MULTI-STAGE DATA FUNNEL (COPING WITH TENS OF THOUSANDS OF EXTERNAL ITEMS)' : 'MEHRSTUFIGE STATISTISCHE DATENPIPELINE (BEWÄLTIGUNG VON ZEHNTAUSENDEN MELDUNGEN)'}</span>
+            <span>{isEn ? '4-STAGE FILTERING PIPELINE (LAST 72 HOURS)' : '4-STUFIGE FILTER-PIPELINE (LETZTE 72 STUNDEN)'}</span>
             <span>{data.timeframe}</span>
           </div>
 

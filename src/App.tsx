@@ -147,13 +147,13 @@ export const App: React.FC = () => {
         <div className="max-w-[1600px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex flex-wrap items-center gap-3">
             <div className="w-2.5 h-2.5 bg-sbb-red shrink-0" />
-            <span className="font-bold text-sbb-black">TERRAIN STRATEGIC COMMS COCKPIT & ENABLEMENT ARCHITECTURE</span>
+            <span className="font-bold text-sbb-black">TERRAIN // COMMS & AI SEARCH PROTOTYPE</span>
             <span className="text-zinc-600">//</span>
-            <span>{isEn ? 'Two-Way Statistical & LLM Sandbox' : 'Zwei-Wege-System für statistische & LLM-Reputationssteuerung'}</span>
+            <span>{isEn ? 'Client-Side Prototype' : 'Interaktiver Prototyp'}</span>
           </div>
           <div className="flex flex-wrap items-center gap-6">
             <span className="text-zinc-600">
-              {isEn ? 'Outside-In Measurement ↔ Top-Down Regional Enablement' : 'Outside-In Messung ↔ Top-Down Regionale Befähigung'}
+              {isEn ? 'Outside-In Monitoring ↔ Top-Down Playbooks' : 'Outside-In Monitoring ↔ Top-Down Playbooks'}
             </span>
             <a
               href="https://github.com/Flx-xlF/strategic-analysis-app-case-study"

@@ -111,32 +111,32 @@ export const TrendingFactoryView: React.FC<Props> = ({
               <span>{isEn ? 'DIRECTION 2: TOP-DOWN (DEFINE & ENABLE) // MODULE 03' : 'RICHTUNG 2: TOP-DOWN (DEFINIEREN & BEFÄHIGEN) // MODUL 03'}</span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-black text-sbb-black tracking-tight">
-              {isEn ? 'Core Narrative Definition & Multi-Region GEO Playbook' : 'Kern-Narrativ-Definition & Multi-Regionen GEO-Playbook'}
+              {isEn ? 'Approved Sources & Regional Draft Playbook' : 'Geprüfte Quellen & Regionales Entwurfs-Playbook'}
             </h1>
             <p className="text-sm text-sbb-stone mt-1 max-w-3xl leading-relaxed">
               {isEn
-                ? `Prevents cross-regional incoherence from diluting corporate communications: filters ${data.corpus_gate.raw_enterprise_files.toLocaleString(locale)} internal vault files down to ${data.corpus_gate.canonical_golden_sources} verified, topic-specific Golden Sources, flags superseded public PDFs, and enforces shared, channel-adapted GEO standards across media and AI search.`
-                : `Verhindert, dass regionale Inkohärenz die Unternehmenskommunikation schwächt: filtert ${data.corpus_gate.raw_enterprise_files.toLocaleString(locale)} interne Vault-Dateien auf ${data.corpus_gate.canonical_golden_sources} geprüfte, themenspezifische Golden Sources, markiert veraltete öffentliche PDFs und setzt verbindliche, kanal-adaptierte GEO-Standards durch.`}
+                ? `Filters ${data.corpus_gate.raw_enterprise_files.toLocaleString(locale)} internal repository files down to ${data.corpus_gate.canonical_golden_sources} approved Golden Sources, flags outdated PDFs, and applies four shared writing rules across regional drafts.`
+                : `Filtert ${data.corpus_gate.raw_enterprise_files.toLocaleString(locale)} interne Dokumente auf ${data.corpus_gate.canonical_golden_sources} freigegebene Golden Sources, markiert veraltete PDFs und wendet vier gemeinsame Schreibregeln auf regionale Entwürfe an.`}
             </p>
           </div>
 
           <div className="flex items-center gap-3 shrink-0">
             <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-sbb-cloud border border-sbb-aluminum font-mono text-xs text-sbb-black font-bold">
               <Lock className="w-3.5 h-3.5 text-sbb-red" />
-              <span>{isEn ? 'TOP-DOWN GOVERNANCE ACTIVE' : 'TOP-DOWN GOVERNANCE AKTIV'}</span>
+              <span>{isEn ? 'GOLDEN SOURCES LOCKED' : 'GOLDEN SOURCES FIXIERT'}</span>
             </span>
           </div>
         </div>
 
-        {/* ═══ STEP 00: INTERNAL CORPUS GOVERNANCE GATE (SCALING TO MILLIONS OF FILES) ═══ */}
+        {/* ═══ STEP 00: INTERNAL DOCUMENT FILTER ═══ */}
         <div className="p-5 bg-sbb-cloud/60 border border-sbb-aluminum space-y-4">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-zinc-200 pb-2">
             <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase text-sbb-black">
               <Database className="w-4 h-4 text-sbb-red" />
               <span>
                 {isEn
-                  ? `INTERNAL CORPUS GOVERNANCE GATE (FILTERING ${data.corpus_gate.raw_enterprise_files.toLocaleString(locale)} ENTERPRISE FILES TO ${data.corpus_gate.canonical_golden_sources} GOLDEN SOURCES)`
-                  : `INTERNER DOKUMENTEN-FILTER (${data.corpus_gate.raw_enterprise_files.toLocaleString(locale)} UNTERNEHMENSDOKUMENTE → ${data.corpus_gate.canonical_golden_sources} GOLDEN SOURCES)`}
+                  ? `INTERNAL DOCUMENT FILTER (${data.corpus_gate.raw_enterprise_files.toLocaleString(locale)} FILES → ${data.corpus_gate.canonical_golden_sources} APPROVED GOLDEN SOURCES)`
+                  : `INTERNER DOKUMENTEN-FILTER (${data.corpus_gate.raw_enterprise_files.toLocaleString(locale)} DATEIEN → ${data.corpus_gate.canonical_golden_sources} GOLDEN SOURCES)`}
               </span>
             </div>
             <span className="text-[10px] font-mono text-zinc-500">
@@ -190,7 +190,7 @@ export const TrendingFactoryView: React.FC<Props> = ({
             </div>
           </div>
 
-          {/* Collapsible Toggle for Vault Conflicts & Process Value Cards */}
+          {/* Collapsible Toggle for Flagged Outdated Files */}
           <div className="pt-2 flex justify-end">
             <button
               onClick={() => setShowGovernanceDetails(prev => !prev)}
@@ -198,8 +198,8 @@ export const TrendingFactoryView: React.FC<Props> = ({
             >
               <span>
                 {showGovernanceDetails
-                  ? (isEn ? '▲ Hide Flagged Conflicts & Process Value' : '▲ Konflikte & Prozessnutzen ausblenden')
-                  : (isEn ? '▼ Inspect Flagged Vault Conflicts & Process Value' : '▼ Geflaggte Konflikte & Prozessnutzen einblenden')}
+                  ? (isEn ? '▲ Hide Flagged Outdated Files' : '▲ Markierte Alt-Dateien ausblenden')
+                  : (isEn ? '▼ Inspect Flagged Outdated Files' : '▼ Markierte Alt-Dateien prüfen')}
               </span>
             </button>
           </div>
@@ -211,7 +211,7 @@ export const TrendingFactoryView: React.FC<Props> = ({
                 <div className="p-3 bg-red-50/80 border border-red-200 text-xs">
                   <div className="flex items-center gap-2 font-mono font-bold text-sbb-red mb-1">
                     <AlertOctagon className="w-3.5 h-3.5" />
-                    <span>{isEn ? 'AUTOMATED INTERNAL CONFLICT DETECTED IN REGIONAL VAULTS:' : 'AUTOMATISCHER KONFLIKT IN REGIONALEN ABLAGEN ERKANNT:'}</span>
+                    <span>{isEn ? 'FLAGGED OUTDATED OR CONFLICTING FILES IN REGIONAL FOLDERS:' : 'MARKIERTE VERALTETE ODER WIDERSPRÜCHLICHE DATEIEN IN LÄNDERORDNERN:'}</span>
                   </div>
                   <div className="space-y-1.5 font-sans">
                     {data.corpus_gate.conflict_details.map((c, idx) => (
@@ -224,61 +224,6 @@ export const TrendingFactoryView: React.FC<Props> = ({
                   </div>
                 </div>
               )}
-
-              {/* Process Integration: Concrete Value for Management vs. Operational Teams */}
-              <div className="pt-2">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2.5">
-                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-sbb-black">
-                    {isEn
-                      ? 'PROCESS INTEGRATION: HOW THIS WORKFLOW IMPROVES MANAGEMENT STEERING & TEAM EXECUTION'
-                      : 'PROZESS-INTEGRATION: KONKRETER MEHRWERT FÜR MANAGEMENT-STEUERUNG & TEAM-UMSETZUNG'}
-                  </span>
-                  <span className="text-[10px] font-mono text-sbb-red font-bold">
-                    {isEn ? 'Embedded in Daily/Weekly Routines // Human-in-the-Loop' : 'Eingebettet in Regelprozesse // Human-in-the-Loop'}
-                  </span>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-[11px] font-sans">
-                  {/* Management Value */}
-                  <div className="p-3 bg-white border border-zinc-200 space-y-1">
-                    <div className="font-mono text-[10px] font-bold text-sbb-black uppercase flex items-center justify-between">
-                      <span>{isEn ? '1. For Leadership (Decision Support)' : '1. Für Führungskräfte (Entscheidungskontext)'}</span>
-                      <span className="text-emerald-700">{isEn ? 'On-Demand Context' : 'Kontext auf Knopfdruck'}</span>
-                    </div>
-                    <p className="text-zinc-600 leading-snug">
-                      {isEn
-                        ? 'Assists leadership in taking fast, informed decisions by providing cross-regional reception, regulatory trade-offs, and Golden Source alignment at the push of a button.'
-                        : 'Unterstützt Führungskräfte bei Entscheidungen, indem regionaler Rezeptionskontext, regulatorische Zielkonflikte und Golden-Source-Abgleiche auf Knopfdruck bereitstehen.'}
-                    </p>
-                  </div>
-
-                  {/* Team Value */}
-                  <div className="p-3 bg-white border border-zinc-200 space-y-1">
-                    <div className="font-mono text-[10px] font-bold text-sbb-black uppercase flex items-center justify-between">
-                      <span>{isEn ? '2. For Comms Teams (Speed)' : '2. Für Kommunikations-Teams (Tempo)'}</span>
-                      <span className="text-emerald-700">{isEn ? 'Days → Hours' : 'Tage → Stunden'}</span>
-                    </div>
-                    <p className="text-zinc-600 leading-snug">
-                      {isEn
-                        ? 'Eliminates repository hunting and prompt guesswork. Regional teams adapt pre-cleared Golden Sources (GS-01–GS-03), cutting Legal/Governance alignment cycles from days to hours.'
-                        : 'Kein Suchen in Dateiablagen oder Raten bei Prompts: Länderteams nutzen vorab geprüfte Golden Sources (GS-01–GS-03) und verkürzen Freigaben von Tagen auf Stunden.'}
-                    </p>
-                  </div>
-
-                  {/* Human Governance Gate */}
-                  <div className="p-3 bg-white border border-zinc-200 space-y-1">
-                    <div className="font-mono text-[10px] font-bold text-sbb-black uppercase flex items-center justify-between">
-                      <span>{isEn ? '3. Governance Gate (Control)' : '3. Governance-Gate (Kontrolle)'}</span>
-                      <span className="text-sbb-red">{isEn ? 'Mandatory Sign-Off' : 'Pflicht-Freigabe'}</span>
-                    </div>
-                    <p className="text-zinc-600 leading-snug">
-                      {isEn
-                        ? 'AI never auto-publishes. Every regional playbook and stress-tested draft logs its Golden Source ID and requires human Comms + Legal/Regulatory sign-off before release.'
-                        : 'Keine automatische Publikation durch KI: Jedes Playbook referenziert seine Golden-Source-ID und durchläuft vor Veröffentlichung die reguläre Kommunikations- und Rechtsfreigabe.'}
-                    </p>
-                  </div>
-                </div>
-              </div>
             </div>
           )}
         </div>
@@ -298,7 +243,7 @@ export const TrendingFactoryView: React.FC<Props> = ({
         <div className="bg-white border-2 border-sbb-black p-6 sm:p-8 space-y-5">
           <div className="pb-3 border-b border-zinc-200 flex items-center justify-between">
             <span className="text-xs font-mono font-bold uppercase tracking-wider text-sbb-red">
-              {isEn ? 'CANONICAL GLOBAL THESIS (APPROVED BY C-SUITE & LEGAL)' : 'AUTORISIERTE GLOBALE KERNTHESE (FREIGEGEBEN DURCH KONZERNLEITUNG)'}
+              {isEn ? 'CORE POSITION (FROM APPROVED GOLDEN SOURCES)' : 'KERNPOSITION (AUS GEPRÜFTEN GOLDEN SOURCES)'}
             </span>
             <span className="text-[10px] font-mono px-2 py-0.5 bg-zinc-100 border border-zinc-200 text-zinc-700">
               {(() => {
@@ -352,61 +297,61 @@ export const TrendingFactoryView: React.FC<Props> = ({
             </div>
           </div>
 
-          {/* 4-Rule Corporate GEO Framework Delivered to All Teams */}
+          {/* 4 Shared Writing Rules */}
           <div className="pt-4 border-t border-zinc-200 space-y-2.5">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
               <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-sbb-black">
                 {isEn
-                  ? 'MANDATORY 4-RULE CORPORATE GEO FRAMEWORK (ENFORCED ACROSS ALL CHANNELS):'
-                  : 'VERBINDLICHES 4-REGEL CORPORATE GEO-FRAMEWORK (KANALÜBERGREIFEND VERBINDLICH):'}
+                  ? '4 SHARED WRITING RULES ACROSS CHANNELS:'
+                  : '4 GEMEINSAME SCHREIBREGELN ÜBER ALLE KANÄLE:'}
               </span>
               <span className="text-[10px] font-mono text-emerald-800 bg-emerald-50 border border-emerald-200 px-2 py-0.5 font-bold">
-                {isEn ? 'Enforced Across All Regional & Cantonal Hubs' : 'Verbindlich für alle Regional- & Kantons-Hubs'}
+                {isEn ? 'Shared Across All Regional Hubs' : 'Gilt für alle Regional- & Kantons-Hubs'}
               </span>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
               <div className="p-3 bg-sbb-cloud/50 border border-sbb-aluminum space-y-1">
                 <div className="font-mono text-[10px] font-bold text-sbb-black uppercase">
-                  {isEn ? 'GEO-01 // Answer-First & Quantitative Fact-Claim Pairing' : 'GEO-01 // Answer-First & Quantitative Fakten-Kopplung'}
+                  {isEn ? 'RULE 01 // Lead with the key fact & numbers' : 'REGEL 01 // Kernaussage und Zahlen zuerst'}
                 </div>
                 <p className="text-[11px] text-zinc-700 leading-snug">
                   {isEn
-                    ? 'Place core conclusions in the opening 30% of text paired with quantitative proof points (+61.5% SSR HTML absorption lift; +31%–41% press release lift) to survive AI rerankers.'
-                    : 'Kernaussage in den ersten 30% platzieren und mit Zahlenbelegen koppeln (+61,5% SSR-HTML-Lift; +31%–41% Lift in Medienmitteilungen), um KI-Reranker zu überstehen.'}
+                    ? 'Put the main conclusion and verified figures in the opening paragraph so neither journalists nor AI search retrieval cut them off.'
+                    : 'Kernaussage und belegte Zahlen direkt in den ersten Absatz stellen, damit Medien und KI-Suche sie nicht abschneiden.'}
                 </p>
               </div>
 
               <div className="p-3 bg-sbb-cloud/50 border border-sbb-aluminum space-y-1">
                 <div className="font-mono text-[10px] font-bold text-sbb-black uppercase">
-                  {isEn ? 'GEO-02 // Cross-Regional Terminology Lock' : 'GEO-02 // Überregionale Terminologie-Kohärenz'}
+                  {isEn ? 'RULE 02 // Use consistent terms across regions' : 'REGEL 02 // Einheitliche Begriffe über Regionen'}
                 </div>
                 <p className="text-[11px] text-zinc-700 leading-snug">
                   {isEn
-                    ? 'Use identical canonical terms across all regions and cantons so AI search engines do not misread local phrasing variations as contradictions.'
-                    : 'Identische Schlüsselbegriffe über alle Regionen und Kantone nutzen, damit KI-Suchmaschinen lokale Nuancen nicht als Widerspruch werten.'}
+                    ? 'Keep key terms identical across countries and cantons so AI search does not read local wording differences as contradictions.'
+                    : 'Schlüsselbegriffe in allen Ländern und Kantonen gleich halten, damit KI-Antworten lokale Abweichungen nicht als Widerspruch werten.'}
                 </p>
               </div>
 
               <div className="p-3 bg-red-50/40 border border-red-200 space-y-1">
                 <div className="font-mono text-[10px] font-bold text-red-700 uppercase">
-                  {isEn ? 'GEO-03 // Zero Negative-Frame Co-Occurrence' : 'GEO-03 // Keine Negativ-Frame-Kookkurrenz'}
+                  {isEn ? 'RULE 03 // Don’t repeat an accusation to deny it' : 'REGEL 03 // Vorwürfe nicht zur Verneinung wiederholen'}
                 </div>
                 <p className="text-[11px] text-zinc-700 leading-snug">
                   {isEn
-                    ? 'Never repeat an accusation to deny it—hybrid retrieval (BM25 + dense vector) indexes official quotes and anchors negative frames directly to our entity.'
-                    : 'Vorwürfe nie zur Verneinung wiederholen – Hybrid-Retrieval (BM25 + Dense Vector) verknüpft offizielle Zitate sonst direkt mit dem Negativ-Frame.'}
+                    ? 'Repeating a critic’s phrasing in an official quote gets indexed alongside the company name in search retrieval.'
+                    : 'Wer Vorwürfe im eigenen Zitat wiederholt, verknüpft den Negativbegriff direkt mit dem Unternehmensnamen in der Suche.'}
                 </p>
               </div>
 
               <div className="p-3 bg-emerald-50/40 border border-emerald-300 space-y-1">
                 <div className="font-mono text-[10px] font-bold text-emerald-900 uppercase">
-                  {isEn ? 'GEO-04 // Affirmative Narrative Bridging' : 'GEO-04 // Affirmatives Narrativ-Bridging'}
+                  {isEn ? 'RULE 04 // Answer, then bridge to our facts' : 'REGEL 04 // Antworten, dann zu eigenen Fakten leiten'}
                 </div>
                 <p className="text-[11px] text-zinc-700 leading-snug">
                   {isEn
-                    ? 'Bridge immediately from the stakeholder question into our affirmative core narrative (GS-01–GS-03) so AI engines synthesize our position, not the critic’s.'
-                    : 'Sofort vom Thema über eine Brücke in das eigene affirmative Kern-Narrativ (GS-01–GS-03) führen, damit KI-Antworten unsere Position synthetisieren.'}
+                    ? 'Address the question directly and bridge immediately to verified Golden Source facts (GS-01–GS-03).'
+                    : 'Frage direkt aufnehmen und sofort auf die geprüften Golden-Source-Fakten (GS-01–GS-03) überleiten.'}
                 </p>
               </div>
             </div>
@@ -466,21 +411,21 @@ export const TrendingFactoryView: React.FC<Props> = ({
         </div>
 
         <div className="bg-white border border-sbb-aluminum">
-          {/* Strategic GEO Role of Dual-Path (Earned + Owned) Banner */}
-          <div className="px-6 py-3.5 bg-sbb-cloud/70 border-b border-sbb-aluminum flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
+          {/* Role of Owned HTML + Press Formats */}
+          <div className="px-6 py-3 bg-sbb-cloud/70 border-b border-sbb-aluminum flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
             <div className="text-sbb-black leading-snug">
               {isEn ? (
                 <>
-                  <strong className="font-mono uppercase text-red-700">Dual-Path GEO (~84% Earned + Owned SSR HTML):</strong> AI engines draw <strong>82%–89% (~84%)</strong> of citations from earned/third-party media and <strong>~15%–45%</strong> from owned domains for primary figures. <strong>Owned Corporate Stories</strong> use answer-first SSR HTML (opening 30%, <strong>+61.5% lift</strong>) for <code>OAI-SearchBot</code>, <code>PerplexityBot</code> &amp; <code>Claude-SearchBot</code>, while <strong>press releases</strong> add quotable stats (<strong>+31%–41% lift</strong>).
+                  <strong className="font-mono uppercase text-red-700">Owned + Press Formats:</strong> AI search pulls heavily from independent press coverage while checking corporate pages (server-rendered HTML) for primary figures.
                 </>
               ) : (
                 <>
-                  <strong className="font-mono uppercase text-red-700">Dual-Path GEO (~84% Earned + Owned SSR HTML):</strong> KI-Suchmaschinen beziehen <strong>82%–89% (~84%)</strong> ihrer Zitate aus Earned Media und <strong>~15%–45%</strong> von Owned Domains. <strong>Owned Corporate Stories</strong> nutzen Answer-First SSR HTML (erste 30%, <strong>+61,5% Lift</strong>) für <code>OAI-SearchBot</code>, <code>PerplexityBot</code> &amp; <code>Claude-SearchBot</code>, während <strong>Medienmitteilungen</strong> zitierfähige Zahlen (<strong>+31%–41% Lift</strong>) sichern.
+                  <strong className="font-mono uppercase text-red-700">Owned- + Presse-Formate:</strong> KI-Suchmaschinen zitieren stark aus unabhängigen Medienberichten und prüfen Unternehmensseiten (SSR HTML) für Primärzahlen.
                 </>
               )}
             </div>
             <span className="font-mono text-[10px] font-bold uppercase px-2 py-0.5 bg-white border border-zinc-300 text-sbb-black shrink-0">
-              {isEn ? '82%–89% Earned + ~15%–45% Owned' : '82%–89% Earned + ~15%–45% Owned'}
+              {isEn ? 'Owned HTML + Press Formats' : 'Owned HTML + Presse-Formate'}
             </span>
           </div>
           {/* Format Selector Tabs */}
@@ -544,13 +489,13 @@ export const TrendingFactoryView: React.FC<Props> = ({
               <div className="space-y-0.5">
                 <span className="text-xs font-mono font-bold uppercase tracking-wider text-sbb-black block">
                   {isEn
-                    ? 'SHARED GEO FRAMEWORK & REGIONAL WORKING SCAFFOLD (REQUIRES HUMAN ITERATION)'
-                    : 'GEMEINSAMES GEO-FRAMEWORK & REGIONALES ARBEITSGERÜST (MENSCHLICHE ITERATION ERFORDERLICH)'}
+                    ? 'REGIONAL WORKING DRAFT (FOR EDITORIAL & LEGAL REVIEW)'
+                    : 'REGIONALER ARBEITSENTWURF (FÜR REDAKTION & LEGAL-FREIGABE)'}
                 </span>
                 <span className="text-[11px] text-sbb-stone block">
                   {isEn
-                    ? 'Gives every team a consistent GEO structure anchored in Golden Sources GS-01–GS-03 so AI search engines and journalists receive the same verified facts; human specialists iterate the final 20%.'
-                    : 'Gibt jedem Team eine konsistente GEO-Struktur auf Basis der Golden Sources GS-01–GS-03, damit KI-Suchmaschinen und Medien dieselben geprüften Fakten erhalten; das Team iteriert die letzten 20%.'}
+                    ? 'Anchored in Golden Sources GS-01–GS-03 and structured using the 4 rules above; local teams adapt tone and secure sign-off.'
+                    : 'Basiert auf den Golden Sources GS-01–GS-03 und den 4 Schreibregeln; Länderteams passen die Tonalität an und holen die Freigabe ein.'}
                 </span>
               </div>
 
@@ -570,48 +515,6 @@ export const TrendingFactoryView: React.FC<Props> = ({
                   </>
                 )}
               </button>
-            </div>
-
-            {/* 3-Pillar Practitioner Strip: Negative-Frame Hygiene + Bridging to Core Narrative + Human Iteration */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
-              <div className="p-3 bg-red-50/40 border border-red-200">
-                <div className="font-mono text-[10px] font-bold uppercase text-red-700 mb-1">
-                  {isEn
-                    ? '1. ZERO NEGATIVE-FRAME CO-OCCURRENCE (GEO-03):'
-                    : '1. KEINE NEGATIV-FRAME-KOOKKURRENZ (GEO-03):'}
-                </div>
-                <p className="text-zinc-700 leading-snug">
-                  {isEn
-                    ? 'Repeating an accusation to deny it causes hybrid retrieval (BM25 + dense vector) to index our domain with the critic’s keyword attached to our brand. The scaffold strips negative frames.'
-                    : 'Wer Vorwürfe zur Verneinung wiederholt, sorgt im Hybrid-Retrieval (BM25 + Dense Vector) dafür, dass unsere Domain mit dem Negativbegriff indexiert wird. Das Gerüst streicht Negativ-Frames.'}
-                </p>
-              </div>
-
-              <div className="p-3 bg-emerald-50/40 border border-emerald-300">
-                <div className="font-mono text-[10px] font-bold uppercase text-emerald-900 mb-1">
-                  {isEn
-                    ? '2. AFFIRMATIVE NARRATIVE BRIDGING (GEO-04):'
-                    : '2. AFFIRMATIVES NARRATIV-BRIDGING (GEO-04):'}
-                </div>
-                <p className="text-zinc-700 leading-snug">
-                  {isEn
-                    ? 'Uses disciplined bridging (Acknowledge → Bridge → Core Pillar GS-01–GS-03) so AI retrieval pipelines and journalists extract and synthesize the company’s own narrative (+31%–41% stat lift).'
-                    : 'Nutzt gezieltes Bridging (Anliegen → Brücke → Kernsäule GS-01–GS-03), damit KI-Pipelines und Medien unser eigenes Narrativ übernehmen (+31%–41% Zahlen-Lift).'}
-                </p>
-              </div>
-
-              <div className="p-3 bg-amber-50/60 border border-amber-300">
-                <div className="font-mono text-[10px] font-bold uppercase text-amber-900 mb-1">
-                  {isEn
-                    ? '3. HUMAN ITERATION (THE FINAL 20%):'
-                    : '3. MENSCHLICHE ITERATION (LETZTE 20%):'}
-                </div>
-                <p className="text-zinc-800 leading-snug">
-                  {isEn
-                    ? 'Comms specialists calibrate local stakeholder nuance, executive voice, timing, and final Legal/MLR sign-off before publication.'
-                    : 'Kommunikationsprofis justieren lokale Tonalität, politische Sensibilität, Timing und holen die finale Legal/MLR-Freigabe ein.'}
-                </p>
-              </div>
             </div>
 
             <div className="bg-sbb-cloud/40 p-6 sm:p-8 border-l-4 border-sbb-black text-sm text-sbb-black leading-relaxed font-sans max-w-4xl space-y-3">

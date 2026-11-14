@@ -41,27 +41,27 @@ export const ConceptMethodModal: React.FC<Props> = ({ isOpen, onClose, lang }) =
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 bg-sbb-red" />
             <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-widest text-sbb-black">
-              {isEn ? 'SYSTEM ARCHITECTURE, METHODOLOGY & ENTERPRISE IT INTEGRATION' : 'SYSTEMARCHITEKTUR, METHODIK & ENTERPRISE-IT-INTEGRATION'}
+              {isEn ? 'CONCEPT, METHODOLOGY & IT INTEGRATION' : 'KONZEPT, METHODIK & IT-INTEGRATION'}
             </span>
           </div>
           <button
             onClick={onClose}
             className="text-zinc-600 hover:text-sbb-red p-1 transition-colors cursor-pointer border border-zinc-300 bg-white"
-            title={isEn ? 'Close Guide' : 'Schliessen'}
+            title={isEn ? 'Close' : 'Schliessen'}
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
-        {/* Overarching Strategic Premise Banner */}
+        {/* Core Premise Banner */}
         <div className="p-4 bg-white border-l-4 border-sbb-red border border-zinc-200 text-xs sm:text-sm text-sbb-black leading-relaxed">
           {isEn ? (
             <>
-              <strong>THE CORE PREMISE:</strong> With <strong>~70% zero-click searches</strong> and <strong>&lt;1% AI referral traffic</strong>, GEO is about upstream reputation defense, citation absorption, and factual fidelity—not clicks. In AI search, <em>query fan-out</em> (<strong>5–11 parallel sub-queries</strong>) pulls press coverage, forums, owned pages, and legacy files into <strong>one context window</strong> at once—making <strong>incoherence</strong> across central, regional, or cantonal teams the central vulnerability. <strong>Terrain audits pull-through in media and AI search (Outside-In) while enforcing Golden Sources and channel-adapted GEO standards across earned and owned media (Top-Down).</strong>
+              <strong>THE PREMISE:</strong> Search and AI assistants pull press coverage, forum threads, company pages, and old PDFs into a single answer. When regional teams use inconsistent framing—or outdated files stay online—models mix them into contradictions. This prototype explores pairing external monitoring (<strong>Outside-In: 01–02</strong>) with source-anchored regional drafting and stress-testing (<strong>Top-Down: 03–04</strong>).
             </>
           ) : (
             <>
-              <strong>DIE KERNTHESE:</strong> Bei <strong>~70% Zero-Click-Suchen</strong> und <strong>&lt;1% KI-Referral-Traffic</strong> dient GEO der vorgelagerten Reputationssicherung, Zitat-Absorption und Fakten-Treue – nicht der Klick-Akquise. Im Zeitalter der KI-Suche zieht <em>Query Fan-Out</em> (<strong>5–11 parallele Suchanfragen</strong>) Medienberichte, Foren, eigene Seiten und Alt-PDFs simultan in <strong>ein einziges Kontextfenster</strong> – wodurch <strong>Inkohärenz</strong> zwischen zentralen, regionalen und kantonalen Teams zur Hauptschwachstelle wird. <strong>Terrain prüft Medien und KI-Antworten (Outside-In) und setzt Golden Sources sowie kanal-adaptierte GEO-Standards über Earned und Owned Media hinweg durch (Top-Down).</strong>
+              <strong>DER ANSATZ:</strong> Suchmaschinen und KI-Assistenten ziehen Presseberichte, Foren, eigene Seiten und alte PDFs in einer einzigen Antwort zusammen. Wenn regionale Teams uneinheitlich formulieren – oder veraltete Dateien online bleiben –, entstehen Widersprüche. Dieser Prototyp verbindet externes Monitoring (<strong>Outside-In: 01–02</strong>) mit quellengebundenen Entwürfen und Stresstests (<strong>Top-Down: 03–04</strong>).
             </>
           )}
         </div>
@@ -71,57 +71,57 @@ export const ConceptMethodModal: React.FC<Props> = ({ isOpen, onClose, lang }) =
           <div className="space-y-2 border-r border-zinc-200 pr-4 last:border-r-0">
             <div className="font-mono font-bold text-sbb-black uppercase tracking-wider flex items-center gap-1.5">
               <Database className="w-3.5 h-3.5 text-sbb-red" />
-              <span>{isEn ? '1. DATA SCALE REALITIES' : '1. REALITÄT DER DATENMENGEN'}</span>
+              <span>{isEn ? '1. STATISTICAL FILTERING FIRST' : '1. STATISTIK VOR KI'}</span>
             </div>
             <p>
               {isEn ? (
                 <>
-                  <strong>External data mountain:</strong> Tens of thousands of raw news articles and social posts are ingested weekly. Pure LLMs fail or hallucinate at this scale. A 4-stage statistical funnel (MinHash dedup &rarr; HDBSCAN clustering &rarr; <em>z</em>-score velocity &rarr; targeted LLM centroid pass) isolates the signal without hallucination.
+                  <strong>External feeds:</strong> Raw weekly article streams are too large to feed straight into an LLM. A 4-stage pipeline (MinHash deduplication &rarr; HDBSCAN clustering &rarr; <em>z</em>-score velocity &rarr; cosine check) narrows noise down to representative cluster texts before an LLM inspects them.
                 </>
               ) : (
                 <>
-                  <strong>Externer Datenberg:</strong> Zehntausende News und Social-Posts fallen wöchentlich an. Reine LLMs scheitern an dieser Menge. Ein 4-stufiger statistischer Trichter (MinHash &rarr; HDBSCAN &rarr; <em>z</em>-Score Dynamik &rarr; gezielter LLM-Pass auf Centroiden) trennt Signal von Rauschen.
+                  <strong>Externe Feeds:</strong> Zehntausende wöchentliche Meldungen lassen sich nicht sinnvoll direkt in ein LLM geben. Eine 4-stufige Pipeline (MinHash &rarr; HDBSCAN &rarr; <em>z</em>-Score &rarr; Cosinus-Abgleich) filtert zuerst auf repräsentative Cluster-Texte.
                 </>
               )}
             </p>
             <p>
               {isEn ? (
                 <>
-                  <strong>Internal mountain &amp; superseded PDFs:</strong> Hundreds of thousands of files exist across vaults, and superseded public PDFs poison AI search crawlers. Temporal validity gating locks approved Golden Sources and flags outdated files and superseded public PDFs for decommissioning.
+                  <strong>Internal files &amp; old PDFs:</strong> Filters repositories to active, approved Golden Sources and flags superseded public PDFs in regional folders so outdated figures don’t surface in search.
                 </>
               ) : (
                 <>
-                  <strong>Interner Dokumentenberg &amp; Alt-PDFs:</strong> Hunderttausende Dateien lagern in Vaults, und veraltete öffentliche PDFs vergiften KI-Suchcrawler. Gültigkeitsfilter sichern aktuelle Golden Sources und markieren veraltete Dateien sowie Alt-PDFs zur Abschaltung.
+                  <strong>Interne Dateien &amp; Alt-PDFs:</strong> Filtert Ablagen auf aktive, freigegebene Golden Sources und markiert veraltete öffentliche PDFs, damit keine überholten Zahlen in der Suche landen.
                 </>
               )}
             </p>
           </div>
 
-          {/* Column 2: Process Integration for Management & Teams */}
+          {/* Column 2 */}
           <div className="space-y-2 border-r border-zinc-200 pr-4 last:border-r-0">
             <div className="font-mono font-bold text-sbb-black uppercase tracking-wider flex items-center gap-1.5">
               <Layers className="w-3.5 h-3.5 text-sbb-red" />
-              <span>{isEn ? '2. PROCESS VALUE (MGMT & REGIONAL TEAMS)' : '2. PROZESSNUTZEN (MGMT & TEAMS)'}</span>
+              <span>{isEn ? '2. TWO-WAY WORKFLOW' : '2. ZWEI-WEGE-ABLAUF'}</span>
             </div>
             <p>
               {isEn ? (
                 <>
-                  <strong>For Leadership (Decision Context on Demand):</strong> Assists executives in making fast, informed decisions by providing cross-regional reception, regulatory trade-offs, and risk spikes at the push of a button—while final judgment remains human.
+                  <strong>Outside-In (01–02):</strong> Spots where trade coverage or regional forums are spiking even when automated sentiment looks neutral, and checks what AI search engines actually synthesize from those sources.
                 </>
               ) : (
                 <>
-                  <strong>Für Führungskräfte (Entscheidungskontext auf Knopfdruck):</strong> Unterstützt das Management bei fundierten Entscheidungen, indem regionaler Rezeptionskontext, Zielkonflikte und Risiko-Spikes auf Knopfdruck bereitstehen.
+                  <strong>Outside-In (01–02):</strong> Zeigt, wo Fachmedien oder Foren eskalieren, obwohl Standard-Sentiment neutral wirkt, und prüft, was KI-Suchmaschinen aus diesen Quellen machen.
                 </>
               )}
             </p>
             <p>
               {isEn ? (
                 <>
-                  <strong>For Central &amp; Regional Teams (Channel-Adapted GEO):</strong> Teams apply a shared <strong>4-Rule Corporate GEO Framework</strong> anchored in Golden Sources (GS-01–GS-03) across owned <strong>Corporate Stories</strong>, press releases, and media answers—ensuring consistent retrieval across media and AI search while cutting alignment from days to hours.
+                  <strong>Top-Down (03–04):</strong> Gives regional teams verified Golden Sources (GS-01–GS-03) and four shared writing rules across Corporate Stories, social posts, talking points, and Q&amp;As—plus draft stress-tests before publication.
                 </>
               ) : (
                 <>
-                  <strong>Für zentrale &amp; regionale Teams (Kanal-adaptiertes GEO):</strong> Teams nutzen ein <strong>4-Regel GEO-Framework</strong> und geprüfte Golden Sources (GS-01–GS-03) über <strong>Corporate Stories</strong>, Medienmitteilungen und Q&amp;As hinweg – für konsistentes KI-Retrieval und schnellere Freigaben.
+                  <strong>Top-Down (03–04):</strong> Stellt Länderteams geprüfte Golden Sources (GS-01–GS-03) und vier Schreibregeln für Corporate Stories, Social, Talking Points und Q&amp;As bereit – inklusive Stresstest vor Freigabe.
                 </>
               )}
             </p>
@@ -131,68 +131,68 @@ export const ConceptMethodModal: React.FC<Props> = ({ isOpen, onClose, lang }) =
           <div className="space-y-2 border-r border-zinc-200 pr-4 last:border-r-0">
             <div className="font-mono font-bold text-sbb-black uppercase tracking-wider flex items-center gap-1.5">
               <BrainCircuit className="w-3.5 h-3.5 text-sbb-red" />
-              <span>{isEn ? '3. HONEST AI BOUNDARIES' : '3. REALE GRENZEN VON KI'}</span>
+              <span>{isEn ? '3. REALISTIC LIMITS OF AI' : '3. REALISTISCHE GRENZEN'}</span>
             </div>
             <p>
               {isEn ? (
                 <>
-                  <strong>Empirical GEO (No Schema/llms.txt Shortcuts):</strong> Schema.org and llms.txt offer no causal citation lift, and single-run AI rankings repeat <strong>&lt;0.1%</strong> of the time. AI engines pull <strong>82%–89% (~84%)</strong> of citations from earned media and <strong>~15%–45%</strong> from owned domains. Reducing distortion (<strong>~45% → ~5%</strong> across <em>n</em>=20 runs) requires answer-first SSR HTML passages (opening 30% of text, <strong>+61.5% lift</strong>), quotable press stats (<strong>+31%–41% lift</strong>), and <strong>BM25 + dense vector</strong> accusation hygiene.
+                  <strong>Structure beats metadata tricks:</strong> Adding <code>Schema.org</code> tags or <code>llms.txt</code> does not fix vague copy. Clear conclusions and concrete numbers in the opening paragraph—plus avoiding repeating critic accusations (which hybrid BM25 + dense vector retrieval indexes against the company)—hold up across <em>n</em>=20 test runs.
                 </>
               ) : (
                 <>
-                  <strong>Empirisches GEO (Keine Schema/llms.txt-Shortcuts):</strong> Schema.org und llms.txt bringen keinen Zitier-Lift, und Einzel-Rankings wiederholen sich zu <strong>&lt;0,1%</strong>. KI-Engines beziehen <strong>82%–89% (~84%)</strong> aus Earned Media und <strong>~15%–45%</strong> von Owned Domains. Weniger Verzerrung (<strong>~45% → ~5%</strong> über <em>n</em>=20 Läufe) erfordert Answer-First SSR HTML (erste 30%, <strong>+61,5% Lift</strong>), zitierfähige PR-Zahlen (<strong>+31%–41% Lift</strong>) und <strong>BM25 + Dense-Vector</strong>-Hygiene.
+                  <strong>Struktur vor Metadaten-Tricks:</strong> <code>Schema.org</code> oder <code>llms.txt</code> retten keine vage Prosa. Klare Kernaussagen und Zahlen im ersten Absatz – sowie der Verzicht auf wiederholte Vorwürfe (die BM25 + Dense-Vector-Retrieval sonst mit dem Unternehmen verknüpfen) – bestehen im <em>n</em>=20-Test.
                 </>
               )}
             </p>
             <p>
               {isEn ? (
                 <>
-                  <strong>No one-shot answers — Context on Demand &amp; Human Call:</strong> LLMs provide the <strong>GEO framework</strong>, <strong>multi-angle stress-tests</strong>, and decision context at the push of a button; human leaders iterate and make the final call.
+                  <strong>No one-shot answers:</strong> LLMs organize facts and simulate stakeholder pushback; comms and legal teams still edit, calibrate tone, and sign off.
                 </>
               ) : (
                 <>
-                  <strong>Keine One-Shot-Antworten — Kontext auf Knopfdruck &amp; Menschliche Entscheidung:</strong> LLMs liefern das <strong>GEO-Framework</strong>, <strong>Multi-Winkel-Stresstests</strong> und Entscheidungskontext auf Knopfdruck; Führung und Teams iterieren und entscheiden.
+                  <strong>Keine One-Shot-Texte:</strong> LLMs ordnen Fakten und simulieren Gegenwind; Überarbeitung, Tonalität und Freigabe bleiben bei Kommunikation und Recht.
                 </>
               )}
             </p>
           </div>
 
-          {/* Column 4: Realistic Enterprise IT Integration Outlook */}
+          {/* Column 4 */}
           <div className="space-y-2">
             <div className="font-mono font-bold text-sbb-black uppercase tracking-wider flex items-center gap-1.5">
               <Server className="w-3.5 h-3.5 text-sbb-red" />
-              <span>{isEn ? '4. ENTERPRISE IT INTEGRATION' : '4. IT-INTEGRATIONSAUSBLICK'}</span>
+              <span>{isEn ? '4. ENTERPRISE IT FIT' : '4. IT-EINBETTUNG'}</span>
             </div>
             <p>
               {isEn ? (
                 <>
-                  <strong>No Shadow IT:</strong> Conceived as a modular workflow layer sitting on top of existing corporate cloud infrastructure (e.g., Azure/AWS, Databricks).
+                  <strong>Existing infrastructure:</strong> Designed to sit on corporate cloud infrastructure (Azure/AWS, Databricks) rather than as a separate tool silo.
                 </>
               ) : (
                 <>
-                  <strong>Keine Schatten-IT:</strong> Konzipiert als modulare Schicht auf bestehender Konzern-Infrastruktur (z. B. Azure/AWS, Databricks).
+                  <strong>Bestehende Infrastruktur:</strong> Gedacht als Modul auf bestehender Cloud-Infrastruktur (Azure/AWS, Databricks) statt als separates Tool-Silo.
                 </>
               )}
             </p>
             <p>
               {isEn ? (
                 <>
-                  <strong>Connectors &amp; SSR Crawlers:</strong> Read-only connectors to <strong>Veeva Vault</strong> (PromoMats/MedComms) and <strong>SharePoint (Graph API)</strong> enforce RBAC and Approved/Effective status. Publishes answer-first SSR HTML for non-JS crawlers (<strong>OAI-SearchBot, PerplexityBot, Claude-SearchBot</strong>); external feeds via Factiva/Meltwater APIs.
+                  <strong>Connectors &amp; SSR HTML:</strong> Read-only links to <strong>Veeva Vault</strong> and <strong>SharePoint</strong> preserve permissions and approval status. Publishes server-rendered HTML for search crawlers (<strong>OAI-SearchBot, PerplexityBot, Claude-SearchBot</strong>); external feeds via Factiva/Meltwater.
                 </>
               ) : (
                 <>
-                  <strong>Schnittstellen &amp; SSR-Crawler:</strong> Lese-Schnittstellen zu <strong>Veeva Vault</strong> &amp; <strong>SharePoint (Graph API)</strong> sichern RBAC und Freigabestatus. Publiziert Answer-First SSR HTML für Non-JS-Crawler (<strong>OAI-SearchBot, PerplexityBot, Claude-SearchBot</strong>); externe Feeds über Factiva/Meltwater-APIs.
+                  <strong>Schnittstellen &amp; SSR HTML:</strong> Lese-Anbindung an <strong>Veeva Vault</strong> &amp; <strong>SharePoint</strong> übernimmt Berechtigungen und Freigabestatus. Publiziert Server-Rendered HTML für Suchcrawler (<strong>OAI-SearchBot, PerplexityBot, Claude-SearchBot</strong>); externe Feeds über Factiva/Meltwater.
                 </>
               )}
             </p>
             <p>
               {isEn ? (
                 <>
-                  <strong>Private AI Gateway:</strong> All LLM requests route through the internal Enterprise AI Gateway with zero data retention, strict tenant isolation, and GxP/GDPR compliance.
+                  <strong>Private AI Gateway:</strong> LLM requests route through the internal Enterprise AI Gateway with zero data retention and GDPR/FADP/GxP compliance.
                 </>
               ) : (
                 <>
-                  <strong>Privates AI Gateway:</strong> Alle LLM-Aufrufe laufen über das interne Enterprise AI Gateway mit Zero Data Retention, Mandantentrennung und DSGVO/GxP-Konformität.
+                  <strong>Privates AI Gateway:</strong> Alle LLM-Anfragen laufen über das interne Enterprise AI Gateway ohne Datenspeicherung (DSGVO/DSG/GxP).
                 </>
               )}
             </p>
@@ -204,7 +204,7 @@ export const ConceptMethodModal: React.FC<Props> = ({ isOpen, onClose, lang }) =
             onClick={onClose}
             className="px-4 py-1.5 bg-sbb-black text-white font-mono text-xs font-bold uppercase tracking-wider hover:bg-zinc-800 transition-colors cursor-pointer"
           >
-            {isEn ? 'Close Guide' : 'Schliessen'}
+            {isEn ? 'Close' : 'Schliessen'}
           </button>
         </div>
       </div>

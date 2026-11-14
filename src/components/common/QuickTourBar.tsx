@@ -46,13 +46,13 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
     return [
       {
         stepNumber: '01',
-        shortLabel: 'Core Premise',
-        targetAnchorLabel: 'Scenario Switcher & Direction 1 Cockpit',
-        headline: 'Gaining Traction in the AI Shift: Query Fan-Out Collapses Separate Channels Into One Answer',
+        shortLabel: 'Overview',
+        targetAnchorLabel: 'Scenario Switcher & Two-Way Tabs',
+        headline: 'One Topic Across Media, Forums, and AI Search',
         whatYouSee:
-          'With ~70% of searches ending without a click and AI driving <1% referral traffic, query fan-out (5–11 parallel sub-queries) pulls press coverage, forums, owned pages, and legacy files into one context window at once, exposing framing incoherence.',
+          'Switch between 5 scenarios and filter by region (ALL, US, EU, CH, APAC). Search and AI engines pull press articles, forums, company pages, and old PDFs into one answer.',
         whyItMatters:
-          'GEO is upstream reputation defense, citation absorption, and factual fidelity: auditing where narratives lose pull-through (Outside-In) while enforcing Golden Sources and channel-adapted GEO standards across earned and owned media (Top-Down).',
+          'When regional messages or old files contradict each other, AI summaries mix them up. The two-way bar above lets you inspect external coverage (01–02) and align regional drafts (03–04).',
         tryThisLabel: 'Switch to Oncology RLT Scenario',
         targetTab: 'cockpit',
         targetRegion: 'all',
@@ -60,13 +60,13 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
       },
       {
         stepNumber: '02',
-        shortLabel: 'Outside-In Measurement',
-        targetAnchorLabel: 'Tab 01 // Regional Cockpit & Region Filter [EU]',
-        headline: '01 Regional Cockpit: Decision-Ready Context at the Push of a Button',
+        shortLabel: '01 Regional Overview',
+        targetAnchorLabel: 'Tab 01 // Regional Cockpit & Filter [EU]',
+        headline: '01 Regional Cockpit: Why Tone Alone Misses Topic Risk',
         whatYouSee:
-          'Filtered to EU: out of 48,420 raw articles and posts, standard NLP scores coverage as "76% Neutral" because journalists use formal clinical wording. Yet our statistical velocity funnel flags a +3.9σ escalation in EU/Swiss access criticism.',
+          'Filtered to EU: automated sentiment scores coverage as "76% Neutral" because trade articles use formal wording. Meanwhile, the statistical funnel flags a +3.9σ spike in access criticism.',
         whyItMatters:
-          'Assists leadership in making fast, informed decisions by synthesizing cross-regional reception, narrative pull-through, and market-access risks at the push of a button—while final judgment remains human.',
+          'Deduplicating wire reprints and measuring topic velocity shows where a debate is escalating before the tone turns openly hostile.',
         tryThisLabel: 'Reset Filter to ALL Regions',
         targetTab: 'cockpit',
         targetRegion: 'eu',
@@ -74,13 +74,13 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
       },
       {
         stepNumber: '03',
-        shortLabel: 'GEO & AI Search Audit',
+        shortLabel: '02 Cluster & AI Audit',
         targetAnchorLabel: 'Tab 02 // Cluster & AI Answer Audit',
-        headline: '02 Cluster & AI Audit: Query Fan-Out, Absorption & Answer-First GEO',
+        headline: '02 Cluster & AI Audit: Inspecting Sources and AI Distortions',
         whatYouSee:
-          'When stakeholders query ChatGPT, Perplexity, or Google AI, query fan-out runs 5–11 parallel sub-queries. When it hits buried PR preambles and incoherent regional coverage, it drops corporate context at the reranker cutoff and conflates facts.',
+          'Shows the representative articles driving the cluster and the resulting AI answer below. Click the red passages [1] and [2] to inspect the exact factual errors.',
         whyItMatters:
-          'Replaces debunked Schema.org/llms.txt shortcuts with empirical GEO: single-run rankings repeat <0.1%, so n=20 audits pair answer-first SSR HTML (+61.5% absorption lift) and quotable press stats (+31%–41% lift) to cut distortion from ~45% to ~5%.',
+          'Vague PR intros get cut off by search retrieval. Section 03 below shows how rewriting vague copy into clear, front-loaded facts fixes the AI summary across n=20 test runs.',
         tryThisLabel: 'Inspect Oncology RLT GEO Audit',
         targetTab: 'geo',
         targetRegion: 'all',
@@ -88,13 +88,13 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
       },
       {
         stepNumber: '04',
-        shortLabel: 'Regional GEO Playbooks',
-        targetAnchorLabel: 'Tab 03 // Multi-Region GEO Playbook',
-        headline: '03 Multi-Region Playbook: Golden Sources, 4-Rule GEO Framework & Channel Adaptation',
+        shortLabel: '03 Regional Playbook',
+        targetAnchorLabel: 'Tab 03 // Regional Playbook',
+        headline: '03 Regional Playbook: Approved Sources & Local Drafts',
         whatYouSee:
-          'Filters hundreds of thousands of internal vault files down to verified "Golden Sources" (GS-01 to GS-03), flags superseded PDFs, and enforces the 4-Rule Corporate GEO Framework across Corporate Stories, press releases, media answers, and Q&As.',
+          'Filters internal records to approved Golden Sources (GS-01 to GS-03), flags outdated files in regional folders, and provides working drafts across 4 formats (Corporate Story, Social, Talking Points, Q&A).',
         whyItMatters:
-          'AI engines draw 82%–89% (~84%) of citations from earned media and ~15%–45% from owned domains for primary figures. Owned Corporate Stories (SSR HTML) and quote-safe press materials work together so AI search absorbs our facts.',
+          'Gives central and regional teams one shared set of facts and four practical writing rules so local adaptations stay consistent across owned pages and press coverage.',
         tryThisLabel: 'Filter Playbook to Switzerland (CH)',
         targetTab: 'trending',
         targetRegion: 'all',
@@ -102,14 +102,14 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
       },
       {
         stepNumber: '05',
-        shortLabel: 'Stress-Test & IT Fit',
-        targetAnchorLabel: 'Tab 04 // Stress-Test & Concept, Method & IT Fit',
-        headline: '04 Multi-Angle Stress-Test, GEO Accusation Hygiene, Human Iteration & IT Fit',
+        shortLabel: '04 Stress-Test & Inquiry',
+        targetAnchorLabel: 'Tab 04 // Stress-Test & Concept Modal',
+        headline: '04 Stress-Test & Inquiry Check: Challenging Drafts Before Release',
         whatYouSee:
-          'An LLM never delivers a ready-to-send answer in one pass. It tests drafts across regional stakeholder angles simultaneously and enforces BM25 + dense vector GEO hygiene: stripping negative accusations and bridging to our narrative.',
+          'Toggle between Iteration 1 and Iteration 2 (or switch to 04B Inquiry Check) to see how repeating a critic’s accusation triggers hostile headlines and how bridging to core facts lowers risk (9.1 → 2.6).',
         whyItMatters:
-          'Provides decision-ready context and a GEO-safe scaffold at the push of a button—leaving final nuance and sign-off to human leadership within existing IT governance (Veeva Vault, SharePoint, AI Gateway).',
-        tryThisLabel: 'Toggle Enterprise IT & Method Guide',
+          'LLMs are useful for pressure-testing a draft from multiple stakeholder angles—final editing, tone, and sign-off stay with comms and legal teams.',
+        tryThisLabel: 'Toggle Concept, Method & IT Modal',
         targetTab: 'cascade',
         targetRegion: 'all',
         openConceptGuide: true
@@ -120,13 +120,13 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
   return [
     {
       stepNumber: '01',
-      shortLabel: 'Grundthese',
-      targetAnchorLabel: 'Szenario-Wahl & Richtung 1 Cockpit',
-      headline: 'Traktion im KI-Wandel: Wenn Query Fan-Out getrennte Kanäle in einer Antwort zusammenzieht',
+      shortLabel: 'Überblick',
+      targetAnchorLabel: 'Szenario-Wahl & Zwei-Wege-Leiste',
+      headline: 'Ein Thema über Medien, Foren und KI-Suche hinweg',
       whatYouSee:
-        'Bei ~70% Zero-Click-Suchen und <1% KI-Referral-Traffic zieht Query Fan-Out (5–11 parallele Sub-Anfragen) Presseberichte, Foren, eigene Seiten und Alt-Dateien simultan in ein Kontextfenster und legt jede Inkohärenz offen.',
+        'Wechseln Sie zwischen 5 Szenarien und filtern Sie nach Regionen (ALL, US, EU, CH, APAC). Such- und KI-Systeme ziehen Presseberichte, Foren, eigene Seiten und alte PDFs in einer Antwort zusammen.',
       whyItMatters:
-        'GEO dient der vorgelagerten Reputationssicherung und Fakten-Absorption: Audits von Medien und KI-Antworten (Outside-In) sowie verbindliche Golden Sources und kanal-adaptierte GEO-Standards über Earned und Owned Media hinweg (Top-Down).',
+        'Widersprechen sich regionale Aussagen oder veraltete Dateien, vermischen KI-Antworten die Fakten. Oben prüfen Sie zuerst das Umfeld (01–02) und richten danach Entwürfe aus (03–04).',
       tryThisLabel: 'Zum Onkologie-RLT-Szenario wechseln',
       targetTab: 'cockpit',
       targetRegion: 'all',
@@ -134,13 +134,13 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
     },
     {
       stepNumber: '02',
-      shortLabel: 'Outside-In Messung',
-      targetAnchorLabel: 'Tab 01 // Regionales Cockpit & Region-Filter [EU]',
-      headline: '01 Regionales Cockpit: Entscheidungsrelevanter Kontext auf Knopfdruck',
+      shortLabel: '01 Regional-Übersicht',
+      targetAnchorLabel: 'Tab 01 // Regionales Cockpit & Filter [EU]',
+      headline: '01 Regionales Cockpit: Warum reines Sentiment Risiken übersieht',
       whatYouSee:
-        'Auf EU gefiltert: Aus 48.420 Rohartikeln meldet Standard-NLP "76% Neutral", da Fachmedien sachlich formulieren. Unser statistischer Trichter erkennt jedoch frühzeitig eine +3.9σ Eskalation in der europäischen Zugangsdebatte.',
+        'Auf EU gefiltert: Standard-Sentiment meldet "76% Neutral", da Fachmedien sachlich formulieren. Der statistische Trichter zeigt jedoch einen +3.9σ-Anstieg bei der Zugangs- und Preisdebatte.',
       whyItMatters:
-        'Unterstützt Führungskräfte bei fundierten Entscheidungen, indem regionaler Rezeptionskontext und Market-Access-Risiken auf Knopfdruck bereitstehen – während die finale Abwägung beim Menschen bleibt.',
+        'Das Zusammenfassen von Agentur-Dubletten und die Messung der Themen-Dynamik zeigen Eskalationen, bevor der Tonfall offen feindselig wird.',
       tryThisLabel: 'Filter auf ALLE Regionen setzen',
       targetTab: 'cockpit',
       targetRegion: 'eu',
@@ -148,27 +148,27 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
     },
     {
       stepNumber: '03',
-      shortLabel: 'GEO & KI-Such-Audit',
+      shortLabel: '02 Cluster & KI-Audit',
       targetAnchorLabel: 'Tab 02 // Cluster & KI-Audit',
-      headline: '02 Cluster & KI-Audit: Query Fan-Out, Absorption & Answer-First GEO',
+      headline: '02 Cluster & KI-Audit: Quellen und KI-Fehler prüfen',
       whatYouSee:
-        'Befragen Stakeholder ChatGPT, Perplexity oder Google AI, zerlegt Query Fan-Out die Frage in 5–11 parallele Suchanfragen. Trifft sie auf langatmige PR-Einleitungen und uneinheitliche Berichte, fällt unser Kontext durch das Reranking-Raster.',
+        'Zeigt die repräsentativen Artikel im Cluster und die daraus erzeugte KI-Antwort. Klicken Sie auf die roten Passagen [1] und [2], um die konkreten Faktenfehler zu prüfen.',
       whyItMatters:
-        'Ersetzt widerlegte Schema.org/llms.txt-Mythen (Einzel-Rankings wiederholen sich zu <0,1%): n=20 Prüfläufe mit Answer-First SSR HTML (+61,5% Lift) und zitierfähigen PR-Zahlen (+31%–41% Lift) senken Verzerrungen von ~45% auf ~5%.',
-      tryThisLabel: 'Onkologie-RLT GEO-Audit ansehen',
+        'Vage PR-Einleitungen fallen beim Such-Retrieval oft weg. Abschnitt 03 zeigt, wie klare, vorangestellte Fakten die KI-Antwort über n=20 Testläufe korrigieren.',
+      tryThisLabel: 'Onkologie-RLT KI-Audit ansehen',
       targetTab: 'geo',
       targetRegion: 'all',
       openConceptGuide: false
     },
     {
       stepNumber: '04',
-      shortLabel: 'Regionale GEO-Playbooks',
-      targetAnchorLabel: 'Tab 03 // Multi-Regionen Playbook',
-      headline: '03 Multi-Regionen-Playbook: Golden Sources, 4-Regel GEO-Framework & Kanal-Adaptierung',
+      shortLabel: '03 Regional-Playbook',
+      targetAnchorLabel: 'Tab 03 // Regionales Playbook',
+      headline: '03 Regionales Playbook: Geprüfte Quellen & lokale Entwürfe',
       whatYouSee:
-        'Filtert Hunderttausende interne Vault-Dateien auf wenige freigegebene "Golden Sources" (GS-01 bis GS-03), flaggt Alt-PDFs und setzt das 4-Regel GEO-Framework für Corporate Stories, Medienmitteilungen und Q&As durch.',
+        'Filtert interne Bestände auf geprüfte Golden Sources (GS-01 bis GS-03), markiert veraltete Dateien in Länderordnern und liefert Arbeitsentwürfe für 4 Formate (Corporate Story, Social, Talking Points, Q&A).',
       whyItMatters:
-        'KI-Engines beziehen 82%–89% (~84%) ihrer Zitate aus Earned Media und ~15%–45% von Owned Domains. Owned Corporate Stories (SSR HTML) und zitierfähige Pressearbeit sichern gemeinsam hohe Fakten-Absorption.',
+        'Gibt zentralen und regionalen Teams dieselbe Faktenbasis und vier klare Schreibregeln, damit lokale Anpassungen auf eigenen Seiten und in Medien konsistent bleiben.',
       tryThisLabel: 'Playbook auf Schweiz (CH) filtern',
       targetTab: 'trending',
       targetRegion: 'all',
@@ -176,14 +176,14 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
     },
     {
       stepNumber: '05',
-      shortLabel: 'Stresstest & IT-Fit',
-      targetAnchorLabel: 'Tab 04 // Stresstest & Konzept, Methodik & IT-Fit',
-      headline: '04 Multi-Winkel-Stresstest, GEO-Vorwurfshygiene, Menschliche Iteration & IT-Integration',
+      shortLabel: '04 Stresstest & Anfrage',
+      targetAnchorLabel: 'Tab 04 // Stresstest & Konzept-Modal',
+      headline: '04 Stresstest & Anfrage-Check: Entwürfe vor Freigabe prüfen',
       whatYouSee:
-        'Ein LLM liefert nie im ersten Durchlauf die fertige Antwort. Es prüft Entwürfe simultan aus regionalen Stakeholder-Perspektiven und sichert BM25 + Dense-Vector GEO-Hygiene ohne Negativ-Vorwürfe.',
+        'Wechseln Sie zwischen Iteration 1 und Iteration 2 (oder zu 04B Medienanfrage), um zu sehen, wie wiederholte Vorwürfe Schlagzeilen auslösen und wie Bridging das Risiko senkt (9.1 → 2.6).',
       whyItMatters:
-        'Liefert Entscheidungskontext und ein GEO-sicheres Arbeitsgerüst auf Knopfdruck – während Feinschliff und Freigabe beim Menschen innerhalb bestehender IT-Governance (Veeva Vault, SharePoint, AI Gateway) bleiben.',
-      tryThisLabel: 'IT- & Methodik-Guide ein-/ausblenden',
+        'LLMs eignen sich für den Stresstest aus verschiedenen Stakeholder-Perspektiven – Feinschliff, Tonalität und Freigabe bleiben bei Kommunikation und Recht.',
+      tryThisLabel: 'Konzept-, Methodik- & IT-Modal öffnen',
       targetTab: 'cascade',
       targetRegion: 'all',
       openConceptGuide: true
