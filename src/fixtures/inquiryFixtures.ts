@@ -32,14 +32,14 @@ export const INQUIRY_FIXTURES: Record<Language, Record<string, InquiryData>> = {
       deadline: "Today, 16:30 CET",
       inquiry_text: `Dear Corporate Media Relations,
 
-We are reporting on the CEO's recent statements in London and Basel calling for a 'complete rethink' of European and Swiss drug pricing policies.
+We are reporting on the CEO's recent statements in London and Swiss HQ calling for a 'complete rethink' of European and Swiss drug pricing policies.
 
 We request your official response on the record to the following questions by 16:30 CET:
 1. Does your pledge to align U.S. launch prices with wealthy nations (MFN) mean the company will deliberately delay or withhold launches of upcoming therapies (such as next-generation biologics) in Switzerland and the EU if authorities refuse higher price demands?
-2. Following your $23 billion U.S. manufacturing commitment, is the company gradually shifting its corporate center of gravity and executive leadership away from Basel?
+2. Following your $15 billion U.S. manufacturing commitment, is the company gradually shifting its corporate center of gravity and executive leadership away from Switzerland?
 3. How do you respond to Swiss and European healthcare payers who argue the company is using U.S. trade pressure to force public healthcare funds to subsidize American margins?`,
       official_wording_title: "Global Pricing, Launch Governance & Footprint Policy (GS-01 / GS-02)",
-      official_wording_quote: "«The Company advocates pricing frameworks that fairly reflect therapeutic value across OECD economies to support continuous innovation. Capital expenditure across localized U.S. production facilities serves domestic supply resilience. Basel remains the permanent corporate headquarters, executive governance seat, and global scientific nerve center. Spokespersons shall strictly reject characterizations of launch sequencing as patient boycotts.»",
+      official_wording_quote: "«The Company advocates pricing frameworks that fairly reflect therapeutic value across OECD economies to support continuous innovation. Capital expenditure across localized U.S. production facilities serves domestic supply resilience. Swiss HQ remains the permanent corporate headquarters, executive governance seat, and global scientific nerve center. Spokespersons shall strictly reject characterizations of launch sequencing as patient boycotts.»",
       compliance_authority: "Executive Committee & Corporate Legal Governance",
       contradictions: [
         {
@@ -54,17 +54,17 @@ We request your official response on the record to the following questions by 16
         },
         {
           severity: "HIGH",
-          title: "Basel Headquarters Exodus Rumor vs. Capital Allocation Reality",
-          quote_journalist: "Is the company gradually shifting its corporate center of gravity away from Basel following the $23B US capex?",
-          quote_doctrine: "Basel remains the permanent corporate headquarters, executive seat, and scientific nerve center.",
+          title: "Swiss HQ Headquarters Exodus Rumor vs. Capital Allocation Reality",
+          quote_journalist: "Is the company gradually shifting its corporate center of gravity away from Switzerland following the $15B US capex?",
+          quote_doctrine: "Swiss HQ remains the permanent corporate headquarters, executive seat, and scientific nerve center.",
           inquiry_trap: "Establishing a narrative of corporate desertion of Switzerland (Standort Schweiz) to spark political backlash in Bern.",
           legal_boundary: "Corporate governance and Swiss stock exchange (SIX) disclosure rules govern statements on corporate domicile and headquarters.",
-          clear_translation: "Reaffirm without ambiguity that the $23B investment expands manufacturing capacity for American patients in America, while Basel's corporate and R&D role is unchanged and growing.",
-          assessment: "Deliver a crisp, unequivocal statement on Basel's permanent status as global headquarters."
+          clear_translation: "Reaffirm without ambiguity that the $15B investment expands manufacturing capacity for American patients in America, while Switzerland's corporate and R&D role is unchanged and growing.",
+          assessment: "Deliver a crisp, unequivocal statement on Switzerland's permanent status as global headquarters."
         }
       ],
-      recommended_statement: "The Company is committed to ensuring patients worldwide benefit from breakthrough medical innovation. Under U.S. Most-Favored-Nation reference rules, healthcare systems in high-income nations must modernize pricing frameworks to reflect the genuine therapeutic and economic value of innovation, rather than imposing blunt price cuts that export distortions globally. Our $23 billion U.S. investment expands domestic manufacturing across 10 sites to secure tariff-resilient supply for American patients. Basel remains our undisputed corporate headquarters and scientific core as we partner constructively with Swiss (BAG) and European authorities to ensure rapid, sustainable patient access.",
-      strategic_advisory: "Decouple the $23B U.S. manufacturing expansion from HQ identity. Reaffirm Basel unambiguously, and reject any framing of launch sequencing as a 'patient boycott'."
+      recommended_statement: "The Company is committed to ensuring patients worldwide benefit from breakthrough medical innovation. Under U.S. Most-Favored-Nation reference rules, healthcare systems in high-income nations must modernize pricing frameworks to reflect the genuine therapeutic and economic value of innovation, rather than imposing blunt price cuts that export distortions globally. Our $15 billion U.S. investment expands domestic manufacturing across 10 sites to secure tariff-resilient supply for American patients. Swiss HQ remains our undisputed corporate headquarters and scientific core as we partner constructively with Swiss (BAG) and European authorities to ensure rapid, sustainable patient access.",
+      strategic_advisory: "Decouple the $15B U.S. manufacturing expansion from HQ identity. Reaffirm Swiss HQ unambiguously, and reject any framing of launch sequencing as a 'patient boycott'."
     },
     alpine_transit_crisis: {
       outlet: "Keystone-SDA News Agency",
@@ -133,27 +133,27 @@ We request your responses:
       deadline: "Today, 18:00 CET",
       inquiry_text: `Dear Corporate Media Relations,
 
-Following the UK NICE final guidance refusing routine NHS funding for Lu-177 RLT in advanced prostate cancer, and reports that the company withdrew its European regulatory submission:
+Following the UK NICE final guidance refusing routine NHS funding for ONCO-104 in advanced solid-tumor oncology, and reports that the company withdrew its European regulatory submission:
 
-1. Does the company accept the NICE appraisal finding that Lu-177 RLT is not cost-effective at £20,000 per dose?
-2. Why is Lu-177 RLT approved in the US prior to chemotherapy while European health authorities claim the data is insufficient?
+1. Does the company accept the NICE appraisal finding that ONCO-104 is not cost-effective at £20,000 per dose?
+2. Why is ONCO-104 approved in the US prior to chemotherapy while European health authorities claim the data is insufficient?
 3. Will the company offer a meaningful price discount so NHS patients do not miss out on this therapy?`,
-      official_wording_title: "Radioligand Clinical Data & Value-Based Access Policy (GS-01 / GS-03)",
-      official_wording_quote: "«Lu-177 RLT is clinically proven in the Phase III RLT-01 trial to double radiographic progression-free survival (HR 0.41). Appraisals by NICE reflect cost-per-QALY threshold methodologies rather than biological efficacy. The company actively offers flexible managed-access models that account for total acute care cost offsets.»",
+      official_wording_title: "Targeted Oncology Clinical Data & Value-Based Access Policy (GS-01 / GS-03)",
+      official_wording_quote: "«ONCO-104 is clinically proven in the Phase III ONCO-01 trial to double radiographic progression-free survival (HR 0.41). Appraisals by NICE reflect cost-per-QALY threshold methodologies rather than biological efficacy. The company actively offers flexible managed-access models that account for total acute care cost offsets.»",
       compliance_authority: "Global Oncology Affairs & Legal Counsel",
       contradictions: [
         {
           severity: "HIGH",
           title: "Economic Threshold vs. Biological Efficacy Trap",
-          quote_journalist: "Does the company accept that Lu-177 RLT is not cost-effective and insufficient for approval?",
-          quote_doctrine: "RLT-01 proved a statistically significant doubling of rPFS; NICE appraisal is purely economic.",
+          quote_journalist: "Does the company accept that ONCO-104 is not cost-effective and insufficient for approval?",
+          quote_doctrine: "ONCO-01 proved a statistically significant doubling of rPFS; NICE appraisal is purely economic.",
           inquiry_trap: "Conflating statutory cost-effectiveness thresholds with clinical drug failure.",
           legal_boundary: "Securities and regulatory compliance prohibit accepting inaccurate claims of clinical failure.",
           clear_translation: "Distinguish firmly between proven clinical survival benefits and economic budget calculations.",
           assessment: "Reiterate the HR 0.41 rPFS doubling first, then address ongoing commercial pricing dialogues."
         }
       ],
-      recommended_statement: "The clinical benefit of Lu-177 RLT is proven: the Phase III RLT-01 study demonstrated a statistically significant doubling of radiographic progression-free survival (HR 0.41, p<0.001) in men with prostate cancer prior to chemotherapy. While health technology assessment methodologies differ by country—leading to FDA approval in the U.S.—we are actively working with UK NICE and European health authorities to find sustainable, value-based reimbursement solutions that recognize the therapy's ability to offset downstream acute hospitalizations.",
+      recommended_statement: "The clinical benefit of ONCO-104 is proven: the Phase III ONCO-01 study demonstrated a statistically significant doubling of radiographic progression-free survival (HR 0.41, p<0.001) in men with solid-tumor oncology prior to chemotherapy. While health technology assessment methodologies differ by country—leading to FDA approval in the U.S.—we are actively working with UK NICE and European health authorities to find sustainable, value-based reimbursement solutions that recognize the therapy's ability to offset downstream acute hospitalizations.",
       strategic_advisory: "Ground the response in the HR 0.41 statistic and patient quality of life. Do not engage in speculative price concession percentages."
     },
     health_data_breach: {
@@ -191,10 +191,10 @@ wir recherchieren zu den Äusserungen von the CEO, der ein 'grundlegendes Umdenk
 
 Wir bitten um Beantwortung folgender Fragen bis 16:30 Uhr:
 1. Bedeutet Ihre US-Referenzpreis-Vereinbarung (MFN), dass das Unternehmen künftige Medikamente (wie neue Biologika) in der Schweiz und der EU bewusst verzögert oder gar nicht einführt, falls Preisnachlässe gefordert werden?
-2. Verlagert das Unternehmen mit der 23-Milliarden-Investition in US-Werke schrittweise sein unternehmerisches Schwergewicht und die Führung weg von Basel?
+2. Verlagert das Unternehmen mit der 23-Milliarden-Investition in US-Werke schrittweise sein unternehmerisches Schwergewicht und die Führung weg von Swiss HQ?
 3. Wie reagieren Sie auf Vorwürfe Schweizer Kassen, das Unternehmen nutze US-Handelsdrohungen, um europäische Beitragszahler unter Druck zu setzen?`,
-      official_wording_title: "Konzern-Governance zu Preisgestaltung & Standort Basel (GS-01 / GS-02)",
-      official_wording_quote: "«Das Unternehmen setzt sich für faire, wertbasierte Erstattungsmodelle in allen OECD-Staaten ein. Die 23-Mrd.-$-Investition in den USA stärkt die lokale Versorgungssicherheit. Basel bleibt der weltweite Hauptsitz, Sitz der Geschäftsleitung und zentrales Forschungszentrum. Spekulationen über Patientenboykotte sind entschieden zurückzuweisen.»",
+      official_wording_title: "Konzern-Governance zu Preisgestaltung & Standort Schweiz (GS-01 / GS-02)",
+      official_wording_quote: "«Das Unternehmen setzt sich für faire, wertbasierte Erstattungsmodelle in allen OECD-Staaten ein. Die 15-Mrd.-$-Investition in den USA stärkt die lokale Versorgungssicherheit. Die Schweiz bleibt der weltweite Hauptsitz, Sitz der Geschäftsleitung und zentrales Forschungszentrum. Spekulationen über Patientenboykotte sind entschieden zurückzuweisen.»",
       compliance_authority: "Konzernleitung & Rechtsdienst",
       contradictions: [
         {
@@ -210,16 +210,16 @@ Wir bitten um Beantwortung folgender Fragen bis 16:30 Uhr:
         {
           severity: "HOCH",
           title: "Abwanderungs-Gerücht vs. Investitionswirklichkeit",
-          quote_journalist: "Verlagert das Unternehmen das Schwergewicht schrittweise weg von Basel in die USA?",
-          quote_doctrine: "Basel bleibt der dauerhafte Hauptsitz, Sitz der Geschäftsleitung und Forschungszentrale.",
+          quote_journalist: "Verlagert das Unternehmen das Schwergewicht schrittweise weg von Swiss HQ in die USA?",
+          quote_doctrine: "Die Schweiz bleibt der dauerhafte Hauptsitz, Sitz der Geschäftsleitung und Forschungszentrale.",
           inquiry_trap: "Konstruktion einer Schwächung des Standorts Schweiz zur Auslösung politischer Vorstösse in Bern.",
           legal_boundary: "Börsenrechtliche Vorgaben (SIX) regeln Mitteilungen zum Konzernsitz und Governance-Strukturen.",
-          clear_translation: "Unmissverständlich bekräftigen: 23 Mrd. $ bauen Produktion in den USA für US-Patienten aus, während Basel das weltweite Herz des Konzerns bleibt.",
-          assessment: "Ein klares, unerschütterliches Bekenntnis zu Basel als weltweitem Hauptsitz abgeben."
+          clear_translation: "Unmissverständlich bekräftigen: 15 Mrd. $ bauen Produktion in den USA für US-Patienten aus, während Swiss HQ das weltweite Herz des Konzerns bleibt.",
+          assessment: "Ein klares, unerschütterliches Bekenntnis zu Swiss HQ als weltweitem Hauptsitz abgeben."
         }
       ],
-      recommended_statement: "Das Unternehmen setzt sich dafür ein, dass Patientinnen und Patienten weltweit von medizinischem Fortschritt profitieren. Unter den neuen US-Referenzpreisregeln (MFN) müssen wohlhabende Industriestaaten ihre Erstattungssysteme so weiterentwickeln, dass echter therapeutischer Mehrwert anerkannt wird, anstatt durch starre Preisdeckel weltweite Verzerrungen zu erzeugen. Unsere 23-Milliarden-Dollar-Investition in den USA baut an 10 Standorten eine zollresistente Produktion für US-Patienten auf. Basel bleibt unser unbestrittener weltweiter Hauptsitz und das wissenschaftliche Herz des Unternehmens; mit dem Schweizer BAG und europäischen Behörden führen wir einen konstruktiven Dialog für zukunftsfähige Erstattungsmodelle.",
-      strategic_advisory: "Die 23-Mrd.-$-US-Investition strikt von der Standortfrage trennen. Klares Bekenntnis zu Basel abgeben und jegliche Boykott-Rhetorik zurückweisen."
+      recommended_statement: "Das Unternehmen setzt sich dafür ein, dass Patientinnen und Patienten weltweit von medizinischem Fortschritt profitieren. Unter den neuen US-Referenzpreisregeln (MFN) müssen wohlhabende Industriestaaten ihre Erstattungssysteme so weiterentwickeln, dass echter therapeutischer Mehrwert anerkannt wird, anstatt durch starre Preisdeckel weltweite Verzerrungen zu erzeugen. Unsere 23-Milliarden-Dollar-Investition in den USA baut an 10 Standorten eine zollresistente Produktion für US-Patienten auf. Die Schweiz bleibt unser unbestrittener weltweiter Hauptsitz und das wissenschaftliche Herz des Unternehmens; mit dem Schweizer BAG und europäischen Behörden führen wir einen konstruktiven Dialog für zukunftsfähige Erstattungsmodelle.",
+      strategic_advisory: "Die 15-Mrd.-$-US-Investition strikt von der Standortfrage trennen. Klares Bekenntnis zu Swiss HQ abgeben und jegliche Boykott-Rhetorik zurückweisen."
     },
     alpine_transit_crisis: {
       outlet: "Nachrichtenagentur Keystone-SDA",
@@ -288,27 +288,27 @@ Wir bitten um Stellungnahme:
       deadline: "Heute, 18:00 Uhr",
       inquiry_text: `Sehr geehrte Damen und Herren,
 
-nach der Entscheidung des britischen NICE, Lu-177 RLT nicht für den Routineeinsatz im NHS zu empfehlen, und dem Rückzug des europäischen Zulassungsantrags bitten wir um Stellungnahme:
+nach der Entscheidung des britischen NICE, ONCO-104 nicht für den Routineeinsatz im NHS zu empfehlen, und dem Rückzug des europäischen Zulassungsantrags bitten wir um Stellungnahme:
 
-1. Akzeptiert das Unternehmen die Einschätzung von NICE, dass Lu-177 RLT bei 20.000 Pfund pro Dosis unwirtschaftlich ist?
-2. Warum ist Lu-177 RLT in den USA vor Chemotherapie zugelassen, während europäische Behörden die Datenlage als unzureichend ansehen?
+1. Akzeptiert das Unternehmen die Einschätzung von NICE, dass ONCO-104 bei 20.000 Pfund pro Dosis unwirtschaftlich ist?
+2. Warum ist ONCO-104 in den USA vor Chemotherapie zugelassen, während europäische Behörden die Datenlage als unzureichend ansehen?
 3. Wird das Unternehmen Preisnachlässe gewähren, damit Patienten in Europa und Grossbritannien nicht leer ausgehen?`,
-      official_wording_title: "Radioliganden-Evidenz & Nutzenbewertungs-Richtlinie (GS-01 / GS-03)",
-      official_wording_quote: "«Lu-177 RLT belegt in der Phase-III-Studie RLT-01 eine signifikante Verdopplung des progressionsfreien Überlebens (HR 0.41). Die NICE-Bewertung reflektiert gesundheitsökonomische Kostenschwellen, nicht die klinische Wirksamkeit. Das Unternehmen bietet flexible Erstattungsmodelle an, die Spitalentlastungen berücksichtigen.»",
+      official_wording_title: "Präzisionsonkologie-Evidenz & Nutzenbewertungs-Richtlinie (GS-01 / GS-03)",
+      official_wording_quote: "«ONCO-104 belegt in der Phase-III-Studie ONCO-01 eine signifikante Verdopplung des progressionsfreien Überlebens (HR 0.41). Die NICE-Bewertung reflektiert gesundheitsökonomische Kostenschwellen, nicht die klinische Wirksamkeit. Das Unternehmen bietet flexible Erstattungsmodelle an, die Spitalentlastungen berücksichtigen.»",
       compliance_authority: "Onkologie-Leitung & Legal",
       contradictions: [
         {
           severity: "HOCH",
           title: "Wirtschaftliche HTA-Schwelle vs. Biologische Wirksamkeit",
-          quote_journalist: "Akzeptiert das Unternehmen, dass Lu-177 RLT unzureichend und unwirtschaftlich ist?",
-          quote_doctrine: "RLT-01 belegt signifikante Verdopplung des rPFS; NICE-Verfahren ist rein ökonomisch.",
+          quote_journalist: "Akzeptiert das Unternehmen, dass ONCO-104 unzureichend und unwirtschaftlich ist?",
+          quote_doctrine: "ONCO-01 belegt signifikante Verdopplung des rPFS; NICE-Verfahren ist rein ökonomisch.",
           inquiry_trap: "Verwechslung von Wirtschaftlichkeitsgrenzen mit klinischem Studienversagen.",
           legal_boundary: "Regulatorische Pflicht zur korrekten Darstellung klinischer Studienergebnisse.",
           clear_translation: "Klar zwischen der belegten Wirksamkeit und methodischen HTA-Budgetmodellen unterscheiden.",
           assessment: "Zuerst die signifikante rPFS-Verdopplung (HR 0.41) herausstellen, dann auf flexible Erstattungsdialoge verweisen."
         }
       ],
-      recommended_statement: "Der klinische Nutzen von Lu-177 RLT ist wissenschaftlich belegt: Die Phase-III-Studie RLT-01 zeigte eine statistisch signifikante Verdopplung des progressionsfreien Überlebens (HR 0.41, p<0.001) vor Chemotherapie. Während die Zulassungssysteme international divergieren – was zur US-Zulassung durch die FDA führte –, arbeiten wir aktiv mit dem britischen NICE und europäischen Behörden an wertbasierten Modellen, die Entlastungen im Spitalbereich berücksichtigen.",
+      recommended_statement: "Der klinische Nutzen von ONCO-104 ist wissenschaftlich belegt: Die Phase-III-Studie ONCO-01 zeigte eine statistisch signifikante Verdopplung des progressionsfreien Überlebens (HR 0.41, p<0.001) vor Chemotherapie. Während die Zulassungssysteme international divergieren – was zur US-Zulassung durch die FDA führte –, arbeiten wir aktiv mit dem britischen NICE und europäischen Behörden an wertbasierten Modellen, die Entlastungen im Spitalbereich berücksichtigen.",
       strategic_advisory: "Immer mit den rPFS-Studiendaten eröffnen. Keine öffentlichen Spekulationen über prozentuale Rabatte anstellen."
     },
     health_data_breach: {

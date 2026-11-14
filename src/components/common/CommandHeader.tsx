@@ -174,11 +174,20 @@ export const CommandHeader: React.FC<Props> = ({
                     : 'border-sbb-aluminum focus:border-sbb-black'
                 }`}
               >
-                {scenariosList.map(s => (
-                  <option key={s.id} value={s.id}>
-                    {s.title}
-                  </option>
-                ))}
+                <optgroup label={isEn ? 'Biopharma & Healthcare Cases' : 'Biopharma- & Gesundheits-Szenarien'}>
+                  {scenariosList.filter(s => s.group !== 'cross_industry').map(s => (
+                    <option key={s.id} value={s.id}>
+                      {s.title}
+                    </option>
+                  ))}
+                </optgroup>
+                <optgroup label={isEn ? 'Cross-Industry Crisis & ESG Cases' : 'Branchenübergreifende Krisen- & ESG-Fälle'}>
+                  {scenariosList.filter(s => s.group === 'cross_industry').map(s => (
+                    <option key={s.id} value={s.id}>
+                      {s.title}
+                    </option>
+                  ))}
+                </optgroup>
               </select>
               <ChevronDown className="w-4 h-4 text-zinc-500 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
               </div>
@@ -284,7 +293,7 @@ export const CommandHeader: React.FC<Props> = ({
                 >
                   <span className={`text-[10px] font-black shrink-0 ${activeTab === 'trending' ? 'text-white/90' : 'text-zinc-600'}`}>03</span>
                   <Sparkles className={`w-3.5 h-3.5 shrink-0 ${activeTab === 'trending' ? 'text-white' : 'text-sbb-red'}`} />
-                  <span className="truncate">{isEn ? 'Regional Playbook' : 'Regionales Playbook'}</span>
+                  <span className="truncate">{isEn ? 'Sources & Recipes' : 'Quellen & Rezepte'}</span>
                   {showQuickTour && currentTourStep === 3 && (
                     <span className="w-1.5 h-1.5 rounded-full bg-[#FFCC00] animate-pulse shrink-0" />
                   )}

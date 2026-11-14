@@ -45,8 +45,8 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
         version_id: 'draftA',
         version_label: 'Draft A: Blunt Soundbite / Uncalibrated Public Affairs',
         version_badge: 'CRITICAL EXPOSURE',
-        communication: "Because U.S. Most-Favored-Nation rules now tie American revenues to foreign price benchmarks, the company will no longer launch innovative medicines in European or Swiss markets that refuse to match U.S. pricing, while redirecting $23 billion of capital expenditure into our American manufacturing footprint.",
-        headline_from_hell: "PHARMA GROUP THREATENS TO WITHHOLD NEW CANCER DRUGS FROM EUROPE AND SWITZERLAND WHILE SHIFTING $23B TO US",
+        communication: "Because U.S. Most-Favored-Nation rules now tie American revenues to foreign price benchmarks, the company will no longer launch innovative medicines in European or Swiss markets that refuse to match U.S. pricing, while redirecting $15 billion of capital expenditure into our American manufacturing footprint.",
+        headline_from_hell: "PHARMA GROUP THREATENS TO WITHHOLD NEW CANCER DRUGS FROM EUROPE AND SWITZERLAND WHILE SHIFTING $15B TO US",
         risk_score: 9.1,
         risk_level: 'Severe Political Backlash',
         vulnerabilities: [
@@ -56,7 +56,7 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
           },
           {
             topic: "Standort Schweiz Abandonment",
-            explanation: "Contrasting US investments with Swiss/EU friction triggers political panic in Basel and Bern over headquarter flight."
+            explanation: "Contrasting US investments with Swiss/EU friction triggers political panic at the Swiss headquarters and Bern over headquarter flight."
           },
           {
             topic: "Antitrust & Payer Leverage",
@@ -79,16 +79,16 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
             sentiment: "negative"
           },
           {
-            stakeholder: "Swiss Media & Basel Employees",
+            stakeholder: "Swiss Media & Swiss HQ Employees",
             likely_reaction: "Anxiety Over Corporate Drift",
-            reasoning: "Fear that the $23B US commitment marks the beginning of the end for Basel as the global operational heart.",
-            dossier_citation: "Basel-Stadt Economic Affairs Monitoring",
+            reasoning: "Fear that the $15B US commitment marks the beginning of the end for the Swiss headquarters as the global operational heart.",
+            dossier_citation: "Swiss HQ-Stadt Economic Affairs Monitoring",
             sentiment: "negative"
           }
         ],
         second_order_effects: [
           {
-            effect: "Parliamentary interpellations in Bern questioning pharma tax frameworks in Basel-Stadt.",
+            effect: "Parliamentary interpellations in Bern questioning pharma tax frameworks at the Swiss headquarters-Stadt.",
             probability: "high",
             timeframe: "Within 24–48 hours"
           },
@@ -101,11 +101,11 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
         management_summary: {
           diagnosis: "Aggressive commercial frustration was vented directly into public channels, converting a legitimate policy debate on innovation incentives into a toxic public relations crisis.",
           impact: "Destroys goodwill with European and Swiss health authorities; triggers investor alarm over European market access.",
-          verdict: "Recommendation: Immediately re-anchor in Golden Sources GS-01 and GS-02: lead with fair international innovation reward, reaffirm permanent Basel commitment, and frame discussions as partnership for modern value assessment."
+          verdict: "Recommendation: Immediately re-anchor in Golden Sources GS-01 and GS-02: lead with fair international innovation reward, reaffirm permanent Swiss HQ commitment, and frame discussions as partnership for modern value assessment."
         },
         immediate_actions: [
           "Retract aggressive draft before embargo lifts",
-          "Issue explicit reaffirmation of Basel global headquarters status",
+          "Issue explicit reaffirmation of Swiss HQ global headquarters status",
           "Re-align affiliate comms on constructive value-based pricing wording"
         ]
       },
@@ -113,8 +113,8 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
         version_id: 'draftB',
         version_label: 'Draft B: Grounded in GS-01 & GS-02 / Stress-Tested Wording',
         version_badge: 'CALIBRATED & SECURE',
-        communication: "To ensure patients worldwide continue to benefit from transformative medicines, healthcare systems across high-income OECD nations must fairly recognize clinical value and avoid unintended international reference distortions under U.S. MFN frameworks. Our $23 billion U.S. investment expands domestic manufacturing across 10 sites to secure tariff-resilient supply for American patients, while Basel remains our undisputed corporate headquarters and scientific core as we partner constructively with Swiss (BAG) and European health authorities.",
-        headline_from_hell: "PHARMA GROUP EXPANDS U.S. MANUFACTURING BY $23B AND ADVOCATES MODERNIZED EUROPEAN VALUE-BASED PRICING",
+        communication: "To ensure patients worldwide continue to benefit from transformative medicines, healthcare systems across high-income OECD nations must fairly recognize clinical value and avoid unintended international reference distortions under U.S. MFN frameworks. Our $15 billion U.S. investment expands domestic manufacturing across 10 sites to secure tariff-resilient supply for American patients, while Swiss HQ remains our undisputed corporate headquarters and scientific core as we partner constructively with Swiss (BAG) and European health authorities.",
+        headline_from_hell: "PHARMA GROUP EXPANDS U.S. MANUFACTURING BY $15B AND ADVOCATES MODERNIZED EUROPEAN VALUE-BASED PRICING",
         risk_score: 2.6,
         risk_level: 'Controlled & Authoritative',
         vulnerabilities: [
@@ -139,10 +139,10 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
             sentiment: "mixed"
           },
           {
-            stakeholder: "Swiss Media & Basel Employees",
+            stakeholder: "Swiss Media & Swiss HQ Employees",
             likely_reaction: "Reassured Pride",
-            reasoning: "Explicit reaffirmation of Basel as the global scientific and corporate headquarters quells relocation anxiety.",
-            dossier_citation: "Basel-Stadt Economic Affairs Monitoring",
+            reasoning: "Explicit reaffirmation of Swiss HQ as the global scientific and corporate headquarters quells relocation anxiety.",
+            dossier_citation: "Swiss HQ-Stadt Economic Affairs Monitoring",
             sentiment: "positive"
           }
         ],
@@ -383,8 +383,8 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
         version_id: 'draftA',
         version_label: 'Draft A: Uncalibrated Medical Affairs Note',
         version_badge: 'CRITICAL EXPOSURE',
-        communication: "Following EMA and UK NICE refusals to fund Lu-177 RLT at requested price points in pre-chemotherapy prostate cancer, the company has discontinued European pre-chemo filings, while focusing commercial expansion on the US market where the FDA granted label approval.",
-        headline_from_hell: "PHARMA GROUP ABANDONS EUROPEAN PATIENTS AFTER UK AND EU REJECT PROSTATE CANCER THERAPY LU-177 RLT",
+        communication: "Following EMA and UK NICE refusals to fund ONCO-104 at requested price points in pre-chemotherapy solid-tumor oncology, the company has discontinued European pre-chemo filings, while focusing commercial expansion on the US market where the FDA granted label approval.",
+        headline_from_hell: "PHARMA GROUP ABANDONS EUROPEAN PATIENTS AFTER UK AND EU REJECT PROSTATE CANCER THERAPY ONCO-104",
         risk_score: 9.3,
         risk_level: 'Acute Reputational Fallout',
         vulnerabilities: [
@@ -401,7 +401,7 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
           {
             stakeholder: "European Prostate Cancer Advocacy Groups",
             likely_reaction: "Public Protests & Accusations",
-            reasoning: "Patients demand to know why a proven life-extending radioligand therapy is accessible in the US but withheld in Europe.",
+            reasoning: "Patients demand to know why a proven life-extending targeted cancer therapy is accessible in the US but withheld in Europe.",
             dossier_citation: "European Patient Forum Briefing",
             sentiment: "negative"
           },
@@ -415,7 +415,7 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
         ],
         second_order_effects: [
           {
-            effect: "AI search engines claim Lu-177 RLT was withdrawn due to clinical failure.",
+            effect: "AI search engines claim ONCO-104 was withdrawn due to clinical failure.",
             probability: "high",
             timeframe: "Immediate"
           }
@@ -435,7 +435,7 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
         version_id: 'draftB',
         version_label: 'Draft B: Grounded Clinical & Economic Wording',
         version_badge: 'CALIBRATED & SECURE',
-        communication: "The Phase III RLT-01 trial demonstrated a statistically significant doubling of radiographic progression-free survival (HR 0.41, p<0.001) for Lu-177 RLT prior to chemotherapy, validating its clinical benefit. While regulatory and HTA frameworks vary by region—with the U.S. FDA granting approval—the company remains actively engaged with European and UK authorities to establish tailored, value-based access models that recognize total hospital cost offsets.",
+        communication: "The Phase III ONCO-01 trial demonstrated a statistically significant doubling of radiographic progression-free survival (HR 0.41, p<0.001) for ONCO-104 prior to chemotherapy, validating its clinical benefit. While regulatory and HTA frameworks vary by region—with the U.S. FDA granting approval—the company remains actively engaged with European and UK authorities to establish tailored, value-based access models that recognize total hospital cost offsets.",
         headline_from_hell: "PHASE III DATA CONFIRMS SIGNIFICANT SURVIVAL BENEFIT AS COMPANY WORKS WITH HEALTH AUTHORITIES ON ACCESS",
         risk_score: 2.7,
         risk_level: 'Controlled & Defensible',
@@ -469,7 +469,7 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
           }
         ],
         management_summary: {
-          diagnosis: "Protects the scientific integrity of the radioligand platform while positioning the company as a collaborative partner for healthcare access.",
+          diagnosis: "Protects the scientific integrity of the targeted oncology platform while positioning the company as a collaborative partner for healthcare access.",
           impact: "Preserves international pricing baselines and maintains high clinical confidence.",
           verdict: "Recommendation: Approved for oncology communications and HTA stakeholder briefings."
         },
@@ -571,7 +571,7 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
         version_id: 'draftA',
         version_label: 'Entwurf A: Unkalibriertes Public-Affairs-Statement',
         version_badge: 'KRITISCHE ANGRIFFSFLÄCHE',
-        communication: "Weil US-Regeln künftig amerikanische Preise an ausländische Referenzwerte koppeln, wird das Unternehmen innovative Therapien nicht mehr in europäischen oder Schweizer Märkten einführen, die unsere Preise nicht mitgehen, während wir 23 Milliarden Dollar in die US-Produktion umschichten.",
+        communication: "Weil US-Regeln künftig amerikanische Preise an ausländische Referenzwerte koppeln, wird das Unternehmen innovative Therapien nicht mehr in europäischen oder Schweizer Märkten einführen, die unsere Preise nicht mitgehen, während wir 15 Milliarden Dollar in die US-Produktion umschichten.",
         headline_from_hell: "PHARMAKONZERN DROHT MIT LIEFERSTOPP FÜR EUROPA UND SCHWEIZ BEI GLEICHZEITIGEM 23-MRD-US-AUSBAU",
         risk_score: 9.1,
         risk_level: 'Schwere politische Gegenreaktion',
@@ -581,8 +581,8 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
             explanation: "Die Formulierung 'nicht mehr einführen' wird von Behörden und Medien umgehend als Erpressung auf dem Rücken von Patienten gewertet."
           },
           {
-            topic: "Verunsicherung über den Standort Basel",
-            explanation: "Die Gegenüberstellung von US-Investitionen und Schweizer HTA-Konflikten schürt Gerüchte über eine schrittweise Abwanderung aus Basel."
+            topic: "Verunsicherung über den Standort Schweiz",
+            explanation: "Die Gegenüberstellung von US-Investitionen und Schweizer HTA-Konflikten schürt Gerüchte über eine schrittweise Abwanderung aus der Schweiz."
           },
           {
             topic: "Kartellrechtliches Risiko",
@@ -607,8 +607,8 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
           {
             stakeholder: "Schweizer Öffentlichkeit & Basler Belegschaft",
             likely_reaction: "Sorge vor Bedeutungsverlust",
-            reasoning: "Befürchtung, das 23-Mrd.-US-Paket leite den schleichenden Rückzug aus Basel ein.",
-            dossier_citation: "Wirtschaftsstandort Basel Monitoring",
+            reasoning: "Befürchtung, das 15-Mrd.-US-Paket leite den schleichenden Rückzug aus der Schweiz ein.",
+            dossier_citation: "Wirtschaftsstandort Swiss HQ Monitoring",
             sentiment: "negative"
           }
         ],
@@ -627,11 +627,11 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
         management_summary: {
           diagnosis: "Berechtigte wirtschaftliche Reformanliegen wurden in aggressive Droh-Rhetorik verpackt und zerstören den politischen Konsens.",
           impact: "Massiver Reputationsverlust am Heimmarkt und verhärtete Fronten bei Erstattungsverhandlungen weltweit.",
-          verdict: "Empfehlung: Umgehende Rückbesinnung auf GS-01 und GS-02: faire Innovationsvergütung fordern, unerschütterliche Standorttreue zu Basel betonen und partnerschaftliche Lösungen suchen."
+          verdict: "Empfehlung: Umgehende Rückbesinnung auf GS-01 und GS-02: faire Innovationsvergütung fordern, unerschütterliche Standorttreue zu Swiss HQ betonen und partnerschaftliche Lösungen suchen."
         },
         immediate_actions: [
           "Verbreitung des Entwurfs vor Ablauf des Embargos stoppen",
-          "Klares Bekenntnis zum Hauptsitz Basel als wissenschaftliches Zentrum publizieren",
+          "Klares Bekenntnis zum Hauptsitz Swiss HQ als wissenschaftliches Zentrum publizieren",
           "Länderteams auf partnerschaftliche Reform-Sprachregelungen einschwören"
         ]
       },
@@ -639,7 +639,7 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
         version_id: 'draftB',
         version_label: 'Entwurf B: Auf GS-01 & GS-02 gestütztes / gestresstestetes Wording',
         version_badge: 'KALIBRIERT & SOUVERÄN',
-        communication: "Damit Patientinnen und Patienten weltweit von bahnbrechenden Medikamenten profitieren, müssen OECD-Gesundheitssysteme den klinischen Nutzen fair anerkennen und unbeabsichtigte internationale Referenzverzerrungen unter US-Regeln vermeiden. Unsere 23-Milliarden-Dollar-Investition baut die US-Produktion an 10 Standorten für lokale Versorgungssicherheit aus, während Basel unverändert unser weltweiter Hauptsitz und wissenschaftliches Herz bleibt; mit dem BAG und europäischen Behörden suchen wir den aktiven Dialog für zeitgemässe Erstattungsmodelle.",
+        communication: "Damit Patientinnen und Patienten weltweit von bahnbrechenden Medikamenten profitieren, müssen OECD-Gesundheitssysteme den klinischen Nutzen fair anerkennen und unbeabsichtigte internationale Referenzverzerrungen unter US-Regeln vermeiden. Unsere 23-Milliarden-Dollar-Investition baut die US-Produktion an 10 Standorten für lokale Versorgungssicherheit aus, während Swiss HQ unverändert unser weltweiter Hauptsitz und wissenschaftliches Herz bleibt; mit dem BAG und europäischen Behörden suchen wir den aktiven Dialog für zeitgemässe Erstattungsmodelle.",
         headline_from_hell: "PHARMAKONZERN INVESTIERT 23 MILLIARDEN IN US-PRODUKTION UND FORDERT MODERNISIERTE NUTZENBEWERTUNG IN EUROPA",
         risk_score: 2.6,
         risk_level: 'Kontrolliert & Glaubwürdig',
@@ -667,8 +667,8 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
           {
             stakeholder: "Schweizer Öffentlichkeit & Basler Belegschaft",
             likely_reaction: "Beruhigtes Vertrauen",
-            reasoning: "Das klare Bekenntnis zu Basel als Forschungszentrale zerstreut Abwanderungsängste.",
-            dossier_citation: "Wirtschaftsstandort Basel Monitoring",
+            reasoning: "Das klare Bekenntnis zu Swiss HQ als Forschungszentrale zerstreut Abwanderungsängste.",
+            dossier_citation: "Wirtschaftsstandort Swiss HQ Monitoring",
             sentiment: "positive"
           }
         ],
@@ -909,8 +909,8 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
         version_id: 'draftA',
         version_label: 'Entwurf A: Unkalibriertes medizinisches Statement',
         version_badge: 'KRITISCHE ANGRIFFSFLÄCHE',
-        communication: "Nachdem EMA und das britische NICE eine Erstattung von Lu-177 RLT vor Chemotherapie zu den geforderten Preisen abgelehnt haben, zieht das Unternehmen die europäischen Anträge zurück und konzentriert sich auf den US-Markt, wo die FDA die Zulassung erteilt hat.",
-        headline_from_hell: "PHARMAKONZERN ZIEHT KREBSMEDIKAMENT LU-177 RLT AUS EUROPA ZURÜCK NACH ABLEHNUNG DURCH BEHÖRDEN",
+        communication: "Nachdem EMA und das britische NICE eine Erstattung von ONCO-104 vor Chemotherapie zu den geforderten Preisen abgelehnt haben, zieht das Unternehmen die europäischen Anträge zurück und konzentriert sich auf den US-Markt, wo die FDA die Zulassung erteilt hat.",
+        headline_from_hell: "PHARMAKONZERN ZIEHT KREBSMEDIKAMENT ONCO-104 AUS EUROPA ZURÜCK NACH ABLEHNUNG DURCH BEHÖRDEN",
         risk_score: 9.3,
         risk_level: 'Akuter Reputationsschaden',
         vulnerabilities: [
@@ -941,7 +941,7 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
         ],
         second_order_effects: [
           {
-            effect: "Suchmaschinen und KI-Assistenten behaupten fälschlich, Lu-177 RLT sei wirkungslos.",
+            effect: "Suchmaschinen und KI-Assistenten behaupten fälschlich, ONCO-104 sei wirkungslos.",
             probability: "high",
             timeframe: "Sofortige Indizierung"
           }
@@ -961,7 +961,7 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
         version_id: 'draftB',
         version_label: 'Entwurf B: Evidenzbasierte & gestresstestete Fassung',
         version_badge: 'KALIBRIERT & BELASTBAR',
-        communication: "Die Phase-III-Studie RLT-01 belegt eine statistisch signifikante Verdopplung des progressionsfreien Überlebens (HR 0.41, p<0.001) für Lu-177 RLT vor Chemotherapie und bestätigt den hohen klinischen Nutzen. Während Zulassungs- und Erstattungssysteme regional variieren – mit einer erfolgten Zulassung durch die US-FDA –, bleibt das Unternehmen im aktiven Dialog mit europäischen und britischen Behörden für flexible Erstattungsmodelle, die Spitalentlastungen berücksichtigen.",
+        communication: "Die Phase-III-Studie ONCO-01 belegt eine statistisch signifikante Verdopplung des progressionsfreien Überlebens (HR 0.41, p<0.001) für ONCO-104 vor Chemotherapie und bestätigt den hohen klinischen Nutzen. Während Zulassungs- und Erstattungssysteme regional variieren – mit einer erfolgten Zulassung durch die US-FDA –, bleibt das Unternehmen im aktiven Dialog mit europäischen und britischen Behörden für flexible Erstattungsmodelle, die Spitalentlastungen berücksichtigen.",
         headline_from_hell: "STUDIE BESTÄTIGT ÜBERLEBENSVORTEIL BEI PROSTATAKREBS: UNTERNEHMEN ARBEITET AN ZUGANGSLÖSUNGEN",
         risk_score: 2.7,
         risk_level: 'Kontrolliert & Glaubwürdig',
@@ -995,7 +995,7 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
           }
         ],
         management_summary: {
-          diagnosis: "Sichert die wissenschaftliche Exzellenz der Radioliganden-Plattform und positioniert das Unternehmen als verlässlichen Gesundheitspartner.",
+          diagnosis: "Sichert die wissenschaftliche Exzellenz der Präzisionsonkologie-Plattform und positioniert das Unternehmen als verlässlichen Gesundheitspartner.",
           impact: "Schützt die globale Preisstabilität und bewahrt das Vertrauen der behandelnden Onkologen.",
           verdict: "Empfehlung: Freigabe für Onkologie-Kommunikation und HTA-Dialoge."
         },

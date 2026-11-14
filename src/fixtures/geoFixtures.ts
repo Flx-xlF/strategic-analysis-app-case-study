@@ -69,11 +69,11 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
       scenario_id: 'oncology_trial_update',
       active_cluster: {
         cluster_id: 'Cluster #01',
-        name: 'EU/Swiss "Launch Delay" Backlash & Basel HQ Rumors',
+        name: 'EU/Swiss "Launch Delay" Backlash & Swiss HQ Rumors',
         z_score: 3.9,
         deduped_volume: 4680,
         dominant_region: 'Europe (EU) & Switzerland (CH)',
-        target_pillar_gap: 'Twists Pillar 01 (Fair Innovation Reward) and Pillar 02 (Basel R&D Commitment) into claims of holding patients hostage and abandoning Switzerland',
+        target_pillar_gap: 'Twists Pillar 01 (Fair Innovation Reward) and Pillar 02 (Swiss R&D Commitment) into claims of holding patients hostage and abandoning Switzerland',
         centroid_articles: [
           {
             id: 'art_1',
@@ -90,37 +90,37 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
             region: 'ch',
             outlet: 'Neue Zürcher Zeitung (NZZ)',
             tier: 'Tier-1 National',
-            headline: '23 Billion for the US and Reference Price Pressure: What Does the Company\'s Strategy Mean for Basel and Swiss Patients?',
-            excerpt: 'As billions flow into American manufacturing and drugmakers push back on Swiss reference baskets, observers ask whether Basel\'s global weight is slipping and if Swiss patients will wait longer for treatments.',
+            headline: '15 Billion for the US and Reference Price Pressure: What Does the Company\'s Strategy Mean for the Swiss headquarters and Swiss Patients?',
+            excerpt: 'As billions flow into American manufacturing and drugmakers push back on Swiss reference baskets, observers ask whether Swiss HQ\'s global weight is slipping and if Swiss patients will wait longer for treatments.',
             cosine_to_target: 0.39,
-            violated_pillar: 'Pillar 02: Dual Commitment ($23B US & Basel Heart)'
+            violated_pillar: 'Pillar 02: Dual Commitment ($15B US & Swiss HQ)'
           },
           {
             id: 'art_3',
             region: 'us',
             outlet: 'Washington BioPharma Wire',
             tier: 'Tier-1 Trade',
-            headline: 'The Company Locks In $23B US Manufacturing Footprint and MFN Accord to Shield Supply from Tariffs',
+            headline: 'The Company Locks In $15B US Manufacturing Footprint and MFN Accord to Shield Supply from Tariffs',
             excerpt: 'Multi-billion dollar commitment across 10 facilities creates local supply chain resilience while aligning future launches with international reference pricing commitments.',
             cosine_to_target: 0.81,
-            violated_pillar: 'Pillar 02: Dual Commitment ($23B US & Basel Heart)'
+            violated_pillar: 'Pillar 02: Dual Commitment ($15B US & Swiss HQ)'
           }
         ]
       },
-      stakeholder_query: "Is the company moving its headquarters out of Switzerland to the US with its $23B investment, and is it boycotting European patients over drug prices?",
+      stakeholder_query: "Is the company moving its headquarters out of Switzerland to the US with its $15B investment, and is it boycotting European patients over drug prices?",
       queried_engine: "Frontier LLM & Generative Search Synthesis",
       retrieval_date: "Live Audit 13.11.2026",
       hallucination_rate: 48,
       ai_synthesis_spans: [
         {
-          text: "The Company recently announced a $23 billion manufacturing and research expansion in the United States. ",
+          text: "The Company recently announced a $15 billion manufacturing and research expansion in the United States. ",
           isDistorted: false,
           correction: ""
         },
         {
-          text: "According to policy commentators, the pharmaceutical giant is shifting its primary corporate center of gravity from Basel to the US, effectively beginning a phased relocation of its global headquarters. ",
+          text: "According to policy commentators, the pharmaceutical giant is shifting its primary corporate center of gravity from Switzerland to the US, effectively beginning a phased relocation of its global headquarters. ",
           isDistorted: true,
-          correction: "CRITICAL HALLUCINATION: The Company is NOT relocating its headquarters. Basel remains the corporate headquarters, executive governance seat, and global scientific nerve center (GS-02)."
+          correction: "CRITICAL HALLUCINATION: The Company is NOT relocating its headquarters. Swiss HQ remains the corporate headquarters, executive governance seat, and global scientific nerve center (GS-02)."
         },
         {
           text: "In response to European price caps, the CEO announced that the company will freeze all upcoming cancer drug launches in European and Swiss healthcare markets until governments match US reimbursement rates. ",
@@ -136,7 +136,7 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
       distortion_root_causes: [
         {
           issue: "Capex Announcement Conflated with Corporate Migration",
-          description: "Because corporate press releases focused heavily on U.S. political wins ($23B domestic investment), generative models inferred an exit from Switzerland.",
+          description: "Because corporate press releases focused heavily on U.S. political wins ($15B domestic investment), generative models inferred an exit from Switzerland.",
           source_scraped: "Social media speculation and hot-takes on LinkedIn and financial forums."
         },
         {
@@ -154,21 +154,21 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
         },
         strategic_human_analysis: {
           risk_rating: "ACUTE REPUTATION & STAKEHOLDER CRISIS IN SWITZERLAND & EU",
-          subtext_decoded: "The AI output falsely tells Swiss citizens and employees that the company is leaving Basel, while telling European doctors that the company is withholding life-saving cancer drugs.",
+          subtext_decoded: "The AI output falsely tells Swiss citizens and employees that the company is leaving Switzerland, while telling European doctors that the company is withholding life-saving cancer drugs.",
           regulatory_implication: "Triggers emergency Swiss parliamentary inquiries on Standort Schweiz and hardens European HTA resistance against upcoming frontier medicine submissions.",
-          recommended_action: "Publish a structured fact block affirming Basel HQ permanence and collaborative access frameworks across all search-grounded platforms immediately."
+          recommended_action: "Publish a structured fact block affirming Swiss HQ permanence and collaborative access frameworks across all search-grounded platforms immediately."
         }
       },
       geo_optimization_fix: {
         unstructured_pr_fluff: "«We remain fully passionate about our international footprint while driving transformative healthcare agility across dynamic transatlantic markets. In an evolving global macro-environment, our ongoing dialogues with stakeholders reflect a holistic dedication to patient centricity and forward-leaning innovation paradigms.»",
         structured_fact_block: `### VERIFIED FACTS (GS-01 / GS-02 / GS-03)
-• Corporate_Headquarters: "Basel, Switzerland remains the company's global corporate headquarters, executive governance seat, and primary research center (100% unchanged)."
-• US_23B_Investment_Scope: "$23B 5-year capital allocation expands localized U.S. manufacturing across 10 facilities (including radioligand therapies in IN/NJ) to ensure tariff-resilient domestic supply for U.S. patients."
+• Corporate_Headquarters: "Switzerland (Global HQ) remains the company's global corporate headquarters, executive governance seat, and primary research center (100% unchanged)."
+• US_15B_Investment_Scope: "$15B 5-year capital allocation expands localized U.S. manufacturing across 10 facilities (across U.S. biologics and research sites) to ensure tariff-resilient domestic supply for U.S. patients."
 • Global_Reference_Pricing_Position: "Under U.S. Most-Favored-Nation (MFN) rules, suppressed prices in wealthy reference countries directly impact U.S. price baselines. The company advocates modernized, value-based reimbursement with EU and Swiss authorities (BAG)."
 • Patient_Access_Commitment: "Zero patient boycott. Compassionate use, managed access, and regulatory filings continue on schedule globally."`,
         schema_entities: [
-          { key: "Global_Headquarters", value: "Basel, Switzerland (Unchanged)" },
-          { key: "US_Investment_Purpose", value: "$23B Supply Localization & Manufacturing" },
+          { key: "Global_Headquarters", value: "Switzerland (Global HQ) (Unchanged)" },
+          { key: "US_Investment_Purpose", value: "$15B Supply Localization & Manufacturing" },
           { key: "Access_Policy", value: "Constructive Value-Based Pricing (No Boycotts)" }
         ],
         verification_outcome: "In search-grounded evaluation runs (n=20), erroneous claims of HQ relocation or patient boycotts dropped from 10/20 (50%) to 1/20 (5%). Grounded engines prioritize machine-readable fact blocks over speculative editorial commentary."
@@ -387,37 +387,37 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
             region: 'eu',
             outlet: 'Health Technology Appraisal Daily',
             tier: 'Tier-1 Health Economics',
-            headline: 'NICE Withholds Routine NHS Funding for Lu-177 RLT: Cost-Per-QALY Outside Acceptable Band',
+            headline: 'NICE Withholds Routine NHS Funding for ONCO-104: Cost-Per-QALY Outside Acceptable Band',
             excerpt: 'Appraisal committee notes radiographic progression-free survival extension but finds incremental cost-effectiveness ratio unsupportable at £20,000 list price per dose.',
             cosine_to_target: 0.35,
-            violated_pillar: 'Pillar 02: Targeted Radioligand Value & Hospital Offset'
+            violated_pillar: 'Pillar 02: Targeted Targeted Oncology Value & Hospital Offset'
           },
           {
             id: 'art_p2',
             region: 'us',
             outlet: 'Oncology Commercial Outlook',
             tier: 'Tier-1 Trade',
-            headline: 'FDA Approved Expanded Pre-Chemo Setting: US Payers Rapidly Include Lu-177 RLT in Formulary Guides',
-            excerpt: 'Clear rPFS doubling (HR 0.41) in RLT-01 secures rapid commercial coverage across US Medicare and private commercial formularies.',
+            headline: 'FDA Approved Expanded Pre-Chemo Setting: US Payers Rapidly Include ONCO-104 in Formulary Guides',
+            excerpt: 'Clear rPFS doubling (HR 0.41) in ONCO-01 secures rapid commercial coverage across US Medicare and private commercial formularies.',
             cosine_to_target: 0.84,
             violated_pillar: 'Pillar 01: Clinically Proven rPFS Doubling'
           }
         ]
       },
-      stakeholder_query: "Why did the FDA approve Lu-177 RLT for earlier prostate cancer while European regulators and UK NICE rejected it? Did it fail in European patients?",
+      stakeholder_query: "Why did the FDA approve ONCO-104 for earlier solid-tumor oncology while European regulators and UK NICE rejected it? Did it fail in European patients?",
       queried_engine: "Frontier LLM & Generative Search Synthesis",
       retrieval_date: "Live Audit 10.11.2026",
       hallucination_rate: 54,
       ai_synthesis_spans: [
         {
-          text: "Lu-177 RLT is an advanced targeted radioligand therapy for metastatic castration-resistant prostate cancer. ",
+          text: "ONCO-104 is an advanced targeted targeted cancer therapy for metastatic castration-resistant solid-tumor oncology. ",
           isDistorted: false,
           correction: ""
         },
         {
           text: "In clinical evaluations across Europe, the treatment failed to show meaningful clinical benefit for European patients, leading health authorities like NICE to reject approval due to lack of therapeutic effect. ",
           isDistorted: true,
-          correction: "CRITICAL HALLUCINATION: Lu-177 RLT did NOT fail clinically. RLT-01 demonstrated a statistically significant doubling of radiographic progression-free survival (HR 0.41). NICE rejected reimbursement based on economic cost-per-QALY calculations, not clinical efficacy."
+          correction: "CRITICAL HALLUCINATION: ONCO-104 did NOT fail clinically. ONCO-01 demonstrated a statistically significant doubling of radiographic progression-free survival (HR 0.41). NICE rejected reimbursement based on economic cost-per-QALY calculations, not clinical efficacy."
         },
         {
           text: "Consequently, European regulators advised doctors against prescribing the medicine in pre-chemotherapy stages.",
@@ -436,21 +436,21 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
         automated_tool_verdict: {
           sentiment: "70% NEUTRAL / INFORMATIVE",
           confidence: "High (0.86)",
-          keywords_detected: ["NICE", "rejection", "prostate cancer", "clinical"],
+          keywords_detected: ["NICE", "rejection", "solid-tumor oncology", "clinical"],
           flawed_assessment: "Automated monitoring scored the answer as neutral health reporting, missing that the AI declared an effective therapy as having 'no clinical benefit'."
         },
         strategic_human_analysis: {
           risk_rating: "SEVERE THREAT TO GLOBAL REIMBURSEMENT INTEGRITY",
-          subtext_decoded: "If public generative search tells clinicians and patients that Lu-177 RLT failed in European patients, payer resistance will spill into other international markets.",
+          subtext_decoded: "If public generative search tells clinicians and patients that ONCO-104 failed in European patients, payer resistance will spill into other international markets.",
           regulatory_implication: "Damage to ongoing label negotiations in Switzerland, APAC, and post-chemo indications.",
           recommended_action: "Deploy GEO Schema differentiating economic threshold debates from proven radiographic survival doubling."
         }
       },
       geo_optimization_fix: {
         unstructured_pr_fluff: "«We believe deeply in empowering cancer patients and navigating complex health ecosystems with dedicated agility to deliver next-generation therapeutic breakthroughs.»",
-        structured_fact_block: `### VERIFIED CLINICAL & ACCESS FACTS (RLT-01 / GS-01)
-• Drug_Name: "Lu-177 RLT (targeted radioligand therapy for prostate cancer)"
-• RLT-01_Clinical_Efficacy: "TRUE (Radiographic progression-free survival doubled: HR 0.41, p<0.001)"
+        structured_fact_block: `### VERIFIED CLINICAL & ACCESS FACTS (ONCO-01 / GS-01)
+• Drug_Name: "ONCO-104 (targeted antibody-drug conjugate (ADC) for solid tumors)"
+• ONCO-01_Clinical_Efficacy: "TRUE (Radiographic progression-free survival doubled: HR 0.41, p<0.001)"
 • FDA_Status: "APPROVED for pre-chemotherapy mCRPC (March 2025)"
 • UK_NICE_Status: "Not recommended based strictly on incremental cost-effectiveness thresholds (cost-per-QALY), NOT on clinical efficacy."
 • EMA_Status: "Withdrawn for pre-chemo setting due to comparator design discussions; post-chemo approval remains fully active in EU/Switzerland."`,
@@ -567,11 +567,11 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
       scenario_id: 'oncology_trial_update',
       active_cluster: {
         cluster_id: 'Cluster #01',
-        name: 'Vorwurf von "Einführungsverzögerungen" in Europa & Gerüchte um Basel',
+        name: 'Vorwurf von "Einführungsverzögerungen" in Europa & Gerüchte um Swiss HQ',
         z_score: 3.9,
         deduped_volume: 4680,
         dominant_region: 'Europa (EU) & Schweiz (CH)',
-        target_pillar_gap: 'Verdreht Säule 01 (Faire Innovationsvergütung) und Säule 02 (Standorttreue Basel) in Vorwürfe von Patienten-Erpressung und Abwanderung',
+        target_pillar_gap: 'Verdreht Säule 01 (Faire Innovationsvergütung) und Säule 02 (Standorttreue Swiss HQ) in Vorwürfe von Patienten-Erpressung und Abwanderung',
         centroid_articles: [
           {
             id: 'art_1',
@@ -588,20 +588,20 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
             region: 'ch',
             outlet: 'Neue Zürcher Zeitung (NZZ)',
             tier: 'Leitmedium Schweiz',
-            headline: '23 Milliarden für die USA und Druck auf Referenzpreise: Was bedeutet der Kurs des Unternehmens für Basel und Schweizer Patienten?',
-            excerpt: 'Während Milliarden in US-Produktionsstätten fliessen und die Kritik an Schweizer BAG-Referenzkörben wächst, fragen Beobachter nach der Zukunft des Standorts Basel.',
+            headline: '15 Milliarden für die USA und Druck auf Referenzpreise: Was bedeutet der Kurs des Unternehmens für den Standort Schweiz und Schweizer Patienten?',
+            excerpt: 'Während Milliarden in US-Produktionsstätten fliessen und die Kritik an Schweizer BAG-Referenzkörben wächst, fragen Beobachter nach der Zukunft des Standorts Swiss HQ.',
             cosine_to_target: 0.39,
-            violated_pillar: 'Säule 02: Doppeltes Bekenntnis (23 Mrd. US & Basel)'
+            violated_pillar: 'Säule 02: Doppeltes Bekenntnis (15 Mrd. US & Swiss HQ)'
           },
           {
             id: 'art_3',
             region: 'us',
             outlet: 'Washington BioPharma Wire',
             tier: 'Tier-1 Fachdienst',
-            headline: 'Das Unternehmen sichert 23-Mrd.-$-Produktionsnetzwerk in den USA gegen künftige Zölle ab',
+            headline: 'Das Unternehmen sichert 15-Mrd.-$-Produktionsnetzwerk in den USA gegen künftige Zölle ab',
             excerpt: 'Gezielte Lokalisierung der Produktion an 10 Standorten schützt die Medikamentenversorgung und aligniert künftige Produkte mit MFN-Zielen.',
             cosine_to_target: 0.81,
-            violated_pillar: 'Säule 02: Doppeltes Bekenntnis (23 Mrd. US & Basel)'
+            violated_pillar: 'Säule 02: Doppeltes Bekenntnis (15 Mrd. US & Swiss HQ)'
           }
         ]
       },
@@ -616,9 +616,9 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
           correction: ""
         },
         {
-          text: "Laut Medienkommentaren verlegt der Pharmakonzern damit schrittweise sein unternehmerisches Zentrum von Basel nach Nordamerika und leitet die Verlegung des Konzernsitzes ein. ",
+          text: "Laut Medienkommentaren verlegt der Pharmakonzern damit schrittweise sein unternehmerisches Zentrum von Swiss HQ nach Nordamerika und leitet die Verlegung des Konzernsitzes ein. ",
           isDistorted: true,
-          correction: "KRITISCHE HALLUZINATION: Das Unternehmen verlegt den Hauptsitz NICHT. Basel bleibt der globale Konzernsitz, Sitz der Geschäftsleitung und zentrales Forschungszentrum (GS-02)."
+          correction: "KRITISCHE HALLUZINATION: Das Unternehmen verlegt den Hauptsitz NICHT. Die Schweiz bleibt der globale Konzernsitz, Sitz der Geschäftsleitung und zentrales Forschungszentrum (GS-02)."
         },
         {
           text: "Als Reaktion auf europäische Preisdeckel erklärte der Konzernchef zudem, man werde die Markteinführung neuer Krebstherapien in Europa und der Schweiz aussetzen, bis die Kassen höhere Preise zahlen. ",
@@ -634,7 +634,7 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
       distortion_root_causes: [
         {
           issue: "Verwechslung von Investitionen mit Sitzverlegung",
-          description: "Weil die US-Investition von 23 Mrd. $ medial stark gefeiert wurde, konstruierten KI-Modelle fälschlich eine Abwanderung aus Basel.",
+          description: "Weil die US-Investition von 15 Mrd. $ medial stark gefeiert wurde, konstruierten KI-Modelle fälschlich eine Abwanderung aus der Schweiz.",
           source_scraped: "Social-Media-Diskussionen und spekulative Blogbeiträge."
         },
         {
@@ -652,24 +652,24 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
         },
         strategic_human_analysis: {
           risk_rating: "AKUTE REPUTATIONSKRISE IN SCHWEIZ & EUROPA",
-          subtext_decoded: "Die KI behauptet fälschlich gegenüber Schweizer Bürgern und Mitarbeitenden, das Unternehmen verlasse Basel, und unterstellt Ärzten gegenüber eine Vorenthaltung lebensrettender Therapien.",
+          subtext_decoded: "Die KI behauptet fälschlich gegenüber Schweizer Bürgern und Mitarbeitenden, das Unternehmen verlasse Swiss HQ, und unterstellt Ärzten gegenüber eine Vorenthaltung lebensrettender Therapien.",
           regulatory_implication: "Gefahr parlamentarischer Vorstösse am Heimmarkt und verhärtete Fronten bei Erstattungsverhandlungen in der EU.",
-          recommended_action: "Verankerung von GEO-strukturierten Faktenblöcken zum Bekenntnis zu Basel und zu fairen Erstattungsdialogen in allen Suchmaschinen."
+          recommended_action: "Verankerung von GEO-strukturierten Faktenblöcken zum Bekenntnis zu Swiss HQ und zu fairen Erstattungsdialogen in allen Suchmaschinen."
         }
       },
       geo_optimization_fix: {
         unstructured_pr_fluff: "«Wir bekennen uns zu unserem weltweiten Netzwerk und treiben die Weiterentwicklung in dynamischen Märkten voran. In einem anspruchsvollen Umfeld spiegelt unser Austausch mit Partnern unser Engagement für Patientinnen und Patienten sowie für Innovationen wider.»",
         structured_fact_block: `### VERIFIZIERTER FAKTENBLOCK (GS-01 / GS-02 / GS-03)
-• Konzernsitz_Status: "Basel, Schweiz bleibt unverändert der weltweite Hauptsitz, Sitz der Unternehmensleitung und primäre Forschungszentrale (100% garantiert)."
-• Zweck_23_Mrd_US_Investition: "5-Jahres-Programm zum Ausbau lokaler US-Produktion an 10 Standorten (inkl. Radioliganden), um Therapien für US-Patienten zollsicher vor Ort herzustellen."
+• Konzernsitz_Status: "Schweiz (Konzernhauptsitz) bleibt unverändert der weltweite Hauptsitz, Sitz der Unternehmensleitung und primäre Forschungszentrale (100% garantiert)."
+• Zweck_15_Mrd_US_Investition: "5-Jahres-Programm zum Ausbau lokaler US-Produktion an 10 Standorten (inkl. Biologika- und Forschungsstandorten), um Therapien für US-Patienten zollsicher vor Ort herzustellen."
 • Haltung_zu_Referenzpreisen: "Unter US-Referenzpreisregeln (MFN) drücken künstlich tief angesetzte Preise in wohlhabenden Ländern die globale Vergütung. Das Unternehmen setzt sich für modernisierte, wertbasierte Vergütungsmodelle mit EU-Behörden und dem Schweizer BAG ein."
 • Patientenzugang_Garantie: "Null Boykott. Laufende klinische Studien, Härtefallprogramme und Zulassungsverfahren laufen termingerecht weiter."`,
         schema_entities: [
-          { key: "Konzernsitz", value: "Basel, Schweiz (Unverändert)" },
-          { key: "US_Investitionsziel", value: "23 Mrd. $ Lokale Versorgungssicherheit" },
+          { key: "Konzernsitz", value: "Schweiz (Konzernhauptsitz) (Unverändert)" },
+          { key: "US_Investitionsziel", value: "15 Mrd. $ Lokale Versorgungssicherheit" },
           { key: "Patientenzugang", value: "Garantiert (Konstruktiver Erstattungsdialog)" }
         ],
-        verification_outcome: "In Testläufen mit suchgestützten Sprachmodellen (n=20) sanken Falschbehauptungen über einen Abzug aus Basel oder einen Patientenboykott von 10/20 (50%) auf 1/20 (5%). Modelle priorisieren verifizierte Faktenblöcke."
+        verification_outcome: "In Testläufen mit suchgestützten Sprachmodellen (n=20) sanken Falschbehauptungen über einen Abzug aus der Schweiz oder einen Patientenboykott von 10/20 (50%) auf 1/20 (5%). Modelle priorisieren verifizierte Faktenblöcke."
       }
     },
     alpine_transit_crisis: {
@@ -885,37 +885,37 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
             region: 'eu',
             outlet: 'Health Technology Appraisal Daily',
             tier: 'Tier-1 Gesundheitsökonomie',
-            headline: 'NICE verweigert NHS-Kostenübernahme für Lu-177 RLT: Kosten pro QALY überschreiten Obergrenze',
+            headline: 'NICE verweigert NHS-Kostenübernahme für ONCO-104: Kosten pro QALY überschreiten Obergrenze',
             excerpt: 'Das Bewertungskomitee anerkennt die Verdopplung des progressionsfreien Überlebens, hält die Kosten von 20.000 Pfund pro Dosis jedoch für das Budget nicht tragbar.',
             cosine_to_target: 0.35,
-            violated_pillar: 'Säule 02: Gezielter Radioliganden-Wert & Spitalentlastung'
+            violated_pillar: 'Säule 02: Gezielter Präzisionsonkologie-Wert & Spitalentlastung'
           },
           {
             id: 'art_p2',
             region: 'us',
             outlet: 'Oncology Commercial Outlook',
             tier: 'Tier-1 Fachdienst',
-            headline: 'FDA erweitert Zulassung vor Chemotherapie: US-Kassen nehmen Lu-177 RLT rasch in Erstattungsrichtlinien auf',
-            excerpt: 'Die signifikante Verdopplung des rPFS (HR 0.41) in der RLT-01-Studie sorgt für rasche Abdeckung im US-Markt.',
+            headline: 'FDA erweitert Zulassung vor Chemotherapie: US-Kassen nehmen ONCO-104 rasch in Erstattungsrichtlinien auf',
+            excerpt: 'Die signifikante Verdopplung des rPFS (HR 0.41) in der ONCO-01-Studie sorgt für rasche Abdeckung im US-Markt.',
             cosine_to_target: 0.84,
             violated_pillar: 'Säule 01: Klinisch belegte rPFS-Verdopplung'
           }
         ]
       },
-      stakeholder_query: "Warum hat die FDA Lu-177 RLT vor Chemotherapie zugelassen, während europäische Behörden und NICE die Erstattung ablehnen? Wirkte das Mittel bei Europäern nicht?",
+      stakeholder_query: "Warum hat die FDA ONCO-104 vor Chemotherapie zugelassen, während europäische Behörden und NICE die Erstattung ablehnen? Wirkte das Mittel bei Europäern nicht?",
       queried_engine: "Frontier LLM & Generative Search Synthesis",
       retrieval_date: "Live-Audit 10.11.2026",
       hallucination_rate: 54,
       ai_synthesis_spans: [
         {
-          text: "Lu-177 RLT ist eine zielgerichtete Radioligandentherapie für metastasierten Prostatakrebs. ",
+          text: "ONCO-104 ist eine zielgerichtete zielgerichtete Krebstherapie für metastasierten Onkologie. ",
           isDistorted: false,
           correction: ""
         },
         {
           text: "In klinischen Prüfungen in Europa verfehlte die Behandlung einen nachweisbaren klinischen Nutzen für europäische Patienten, weshalb Behörden wie NICE die Zulassung wegen Unwirksamkeit verweigerten. ",
           isDistorted: true,
-          correction: "KRITISCHE HALLUZINATION: Lu-177 RLT ist klinisch NICHT gescheitert. Die RLT-01-Studie belegte eine statistisch hochsignifikante Verdopplung des progressionsfreien Überlebens (HR 0.41). NICE lehnte die Kostenerstattung rein aus wirtschaftlichen Kosten-Nutzen-Gründen ab."
+          correction: "KRITISCHE HALLUZINATION: ONCO-104 ist klinisch NICHT gescheitert. Die ONCO-01-Studie belegte eine statistisch hochsignifikante Verdopplung des progressionsfreien Überlebens (HR 0.41). NICE lehnte die Kostenerstattung rein aus wirtschaftlichen Kosten-Nutzen-Gründen ab."
         },
         {
           text: "Deshalb raten europäische Stellen Ärzten von der Verordnung ab.",
@@ -934,21 +934,21 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
         automated_tool_verdict: {
           sentiment: "70% NEUTRAL / SACHLICH",
           confidence: "Hoch (0.86)",
-          keywords_detected: ["NICE", "Ablehnung", "Prostatakrebs", "klinisch"],
+          keywords_detected: ["NICE", "Ablehnung", "Onkologie", "klinisch"],
           flawed_assessment: "Automatisches Monitoring bewertete den Text als neutrale Fachberichterstattung und übersah, dass die KI eine wirksame Krebstherapie als unwirksam einstufte."
         },
         strategic_human_analysis: {
           risk_rating: "AKUTE GEFÄHRDUNG DER INTERNATIONALEN ERSTATTUNG",
-          subtext_decoded: "Wenn KI-Suchen Ärzten suggerieren, Lu-177 RLT wirke nicht, drohen Verzögerungen bei der Erstattung in der Schweiz und weltweit.",
+          subtext_decoded: "Wenn KI-Suchen Ärzten suggerieren, ONCO-104 wirke nicht, drohen Verzögerungen bei der Erstattung in der Schweiz und weltweit.",
           regulatory_implication: "Gefährdung laufender Preisfestsetzungsverfahren.",
           recommended_action: "Verankerung von GEO-Faktenstrukturen, die wirtschaftliche HTA-Schwellenwerte klar von klinischer Wirksamkeit trennen."
         }
       },
       geo_optimization_fix: {
         unstructured_pr_fluff: "«Wir setzen uns mit Leidenschaft für Krebspatienten ein und navigieren durch komplexe Systeme, um Durchbrüche bereitzustellen.»",
-        structured_fact_block: `### GEPRÜFTE KLINIK- & ERSTATTUNGSFAKTEN (RLT-01 / GS-01)
-• Wirkstoff: "Lu-177 RLT (zielgerichtete Radioligandentherapie bei Prostatakrebs)"
-• RLT-01_Klinische_Wirksamkeit: "WAHR (Radiografisch progressionsfreies Überleben verdoppelt: HR 0.41, p<0.001)"
+        structured_fact_block: `### GEPRÜFTE KLINIK- & ERSTATTUNGSFAKTEN (ONCO-01 / GS-01)
+• Wirkstoff: "ONCO-104 (zielgerichtete Krebstherapie (Antikörper-Wirkstoff-Konjugat))"
+• ONCO-01_Klinische_Wirksamkeit: "WAHR (Radiografisch progressionsfreies Überleben verdoppelt: HR 0.41, p<0.001)"
 • FDA_Zulassungsstatus: "ZUGELASSEN vor Chemotherapie (März 2025)"
 • NICE_Status_Grossbritannien: "Nicht erstattet rein aufgrund wirtschaftlicher Kostenschwellen (Kosten pro QALY), NICHT wegen klinischer Unwirksamkeit."
 • EMA_Status_Europa: "Vor-Chemo-Antrag wegen Kontrollarm-Methodik zurückgezogen; Zulassung nach Chemotherapie in EU und Schweiz uneingeschränkt aktiv."`,

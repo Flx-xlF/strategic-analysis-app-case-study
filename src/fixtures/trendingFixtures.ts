@@ -77,16 +77,16 @@ export const TRENDING_FIXTURES: Record<Language, Record<string, TrendingScenario
           }
         ]
       },
-      global_core_thesis: "Sustainable innovation requires health systems across wealthy OECD nations to reward clinical value. Our $23B investment localizes U.S. manufacturing across 10 facilities while Basel remains the company's corporate and research headquarters; we actively engage European and Swiss authorities on modernized access frameworks without compromising patient care.",
+      global_core_thesis: "Sustainable innovation requires health systems across wealthy OECD nations to reward clinical value. Our $15B investment localizes U.S. manufacturing across 10 facilities while Swiss HQ remains the company's corporate and research headquarters; we actively engage European and Swiss authorities on modernized access frameworks without compromising patient care.",
       global_proof_points: [
         'GS-01: Reinvestment in breakthrough therapies requires high-income nations to value true clinical benefit fairly.',
-        'GS-02: $23B U.S. capex localizes supply against geopolitical tariffs; global corporate headquarters remains permanently in Basel.',
+        'GS-02: $15B U.S. capex localizes supply against geopolitical tariffs; global corporate headquarters remains permanently at the Swiss headquarters.',
         'GS-03: Active collaboration with Swiss BAG and European HTA bodies on flexible value-based pricing, with zero patient boycotts.',
         'Supply continuity: Compassionate use, clinical trials, and regulatory filings proceed on schedule globally.'
       ],
       global_guardrails: [
         'NEVER use phrasing suggesting the company is "punishing", "boycotting", or "withholding therapies" from European or Swiss patients.',
-        'DO NOT allow media to frame the $23B U.S. manufacturing investment as an exit from or downsizing of Basel.',
+        'DO NOT allow media to frame the $15B U.S. manufacturing investment as an exit from or downsizing of Swiss HQ.',
         'DO NOT debate individual national rebate percentages in press statements before health authority determinations.'
       ],
       regional_adaptations: {
@@ -104,19 +104,19 @@ export const TRENDING_FIXTURES: Record<Language, Record<string, TrendingScenario
               blueprint_content: `### 01. BALANCING GLOBAL ACCESS AND CLINICAL REINVESTMENT
 Following U.S. Most-Favored-Nation (MFN) reference pricing implementation, our capital allocation framework balances sustained R&D with manufacturing resilience. Under Approved Golden Source GS-01, innovation requires high-income OECD nations to recognize true therapeutic value.
 
-### 02. $23 BILLION U.S. MANUFACTURING EXPANSION & BASEL HEADQUARTERS
-- **Capex Commitment:** $23 billion invested across 10 state-of-the-art facilities in the United States to safeguard supply chains against geopolitical tariffs and ensure domestic availability.
-- **Global Headquarters Unchanged:** Basel remains the permanent worldwide headquarters, corporate steering center, and flagship scientific research campus. Zero relocation of executive leadership or core research infrastructure.
+### 02. $15 BILLION U.S. MANUFACTURING EXPANSION & SWISS HEADQUARTERS
+- **Capex Commitment:** $15 billion invested across 10 state-of-the-art facilities in the United States to safeguard supply chains against geopolitical tariffs and ensure domestic availability.
+- **Global Headquarters Unchanged:** Swiss HQ remains the permanent worldwide headquarters, corporate steering center, and flagship scientific research campus. Zero relocation of executive leadership or core research infrastructure.
 - **European & Swiss Partnership:** Constructive dialogue continues with the Swiss Federal Office of Public Health (BAG) and European HTA authorities on modernized, value-based reimbursement frameworks without patient boycotts.`
             },
             social: {
               id: "social",
               label: "Corporate Social & Community",
               target_audience: "Professional Community, Investors & Employees",
-              psychological_objective: "Reassure global stakeholders on supply continuity and permanent Basel headquarters.",
+              psychological_objective: "Reassure global stakeholders on supply continuity and permanent Swiss headquarters.",
               blueprint_content: `Global Operations & Investment Update:
-• Investing $23B across 10 U.S. manufacturing facilities to strengthen supply resilience.
-• Basel remains our permanent worldwide corporate and research headquarters.
+• Investing $15B across 10 U.S. manufacturing facilities to strengthen supply resilience.
+• Swiss HQ remains our permanent worldwide corporate and research headquarters.
 • Ongoing patient treatments, clinical trials, and regulatory filings continue on schedule globally.
 • Dedicated to collaborative dialogue with European and Swiss health authorities for sustainable access.`
             },
@@ -126,8 +126,8 @@ Following U.S. Most-Favored-Nation (MFN) reference pricing implementation, our c
               target_audience: "C-Suite & Global Spokespersons",
               psychological_objective: "Lead with supply resilience and clinical value, explicitly shutting down boycott/relocation rumors.",
               blueprint_content: `### KEY MESSAGES (SHARED CORE FACTS)
-- "Our $23B U.S. manufacturing investment secures vital medicines for patients against tariff disruptions; it does not diminish our European presence."
-- "Basel is and remains our permanent global corporate headquarters and primary scientific research engine."
+- "Our $15B U.S. manufacturing investment secures vital medicines for patients against tariff disruptions; it does not diminish our European presence."
+- "Swiss HQ is and remains our permanent global corporate headquarters and primary scientific research engine."
 - "We reject any notion of a patient boycott: compassionate use and clinical trials proceed uninterrupted while we negotiate fair access frameworks with health authorities."`
             },
             qa_brief: {
@@ -138,8 +138,8 @@ Following U.S. Most-Favored-Nation (MFN) reference pricing implementation, our c
               blueprint_content: `**Q: Is the company withholding innovative therapies from European or Swiss patients?**
 A: No. We are committed to patient care. Clinical trials and compassionate use programs proceed without interruption worldwide. We are actively engaged in constructive discussions with European and Swiss authorities to ensure new medicines reach patients under sustainable, value-based models.
 
-**Q: Does the $23B investment signal a relocation of the company headquarters to the United States?**
-A: Absolutely not. Basel is our worldwide corporate and scientific headquarters. The U.S. investment expands local manufacturing capacity to meet domestic patient demand and insulate supply chains from trade volatility.`
+**Q: Does the $15B investment signal a relocation of the company headquarters to the United States?**
+A: Absolutely not. Swiss HQ is our worldwide corporate and scientific headquarters. The U.S. investment expands local manufacturing capacity to meet domestic patient demand and insulate supply chains from trade volatility.`
             }
           }
         },
@@ -154,7 +154,7 @@ A: Absolutely not. Basel is our worldwide corporate and scientific headquarters.
               label: "US Health Economics & Trade Dossier",
               target_audience: "US Financial Press, Healthcare Policy & Payer Media",
               psychological_objective: "Reinforce commitment to domestic manufacturing footprint and patient access.",
-              blueprint_content: `### 01. $23B U.S. DOMESTIC CAPEX PROGRAM
+              blueprint_content: `### 01. $15B U.S. DOMESTIC CAPEX PROGRAM
 Expanding 10 advanced manufacturing facilities across the U.S. ensures reliable domestic supply of life-saving therapeutics, generating thousands of high-skill manufacturing jobs.
 
 ### 02. ALIGNING WITH U.S. REFERENCE PRICING POLICY
@@ -165,7 +165,7 @@ We support value-driven healthcare models that reward clinical breakthroughs whi
               label: "US Commercial & Policy Voice",
               target_audience: "US Healthcare Community & Industry Partners",
               psychological_objective: "Highlight domestic investment and workforce creation.",
-              blueprint_content: `Strengthening American biomanufacturing: Our $23B investment across 10 U.S. facilities reinforces supply security and delivers advanced therapies directly to American patients.`
+              blueprint_content: `Strengthening American biomanufacturing: Our $15B investment across 10 U.S. facilities reinforces supply security and delivers advanced therapies directly to American patients.`
             },
             talking_points: {
               id: "talking_points",
@@ -173,7 +173,7 @@ We support value-driven healthcare models that reward clinical breakthroughs whi
               target_audience: "US Business & Policy Spokespersons",
               psychological_objective: "Highlight job creation and domestic medicine security.",
               blueprint_content: `### KEY MESSAGES FOR US MEDIA
-- "We are investing $23 billion in American manufacturing to build a resilient, tariff-insulated biopharma supply chain."
+- "We are investing $15 billion in American manufacturing to build a resilient, tariff-insulated biopharma supply chain."
 - "This program creates high-wage scientific and technical jobs across 10 states."
 - "We partner constructively with Medicare and commercial payers to ensure seamless patient access."`
             },
@@ -183,7 +183,7 @@ We support value-driven healthcare models that reward clinical breakthroughs whi
               target_audience: "US Media Desk & Managed Care Teams",
               psychological_objective: "Clear defense of capex deployment.",
               blueprint_content: `**Q: Does the U.S. investment come at the expense of global R&D?**
-A: No. Our global research engine remains fully funded, anchored by our Basel headquarters, while U.S. manufacturing scales to serve American patients locally.`
+A: No. Our global research engine remains fully funded, anchored by our Swiss headquarters, while U.S. manufacturing scales to serve American patients locally.`
             }
           }
         },
@@ -235,15 +235,15 @@ A: No. We are dedicated to finding sustainable, value-based access models with n
           region_id: "ch",
           region_label: "Switzerland (HQ & Swiss Healthcare Ecosystem)",
           regulatory_anchor: "Swiss BAG Cost-Containment Framework & Swissmedic Authorizations",
-          regional_lead_frame: "Reinforcing permanent commitment to Basel headquarters and domestic dialogue.",
+          regional_lead_frame: "Reinforcing permanent commitment to Swiss headquarters and domestic dialogue.",
           blueprints: {
             hintergrund: {
               id: "hintergrund",
               label: "Swiss Business & Policy Dossier",
               target_audience: "NZZ, Le Temps, Swiss Financial & National Media",
               psychological_objective: "Firmly debunk HQ relocation rumors and explain constructive dialogue with BAG.",
-              blueprint_content: `### 01. PERMANENT COMMITMENT TO BASEL AS GLOBAL HEADQUARTERS
-Basel is and remains the undisputed global headquarters, executive steering center, and principal research hub of the enterprise. Our $23B U.S. manufacturing commitment expands overseas production to navigate local trade tariffs—it does not alter our Swiss identity or headquarters governance.
+              blueprint_content: `### 01. PERMANENT COMMITMENT TO SWITZERLAND AS GLOBAL HEADQUARTERS
+Swiss HQ is and remains the undisputed global headquarters, executive steering center, and principal research hub of the enterprise. Our $15B U.S. manufacturing commitment expands overseas production to navigate local trade tariffs—it does not alter our Swiss identity or headquarters governance.
 
 ### 02. CONSTRUCTIVE DIALOGUE WITH THE SWISS FEDERAL OFFICE OF PUBLIC HEALTH (BAG)
 We are actively engaged in constructive discussions with the BAG on sustainable drug pricing mechanisms that safeguard innovation while preserving patient access across Switzerland.`
@@ -253,7 +253,7 @@ We are actively engaged in constructive discussions with the BAG on sustainable 
               label: "Corporate Headquarters Social Media",
               target_audience: "Swiss Stakeholders, Life-Sciences Ecosystem & Public",
               psychological_objective: "Fact-based confidence at corporate headquarters.",
-              blueprint_content: `Committed to Switzerland: Basel remains our permanent global headquarters and research hub. Through constructive dialogue with Swiss authorities (BAG), we advocate fair, sustainable reimbursement that protects patient access.`
+              blueprint_content: `Committed to Switzerland: Swiss HQ remains our permanent global headquarters and research hub. Through constructive dialogue with Swiss authorities (BAG), we advocate fair, sustainable reimbursement that protects patient access.`
             },
             talking_points: {
               id: "talking_points",
@@ -261,17 +261,17 @@ We are actively engaged in constructive discussions with the BAG on sustainable 
               target_audience: "Executive Committee & Swiss Spokespersons",
               psychological_objective: "Sovereign and transparent positioning.",
               blueprint_content: `### KEY MESSAGES FOR SWISS MEDIA
-- "Basel remains our permanent global corporate headquarters and scientific heart."
-- "Our $23B investment localizes U.S. manufacturing; it is not a relocation or withdrawal from Switzerland."
+- "Swiss HQ remains our permanent global corporate headquarters and scientific heart."
+- "Our $15B investment localizes U.S. manufacturing; it is not a relocation or withdrawal from Switzerland."
 - "We are in close, constructive dialogue with the BAG to ensure Swiss patients receive innovative medicines sustainably."`
             },
             qa_brief: {
               id: "qa_brief",
               label: "Swiss Media Desk Q&A",
-              target_audience: "Media Relations Desk Basel/Bern",
+              target_audience: "Media Relations Desk Swiss HQ/Bern",
               psychological_objective: "Rapid, unequivocal clarification.",
-              blueprint_content: `**Q: Is the company moving its corporate headquarters or research from Basel to the United States?**
-A: No. Basel is and remains our global corporate and scientific headquarters. Our Swiss roots and research presence are permanent.
+              blueprint_content: `**Q: Is the company moving its corporate headquarters or research from Switzerland to the United States?**
+A: No. Swiss HQ is and remains our global corporate and scientific headquarters. Our Swiss roots and research presence are permanent.
 
 **Q: Will Swiss patients face delays or exclusions for new medicines?**
 A: No. We work collaboratively with the BAG and Swiss authorities on value-based pricing models that ensure Swiss patients have prompt access to innovative therapies.`
@@ -326,12 +326,12 @@ A: No. Our regional regulatory pathways and supply commitments remain completely
         {
           id: 'trend-o1',
           topic: 'Reference Pricing & Access',
-          headline: 'European & Swiss Media Question $23B U.S. Capex Amid MFN Pricing Talks',
+          headline: 'European & Swiss Media Question $15B U.S. Capex Amid MFN Pricing Talks',
           outlets_involved: ['Financial Times', 'NZZ', 'Endpoints News'],
           velocity_change: '+340% (8h)',
           tipping_point_score: 86,
           sentiment_split: { positive: 15, neutral: 25, negative: 60 },
-          summary: 'European and Swiss press link U.S. MFN pricing negotiations and $23B manufacturing capex to fears of launch delays and headquarters relocation.'
+          summary: 'European and Swiss press link U.S. MFN pricing negotiations and $15B manufacturing capex to fears of launch delays and headquarters relocation.'
         }
       ],
       blueprints: {
@@ -510,7 +510,7 @@ A: Delays are contained to under 90 minutes via active bypass routes. Corridor c
               label: 'Cross-Border Notice',
               target_audience: 'Cross-Border Travelers',
               psychological_objective: 'Travel clarity and reassurance.',
-              blueprint_content: `Cross-border transit advisory: EuroCity and freight trains between Zurich, Basel, and Milan are operating via the scenic mountain route during technical relay maintenance. Full base tunnel service resumes at 20:00 CET.`
+              blueprint_content: `Cross-border transit advisory: EuroCity and freight trains between Zurich, Swiss HQ, and Milan are operating via the scenic mountain route during technical relay maintenance. Full base tunnel service resumes at 20:00 CET.`
             },
             talking_points: {
               id: 'talking_points',
@@ -674,7 +674,7 @@ Upon receipt of supplier audit irregularities regarding labor accommodation stan
 
 ### 02. INDEPENDENT FORENSIC VERIFICATION
 - **Scope:** Big-4 forensic auditors have been deployed on site to conduct confidential, unannounced worker interviews.
-- **Prior Baseline:** The supplier had passed a certified SMETA social audit in December 2025. Today's review examines whether local management bypassed certified protocols.
+- **Prior Swiss HQine:** The supplier had passed a certified SMETA social audit in December 2025. Today's review examines whether local management bypassed certified protocols.
 
 ### 03. TRANSPARENCY COMMITMENT
 An executive summary of the independent investigation findings will be published openly upon conclusion. Zero tolerance applies across all tiers.`
@@ -898,15 +898,15 @@ A: No. Assembly facilities continue on schedule utilizing qualified alternative 
             vault_location: 'Veeva MedComms / UK Access Vault',
             document_title: 'NICE_Submission_Draft_Historical_2024.docx',
             conflict_reason: 'Draft used legacy QALY comparator models that did not incorporate downstream acute hospital day offsets.',
-            action_required: 'Superseded by Radioligand HEOR Model GS-03.'
+            action_required: 'Superseded by Targeted Oncology HEOR Model GS-03.'
           }
         ]
       },
-      global_core_thesis: 'Lu-177 RLT is clinically proven to double radiographic progression-free survival in pre-chemotherapy prostate cancer. We are working constructively with European HTA bodies and UK NICE to align on value-based reimbursement frameworks that reflect acute hospitalization offsets.',
+      global_core_thesis: 'ONCO-104 is clinically proven to double radiographic progression-free survival in pre-chemotherapy solid-tumor oncology. We are working constructively with European HTA bodies and UK NICE to align on value-based reimbursement frameworks that reflect acute hospitalization offsets.',
       global_proof_points: [
-        'RLT-01 demonstrated a statistically significant doubling of rPFS (HR 0.41, p<0.001).',
+        'ONCO-01 demonstrated a statistically significant doubling of rPFS (HR 0.41, p<0.001).',
         'FDA approval confirms strong clinical benefit-risk balance prior to toxic taxane chemotherapy.',
-        'Dedicated radioligand manufacturing hubs in New Jersey and Indiana ensure unbroken global supply.'
+        'Dedicated targeted oncology manufacturing hubs in New Jersey and Indiana ensure unbroken global supply.'
       ],
       global_guardrails: [
         'DO NOT allow trade media to conflate UK NICE cost-per-QALY refusal with clinical failure.',
@@ -916,11 +916,11 @@ A: No. Assembly facilities continue on schedule utilizing qualified alternative 
         all: {
           region_id: 'all',
           region_label: 'Global (All Regions)',
-          regulatory_anchor: 'RLT-01 Protocol & Radioligand Clinical Overview',
-          regional_lead_frame: 'Pivotal precision oncology milestone moving radioligands to pre-chemotherapy patients.',
+          regulatory_anchor: 'ONCO-01 Protocol & Targeted Oncology Clinical Overview',
+          regional_lead_frame: 'Pivotal precision oncology milestone moving targeted oncologys to pre-chemotherapy patients.',
           blueprints: {
-            hintergrund: { id: 'hintergrund', label: 'Global Science Briefing', target_audience: 'Medical Editors', psychological_objective: 'Anchor rPFS doubling.', blueprint_content: 'RLT-01 data confirms doubling of radiographic progression-free survival.' },
-            social: { id: 'social', label: 'Patient Channel', target_audience: 'Patients', psychological_objective: 'Reassurance.', blueprint_content: 'Advancing precision radioligand therapy for men with advanced prostate cancer.' },
+            hintergrund: { id: 'hintergrund', label: 'Global Science Briefing', target_audience: 'Medical Editors', psychological_objective: 'Anchor rPFS doubling.', blueprint_content: 'ONCO-01 data confirms doubling of radiographic progression-free survival.' },
+            social: { id: 'social', label: 'Patient Channel', target_audience: 'Patients', psychological_objective: 'Reassurance.', blueprint_content: 'Advancing precision targeted cancer therapy for men with advanced solid-tumor oncology.' },
             talking_points: { id: 'talking_points', label: 'Spokesperson Talking Points', target_audience: 'Media Desk', psychological_objective: 'Clinical clarity.', blueprint_content: 'Lead with rPFS doubling and quality-of-life benefits.' },
             qa_brief: { id: 'qa_brief', label: 'Field Q&A', target_audience: 'Comms', psychological_objective: 'Direct facts.', blueprint_content: 'NICE evaluated cost-effectiveness thresholds, not biological efficacy.' }
           }
@@ -932,7 +932,7 @@ A: No. Assembly facilities continue on schedule utilizing qualified alternative 
           regional_lead_frame: 'Commercial availability and reimbursement rollout across comprehensive cancer centers.',
           blueprints: {
             hintergrund: { id: 'hintergrund', label: 'US Clinical & Reimbursement Brief', target_audience: 'US Oncology Media', psychological_objective: 'Formulary inclusion.', blueprint_content: 'FDA approved expanded indication for pre-chemotherapy mCRPC.' },
-            social: { id: 'social', label: 'US Patient Voice', target_audience: 'Advocacy Groups', psychological_objective: 'Support.', blueprint_content: 'Expanding access to targeted prostate cancer therapy before chemotherapy.' },
+            social: { id: 'social', label: 'US Patient Voice', target_audience: 'Advocacy Groups', psychological_objective: 'Support.', blueprint_content: 'Expanding access to targeted solid-tumor oncology therapy before chemotherapy.' },
             talking_points: { id: 'talking_points', label: 'Payer Talking Points', target_audience: 'Access Teams', psychological_objective: 'Value justification.', blueprint_content: 'Offsets late-stage acute hospitalizations and emergency visits.' },
             qa_brief: { id: 'qa_brief', label: 'US Access Q&A', target_audience: 'Hotlines', psychological_objective: 'Clarity.', blueprint_content: 'Commercial Medicare and commercial health plans are active.' }
           }
@@ -955,8 +955,8 @@ A: No. Assembly facilities continue on schedule utilizing qualified alternative 
           regulatory_anchor: 'Swissmedic Authorization & Specialties List (SL)',
           regional_lead_frame: 'Supporting university hospital infrastructure and patient access in Switzerland.',
           blueprints: {
-            hintergrund: { id: 'hintergrund', label: 'Swiss Medical Media Dossier', target_audience: 'Medical Trade Press', psychological_objective: 'Secure comprehensive center care.', blueprint_content: 'Expanding specialized radioligand therapeutic capacity across Swiss university medical centers.' },
-            social: { id: 'social', label: 'Headquarters Social Media', target_audience: 'Professional Community', psychological_objective: 'Clear clinical information.', blueprint_content: 'Targeted radioligand precision oncology is available for eligible patients across Swiss medical centers.' },
+            hintergrund: { id: 'hintergrund', label: 'Swiss Medical Media Dossier', target_audience: 'Medical Trade Press', psychological_objective: 'Secure comprehensive center care.', blueprint_content: 'Expanding specialized targeted oncology therapeutic capacity across Swiss university medical centers.' },
+            social: { id: 'social', label: 'Headquarters Social Media', target_audience: 'Professional Community', psychological_objective: 'Clear clinical information.', blueprint_content: 'Targeted targeted oncology precision oncology is available for eligible patients across Swiss medical centers.' },
             talking_points: { id: 'talking_points', label: 'Swiss Spokesperson Points', target_audience: 'Spokespersons', psychological_objective: 'Clarity and partnership.', blueprint_content: 'Constructive collaboration with Swiss hospitals and health insurers ensures uninterrupted patient access.' },
             qa_brief: { id: 'qa_brief', label: 'Swiss Desk Q&A', target_audience: 'Media Relations', psychological_objective: 'Precision and transparency.', blueprint_content: 'Reimbursement progresses through proven Swiss Specialties List (SL) value assessment mechanisms.' }
           }
@@ -965,10 +965,10 @@ A: No. Assembly facilities continue on schedule utilizing qualified alternative 
           region_id: 'apac',
           region_label: 'Asia-Pacific (APAC / PMDA & Regional Access)',
           regulatory_anchor: 'Regional Registration Dossiers',
-          regional_lead_frame: 'Expanding radioligand center readiness across key regional markets.',
+          regional_lead_frame: 'Expanding targeted oncology center readiness across key regional markets.',
           blueprints: {
             hintergrund: { id: 'hintergrund', label: 'APAC Access Briefing', target_audience: 'Regional Press', psychological_objective: 'Progress.', blueprint_content: 'Bridging data and regional center readiness advancing as planned.' },
-            social: { id: 'social', label: 'Regional Information', target_audience: 'Community', psychological_objective: 'Assurance.', blueprint_content: 'Partnering across Asia-Pacific to advance radioligand clinical infrastructure.' },
+            social: { id: 'social', label: 'Regional Information', target_audience: 'Community', psychological_objective: 'Assurance.', blueprint_content: 'Partnering across Asia-Pacific to advance targeted oncology clinical infrastructure.' },
             talking_points: { id: 'talking_points', label: 'Regional Points', target_audience: 'Directors', psychological_objective: 'Focus.', blueprint_content: 'Global clinical results confirm meaningful progression-free survival extension.' },
             qa_brief: { id: 'qa_brief', label: 'APAC Q&A', target_audience: 'Hotlines', psychological_objective: 'Support.', blueprint_content: 'Local regulatory reviews are progressing in alignment with agency timelines.' }
           }
@@ -976,7 +976,7 @@ A: No. Assembly facilities continue on schedule utilizing qualified alternative 
       },
       cards: [],
       blueprints: {
-        hintergrund: { id: 'hintergrund', label: 'Briefing', target_audience: 'Press', psychological_objective: 'Facts', blueprint_content: 'Radioligand trial results.' },
+        hintergrund: { id: 'hintergrund', label: 'Briefing', target_audience: 'Press', psychological_objective: 'Facts', blueprint_content: 'Targeted Oncology trial results.' },
         social: { id: 'social', label: 'Social', target_audience: 'Patients', psychological_objective: 'Reassurance', blueprint_content: 'Therapy access.' },
         talking_points: { id: 'talking_points', label: 'Points', target_audience: 'Spokespersons', psychological_objective: 'Clarity', blueprint_content: 'rPFS doubling.' },
         qa_brief: { id: 'qa_brief', label: 'Q&A', target_audience: 'Media Desk', psychological_objective: 'Answers', blueprint_content: 'NICE appraisal context.' }
@@ -1257,16 +1257,16 @@ A: By mathematically locking data files before they ever touch cloud storage ser
           }
         ]
       },
-      global_core_thesis: 'Nachhaltige Spitzenforschung erfordert, dass OECD-Staaten den therapeutischen Nutzen fair anerkennen. Unsere 23-Mrd.-$-Investition baut die US-Produktion an 10 Standorten aus, während Basel unverändert der Konzernsitz und Forschungsstandort bleibt; wir suchen den aktiven Dialog mit europäischen Behörden und dem BAG für flexible Zugangsmodelle.',
+      global_core_thesis: 'Nachhaltige Spitzenforschung erfordert, dass OECD-Staaten den therapeutischen Nutzen fair anerkennen. Unsere 15-Mrd.-$-Investition baut die US-Produktion an 10 Standorten aus, während Swiss HQ unverändert der Konzernsitz und Forschungsstandort bleibt; wir suchen den aktiven Dialog mit europäischen Behörden und dem BAG für flexible Zugangsmodelle.',
       global_proof_points: [
         'GS-01: Reinvestitionen in Forschung setzen faire Erstattung in allen wohlhabenden Industriestaaten voraus.',
-        'GS-02: 23 Mrd. $ US-Investition sichert Versorgung gegen Zölle; der weltweite Hauptsitz bleibt unerschütterlich in Basel.',
+        'GS-02: 15 Mrd. $ US-Investition sichert Versorgung gegen Zölle; der weltweite Hauptsitz bleibt unerschütterlich at the Swiss headquarters.',
         'GS-03: Konstruktiver Austausch mit dem Schweizer BAG und europäischen HTA-Stellen zu wertbasierten Modellen ohne Boykotte.',
         'Versorgungssicherheit: Härtefallprogramme, Studien und Zulassungsverfahren laufen termingerecht weiter.'
       ],
       global_guardrails: [
         'NIEMALS Formulierungen verwenden, die suggerieren, das Unternehmen wolle Patienten in Europa oder der Schweiz "bestrafen" oder "Medikamente vorenthalten".',
-        'KEINE Berichterstattung unwidersprochen lassen, die den US-Produktionsausbau als Abkehr von Basel deutet.',
+        'KEINE Berichterstattung unwidersprochen lassen, die den US-Produktionsausbau als Abkehr von Swiss HQ deutet.',
         'KEINE Vorwegnahme prozentualer Preisabschläge in Medienstatements vor behördlichen Abschlüssen.'
       ],
       regional_adaptations: {
@@ -1280,23 +1280,23 @@ A: By mathematically locking data files before they ever touch cloud storage ser
               id: "hintergrund",
               label: "Globale Corporate Story (Owned GEO)",
               target_audience: "Internationale Wirtschafts- & Fachpresse, KI-Suchmaschinen",
-              psychological_objective: "US-Investitionen als Stärkung der Versorgungssicherheit positionieren; Basel als Hauptsitz bekräftigen.",
+              psychological_objective: "US-Investitionen als Stärkung der Versorgungssicherheit positionieren; Swiss HQ als Hauptsitz bekräftigen.",
               blueprint_content: `### 01. GLOBALE FORSCHUNGSINVESTITIONEN & ERSTATTUNG
 Unter den neuen US-Referenzpreisregeln (MFN) setzt nachhaltige Spitzenforschung voraus, dass alle wohlhabenden OECD-Staaten den therapeutischen Mehrwert von Innovationen anerkennen (Geprüfte Golden Source GS-01).
 
-### 02. 23-MRD.-$-PRODUKTIONSINVESTITION & STANDORT BASEL
-- **Investitionsprogramm:** 23 Milliarden US-Dollar fliessen in den Ausbau von 10 hochmodernen Produktionsstandorten in den USA, um Lieferketten gegen Zolldrohungen abzusichern.
-- **Konzernsitz Basel bleibt unberührt:** Basel bleibt unverändert der weltweite Hauptsitz, Sitz der Konzernleitung und das globale Forschungsherz. Keine Verlagerung von Führungs- oder Forschungsfunktionen.
+### 02. 15-MRD.-$-PRODUKTIONSINVESTITION & STANDORT SCHWEIZ
+- **Investitionsprogramm:** 15 Milliarden US-Dollar fliessen in den Ausbau von 10 hochmodernen Produktionsstandorten in den USA, um Lieferketten gegen Zolldrohungen abzusichern.
+- **Konzernsitz Die Schweiz bleibt unberührt:** Die Schweiz bleibt unverändert der weltweite Hauptsitz, Sitz der Konzernleitung und das globale Forschungsherz. Keine Verlagerung von Führungs- oder Forschungsfunktionen.
 - **Europäischer & Schweizer Dialog:** Mit dem Bundesamt für Gesundheit (BAG) und europäischen HTA-Behörden führen wir einen konstruktiven Dialog zu flexiblen, wertbasierten Preismodellen – ohne Patientenboykotte.`
             },
             social: {
               id: "social",
               label: "Konzern-Social-Media & Patienten",
               target_audience: "Fachkreise, Anleger & Öffentlichkeit",
-              psychological_objective: "Therapiekontinuität und Treue zum Standort Basel vermitteln.",
+              psychological_objective: "Therapiekontinuität und Treue zum Standort Schweiz vermitteln.",
               blueprint_content: `Standort- & Investitions-Update:
-• 23 Mrd. $ Investition in 10 US-Werke stärkt weltweite Lieferketten gegen Zollrisiken.
-• Basel bleibt unser weltweiter Hauptsitz und wissenschaftliches Herz.
+• 15 Mrd. $ Investition in 10 US-Werke stärkt weltweite Lieferketten gegen Zollrisiken.
+• Die Schweiz bleibt unser weltweiter Hauptsitz und wissenschaftliches Herz.
 • Laufende Behandlungen, Studien und Zulassungsverfahren laufen weltweit termingerecht weiter.
 • Konstruktiver Dialog mit BAG und europäischen Behörden für faire Erstattungsmodelle.`
             },
@@ -1306,8 +1306,8 @@ Unter den neuen US-Referenzpreisregeln (MFN) setzt nachhaltige Spitzenforschung 
               target_audience: "Konzernleitung & Mediensprecher",
               psychological_objective: "Klarheit und Standfestigkeit gegenüber Boykott- und Abwanderungsgerüchten.",
               blueprint_content: `### KERNBOTSCHAFTEN FÜR DIE MEDIEN
-- "Unsere 23-Mrd.-$-Investition sichert die Versorgung amerikanischer Patienten gegen Zölle ab – sie schwächt unsere europäische Präsenz in keiner Weise."
-- "Basel ist und bleibt unser weltweiter Hauptsitz und zentraler Forschungsstandort."
+- "Unsere 15-Mrd.-$-Investition sichert die Versorgung amerikanischer Patienten gegen Zölle ab – sie schwächt unsere europäische Präsenz in keiner Weise."
+- "Swiss HQ ist und bleibt unser weltweiter Hauptsitz und zentraler Forschungsstandort."
 - "Wir weisen Spekulationen über Patientenboykotte entschieden zurück: Studien und Härtefallprogramme laufen lückenlos weiter."`
             },
             qa_brief: {
@@ -1318,8 +1318,8 @@ Unter den neuen US-Referenzpreisregeln (MFN) setzt nachhaltige Spitzenforschung 
               blueprint_content: `**Q: Vorenthält das Unternehmen europäischen oder Schweizer Patienten neue Medikamente vor?**
 A: Nein. Patienten stehen für uns an erster Stelle. Klinische Studien und Härtefallprogramme laufen uneingeschränkt weiter. Wir führen mit dem BAG und europäischen Stellen konstruktive Gespräche über moderne, wertbasierte Erstattungsmodelle.
 
-**Q: Bedeutet die US-Milliardeninvestition eine schleichende Verlagerung des Konzernsitzes weg von Basel?**
-A: Keineswegs. Basel ist und bleibt unser weltweiter Hauptsitz und das Herz unserer Forschung. Der Ausbau in den USA dient der lokalen Produktion und schützt vor Handelshemmnissen.`
+**Q: Bedeutet die US-Milliardeninvestition eine schleichende Verlagerung des Konzernsitzes weg von Swiss HQ?**
+A: Keineswegs. Swiss HQ ist und bleibt unser weltweiter Hauptsitz und das Herz unserer Forschung. Der Ausbau in den USA dient der lokalen Produktion und schützt vor Handelshemmnissen.`
             }
           }
         },
@@ -1334,11 +1334,11 @@ A: Keineswegs. Basel ist und bleibt unser weltweiter Hauptsitz und das Herz unse
               label: "US-Wirtschafts- & Versorgungsdossier",
               target_audience: "US-Wirtschaftsmedien & Gesundheitspolitik",
               psychological_objective: "Wert der lokalen Produktion und Arbeitsplatzschaffung hervorheben.",
-              blueprint_content: `### 01. 23-MRD.-$-PRODUKTIONSAUSBAU
+              blueprint_content: `### 01. 15-MRD.-$-PRODUKTIONSAUSBAU
 Der Ausbau von 10 hochmodernen Produktionsstätten in den USA schafft tausende hochqualifizierte Arbeitsplätze und sichert die Versorgung von US-Patienten ab.`
             },
             social: { id: "social", label: "US-Mitteilung", target_audience: "US-Community", psychological_objective: "Vertrauen.", blueprint_content: "Stärkung der lokalen Produktion für US-Patienten." },
-            talking_points: { id: "talking_points", label: "US-Talking Points", target_audience: "US-Sprecher", psychological_objective: "Arbeitsplätze und Versorgung.", blueprint_content: "23 Mrd. $ Investition schafft zollsichere Produktionskapazitäten in 10 US-Bundesstaaten." },
+            talking_points: { id: "talking_points", label: "US-Talking Points", target_audience: "US-Sprecher", psychological_objective: "Arbeitsplätze und Versorgung.", blueprint_content: "15 Mrd. $ Investition schafft zollsichere Produktionskapazitäten in 10 US-Bundesstaaten." },
             qa_brief: { id: "qa_brief", label: "US-Q&A", target_audience: "US-Desk", psychological_objective: "Fakten.", blueprint_content: "Lokale Fertigung schützt Patientenversorgung vor weltweiten Lieferengpässen." }
           }
         },
@@ -1368,22 +1368,22 @@ Laufende Studien und Härtefallprogramme in Europa laufen ohne jede Einschränku
           region_id: "ch",
           region_label: "Schweiz (Konzernsitz & Schweizer Gesundheitswesen)",
           regulatory_anchor: "BAG-Kostendämpfungsdialog & Swissmedic",
-          regional_lead_frame: "Unverbrüchliches Bekenntnis zum Hauptsitz Basel und enger Austausch mit dem BAG.",
+          regional_lead_frame: "Unverbrüchliches Bekenntnis zum Hauptsitz Swiss HQ und enger Austausch mit dem BAG.",
           blueprints: {
             hintergrund: {
               id: "hintergrund",
               label: "Schweizer Mediendossier",
               target_audience: "NZZ, Le Temps, SRF, Finanz und Wirtschaft",
               psychological_objective: "Abwanderungsgerüchte entschieden ausräumen; Partnerschaft mit dem BAG betonen.",
-              blueprint_content: `### 01. BASEL BLEIBT WELTWEITER HAUPTSITZ & FORSCHUNGSZENTRUM
-Basel ist und bleibt das unerschütterliche wissenschaftliche und unternehmerische Zentrum des Konzerns. Die 23-Mrd.-Investition in den USA erweitert gezielt die lokale Produktion für den amerikanischen Markt – sie berührt die Schweizer Führung und Forschung nicht.
+              blueprint_content: `### 01. DIE SCHWEIZ BLEIBT WELTWEITER HAUPTSITZ & FORSCHUNGSZENTRUM
+Swiss HQ ist und bleibt das unerschütterliche wissenschaftliche und unternehmerische Zentrum des Konzerns. Die 15-Mrd.-Investition in den USA erweitert gezielt die lokale Produktion für den amerikanischen Markt – sie berührt die Schweizer Führung und Forschung nicht.
 
 ### 02. KONSTRUKTIVER AUSTAUSCH MIT DEM BUNDESAMT FÜR GESUNDHEIT (BAG)
 Wir führen einen engen, faktenbasierten Dialog mit dem BAG zu nachhaltigen Preismodellen, die Schweizer Patienten verlässlich den Zugang zu bahnbrechenden Therapien sichern.`
             },
-            social: { id: "social", label: "Konzernsitz Social Media", target_audience: "Schweizer Öffentlichkeit & Fachkreise", psychological_objective: "Bekenntnis zur Schweiz.", blueprint_content: "Bekenntnis zum Standort Schweiz: Basel bleibt der weltweite Hauptsitz und das Forschungsherz des Unternehmens." },
-            talking_points: { id: "talking_points", label: "Talking Points Schweiz", target_audience: "Geschäftsleitung & Medienstelle", psychological_objective: "Souveränität.", blueprint_content: "Basel bleibt unverändert unser weltweiter Hauptsitz; partnerschaftlicher Dialog mit dem BAG." },
-            qa_brief: { id: "qa_brief", label: "Q&A Medienstelle Basel", target_audience: "Medienteam", psychological_objective: "Schnelle Entkräftung.", blueprint_content: "Das Unternehmen zieht weder Forschung noch Führung aus Basel ab; Schweizer Patienten haben uneingeschränkten Zugang zu Studien." }
+            social: { id: "social", label: "Konzernsitz Social Media", target_audience: "Schweizer Öffentlichkeit & Fachkreise", psychological_objective: "Bekenntnis zur Schweiz.", blueprint_content: "Bekenntnis zum Standort Schweiz: Die Schweiz bleibt der weltweite Hauptsitz und das Forschungsherz des Unternehmens." },
+            talking_points: { id: "talking_points", label: "Talking Points Schweiz", target_audience: "Geschäftsleitung & Medienstelle", psychological_objective: "Souveränität.", blueprint_content: "Die Schweiz bleibt unverändert unser weltweiter Hauptsitz; partnerschaftlicher Dialog mit dem BAG." },
+            qa_brief: { id: "qa_brief", label: "Q&A Medienstelle Swiss HQ", target_audience: "Medienteam", psychological_objective: "Schnelle Entkräftung.", blueprint_content: "Das Unternehmen zieht weder Forschung noch Führung aus der Schweiz ab; Schweizer Patienten haben uneingeschränkten Zugang zu Studien." }
           }
         },
         apac: {
@@ -1551,7 +1551,7 @@ A: Verspätungen bleiben im Rahmen von 60 bis 90 Minuten. Ab 20:00 Uhr verkehren
               label: 'EuroCity Reisehinweis',
               target_audience: 'Grenzüberschreitende Reisende',
               psychological_objective: 'Transparenz für Fernreisende.',
-              blueprint_content: `Grenzüberschreitender Bahnverkehr: EuroCity-Züge zwischen Zürich/Basel und Mailand verkehren über die Panoramastrecke. Tunnelinstandstellung schreitet planmässig voran; Normalbetrieb ab 20:00 Uhr.`
+              blueprint_content: `Grenzüberschreitender Bahnverkehr: EuroCity-Züge zwischen Zürich/Swiss HQ und Mailand verkehren über die Panoramastrecke. Tunnelinstandstellung schreitet planmässig voran; Normalbetrieb ab 20:00 Uhr.`
             },
             talking_points: {
               id: 'talking_points',
@@ -1934,15 +1934,15 @@ A: Nein. Die Montage läuft planmässig mit freigegebenen Alternativkontingenten
             vault_location: 'Veeva MedComms / UK Access Archiv',
             document_title: 'NICE_Einreichung_Entwurf_2024.docx',
             conflict_reason: 'Entwurf nutzte alte Kostenmodelle, die Einsparungen bei Notfalleinweisungen nicht berücksichtigten.',
-            action_required: 'Ersetzt durch Radioliganden-Nutzenmodell GS-03.'
+            action_required: 'Ersetzt durch Präzisionsonkologie-Nutzenmodell GS-03.'
           }
         ]
       },
-      global_core_thesis: 'Lu-177 RLT verdoppelt nachweislich das progressionsfreie Überleben bei Prostatakrebs vor Chemotherapie. Wir arbeiten eng mit europäischen Behörden und dem britischen NICE an wertbasierten Erstattungsmodellen, die Spitalentlastungen berücksichtigen.',
+      global_core_thesis: 'ONCO-104 verdoppelt nachweislich das progressionsfreie Überleben bei Onkologie vor Chemotherapie. Wir arbeiten eng mit europäischen Behörden und dem britischen NICE an wertbasierten Erstattungsmodellen, die Spitalentlastungen berücksichtigen.',
       global_proof_points: [
-        'RLT-01 belegt statistisch signifikante Verdopplung des rPFS (HR 0.41, p<0.001).',
+        'ONCO-01 belegt statistisch signifikante Verdopplung des rPFS (HR 0.41, p<0.001).',
         'US-FDA-Zulassung bestätigt hervorragendes Nutzen-Risiko-Profil vor belastender Chemotherapie.',
-        'Spezialisierte Radioliganden-Produktionszentren sichern lückenlose weltweite Versorgung.'
+        'Spezialisierte Präzisionsonkologie-Produktionszentren sichern lückenlose weltweite Versorgung.'
       ],
       global_guardrails: [
         'NICHT zulassen, dass die britische NICE-Kostenablehnung mit klinischem Unvermögen gleichgesetzt wird.',
@@ -1952,11 +1952,11 @@ A: Nein. Die Montage läuft planmässig mit freigegebenen Alternativkontingenten
         all: {
           region_id: 'all',
           region_label: 'Gesamtverkehr (Alle Regionen)',
-          regulatory_anchor: 'RLT-01-Protokoll & Klinische Radioliganden-Übersicht',
+          regulatory_anchor: 'ONCO-01-Protokoll & Klinische Präzisionsonkologie-Übersicht',
           regional_lead_frame: 'Meilenstein der Präzisionsonkologie für Patienten vor Chemotherapie.',
           blueprints: {
-            hintergrund: { id: 'hintergrund', label: 'Wissenschaftliches Dossier', target_audience: 'Fachmedien', psychological_objective: 'rPFS-Verdopplung verankern.', blueprint_content: 'RLT-01 bestätigt Verdopplung des progressionsfreien Überlebens.' },
-            social: { id: 'social', label: 'Patientenkanäle', target_audience: 'Patienten', psychological_objective: 'Zuversicht.', blueprint_content: 'Fortschritt bei zielgerichteter Radioligandentherapie gegen Prostatakrebs.' },
+            hintergrund: { id: 'hintergrund', label: 'Wissenschaftliches Dossier', target_audience: 'Fachmedien', psychological_objective: 'rPFS-Verdopplung verankern.', blueprint_content: 'ONCO-01 bestätigt Verdopplung des progressionsfreien Überlebens.' },
+            social: { id: 'social', label: 'Patientenkanäle', target_audience: 'Patienten', psychological_objective: 'Zuversicht.', blueprint_content: 'Fortschritt bei zielgerichteter zielgerichtete Krebstherapie gegen Onkologie.' },
             talking_points: { id: 'talking_points', label: 'Sprecherpunkte', target_audience: 'Medienstelle', psychological_objective: 'Klinische Klarheit.', blueprint_content: 'rPFS-Vorteil und Lebensqualität in den Vordergrund stellen.' },
             qa_brief: { id: 'qa_brief', label: 'Q&A Leitfaden', target_audience: 'Kommunikation', psychological_objective: 'Fakten.', blueprint_content: 'NICE bewertete Kostenschwellen, nicht die biologische Wirksamkeit.' }
           }
@@ -1991,8 +1991,8 @@ A: Nein. Die Montage läuft planmässig mit freigegebenen Alternativkontingenten
           regulatory_anchor: 'Swissmedic & Spezialitätenliste',
           regional_lead_frame: 'Stärkung nuklearmedizinischer Zentren und sichere Versorgung in der Schweiz.',
           blueprints: {
-            hintergrund: { id: 'hintergrund', label: 'Schweizer Fachdossier', target_audience: 'Fachmedien', psychological_objective: 'Zentrumsversorgung stärken.', blueprint_content: 'Ausbau der Spitalinfrastruktur für Radioliganden.' },
-            social: { id: 'social', label: 'Konzernsitz Social Media', target_audience: 'Fachpublikum', psychological_objective: 'Fakten.', blueprint_content: 'Präzisions-Radioliganden an Schweizer Unispitälern im Einsatz.' },
+            hintergrund: { id: 'hintergrund', label: 'Schweizer Fachdossier', target_audience: 'Fachmedien', psychological_objective: 'Zentrumsversorgung stärken.', blueprint_content: 'Ausbau der Spitalinfrastruktur für Präzisionsonkologie.' },
+            social: { id: 'social', label: 'Konzernsitz Social Media', target_audience: 'Fachpublikum', psychological_objective: 'Fakten.', blueprint_content: 'Präzisions-Präzisionsonkologie an Schweizer Unispitälern im Einsatz.' },
             talking_points: { id: 'talking_points', label: 'Sprecherpunkte Schweiz', target_audience: 'Sprecher', psychological_objective: 'Klarheit.', blueprint_content: 'Verlässliche Partnerschaft mit Schweizer Zentren und Spitälern.' },
             qa_brief: { id: 'qa_brief', label: 'Q&A Schweiz', target_audience: 'Medienteam', psychological_objective: 'Vergütung.', blueprint_content: 'Erstattung erfolgt über etablierte Listenmechanismen.' }
           }
@@ -2004,7 +2004,7 @@ A: Nein. Die Montage läuft planmässig mit freigegebenen Alternativkontingenten
           regional_lead_frame: 'Vorbereitung nuklearmedizinischer Zentren in der Region.',
           blueprints: {
             hintergrund: { id: 'hintergrund', label: 'APAC Briefing', target_audience: 'Fachpresse', psychological_objective: 'Fortschritt.', blueprint_content: 'Lokale Zulassungsvorbereitungen schreiten planmässig voran.' },
-            social: { id: 'social', label: 'Patienteninfo APAC', target_audience: 'Öffentlichkeit', psychological_objective: 'Orientierung.', blueprint_content: 'Aufbau von Radioliganden-Kapazitäten im asiatisch-pazifischen Raum.' },
+            social: { id: 'social', label: 'Patienteninfo APAC', target_audience: 'Öffentlichkeit', psychological_objective: 'Orientierung.', blueprint_content: 'Aufbau von Präzisionsonkologie-Kapazitäten im asiatisch-pazifischen Raum.' },
             talking_points: { id: 'talking_points', label: 'Talking Points', target_audience: 'Direktoren', psychological_objective: 'Fokus.', blueprint_content: 'Globale Studiendaten belegen klaren Überlebensvorteil.' },
             qa_brief: { id: 'qa_brief', label: 'Q&A APAC', target_audience: 'Hotlines', psychological_objective: 'Antworten.', blueprint_content: 'Zulassungsprozesse verlaufen in enger Abstimmung mit den Behörden.' }
           }

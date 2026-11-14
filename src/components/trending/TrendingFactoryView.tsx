@@ -49,7 +49,15 @@ export const TrendingFactoryView: React.FC<Props> = ({
   const [selectedFormat, setSelectedFormat] = useState<ContentFormatId>('hintergrund');
   const [copied, setCopied] = useState(false);
   const [showGovernanceDetails, setShowGovernanceDetails] = useState(false);
+  const [activeSteering, setActiveSteering] = useState<'study_rigor' | 'layperson' | 'local_proof' | 'legal_boundary' | 'express'>(
+    scenarioId === 'rlt_access_debate' ? 'study_rigor' : 'layperson'
+  );
+  const [showWordDiff, setShowWordDiff] = useState<boolean>(true);
   const isEn = lang === 'en';
+
+  React.useEffect(() => {
+    setActiveSteering(scenarioId === 'rlt_access_debate' ? 'study_rigor' : 'layperson');
+  }, [scenarioId]);
 
   const activeAdaptation: RegionalAdaptation = 
     data.regional_adaptations[selectedRegion] || 
@@ -108,15 +116,15 @@ export const TrendingFactoryView: React.FC<Props> = ({
           <div>
             <div className="flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-sbb-red uppercase mb-1.5">
               <Sparkles className="w-4 h-4" />
-              <span>{isEn ? 'STEP 3: ALIGN SOURCES & REGIONAL DRAFTS // MODULE 03' : 'SCHRITT 3: QUELLEN & REGIONALE ENTWÜRFE // MODUL 03'}</span>
+              <span>{isEn ? 'STEP 3: APPROVED SOURCES & WORKFLOW RECIPES // MODULE 03' : 'SCHRITT 3: GEPRÜFTE QUELLEN & WORKFLOW-REZEPTE // MODUL 03'}</span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-black text-sbb-black tracking-tight">
-              {isEn ? 'Approved Sources & Regional Draft Playbook' : 'Geprüfte Quellen & Regionales Entwurfs-Playbook'}
+              {isEn ? 'Approved Sources & In-Workflow Recipes' : 'Geprüfte Quellen & In-Workflow-Rezepte'}
             </h1>
             <p className="text-sm text-sbb-stone mt-1 max-w-3xl leading-relaxed">
               {isEn
-                ? `Filters ${data.corpus_gate.raw_enterprise_files.toLocaleString(locale)} internal repository files down to ${data.corpus_gate.canonical_golden_sources} approved Golden Sources, flags outdated PDFs, and applies four shared writing rules across regional drafts.`
-                : `Filtert ${data.corpus_gate.raw_enterprise_files.toLocaleString(locale)} interne Dokumente auf ${data.corpus_gate.canonical_golden_sources} freigegebene Golden Sources, markiert veraltete PDFs und wendet vier gemeinsame Schreibregeln auf regionale Entwürfe an.`}
+                ? `Defining approved facts centrally is only half the job—teams also need to apply them without friction. Instead of 40-page PDF guidelines, central Golden Sources (GS-01–GS-03) and four writing rules load directly into 1-click recipes for Outlook, Word, and M365 Copilot across owned media, clinical studies, social posts, and press Q&As.`
+                : `Geprüfte Fakten zentral festzulegen ist nur die halbe Miete – Teams müssen sie im Alltag auch reibungslos nutzen können. Statt 40-seitiger PDF-Leitfäden werden die Golden Sources (GS-01–GS-03) und vier Schreibregeln direkt in 1-Klick-Rezepte für Outlook, Word und M365 Copilot geladen.`}
             </p>
           </div>
 
@@ -254,7 +262,7 @@ export const TrendingFactoryView: React.FC<Props> = ({
                 } else if (scenarioId === 'health_data_breach') {
                   return 'REF: BYOK-SPEC-2026 & EPDG-321';
                 } else if (scenarioId === 'rlt_access_debate') {
-                  return 'REF: RLT-01-SAP & CSR-PROS-401';
+                  return 'REF: ONCO-01-SAP & CSR-PROS-401';
                 }
                 return 'REF: GS-01-MFN & US-CAPEX-2026';
               })()}
@@ -356,58 +364,92 @@ export const TrendingFactoryView: React.FC<Props> = ({
               </div>
             </div>
           </div>
+
+          {/* Why PDF Guidelines Fail vs. In-Workflow Recipes */}
+          <div className="pt-4 border-t border-zinc-200 grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+            <div className="p-3.5 bg-zinc-50 border border-zinc-200 space-y-1">
+              <div className="font-mono text-[10px] font-bold text-zinc-600 uppercase">
+                {isEn ? 'THE ADOPTION PROBLEM // WHY STATIC PDF GUIDELINES FAIL' : 'DAS UMSETZUNGSPROBLEM // WARUM PDF-LEITFÄDEN SCHEITERN'}
+              </div>
+              <p className="text-[11px] text-zinc-700 leading-snug">
+                {isEn
+                  ? 'Under deadline pressure, nobody opens a 40-page PDF manual on SharePoint before answering an email or editing a draft. High friction leads to improvisation and regional contradictions.'
+                  : 'Unter Zeitdruck öffnet niemand ein 40-seitiges PDF-Handbuch auf SharePoint, bevor eine E-Mail beantwortet oder ein Text geprüft wird. Hohe Hürden führen zu Improvisation und Widersprüchen.'}
+              </p>
+            </div>
+
+            <div className="p-3.5 bg-emerald-50/50 border border-emerald-300 space-y-1">
+              <div className="font-mono text-[10px] font-bold text-emerald-900 uppercase">
+                {isEn ? 'THE FIX // 1-CLICK RECIPES INSIDE OUTLOOK, WORD & M365 COPILOT' : 'DIE LÖSUNG // 1-KLICK-REZEPTE DIREKT IN OUTLOOK, WORD & M365'}
+              </div>
+              <p className="text-[11px] text-zinc-800 leading-snug">
+                {isEn
+                  ? 'A lightweight sidebar helper injects these Golden Sources and writing rules automatically into the open email or document. Users click it because it saves 30 minutes of work—and the rules enforce themselves.'
+                  : 'Eine schlanke Seitenleiste lädt diese Golden Sources und Schreibregeln automatisch in die offene E-Mail oder Datei. Teams nutzen sie, weil sie 30 Minuten Arbeit spart – und die Regeln greifen automatisch.'}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* ═══ STEP 02: REGIONAL CASCADE ADAPTATION SELECTOR ═══ */}
-      <div className="space-y-3">
+      {/* ═══ STEP 02: HOW TEAMS APPLY IT IN DAILY WORK (1-CLICK RECIPES) ═══ */}
+      <div className="space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div className="flex items-center gap-3">
             <span className="w-7 h-7 bg-sbb-black text-white font-mono text-xs font-bold flex items-center justify-center">
               02
             </span>
             <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-stone">
-              {isEn ? 'REGIONAL ADAPTATION: TAILORING DRAFTS BY COUNTRY' : 'REGIONALE ANPASSUNG: ENTWÜRFE NACH LAND & MARKT'}
+              {isEn ? 'HOW TEAMS APPLY IT IN DAILY WORK: 1-CLICK RECIPES ACROSS USE CASES' : 'UMSETZUNG IM ALLTAG: 1-KLICK-REZEPTE FÜR ALLE KANÄLE'}
             </span>
           </div>
 
-          {/* Single-Source Region Scope Indicator */}
           <div className="flex items-center gap-2 font-mono text-[10px] text-sbb-stone uppercase bg-white border border-sbb-aluminum px-3 py-1">
             <Globe2 className="w-3 h-3 text-sbb-red" />
-            <span>{isEn ? 'Header Region Scope:' : 'Regionsfilter (Header):'}</span>
-            <span className="font-bold text-sbb-black">{selectedRegion.toUpperCase()}</span>
+            <span>{isEn ? 'Active Region:' : 'Aktive Region:'}</span>
+            <span className="font-bold text-sbb-black">{selectedRegion.toUpperCase()} — {activeAdaptation.region_label}</span>
           </div>
         </div>
 
-        <div className="p-4 bg-white border border-sbb-aluminum flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div className="space-y-1">
-            <div className="flex items-center gap-2 text-[10px] font-mono font-bold text-sbb-stone uppercase">
-              <Globe2 className="w-3.5 h-3.5 text-sbb-red" />
-              <span>{isEn ? 'ACTIVE REGIONAL PLAYBOOK: ' : 'AKTIVES REGIONALES PLAYBOOK: '}</span>
-              <span className="text-sbb-black">{activeAdaptation.region_label}</span>
+        {/* Use-Case Scope Strip: How Much the Recipe Edits */}
+        <div className="bg-white border border-sbb-aluminum p-4 space-y-2.5">
+          <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-sbb-stone">
+            {isEn ? 'HOW MUCH THE RECIPE EDITS BY USE CASE (NO ONE-SIZE-FITS-ALL REWRITE):' : 'WIE STARK DAS REZEPT JE NACH AUFGABE EINGREIFT (KEIN EINHEITSBREI):'}
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 text-[11px]">
+            <div className="p-2.5 bg-sbb-cloud/50 border border-sbb-aluminum">
+              <div className="font-mono text-[10px] font-bold text-sbb-black uppercase mb-0.5">
+                {isEn ? 'Owned Media & Website' : 'Owned Media & Website'}
+              </div>
+              <p className="text-zinc-700 leading-snug">
+                {isEn ? 'Full answer-first structure & plain language so readers and AI search get the key facts right.' : 'Klare Kernaussage am Anfang & Alltagssprache für Lesende und KI-Suche.'}
+              </p>
             </div>
-            <p className="text-xs text-zinc-700">
-              <span className="font-bold">{isEn ? 'Regulatory Anchor: ' : 'Regulatorischer Anker: '}</span>
-              <span>{activeAdaptation.regulatory_anchor}</span>
-            </p>
+            <div className="p-2.5 bg-emerald-50/50 border border-emerald-300">
+              <div className="font-mono text-[10px] font-bold text-emerald-900 uppercase mb-0.5">
+                {isEn ? 'Clinical Studies & Data' : 'Klinische Studien & Daten'}
+              </div>
+              <p className="text-zinc-700 leading-snug">
+                {isEn ? 'Light touch (scientific accuracy protected): endpoints (HR 0.41, p<0.001) stay untouched; adds a clear context header.' : 'Schonender Eingriff: Studien-Endpunkte bleiben exakt erhalten; ergänzt nur klaren Kontext.'}
+              </p>
+            </div>
+            <div className="p-2.5 bg-sbb-cloud/50 border border-sbb-aluminum">
+              <div className="font-mono text-[10px] font-bold text-sbb-black uppercase mb-0.5">
+                {isEn ? 'Social & Leadership' : 'Social & Führung'}
+              </div>
+              <p className="text-zinc-700 leading-snug">
+                {isEn ? 'Removes hollow LinkedIn clichés; focuses on tangible everyday human value.' : 'Streicht hohle LinkedIn-Floskeln; stellt den greifbaren Alltagsnutzen voran.'}
+              </p>
+            </div>
+            <div className="p-2.5 bg-sbb-cloud/50 border border-sbb-aluminum">
+              <div className="font-mono text-[10px] font-bold text-sbb-black uppercase mb-0.5">
+                {isEn ? 'Press Q&A & Draft Review' : 'Medien-Q&A & Textprüfung'}
+              </div>
+              <p className="text-zinc-700 leading-snug">
+                {isEn ? 'Spots loaded questions without repeating accusations; marks gaps as [Open / To verify].' : 'Erkennt Fangfragen ohne Vorwürfe zu wiederholen; markiert Lücken als [Offen / Zu prüfen].'}
+              </p>
+            </div>
           </div>
-          <div className="text-xs font-mono px-3 py-1.5 bg-sbb-cloud border border-sbb-aluminum text-sbb-stone">
-            {activeAdaptation.regional_lead_frame}
-          </div>
-        </div>
-      </div>
-
-      {/* ═══ STEP 03: 4-FORMAT EXECUTION BLUEPRINTS (INCLUDING OWNED CORPORATE STORIES FOR GEO) ═══ */}
-      <div className="space-y-3">
-        <div className="flex items-center gap-3">
-          <span className="w-7 h-7 bg-sbb-black text-white font-mono text-xs font-bold flex items-center justify-center">
-            03
-          </span>
-          <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-stone">
-            {isEn
-              ? 'REGIONAL DRAFTS ACROSS 4 CHANNELS: WEBSITE STORY, SOCIAL, TALKING POINTS & Q&A'
-              : 'REGIONALE ENTWÜRFE FÜR 4 KANÄLE: WEBSITE-STORY, SOCIAL, TALKING POINTS & Q&A'}
-          </span>
         </div>
 
         <div className="bg-white border border-sbb-aluminum">
@@ -485,12 +527,96 @@ export const TrendingFactoryView: React.FC<Props> = ({
 
           {/* Blueprint Editor Preview */}
           <div className="p-6 sm:p-8 space-y-5">
+            {/* 4 Building Blocks + 2-Turn Steering Bar */}
+            <div className="p-4 bg-sbb-cloud/50 border border-sbb-aluminum space-y-3">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-sbb-black">
+                  {isEn ? '4 BUILDING BLOCKS LOADED AUTOMATICALLY (NO MANUAL PROMPTING):' : '4 BAUSTEINE AUTOMATISCH GELADEN (KEIN MANUELLES PROMPTING):'}
+                </span>
+                <span className="text-[10px] font-mono font-bold text-emerald-800 bg-emerald-50 border border-emerald-300 px-2 py-0.5">
+                  {isEn ? '✓ Turn 1 Complete: Sources & Gaps Checked' : '✓ Schritt 1 erledigt: Quellen & Lücken geprüft'}
+                </span>
+              </div>
+
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 text-[10px] font-mono">
+                <div className="p-2 bg-white border border-zinc-200 text-zinc-800">
+                  <strong className="block text-sbb-black">1. {isEn ? 'Task Check' : 'Aufgaben-Check'}</strong>
+                  {isEn ? 'Spot loaded questions & roles' : 'Fangfragen & Rollen klären'}
+                </div>
+                <div className="p-2 bg-white border border-zinc-200 text-zinc-800">
+                  <strong className="block text-sbb-black">2. {isEn ? 'Approved Facts' : 'Geprüfte Fakten'}</strong>
+                  {isEn ? 'GS-01–GS-03 + [Open / To verify]' : 'GS-01–GS-03 + [Offen / Zu prüfen]'}
+                </div>
+                <div className="p-2 bg-white border border-zinc-200 text-zinc-800">
+                  <strong className="block text-sbb-black">3. {isEn ? '360° Check' : '360°-Blick'}</strong>
+                  {isEn ? 'Patients • Media • Regulators' : 'Patienten • Medien • Behörden'}
+                </div>
+                <div className="p-2 bg-white border border-zinc-200 text-zinc-800">
+                  <strong className="block text-sbb-black">4. {isEn ? 'Edit Depth' : 'Eingriffstiefe'}</strong>
+                  {activeSteering === 'study_rigor'
+                    ? (isEn ? 'Light Touch (Study Accuracy)' : 'Schonend (Studien-Präzision)')
+                    : (isEn ? 'Full Plain-Language' : 'Volle Alltagssprache')}
+                </div>
+              </div>
+
+              {/* Interactive Turn 2 Steering Buttons */}
+              <div className="pt-2 border-t border-zinc-200 space-y-2">
+                <div className="text-[10px] font-mono font-bold uppercase text-sbb-stone">
+                  {isEn ? 'STEER TURN 2 BEFORE DRAFTING (CLICK TO ADJUST):' : 'SCHRITT 2 VOR DEM ENTWURF STEUERN (KLICKEN):'}
+                </div>
+                <div className="flex flex-wrap gap-1.5">
+                  {[
+                    { id: 'study_rigor' as const, label: isEn ? '🔬 Study / Scientific Mode' : '🔬 Studien- / Wissenschafts-Modus' },
+                    { id: 'layperson' as const, label: isEn ? '+ Plain everyday language' : '+ Klare Alltagssprache' },
+                    { id: 'local_proof' as const, label: isEn ? '+ Highlight local market facts' : '+ Lokale Fakten betonen' },
+                    { id: 'legal_boundary' as const, label: isEn ? '+ Strict legal boundary' : '+ Strikte Rechtsgrenze' },
+                    { id: 'express' as const, label: isEn ? '⚡ Express 1-Click Mode' : '⚡ Express 1-Klick-Modus' },
+                  ].map((chip) => (
+                    <button
+                      key={chip.id}
+                      type="button"
+                      onClick={() => setActiveSteering(chip.id)}
+                      className={`px-2.5 py-1 font-mono text-[10px] font-bold border transition-colors cursor-pointer ${
+                        activeSteering === chip.id
+                          ? 'bg-sbb-black text-white border-sbb-black'
+                          : 'bg-white text-zinc-700 border-zinc-300 hover:border-sbb-black'
+                      }`}
+                    >
+                      {chip.label}
+                    </button>
+                  ))}
+                </div>
+                <div className="text-[11px] text-zinc-700 bg-white border-l-2 border-sbb-red px-3 py-1.5">
+                  {activeSteering === 'study_rigor' &&
+                    (isEn
+                      ? 'Light-touch mode active: Clinical endpoints, statistical precision, and medical terminology stay untouched so scientific credibility is protected. Edits add only a clear context header separating trial results from reimbursement debates.'
+                      : 'Schonender Studien-Modus aktiv: Klinische Endpunkte, Statistik und Fachbegriffe bleiben unverändert, um die wissenschaftliche Glaubwürdigkeit zu schützen. Ergänzt wird nur ein klarer Kontext-Kopf zur Trennung von Studiendaten und Preisdebatte.')}
+                  {activeSteering === 'layperson' &&
+                    (isEn
+                      ? 'Plain-language mode active: Replaces internal jargon and defensive phrasing with clear, everyday language that readers without background knowledge understand immediately.'
+                      : 'Alltagssprachen-Modus aktiv: Ersetzt internen Fachjargon und defensive Formulierungen durch klare Sprache, die auch Laien sofort verstehen.')}
+                  {activeSteering === 'local_proof' &&
+                    (isEn
+                      ? 'Local-facts mode active: Prioritizes country-specific regulatory anchors and local patient access details from GS-01–GS-03.'
+                      : 'Lokal-Modus aktiv: Hebt länderspezifische Behörden-Anker und konkrete Zugangsdaten aus GS-01–GS-03 hervor.')}
+                  {activeSteering === 'legal_boundary' &&
+                    (isEn
+                      ? 'Legal-boundary mode active: Locks unverified figures as [Open / To verify] and avoids any forward-looking commitments.'
+                      : 'Rechtsgrenzen-Modus aktiv: Markiert ungeprüfte Angaben als [Offen / Zu prüfen] und vermeidet vorzeitige Zusagen.')}
+                  {activeSteering === 'express' &&
+                    (isEn
+                      ? 'Express 80/20 mode active: Runs the Turn 1 fact check as a compact gate and outputs the draft in a single pass for urgent deadlines.'
+                      : 'Express-Modus aktiv: Führt den Faktencheck kompakt im Hintergrund aus und liefert den Entwurf in einem Schritt.')}
+                </div>
+              </div>
+            </div>
+
             <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-zinc-100 gap-3">
               <div className="space-y-0.5">
                 <span className="text-xs font-mono font-bold uppercase tracking-wider text-sbb-black block">
                   {isEn
-                    ? 'REGIONAL WORKING DRAFT (FOR EDITORIAL & LEGAL REVIEW)'
-                    : 'REGIONALER ARBEITSENTWURF (FÜR REDAKTION & LEGAL-FREIGABE)'}
+                    ? 'TURN 2 DRAFT (FOR EDITORIAL & LEGAL REVIEW)'
+                    : 'SCHRITT-2-ENTWURF (FÜR REDAKTION & LEGAL-FREIGABE)'}
                 </span>
                 <span className="text-[11px] text-sbb-stone block">
                   {isEn
@@ -499,23 +625,74 @@ export const TrendingFactoryView: React.FC<Props> = ({
                 </span>
               </div>
 
-              <button
-                onClick={handleCopy}
-                className="px-4 py-2 bg-sbb-black hover:bg-zinc-800 text-white font-mono text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer shrink-0 self-start sm:self-auto"
-              >
-                {copied ? (
-                  <>
-                    <Check className="w-3.5 h-3.5 text-emerald-400" />
-                    <span>{isEn ? 'Draft Copied' : 'Entwurf kopiert'}</span>
-                  </>
-                ) : (
-                  <>
-                    <Copy className="w-3.5 h-3.5 text-zinc-400" />
-                    <span>{isEn ? 'Copy Draft' : 'Entwurf kopieren'}</span>
-                  </>
-                )}
-              </button>
+              <div className="flex flex-wrap items-center gap-2 shrink-0 self-start sm:self-auto">
+                <button
+                  type="button"
+                  onClick={() => setShowWordDiff(prev => !prev)}
+                  className={`px-3 py-2 font-mono text-[10px] font-bold uppercase tracking-wider border transition-colors cursor-pointer ${
+                    showWordDiff
+                      ? 'bg-emerald-50 text-emerald-900 border-emerald-400'
+                      : 'bg-white text-zinc-700 border-zinc-300 hover:border-sbb-black'
+                  }`}
+                >
+                  {showWordDiff
+                    ? (isEn ? 'Hide Before / After Diff' : 'Vorher / Nachher ausblenden')
+                    : (isEn ? 'Show What Recipe Fixed' : 'Vorher / Nachher zeigen')}
+                </button>
+
+                <button
+                  onClick={handleCopy}
+                  className="px-4 py-2 bg-sbb-black hover:bg-zinc-800 text-white font-mono text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer"
+                >
+                  {copied ? (
+                    <>
+                      <Check className="w-3.5 h-3.5 text-emerald-400" />
+                      <span>{isEn ? 'Draft Copied' : 'Entwurf kopiert'}</span>
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="w-3.5 h-3.5 text-zinc-400" />
+                      <span>{isEn ? 'Copy Draft' : 'Entwurf kopieren'}</span>
+                    </>
+                  )}
+                </button>
+              </div>
             </div>
+
+            {/* Interactive Before / After Word Diff Box */}
+            {showWordDiff && (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 p-3.5 bg-zinc-50 border border-zinc-200 text-xs">
+                <div className="p-2.5 bg-red-50/60 border border-red-200 space-y-1">
+                  <div className="font-mono text-[10px] font-bold text-red-800 uppercase">
+                    {isEn ? 'REMOVED BY RECIPE (RUSHED DRAFT TRAP):' : 'VOM REZEPT ENTFERNT (TYPISCHE FALLE):'}
+                  </div>
+                  <p className="text-red-900 line-through leading-snug">
+                    {scenarioId === 'rlt_access_debate'
+                      ? (isEn
+                          ? '«Despite claims that ONCO-104 failed in European patients, we remain committed to navigating complex payer ecosystems.»'
+                          : '«Entgegen Behauptungen, ONCO-104 sei bei europäischen Patienten gescheitert, engagieren wir uns weiter in komplexen Systemen.»')
+                      : (isEn
+                          ? '«We are not boycotting European patients or abandoning our Swiss headquarters—we are driving transformative healthcare agility.»'
+                          : '«Wir boykottieren keine europäischen Patienten und verlassen den Schweizer Hauptsitz nicht – wir treiben agile Transformation voran.»')}
+                  </p>
+                </div>
+
+                <div className="p-2.5 bg-emerald-50/70 border border-emerald-300 space-y-1">
+                  <div className="font-mono text-[10px] font-bold text-emerald-900 uppercase">
+                    {isEn ? 'ADDED BY RECIPE (GOLDEN SOURCES GS-01–GS-03):' : 'VOM REZEPT VERANKERT (GOLDEN SOURCES GS-01–GS-03):'}
+                  </div>
+                  <p className="text-emerald-950 font-medium leading-snug">
+                    {scenarioId === 'rlt_access_debate'
+                      ? (isEn
+                          ? '«Phase III ONCO-01 doubled progression-free survival (HR 0.41, p<0.001). UK NICE’s decision reflects cost-per-QALY thresholds, not clinical efficacy.»'
+                          : '«Phase-III-Studie ONCO-01 verdoppelte das progressionsfreie Überleben (HR 0.41, p<0.001). Die NICE-Entscheidung betrifft nur Kosten-Schwellenwerte, nicht die Wirksamkeit.»')
+                      : (isEn
+                          ? '«Switzerland remains our global headquarters and primary research hub. Our $15B U.S. investment expands local manufacturing while patient access programs continue on schedule.»'
+                          : '«Die Schweiz bleibt unser weltweiter Hauptsitz und Forschungsstandort. Die 15-Mrd.-$-Investition baut die US-Produktion aus; Zugangsprogramme laufen planmässig weiter.»')}
+                  </p>
+                </div>
+              </div>
+            )}
 
             <div className="bg-sbb-cloud/40 p-6 sm:p-8 border-l-4 border-sbb-black text-sm text-sbb-black leading-relaxed font-sans max-w-4xl space-y-3">
               {blueprint.blueprint_content.split('\n\n').map((block, bIdx) => {

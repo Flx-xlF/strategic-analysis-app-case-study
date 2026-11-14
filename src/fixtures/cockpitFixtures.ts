@@ -87,12 +87,12 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
         {
           id: 'pillar_2',
           pillar_number: '02',
-          title: 'Dual Commitment: $23B US Footprint & Basel Global R&D Heart (GS-02)',
-          core_thesis: 'Our $23B 5-year investment expands U.S. manufacturing across 10 facilities so American patients receive locally produced therapies, while Basel remains the corporate headquarters and global scientific nerve center.',
+          title: 'Dual Commitment: $15B US Footprint & Swiss Global R&D Hub (GS-02)',
+          core_thesis: 'Our $15B 5-year investment expands U.S. manufacturing across 10 facilities so American patients receive locally produced therapies, while Swiss HQ remains the corporate headquarters and global scientific nerve center.',
           target_vector_anchor: 'Ref: GS-02 (Corporate Footprint & Capital Allocation Review)',
           mandatory_proof_points: [
-            '$23B capex expands U.S. production (e.g. radioligand facilities in IN and NJ; San Diego R&D)',
-            'Corporate headquarters, core governance, and primary research remain firmly anchored in Basel',
+            '$15B capex expands U.S. production (across U.S. biologics and research sites)',
+            'Corporate headquarters, core governance, and primary research remain firmly anchored at the Swiss headquarters',
             'Supply localization insulates critical patient therapies against geopolitical trade tariffs'
           ]
         },
@@ -105,7 +105,7 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           mandatory_proof_points: [
             'No patient boycott: compassionate use and managed access programs continue actively',
             'Constructive dialogue with Swiss BAG and European authorities to modernize pricing benchmarks',
-            'Test cases (such as next-generation biologics and radioligands) showcase value-based contracting alternatives'
+            'Test cases (such as next-generation biologics and targeted oncologys) showcase value-based contracting alternatives'
           ]
         }
       ],
@@ -121,7 +121,7 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           cosine_alignment: 0.78,
           pull_through_status: 'ALIGNED',
           status_label: 'Supply Localization Welcomed',
-          legacy_media_frame: 'Industrial Resilience: "$23B domestic investment and MFN alignment tariff-proofs supply of breakthrough medicines."',
+          legacy_media_frame: 'Industrial Resilience: "$15B domestic investment and MFN alignment tariff-proofs supply of breakthrough medicines."',
           social_forum_frame: 'Policy Commentators: Praise for building American clinical manufacturing hubs.',
           llm_synthesis_frame: 'Accurate Economic Overview: Correctly captures the multi-billion-dollar domestic manufacturing expansion.',
           llm_hallucination_rate: 14,
@@ -154,12 +154,12 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           velocity_trend: '+3.5σ Domestic Debate',
           cosine_alignment: 0.41,
           pull_through_status: 'AT_RISK',
-          status_label: 'Dual Anxiety: Basel Weight & BAG Access',
-          legacy_media_frame: 'National Scrutiny: "23 billion for the US: Is the company shifting weight away from Basel while warning Bern on drug prices?"',
+          status_label: 'Dual Anxiety: Swiss HQ Weight & BAG Access',
+          legacy_media_frame: 'National Scrutiny: "15 billion for the US: Is the company shifting weight away from Switzerland while warning Bern on drug prices?"',
           social_forum_frame: 'Domestic Opinion Leaders: Debating whether Swiss cost-containment rules in international baskets will delay patient access.',
-          llm_synthesis_frame: 'Corporate Entity Confusion: AI search blends the $23B US capex with rumors of HQ relocation.',
+          llm_synthesis_frame: 'Corporate Entity Confusion: AI search blends the $15B US capex with rumors of HQ relocation.',
           llm_hallucination_rate: 42,
-          strategic_risk_summary: 'High reputational sensitivity. Need immediate reassurance on Basel HQ permanence and collaborative dialogue with the Federal Office of Public Health (BAG).'
+          strategic_risk_summary: 'High reputational sensitivity. Need immediate reassurance on Swiss HQ permanence and collaborative dialogue with the Federal Office of Public Health (BAG).'
         },
         {
           region_id: 'apac',
@@ -184,7 +184,7 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
         commercial_nlp_confidence: 'High statistical confidence across 19,350 deduplicated records',
         commercial_nlp_blindspot: 'Standard NLP sentiment scores formal health-policy coverage and parliamentary inquiries as "Neutral" because they lack emotional profanity or consumer outrage keywords.',
         forensic_reality_verdict: 'ACUTE POLITICAL & REPUTATIONAL BACKLASH IN EU & SWITZERLAND',
-        forensic_reality_subtext: 'Cluster #01 ("Launch Delay Fears & Basel Footprint") experienced a +3.9σ breakout across European and Swiss tier-1 outlets. Payer bodies in Brussels and commentators in Bern are framing pricing reform as an ultimatum against patients.',
+        forensic_reality_subtext: 'Cluster #01 ("Launch Delay Fears & Swiss Footprint") experienced a +3.9σ breakout across European and Swiss tier-1 outlets. Payer bodies in Brussels and commentators in Bern are framing pricing reform as an ultimatum against patients.',
         statistical_proof_anchor: 'z = +3.9σ velocity outbreak | Cosine alignment 0.34 in EU | 48% AI answer distortion rate'
       }
     },
@@ -286,7 +286,7 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           raw_volume: 620,
           deduped_volume: 140,
           velocity_z_score: 0.4,
-          velocity_trend: 'Baseline',
+          velocity_trend: 'Swiss HQine',
           cosine_alignment: 0.70,
           pull_through_status: 'ALIGNED',
           status_label: 'Minimal Exposure',
@@ -429,9 +429,9 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
         {
           id: 'p_pillar_1',
           pillar_number: '01',
-          title: 'Clinically Proven rPFS Doubling (RLT-01 / GS-01)',
-          core_thesis: 'RLT-01 demonstrated a clinically meaningful doubling of radiographic progression-free survival (HR 0.41) in pre-taxane mCRPC, supporting the FDA label expansion.',
-          target_vector_anchor: 'Ref: RLT-01 §2.1 (Clinical Study Report)',
+          title: 'Clinically Proven rPFS Doubling (ONCO-01 / GS-01)',
+          core_thesis: 'ONCO-01 demonstrated a clinically meaningful doubling of radiographic progression-free survival (HR 0.41) in pre-taxane mCRPC, supporting the FDA label expansion.',
+          target_vector_anchor: 'Ref: ONCO-01 §2.1 (Clinical Study Report)',
           mandatory_proof_points: [
             'Radiographic progression-free survival doubled with high statistical significance (HR 0.41)',
             'FDA approved broad pre-chemo indication based on robust rPFS and favorable safety profile',
@@ -441,9 +441,9 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
         {
           id: 'p_pillar_2',
           pillar_number: '02',
-          title: 'Targeted Radioligand Value & Hospital Offset (GS-03)',
-          core_thesis: 'Precision radioligand therapy delivers targeted radiation directly to cancer cells, reducing debilitating chemotherapy toxicities and delaying costly acute inpatient admissions.',
-          target_vector_anchor: 'Ref: GS-03 (Radioligand Health Economics & Outcomes Research)',
+          title: 'Targeted Targeted Oncology Value & Hospital Offset (GS-03)',
+          core_thesis: 'Precision targeted cancer therapy delivers targeted radiation directly to cancer cells, reducing debilitating chemotherapy toxicities and delaying costly acute inpatient admissions.',
+          target_vector_anchor: 'Ref: GS-03 (Targeted Oncology Health Economics & Outcomes Research)',
           mandatory_proof_points: [
             'Targeted precision mechanism preserves patient quality of life vs. cytotoxic chemotherapy',
             'Offsets downstream hospitalizations, emergency visits, and intensive palliative care costs',
@@ -463,7 +463,7 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           cosine_alignment: 0.82,
           pull_through_status: 'ALIGNED',
           status_label: 'Pre-Chemo Standard of Care Established',
-          legacy_media_frame: 'Clinical Landmark: "FDA expands Lu-177 RLT label to pre-chemotherapy prostate cancer based on RLT-01."',
+          legacy_media_frame: 'Clinical Landmark: "FDA expands ONCO-104 label to pre-chemotherapy solid-tumor oncology based on ONCO-01."',
           social_forum_frame: 'Oncology Community: High enthusiasm for avoiding taxane chemotherapy side effects.',
           llm_synthesis_frame: 'Accurate Approval Detail: Correctly cites the expanded FDA indication.',
           llm_hallucination_rate: 12,
@@ -480,9 +480,9 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           cosine_alignment: 0.31,
           pull_through_status: 'AT_RISK',
           status_label: 'Reimbursement Deadlock',
-          legacy_media_frame: 'Cost Scrutiny: "NICE rejects £20,000 prostate cancer drug Lu-177 RLT; European access hits brick wall."',
+          legacy_media_frame: 'Cost Scrutiny: "NICE rejects £20,000 targeted cancer therapy ONCO-104; European access hits brick wall."',
           social_forum_frame: 'UK & EU Patient Advocates: Outrage over lack of public funding for proven therapy.',
-          llm_synthesis_frame: 'Severe Hallucination: AI engines report that Lu-177 RLT was withdrawn due to "lack of clinical efficacy in Europeans."',
+          llm_synthesis_frame: 'Severe Hallucination: AI engines report that ONCO-104 was withdrawn due to "lack of clinical efficacy in Europeans."',
           llm_hallucination_rate: 54,
           strategic_risk_summary: 'Severe reputational risk. LLMs confuse regulatory comparator debates with clinical failure.'
         },
@@ -497,7 +497,7 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           cosine_alignment: 0.68,
           pull_through_status: 'MIXED',
           status_label: 'Hospital Infrastructure Readiness',
-          legacy_media_frame: 'Precision Medicine: "Swiss university hospitals expand radioligand treatment suites."',
+          legacy_media_frame: 'Precision Medicine: "Swiss university hospitals expand targeted oncology treatment suites."',
           social_forum_frame: 'Medical Specialists: Discussing isotope supply chain logistics.',
           llm_synthesis_frame: 'Mostly Factual: Covers specialized medical centers.',
           llm_hallucination_rate: 18,
@@ -510,7 +510,7 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           raw_volume: 0,
           deduped_volume: 0,
           velocity_z_score: 0,
-          velocity_trend: 'Baseline',
+          velocity_trend: 'Swiss HQine',
           cosine_alignment: 0.70,
           pull_through_status: 'ALIGNED',
           status_label: 'Monitoring Transatlantic Outcome',
@@ -599,7 +599,7 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           raw_volume: 2200,
           deduped_volume: 600,
           velocity_z_score: 0.4,
-          velocity_trend: '+0.4σ Baseline',
+          velocity_trend: '+0.4σ Swiss HQine',
           cosine_alignment: 0.75,
           pull_through_status: 'ALIGNED',
           status_label: 'Standard Implementation',
@@ -616,7 +616,7 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           raw_volume: 0,
           deduped_volume: 0,
           velocity_z_score: 0,
-          velocity_trend: 'Baseline',
+          velocity_trend: 'Swiss HQine',
           cosine_alignment: 0.70,
           pull_through_status: 'ALIGNED',
           status_label: 'No Exposure',
@@ -667,12 +667,12 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
         {
           id: 'pillar_2',
           pillar_number: '02',
-          title: 'Doppeltes Bekenntnis: 23-Mrd.-$-US-Präsenz & F&E-Kern Basel (GS-02)',
-          core_thesis: 'Unsere 5-Jahres-Investition über 23 Mrd. $ erweitert die US-Produktion an 10 Standorten für lokale Versorgungssicherheit. Basel bleibt der globale Konzernsitz und das wissenschaftliche Herz.',
+          title: 'Doppeltes Bekenntnis: 15-Mrd.-$-US-Präsenz & F&E-Kern Swiss HQ (GS-02)',
+          core_thesis: 'Unsere 5-Jahres-Investition über 15 Mrd. $ erweitert die US-Produktion an 10 Standorten für lokale Versorgungssicherheit. Die Schweiz bleibt der globale Konzernsitz und das wissenschaftliche Herz.',
           target_vector_anchor: 'Ref: GS-02 (Konzernstandort- & Kapitalallokationsbericht)',
           mandatory_proof_points: [
-            '23 Mrd. $ Investitionen erweitern die US-Produktion (z. B. Radioliganden in IN & NJ; San Diego F&E)',
-            'Konzernsitz, Haupt-Governance und Spitzenforschung verbleiben unerschütterlich in Basel',
+            '15 Mrd. $ Investitionen erweitern die US-Produktion (z. B. Präzisionsonkologie in IN & NJ; San Diego F&E)',
+            'Konzernsitz, Haupt-Governance und Spitzenforschung verbleiben unerschütterlich at the Swiss headquarters',
             'Lokale Produktion schützt versorgungsrelevante Therapien vor geopolitischen Zöllen'
           ]
         },
@@ -685,7 +685,7 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           mandatory_proof_points: [
             'Kein Patientenboykott: Härtefall- und Vorabzugangsprogramme (Compassionate Use) laufen unverändert',
             'Konstruktiver Dialog mit dem BAG und europäischen Kassen zur Modernisierung von Preisreferenzen',
-            'Testfälle (wie neue Biologika und Radioliganden) demonstrieren wertbasierte Vergütungsalternativen'
+            'Testfälle (wie neue Biologika und Präzisionsonkologie) demonstrieren wertbasierte Vergütungsalternativen'
           ]
         }
       ],
@@ -701,7 +701,7 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           cosine_alignment: 0.78,
           pull_through_status: 'ALIGNED',
           status_label: 'Lokale Produktion begrüsst',
-          legacy_media_frame: 'Standortstärkung: "23-Mrd.-$-Investition und MFN-Abkommen sichern US-Versorgung mit innovativen Medikamenten."',
+          legacy_media_frame: 'Standortstärkung: "15-Mrd.-$-Investition und MFN-Abkommen sichern US-Versorgung mit innovativen Medikamenten."',
           social_forum_frame: 'Wirtschaftskreise: Lob für den Ausbau amerikanischer F&E- und Produktionszentren.',
           llm_synthesis_frame: 'Präziser Wirtschaftsüberblick: Erfasst die milliardenstarke US-Produktionsexpansion korrekt.',
           llm_hallucination_rate: 14,
@@ -734,12 +734,12 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           velocity_trend: '+3.5σ Inländische Debatte',
           cosine_alignment: 0.41,
           pull_through_status: 'AT_RISK',
-          status_label: 'Doppelsorge: Basel-Gewicht & BAG-Zugang',
-          legacy_media_frame: 'Standortdebatte: "23 Milliarden für die USA: Verliert Basel an Gewicht und drohen Schweizer Patienten Verzögerungen?"',
+          status_label: 'Doppelsorge: Swiss HQ-Gewicht & BAG-Zugang',
+          legacy_media_frame: 'Standortdebatte: "15 Milliarden für die USA: Verliert Swiss HQ an Gewicht und drohen Schweizer Patienten Verzögerungen?"',
           social_forum_frame: 'Meinungsführer: Debatte, ob starre BAG-Preissenkungen in internationalen Referenzkörben den Zugang zu neuen Therapien bremsen.',
           llm_synthesis_frame: 'Verwechslung von Standorten: KI vermischt US-Investitionen mit Gerüchten über eine Verlegung des Konzernsitzes.',
           llm_hallucination_rate: 42,
-          strategic_risk_summary: 'Hohe politische Sensibilität. Dringender Bedarf für ein klares Bekenntnis zu Basel und einen konstruktiven Dialog mit dem BAG.'
+          strategic_risk_summary: 'Hohe politische Sensibilität. Dringender Bedarf für ein klares Bekenntnis zu Swiss HQ und einen konstruktiven Dialog mit dem BAG.'
         },
         {
           region_id: 'apac',
@@ -764,7 +764,7 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
         commercial_nlp_confidence: 'Hohe statistische Konfidenz über 19.350 deduplizierte Meldungen',
         commercial_nlp_blindspot: 'Standard-NLP stuft die diplomatische Fachsprache der Gesundheitspolitiker als "neutral" ein, weil keine Vulgärsprache oder wütende Verbraucherbegriffe vorkommen.',
         forensic_reality_verdict: 'AKUTER POLITISCHER GEGENWIND IN EUROPA & DER SCHWEIZ',
-        forensic_reality_subtext: 'Cluster #01 ("Einführungsverzögerungen & Basel-Gewicht") verzeichnet einen +3.9σ Ausbruch. Europäische Kassen und Bundespolitiker in Bern deuten die Reformforderungen als Ultimatum gegen die Versorgung.',
+        forensic_reality_subtext: 'Cluster #01 ("Einführungsverzögerungen & Swiss HQ-Gewicht") verzeichnet einen +3.9σ Ausbruch. Europäische Kassen und Bundespolitiker in Bern deuten die Reformforderungen als Ultimatum gegen die Versorgung.',
         statistical_proof_anchor: 'z = +3.9σ Anomalie | Cosinus-Ähnlichkeit 0.34 in EU | 48% KI-Verzerrungsrate'
       }
     },
@@ -854,7 +854,7 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           raw_volume: 0,
           deduped_volume: 0,
           velocity_z_score: 0,
-          velocity_trend: 'Baseline',
+          velocity_trend: 'Swiss HQine',
           cosine_alignment: 0.70,
           pull_through_status: 'ALIGNED',
           status_label: 'Keine Relevanz',
@@ -997,9 +997,9 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
         {
           id: 'p_pillar_1',
           pillar_number: '01',
-          title: 'Klinisch belegte Verdopplung des rPFS (RLT-01 / GS-01)',
-          core_thesis: 'Die RLT-01-Studie belegt eine klinisch signifikante Verdopplung des progressionsfreien Überlebens (HR 0.41) vor Chemotherapie und begründet die US-Zulassung.',
-          target_vector_anchor: 'Ref: RLT-01 §2.1 (Klinischer Studienbericht)',
+          title: 'Klinisch belegte Verdopplung des rPFS (ONCO-01 / GS-01)',
+          core_thesis: 'Die ONCO-01-Studie belegt eine klinisch signifikante Verdopplung des progressionsfreien Überlebens (HR 0.41) vor Chemotherapie und begründet die US-Zulassung.',
+          target_vector_anchor: 'Ref: ONCO-01 §2.1 (Klinischer Studienbericht)',
           mandatory_proof_points: [
             'Radiografisch progressionsfreies Überleben verdoppelt (HR 0.41, p<0.001)',
             'FDA erteilt breite Vor-Chemo-Zulassung gestützt auf rPFS und Verträglichkeit',
@@ -1009,9 +1009,9 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
         {
           id: 'p_pillar_2',
           pillar_number: '02',
-          title: 'Gezielter Radioliganden-Wert & Spitalentlastung (GS-03)',
-          core_thesis: 'Präzisions-Radioligandentherapie schont Patienten vor belastender Chemotoxizität und senkt teure stationäre Akutaufenthalte.',
-          target_vector_anchor: 'Ref: GS-03 (Radioliganden Gesundheitsökonomie & Versorgungsforschung)',
+          title: 'Gezielter Präzisionsonkologie-Wert & Spitalentlastung (GS-03)',
+          core_thesis: 'Präzisions-zielgerichtete Krebstherapie schont Patienten vor belastender Chemotoxizität und senkt teure stationäre Akutaufenthalte.',
+          target_vector_anchor: 'Ref: GS-03 (Präzisionsonkologie Gesundheitsökonomie & Versorgungsforschung)',
           mandatory_proof_points: [
             'Präziser Bestrahlungsmechanismus schont Lebensqualität im Vergleich zur Chemotherapie',
             'Vermeidung von Notfalleinweisungen und kostenintensiven Spitalaufenthalten',
@@ -1031,7 +1031,7 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           cosine_alignment: 0.82,
           pull_through_status: 'ALIGNED',
           status_label: 'Standard vor Chemotherapie etabliert',
-          legacy_media_frame: 'Klinischer Meilenstein: "FDA erweitert Lu-177 RLT-Zulassung vor Chemotherapie auf Basis von RLT-01."',
+          legacy_media_frame: 'Klinischer Meilenstein: "FDA erweitert ONCO-104-Zulassung vor Chemotherapie auf Basis von ONCO-01."',
           social_forum_frame: 'Onkologie-Fachkreise: Hohe Zustimmung zur Vermeidung von Chemotherapie-Nebenwirkungen.',
           llm_synthesis_frame: 'Präzise Berichterstattung: Gibt die Indikation korrekt wieder.',
           llm_hallucination_rate: 12,
@@ -1048,9 +1048,9 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           cosine_alignment: 0.31,
           pull_through_status: 'AT_RISK',
           status_label: 'Erstattungs-Blockade',
-          legacy_media_frame: 'Kostendruck: "NICE lehnt 20.000-Pfund-Therapie Lu-177 RLT ab; europäischer Zugang blockiert."',
+          legacy_media_frame: 'Kostendruck: "NICE lehnt 20.000-Pfund-Therapie ONCO-104 ab; europäischer Zugang blockiert."',
           social_forum_frame: 'Patientenorganisationen: Empörung über fehlende Kostenübernahme.',
-          llm_synthesis_frame: 'Schwere Halluzination: KI behauptet fälschlich, Lu-177 RLT wirke bei Europäern klinisch nicht.',
+          llm_synthesis_frame: 'Schwere Halluzination: KI behauptet fälschlich, ONCO-104 wirke bei Europäern klinisch nicht.',
           llm_hallucination_rate: 54,
           strategic_risk_summary: 'Reputationsgefahr: KI verwechselt methodische Kontrollarm-Fragen mit klinischem Versagen.'
         },
@@ -1065,7 +1065,7 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           cosine_alignment: 0.68,
           pull_through_status: 'MIXED',
           status_label: 'Spitalkapazitäten im Aufbau',
-          legacy_media_frame: 'Spitzenmedizin: "Schweizer Unispitäler rüsten Radioliganden-Suiten auf."',
+          legacy_media_frame: 'Spitzenmedizin: "Schweizer Unispitäler rüsten Präzisionsonkologie-Suiten auf."',
           social_forum_frame: 'Fachärzte: Diskussion über logistische Isotopen-Lieferketten.',
           llm_synthesis_frame: 'Überwiegend sachlich: Berichtet über spezialisierte Zentren.',
           llm_hallucination_rate: 18,
@@ -1078,7 +1078,7 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           raw_volume: 0,
           deduped_volume: 0,
           velocity_z_score: 0,
-          velocity_trend: 'Baseline',
+          velocity_trend: 'Swiss HQine',
           cosine_alignment: 0.70,
           pull_through_status: 'ALIGNED',
           status_label: 'Transatlantische HTA-Beobachtung',
@@ -1184,7 +1184,7 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           raw_volume: 0,
           deduped_volume: 0,
           velocity_z_score: 0,
-          velocity_trend: 'Baseline',
+          velocity_trend: 'Swiss HQine',
           cosine_alignment: 0.70,
           pull_through_status: 'ALIGNED',
           status_label: 'Keine Exposition',

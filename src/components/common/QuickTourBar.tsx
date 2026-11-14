@@ -48,25 +48,25 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
         stepNumber: '01',
         shortLabel: 'Overview',
         targetAnchorLabel: 'Scenario Switcher & Two-Way Tabs',
-        headline: 'One Topic Across Media, Forums, and AI Search',
+        headline: 'One Topic Across Press, Forums, and AI Search',
         whatYouSee:
-          'Switch between 5 scenarios and filter by region (ALL, US, EU, CH, APAC). Search and AI engines pull press articles, forums, company pages, and old PDFs into one answer.',
+          'Choose from 5 scenarios (Biopharma & Healthcare or Crisis & ESG) and filter by region (ALL, US, EU, CH, APAC). Search and AI assistants pull press articles, forums, company pages, and old PDFs into a single answer.',
         whyItMatters:
-          'When regional messages or old files contradict each other, AI summaries mix them up. The two-way bar above lets you inspect external coverage (01–02) and align regional drafts (03–04).',
-        tryThisLabel: 'Switch to Oncology RLT Scenario',
+          'When regional messages or old files contradict each other, AI answers mix them up. The bar above connects external monitoring (01–02) with approved sources and daily writing recipes (03–04).',
+        tryThisLabel: 'Switch to Cancer Therapy Case',
         targetTab: 'cockpit',
         targetRegion: 'all',
         openConceptGuide: false
       },
       {
         stepNumber: '02',
-        shortLabel: '01 Regional Overview',
+        shortLabel: '01 Regional Cockpit',
         targetAnchorLabel: 'Tab 01 // Regional Cockpit & Filter [EU]',
-        headline: '01 Regional Cockpit: Why Tone Alone Misses Topic Risk',
+        headline: '01 Regional Cockpit: Why Sentiment Scores Miss Real Risks',
         whatYouSee:
-          'Filtered to EU: automated sentiment scores coverage as "76% Neutral" because trade articles use formal wording. Meanwhile, the statistical funnel flags an unusual volume spike (+3.9σ) in access criticism.',
+          'Filtered to EU: standard sentiment tools rate coverage as "76% Neutral" because trade articles use formal language—while critical coverage on patient access is spiking.',
         whyItMatters:
-          'Deduplicating wire reprints and measuring topic velocity shows where a debate is escalating before the tone turns openly hostile.',
+          'Removing duplicate wire reprints and spotting unusual volume spikes shows where a debate is heating up before the tone turns openly hostile.',
         tryThisLabel: 'Reset Filter to ALL Regions',
         targetTab: 'cockpit',
         targetRegion: 'eu',
@@ -75,27 +75,27 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
       {
         stepNumber: '03',
         shortLabel: '02 Cluster & AI Audit',
-        targetAnchorLabel: 'Tab 02 // Cluster & AI Answer Audit',
-        headline: '02 Cluster & AI Audit: Inspecting Sources and AI Distortions',
+        targetAnchorLabel: 'Tab 02 // Cluster & AI Answer Check',
+        headline: '02 Cluster & AI Audit: Checking Sources and AI Answers',
         whatYouSee:
-          'Shows the representative articles driving the cluster and the resulting AI answer below. Click the red passages [1] and [2] to inspect the exact factual errors.',
+          'Shows the key articles driving the topic and the resulting AI search answer below. Click the red passages [1] and [2] to see what the AI got wrong.',
         whyItMatters:
-          'Vague PR intros get cut off by search retrieval. Section 03 below shows how rewriting vague copy into clear, front-loaded facts fixes the AI summary across n=20 test runs.',
-        tryThisLabel: 'Switch to Cancer Therapy (RLT) Case',
+          'Search systems skip vague PR intros. Section 03 below shows how putting clear facts and numbers in the first paragraph fixes the AI answer across repeated test runs.',
+        tryThisLabel: 'Switch to Cancer Therapy Case',
         targetTab: 'geo',
         targetRegion: 'all',
         openConceptGuide: false
       },
       {
         stepNumber: '04',
-        shortLabel: '03 Regional Playbook',
-        targetAnchorLabel: 'Tab 03 // Regional Playbook',
-        headline: '03 Regional Playbook: Approved Sources & Local Drafts',
+        shortLabel: '03 Sources & Recipes',
+        targetAnchorLabel: 'Tab 03 // Approved Sources & Recipes',
+        headline: '03 Sources & Recipes: Applying Rules Without PDF Manuals',
         whatYouSee:
-          'Filters internal records to approved Golden Sources (GS-01 to GS-03), flags outdated files in regional folders, and provides working drafts across 4 formats (Corporate Story, Social, Talking Points, Q&A).',
+          'Locks approved Golden Sources (GS-01–GS-03), flags old PDFs, and loads the 4 writing rules into 1-click recipes. Click the Steering Buttons or toggle the Before/After Diff above the draft.',
         whyItMatters:
-          'Gives central and regional teams one shared set of facts and four practical writing rules so local adaptations stay consistent across owned pages and press coverage.',
-        tryThisLabel: 'Filter Playbook to Switzerland (CH)',
+          'Nobody reads 40-page PDF guidelines under time pressure. Recipes adjust how much they edit: full plain language for websites/social, and a light touch for clinical studies so scientific accuracy stays intact.',
+        tryThisLabel: 'Filter Recipes to Switzerland (CH)',
         targetTab: 'trending',
         targetRegion: 'all',
         openConceptGuide: false
@@ -103,13 +103,13 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
       {
         stepNumber: '05',
         shortLabel: '04 Stress-Test & Inquiry',
-        targetAnchorLabel: 'Tab 04 // Stress-Test & Concept Modal',
-        headline: '04 Stress-Test & Inquiry Check: Challenging Drafts Before Release',
+        targetAnchorLabel: 'Tab 04 // Stress-Test & Inquiry Check',
+        headline: '04 Stress-Test & Inquiry Check: Testing Drafts Before Release',
         whatYouSee:
-          'Toggle between Iteration 1 and Iteration 2 (or switch to 04B Inquiry Check) to see how repeating a critic’s accusation triggers hostile headlines and how leading with our own facts lowers risk (9.1 → 2.6).',
+          'Switch between Iteration 1 and Iteration 2 (or click 04B Journalist Inquiry Check) to see how repeating an accusation triggers hostile headlines—and how leading with our own facts calms coverage.',
         whyItMatters:
-          'LLMs are useful for pressure-testing a draft from multiple stakeholder angles—final editing, tone, and sign-off stay with comms and legal teams.',
-        tryThisLabel: 'Toggle Concept, Method & IT Modal',
+          'AI is useful for testing a draft from different stakeholder angles beforehand—final editing, tone, and sign-off always stay with comms and legal teams.',
+        tryThisLabel: 'Open Concept, Method & IT Guide',
         targetTab: 'cascade',
         targetRegion: 'all',
         openConceptGuide: false
@@ -122,25 +122,25 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
       stepNumber: '01',
       shortLabel: 'Überblick',
       targetAnchorLabel: 'Szenario-Wahl & Zwei-Wege-Leiste',
-      headline: 'Ein Thema über Medien, Foren und KI-Suche hinweg',
+      headline: 'Ein Thema über Presse, Foren und KI-Suche hinweg',
       whatYouSee:
-        'Wechseln Sie zwischen 5 Szenarien und filtern Sie nach Regionen (ALL, US, EU, CH, APAC). Such- und KI-Systeme ziehen Presseberichte, Foren, eigene Seiten und alte PDFs in einer Antwort zusammen.',
+        'Wählen Sie aus 5 Szenarien (Biopharma & Gesundheit oder Krise & ESG) und filtern Sie nach Regionen (ALL, US, EU, CH, APAC). Such- und KI-Systeme ziehen Presseberichte, Foren, eigene Seiten und alte PDFs in einer Antwort zusammen.',
       whyItMatters:
-        'Widersprechen sich regionale Aussagen oder veraltete Dateien, vermischen KI-Antworten die Fakten. Oben prüfen Sie zuerst das Umfeld (01–02) und richten danach Entwürfe aus (03–04).',
-      tryThisLabel: 'Zum Onkologie-RLT-Szenario wechseln',
+        'Widersprechen sich regionale Aussagen oder veraltete Dateien, vermischen KI-Antworten die Fakten. Oben verbinden Sie die Umfeld-Analyse (01–02) mit geprüften Quellen und Schreib-Rezepten (03–04).',
+      tryThisLabel: 'Zum Krebstherapie-Fall wechseln',
       targetTab: 'cockpit',
       targetRegion: 'all',
       openConceptGuide: false
     },
     {
       stepNumber: '02',
-      shortLabel: '01 Regional-Übersicht',
+      shortLabel: '01 Regional-Cockpit',
       targetAnchorLabel: 'Tab 01 // Regionales Cockpit & Filter [EU]',
-      headline: '01 Regionales Cockpit: Warum reines Sentiment Risiken übersieht',
+      headline: '01 Regionales Cockpit: Warum Sentiment-Werte Risiken übersehen',
       whatYouSee:
-        'Auf EU gefiltert: Standard-Sentiment meldet "76% Neutral", da Fachmedien sachlich formulieren. Der statistische Trichter zeigt jedoch einen +3.9σ-Anstieg bei der Zugangs- und Preisdebatte.',
+        'Auf EU gefiltert: Standard-Sentiment meldet "76% Neutral", da Fachmedien sachlich formulieren – während kritische Berichte zum Patientenzugang stark ansteigen.',
       whyItMatters:
-        'Das Zusammenfassen von Agentur-Dubletten und die Messung der Themen-Dynamik zeigen Eskalationen, bevor der Tonfall offen feindselig wird.',
+        'Das Herausfiltern von Agentur-Dubletten und das Erkennen ungewöhnlicher Volumen-Anstiege zeigen frühzeitig, wo eine Debatte eskaliert.',
       tryThisLabel: 'Filter auf ALLE Regionen setzen',
       targetTab: 'cockpit',
       targetRegion: 'eu',
@@ -149,27 +149,27 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
     {
       stepNumber: '03',
       shortLabel: '02 Cluster & KI-Audit',
-      targetAnchorLabel: 'Tab 02 // Cluster & KI-Audit',
-      headline: '02 Cluster & KI-Audit: Quellen und KI-Fehler prüfen',
+      targetAnchorLabel: 'Tab 02 // Cluster & KI-Antwort-Check',
+      headline: '02 Cluster & KI-Audit: Quellen und KI-Antworten prüfen',
       whatYouSee:
-        'Zeigt die repräsentativen Artikel im Cluster und die daraus erzeugte KI-Antwort. Klicken Sie auf die roten Passagen [1] und [2], um die konkreten Faktenfehler zu prüfen.',
+        'Zeigt die wichtigsten Artikel zum Thema und darunter die erzeugte KI-Suchantwort. Klicken Sie auf die roten Passagen [1] und [2], um die konkreten Faktenfehler zu sehen.',
       whyItMatters:
-        'Vage PR-Einleitungen fallen beim Such-Retrieval oft weg. Abschnitt 03 zeigt, wie klare, vorangestellte Fakten die KI-Antwort über n=20 Testläufe korrigieren.',
-      tryThisLabel: 'Onkologie-RLT KI-Audit ansehen',
+        'Suchsysteme überspringen vage PR-Einleitungen. Abschnitt 03 zeigt, wie klare Fakten und Zahlen im ersten Absatz die KI-Antwort in wiederholten Tests korrigieren.',
+      tryThisLabel: 'Zum Krebstherapie-Fall wechseln',
       targetTab: 'geo',
       targetRegion: 'all',
       openConceptGuide: false
     },
     {
       stepNumber: '04',
-      shortLabel: '03 Regional-Playbook',
-      targetAnchorLabel: 'Tab 03 // Regionales Playbook',
-      headline: '03 Regionales Playbook: Geprüfte Quellen & lokale Entwürfe',
+      shortLabel: '03 Quellen & Rezepte',
+      targetAnchorLabel: 'Tab 03 // Geprüfte Quellen & Rezepte',
+      headline: '03 Quellen & Rezepte: Regeln anwenden ohne PDF-Handbücher',
       whatYouSee:
-        'Filtert interne Bestände auf geprüfte Golden Sources (GS-01 bis GS-03), markiert veraltete Dateien in Länderordnern und liefert Arbeitsentwürfe für 4 Formate (Corporate Story, Social, Talking Points, Q&A).',
+        'Bündelt geprüfte Golden Sources (GS-01–GS-03), markiert alte PDFs und lädt die 4 Schreibregeln in 1-Klick-Rezepte. Testen Sie die Steuerungs-Buttons oder den Vorher/Nachher-Vergleich über dem Entwurf.',
       whyItMatters:
-        'Gibt zentralen und regionalen Teams dieselbe Faktenbasis und vier klare Schreibregeln, damit lokale Anpassungen auf eigenen Seiten und in Medien konsistent bleiben.',
-      tryThisLabel: 'Playbook auf Schweiz (CH) filtern',
+        'Unter Zeitdruck liest niemand 40-seitige PDF-Leitfäden. Rezepte passen ihre Eingriffstiefe an: einfache Sprache für Website/Social und ein schonender Modus für klinische Studien, damit die wissenschaftliche Präzision erhalten bleibt.',
+      tryThisLabel: 'Rezepte auf Schweiz (CH) filtern',
       targetTab: 'trending',
       targetRegion: 'all',
       openConceptGuide: false
@@ -177,13 +177,13 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
     {
       stepNumber: '05',
       shortLabel: '04 Stresstest & Anfrage',
-      targetAnchorLabel: 'Tab 04 // Stresstest & Konzept-Modal',
-      headline: '04 Stresstest & Anfrage-Check: Entwürfe vor Freigabe prüfen',
+      targetAnchorLabel: 'Tab 04 // Stresstest & Anfrage-Check',
+      headline: '04 Stresstest & Anfrage-Check: Entwürfe vor Freigabe testen',
       whatYouSee:
-        'Wechseln Sie zwischen Iteration 1 und Iteration 2 (oder zu 04B Medienanfrage), um zu sehen, wie wiederholte Vorwürfe Schlagzeilen auslösen und wie klare eigene Fakten das Risiko senken (9.1 → 2.6).',
+        'Wechseln Sie zwischen Iteration 1 und Iteration 2 (oder zu 04B Medienanfrage-Check), um zu sehen, wie wiederholte Vorwürfe kritische Schlagzeilen auslösen – und wie eigene Fakten die Berichterstattung versachlichen.',
       whyItMatters:
-        'LLMs eignen sich für den Stresstest aus verschiedenen Stakeholder-Perspektiven – Feinschliff, Tonalität und Freigabe bleiben bei Kommunikation und Recht.',
-      tryThisLabel: 'Konzept-, Methodik- & IT-Modal öffnen',
+        'KI hilft, Entwürfe vorab aus verschiedenen Blickwinkeln auf Schwachstellen zu testen – Feinschliff, Tonfall und Freigabe bleiben immer bei Kommunikation und Recht.',
+      tryThisLabel: 'Konzept-, Methodik- & IT-Guide öffnen',
       targetTab: 'cascade',
       targetRegion: 'all',
       openConceptGuide: false
@@ -281,7 +281,7 @@ export const QuickTourBar: React.FC<Props> = ({
           {/* Col 2: Strategic Value Tag */}
           <div className="lg:col-span-4 bg-zinc-900 border-l-2 border-[#FFCC00] border border-zinc-800 p-2 text-[10px] text-zinc-300 leading-snug">
             <strong className="text-white block font-mono uppercase mb-0.5">
-              {isEn ? 'Why It Matters:' : 'Strategischer Mehrwert:'}
+              {isEn ? 'Why It Matters:' : 'Warum das wichtig ist:'}
             </strong>
             <p>{activeStep.whyItMatters}</p>
           </div>

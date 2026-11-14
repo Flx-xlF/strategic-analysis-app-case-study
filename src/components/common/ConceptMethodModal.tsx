@@ -117,11 +117,11 @@ export const ConceptMethodModal: React.FC<Props> = ({ isOpen, onClose, lang }) =
             <p>
               {isEn ? (
                 <>
-                  <strong>Top-Down (03–04):</strong> Gives regional teams verified Golden Sources (GS-01–GS-03) and four shared writing rules across Corporate Stories, social posts, talking points, and Q&amp;As—plus draft stress-tests before publication.
+                  <strong>Top-Down (03–04):</strong> Instead of 40-page PDF manuals that teams skip under time pressure, approved Golden Sources (GS-01–GS-03) and four writing rules load directly into 1-click recipes inside Outlook and Word—using full plain language for websites/social, a light touch for clinical studies to protect scientific accuracy, and before/after draft stress-tests.
                 </>
               ) : (
                 <>
-                  <strong>Top-Down (03–04):</strong> Stellt Länderteams geprüfte Golden Sources (GS-01–GS-03) und vier Schreibregeln für Corporate Stories, Social, Talking Points und Q&amp;As bereit – inklusive Stresstest vor Freigabe.
+                  <strong>Top-Down (03–04):</strong> Statt 40-seitiger PDF-Leitfäden fliessen geprüfte Golden Sources (GS-01–GS-03) und vier Schreibregeln direkt in 1-Klick-Rezepte für Outlook und Word – mit klarer Alltagssprache für Website/Social, einem schonenden Modus für klinische Studien zum Schutz der wissenschaftlichen Präzision sowie Stresstests vor Freigabe.
                 </>
               )}
             </p>
@@ -177,11 +177,11 @@ export const ConceptMethodModal: React.FC<Props> = ({ isOpen, onClose, lang }) =
             <p>
               {isEn ? (
                 <>
-                  <strong>Connectors &amp; SSR HTML:</strong> Read-only links to <strong>Veeva Vault</strong> and <strong>SharePoint</strong> preserve permissions and approval status. Publishes server-rendered HTML for search crawlers (<strong>OAI-SearchBot, PerplexityBot, Claude-SearchBot</strong>); external feeds via Factiva/Meltwater.
+                  <strong>Connectors &amp; In-Workflow Recipes:</strong> Read-only links to <strong>Veeva Vault</strong> and <strong>SharePoint</strong> pull approved Golden Sources directly into <strong>M365 Copilot (Outlook / Word)</strong> recipes. Publishes server-rendered HTML for search crawlers (<strong>OAI-SearchBot, PerplexityBot, Claude-SearchBot</strong>); external feeds via Factiva/Meltwater.
                 </>
               ) : (
                 <>
-                  <strong>Schnittstellen &amp; SSR HTML:</strong> Lese-Anbindung an <strong>Veeva Vault</strong> &amp; <strong>SharePoint</strong> übernimmt Berechtigungen und Freigabestatus. Publiziert Server-Rendered HTML für Suchcrawler (<strong>OAI-SearchBot, PerplexityBot, Claude-SearchBot</strong>); externe Feeds über Factiva/Meltwater.
+                  <strong>Schnittstellen &amp; Workflow-Rezepte:</strong> Lese-Anbindung an <strong>Veeva Vault</strong> &amp; <strong>SharePoint</strong> lädt geprüfte Golden Sources direkt in <strong>M365 Copilot (Outlook / Word)</strong>. Publiziert Server-Rendered HTML für Suchcrawler (<strong>OAI-SearchBot, PerplexityBot, Claude-SearchBot</strong>); externe Feeds über Factiva/Meltwater.
                 </>
               )}
             </p>
