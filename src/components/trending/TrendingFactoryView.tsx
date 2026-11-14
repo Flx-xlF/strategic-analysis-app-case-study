@@ -284,7 +284,7 @@ export const TrendingFactoryView: React.FC<Props> = ({
             {/* Red Flag Guardrails */}
             <div className="space-y-2">
               <div className="text-[10px] font-mono text-sbb-red uppercase font-bold">
-                {isEn ? 'STRICT NON-NEGOTIABLE GUARDRAILS (RED FLAGS):' : 'STRIKTE VERBOTE & RED FLAGS:'}
+                {isEn ? 'WHAT TO AVOID (DO-NOT-SAY LIST):' : 'WAS VERMIEDEN WERDEN MUSS (NO-GOS):'}
               </div>
               <ul className="space-y-1.5 text-xs text-red-950 font-sans bg-red-50/60 p-3 border border-red-200">
                 {data.global_guardrails.map((gr, idx) => (
@@ -367,7 +367,7 @@ export const TrendingFactoryView: React.FC<Props> = ({
               02
             </span>
             <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-stone">
-              {isEn ? 'REGIONAL CASCADE: ADAPTING THE NARRATIVE BY GEOGRAPHY' : 'REGIONALE KASKADE: GEOGRAFISCHE ADAPTIERUNG'}
+              {isEn ? 'REGIONAL ADAPTATION: TAILORING DRAFTS BY COUNTRY' : 'REGIONALE ANPASSUNG: ENTWÜRFE NACH LAND & MARKT'}
             </span>
           </div>
 

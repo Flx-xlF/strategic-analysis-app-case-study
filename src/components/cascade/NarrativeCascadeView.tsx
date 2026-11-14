@@ -224,8 +224,8 @@ export const NarrativeCascadeView: React.FC<Props> = ({
             isDraftA ? 'text-sbb-red' : 'text-emerald-800'
           }`}>
             {isDraftA 
-              ? (isEn ? 'MEDIA ECHO SIMULATION: PROJECTED CRITICAL HEADLINE' : 'MEDIALE ECHO-SIMULATION: ERWARTETE KRITISCHE SCHLAGZEILE')
-              : (isEn ? 'MEDIA ECHO SIMULATION: CALIBRATED COVERAGE OUTCOME' : 'MEDIALE ECHO-SIMULATION: SACHLICHE BERICHTERSTATTUNG')}
+              ? (isEn ? 'LIKELY MEDIA HEADLINE (IF PUBLISHED AS-IS)' : 'ERWARTETE KRITISCHE SCHLAGZEILE (OHNE ÄNDERUNG)')
+              : (isEn ? 'LIKELY MEDIA HEADLINE (AFTER REVISION)' : 'ERWARTETE SACHLICHE SCHLAGZEILE (NACH ÜBERARBEITUNG)')}
           </span>
         </div>
 
@@ -236,15 +236,15 @@ export const NarrativeCascadeView: React.FC<Props> = ({
             isDraftA ? 'bg-sbb-red text-white' : 'bg-zinc-800 text-white'
           }`}>
             <Flame className="w-3 h-3" />
-            <span>{isDraftA ? (isEn ? 'PROJECTED CRITICAL HEADLINE' : 'KRITISCHE SCHLAGZEILE') : (isEn ? 'CALIBRATED COVERAGE HEADLINE' : 'SACHLICHE BERICHTERSTATTUNG')}</span>
+            <span>{isDraftA ? (isEn ? 'CRITICAL HEADLINE RISK' : 'KRITISCHE SCHLAGZEILE') : (isEn ? 'FACTUAL HEADLINE AFTER REVISION' : 'SACHLICHE SCHLAGZEILE')}</span>
           </div>
 
           <div className="text-[11px] font-mono text-sbb-stone uppercase tracking-wider font-bold mb-2 flex items-center gap-2">
             <AlertTriangle className={`w-4 h-4 ${isDraftA ? 'text-red-700' : 'text-zinc-600'}`} />
             <span>
               {isEn
-                ? (isDraftA ? 'PROJECTED CRITICAL RECEPTION' : 'CALIBRATED MEDIA RECEPTION')
-                : (isDraftA ? 'ERWARTETE TITELZEILE (LEITMEDIEN / BOULEVARD)' : 'ERWARTETE SACHLICHE MEDIENRESONANZ')}
+                ? (isDraftA ? 'LIKELY HEADLINE IN MAJOR OUTLETS' : 'LIKELY HEADLINE AFTER REVISION')
+                : (isDraftA ? 'ERWARTETE TITELZEILE (LEITMEDIEN / BOULEVARD)' : 'ERWARTETE SACHLICHE TITELZEILE')}
             </span>
           </div>
 

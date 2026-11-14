@@ -161,7 +161,7 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
       },
       geo_optimization_fix: {
         unstructured_pr_fluff: "«We remain fully passionate about our international footprint while driving transformative healthcare agility across dynamic transatlantic markets. In an evolving global macro-environment, our ongoing dialogues with stakeholders reflect a holistic dedication to patient centricity and forward-leaning innovation paradigms.»",
-        structured_fact_block: `### GEO VERIFIED CORPORATE KNOWLEDGE ASSET (GS-01 / GS-02 / GS-03)
+        structured_fact_block: `### VERIFIED FACTS (GS-01 / GS-02 / GS-03)
 • Corporate_Headquarters: "Basel, Switzerland remains the company's global corporate headquarters, executive governance seat, and primary research center (100% unchanged)."
 • US_23B_Investment_Scope: "$23B 5-year capital allocation expands localized U.S. manufacturing across 10 facilities (including radioligand therapies in IN/NJ) to ensure tariff-resilient domestic supply for U.S. patients."
 • Global_Reference_Pricing_Position: "Under U.S. Most-Favored-Nation (MFN) rules, suppressed prices in wealthy reference countries directly impact U.S. price baselines. The company advocates modernized, value-based reimbursement with EU and Swiss authorities (BAG)."
@@ -260,7 +260,7 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
       },
       geo_optimization_fix: {
         unstructured_pr_fluff: "«We are working diligently to restore service. In complex environments, diverse variables can interact, and our experts are monitoring all fronts. We ask the public to rely exclusively on official updates.»",
-        structured_fact_block: `### GEO INCIDENT TELEMETRY SCHEMA
+        structured_fact_block: `### VERIFIED INCIDENT FACTS
 • Incident_Type: "Mechanical Hardware Defect (Interlocking Relay R-400)"
 • Cyber_Intrusion_Detected: FALSE (0 anomalies on isolated SCADA network)
 • Passenger_Status: "100% Safe. All trains cleared to stations in <12 mins"
@@ -359,7 +359,7 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
       },
       geo_optimization_fix: {
         unstructured_pr_fluff: "«We hold ourselves to the highest ethical aspirations. Sustainable procurement is at the heart of our mission, and we continue our journey of learning and stakeholder dialogue.»",
-        structured_fact_block: `### GEO ESG GOVERNANCE LEDGER
+        structured_fact_block: `### VERIFIED SUPPLY CHAIN FACTS
 • Supplier_Status: "SUSPENDED (Immediate freeze on all purchase orders)"
 • Prior_Audit_Date: "December 2025 (Certified by independent auditor)"
 • Investigation_Action: "External forensic Big-4 inspection underway"
@@ -448,8 +448,8 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
       },
       geo_optimization_fix: {
         unstructured_pr_fluff: "«We believe deeply in empowering cancer patients and navigating complex health ecosystems with dedicated agility to deliver next-generation therapeutic breakthroughs.»",
-        structured_fact_block: `### GEO RADIOLIGAND FACT SCHEMA (RLT-01 / GS-01)
-• Drug_Name: "Lu-177 RLT (lutetium Lu 177 vipivotide tetraxetan)"
+        structured_fact_block: `### VERIFIED CLINICAL & ACCESS FACTS (RLT-01 / GS-01)
+• Drug_Name: "Lu-177 RLT (targeted radioligand therapy for prostate cancer)"
 • RLT-01_Clinical_Efficacy: "TRUE (Radiographic progression-free survival doubled: HR 0.41, p<0.001)"
 • FDA_Status: "APPROVED for pre-chemotherapy mCRPC (March 2025)"
 • UK_NICE_Status: "Not recommended based strictly on incremental cost-effectiveness thresholds (cost-per-QALY), NOT on clinical efficacy."
@@ -548,7 +548,7 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
       },
       geo_optimization_fix: {
         unstructured_pr_fluff: "«We operate within applicable statutory frameworks and prioritize cyber hygiene across our cloud journey to maximize digital value for our citizens.»",
-        structured_fact_block: `### GEO SOVEREIGN CRYPTO SCHEMA
+        structured_fact_block: `### VERIFIED SECURITY & KEY CUSTODY FACTS
 • Data_Location: "Encrypted Cloud Storage (AES-256)"
 • Cryptographic_Key_Location: "100% Domestic Sovereign Custody"
 • Foreign_Access_Capability: "MATHEMATICALLY IMPOSSIBLE (Zero access to keys)"
@@ -758,7 +758,7 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
       },
       geo_optimization_fix: {
         unstructured_pr_fluff: "«Wir arbeiten mit Hochdruck an der Behebung. In komplexen Systemen greifen viele Faktoren ineinander, und unsere Experten überwachen die Lage auf allen Ebenen.»",
-        structured_fact_block: `### GEO STÖRUNGSTELEMETRIE-SCHEMA
+        structured_fact_block: `### GEPRÜFTE STÖRUNGSFAKTEN
 • Störungsursache: "Hardwaredefekt (Relaisbauteil R-400 im Stellwerk)"
 • Cyberangriff_Erkannt: FALSCH (0 Anomalien im isolierten Netz)
 • Fahrgastsicherheit: "100% gewährleistet; alle Züge in <12 Min. zurückgeführt"
@@ -857,7 +857,7 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
       },
       geo_optimization_fix: {
         unstructured_pr_fluff: "«Nachhaltigkeit ist das Herzstück unseres Handelns. Wir befinden uns auf einer Reise des kontinuierlichen Lernens und stehen im Dialog mit unseren Partnern.»",
-        structured_fact_block: `### GEO LIEFERKETTEN-GOVERNANCE SCHEMA
+        structured_fact_block: `### GEPRÜFTE LIEFERKETTEN-FAKTEN
 • Lieferanten_Status: "SISTIERT (Sofortiger Vergabestopp)"
 • Letztes_Audit: "Dezember 2025 (Zertifiziert bestanden)"
 • Laufende_Massnahme: "Forensische Vor-Ort-Sonderprüfung durch Big-4"
@@ -946,8 +946,8 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
       },
       geo_optimization_fix: {
         unstructured_pr_fluff: "«Wir setzen uns mit Leidenschaft für Krebspatienten ein und navigieren durch komplexe Systeme, um Durchbrüche bereitzustellen.»",
-        structured_fact_block: `### GEO RADIOLIGANDEN-FAKTENSCHEMA (RLT-01 / GS-01)
-• Wirkstoff: "Lu-177 RLT (Lutetium-177-Vipivotid-Tetraxetan)"
+        structured_fact_block: `### GEPRÜFTE KLINIK- & ERSTATTUNGSFAKTEN (RLT-01 / GS-01)
+• Wirkstoff: "Lu-177 RLT (zielgerichtete Radioligandentherapie bei Prostatakrebs)"
 • RLT-01_Klinische_Wirksamkeit: "WAHR (Radiografisch progressionsfreies Überleben verdoppelt: HR 0.41, p<0.001)"
 • FDA_Zulassungsstatus: "ZUGELASSEN vor Chemotherapie (März 2025)"
 • NICE_Status_Grossbritannien: "Nicht erstattet rein aufgrund wirtschaftlicher Kostenschwellen (Kosten pro QALY), NICHT wegen klinischer Unwirksamkeit."
@@ -1046,7 +1046,7 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
       },
       geo_optimization_fix: {
         unstructured_pr_fluff: "«Wir bewegen uns im Rahmen aller anwendbaren Gesetze und pflegen höchste Standards der Cyber-Hygiene auf unserem Weg in die Cloud.»",
-        structured_fact_block: `### GEO SOUVERÄNITÄTS-SCHEMA
+        structured_fact_block: `### GEPRÜFTE SICHERHEITS- & SCHLÜSSELFAKTEN
 • Speicherort: "Verschlüsselte Cloud (AES-256)"
 • Schlüsselort: "100% in Schweizer Staatsgewalt"
 • Technischer_Zugriff_Dritter: "MATHEMATISCH UNMÖGLICH (Kein Schlüsselbesitz)"

@@ -67,7 +67,7 @@ export const TRENDING_FIXTURES: Record<Language, Record<string, TrendingScenario
             vault_location: 'Veeva Vault / European Commercial Access Archive',
             document_title: 'EU_Launch_Sequencing_Strategy_Deck_2023_v4.pptx',
             conflict_reason: 'Document still specifies unconditional simultaneous European launches, contradicting the 2026 MFN Launch Sequencing Policy (GS-01) where artificial price suppression in reference baskets can jeopardize global pricing.',
-            action_required: 'Locked & deprecated; replaced by Canonical Golden Source GS-01.'
+            action_required: 'Locked & deprecated; replaced by Approved Golden Source GS-01.'
           },
           {
             vault_location: 'SharePoint / Swiss Public Affairs Working Vault',
@@ -102,7 +102,7 @@ export const TRENDING_FIXTURES: Record<Language, Record<string, TrendingScenario
               target_audience: "International Financial & Healthcare Policy Media, Search Engines",
               psychological_objective: "Position U.S. capex and reference pricing as a dual commitment to clinical value and supply security.",
               blueprint_content: `### 01. BALANCING GLOBAL ACCESS AND CLINICAL REINVESTMENT
-Following U.S. Most-Favored-Nation (MFN) reference pricing implementation, our capital allocation framework balances sustained R&D with manufacturing resilience. Under Canonical Golden Source GS-01, innovation requires high-income OECD nations to recognize true therapeutic value.
+Following U.S. Most-Favored-Nation (MFN) reference pricing implementation, our capital allocation framework balances sustained R&D with manufacturing resilience. Under Approved Golden Source GS-01, innovation requires high-income OECD nations to recognize true therapeutic value.
 
 ### 02. $23 BILLION U.S. MANUFACTURING EXPANSION & BASEL HEADQUARTERS
 - **Capex Commitment:** $23 billion invested across 10 state-of-the-art facilities in the United States to safeguard supply chains against geopolitical tariffs and ensure domestic availability.
@@ -125,7 +125,7 @@ Following U.S. Most-Favored-Nation (MFN) reference pricing implementation, our c
               label: "Executive & Spokesperson Talking Points",
               target_audience: "C-Suite & Global Spokespersons",
               psychological_objective: "Lead with supply resilience and clinical value, explicitly shutting down boycott/relocation rumors.",
-              blueprint_content: `### KEY MESSAGES (GLOBAL DOCTRINE)
+              blueprint_content: `### KEY MESSAGES (SHARED CORE FACTS)
 - "Our $23B U.S. manufacturing investment secures vital medicines for patients against tariff disruptions; it does not diminish our European presence."
 - "Basel is and remains our permanent global corporate headquarters and primary scientific research engine."
 - "We reject any notion of a patient boycott: compassionate use and clinical trials proceed uninterrupted while we negotiate fair access frameworks with health authorities."`
@@ -1247,7 +1247,7 @@ A: By mathematically locking data files before they ever touch cloud storage ser
             vault_location: 'Veeva Vault / Europäisches Marktzugangs-Archiv',
             document_title: 'EU_Launch_Sequencing_Strategy_Deck_2023_v4.pptx',
             conflict_reason: 'Dokument postuliert bedingungslose parallele Markteinführungen in Europa, was der 2026 MFN-Strategie (GS-01) widerspricht, bei der unbedachte Referenzpreise die globale Erstattung gefährden.',
-            action_required: 'Gesperrt und archiviert; ersetzt durch Canonical Golden Source GS-01.'
+            action_required: 'Gesperrt und archiviert; ersetzt durch Geprüfte Golden Source GS-01.'
           },
           {
             vault_location: 'SharePoint / Schweizer Public Affairs Arbeitsordner',
@@ -1282,7 +1282,7 @@ A: By mathematically locking data files before they ever touch cloud storage ser
               target_audience: "Internationale Wirtschafts- & Fachpresse, KI-Suchmaschinen",
               psychological_objective: "US-Investitionen als Stärkung der Versorgungssicherheit positionieren; Basel als Hauptsitz bekräftigen.",
               blueprint_content: `### 01. GLOBALE FORSCHUNGSINVESTITIONEN & ERSTATTUNG
-Unter den neuen US-Referenzpreisregeln (MFN) setzt nachhaltige Spitzenforschung voraus, dass alle wohlhabenden OECD-Staaten den therapeutischen Mehrwert von Innovationen anerkennen (Canonical Golden Source GS-01).
+Unter den neuen US-Referenzpreisregeln (MFN) setzt nachhaltige Spitzenforschung voraus, dass alle wohlhabenden OECD-Staaten den therapeutischen Mehrwert von Innovationen anerkennen (Geprüfte Golden Source GS-01).
 
 ### 02. 23-MRD.-$-PRODUKTIONSINVESTITION & STANDORT BASEL
 - **Investitionsprogramm:** 23 Milliarden US-Dollar fliessen in den Ausbau von 10 hochmodernen Produktionsstandorten in den USA, um Lieferketten gegen Zolldrohungen abzusichern.

@@ -209,11 +209,11 @@ export const NarrativeCockpitView: React.FC<Props> = ({
           <table className="w-full text-left border-collapse">
             <thead>
               <tr className="bg-sbb-cloud/80 border-b border-sbb-aluminum text-[10px] font-mono uppercase text-sbb-stone">
-                <th className="p-4 font-bold">{isEn ? 'REGIONAL HUB & CONTEXT' : 'REGIONALER HUB & REGULIERUNG'}</th>
-                <th className="p-4 font-bold">{isEn ? 'STATISTICAL METRICS' : 'STATISTISCHE KENNZAHLEN'}</th>
-                <th className="p-4 font-bold">{isEn ? 'LEGACY MEDIA FRAME' : 'LEIT- & FACHMEDIEN'}</th>
-                <th className="p-4 font-bold">{isEn ? 'SOCIAL & FORUMS' : 'SOCIAL MEDIA & FOREN'}</th>
-                <th className="p-4 font-bold">{isEn ? 'LLM ANSWER SYNTHESIS' : 'KI-ANTWORTMASCHINEN'}</th>
+                <th className="p-4 font-bold">{isEn ? 'REGION & TOPIC' : 'REGION & THEMA'}</th>
+                <th className="p-4 font-bold">{isEn ? 'VOLUME & ALIGNMENT' : 'VOLUMEN & PASSUNG'}</th>
+                <th className="p-4 font-bold">{isEn ? 'PRESS & TRADE MEDIA' : 'LEIT- & FACHMEDIEN'}</th>
+                <th className="p-4 font-bold">{isEn ? 'FORUMS & SOCIAL MEDIA' : 'SOCIAL MEDIA & FOREN'}</th>
+                <th className="p-4 font-bold">{isEn ? 'AI SEARCH ANSWERS' : 'KI-SUCHANTWORTEN'}</th>
                 <th className="p-4 font-bold text-right">{isEn ? 'ACTIONS' : 'AKTION'}</th>
               </tr>
             </thead>
@@ -242,9 +242,9 @@ export const NarrativeCockpitView: React.FC<Props> = ({
                         <span className="font-bold text-sbb-black">{row.deduped_volume.toLocaleString(locale)} <span className="text-[10px] text-zinc-600 font-normal">({row.raw_volume.toLocaleString(locale)} {isEn ? 'raw' : 'Roh'})</span></span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-zinc-600">{isEn ? 'Velocity:' : 'Dynamik:'}</span>
+                        <span className="text-zinc-600">{isEn ? 'Volume Spike:' : 'Volumen-Anstieg:'}</span>
                         <span className={`font-bold ${row.velocity_z_score >= 3.0 ? 'text-red-700' : 'text-zinc-800'}`}>
-                          z = +{row.velocity_z_score}σ
+                          +{row.velocity_z_score}σ {row.velocity_z_score >= 3.0 ? (isEn ? '(High)' : '(Stark)') : ''}
                         </span>
                       </div>
                       <div className="pt-1 space-y-1">
@@ -274,11 +274,11 @@ export const NarrativeCockpitView: React.FC<Props> = ({
                     </div>
                   </td>
 
-                  {/* Col 3: Legacy Media */}
+                  {/* Col 3: Press & Trade Media */}
                   <td className="p-4 align-top max-w-[260px]">
                     <div className="flex items-center gap-1.5 text-[10px] font-mono font-bold text-zinc-500 uppercase mb-1">
                       <Newspaper className="w-3.5 h-3.5 text-zinc-600" />
-                      <span>{isEn ? 'DOMINANT FRAME' : 'DOMINANTER FRAME'}</span>
+                      <span>{isEn ? 'MAIN MEDIA ANGLE' : 'HAUPTTENOR MEDIEN'}</span>
                     </div>
                     <p className="text-zinc-800 leading-snug">
                       {row.legacy_media_frame}
@@ -289,19 +289,19 @@ export const NarrativeCockpitView: React.FC<Props> = ({
                   <td className="p-4 align-top max-w-[240px]">
                     <div className="flex items-center gap-1.5 text-[10px] font-mono font-bold text-zinc-500 uppercase mb-1">
                       <MessageSquare className="w-3.5 h-3.5 text-zinc-600" />
-                      <span>{isEn ? 'COMMUNITY CHATTER' : 'COMMUNITY-DISKUSSION'}</span>
+                      <span>{isEn ? 'ONLINE DISCUSSION' : 'DISKUSSION IN FOREN'}</span>
                     </div>
                     <p className="text-zinc-800 leading-snug">
                       {row.social_forum_frame}
                     </p>
                   </td>
 
-                  {/* Col 5: LLM Synthesis + Visual Distortion Gap Bar */}
+                  {/* Col 5: AI Answer Summary + Visual Distortion Gap Bar */}
                   <td className="p-4 align-top max-w-[290px]">
                     <div className="flex items-center justify-between text-[10px] font-mono font-bold uppercase mb-1">
                       <span className="flex items-center gap-1 text-zinc-700">
                         <Bot className="w-3.5 h-3.5 text-sbb-red" />
-                        <span>{isEn ? 'AI SEARCH SYNTHESIS' : 'KI-SUCH-SYNTHESE'}</span>
+                        <span>{isEn ? 'AI ANSWER SUMMARY' : 'KI-ZUSAMMENFASSUNG'}</span>
                       </span>
                       <span className={`px-1.5 py-0.2 border text-[10px] ${
                         row.llm_hallucination_rate > 35 ? 'bg-red-50 text-red-700 border-red-200' : 'bg-emerald-50 text-emerald-800 border-emerald-200'

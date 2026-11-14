@@ -189,18 +189,18 @@ export const MediaInquiryView: React.FC<Props> = ({
 
               <div className="mt-4 p-3 bg-zinc-50 border border-zinc-200 text-xs text-sbb-stone">
                 <div className="font-bold text-sbb-black text-[10px] font-mono uppercase mb-1">
-                  {isEn ? 'GOVERNANCE AUTHORITY & LEGAL BOUNDARY:' : 'BINDUNGSWIRKUNG DER DOKTRIN:'}
+                  {isEn ? 'APPROVAL & LEGAL RULE:' : 'FREIGABE- & RECHTSREGEL:'}
                 </div>
                 <p>
                   {isEn
-                    ? `Statements must remain compliant with ${data.compliance_authority}. Any deviation requires joint executive and legal sign-off.`
-                    : 'Aussagen gegenüber Medienvertretern dürfen nicht von den festgelegten Grundsätzen abweichen. Jegliche Nuancierung bedarf der Freigabe.'}
+                    ? `Statements must stay aligned with ${data.compliance_authority}. Any change requires joint comms and legal sign-off.`
+                    : 'Antworten an Medien müssen im Rahmen dieser Freigabe bleiben. Abweichungen erfordern die Abstimmung mit Kommunikation und Recht.'}
                 </p>
               </div>
             </div>
 
             <div className="mt-6 pt-4 border-t border-zinc-100 text-xs font-mono text-sbb-stone">
-              {isEn ? `GOVERNANCE CORPUS: ${data.compliance_authority}` : 'QUELLE: ZENTRALES DOSSIER-ARCHIV (GOVERNANCE & COMPLIANCE)'}
+              {isEn ? `APPROVED SOURCE: ${data.compliance_authority}` : 'FREIGEGEBENE QUELLE: ZENTRALES DOSSIER-ARCHIV'}
             </div>
           </div>
         </div>

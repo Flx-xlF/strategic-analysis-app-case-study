@@ -61,10 +61,10 @@ export const GeoAuditView: React.FC<Props> = ({
           <div>
             <div className="flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-sbb-red uppercase mb-1.5">
               <BrainCircuit className="w-4 h-4" />
-              <span>{isEn ? 'DIRECTION 1: OUTSIDE-IN (ANALYZE & MEASURE) // MODULE 02' : 'RICHTUNG 1: OUTSIDE-IN (ANALYSIEREN & MESSEN) // MODUL 02'}</span>
+              <span>{isEn ? 'STEP 2: INSPECT SOURCES & AI ANSWERS // MODULE 02' : 'SCHRITT 2: QUELLEN & KI-ANTWORTEN PRÜFEN // MODUL 02'}</span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-black text-sbb-black tracking-tight">
-              {isEn ? 'Cluster Deep-Dive & Generative Engine Audit' : 'Cluster-Detailanalyse & KI-Antwort-Audit'}
+              {isEn ? 'Topic Cluster & AI Search Answer Check' : 'Themen-Cluster & KI-Suchantwort-Check'}
             </h1>
             <p className="text-sm text-sbb-stone mt-1 max-w-3xl leading-relaxed">
               {isEn
@@ -516,14 +516,14 @@ export const GeoAuditView: React.FC<Props> = ({
               <div>
                 <div className="text-[10px] font-mono text-sbb-red uppercase font-bold mb-2 flex items-center gap-1.5">
                   <span className="w-2 h-2 bg-sbb-red" />
-                  <span>{isEn ? 'BEFORE: BURIED PR PREAMBLE (DROPPED BY RERANKER)' : 'VORHER: VERSTECKTE PR-FLOSKELN (VOM RERANKER VERWORFEN)'}</span>
+                  <span>{isEn ? 'BEFORE: VAGUE PR INTRO (SKIPPED BY SEARCH)' : 'VORHER: VAGE PR-FLOSKELN (VON DER SUCHE ÜBERSPRUNGEN)'}</span>
                 </div>
                 <div className="text-xs text-zinc-800 italic leading-relaxed font-serif p-4 bg-white border border-red-100">
                   {data.geo_optimization_fix.unstructured_pr_fluff}
                 </div>
               </div>
               <div className="mt-4 pt-3 border-t border-red-100 text-[10px] font-mono text-sbb-red">
-                {isEn ? 'Result: Fails passage reranking; LLMs fall back to speculative third-party commentary.' : 'Ergebnis: Scheitert im Passage-Reranking; LLMs greifen auf spekulative Drittquellen zurück.'}
+                {isEn ? 'Result: Search systems skip vague intros and pull quotes from critical press coverage instead.' : 'Ergebnis: Suchsysteme überspringen vage Einleitungen und zitieren stattdessen kritische Medienberichte.'}
               </div>
             </div>
 

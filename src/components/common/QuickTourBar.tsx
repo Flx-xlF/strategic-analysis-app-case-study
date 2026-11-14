@@ -301,11 +301,11 @@ export const QuickTourBar: React.FC<Props> = ({
                 {currentStep === 0 || currentStep === 2
                   ? selectedScenarioId === 'rlt_access_debate'
                     ? isEn
-                      ? 'Try: Biopharma MFN Case'
-                      : 'Ausprobieren: Biopharma MFN'
+                      ? 'Try: Biopharma Pricing Case'
+                      : 'Ausprobieren: Biopharma-Preisfall'
                     : isEn
-                    ? 'Try: Oncology RLT Case'
-                    : 'Ausprobieren: Onkologie RLT'
+                    ? 'Try: Cancer Therapy Case'
+                    : 'Ausprobieren: Krebstherapie-Fall'
                   : currentStep === 4
                   ? showConceptGuide
                     ? isEn
