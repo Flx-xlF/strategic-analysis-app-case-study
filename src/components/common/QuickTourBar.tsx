@@ -50,9 +50,9 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
         targetAnchorLabel: 'Scenario Switcher & Direction 1 Cockpit',
         headline: 'Gaining Traction in the AI Shift: Query Fan-Out Collapses Separate Channels Into One Answer',
         whatYouSee:
-          'Comms teams operate across earned media, owned stories, and regional briefings—historically consumed separately. In AI search, query fan-out (5–11 parallel sub-queries) pulls press coverage, forums, owned pages, and legacy files into one context window at once, exposing framing incoherence.',
+          'With ~70% of searches ending without a click and AI driving <1% referral traffic, query fan-out (5–11 parallel sub-queries) pulls press coverage, forums, owned pages, and legacy files into one context window at once, exposing framing incoherence.',
         whyItMatters:
-          'Audits where corporate narratives lose pull-through in media and AI search (Outside-In) while enforcing verified Golden Sources and channel-adapted GEO standards across earned and owned channels (Top-Down).',
+          'GEO is upstream reputation defense, citation absorption, and factual fidelity: auditing where narratives lose pull-through (Outside-In) while enforcing Golden Sources and channel-adapted GEO standards across earned and owned media (Top-Down).',
         tryThisLabel: 'Switch to Oncology RLT Scenario',
         targetTab: 'cockpit',
         targetRegion: 'all',
@@ -78,9 +78,9 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
         targetAnchorLabel: 'Tab 02 // Cluster & AI Answer Audit',
         headline: '02 Cluster & AI Audit: Query Fan-Out, Absorption & Answer-First GEO',
         whatYouSee:
-          'When stakeholders query ChatGPT, Perplexity, or Google AI, the engine runs 5–11 parallel sub-queries. When it hits buried PR preambles and incoherent regional coverage, it drops corporate context at the reranker cutoff and conflates facts.',
+          'When stakeholders query ChatGPT, Perplexity, or Google AI, query fan-out runs 5–11 parallel sub-queries. When it hits buried PR preambles and incoherent regional coverage, it drops corporate context at the reranker cutoff and conflates facts.',
         whyItMatters:
-          'Replaces debunked Schema.org/llms.txt shortcuts with empirical GEO: placing self-contained claims and quantitative stats (+61.5% absorption lift) in answer-first SSR HTML passages cuts LLM distortion from ~48% to ~5% across n=20 runs.',
+          'Replaces debunked Schema.org/llms.txt shortcuts with empirical GEO: single-run rankings repeat <0.1%, so n=20 audits pair answer-first SSR HTML (+61.5% absorption lift) and quotable press stats (+31%–41% lift) to cut distortion from ~45% to ~5%.',
         tryThisLabel: 'Inspect Oncology RLT GEO Audit',
         targetTab: 'geo',
         targetRegion: 'all',
@@ -88,13 +88,13 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
       },
       {
         stepNumber: '04',
-        shortLabel: 'GEO Playbook & Stories',
+        shortLabel: 'Regional GEO Playbooks',
         targetAnchorLabel: 'Tab 03 // Multi-Region GEO Playbook',
         headline: '03 Multi-Region Playbook: Golden Sources, 4-Rule GEO Framework & Channel Adaptation',
         whatYouSee:
-          'Filters hundreds of thousands of internal vault files down to a small set of approved "Golden Sources" (GS-01 to GS-03) and equips central and regional teams with a mandatory 4-Rule Corporate GEO Framework across Corporate Stories, press releases, media answers, and Q&As.',
+          'Filters hundreds of thousands of internal vault files down to verified "Golden Sources" (GS-01 to GS-03), flags superseded PDFs, and enforces the 4-Rule Corporate GEO Framework across Corporate Stories, press releases, media answers, and Q&As.',
         whyItMatters:
-          'While Owned Corporate Stories act as high-authority direct-to-AI primary sources, press releases and media inquiry answers follow the exact same GEO rules—ensuring third-party journalist quotes reinforce the company’s narrative in AI search.',
+          'AI engines draw 82%–89% (~84%) of citations from earned media and ~15%–45% from owned domains for primary figures. Owned Corporate Stories (SSR HTML) and quote-safe press materials work together so AI search absorbs our facts.',
         tryThisLabel: 'Filter Playbook to Switzerland (CH)',
         targetTab: 'trending',
         targetRegion: 'all',
@@ -102,11 +102,11 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
       },
       {
         stepNumber: '05',
-        shortLabel: 'Stress-Test, GEO & IT',
+        shortLabel: 'Stress-Test & IT Fit',
         targetAnchorLabel: 'Tab 04 // Stress-Test & Concept, Method & IT Fit',
         headline: '04 Multi-Angle Stress-Test, GEO Accusation Hygiene, Human Iteration & IT Fit',
         whatYouSee:
-          'An LLM never delivers a ready-to-send answer in one pass. It tests drafts across regional stakeholder angles simultaneously and enforces GEO hygiene: stripping negative accusations (which otherwise get indexed against the company’s own domain) and bridging to our narrative.',
+          'An LLM never delivers a ready-to-send answer in one pass. It tests drafts across regional stakeholder angles simultaneously and enforces BM25 + dense vector GEO hygiene: stripping negative accusations and bridging to our narrative.',
         whyItMatters:
           'Provides decision-ready context and a GEO-safe scaffold at the push of a button—leaving final nuance and sign-off to human leadership within existing IT governance (Veeva Vault, SharePoint, AI Gateway).',
         tryThisLabel: 'Toggle Enterprise IT & Method Guide',
@@ -124,9 +124,9 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
       targetAnchorLabel: 'Szenario-Wahl & Richtung 1 Cockpit',
       headline: 'Traktion im KI-Wandel: Wenn Query Fan-Out getrennte Kanäle in einer Antwort zusammenzieht',
       whatYouSee:
-        'Kommunikation bespielt Earned Media, Owned Stories und regionale Briefings – früher getrennt nach Zielgruppen. In der KI-Suche zieht Query Fan-Out (5–11 parallele Sub-Anfragen) Presseberichte, Foren, eigene Seiten und Alt-Dateien simultan in ein Kontextfenster und legt jede Inkohärenz offen.',
+        'Bei ~70% Zero-Click-Suchen und <1% KI-Referral-Traffic zieht Query Fan-Out (5–11 parallele Sub-Anfragen) Presseberichte, Foren, eigene Seiten und Alt-Dateien simultan in ein Kontextfenster und legt jede Inkohärenz offen.',
       whyItMatters:
-        'Zeigt, wie Kommunikation Traktion sichert: durch Audits von Medien und KI-Antworten (Outside-In) sowie verbindliche Golden Sources und kanal-adaptierte GEO-Standards über Earned und Owned Media hinweg (Top-Down).',
+        'GEO dient der vorgelagerten Reputationssicherung und Fakten-Absorption: Audits von Medien und KI-Antworten (Outside-In) sowie verbindliche Golden Sources und kanal-adaptierte GEO-Standards über Earned und Owned Media hinweg (Top-Down).',
       tryThisLabel: 'Zum Onkologie-RLT-Szenario wechseln',
       targetTab: 'cockpit',
       targetRegion: 'all',
@@ -152,9 +152,9 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
       targetAnchorLabel: 'Tab 02 // Cluster & KI-Audit',
       headline: '02 Cluster & KI-Audit: Query Fan-Out, Absorption & Answer-First GEO',
       whatYouSee:
-        'Befragen Stakeholder ChatGPT, Perplexity oder Google AI, zerlegt die Engine die Frage in 5–11 parallele Suchanfragen (Query Fan-Out). Trifft sie auf langatmige PR-Einleitungen und uneinheitliche regionale Berichte, fällt der Unternehmenskontext durch das Reranking-Raster.',
+        'Befragen Stakeholder ChatGPT, Perplexity oder Google AI, zerlegt Query Fan-Out die Frage in 5–11 parallele Suchanfragen. Trifft sie auf langatmige PR-Einleitungen und uneinheitliche Berichte, fällt unser Kontext durch das Reranking-Raster.',
       whyItMatters:
-        'Ersetzt widerlegte Schema.org/llms.txt-Mythen durch empirisches GEO: Answer-First HTML-Passagen mit direkten Zahlenbelegen (+61,5% Absorptions-Lift) senken KI-Verzerrungen über n=20 Prüfläufe von ~48% auf ~5%.',
+        'Ersetzt widerlegte Schema.org/llms.txt-Mythen (Einzel-Rankings wiederholen sich zu <0,1%): n=20 Prüfläufe mit Answer-First SSR HTML (+61,5% Lift) und zitierfähigen PR-Zahlen (+31%–41% Lift) senken Verzerrungen von ~45% auf ~5%.',
       tryThisLabel: 'Onkologie-RLT GEO-Audit ansehen',
       targetTab: 'geo',
       targetRegion: 'all',
@@ -162,13 +162,13 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
     },
     {
       stepNumber: '04',
-      shortLabel: 'GEO-Playbook & Stories',
+      shortLabel: 'Regionale GEO-Playbooks',
       targetAnchorLabel: 'Tab 03 // Multi-Regionen Playbook',
       headline: '03 Multi-Regionen-Playbook: Golden Sources, 4-Regel GEO-Framework & Kanal-Adaptierung',
       whatYouSee:
-        'Filtert Hunderttausende interne Vault-Dateien auf wenige freigegebene "Golden Sources" (GS-01 bis GS-03) und gibt zentralen sowie regionalen Teams ein verbindliches 4-Regel GEO-Framework für Corporate Stories, Medienmitteilungen, Statements und Q&As.',
+        'Filtert Hunderttausende interne Vault-Dateien auf wenige freigegebene "Golden Sources" (GS-01 bis GS-03), flaggt Alt-PDFs und setzt das 4-Regel GEO-Framework für Corporate Stories, Medienmitteilungen und Q&As durch.',
       whyItMatters:
-        'Während Owned Corporate Stories als primäre KI-Quellen fungieren, folgen Medienmitteilungen und Statements denselben GEO-Regeln – damit Zitate in Drittmedien das eigene Narrativ in der KI-Suche stärken.',
+        'KI-Engines beziehen 82%–89% (~84%) ihrer Zitate aus Earned Media und ~15%–45% von Owned Domains. Owned Corporate Stories (SSR HTML) und zitierfähige Pressearbeit sichern gemeinsam hohe Fakten-Absorption.',
       tryThisLabel: 'Playbook auf Schweiz (CH) filtern',
       targetTab: 'trending',
       targetRegion: 'all',
@@ -176,11 +176,11 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
     },
     {
       stepNumber: '05',
-      shortLabel: 'Stresstest, GEO & IT',
+      shortLabel: 'Stresstest & IT-Fit',
       targetAnchorLabel: 'Tab 04 // Stresstest & Konzept, Methodik & IT-Fit',
       headline: '04 Multi-Winkel-Stresstest, GEO-Vorwurfshygiene, Menschliche Iteration & IT-Integration',
       whatYouSee:
-        'Ein LLM liefert nie im ersten Durchlauf die fertige Antwort. Es prüft Entwürfe simultan aus regionalen Stakeholder-Perspektiven und sichert GEO-Hygiene: Es streicht Negativ-Vorwürfe (die KI-Suchmaschinen sonst auf der eigenen Domain indexieren) und baut Brücken zum eigenen Narrativ.',
+        'Ein LLM liefert nie im ersten Durchlauf die fertige Antwort. Es prüft Entwürfe simultan aus regionalen Stakeholder-Perspektiven und sichert BM25 + Dense-Vector GEO-Hygiene ohne Negativ-Vorwürfe.',
       whyItMatters:
         'Liefert Entscheidungskontext und ein GEO-sicheres Arbeitsgerüst auf Knopfdruck – während Feinschliff und Freigabe beim Menschen innerhalb bestehender IT-Governance (Veeva Vault, SharePoint, AI Gateway) bleiben.',
       tryThisLabel: 'IT- & Methodik-Guide ein-/ausblenden',
@@ -230,7 +230,7 @@ export const QuickTourBar: React.FC<Props> = ({
   return (
     <aside
       aria-label={isEn ? 'Interactive Product Tour' : 'Interaktive Product-Tour'}
-      className="fixed bottom-0 inset-x-0 z-40 bg-sbb-black text-white border-t-2 border-[#FFCC00] shadow-[0_-4px_20px_rgba(0,0,0,0.5)] transition-all"
+      className="fixed bottom-0 inset-x-0 z-50 bg-sbb-black text-white border-t-2 border-[#FFCC00] shadow-[0_-4px_20px_rgba(0,0,0,0.5)] transition-all"
     >
       {/* Top Banner Control Rail */}
       <div className="bg-[#FFCC00] text-sbb-black px-4 sm:px-8 py-1.5 flex items-center justify-between border-b border-black text-xs font-mono">
@@ -273,7 +273,7 @@ export const QuickTourBar: React.FC<Props> = ({
             <h4 className="text-xs sm:text-sm font-bold text-white leading-snug">
               {activeStep.headline}
             </h4>
-            <p className="text-[11px] text-zinc-300 leading-relaxed line-clamp-2">
+            <p className="text-[11px] text-zinc-300 leading-relaxed">
               {activeStep.whatYouSee}
             </p>
           </div>
@@ -283,7 +283,7 @@ export const QuickTourBar: React.FC<Props> = ({
             <strong className="text-white block font-mono uppercase mb-0.5">
               {isEn ? 'Why It Matters:' : 'Strategischer Mehrwert:'}
             </strong>
-            <p className="line-clamp-2">{activeStep.whyItMatters}</p>
+            <p>{activeStep.whyItMatters}</p>
           </div>
 
           {/* Col 3: Controls, Quick Action & Step Rail */}

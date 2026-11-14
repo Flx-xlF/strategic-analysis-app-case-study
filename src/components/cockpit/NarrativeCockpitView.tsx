@@ -42,6 +42,7 @@ export const NarrativeCockpitView: React.FC<Props> = ({
 }) => {
   const data: CockpitData = getCockpitData(lang, scenarioId);
   const isEn = lang === 'en';
+  const locale = isEn ? 'en-US' : 'de-CH';
 
   const displayedRows = selectedRegion === 'all' 
     ? data.regional_synthesis 
@@ -75,8 +76,8 @@ export const NarrativeCockpitView: React.FC<Props> = ({
             </h1>
             <p className="text-sm text-sbb-stone mt-1 max-w-3xl leading-relaxed">
               {isEn
-                ? `Beyond volume and sentiment monitoring: compresses ${data.pipeline.raw_ingested_72h.toLocaleString()}+ external articles, forum threads, and AI search outputs into the few topics gaining momentum—showing where corporate arguments are absorbed and where cross-channel or regional incoherence weakens the company’s signal.`
-                : `Mehr als Volumen- und Sentiment-Monitoring: verdichtet über ${data.pipeline.raw_ingested_72h.toLocaleString()}+ externe Artikel, Forenbeiträge und KI-Suchantworten – und zeigt, wo Kernargumente absorbiert werden oder wo kanalübergreifende und regionale Inkohärenz die eigene Position schwächt.`}
+                ? `Beyond volume and sentiment monitoring: compresses ${data.pipeline.raw_ingested_72h.toLocaleString(locale)}+ external articles, forum threads, and AI search outputs into the few topics gaining momentum—showing where corporate arguments are absorbed and where cross-channel or regional incoherence weakens the company’s signal.`
+                : `Mehr als Volumen- und Sentiment-Monitoring: verdichtet über ${data.pipeline.raw_ingested_72h.toLocaleString(locale)} externe Artikel, Forenbeiträge und KI-Suchantworten – und zeigt, wo Kernargumente absorbiert werden oder wo kanalübergreifende und regionale Inkohärenz die eigene Position schwächt.`}
             </p>
           </div>
 
@@ -127,9 +128,9 @@ export const NarrativeCockpitView: React.FC<Props> = ({
 
             {/* Right: The statistical anomaly + strategic reality */}
             <div className="p-5 bg-red-50/60 border border-red-200 space-y-3">
-              <div className="flex items-center justify-between pb-2 border-b border-red-200">
-                <span className="text-[10px] font-mono text-sbb-red uppercase font-bold flex items-center gap-1.5">
-                  <Flame className="w-3.5 h-3.5 text-sbb-red" />
+              <div className="flex items-center justify-between pb-2 border-b border-red-200 gap-2">
+                <span className="text-[10px] font-mono text-red-700 uppercase font-bold flex items-center gap-1.5">
+                  <Flame className="w-3.5 h-3.5 text-red-700 shrink-0" />
                   <span>
                     {(() => {
                       if (scenarioId === 'alpine_transit_crisis') {
@@ -143,11 +144,11 @@ export const NarrativeCockpitView: React.FC<Props> = ({
                     })()}
                   </span>
                 </span>
-                <span className="text-[9px] font-mono px-2 py-0.5 bg-red-100 text-sbb-red font-bold whitespace-nowrap shrink-0">
+                <span className="text-[10px] font-mono px-2 py-0.5 bg-red-100 text-red-700 font-bold whitespace-nowrap shrink-0">
                   {data.surface_nlp_vs_forensic_reality.statistical_proof_anchor}
                 </span>
               </div>
-              <div className="text-lg font-black text-sbb-red">
+              <div className="text-lg font-black text-red-700">
                 {data.surface_nlp_vs_forensic_reality.forensic_reality_verdict}
               </div>
               <p className="text-xs text-zinc-800 leading-relaxed font-sans">
@@ -237,19 +238,19 @@ export const NarrativeCockpitView: React.FC<Props> = ({
                   <td className="p-4 align-top w-[220px] font-mono">
                     <div className="space-y-1.5 text-[11px]">
                       <div className="flex justify-between">
-                        <span className="text-zinc-500">{isEn ? 'Volume:' : 'Volumen:'}</span>
-                        <span className="font-bold text-sbb-black">{row.deduped_volume.toLocaleString()} <span className="text-[9px] text-zinc-500">({row.raw_volume.toLocaleString()} {isEn ? 'raw' : 'Roh'})</span></span>
+                        <span className="text-zinc-600">{isEn ? 'Volume:' : 'Volumen:'}</span>
+                        <span className="font-bold text-sbb-black">{row.deduped_volume.toLocaleString(locale)} <span className="text-[10px] text-zinc-600 font-normal">({row.raw_volume.toLocaleString(locale)} {isEn ? 'raw' : 'Roh'})</span></span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-zinc-500">{isEn ? 'Velocity:' : 'Dynamik:'}</span>
-                        <span className={`font-bold ${row.velocity_z_score >= 3.0 ? 'text-sbb-red' : 'text-zinc-800'}`}>
+                        <span className="text-zinc-600">{isEn ? 'Velocity:' : 'Dynamik:'}</span>
+                        <span className={`font-bold ${row.velocity_z_score >= 3.0 ? 'text-red-700' : 'text-zinc-800'}`}>
                           z = +{row.velocity_z_score}σ
                         </span>
                       </div>
                       <div className="pt-1 space-y-1">
                         <div className="flex justify-between text-[10px]">
-                          <span className="text-zinc-500">{isEn ? 'HQ Narrative Fit:' : 'HQ-Narrativ-Fit:'}</span>
-                          <span className={`font-bold ${row.cosine_alignment < 0.45 ? 'text-sbb-red' : row.cosine_alignment > 0.7 ? 'text-emerald-700' : 'text-amber-800'}`}>
+                          <span className="text-zinc-600">{isEn ? 'HQ Narrative Fit:' : 'HQ-Narrativ-Fit:'}</span>
+                          <span className={`font-bold ${row.cosine_alignment < 0.45 ? 'text-red-700' : row.cosine_alignment > 0.7 ? 'text-emerald-700' : 'text-amber-800'}`}>
                             {Math.round(row.cosine_alignment * 100)}% ({row.cosine_alignment.toFixed(2)})
                           </span>
                         </div>
@@ -265,7 +266,7 @@ export const NarrativeCockpitView: React.FC<Props> = ({
                             style={{ width: `${Math.round(row.cosine_alignment * 100)}%` }}
                           />
                         </div>
-                        <div className="text-[9px] text-zinc-500 flex justify-between">
+                        <div className="text-[10px] text-zinc-600 flex justify-between">
                           <span>0%</span>
                           <span>{isEn ? 'Target: 100%' : 'Soll: 100%'}</span>
                         </div>
@@ -302,8 +303,8 @@ export const NarrativeCockpitView: React.FC<Props> = ({
                         <Bot className="w-3.5 h-3.5 text-sbb-red" />
                         <span>{isEn ? 'AI SEARCH SYNTHESIS' : 'KI-SUCH-SYNTHESE'}</span>
                       </span>
-                      <span className={`px-1.5 py-0.2 border text-[9px] ${
-                        row.llm_hallucination_rate > 35 ? 'bg-red-50 text-sbb-red border-red-200' : 'bg-emerald-50 text-emerald-800 border-emerald-200'
+                      <span className={`px-1.5 py-0.2 border text-[10px] ${
+                        row.llm_hallucination_rate > 35 ? 'bg-red-50 text-red-700 border-red-200' : 'bg-emerald-50 text-emerald-800 border-emerald-200'
                       }`}>
                         {row.llm_hallucination_rate}% {isEn ? 'Distorted' : 'Verzerrt'}
                       </span>
@@ -322,11 +323,11 @@ export const NarrativeCockpitView: React.FC<Props> = ({
                           title={isEn ? 'LLM Distortion / Hallucination Share' : 'Anteil KI-Faktenverzerrung'}
                         />
                       </div>
-                      <div className="flex justify-between text-[9px] text-zinc-500">
+                      <div className="flex justify-between text-[10px] text-zinc-600">
                         <span className="text-emerald-700 font-bold">
                           {100 - row.llm_hallucination_rate}% {isEn ? 'Fact-Aligned' : 'Faktentreu'}
                         </span>
-                        <span className="text-sbb-red font-bold">
+                        <span className="text-red-700 font-bold">
                           {row.llm_hallucination_rate}% {isEn ? 'Gap' : 'Abweichung'}
                         </span>
                       </div>
@@ -387,12 +388,12 @@ export const NarrativeCockpitView: React.FC<Props> = ({
                 <span className="text-zinc-500">MinHash LSH</span>
               </div>
               <div className="text-2xl font-black text-sbb-black tracking-tight tabular-nums">
-                {data.pipeline.raw_ingested_72h.toLocaleString()}
+                {data.pipeline.raw_ingested_72h.toLocaleString(locale)}
               </div>
               <p className="text-[11px] text-zinc-600 mt-1">
                 {isEn 
-                  ? `Collapsed ${data.pipeline.syndicated_reprints_collapsed.toLocaleString()} syndicated wire reprints into ${data.pipeline.minhash_deduped_unique.toLocaleString()} unique items.` 
-                  : `${data.pipeline.syndicated_reprints_collapsed.toLocaleString()} Agentur-Dubletten auf ${data.pipeline.minhash_deduped_unique.toLocaleString()} Unikate verdichtet.`}
+                  ? `Collapsed ${data.pipeline.syndicated_reprints_collapsed.toLocaleString(locale)} syndicated wire reprints into ${data.pipeline.minhash_deduped_unique.toLocaleString(locale)} unique items.` 
+                  : `${data.pipeline.syndicated_reprints_collapsed.toLocaleString(locale)} Agentur-Dubletten auf ${data.pipeline.minhash_deduped_unique.toLocaleString(locale)} Unikate verdichtet.`}
               </p>
             </div>
 

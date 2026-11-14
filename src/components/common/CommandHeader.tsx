@@ -57,10 +57,10 @@ export const CommandHeader: React.FC<Props> = ({
     <>
       <header className="bg-white border-b border-sbb-aluminum lg:sticky lg:top-0 z-40">
         {/* Level 1: System Telemetry Bar */}
-        <div className="bg-sbb-black text-white px-4 sm:px-8 py-2 flex flex-wrap items-center justify-between border-b border-zinc-800 gap-2">
-          <div className="flex items-center gap-3">
+        <div className="bg-sbb-black text-white px-4 sm:px-8 py-2 flex flex-wrap items-center justify-between border-b border-zinc-800 gap-2 min-w-0">
+          <div className="flex items-center gap-3 min-w-0">
             <div className="w-2.5 h-2.5 bg-sbb-red shrink-0" />
-            <span className="type-ui font-black text-white tracking-[0.2em] text-[10px] sm:text-[11px] whitespace-nowrap">
+            <span className="type-ui font-black text-white tracking-[0.16em] sm:tracking-[0.2em] text-[10px] sm:text-[11px] truncate">
               TERRAIN // TWO-WAY STRATEGIC COMMS COCKPIT
             </span>
           </div>
@@ -148,19 +148,19 @@ export const CommandHeader: React.FC<Props> = ({
         </div>
 
         {/* Level 2: Primary Control Deck (Scenario Switcher + Shared Regional Filter) */}
-        <div className={`px-4 sm:px-8 py-2.5 bg-white border-b border-sbb-aluminum flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 transition-all ${
+        <div className={`px-4 sm:px-8 py-2.5 bg-white border-b border-sbb-aluminum flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 transition-all min-w-0 ${
           showQuickTour && currentTourStep === 0 ? 'ring-2 ring-[#FFCC00] bg-amber-50/20' : ''
         }`}>
           {/* Scenario Selection Control */}
-          <div className="flex flex-1 flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
-            <div className="flex flex-1 items-center gap-2 sm:gap-3">
-              <label htmlFor="scenario-select" className="type-ui text-zinc-500 shrink-0 flex items-center gap-1.5 whitespace-nowrap">
+          <div className="flex flex-1 flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 min-w-0">
+            <div className="flex flex-1 items-center gap-2 sm:gap-3 min-w-0">
+              <label htmlFor="scenario-select" className="type-ui text-zinc-600 shrink-0 flex items-center gap-1.5 whitespace-nowrap">
                 <span className={`w-1.5 h-1.5 ${showQuickTour && currentTourStep === 0 ? 'bg-[#FFCC00]' : 'bg-sbb-red'}`} />
                 <span className={showQuickTour && currentTourStep === 0 ? 'text-sbb-black font-bold' : ''}>
                   {isEn ? 'Scenario:' : 'Szenario:'}
                 </span>
               </label>
-              <div className="relative flex-1 max-w-xl">
+              <div className="relative flex-1 max-w-xl min-w-0">
               <select
                 id="scenario-select"
                 value={selectedScenario.id}
@@ -213,100 +213,100 @@ export const CommandHeader: React.FC<Props> = ({
 
         {/* Level 3: Two-Way Strategic Operating Model Navigation (Responsive Grid) */}
         <div className="px-4 sm:px-8 bg-[#F8F8F9] border-b border-sbb-aluminum py-1">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 max-w-[1600px] mx-auto">
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-2 max-w-[1600px] mx-auto">
             {/* Column 1: Direction 1 - Outside-In (Analyze & Measure) */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-1 border border-zinc-200 bg-white p-1">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-1 border border-zinc-200 bg-white p-1 min-w-0">
               <span className="text-[10px] font-mono font-black text-sbb-black uppercase tracking-wider px-2 py-1 bg-zinc-100 border-b sm:border-b-0 sm:border-r border-zinc-200 shrink-0 whitespace-nowrap text-center sm:text-left">
                 {isEn ? '◄ DIRECTION 1: OUTSIDE-IN (MEASURE)' : '◄ RICHTUNG 1: OUTSIDE-IN (MESSEN)'}
               </span>
 
-              <div className="flex items-center gap-1 flex-1">
+              <div className="flex items-center gap-1 flex-1 min-w-0">
                 <button
                   onClick={() => setActiveTab('cockpit')}
-                  className={`flex-1 px-2.5 py-1.5 font-mono text-xs font-bold tracking-wider uppercase transition-all flex items-center justify-center gap-1.5 cursor-pointer border ${
+                  className={`flex-1 min-w-0 px-2.5 py-1.5 font-mono text-xs font-bold tracking-wider uppercase transition-all flex items-center justify-center gap-1.5 cursor-pointer border ${
                     activeTab === 'cockpit'
                       ? 'border-sbb-red bg-sbb-red text-white'
-                      : 'border-transparent text-zinc-500 hover:text-sbb-black hover:bg-zinc-50'
+                      : 'border-transparent text-zinc-600 hover:text-sbb-black hover:bg-zinc-50'
                   } ${
                     showQuickTour && (currentTourStep === 0 || currentTourStep === 1)
                       ? 'ring-2 ring-[#FFCC00] ring-offset-1'
                       : ''
                   }`}
                 >
-                  <span className={`text-[10px] font-black ${activeTab === 'cockpit' ? 'text-white/80' : 'opacity-60'}`}>01</span>
-                  <BarChart3 className={`w-3.5 h-3.5 ${activeTab === 'cockpit' ? 'text-white' : 'text-sbb-red'}`} />
+                  <span className={`text-[10px] font-black shrink-0 ${activeTab === 'cockpit' ? 'text-white/90' : 'text-zinc-600'}`}>01</span>
+                  <BarChart3 className={`w-3.5 h-3.5 shrink-0 ${activeTab === 'cockpit' ? 'text-white' : 'text-sbb-red'}`} />
                   <span className="truncate">{isEn ? 'Regional Cockpit' : 'Regionales Cockpit'}</span>
                   {showQuickTour && (currentTourStep === 0 || currentTourStep === 1) && (
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#FFCC00] animate-pulse" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#FFCC00] animate-pulse shrink-0" />
                   )}
                 </button>
 
                 <button
                   onClick={() => setActiveTab('geo')}
-                  className={`flex-1 px-2.5 py-1.5 font-mono text-xs font-bold tracking-wider uppercase transition-all flex items-center justify-center gap-1.5 cursor-pointer border ${
+                  className={`flex-1 min-w-0 px-2.5 py-1.5 font-mono text-xs font-bold tracking-wider uppercase transition-all flex items-center justify-center gap-1.5 cursor-pointer border ${
                     activeTab === 'geo'
                       ? 'border-sbb-red bg-sbb-red text-white'
-                      : 'border-transparent text-zinc-500 hover:text-sbb-black hover:bg-zinc-50'
+                      : 'border-transparent text-zinc-600 hover:text-sbb-black hover:bg-zinc-50'
                   } ${
                     showQuickTour && currentTourStep === 2
                       ? 'ring-2 ring-[#FFCC00] ring-offset-1'
                       : ''
                   }`}
                 >
-                  <span className={`text-[10px] font-black ${activeTab === 'geo' ? 'text-white/80' : 'opacity-60'}`}>02</span>
-                  <BrainCircuit className={`w-3.5 h-3.5 ${activeTab === 'geo' ? 'text-white' : 'text-sbb-red'}`} />
+                  <span className={`text-[10px] font-black shrink-0 ${activeTab === 'geo' ? 'text-white/90' : 'text-zinc-600'}`}>02</span>
+                  <BrainCircuit className={`w-3.5 h-3.5 shrink-0 ${activeTab === 'geo' ? 'text-white' : 'text-sbb-red'}`} />
                   <span className="truncate">{isEn ? 'Cluster & AI Audit' : 'Cluster & KI-Audit'}</span>
                   {showQuickTour && currentTourStep === 2 && (
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#FFCC00] animate-pulse" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#FFCC00] animate-pulse shrink-0" />
                   )}
                 </button>
               </div>
             </div>
 
             {/* Column 2: Direction 2 - Top-Down (Define & Enable) */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-1 border border-zinc-200 bg-white p-1">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-1 border border-zinc-200 bg-white p-1 min-w-0">
               <span className="text-[10px] font-mono font-black text-sbb-black uppercase tracking-wider px-2 py-1 bg-zinc-100 border-b sm:border-b-0 sm:border-r border-zinc-200 shrink-0 whitespace-nowrap text-center sm:text-left">
                 {isEn ? 'DIRECTION 2: TOP-DOWN (ENABLE) ►' : 'RICHTUNG 2: TOP-DOWN (BEFÄHIGEN) ►'}
               </span>
 
-              <div className="flex items-center gap-1 flex-1">
+              <div className="flex items-center gap-1 flex-1 min-w-0">
                 <button
                   onClick={() => setActiveTab('trending')}
-                  className={`flex-1 px-2.5 py-1.5 font-mono text-xs font-bold tracking-wider uppercase transition-all flex items-center justify-center gap-1.5 cursor-pointer border ${
+                  className={`flex-1 min-w-0 px-2.5 py-1.5 font-mono text-xs font-bold tracking-wider uppercase transition-all flex items-center justify-center gap-1.5 cursor-pointer border ${
                     activeTab === 'trending'
                       ? 'border-sbb-red bg-sbb-red text-white'
-                      : 'border-transparent text-zinc-500 hover:text-sbb-black hover:bg-zinc-50'
+                      : 'border-transparent text-zinc-600 hover:text-sbb-black hover:bg-zinc-50'
                   } ${
                     showQuickTour && currentTourStep === 3
                       ? 'ring-2 ring-[#FFCC00] ring-offset-1'
                       : ''
                   }`}
                 >
-                  <span className={`text-[10px] font-black ${activeTab === 'trending' ? 'text-white/80' : 'opacity-60'}`}>03</span>
-                  <Sparkles className={`w-3.5 h-3.5 ${activeTab === 'trending' ? 'text-white' : 'text-sbb-red'}`} />
+                  <span className={`text-[10px] font-black shrink-0 ${activeTab === 'trending' ? 'text-white/90' : 'text-zinc-600'}`}>03</span>
+                  <Sparkles className={`w-3.5 h-3.5 shrink-0 ${activeTab === 'trending' ? 'text-white' : 'text-sbb-red'}`} />
                   <span className="truncate">{isEn ? 'Regional Playbook' : 'Regionales Playbook'}</span>
                   {showQuickTour && currentTourStep === 3 && (
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#FFCC00] animate-pulse" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#FFCC00] animate-pulse shrink-0" />
                   )}
                 </button>
 
                 <button
                   onClick={() => setActiveTab('cascade')}
-                  className={`flex-1 px-2.5 py-1.5 font-mono text-xs font-bold tracking-wider uppercase transition-all flex items-center justify-center gap-1.5 cursor-pointer border ${
+                  className={`flex-1 min-w-0 px-2.5 py-1.5 font-mono text-xs font-bold tracking-wider uppercase transition-all flex items-center justify-center gap-1.5 cursor-pointer border ${
                     activeTab === 'cascade'
                       ? 'border-sbb-red bg-sbb-red text-white'
-                      : 'border-transparent text-zinc-500 hover:text-sbb-black hover:bg-zinc-50'
+                      : 'border-transparent text-zinc-600 hover:text-sbb-black hover:bg-zinc-50'
                   } ${
                     showQuickTour && currentTourStep === 4
                       ? 'ring-2 ring-[#FFCC00] ring-offset-1'
                       : ''
                   }`}
                 >
-                  <span className={`text-[10px] font-black ${activeTab === 'cascade' ? 'text-white/80' : 'opacity-60'}`}>04</span>
-                  <ShieldCheck className={`w-3.5 h-3.5 ${activeTab === 'cascade' ? 'text-white' : 'text-sbb-red'}`} />
+                  <span className={`text-[10px] font-black shrink-0 ${activeTab === 'cascade' ? 'text-white/90' : 'text-zinc-600'}`}>04</span>
+                  <ShieldCheck className={`w-3.5 h-3.5 shrink-0 ${activeTab === 'cascade' ? 'text-white' : 'text-sbb-red'}`} />
                   <span className="truncate">{isEn ? 'Stress-Test & Inquiry' : 'Stresstest & Anfrage'}</span>
                   {showQuickTour && currentTourStep === 4 && (
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#FFCC00] animate-pulse" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#FFCC00] animate-pulse shrink-0" />
                   )}
                 </button>
               </div>
@@ -315,10 +315,10 @@ export const CommandHeader: React.FC<Props> = ({
         </div>
       </header>
 
-      {/* Level 4: Compact Non-Sticky Executive Scenario Brief Strip (Reclaims ~50px) */}
+      {/* Level 4: Compact Non-Sticky Executive Scenario Brief Strip */}
       <div className="px-4 sm:px-8 py-2 bg-white border-b border-sbb-aluminum">
-        <div className="max-w-[1600px] mx-auto flex flex-col md:flex-row md:items-center justify-between gap-2 text-xs">
-          <div className="flex flex-wrap items-center gap-2 text-[10px] font-mono uppercase tracking-widest text-zinc-500">
+        <div className="max-w-[1600px] mx-auto flex flex-col lg:flex-row lg:items-center justify-between gap-2 text-xs">
+          <div className="flex flex-wrap items-center gap-2 text-[10px] font-mono uppercase tracking-widest text-zinc-600 shrink-0">
             <span className="font-bold text-sbb-black">{selectedScenario.organization}</span>
             <span>//</span>
             <span>{selectedScenario.category}</span>
@@ -326,7 +326,7 @@ export const CommandHeader: React.FC<Props> = ({
             <span className="whitespace-nowrap">{isEn ? 'AS OF: ' : 'STAND: '}{selectedScenario.date}</span>
           </div>
 
-          <div className="text-xs text-zinc-600 max-w-3xl leading-snug line-clamp-2 md:line-clamp-1">
+          <div className="text-xs text-zinc-700 max-w-3xl leading-relaxed">
             {selectedScenario.summary}
           </div>
         </div>

@@ -14,7 +14,7 @@ export const SCENARIOS_DATA: Record<Language, ScenarioMeta[]> = {
   en: [
     {
       id: 'oncology_trial_update',
-      title: 'Biopharma Corporate Narrative: U.S. Reference Pricing (MFN), $23B Capex & EU/Swiss Access',
+      title: 'Biopharma Corporate Narrative: Reference Pricing, $23B Capex & Regional Access',
       category: 'Corporate Narrative & International Public Affairs',
       date: '13.11.2026',
       urgency: 'High',
@@ -23,7 +23,7 @@ export const SCENARIOS_DATA: Record<Language, ScenarioMeta[]> = {
     },
     {
       id: 'pluvicto_access_debate',
-      title: 'Oncology Radioligand Therapy: FDA Approval vs. European HTA & NICE Reimbursement',
+      title: 'Oncology Radioligand Therapy (Lu-177 RLT): Health Authority Approval vs. Regional HTA & Reimbursement',
       category: 'Frontier Medicine Value & Health Technology Assessment',
       date: '10.11.2026',
       urgency: 'High',
@@ -32,7 +32,7 @@ export const SCENARIOS_DATA: Record<Language, ScenarioMeta[]> = {
     },
     {
       id: 'alpine_transit_crisis',
-      title: 'Alpine Base Tunnel: Signalling Failure & Cyber Rumors',
+      title: 'Alpine Base Tunnel Disruption',
       category: 'Crisis Communications & Critical Infrastructure',
       date: '28.09.2026',
       urgency: 'High',
@@ -41,7 +41,7 @@ export const SCENARIOS_DATA: Record<Language, ScenarioMeta[]> = {
     },
     {
       id: 'esg_investigation',
-      title: 'Investigative Inquiry: Subcontractor Labor Standards',
+      title: 'Supply Chain Labor Standards Inquiry',
       category: 'Supply Chain & Legal/Compliance Alignment',
       date: '27.09.2026',
       urgency: 'High',
@@ -50,7 +50,7 @@ export const SCENARIOS_DATA: Record<Language, ScenarioMeta[]> = {
     },
     {
       id: 'health_data_breach',
-      title: 'Public Affairs Debate: Cloud Infrastructure for Health Records',
+      title: 'Cloud Infrastructure for Health Records',
       category: 'Public Affairs & Technical Translation',
       date: '26.09.2026',
       urgency: 'Medium',
@@ -61,7 +61,7 @@ export const SCENARIOS_DATA: Record<Language, ScenarioMeta[]> = {
   de: [
     {
       id: 'oncology_trial_update',
-      title: 'Biopharma-Konzernnarrativ: US-Referenzpreise (MFN), 23-Mrd.-$-Investition & EU/CH-Marktzugang',
+      title: 'Biopharma-Konzernnarrativ: Referenzpreise, 23-Mrd.-$-Investition & Regionaler Zugang',
       category: 'Konzern-Narrativ & Internationale Public Affairs',
       date: '13.11.2026',
       urgency: 'Hoch',
@@ -70,7 +70,7 @@ export const SCENARIOS_DATA: Record<Language, ScenarioMeta[]> = {
     },
     {
       id: 'pluvicto_access_debate',
-      title: 'Onkologie-Radioligandentherapie: FDA-Zulassung vs. Europäische HTA- & NICE-Erstattungshürden',
+      title: 'Onkologie-Radioligandentherapie (Lu-177 RLT): Behördenzulassung vs. Regionale HTA & Erstattung',
       category: 'Frontier-Medizin Nutzenbewertung & HTA',
       date: '10.11.2026',
       urgency: 'Hoch',
@@ -79,7 +79,7 @@ export const SCENARIOS_DATA: Record<Language, ScenarioMeta[]> = {
     },
     {
       id: 'alpine_transit_crisis',
-      title: 'Alpen-Basistunnel: Verdacht auf Cyber-Sabotage',
+      title: 'Alpen-Basistunnel-Störung',
       category: 'Krisenkommunikation & Infrastruktur',
       date: '28.09.2026',
       urgency: 'Hoch',
@@ -88,7 +88,7 @@ export const SCENARIOS_DATA: Record<Language, ScenarioMeta[]> = {
     },
     {
       id: 'esg_investigation',
-      title: 'Medienanfrage: Arbeitsstandards beim Subunternehmer',
+      title: 'Lieferketten-Arbeitsstandards-Anfrage',
       category: 'Lieferkette & Legal/Compliance-Abgleich',
       date: '27.09.2026',
       urgency: 'Hoch',
@@ -97,7 +97,7 @@ export const SCENARIOS_DATA: Record<Language, ScenarioMeta[]> = {
     },
     {
       id: 'health_data_breach',
-      title: 'Öffentliche Debatte: Cloud-Migration von Gesundheitsdaten',
+      title: 'Cloud-Infrastruktur für elektronische Patientendossiers',
       category: 'Public Affairs & Technische Übersetzung',
       date: '26.09.2026',
       urgency: 'Mittel',

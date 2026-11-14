@@ -55,7 +55,7 @@ export const App: React.FC = () => {
   const isEn = lang === 'en';
 
   return (
-    <div className="min-h-screen bg-[#F4F4F6] text-sbb-black flex flex-col font-sans selection:bg-sbb-red selection:text-white">
+    <div className="min-h-screen bg-[#F4F4F6] text-sbb-black flex flex-col font-sans selection:bg-sbb-red selection:text-white overflow-x-hidden">
       <CommandHeader
         activeTab={activeTab}
         setActiveTab={setActiveTab}
@@ -143,16 +143,16 @@ export const App: React.FC = () => {
       </main>
 
       {/* Industrial Brutalist Footer */}
-      <footer className="bg-white border-t border-sbb-aluminum px-8 py-5 mt-12 text-xs type-mono text-sbb-stone">
+      <footer className="bg-white border-t border-sbb-aluminum px-4 sm:px-8 py-5 mt-12 text-xs type-mono text-zinc-700">
         <div className="max-w-[1600px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className="w-2.5 h-2.5 bg-sbb-red" />
+          <div className="flex flex-wrap items-center gap-3">
+            <div className="w-2.5 h-2.5 bg-sbb-red shrink-0" />
             <span className="font-bold text-sbb-black">TERRAIN STRATEGIC COMMS COCKPIT & ENABLEMENT ARCHITECTURE</span>
-            <span className="text-zinc-400">//</span>
+            <span className="text-zinc-600">//</span>
             <span>{isEn ? 'Two-Way Statistical & LLM Sandbox' : 'Zwei-Wege-System für statistische & LLM-Reputationssteuerung'}</span>
           </div>
-          <div className="flex items-center gap-6">
-            <span className="text-zinc-400">
+          <div className="flex flex-wrap items-center gap-6">
+            <span className="text-zinc-600">
               {isEn ? 'Outside-In Measurement ↔ Top-Down Regional Enablement' : 'Outside-In Messung ↔ Top-Down Regionale Befähigung'}
             </span>
             <a

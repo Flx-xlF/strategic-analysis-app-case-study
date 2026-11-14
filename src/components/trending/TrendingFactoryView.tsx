@@ -92,6 +92,8 @@ export const TrendingFactoryView: React.FC<Props> = ({
     },
   ];
 
+  const locale = isEn ? 'en-US' : 'de-CH';
+
   const handleCopy = () => {
     navigator.clipboard.writeText(blueprint.blueprint_content);
     setCopied(true);
@@ -113,8 +115,8 @@ export const TrendingFactoryView: React.FC<Props> = ({
             </h1>
             <p className="text-sm text-sbb-stone mt-1 max-w-3xl leading-relaxed">
               {isEn
-                ? `Prevents cross-regional incoherence from diluting corporate communications: filters ${data.corpus_gate.raw_enterprise_files.toLocaleString()} internal vault files down to ${data.corpus_gate.canonical_golden_sources} verified, topic-specific Golden Sources and enforces shared, channel-adapted GEO standards so central and regional teams gain consistent traction across media and AI search.`
-                : `Verhindert, dass regionale Inkohärenz die Unternehmenskommunikation schwächt: filtert ${data.corpus_gate.raw_enterprise_files.toLocaleString()} interne Vault-Dateien auf ${data.corpus_gate.canonical_golden_sources} geprüfte, themenspezifische Golden Sources und setzt verbindliche, kanal-adaptierte GEO-Standards durch, damit zentrale und regionale Teams in Medien und KI-Suche konsistent Traktion aufbauen.`}
+                ? `Prevents cross-regional incoherence from diluting corporate communications: filters ${data.corpus_gate.raw_enterprise_files.toLocaleString(locale)} internal vault files down to ${data.corpus_gate.canonical_golden_sources} verified, topic-specific Golden Sources, flags superseded public PDFs, and enforces shared, channel-adapted GEO standards across media and AI search.`
+                : `Verhindert, dass regionale Inkohärenz die Unternehmenskommunikation schwächt: filtert ${data.corpus_gate.raw_enterprise_files.toLocaleString(locale)} interne Vault-Dateien auf ${data.corpus_gate.canonical_golden_sources} geprüfte, themenspezifische Golden Sources, markiert veraltete öffentliche PDFs und setzt verbindliche, kanal-adaptierte GEO-Standards durch.`}
             </p>
           </div>
 
@@ -133,8 +135,8 @@ export const TrendingFactoryView: React.FC<Props> = ({
               <Database className="w-4 h-4 text-sbb-red" />
               <span>
                 {isEn
-                  ? `INTERNAL CORPUS GOVERNANCE GATE (FILTERING ${data.corpus_gate.raw_enterprise_files.toLocaleString()} ENTERPRISE FILES TO ${data.corpus_gate.canonical_golden_sources} GOLDEN SOURCES)`
-                  : `INTERNER DOKUMENTEN-FILTER (${data.corpus_gate.raw_enterprise_files.toLocaleString()} UNTERNEHMENSDOKUMENTE → ${data.corpus_gate.canonical_golden_sources} GOLDEN SOURCES)`}
+                  ? `INTERNAL CORPUS GOVERNANCE GATE (FILTERING ${data.corpus_gate.raw_enterprise_files.toLocaleString(locale)} ENTERPRISE FILES TO ${data.corpus_gate.canonical_golden_sources} GOLDEN SOURCES)`
+                  : `INTERNER DOKUMENTEN-FILTER (${data.corpus_gate.raw_enterprise_files.toLocaleString(locale)} UNTERNEHMENSDOKUMENTE → ${data.corpus_gate.canonical_golden_sources} GOLDEN SOURCES)`}
               </span>
             </div>
             <span className="text-[10px] font-mono text-zinc-500">
@@ -153,36 +155,36 @@ export const TrendingFactoryView: React.FC<Props> = ({
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 font-mono text-xs">
             <div className="p-3 bg-white border border-zinc-200">
-              <div className="text-[10px] text-zinc-500 uppercase font-bold">{isEn ? 'RAW ENTERPRISE CORPUS' : 'GESAMTE DOKUMENTE'}</div>
-              <div className="text-xl font-black text-sbb-black">{data.corpus_gate.raw_enterprise_files.toLocaleString()}</div>
-              <div className="text-[9px] text-zinc-500 mt-0.5">{isEn ? 'Across Global Silos' : 'In allen Silos'}</div>
+              <div className="text-[10px] text-zinc-600 uppercase font-bold">{isEn ? 'RAW ENTERPRISE CORPUS' : 'GESAMTE DOKUMENTE'}</div>
+              <div className="text-xl font-black text-sbb-black">{data.corpus_gate.raw_enterprise_files.toLocaleString(locale)}</div>
+              <div className="text-[10px] text-zinc-600 mt-0.5">{isEn ? 'Across Global Silos' : 'In allen Silos'}</div>
             </div>
 
             <div className="p-3 bg-white border border-zinc-200">
-              <div className="text-[10px] text-zinc-500 uppercase font-bold">{isEn ? 'TEMPORAL & STATUS FILTER' : 'STATUS- & ZEITFILTER'}</div>
-              <div className="text-xl font-black text-zinc-800">{data.corpus_gate.active_governed_records.toLocaleString()}</div>
-              <div className="text-[9px] text-zinc-500 mt-0.5">{isEn ? 'Active Approved Records' : 'Aktive Freigaben'}</div>
+              <div className="text-[10px] text-zinc-600 uppercase font-bold">{isEn ? 'TEMPORAL & STATUS FILTER' : 'STATUS- & ZEITFILTER'}</div>
+              <div className="text-xl font-black text-zinc-800">{data.corpus_gate.active_governed_records.toLocaleString(locale)}</div>
+              <div className="text-[10px] text-zinc-600 mt-0.5">{isEn ? 'Active Approved Records' : 'Aktive Freigaben'}</div>
             </div>
 
             <div className="p-3 bg-white border border-emerald-300">
               <div className="text-[10px] text-emerald-800 uppercase font-bold">{isEn ? 'CANONICAL GOLDEN SOURCES' : 'CANONICAL GOLDEN SOURCES'}</div>
               <div className="text-xl font-black text-emerald-700">{data.corpus_gate.canonical_golden_sources}</div>
-              <div className="text-[9px] text-emerald-700 mt-0.5">{isEn ? 'Locked Wording Packs' : 'Verbindliche Sprachregelungen'}</div>
+              <div className="text-[10px] text-emerald-800 mt-0.5">{isEn ? 'Locked Wording Packs' : 'Verbindliche Sprachregelungen'}</div>
             </div>
 
             <div className="p-3 bg-red-50 border border-red-200">
-              <div className="text-[10px] text-sbb-red uppercase font-bold">{isEn ? 'LEGACY CONFLICTS FLAGGED' : 'ALT-DOKUMENT-KONFLIKTE'}</div>
-              <div className="text-xl font-black text-sbb-red">{data.corpus_gate.legacy_conflicts_flagged}</div>
-              <div className="text-[9px] text-sbb-red mt-0.5">
+              <div className="text-[10px] text-red-700 uppercase font-bold">{isEn ? 'LEGACY CONFLICTS & SUPERSEDED PDFS' : 'ALT-KONFLIKTE & VERALTETE PDFS'}</div>
+              <div className="text-xl font-black text-red-700">{data.corpus_gate.legacy_conflicts_flagged}</div>
+              <div className="text-[10px] text-red-700 mt-0.5">
                 {(() => {
                   if (scenarioId === 'alpine_transit_crisis') {
-                    return isEn ? 'Outdated Maintenance Manuals' : 'Veraltete Wartungshandbücher';
+                    return isEn ? 'Decommission Stale Manuals & PDFs' : 'Veraltete Handbücher & Alt-PDFs abschalten';
                   } else if (scenarioId === 'esg_investigation') {
-                    return isEn ? 'Pre-2025 Audit Baseline' : 'Vorherige Audit-Stände';
+                    return isEn ? 'Decommission Pre-2025 Audit PDFs' : 'Alte Audit-PDFs ausser Betrieb nehmen';
                   } else if (scenarioId === 'health_data_breach') {
-                    return isEn ? 'Deprecated Cloud Drafts' : 'Überholte Migrationskonzepte';
+                    return isEn ? 'Decommission Deprecated Draft PDFs' : 'Überholte Konzept-PDFs abschalten';
                   }
-                  return isEn ? 'Contradicting Canonical Policy' : 'Widersprechen Canonical Policy';
+                  return isEn ? 'Flagged for Public PDF Decommissioning' : 'Zur Abschaltung veralteter PDFs markiert';
                 })()}
               </div>
             </div>
@@ -366,18 +368,18 @@ export const TrendingFactoryView: React.FC<Props> = ({
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
               <div className="p-3 bg-sbb-cloud/50 border border-sbb-aluminum space-y-1">
                 <div className="font-mono text-[10px] font-bold text-sbb-black uppercase">
-                  {isEn ? 'GEO-01 // Answer-First & Stat Pairing' : 'GEO-01 // Answer-First & Zahlen-Kopplung'}
+                  {isEn ? 'GEO-01 // Answer-First & Quantitative Fact-Claim Pairing' : 'GEO-01 // Answer-First & Quantitative Fakten-Kopplung'}
                 </div>
                 <p className="text-[11px] text-zinc-700 leading-snug">
                   {isEn
-                    ? 'Place the main conclusion in the opening 30% of text and pair every claim with quantitative stats (+61.5% absorption lift) in a self-contained 300–600 token passage to survive reranking.'
-                    : 'Kernaussage in den ersten 30% platzieren und im selben 300–600-Token-Absatz mit Zahlenbelegen (+61,5% Absorptions-Lift) koppeln, um den Reranker-Cutoff zu überstehen.'}
+                    ? 'Place core conclusions in the opening 30% of text paired with quantitative proof points (+61.5% SSR HTML absorption lift; +31%–41% press release lift) to survive AI rerankers.'
+                    : 'Kernaussage in den ersten 30% platzieren und mit Zahlenbelegen koppeln (+61,5% SSR-HTML-Lift; +31%–41% Lift in Medienmitteilungen), um KI-Reranker zu überstehen.'}
                 </p>
               </div>
 
               <div className="p-3 bg-sbb-cloud/50 border border-sbb-aluminum space-y-1">
                 <div className="font-mono text-[10px] font-bold text-sbb-black uppercase">
-                  {isEn ? 'GEO-02 // Terminology Lock' : 'GEO-02 // Terminologie-Kohärenz'}
+                  {isEn ? 'GEO-02 // Cross-Regional Terminology Lock' : 'GEO-02 // Überregionale Terminologie-Kohärenz'}
                 </div>
                 <p className="text-[11px] text-zinc-700 leading-snug">
                   {isEn
@@ -387,19 +389,19 @@ export const TrendingFactoryView: React.FC<Props> = ({
               </div>
 
               <div className="p-3 bg-red-50/40 border border-red-200 space-y-1">
-                <div className="font-mono text-[10px] font-bold text-sbb-red uppercase">
-                  {isEn ? 'GEO-03 // Zero Accusation Echo' : 'GEO-03 // Kein Vorwurfs-Echo'}
+                <div className="font-mono text-[10px] font-bold text-red-700 uppercase">
+                  {isEn ? 'GEO-03 // Zero Negative-Frame Co-Occurrence' : 'GEO-03 // Keine Negativ-Frame-Kookkurrenz'}
                 </div>
                 <p className="text-[11px] text-zinc-700 leading-snug">
                   {isEn
-                    ? 'Never repeat an accusation to deny it—repeating hostile keyword frames on corporate channels anchors those terms directly to our entity in AI search indices.'
-                    : 'Vorwürfe nie zur Verneinung wiederholen – sonst verknüpfen KI-Suchindizes die eigene Domain direkt mit dem Negativ-Frame.'}
+                    ? 'Never repeat an accusation to deny it—hybrid retrieval (BM25 + dense vector) indexes official quotes and anchors negative frames directly to our entity.'
+                    : 'Vorwürfe nie zur Verneinung wiederholen – Hybrid-Retrieval (BM25 + Dense Vector) verknüpft offizielle Zitate sonst direkt mit dem Negativ-Frame.'}
                 </p>
               </div>
 
               <div className="p-3 bg-emerald-50/40 border border-emerald-300 space-y-1">
                 <div className="font-mono text-[10px] font-bold text-emerald-900 uppercase">
-                  {isEn ? 'GEO-04 // Narrative Delivery' : 'GEO-04 // Eigenes Narrativ liefern'}
+                  {isEn ? 'GEO-04 // Affirmative Narrative Bridging' : 'GEO-04 // Affirmatives Narrativ-Bridging'}
                 </div>
                 <p className="text-[11px] text-zinc-700 leading-snug">
                   {isEn
@@ -469,16 +471,16 @@ export const TrendingFactoryView: React.FC<Props> = ({
             <div className="text-sbb-black leading-snug">
               {isEn ? (
                 <>
-                  <strong className="font-mono uppercase text-sbb-red">Dual-Path GEO (~84% Earned + Owned HTML):</strong> Empirical audits show AI engines draw ~84% of citations from earned/third-party media and ~16% from owned domains. <strong>Owned Corporate Stories</strong> provide answer-first SSR HTML primary sources, while <strong>press releases</strong> and <strong>media answers</strong> supply quote-safe, stat-backed earned media corroboration.
+                  <strong className="font-mono uppercase text-red-700">Dual-Path GEO (~84% Earned + Owned SSR HTML):</strong> AI engines draw <strong>82%–89% (~84%)</strong> of citations from earned/third-party media and <strong>~15%–45%</strong> from owned domains for primary figures. <strong>Owned Corporate Stories</strong> use answer-first SSR HTML (opening 30%, <strong>+61.5% lift</strong>) for <code>OAI-SearchBot</code>, <code>PerplexityBot</code> &amp; <code>Claude-SearchBot</code>, while <strong>press releases</strong> add quotable stats (<strong>+31%–41% lift</strong>).
                 </>
               ) : (
                 <>
-                  <strong className="font-mono uppercase text-sbb-red">Dual-Path GEO (~84% Earned + Owned HTML):</strong> KI-Suchmaschinen beziehen ~84% ihrer Zitate aus Dritt-/Fachmedien und ~16% von Unternehmens-Domains. <strong>Owned Corporate Stories</strong> liefern direkte Answer-First HTML-Primärquellen, während <strong>Medienmitteilungen</strong> und <strong>Medienantworten</strong> zitierfähige Earned-Media-Belege sichern.
+                  <strong className="font-mono uppercase text-red-700">Dual-Path GEO (~84% Earned + Owned SSR HTML):</strong> KI-Suchmaschinen beziehen <strong>82%–89% (~84%)</strong> ihrer Zitate aus Earned Media und <strong>~15%–45%</strong> von Owned Domains. <strong>Owned Corporate Stories</strong> nutzen Answer-First SSR HTML (erste 30%, <strong>+61,5% Lift</strong>) für <code>OAI-SearchBot</code>, <code>PerplexityBot</code> &amp; <code>Claude-SearchBot</code>, während <strong>Medienmitteilungen</strong> zitierfähige Zahlen (<strong>+31%–41% Lift</strong>) sichern.
                 </>
               )}
             </div>
             <span className="font-mono text-[10px] font-bold uppercase px-2 py-0.5 bg-white border border-zinc-300 text-sbb-black shrink-0">
-              {isEn ? 'Earned (~84%) + Owned Dual-Path GEO' : 'Earned (~84%) + Owned Dual-Path GEO'}
+              {isEn ? '82%–89% Earned + ~15%–45% Owned' : '82%–89% Earned + ~15%–45% Owned'}
             </span>
           </div>
           {/* Format Selector Tabs */}
@@ -573,28 +575,28 @@ export const TrendingFactoryView: React.FC<Props> = ({
             {/* 3-Pillar Practitioner Strip: Negative-Frame Hygiene + Bridging to Core Narrative + Human Iteration */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
               <div className="p-3 bg-red-50/40 border border-red-200">
-                <div className="font-mono text-[10px] font-bold uppercase text-sbb-red mb-1">
+                <div className="font-mono text-[10px] font-bold uppercase text-red-700 mb-1">
                   {isEn
-                    ? '1. GEO NEGATIVE-FRAME HYGIENE (RULE GEO-03):'
-                    : '1. GEO NEGATIV-FRAME-HYGIENE (REGEL GEO-03):'}
+                    ? '1. ZERO NEGATIVE-FRAME CO-OCCURRENCE (GEO-03):'
+                    : '1. KEINE NEGATIV-FRAME-KOOKKURRENZ (GEO-03):'}
                 </div>
                 <p className="text-zinc-700 leading-snug">
                   {isEn
-                    ? 'Repeating an accusation to deny it causes AI search engines to index our own authoritative domain with the critic’s keyword attached to our brand. The scaffold strips all negative frames.'
-                    : 'Wer Vorwürfe zur Verneinung wiederholt, sorgt dafür, dass KI-Suchmaschinen unsere eigene Domain mit dem Negativbegriff indexieren. Das Gerüst eliminiert alle Negativ-Frames.'}
+                    ? 'Repeating an accusation to deny it causes hybrid retrieval (BM25 + dense vector) to index our domain with the critic’s keyword attached to our brand. The scaffold strips negative frames.'
+                    : 'Wer Vorwürfe zur Verneinung wiederholt, sorgt im Hybrid-Retrieval (BM25 + Dense Vector) dafür, dass unsere Domain mit dem Negativbegriff indexiert wird. Das Gerüst streicht Negativ-Frames.'}
                 </p>
               </div>
 
               <div className="p-3 bg-emerald-50/40 border border-emerald-300">
                 <div className="font-mono text-[10px] font-bold uppercase text-emerald-900 mb-1">
                   {isEn
-                    ? '2. DELIVERING OUR NARRATIVE FOR GEO (RULE GEO-04):'
-                    : '2. EIGENES NARRATIV FÜR GEO LIEFERN (REGEL GEO-04):'}
+                    ? '2. AFFIRMATIVE NARRATIVE BRIDGING (GEO-04):'
+                    : '2. AFFIRMATIVES NARRATIV-BRIDGING (GEO-04):'}
                 </div>
                 <p className="text-zinc-700 leading-snug">
                   {isEn
-                    ? 'Uses disciplined bridging (Acknowledge → Bridge → Core Pillar GS-01–GS-03) so AI retrieval pipelines and journalists extract and synthesize the company’s own narrative.'
-                    : 'Nutzt gezieltes Bridging (Anliegen → Brücke → Kernsäule GS-01–GS-03), damit KI-Retrieval-Pipelines und Medien das eigene Unternehmens-Narrativ übernehmen.'}
+                    ? 'Uses disciplined bridging (Acknowledge → Bridge → Core Pillar GS-01–GS-03) so AI retrieval pipelines and journalists extract and synthesize the company’s own narrative (+31%–41% stat lift).'
+                    : 'Nutzt gezieltes Bridging (Anliegen → Brücke → Kernsäule GS-01–GS-03), damit KI-Pipelines und Medien unser eigenes Narrativ übernehmen (+31%–41% Zahlen-Lift).'}
                 </p>
               </div>
 
@@ -613,20 +615,32 @@ export const TrendingFactoryView: React.FC<Props> = ({
             </div>
 
             <div className="bg-sbb-cloud/40 p-6 sm:p-8 border-l-4 border-sbb-black text-sm text-sbb-black leading-relaxed font-sans max-w-4xl space-y-3">
-              {blueprint.blueprint_content.split('\n\n').map((paragraph, pIdx) => {
-                if (paragraph.startsWith('### ')) {
-                  return (
-                    <h5 key={pIdx} className="font-mono text-xs font-black uppercase tracking-wider text-sbb-black pt-2 border-b border-zinc-200 pb-1">
-                      {paragraph.replace('### ', '')}
-                    </h5>
+              {blueprint.blueprint_content.split('\n\n').map((block, bIdx) => {
+                const lines = block.split('\n');
+                const renderBold = (text: string) =>
+                  text.split('**').map((chunk, cIdx) =>
+                    cIdx % 2 === 1 ? <strong key={cIdx} className="font-bold text-sbb-black">{chunk}</strong> : chunk
                   );
-                }
+
                 return (
-                  <p key={pIdx} className="whitespace-pre-line text-xs sm:text-sm text-zinc-900 leading-relaxed font-sans">
-                    {paragraph.split('**').map((chunk, cIdx) => 
-                      cIdx % 2 === 1 ? <strong key={cIdx} className="font-bold text-sbb-black">{chunk}</strong> : chunk
-                    )}
-                  </p>
+                  <div key={bIdx} className="space-y-1.5">
+                    {lines.map((line, lIdx) => {
+                      const trimmed = line.trim();
+                      if (trimmed.startsWith('### ')) {
+                        return (
+                          <h5 key={lIdx} className="font-mono text-xs font-black uppercase tracking-wider text-sbb-black pt-2 border-b border-zinc-200 pb-1">
+                            {trimmed.replace(/^###\s+/, '').replace(/\*\*/g, '')}
+                          </h5>
+                        );
+                      }
+                      if (!trimmed) return null;
+                      return (
+                        <p key={lIdx} className="text-xs sm:text-sm text-zinc-900 leading-relaxed font-sans">
+                          {renderBold(line)}
+                        </p>
+                      );
+                    })}
+                  </div>
                 );
               })}
             </div>

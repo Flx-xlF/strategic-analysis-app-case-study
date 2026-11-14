@@ -30,7 +30,7 @@ export const ConceptMethodModal: React.FC<Props> = ({ isOpen, onClose, lang }) =
 
   return (
     <div 
-      className="fixed inset-0 z-50 bg-black/60 flex items-start justify-center p-3 sm:p-6 overflow-y-auto animate-fadeIn"
+      className="fixed inset-0 z-40 bg-black/60 flex items-start justify-center p-3 sm:p-6 pb-36 overflow-y-auto animate-fadeIn"
       onClick={onClose}
     >
       <div 
@@ -57,11 +57,11 @@ export const ConceptMethodModal: React.FC<Props> = ({ isOpen, onClose, lang }) =
         <div className="p-4 bg-white border-l-4 border-sbb-red border border-zinc-200 text-xs sm:text-sm text-sbb-black leading-relaxed">
           {isEn ? (
             <>
-              <strong>THE CORE PREMISE:</strong> Corporate communications operates across earned media, owned channels, and regional briefings—historically assuming audiences consume them separately. In the age of AI search, <em>query fan-out</em> (5–11 parallel sub-queries) pulls press coverage, forums, owned pages, and legacy files into <strong>one context window</strong> at once—making <strong>incoherence</strong> across central and regional teams the primary vulnerability. <strong>Terrain helps teams gain traction in this shift: auditing media and AI answer absorption (Outside-In) while enforcing verified Golden Sources and channel-adapted GEO standards across earned and owned media (Top-Down).</strong>
+              <strong>THE CORE PREMISE:</strong> With <strong>~70% zero-click searches</strong> and <strong>&lt;1% AI referral traffic</strong>, GEO is about upstream reputation defense, citation absorption, and factual fidelity—not clicks. In AI search, <em>query fan-out</em> (<strong>5–11 parallel sub-queries</strong>) pulls press coverage, forums, owned pages, and legacy files into <strong>one context window</strong> at once—making <strong>incoherence</strong> across central, regional, or cantonal teams the central vulnerability. <strong>Terrain audits pull-through in media and AI search (Outside-In) while enforcing Golden Sources and channel-adapted GEO standards across earned and owned media (Top-Down).</strong>
             </>
           ) : (
             <>
-              <strong>DIE KERNTHESE:</strong> Unternehmenskommunikation bespielt Earned Media, Owned Channels und regionale Briefings – bisher in der Annahme, dass Zielgruppen diese Kanäle getrennt rezipieren. Im Zeitalter der KI-Suche zieht <em>Query Fan-Out</em> (5–11 parallele Suchanfragen) Medienberichte, Foren, Unternehmensseiten und Alt-PDFs simultan in <strong>ein einziges Kontextfenster</strong> – wodurch <strong>Inkohärenz</strong> zwischen zentralen und regionalen Teams zur Hauptschwachstelle wird. <strong>Terrain schafft Traktion in diesem Wandel: durch Audits von Medien und KI-Antworten (Outside-In) sowie verbindliche Golden Sources und kanal-adaptierte GEO-Standards über Earned und Owned Media hinweg (Top-Down).</strong>
+              <strong>DIE KERNTHESE:</strong> Bei <strong>~70% Zero-Click-Suchen</strong> und <strong>&lt;1% KI-Referral-Traffic</strong> dient GEO der vorgelagerten Reputationssicherung, Zitat-Absorption und Fakten-Treue – nicht der Klick-Akquise. Im Zeitalter der KI-Suche zieht <em>Query Fan-Out</em> (<strong>5–11 parallele Suchanfragen</strong>) Medienberichte, Foren, eigene Seiten und Alt-PDFs simultan in <strong>ein einziges Kontextfenster</strong> – wodurch <strong>Inkohärenz</strong> zwischen zentralen, regionalen und kantonalen Teams zur Hauptschwachstelle wird. <strong>Terrain prüft Medien und KI-Antworten (Outside-In) und setzt Golden Sources sowie kanal-adaptierte GEO-Standards über Earned und Owned Media hinweg durch (Top-Down).</strong>
             </>
           )}
         </div>
@@ -87,11 +87,11 @@ export const ConceptMethodModal: React.FC<Props> = ({ isOpen, onClose, lang }) =
             <p>
               {isEn ? (
                 <>
-                  <strong>Internal mountain &amp; stale PDFs:</strong> Hundreds of thousands of files exist across vaults, and legacy public PDFs poison AI search crawlers. Temporal validity gating locks approved Golden Sources and flags superseded files for decommissioning.
+                  <strong>Internal mountain &amp; superseded PDFs:</strong> Hundreds of thousands of files exist across vaults, and superseded public PDFs poison AI search crawlers. Temporal validity gating locks approved Golden Sources and flags outdated files and superseded public PDFs for decommissioning.
                 </>
               ) : (
                 <>
-                  <strong>Interner Dokumentenberg &amp; Alt-PDFs:</strong> Hunderttausende Dateien lagern in Vaults, und veraltete PDFs verzerren KI-Suchantworten. Gültigkeitsfilter sichern aktuelle Golden Sources und markieren Alt-PDFs zur Abschaltung.
+                  <strong>Interner Dokumentenberg &amp; Alt-PDFs:</strong> Hunderttausende Dateien lagern in Vaults, und veraltete öffentliche PDFs vergiften KI-Suchcrawler. Gültigkeitsfilter sichern aktuelle Golden Sources und markieren veraltete Dateien sowie Alt-PDFs zur Abschaltung.
                 </>
               )}
             </p>
@@ -136,11 +136,11 @@ export const ConceptMethodModal: React.FC<Props> = ({ isOpen, onClose, lang }) =
             <p>
               {isEn ? (
                 <>
-                  <strong>Empirical GEO (No Schema/llms.txt Shortcuts):</strong> Schema.org and llms.txt offer no causal citation lift, and ~84% of AI citations come from earned media. Reducing AI distortion (~45% to ~5% across <em>n</em>=20 runs) requires answer-first SSR HTML passages (+61.5% stat absorption lift), zero accusation echoes, and earned-media corroboration.
+                  <strong>Empirical GEO (No Schema/llms.txt Shortcuts):</strong> Schema.org and llms.txt offer no causal citation lift, and single-run AI rankings repeat <strong>&lt;0.1%</strong> of the time. AI engines pull <strong>82%–89% (~84%)</strong> of citations from earned media and <strong>~15%–45%</strong> from owned domains. Reducing distortion (<strong>~45% → ~5%</strong> across <em>n</em>=20 runs) requires answer-first SSR HTML passages (opening 30% of text, <strong>+61.5% lift</strong>), quotable press stats (<strong>+31%–41% lift</strong>), and <strong>BM25 + dense vector</strong> accusation hygiene.
                 </>
               ) : (
                 <>
-                  <strong>Empirisches GEO (Keine Schema/llms.txt-Shortcuts):</strong> Schema.org und llms.txt bringen keinen Zitier-Lift, und ~84% aller KI-Zitate stammen aus Earned Media. Weniger KI-Verzerrung (~45% auf ~5% über <em>n</em>=20 Läufe) erfordert Answer-First HTML-Passagen, Verzicht auf Vorwurfs-Echos und konsistente Medienarbeit.
+                  <strong>Empirisches GEO (Keine Schema/llms.txt-Shortcuts):</strong> Schema.org und llms.txt bringen keinen Zitier-Lift, und Einzel-Rankings wiederholen sich zu <strong>&lt;0,1%</strong>. KI-Engines beziehen <strong>82%–89% (~84%)</strong> aus Earned Media und <strong>~15%–45%</strong> von Owned Domains. Weniger Verzerrung (<strong>~45% → ~5%</strong> über <em>n</em>=20 Läufe) erfordert Answer-First SSR HTML (erste 30%, <strong>+61,5% Lift</strong>), zitierfähige PR-Zahlen (<strong>+31%–41% Lift</strong>) und <strong>BM25 + Dense-Vector</strong>-Hygiene.
                 </>
               )}
             </p>
@@ -177,11 +177,11 @@ export const ConceptMethodModal: React.FC<Props> = ({ isOpen, onClose, lang }) =
             <p>
               {isEn ? (
                 <>
-                  <strong>Connectors &amp; Governance:</strong> Read-only connectors to <strong>Veeva Vault</strong> (PromoMats/MedComms) and <strong>SharePoint (Graph API)</strong> enforcing existing RBAC and approval status (Approved vs Draft). External feeds via standard Factiva/Meltwater APIs.
+                  <strong>Connectors &amp; SSR Crawlers:</strong> Read-only connectors to <strong>Veeva Vault</strong> (PromoMats/MedComms) and <strong>SharePoint (Graph API)</strong> enforce RBAC and Approved/Effective status. Publishes answer-first SSR HTML for non-JS crawlers (<strong>OAI-SearchBot, PerplexityBot, Claude-SearchBot</strong>); external feeds via Factiva/Meltwater APIs.
                 </>
               ) : (
                 <>
-                  <strong>Schnittstellen &amp; Berechtigungen:</strong> Lese-Schnittstellen zu <strong>Veeva Vault</strong> &amp; <strong>SharePoint (Graph API)</strong> unter strikter Einhaltung bestehender Zugriffsrechte (RBAC) und Status-Filter (Approved vs Draft).
+                  <strong>Schnittstellen &amp; SSR-Crawler:</strong> Lese-Schnittstellen zu <strong>Veeva Vault</strong> &amp; <strong>SharePoint (Graph API)</strong> sichern RBAC und Freigabestatus. Publiziert Answer-First SSR HTML für Non-JS-Crawler (<strong>OAI-SearchBot, PerplexityBot, Claude-SearchBot</strong>); externe Feeds über Factiva/Meltwater-APIs.
                 </>
               )}
             </p>

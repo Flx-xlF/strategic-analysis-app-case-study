@@ -169,13 +169,13 @@ export const NarrativeCascadeView: React.FC<Props> = ({
           </div>
 
           <div className="p-3 bg-red-50/40 border border-red-200">
-            <div className="font-mono text-[10px] font-bold uppercase text-sbb-red mb-1">
+            <div className="font-mono text-[10px] font-bold uppercase text-red-700 mb-1">
               {isEn ? '2. GEO FRAMEWORK & MULTI-ANGLE CHALLENGE' : '2. GEO-FRAMEWORK & MULTI-WINKEL-CHALLENGE'}
             </div>
             <p className="text-zinc-700 leading-snug">
               {isEn
-                ? 'Tests 5 stakeholder angles at once, flags any accusation echo that would pollute AI search retrieval (GEO-03), and proposes affirmative bridges to our Golden Sources (GEO-04).'
-                : 'Prüft simultan 5 Stakeholder-Winkel, markiert Vorwurfs-Echos, die KI-Suchindizes belasten würden (GEO-03), und schlägt Brücken zu den Golden Sources vor (GEO-04).'}
+                ? 'Tests 5 stakeholder angles at once, flags accusation echoes that BM25 + dense vector hybrid retrieval would index against our brand (GEO-03), and pairs quotable stats (+31%–41% lift) with affirmative bridges (GEO-04).'
+                : 'Prüft simultan 5 Stakeholder-Winkel, markiert Vorwurfs-Echos im BM25 + Dense-Vector-Retrieval (GEO-03) und koppelt zitierfähige Zahlen (+31%–41% Lift) mit affirmativem Bridging (GEO-04).'}
             </p>
           </div>
 
@@ -272,8 +272,12 @@ export const NarrativeCascadeView: React.FC<Props> = ({
           </div>
 
           <div className="text-[11px] font-mono text-sbb-stone uppercase tracking-wider font-bold mb-2 flex items-center gap-2">
-            <AlertTriangle className={`w-4 h-4 ${isDraftA ? 'text-sbb-red' : 'text-zinc-600'}`} />
-            <span>{isEn ? 'PROJECTED MEDIA RECEPTION' : 'ERWARTETE TITELZEILE (LEITMEDIEN / BOULEVARD)'}</span>
+            <AlertTriangle className={`w-4 h-4 ${isDraftA ? 'text-red-700' : 'text-zinc-600'}`} />
+            <span>
+              {isEn
+                ? (isDraftA ? 'PROJECTED CRITICAL RECEPTION' : 'CALIBRATED MEDIA RECEPTION')
+                : (isDraftA ? 'ERWARTETE TITELZEILE (LEITMEDIEN / BOULEVARD)' : 'ERWARTETE SACHLICHE MEDIENRESONANZ')}
+            </span>
           </div>
 
           <h2 className={`text-xl sm:text-3xl font-black tracking-tight leading-tight uppercase my-4 ${

@@ -250,7 +250,7 @@ export const MediaInquiryView: React.FC<Props> = ({
 
                   <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-mono font-bold uppercase border shrink-0 ${
                     isHigh
-                      ? 'bg-red-50 text-sbb-red border-red-200'
+                      ? 'bg-red-50 text-red-700 border-red-200'
                       : isMid
                       ? 'bg-amber-50 text-amber-800 border-amber-200'
                       : 'bg-zinc-50 text-zinc-700 border-zinc-200'
@@ -284,7 +284,7 @@ export const MediaInquiryView: React.FC<Props> = ({
                 {/* Cross-functional translation breakdown: Loaded Frame (Never Repeat), Legal Boundary, Bridging Tactic */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3 my-4 p-4 bg-sbb-cloud/40 border border-sbb-aluminum">
                   <div className="space-y-1">
-                    <div className="flex items-center justify-between gap-1 text-[10px] font-mono font-bold uppercase text-sbb-red">
+                    <div className="flex items-center justify-between gap-1 text-[10px] font-mono font-bold uppercase text-red-700">
                       <span className="flex items-center gap-1.5">
                         <Target className="w-3.5 h-3.5" />
                         <span>{isEn ? '1. NEGATIVE FRAME (DO NOT REPEAT)' : '1. NEGATIV-FRAME (NIE WIEDERHOLEN)'}</span>
@@ -389,20 +389,20 @@ export const MediaInquiryView: React.FC<Props> = ({
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs text-zinc-800">
               <div className="bg-white p-2.5 border border-amber-200">
-                <span className="font-mono font-bold text-sbb-red block text-[10px] uppercase mb-0.5">
-                  {isEn ? '1. Why We Never Repeat Accusations (GEO-03)' : '1. Warum Vorwürfe nie wiederholt werden (GEO-03)'}
+                <span className="font-mono font-bold text-red-700 block text-[10px] uppercase mb-0.5">
+                  {isEn ? '1. Zero Negative-Frame Co-Occurrence (GEO-03)' : '1. Keine Negativ-Frame-Kookkurrenz (GEO-03)'}
                 </span>
                 {isEn
-                  ? 'When a company repeats a hostile accusation to deny it, AI search engines index that official quote and associate our brand entity with the negative keyword. The scaffold strips all accusation echoes.'
-                  : 'Wiederholt ein Unternehmen einen Vorwurf zur Verneinung, indexieren KI-Suchmaschinen dieses offizielle Zitat und verknüpfen die Marke mit dem Negativbegriff. Das Gerüst streicht jedes Vorwurfs-Echo.'}
+                  ? 'Repeating a hostile accusation to deny it causes BM25 + dense vector hybrid retrieval to index our official quote and anchor our brand entity to the negative keyword. The scaffold strips all accusation echoes.'
+                  : 'Wiederholt ein Unternehmen einen Vorwurf zur Verneinung, indexiert Hybrid-Retrieval (BM25 + Dense Vector) dieses Zitat und verknüpft die Marke mit dem Negativbegriff. Das Gerüst streicht jedes Vorwurfs-Echo.'}
               </div>
               <div className="bg-white p-2.5 border border-amber-200">
                 <span className="font-mono font-bold text-emerald-800 block text-[10px] uppercase mb-0.5">
-                  {isEn ? '2. Deliver Our Own Narrative (GEO-01 & 04)' : '2. Eigenes Narrativ liefern (GEO-01 & 04)'}
+                  {isEn ? '2. Affirmative Bridging & Stat Lift (GEO-01 & 04)' : '2. Affirmatives Bridging & Zahlen-Lift (GEO-01 & 04)'}
                 </span>
                 {isEn
-                  ? 'Bridges directly into our verified Golden Source facts (Acknowledge → Bridge → Core Pillar) so both the journalist’s article and AI answer engines pick up our own narrative.'
-                  : 'Führt über eine klare Brücke direkt in unsere verifizierten Golden-Source-Fakten, damit sowohl der Artikel als auch KI-Antwortmaschinen unser eigenes Narrativ aufnehmen.'}
+                  ? 'Bridges directly into verified Golden Source facts and quotable statistics (+31%–41% earned-media lift) so both the journalist’s article and AI answer engines absorb our own narrative.'
+                  : 'Führt direkt in verifizierte Golden-Source-Fakten und zitierfähige Zahlen (+31%–41% Earned-Media-Lift), damit Presseartikel und KI-Suchmaschinen unser eigenes Narrativ übernehmen.'}
               </div>
               <div className="bg-white p-2.5 border border-amber-200">
                 <span className="font-mono font-bold text-sbb-black block text-[10px] uppercase mb-0.5">

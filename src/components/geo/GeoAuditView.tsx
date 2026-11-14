@@ -41,6 +41,7 @@ export const GeoAuditView: React.FC<Props> = ({
   const [copied, setCopied] = useState(false);
   const [activeSpanIndex, setActiveSpanIndex] = useState<number | null>(1); // default select first distortion
   const isEn = lang === 'en';
+  const locale = isEn ? 'en-US' : 'de-CH';
 
   const handleCopySchema = () => {
     navigator.clipboard.writeText(data.geo_optimization_fix.structured_fact_block);
@@ -67,13 +68,24 @@ export const GeoAuditView: React.FC<Props> = ({
             </h1>
             <p className="text-sm text-sbb-stone mt-1 max-w-3xl leading-relaxed">
               {isEn
-                ? 'Examines how trade media coverage and incoherent regional sources get synthesized by AI answer engines—pinpointing where LLMs distort corporate facts and how structured GEO standards restore clarity.'
-                : 'Untersucht, wie Fachmedienberichte und inkohärente regionale Quellen von KI-Antwortmaschinen zusammengezogen werden – zeigt präzise, wo LLMs Fakten verzerren und wie strukturierte GEO-Standards Klarheit schaffen.'}
+                ? 'Examines how trade media coverage and incoherent regional sources get synthesized via query fan-out (5–11 parallel sub-queries)—pinpointing where LLMs distort corporate facts across n=20 runs and how answer-first GEO restores factual fidelity.'
+                : 'Untersucht, wie Fachmedienberichte und inkohärente regionale Quellen per Query Fan-Out (5–11 parallele Sub-Anfragen) zusammengezogen werden – zeigt über n=20 Läufe präzise, wo LLMs Fakten verzerren und wie Answer-First GEO Fakten-Treue sichert.'}
             </p>
+            <div className="mt-2.5 flex flex-wrap items-center gap-2 text-[10px] font-mono text-zinc-700">
+              <span className="px-2 py-0.5 bg-sbb-cloud border border-zinc-300 font-bold">
+                {isEn ? '~70% Zero-Click Searches' : '~70% Zero-Click-Suchen'}
+              </span>
+              <span className="px-2 py-0.5 bg-sbb-cloud border border-zinc-300 font-bold">
+                {isEn ? '<1% AI Referral Traffic' : '<1% KI-Referral-Traffic'}
+              </span>
+              <span className="px-2 py-0.5 bg-red-50 border border-red-200 text-red-700 font-bold">
+                {isEn ? '<0.1% Single-Run Ranking Repeatability (n=20 Multi-Run Audit)' : '<0,1% Wiederholbarkeit bei Einzel-Läufen (n=20 Audit)'}
+              </span>
+            </div>
           </div>
 
           <div className="flex items-center gap-3 shrink-0">
-            <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-red-50 border border-red-200 font-mono text-xs text-sbb-red font-bold">
+            <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-red-50 border border-red-200 font-mono text-xs text-red-700 font-bold">
               <Flame className="w-3.5 h-3.5" />
               <span>{isEn ? `CLUSTER VELOCITY: +${data.active_cluster.z_score}σ` : `CLUSTER-DYNAMIK: +${data.active_cluster.z_score}σ`}</span>
             </span>
@@ -92,7 +104,7 @@ export const GeoAuditView: React.FC<Props> = ({
               </h2>
             </div>
             <div className="text-xs font-mono text-sbb-stone">
-              <span className="font-bold text-sbb-black">{data.active_cluster.deduped_volume.toLocaleString()}</span> {isEn ? 'Deduplicated Items' : 'Deduplizierte Artikel'}
+              <span className="font-bold text-sbb-black">{data.active_cluster.deduped_volume.toLocaleString(locale)}</span> {isEn ? 'Deduplicated Items' : 'Deduplizierte Artikel'}
             </div>
           </div>
 
@@ -122,10 +134,21 @@ export const GeoAuditView: React.FC<Props> = ({
           </div>
 
           {/* Single-Source Region Scope Indicator */}
-          <div className="flex items-center gap-2 font-mono text-[10px] text-sbb-stone uppercase bg-white border border-sbb-aluminum px-3 py-1">
-            <Filter className="w-3 h-3 text-sbb-red" />
-            <span>{isEn ? 'Header Region Scope:' : 'Regionsfilter (Header):'}</span>
-            <span className="font-bold text-sbb-black">{selectedRegion.toUpperCase()}</span>
+          <div className="flex items-center gap-2 font-mono text-[10px] text-zinc-700 uppercase bg-white border border-sbb-aluminum px-3 py-1">
+            <Filter className="w-3 h-3 text-red-700" />
+            <span>{isEn ? 'Region Scope:' : 'Regionsfilter:'}</span>
+            <span className="font-bold text-sbb-black">
+              {selectedRegion.toUpperCase()} ({filteredCentroids.length}/{data.active_cluster.centroid_articles.length} {isEn ? 'Local' : 'Lokal'})
+            </span>
+            {selectedRegion !== 'all' && (
+              <button
+                type="button"
+                onClick={() => onSelectRegion('all')}
+                className="ml-1 px-1.5 py-0.5 bg-sbb-cloud hover:bg-zinc-200 border border-zinc-300 text-sbb-black font-bold cursor-pointer transition-colors"
+              >
+                {isEn ? 'Reset to ALL' : 'Alle zeigen'}
+              </button>
+            )}
           </div>
         </div>
 
@@ -258,9 +281,9 @@ export const GeoAuditView: React.FC<Props> = ({
                     title={isEn ? 'Hallucinated / Conflated Claims' : 'Halluzinierte / vermischte Aussagen'}
                   />
                 </div>
-                <div className="flex justify-between text-[9px] text-zinc-600">
+                <div className="flex justify-between text-[10px] text-zinc-600">
                   <span>{100 - data.hallucination_rate}% {isEn ? 'Corporate Facts' : 'Faktentreu'}</span>
-                  <span className="text-sbb-red font-bold">{data.hallucination_rate}% {isEn ? 'Narrative Drift' : 'Narrativ-Drift'}</span>
+                  <span className="text-red-700 font-bold">{data.hallucination_rate}% {isEn ? 'Narrative Drift' : 'Narrativ-Drift'}</span>
                 </div>
               </div>
 
@@ -274,7 +297,7 @@ export const GeoAuditView: React.FC<Props> = ({
                   <div className="h-full bg-emerald-600" style={{ width: '95%' }} />
                   <div className="h-full bg-amber-400" style={{ width: '5%' }} />
                 </div>
-                <div className="flex justify-between text-[9px] text-emerald-900">
+                <div className="flex justify-between text-[10px] text-emerald-900">
                   <span className="font-bold">95% {isEn ? 'Citation Absorption (n=20 runs)' : 'Fakten-Absorption (n=20 Läufe)'}</span>
                   <span>~5% {isEn ? 'Stochastic Variance' : 'Restvarianz'}</span>
                 </div>
@@ -344,7 +367,7 @@ export const GeoAuditView: React.FC<Props> = ({
                     >
                       <span className="font-mono text-[10px] font-bold bg-sbb-red text-white px-1 py-0.2 mr-1 rounded-xs align-middle">
                         [{badgeIndex}]
-                      </span>
+                      </span>{' '}
                       {span.text}
                     </button>
                   );
@@ -475,8 +498,8 @@ export const GeoAuditView: React.FC<Props> = ({
               </h3>
               <p className="text-xs text-sbb-stone mt-0.5 max-w-3xl leading-relaxed">
                 {isEn 
-                  ? 'Empirical GEO research shows Schema.org tags and llms.txt offer no citation shortcut, and buried PR preambles get dropped at the rank-10 reranker cutoff. Placing self-contained claims and quantitative stats (+61.5% absorption lift) in the opening 30% of server-side HTML—and mirroring them in press releases—ensures AI engines retrieve and absorb our narrative.' 
-                  : 'Empirische GEO-Studien zeigen: Schema.org-Tags und llms.txt bieten keinen Zitier-Shortcut, und langatmige PR-Einleitungen scheitern am Reranker-Cutoff (Rang 10). Erst Answer-First HTML-Passagen (Kernaussage + Zahlenbeleg in den ersten 30% des Textes, +61,5% Absorptions-Lift) in Corporate Stories und Medienmitteilungen sichern die Übernahme in KI-Antworten.'}
+                  ? 'Empirical GEO research shows Schema.org tags and llms.txt offer no causal citation lift, and single-run AI rankings repeat <0.1%. Surviving the reranker cutoff and reducing distorted summaries (~45% → ~5% across n=20 runs) requires answer-first SSR HTML passage blocks (opening 30%, +61.5% absorption lift) for non-JS crawlers (OAI-SearchBot, PerplexityBot, Claude-SearchBot) paired with quotable earned-media stats (+31%–41% lift).' 
+                  : 'Empirische GEO-Studien zeigen: Schema.org und llms.txt bieten keinen Zitier-Lift, und Einzel-Rankings wiederholen sich zu <0,1%. Weniger KI-Verzerrungen (~45% → ~5% über n=20 Läufe) erfordern Answer-First SSR HTML-Passagen (erste 30%, +61,5% Lift) für Non-JS-Crawler (OAI-SearchBot, PerplexityBot, Claude-SearchBot) sowie zitierfähige Presse-Zahlen (+31%–41% Lift).'}
               </p>
             </div>
 
