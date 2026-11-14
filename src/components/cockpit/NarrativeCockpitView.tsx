@@ -75,8 +75,8 @@ export const NarrativeCockpitView: React.FC<Props> = ({
             </h1>
             <p className="text-sm text-sbb-stone mt-1 max-w-3xl leading-relaxed">
               {isEn
-                ? 'Beyond classic press-release tracking: compresses 48,000+ weekly articles, forum threads, and AI search outputs into the few topics gaining momentum—showing where corporate arguments gain traction and where cross-regional incoherence weakens the company’s signal.'
-                : 'Mehr als klassisches Medien-Monitoring: verdichtet über 48.000 wöchentliche Artikel, Forenbeiträge und KI-Suchantworten – und zeigt, wo Kernargumente Traktion gewinnen oder wo regionale Inkohärenz die eigene Position in Medien und KI-Suche schwächt.'}
+                ? 'Beyond volume and sentiment monitoring: compresses 48,000+ weekly articles, forum threads, and AI search outputs into the few topics gaining momentum—showing where corporate arguments are absorbed and where cross-channel or regional incoherence weakens the company’s signal.'
+                : 'Mehr als Volumen- und Sentiment-Monitoring: verdichtet über 48.000 wöchentliche Artikel, Forenbeiträge und KI-Suchantworten – und zeigt, wo Kernargumente absorbiert werden oder wo kanalübergreifende und regionale Inkohärenz die eigene Position schwächt.'}
             </p>
           </div>
 

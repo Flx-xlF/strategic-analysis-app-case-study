@@ -46,11 +46,11 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
       {
         stepNumber: '01',
         shortLabel: 'Core Premise',
-        headline: 'Gaining Traction in the AI Shift: Why Coherence Across Corporate Comms Matters Now',
+        headline: 'Gaining Traction in the AI Shift: When Query Fan-Out Collapses Separate Channels Into One Answer',
         whatYouSee:
-          'Classic PR was built around press releases aimed at media outlets. In the age of AI search, answer engines synthesize press coverage, forums, and regional pages all at once. Even slight incoherence across central and regional teams, cantons, and internal files dilutes the power of corporate communications.',
+          'Comms teams operate across earned media, owned stories, and regional briefings—historically consumed by separate audiences. In AI search, query fan-out (5–11 parallel sub-queries) pulls press coverage, forums, owned pages, and legacy files into one context window at once, exposing any framing incoherence.',
         whyItMatters:
-          'Shows how corporate comms can operate differently during this shift: auditing where narratives lose traction in media and AI search (Outside-In) while building tight coherence around verified Golden Sources and shared, channel-adapted GEO standards (Top-Down).',
+          'Shows how corporate comms gains traction during this shift: auditing where narratives lose pull-through in media and AI search (Outside-In) while enforcing verified Golden Sources and channel-adapted GEO standards across earned and owned channels (Top-Down).',
         tryThisLabel: 'Switch to Oncology RLT Scenario',
         targetTab: 'cockpit',
         targetRegion: 'all',
@@ -115,11 +115,11 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
     {
       stepNumber: '01',
       shortLabel: 'Grundthese',
-      headline: 'Traktion im KI-Wandel gewinnen: Warum Kohärenz in der Unternehmenskommunikation jetzt entscheidend ist',
+      headline: 'Traktion im KI-Wandel: Wenn Query Fan-Out getrennte Kanäle in einer Antwort zusammenzieht',
       whatYouSee:
-        'Klassische PR setzte auf Medienmitteilungen für Journalisten. Im Zeitalter der KI-Suche bündeln Antwortmaschinen Medienberichte, Foren und regionale Seiten simultan. Selbst kleine Inkohärenzen zwischen zentralen und regionalen Teams oder Kantonen schwächen dabei die Durchschlagskraft der Kommunikation.',
+        'Kommunikation bespielt Earned Media, Owned Stories und regionale Briefings – früher getrennt nach Zielgruppen. In der KI-Suche zieht Query Fan-Out (5–11 parallele Sub-Anfragen) Presseberichte, Foren, eigene Seiten und Alt-Dateien simultan in ein Kontextfenster und legt jede Inkohärenz offen.',
       whyItMatters:
-        'Zeigt, wie Unternehmenskommunikation in diesem Wandel wieder Traktion aufbaut: durch Audits von Medien und KI-Suche (Outside-In) sowie hohe Kohärenz über verbindliche Golden Sources und kanal-adaptierte GEO-Standards (Top-Down).',
+        'Zeigt, wie Kommunikation in diesem Wandel Traktion sichert: durch Audits von Medien und KI-Antworten (Outside-In) sowie verbindliche Golden Sources und kanal-adaptierte GEO-Standards über Earned und Owned Media hinweg (Top-Down).',
       tryThisLabel: 'Zum Onkologie-RLT-Szenario wechseln',
       targetTab: 'cockpit',
       targetRegion: 'all',
