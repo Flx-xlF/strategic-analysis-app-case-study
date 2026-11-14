@@ -199,11 +199,11 @@ export const CommandHeader: React.FC<Props> = ({
                 <p>
                   {isEn ? (
                     <>
-                      <strong>Internal corporate mountain:</strong> Hundreds of thousands of enterprise files exist across vaults. Simple RAG pulls outdated drafts. Temporal validity gating locks only approved, topic-specific canonical Golden Sources.
+                      <strong>Internal mountain &amp; stale PDFs:</strong> Hundreds of thousands of files exist across vaults, and legacy public PDFs poison AI search crawlers. Temporal validity gating locks approved Golden Sources and flags superseded files for decommissioning.
                     </>
                   ) : (
                     <>
-                      <strong>Interner Dokumentenberg:</strong> Hunderttausende Dateien lagern in SharePoint/Vaults. Einfaches RAG zieht veraltete Entwürfe. Gültigkeitsfilter sperren Altbestände und sichern geprüfte, themenspezifische Golden Sources.
+                      <strong>Interner Dokumentenberg &amp; Alt-PDFs:</strong> Hunderttausende Dateien lagern in Vaults, und veraltete PDFs verzerren KI-Suchantworten. Gültigkeitsfilter sichern aktuelle Golden Sources und markieren Alt-PDFs zur Abschaltung.
                     </>
                   )}
                 </p>
@@ -248,11 +248,11 @@ export const CommandHeader: React.FC<Props> = ({
                 <p>
                   {isEn ? (
                     <>
-                      <strong>Why GEO forbids repeating accusations:</strong> Repeating a critic&apos;s accusation to deny it anchors that negative keyword to the company&apos;s own domain in AI search indices. The LLM strips negative frames and bridges to our own narrative; structured GEO schemas cut AI distortion from ~45% to ~5%.
+                      <strong>Empirical GEO (No Schema/llms.txt Shortcuts):</strong> Schema.org and llms.txt offer no causal citation lift, and ~84% of AI citations come from earned media. Reducing AI distortion (~45% to ~5% across <em>n</em>=20 runs) requires answer-first SSR HTML passages (+61.5% stat absorption lift), zero accusation echoes, and earned-media corroboration.
                     </>
                   ) : (
                     <>
-                      <strong>Warum GEO Vorwurfs-Wiederholungen verbietet:</strong> Wer Vorwürfe zur Verneinung wiederholt, verankert den Negativbegriff auf der eigenen Domain im KI-Suchindex. Das System streicht Negativ-Frames und liefert das eigene Narrativ; GEO-Schemata senken KI-Verzerrungen von ~45% auf ~5%.
+                      <strong>Empirisches GEO (Keine Schema/llms.txt-Shortcuts):</strong> Schema.org und llms.txt bringen keinen Zitier-Lift, und ~84% aller KI-Zitate stammen aus Earned Media. Weniger KI-Verzerrung (~45% auf ~5% über <em>n</em>=20 Läufe) erfordert Answer-First HTML-Passagen, Verzicht auf Vorwurfs-Echos und konsistente Medienarbeit.
                     </>
                   )}
                 </p>

@@ -245,18 +245,18 @@ export const GeoAuditView: React.FC<Props> = ({
                 </div>
               </div>
 
-              {/* Bar 3: Search-Grounded LLM Output (After GEO Fact Block) */}
+              {/* Bar 3: Search-Grounded LLM Output (After Answer-First GEO Passage Block) */}
               <div className="p-3.5 bg-emerald-50/40 border border-emerald-300 space-y-2">
                 <div className="flex items-center justify-between text-[10px] uppercase font-bold">
-                  <span className="text-emerald-950">{isEn ? '3. AFTER GEO FACT SCHEMA' : '3. NACH GEO-FAKTENSCHEMA'}</span>
-                  <span className="text-emerald-700">~95% {isEn ? 'Aligned' : 'Konsistent'}</span>
+                  <span className="text-emerald-950">{isEn ? '3. AFTER ANSWER-FIRST GEO PASSAGE (n=20)' : '3. NACH ANSWER-FIRST GEO-PASSAGE (n=20)'}</span>
+                  <span className="text-emerald-700">~95% {isEn ? 'Absorbed' : 'Absorbiert'}</span>
                 </div>
                 <div className="w-full h-2.5 bg-zinc-200 flex overflow-hidden">
                   <div className="h-full bg-emerald-600" style={{ width: '95%' }} />
                   <div className="h-full bg-amber-400" style={{ width: '5%' }} />
                 </div>
                 <div className="flex justify-between text-[9px] text-emerald-900">
-                  <span className="font-bold">95% {isEn ? 'Verified Pull-Through' : 'Verifizierte Übernahme'}</span>
+                  <span className="font-bold">95% {isEn ? 'Citation Absorption (n=20 runs)' : 'Fakten-Absorption (n=20 Läufe)'}</span>
                   <span>~5% {isEn ? 'Stochastic Variance' : 'Restvarianz'}</span>
                 </div>
               </div>
@@ -416,14 +416,14 @@ export const GeoAuditView: React.FC<Props> = ({
         </div>
       </div>
 
-      {/* ═══ STEP 03: THE GEO FIX (STRUCTURED KNOWLEDGE ASSET) ═══ */}
+      {/* ═══ STEP 03: THE GEO FIX (ANSWER-FIRST PASSAGE & EVIDENCE BLOCK) ═══ */}
       <div className="space-y-3">
         <div className="flex items-center gap-3">
           <span className="w-7 h-7 bg-sbb-black text-white font-mono text-xs font-bold flex items-center justify-center">
             03
           </span>
           <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-stone">
-            {isEn ? 'THE GEO FACT SCHEMA: STRUCTURING CORPORATE FACTS FOR SEARCH-GROUNDED LLMS' : 'GEO-FAKTENSTRUKTUR: STRUKTURIERUNG FÜR SUCHGESTÜTZTE SPRACHMODELLE'}
+            {isEn ? 'ANSWER-FIRST GEO PASSAGE ENGINEERING: SURVIVING RERANKING & DRIVING ABSORPTION' : 'ANSWER-FIRST GEO-PASSAGEN: RERANKING ÜBERSTEHEN & FAKTEN-ABSORPTION SICHERN'}
           </span>
         </div>
 
@@ -432,13 +432,13 @@ export const GeoAuditView: React.FC<Props> = ({
             <div>
               <h3 className="text-lg font-bold text-sbb-black">
                 {isEn
-                  ? 'Deploying GEO via Owned Corporate Stories & Structured Fact Schemas'
-                  : 'GEO-Umsetzung über eigene Corporate Stories & strukturierte Faktenschemata'}
+                  ? 'Deploying Answer-First HTML Passage Blocks Across Owned Stories & Earned Media'
+                  : 'Einsatz von Answer-First HTML-Passagen in Corporate Stories & Medienarbeit'}
               </h3>
               <p className="text-xs text-sbb-stone mt-0.5 max-w-3xl leading-relaxed">
                 {isEn 
-                  ? 'Press releases alone are filtered by media outlets. By embedding this structured GEO Fact Schema into owned Corporate Stories and newsroom hubs—while stripping accusation echoes ("boycott", "exodus")—search-grounded LLMs retrieve and cite the company’s own narrative directly from its authoritative domain.' 
-                  : 'Medienmitteilungen werden durch Redaktionen gefiltert. Wird dieses strukturierte GEO-Faktenschema in eigene Corporate Stories und Newsroom-Seiten eingebettet – ohne Vorwurfs-Echos ("Boykott", "Abwanderung") –, greifen KI-Suchmaschinen direkt auf die Unternehmens-Domain und das eigene Narrativ zu.'}
+                  ? 'Empirical GEO research shows Schema.org tags and llms.txt offer no citation shortcut, and buried PR preambles get dropped at the rank-10 reranker cutoff. Placing self-contained claims and quantitative stats (+61.5% absorption lift) in the opening 30% of server-side HTML—and mirroring them in press releases—ensures AI engines retrieve and absorb our narrative.' 
+                  : 'Empirische GEO-Studien zeigen: Schema.org-Tags und llms.txt bieten keinen Zitier-Shortcut, und langatmige PR-Einleitungen scheitern am Reranker-Cutoff (Rang 10). Erst Answer-First HTML-Passagen (Kernaussage + Zahlenbeleg in den ersten 30% des Textes, +61,5% Absorptions-Lift) in Corporate Stories und Medienmitteilungen sichern die Übernahme in KI-Antworten.'}
               </p>
             </div>
 
@@ -449,12 +449,12 @@ export const GeoAuditView: React.FC<Props> = ({
               {copied ? (
                 <>
                   <Check className="w-3.5 h-3.5 text-emerald-400" />
-                  <span>{isEn ? 'Schema Copied' : 'Schema kopiert'}</span>
+                  <span>{isEn ? 'Passage Copied' : 'Passage kopiert'}</span>
                 </>
               ) : (
                 <>
                   <Copy className="w-3.5 h-3.5 text-zinc-400" />
-                  <span>{isEn ? 'Copy Fact Schema' : 'Fakten-Schema kopieren'}</span>
+                  <span>{isEn ? 'Copy GEO Passage' : 'GEO-Passage kopieren'}</span>
                 </>
               )}
             </button>
@@ -466,23 +466,23 @@ export const GeoAuditView: React.FC<Props> = ({
               <div>
                 <div className="text-[10px] font-mono text-sbb-red uppercase font-bold mb-2 flex items-center gap-1.5">
                   <span className="w-2 h-2 bg-sbb-red" />
-                  <span>{isEn ? 'BEFORE: UNSTRUCTURED TRADITIONAL PR (HALLUCINATION-PRONE)' : 'VORHER: TRADITIONELLE PR-FLOSKELN (HALLUZINATIONSANFÄLLIG)'}</span>
+                  <span>{isEn ? 'BEFORE: BURIED PR PREAMBLE (DROPPED BY RERANKER)' : 'VORHER: VERSTECKTE PR-FLOSKELN (VOM RERANKER VERWORFEN)'}</span>
                 </div>
                 <div className="text-xs text-zinc-800 italic leading-relaxed font-serif p-4 bg-white border border-red-100">
                   {data.geo_optimization_fix.unstructured_pr_fluff}
                 </div>
               </div>
               <div className="mt-4 pt-3 border-t border-red-100 text-[10px] font-mono text-sbb-red">
-                {isEn ? 'Result: LLMs extract emotional tone but lose statistical truth.' : 'Ergebnis: LLMs erfassen den Ton, verzerren aber die Fakten.'}
+                {isEn ? 'Result: Fails passage reranking; LLMs fall back to speculative third-party commentary.' : 'Ergebnis: Scheitert im Passage-Reranking; LLMs greifen auf spekulative Drittquellen zurück.'}
               </div>
             </div>
 
-            {/* After: Machine-Readable GEO Schema */}
+            {/* After: Answer-First Self-Contained GEO Passage Block */}
             <div className="p-5 bg-emerald-50/40 border border-emerald-300 flex flex-col justify-between">
               <div>
                 <div className="text-[10px] font-mono text-emerald-800 uppercase font-bold mb-2 flex items-center gap-1.5">
                   <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                  <span>{isEn ? 'AFTER: GEO-STRUCTURED FACT BLOCK (MACHINE-READABLE RETRIEVAL)' : 'NACHHER: STRUKTURIERTER GEO-FAKTENBLOCK (MASCHINENLESBAR)'}</span>
+                  <span>{isEn ? 'AFTER: ANSWER-FIRST PASSAGE & QUANTITATIVE PROOF BLOCK (SSR HTML)' : 'NACHHER: ANSWER-FIRST PASSAGE & ZAHLENBELEG-BLOCK (SSR HTML)'}</span>
                 </div>
                 <pre className="text-xs text-emerald-950 font-mono leading-relaxed p-4 bg-white border border-emerald-200 overflow-x-auto whitespace-pre-wrap">
                   {data.geo_optimization_fix.structured_fact_block}

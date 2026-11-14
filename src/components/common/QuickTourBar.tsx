@@ -71,11 +71,11 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
       {
         stepNumber: '03',
         shortLabel: 'GEO & AI Search Audit',
-        headline: '02 Cluster & AI Audit: Generative Engine Optimization (GEO) in Practice',
+        headline: '02 Cluster & AI Audit: Query Fan-Out, Absorption & Answer-First GEO',
         whatYouSee:
-          'While press releases target journalists, stakeholders increasingly query ChatGPT, Perplexity, and Gemini directly. When AI engines scrape varied regional coverage and unstructured PR prose—such as around a $23B US manufacturing expansion—incoherence across sources causes LLMs to conflate facts.',
+          'When stakeholders query ChatGPT, Perplexity, or Google AI, the engine runs 5–11 parallel sub-queries (query fan-out) across regional press and corporate pages. When it hits buried PR preambles and incoherent regional coverage, it drops corporate context at the reranker cutoff and conflates facts.',
         whyItMatters:
-          'Directly operationalizes Generative Engine Optimization (GEO). By auditing where AI engines misinterpret corporate context and publishing machine-readable GEO Fact Blocks (side-by-side on this screen), comms teams can cut LLM distortion rates from ~48% down to ~5%.',
+          'Replaces debunked Schema.org/llms.txt shortcuts with empirical GEO: placing self-contained claims and quantitative stats (+61.5% absorption lift) in answer-first SSR HTML passages cuts LLM distortion from ~48% to ~5% across n=20 evaluation runs.',
         tryThisLabel: 'Inspect Oncology RLT GEO Audit',
         targetTab: 'geo',
         targetRegion: 'all',
@@ -140,11 +140,11 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
     {
       stepNumber: '03',
       shortLabel: 'GEO & KI-Such-Audit',
-      headline: '02 Cluster & KI-Audit: Generative Engine Optimization (GEO) in der Praxis',
+      headline: '02 Cluster & KI-Audit: Query Fan-Out, Absorption & Answer-First GEO',
       whatYouSee:
-        'Während Medienmitteilungen an Journalisten adressiert sind, befragen Stakeholder zunehmend direkt ChatGPT, Perplexity und Gemini. Treffen KI-Modelle auf uneinheitliche regionale Berichte und unstrukturierte PR-Prosa – etwa zur 23-Mrd.-USD-Investition –, führen diese Inkohärenzen zu Kontextfehlern.',
+        'Befragen Stakeholder ChatGPT, Perplexity oder Google AI, zerlegt die Engine die Frage in 5–11 parallele Suchanfragen (Query Fan-Out). Trifft sie auf langatmige PR-Einleitungen und uneinheitliche regionale Berichte, fällt der Unternehmenskontext durch das Reranking-Raster.',
       whyItMatters:
-        'Setzt Generative Engine Optimization (GEO) konkret um: Durch das Auditieren von KI-Antworten und strukturierte GEO-Faktenblöcke lassen sich Halluzinationsraten in KI-Suchmaschinen von ~48% auf ~5% senken.',
+        'Ersetzt widerlegte Schema.org/llms.txt-mythen durch empirisches GEO: Answer-First HTML-Passagen mit direkten Zahlenbelegen (+61,5% Absorptions-Lift) senken KI-Verzerrungen über n=20 Prüfläufe von ~48% auf ~5%.',
       tryThisLabel: 'Onkologie-RLT GEO-Audit ansehen',
       targetTab: 'geo',
       targetRegion: 'all',

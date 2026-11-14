@@ -314,12 +314,12 @@ export const TrendingFactoryView: React.FC<Props> = ({
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
               <div className="p-3 bg-sbb-cloud/50 border border-sbb-aluminum space-y-1">
                 <div className="font-mono text-[10px] font-bold text-sbb-black uppercase">
-                  {isEn ? 'GEO-01 // Fact-Claim Pairing' : 'GEO-01 // Fakt-Claim-Kopplung'}
+                  {isEn ? 'GEO-01 // Answer-First & Stat Pairing' : 'GEO-01 // Answer-First & Zahlen-Kopplung'}
                 </div>
                 <p className="text-[11px] text-zinc-700 leading-snug">
                   {isEn
-                    ? 'Pair every core claim with its exact numerical proof point in the same paragraph so AI retrieval chunking never separates claim from evidence.'
-                    : 'Jede Kernaussage im selben Absatz mit dem exakten Zahlenbeleg koppeln, damit KI-Chunking Behauptung und Evidenz nie trennt.'}
+                    ? 'Place the main conclusion in the opening 30% of text and pair every claim with quantitative stats (+61.5% absorption lift) in a self-contained 300–600 token passage to survive reranking.'
+                    : 'Kernaussage in den ersten 30% platzieren und im selben 300–600-Token-Absatz mit Zahlenbelegen (+61,5% Absorptions-Lift) koppeln, um den Reranker-Cutoff zu überstehen.'}
                 </p>
               </div>
 
@@ -412,21 +412,21 @@ export const TrendingFactoryView: React.FC<Props> = ({
         </div>
 
         <div className="bg-white border border-sbb-aluminum">
-          {/* Strategic GEO Role of Owned Corporate Stories Banner */}
+          {/* Strategic GEO Role of Dual-Path (Earned + Owned) Banner */}
           <div className="px-6 py-3.5 bg-sbb-cloud/70 border-b border-sbb-aluminum flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
             <div className="text-sbb-black leading-snug">
               {isEn ? (
                 <>
-                  <strong className="font-mono uppercase text-sbb-red">Channel-Adapted GEO Across All Measures:</strong> While <strong>Owned Corporate Stories</strong> serve as high-authority direct-to-AI primary sources, <strong>press releases</strong> and <strong>media inquiry answers</strong> must follow the exact same GEO rules—preventing hostile quotes in press articles from feeding negative keywords into AI search engines.
+                  <strong className="font-mono uppercase text-sbb-red">Dual-Path GEO (~84% Earned + Owned HTML):</strong> Empirical audits show AI engines draw ~84% of citations from earned/third-party media and ~16% from owned domains. <strong>Owned Corporate Stories</strong> provide answer-first SSR HTML primary sources, while <strong>press releases</strong> and <strong>media answers</strong> supply quote-safe, stat-backed earned media corroboration.
                 </>
               ) : (
                 <>
-                  <strong className="font-mono uppercase text-sbb-red">Kanal-adaptiertes GEO für alle Massnahmen:</strong> Während <strong>Owned Corporate Stories</strong> als direkte Primärquellen für KI-Modelle fungieren, müssen <strong>Medienmitteilungen</strong> und <strong>Medienantworten</strong> denselben GEO-Regeln folgen – damit Pressezitate nicht ungewollt Negativbegriffe in KI-Suchindizes einspeisen.
+                  <strong className="font-mono uppercase text-sbb-red">Dual-Path GEO (~84% Earned + Owned HTML):</strong> KI-Suchmaschinen beziehen ~84% ihrer Zitate aus Dritt-/Fachmedien und ~16% von Unternehmens-Domains. <strong>Owned Corporate Stories</strong> liefern direkte Answer-First HTML-Primärquellen, während <strong>Medienmitteilungen</strong> und <strong>Medienantworten</strong> zitierfähige Earned-Media-Belege sichern.
                 </>
               )}
             </div>
             <span className="font-mono text-[10px] font-bold uppercase px-2 py-0.5 bg-white border border-zinc-300 text-sbb-black shrink-0">
-              {isEn ? 'Mandatory GEO Across All Channels' : 'Verbindliches GEO über alle Kanäle'}
+              {isEn ? 'Earned (~84%) + Owned Dual-Path GEO' : 'Earned (~84%) + Owned Dual-Path GEO'}
             </span>
           </div>
           {/* Format Selector Tabs */}
