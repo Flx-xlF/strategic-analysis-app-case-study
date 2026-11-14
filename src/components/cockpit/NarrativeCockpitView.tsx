@@ -471,6 +471,30 @@ export const NarrativeCockpitView: React.FC<Props> = ({
           ))}
         </div>
       </div>
+
+      {/* ═══ NEXT-STEP WORKFLOW BRIDGE (01 → 02) ═══ */}
+      <div className="bg-sbb-black text-white border-l-4 border-sbb-red p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="space-y-1">
+          <div className="text-[10px] font-mono text-sbb-red uppercase tracking-widest font-bold">
+            {isEn ? 'NEXT STEP IN WORKFLOW // MODULE 01 → MODULE 02' : 'NÄCHSTER PROZESSSCHRITT // MODUL 01 → MODUL 02'}
+          </div>
+          <p className="text-xs sm:text-sm text-zinc-200">
+            {isEn
+              ? 'Statistical anomaly isolated. Inspect the representative cluster articles and audit how AI search engines synthesize or distort these facts.'
+              : 'Statistischer Spike isoliert. Prüfen Sie im nächsten Schritt die repräsentativen Cluster-Artikel und das KI-Antwort-Audit.'}
+          </p>
+        </div>
+        <button
+          onClick={() => {
+            onNavigateTab('geo');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
+          className="px-4 py-2.5 bg-sbb-red hover:bg-red-700 text-white font-mono text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-2 cursor-pointer shrink-0 self-start sm:self-auto"
+        >
+          <span>{isEn ? 'Proceed to 02: Cluster & AI Audit' : 'Weiter zu 02: Cluster & KI-Audit'}</span>
+          <ArrowRight className="w-4 h-4" />
+        </button>
+      </div>
     </div>
   );
 };

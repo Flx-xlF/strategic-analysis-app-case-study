@@ -81,6 +81,7 @@ export const App: React.FC = () => {
         selectedScenarioId={selectedScenario.id}
         showConceptGuide={showConceptGuide}
         onToggleConceptGuide={() => setShowConceptGuide(prev => !prev)}
+        onSelectRegion={setSelectedRegion}
       />
 
       {/* Main Workspace Stage */}
@@ -103,6 +104,7 @@ export const App: React.FC = () => {
             lang={lang}
             selectedRegion={selectedRegion}
             onSelectRegion={setSelectedRegion}
+            onNavigateTab={setActiveTab}
             isStreaming={false}
             streamProgress={100}
           />
@@ -114,6 +116,7 @@ export const App: React.FC = () => {
             lang={lang}
             selectedRegion={selectedRegion}
             onSelectRegion={setSelectedRegion}
+            onNavigateTab={setActiveTab}
             isStreaming={false}
             streamProgress={100}
           />

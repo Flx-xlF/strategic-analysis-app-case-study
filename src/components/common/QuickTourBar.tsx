@@ -35,6 +35,7 @@ interface Props {
   selectedScenarioId: string;
   showConceptGuide: boolean;
   onToggleConceptGuide: () => void;
+  onSelectRegion?: (reg: WorldRegionId) => void;
 }
 
 export const getTourSteps = (lang: Language): TourStepConfig[] => {
@@ -188,17 +189,9 @@ export const QuickTourBar: React.FC<Props> = ({
   onSelectScenarioById,
   selectedScenarioId,
   showConceptGuide,
-  onToggleConceptGuide
+  onToggleConceptGuide,
+  onSelectRegion
 }) => {
-  React.useEffect(() => {
-    if (!isOpen) return;
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isOpen, onClose]);
-
   if (!isOpen) return null;
 
   const isEn = lang === 'en';
@@ -206,183 +199,74 @@ export const QuickTourBar: React.FC<Props> = ({
   const activeStep = steps[currentStep] || steps[0];
 
   const handleQuickAction = () => {
-    if (currentStep === 0) {
+    if (currentStep === 0 || currentStep === 2) {
       const nextId =
         selectedScenarioId === 'pluvicto_access_debate'
           ? 'oncology_trial_update'
           : 'pluvicto_access_debate';
       onSelectScenarioById(nextId);
     } else if (currentStep === 1) {
-      onSelectStep(1);
-    } else if (currentStep === 2) {
-      const nextId =
-        selectedScenarioId === 'pluvicto_access_debate'
-          ? 'oncology_trial_update'
-          : 'pluvicto_access_debate';
-      onSelectScenarioById(nextId);
+      if (onSelectRegion) onSelectRegion('all');
     } else if (currentStep === 3) {
-      onSelectScenarioById('oncology_trial_update');
+      if (onSelectRegion) onSelectRegion('ch');
     } else if (currentStep === 4) {
       onToggleConceptGuide();
     }
   };
 
   return (
-    <div
-      role="dialog"
-      aria-modal="true"
+    <section
       aria-label={isEn ? '90-Second Executive Quick Tour' : '90-Sekunden Kurz-Tour'}
-      onClick={onClose}
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/55 backdrop-blur-sm"
+      className="bg-sbb-black text-white border-b-2 border-sbb-red px-6 sm:px-8 py-4 transition-all"
     >
-      <div
-        onClick={(e) => e.stopPropagation()}
-        className="w-full max-w-3xl bg-sbb-black text-white border border-zinc-700 border-t-4 border-t-sbb-red shadow-none flex flex-col max-h-[90vh] overflow-y-auto"
-      >
-        {/* Modal Header: Tour Badge + Close/Skip */}
-        <div className="px-6 py-4 border-b border-zinc-800 flex items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
+      <div className="max-w-[1600px] mx-auto space-y-3.5">
+        {/* Top Row: Tour Badge + Step Progress Rail + Prev/Next/Close Controls */}
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 pb-3 border-b border-zinc-800">
+          <div className="flex flex-wrap items-center gap-2">
             <span className="bg-sbb-red text-white font-mono text-[10px] font-black uppercase tracking-widest px-2.5 py-1 flex items-center gap-1.5 shrink-0">
               <Compass className="w-3.5 h-3.5" />
-              <span>{isEn ? '90s RECRUITING & EXECUTIVE TOUR' : '90s RECRUITING- & EXECUTIVE-TOUR'}</span>
+              <span>{isEn ? '90s GUIDED TOUR (LIVE WORKSPACE SYNC)' : '90s GUIDED TOUR (LIVE-SYNC)'}</span>
             </span>
-            <span className="text-[11px] font-mono text-zinc-400 hidden sm:inline">
-              {isEn ? 'Introduction & Mandate Fit' : 'Einführung & Mandats-Abgleich'}
-            </span>
-          </div>
 
-          <button
-            onClick={onClose}
-            className="px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-zinc-400 hover:text-white border border-zinc-800 hover:border-zinc-600 transition-colors flex items-center gap-1.5 cursor-pointer"
-            title={isEn ? 'Skip Intro (Esc)' : 'Intro überspringen (Esc)'}
-          >
-            <X className="w-3.5 h-3.5" />
-            <span>{isEn ? 'Skip Intro' : 'Intro überspringen'}</span>
-          </button>
-        </div>
-
-        {/* Step Progress Rail */}
-        <div className="px-6 py-3 bg-zinc-950 border-b border-zinc-800 flex flex-wrap items-center gap-1.5">
-          {steps.map((step, idx) => {
-            const isCurrent = idx === currentStep;
-            const isCompleted = idx < currentStep;
-            return (
-              <button
-                key={step.stepNumber}
-                onClick={() => onSelectStep(idx)}
-                className={`px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-wider transition-all cursor-pointer border flex items-center gap-1.5 ${
-                  isCurrent
-                    ? 'bg-sbb-red text-white border-sbb-red'
-                    : isCompleted
-                    ? 'bg-zinc-900 text-zinc-200 border-zinc-700 hover:border-zinc-500'
-                    : 'bg-zinc-950 text-zinc-400 border-zinc-800 hover:text-white hover:border-zinc-600'
-                }`}
-              >
-                {isCompleted && <CheckCircle2 className="w-3 h-3 text-emerald-400 shrink-0" />}
-                <span>{step.stepNumber}</span>
-                <span className="hidden md:inline">{step.shortLabel}</span>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Modal Body */}
-        <div className="p-6 space-y-5">
-          {/* Headline */}
-          <div className="space-y-1.5 border-l-2 border-sbb-red pl-4">
-            <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest text-zinc-400">
-              <span className="text-sbb-red font-black">
-                {isEn ? `STEP ${activeStep.stepNumber} OF 05` : `SCHRITT ${activeStep.stepNumber} VON 05`}
-              </span>
-              <span>//</span>
-              <span className="text-white font-bold">{activeStep.shortLabel}</span>
-            </div>
-            <h3 className="text-lg font-bold text-white leading-snug">
-              {activeStep.headline}
-            </h3>
-          </div>
-
-          {/* Two-Column Briefing */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="space-y-2 bg-zinc-900/90 border border-zinc-800 p-4">
-              <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-400 flex items-center gap-1.5">
-                <Globe className="w-3.5 h-3.5 text-sbb-red" />
-                <span>{isEn ? 'WHAT THIS VIEW SHOWS' : 'WAS DIESE ANSICHT ZEIGT'}</span>
-              </div>
-              <p className="text-xs text-zinc-200 leading-relaxed">{activeStep.whatYouSee}</p>
-            </div>
-
-            <div className="space-y-2 bg-zinc-900/90 border border-zinc-800 p-4 flex flex-col justify-between">
-              <div className="space-y-2">
-                <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-400 flex items-center gap-1.5">
-                  <Sparkles className="w-3.5 h-3.5 text-sbb-red" />
-                  <span>
-                    {isEn
-                      ? 'WHY IT MATTERS FOR GLOBAL ENABLEMENT'
-                      : 'RELEVANZ FÜR GLOBAL ENABLEMENT'}
-                  </span>
-                </div>
-                <p className="text-xs text-zinc-200 leading-relaxed">{activeStep.whyItMatters}</p>
-              </div>
-
-              {currentStep !== 1 && (
-                <div className="pt-3 mt-3 border-t border-zinc-800 flex items-center justify-between gap-2">
+            {/* Step Progress Rail */}
+            <div className="flex flex-wrap items-center gap-1">
+              {steps.map((step, idx) => {
+                const isCurrent = idx === currentStep;
+                const isCompleted = idx < currentStep;
+                return (
                   <button
-                    onClick={handleQuickAction}
-                    className="w-full px-3 py-1.5 bg-zinc-800 hover:bg-zinc-700 text-white font-mono text-[10px] font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-1.5 cursor-pointer border border-zinc-700"
+                    key={step.stepNumber}
+                    onClick={() => onSelectStep(idx)}
+                    className={`px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-wider transition-all cursor-pointer border flex items-center gap-1.5 ${
+                      isCurrent
+                        ? 'bg-white text-sbb-black border-white'
+                        : isCompleted
+                        ? 'bg-zinc-900 text-zinc-200 border-zinc-700 hover:border-zinc-500'
+                        : 'bg-zinc-950 text-zinc-400 border-zinc-800 hover:text-white hover:border-zinc-600'
+                    }`}
                   >
-                    {currentStep === 4 ? (
-                      <Server className="w-3 h-3 text-sbb-red" />
-                    ) : (
-                      <ArrowRight className="w-3 h-3 text-sbb-red" />
-                    )}
-                    <span>
-                      {currentStep === 0 || currentStep === 2
-                        ? selectedScenarioId === 'pluvicto_access_debate'
-                          ? isEn
-                            ? 'Switch to Global Pharma MFN Pricing Case'
-                            : 'Zum Pharma-MFN-Preisszenario wechseln'
-                          : isEn
-                          ? 'Compare with Oncology Radioligand Case'
-                          : 'Mit Onkologie-Radioliganden-Fall vergleichen'
-                        : currentStep === 4
-                        ? showConceptGuide
-                          ? isEn
-                            ? 'Hide IT & Method Panel Behind'
-                            : 'IT- & Methodik-Panel ausblenden'
-                          : isEn
-                          ? 'Open IT & Method Panel Behind'
-                          : 'IT- & Methodik-Panel öffnen'
-                        : activeStep.tryThisLabel}
-                    </span>
+                    {isCompleted && <CheckCircle2 className="w-3 h-3 text-emerald-400 shrink-0" />}
+                    <span>{step.stepNumber}</span>
+                    <span className="hidden xl:inline">{step.shortLabel}</span>
                   </button>
-                </div>
-              )}
+                );
+              })}
             </div>
           </div>
-        </div>
 
-        {/* Modal Footer: Navigation */}
-        <div className="px-6 py-4 bg-zinc-950 border-t border-zinc-800 flex flex-wrap items-center justify-between gap-3">
-          <button
-            onClick={() => onSelectStep(Math.max(0, currentStep - 1))}
-            disabled={currentStep === 0}
-            className={`px-3 py-1.5 font-mono text-[11px] font-bold uppercase border transition-colors flex items-center gap-1.5 ${
-              currentStep === 0
-                ? 'border-zinc-800 text-zinc-600 cursor-not-allowed'
-                : 'border-zinc-700 bg-zinc-900 text-white hover:bg-zinc-800 cursor-pointer'
-            }`}
-          >
-            <ArrowLeft className="w-3.5 h-3.5" />
-            <span>{isEn ? 'Prev' : 'Zurück'}</span>
-          </button>
-
-          <div className="flex items-center gap-2.5">
+          {/* Navigation Controls */}
+          <div className="flex items-center gap-2 self-end lg:self-auto shrink-0">
             <button
-              onClick={onClose}
-              className="px-3 py-1.5 font-mono text-[11px] font-bold uppercase border border-zinc-700 bg-zinc-900 text-zinc-200 hover:text-white hover:border-zinc-500 transition-colors cursor-pointer"
+              onClick={() => onSelectStep(Math.max(0, currentStep - 1))}
+              disabled={currentStep === 0}
+              className={`px-2.5 py-1 font-mono text-[10px] font-bold uppercase border transition-colors flex items-center gap-1 ${
+                currentStep === 0
+                  ? 'border-zinc-800 text-zinc-600 cursor-not-allowed'
+                  : 'border-zinc-700 bg-zinc-900 text-white hover:bg-zinc-800 cursor-pointer'
+              }`}
             >
-              {isEn ? 'Explore This View' : 'Diese Ansicht öffnen'}
+              <ArrowLeft className="w-3 h-3" />
+              <span>{isEn ? 'Prev' : 'Zurück'}</span>
             </button>
 
             <button
@@ -393,7 +277,7 @@ export const QuickTourBar: React.FC<Props> = ({
                   onClose();
                 }
               }}
-              className="px-4 py-1.5 font-mono text-[11px] font-black uppercase border border-sbb-red bg-sbb-red text-white hover:bg-red-700 transition-colors flex items-center gap-1.5 cursor-pointer"
+              className="px-3.5 py-1 font-mono text-[10px] font-black uppercase border border-sbb-red bg-sbb-red text-white hover:bg-red-700 transition-colors flex items-center gap-1.5 cursor-pointer"
             >
               <span>
                 {currentStep < steps.length - 1
@@ -401,15 +285,88 @@ export const QuickTourBar: React.FC<Props> = ({
                     ? 'Next Step'
                     : 'Nächster Schritt'
                   : isEn
-                  ? 'Enter Live Workspace'
-                  : 'Zur Live-Ansicht'}
+                  ? 'Finish Tour'
+                  : 'Tour beenden'}
               </span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <ArrowRight className="w-3 h-3" />
+            </button>
+
+            <button
+              onClick={onClose}
+              className="px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-zinc-400 hover:text-white border border-zinc-800 hover:border-zinc-600 transition-colors flex items-center gap-1 cursor-pointer"
+              title={isEn ? 'Hide Tour Bar' : 'Tour-Leiste ausblenden'}
+            >
+              <X className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">{isEn ? 'Dismiss' : 'Ausblenden'}</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Compact Content Row: Headline + What You See + Strategic Value & Interactive Trigger */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-stretch">
+          <div className="lg:col-span-4 flex flex-col justify-center border-l-2 border-sbb-red pl-3.5">
+            <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest text-zinc-400 mb-1">
+              <span className="text-sbb-red font-black">
+                {isEn ? `STEP ${activeStep.stepNumber} OF 05` : `SCHRITT ${activeStep.stepNumber} VON 05`}
+              </span>
+              <span>//</span>
+              <span className="text-white font-bold">{activeStep.shortLabel}</span>
+            </div>
+            <h3 className="text-sm sm:text-base font-bold text-white leading-snug">
+              {activeStep.headline}
+            </h3>
+          </div>
+
+          <div className="lg:col-span-4 bg-zinc-900/90 border border-zinc-800 p-3.5 space-y-1">
+            <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-400 flex items-center gap-1.5">
+              <Globe className="w-3 h-3 text-sbb-red" />
+              <span>{isEn ? 'WHAT YOU SEE BELOW' : 'WAS SIE UNTEN SEHEN'}</span>
+            </div>
+            <p className="text-xs text-zinc-200 leading-relaxed">{activeStep.whatYouSee}</p>
+          </div>
+
+          <div className="lg:col-span-4 bg-zinc-900/90 border border-zinc-800 p-3.5 flex flex-col justify-between gap-2">
+            <div className="space-y-1">
+              <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-400 flex items-center gap-1.5">
+                <Sparkles className="w-3 h-3 text-sbb-red" />
+                <span>{isEn ? 'WHY IT MATTERS FOR STRATEGIC ENABLEMENT' : 'STRATEGISCHER MEHRWERT'}</span>
+              </div>
+              <p className="text-xs text-zinc-200 leading-relaxed">{activeStep.whyItMatters}</p>
+            </div>
+
+            <button
+              onClick={handleQuickAction}
+              className="w-full px-3 py-1.5 bg-zinc-800 hover:bg-zinc-700 text-white font-mono text-[10px] font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-1.5 cursor-pointer border border-zinc-700"
+            >
+              {currentStep === 4 ? (
+                <Server className="w-3 h-3 text-sbb-red" />
+              ) : (
+                <ArrowRight className="w-3 h-3 text-sbb-red" />
+              )}
+              <span>
+                {currentStep === 0 || currentStep === 2
+                  ? selectedScenarioId === 'pluvicto_access_debate'
+                    ? isEn
+                      ? 'Switch to Biopharma MFN Pricing Case'
+                      : 'Zum Biopharma-MFN-Preisszenario wechseln'
+                    : isEn
+                    ? 'Compare with Oncology Radioligand Case'
+                    : 'Mit Onkologie-Radioliganden-Fall vergleichen'
+                  : currentStep === 4
+                  ? showConceptGuide
+                    ? isEn
+                      ? 'Hide IT & Method Panel Above'
+                      : 'IT- & Methodik-Panel ausblenden'
+                    : isEn
+                    ? 'Open IT & Method Panel Above'
+                    : 'IT- & Methodik-Panel öffnen'
+                  : activeStep.tryThisLabel}
+              </span>
             </button>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

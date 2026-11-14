@@ -23,6 +23,7 @@ interface Props {
   lang: Language;
   selectedRegion: WorldRegionId;
   onSelectRegion: (reg: WorldRegionId) => void;
+  onNavigateTab?: (tab: 'cockpit' | 'geo' | 'trending' | 'cascade') => void;
   isStreaming: boolean;
   streamProgress: number;
 }
@@ -32,6 +33,7 @@ export const GeoAuditView: React.FC<Props> = ({
   lang,
   selectedRegion,
   onSelectRegion,
+  onNavigateTab,
   isStreaming,
   streamProgress
 }) => {
@@ -498,6 +500,32 @@ export const GeoAuditView: React.FC<Props> = ({
           </div>
         </div>
       </div>
+
+      {/* ═══ NEXT-STEP WORKFLOW BRIDGE (02 → 03) ═══ */}
+      {onNavigateTab && (
+        <div className="bg-sbb-black text-white border-l-4 border-sbb-red p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="space-y-1">
+            <div className="text-[10px] font-mono text-sbb-red uppercase tracking-widest font-bold">
+              {isEn ? 'NEXT STEP IN WORKFLOW // MODULE 02 → MODULE 03 (TOP-DOWN ENABLEMENT)' : 'NÄCHSTER PROZESSSCHRITT // MODUL 02 → MODUL 03 (TOP-DOWN BEFÄHIGUNG)'}
+            </div>
+            <p className="text-xs sm:text-sm text-zinc-200">
+              {isEn
+                ? 'AI search distortion diagnosed. Now lock onto verified Golden Sources and cascade the 4-Rule GEO Framework across regional Corporate Stories, press releases, and Q&As.'
+                : 'KI-Verzerrung diagnostiziert. Verankern Sie nun geprüfte Golden Sources und das 4-Regel GEO-Framework in regionalen Corporate Stories, Medienmitteilungen und Q&As.'}
+            </p>
+          </div>
+          <button
+            onClick={() => {
+              onNavigateTab('trending');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            className="px-4 py-2.5 bg-sbb-red hover:bg-red-700 text-white font-mono text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-2 cursor-pointer shrink-0 self-start sm:self-auto"
+          >
+            <span>{isEn ? 'Proceed to 03: Regional GEO Playbook' : 'Weiter zu 03: Regionales GEO-Playbook'}</span>
+            <ArrowRight className="w-4 h-4" />
+          </button>
+        </div>
+      )}
     </div>
   );
 };
