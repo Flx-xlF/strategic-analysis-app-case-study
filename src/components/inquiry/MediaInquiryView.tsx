@@ -19,15 +19,11 @@ import {
 interface Props {
   scenarioId: string;
   lang: Language;
-  isStreaming: boolean;
-  streamProgress: number;
 }
 
 export const MediaInquiryView: React.FC<Props> = ({
   scenarioId,
-  lang,
-  isStreaming,
-  streamProgress
+  lang
 }) => {
   const data: InquiryData = getInquiryData(lang, scenarioId);
   const [copied, setCopied] = useState(false);
@@ -72,60 +68,28 @@ export const MediaInquiryView: React.FC<Props> = ({
           </div>
         </div>
 
-        {/* Telemetry Strip */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 pt-2">
-          <div className="p-4 bg-sbb-cloud/50 border-l-2 border-sbb-red">
-            <div className="text-[10px] font-mono text-sbb-stone uppercase tracking-wider mb-1">
-              {isEn ? 'INQUIRING OUTLET' : 'RECHERCHIERENDES MEDIUM'}
-            </div>
-            <div className="text-base font-bold text-sbb-black truncate" title={data.outlet}>
-              {data.outlet}
-            </div>
-            <div className="text-[10px] font-mono text-sbb-stone mt-1">
-              {isEn ? 'Journalist: ' : 'Journalist: '}{data.journalist}
-            </div>
-          </div>
-
-          <div className="p-4 bg-sbb-cloud/50 border-l-2 border-zinc-800">
-            <div className="text-[10px] font-mono text-sbb-stone uppercase tracking-wider mb-1">
-              {isEn ? 'EDITORIAL DEADLINE' : 'REDAKTIONSSCHLUSS'}
-            </div>
-            <div className="text-base font-bold text-sbb-black">
-              {data.deadline}
-            </div>
-            <div className="text-[10px] font-mono text-sbb-red font-bold mt-1">
-              {isEn ? 'Priority Tier 1' : 'Dringlichkeitsstufe 1'}
-            </div>
-          </div>
-
-          <div className="p-4 bg-sbb-cloud/50 border-l-2 border-sbb-red">
-            <div className="text-[10px] font-mono text-sbb-stone uppercase tracking-wider mb-1">
-              {isEn ? 'CONTRADICTIONS IDENTIFIED' : 'IDENTIFIZIERTE WIDERSPRÜCHE'}
-            </div>
-            <div className="text-2xl font-black text-sbb-red tracking-tight">
+        {/* Slim 1-Row Dossier Metadata Bar */}
+        <div className="flex flex-wrap items-center justify-between gap-3 pt-2 text-xs font-mono text-zinc-700">
+          <div className="flex flex-wrap items-center gap-3">
+            <span>
+              <strong className="text-sbb-black">{data.outlet}</strong> ({data.journalist})
+            </span>
+            <span className="text-zinc-400">•</span>
+            <span>
               {data.contradictions.length}{' '}
-              <span className="text-xs font-normal text-sbb-stone font-mono">
-                {data.contradictions.length === 1
-                  ? (isEn ? 'Finding' : 'Befund')
-                  : (isEn ? 'Findings' : 'Befunde')}
-              </span>
-            </div>
-            <div className="text-[10px] font-mono text-sbb-stone mt-1">
-              {highContradictions.length}x {isEn ? 'Critical' : 'Kritisch'} • {midContradictions.length}x {isEn ? 'Moderate' : 'Moderat'}
-            </div>
+              {data.contradictions.length === 1
+                ? isEn
+                  ? 'Friction Point'
+                  : 'Risikopunkt'
+                : isEn
+                ? 'Friction Points'
+                : 'Risikopunkte'}{' '}
+              ({highContradictions.length} {isEn ? 'Critical' : 'Kritisch'})
+            </span>
           </div>
-
-          <div className="p-4 bg-sbb-cloud/50 border-l-2 border-amber-500">
-            <div className="text-[10px] font-mono text-sbb-stone uppercase tracking-wider mb-1">
-              {isEn ? 'WORKFLOW STATUS' : 'PROZESS-STATUS'}
-            </div>
-            <div className="text-base font-bold text-sbb-black">
-              {isEn ? 'DRAFT ANSWER READY' : 'ANTWORT-ENTWURF BEREIT'}
-            </div>
-            <div className="text-[10px] font-mono text-amber-800 font-bold mt-1">
-              {isEn ? 'Awaiting Human & Legal Iteration' : 'Menschliche & Legal-Iteration nötig'}
-            </div>
-          </div>
+          <span className="px-2 py-0.5 bg-amber-50 border border-amber-300 text-amber-900 font-bold text-[10px]">
+            {isEn ? 'AWAITING HUMAN & LEGAL SIGN-OFF' : 'WARTET AUF MENSCHLICHE & LEGAL-FREIGABE'}
+          </span>
         </div>
       </div>
 

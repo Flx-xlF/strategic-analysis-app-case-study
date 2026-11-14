@@ -1,24 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Language } from '../../fixtures/scenarios';
 import { getCockpitData, CockpitData, WorldRegionId, RegionalSynthesisRow } from '../../fixtures/cockpitFixtures';
 import { ActiveTab } from '../common/CommandHeader';
 import { 
   BarChart3, 
-  Layers, 
   Filter, 
   ArrowRight, 
-  AlertTriangle, 
-  CheckCircle2, 
-  TrendingUp, 
   Globe2, 
   Bot, 
   Newspaper, 
   MessageSquare, 
-  ShieldAlert,
   Flame,
-  BrainCircuit,
   Search,
-  ExternalLink
+  ChevronDown,
+  ChevronUp
 } from 'lucide-react';
 
 interface Props {
@@ -27,8 +22,6 @@ interface Props {
   selectedRegion: WorldRegionId;
   onSelectRegion: (reg: WorldRegionId) => void;
   onNavigateTab: (tab: ActiveTab) => void;
-  isStreaming: boolean;
-  streamProgress: number;
 }
 
 export const NarrativeCockpitView: React.FC<Props> = ({
@@ -36,13 +29,11 @@ export const NarrativeCockpitView: React.FC<Props> = ({
   lang,
   selectedRegion,
   onSelectRegion,
-  onNavigateTab,
-  isStreaming,
-  streamProgress
+  onNavigateTab
 }) => {
+  const [showBaseline, setShowBaseline] = useState<boolean>(false);
   const data: CockpitData = getCockpitData(lang, scenarioId);
   const isEn = lang === 'en';
-  const locale = isEn ? 'en-US' : 'de-CH';
 
   const displayedRows = selectedRegion === 'all' 
     ? data.regional_synthesis 
@@ -76,8 +67,8 @@ export const NarrativeCockpitView: React.FC<Props> = ({
             </h1>
             <p className="text-sm text-sbb-stone mt-1 max-w-3xl leading-relaxed">
               {isEn
-                ? `Beyond volume and sentiment monitoring: compresses ${data.pipeline.raw_ingested_72h.toLocaleString(locale)}+ external articles, forum threads, and AI search outputs into the few topics gaining momentum—showing where corporate arguments are absorbed and where contradictions between regions or channels weaken the company’s signal.`
-                : `Mehr als Volumen- und Sentiment-Monitoring: verdichtet über ${data.pipeline.raw_ingested_72h.toLocaleString(locale)} externe Artikel, Forenbeiträge und KI-Suchantworten – und zeigt, wo Kernargumente ankommen oder wo Widersprüche zwischen Regionen und Kanälen die eigene Position schwächen.`}
+                ? 'Compresses incoming press, forum, and AI search streams into the few topics gaining momentum—showing where corporate arguments land and where regional contradictions weaken the signal.'
+                : 'Verdichtet eingehende Medien-, Foren- und KI-Suchströme auf die wenigen Themen mit Dynamik – und zeigt, wo Kernargumente ankommen oder wo regionale Widersprüche die Position schwächen.'}
             </p>
           </div>
 
@@ -185,6 +176,42 @@ export const NarrativeCockpitView: React.FC<Props> = ({
         </div>
       </div>
 
+      {/* ═══ COMPACT COLLAPSIBLE BASELINE POSITION ANCHOR ═══ */}
+      <div className="bg-white border border-sbb-aluminum">
+        <button
+          type="button"
+          onClick={() => setShowBaseline(prev => !prev)}
+          className="w-full px-5 py-3 flex items-center justify-between text-left hover:bg-sbb-cloud/50 transition-colors cursor-pointer"
+        >
+          <div className="flex items-center gap-2 text-xs font-mono font-bold text-sbb-black uppercase tracking-wider">
+            <span className="w-2 h-2 bg-sbb-black" />
+            <span>
+              {isEn
+                ? `Approved Baseline Facts (${data.target_narratives.length} Pillars — What Coverage Is Measured Against)`
+                : `Freigegebene Grundposition (${data.target_narratives.length} Säulen — Massstab für den Abgleich)`}
+            </span>
+          </div>
+          <span className="text-[10px] font-mono font-bold text-sbb-red flex items-center gap-1">
+            {showBaseline ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+            <span>{showBaseline ? (isEn ? 'Hide' : 'Ausblenden') : (isEn ? 'Inspect' : 'Anzeigen')}</span>
+          </span>
+        </button>
+
+        {showBaseline && (
+          <div className="p-5 pt-2 border-t border-zinc-200 grid grid-cols-1 md:grid-cols-3 gap-4">
+            {data.target_narratives.map((pillar) => (
+              <div key={pillar.id} className="p-3.5 bg-sbb-cloud/50 border border-sbb-aluminum space-y-1.5">
+                <div className="text-[10px] font-mono font-bold text-sbb-red uppercase">
+                  {isEn ? `PILLAR ${pillar.pillar_number}` : `SÄULE ${pillar.pillar_number}`}
+                </div>
+                <div className="text-xs font-bold text-sbb-black">{pillar.title}</div>
+                <p className="text-[11px] text-zinc-700 leading-snug">{pillar.core_thesis}</p>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
       {/* ═══ BLOCK 02: WORLD REGION SYNTHESIS MATRIX ═══ */}
       <div className="space-y-3">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
@@ -234,43 +261,44 @@ export const NarrativeCockpitView: React.FC<Props> = ({
                     </div>
                   </td>
 
-                  {/* Col 2: Statistical Metrics + Visual Corporate Alignment Bar */}
+                  {/* Col 2: Qualitative Signal Indicators */}
                   <td className="p-4 align-top w-[220px] font-mono">
-                    <div className="space-y-1.5 text-[11px]">
-                      <div className="flex justify-between">
+                    <div className="space-y-2 text-[11px]">
+                      <div className="flex items-center justify-between gap-2">
                         <span className="text-zinc-600">{isEn ? 'Volume:' : 'Volumen:'}</span>
-                        <span className="font-bold text-sbb-black">{row.deduped_volume.toLocaleString(locale)} <span className="text-[10px] text-zinc-600 font-normal">({row.raw_volume.toLocaleString(locale)} {isEn ? 'raw' : 'Roh'})</span></span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-zinc-600">{isEn ? 'Volume Spike:' : 'Volumen-Anstieg:'}</span>
-                        <span className={`font-bold ${row.velocity_z_score >= 3.0 ? 'text-red-700' : 'text-zinc-800'}`}>
-                          +{row.velocity_z_score}σ {row.velocity_z_score >= 3.0 ? (isEn ? '(High)' : '(Stark)') : ''}
+                        <span className={`px-1.5 py-0.5 text-[10px] font-bold border ${
+                          row.velocity_z_score >= 3.0
+                            ? 'bg-red-50 text-red-700 border-red-200'
+                            : row.velocity_z_score >= 2.0
+                            ? 'bg-amber-50 text-amber-800 border-amber-200'
+                            : 'bg-zinc-100 text-zinc-700 border-zinc-200'
+                        }`}>
+                          {row.velocity_z_score >= 3.0
+                            ? (isEn ? 'Unusual Surge' : 'Starker Anstieg')
+                            : row.velocity_z_score >= 2.0
+                            ? (isEn ? 'Elevated' : 'Erhöht')
+                            : (isEn ? 'Steady' : 'Ruhig')}
                         </span>
                       </div>
-                      <div className="pt-1 space-y-1">
-                        <div className="flex justify-between text-[10px]">
-                          <span className="text-zinc-600">{isEn ? 'Match with Company Position:' : 'Übereinstimmung mit Grundposition:'}</span>
-                          <span className={`font-bold ${row.cosine_alignment < 0.45 ? 'text-red-700' : row.cosine_alignment > 0.7 ? 'text-emerald-700' : 'text-amber-800'}`}>
-                            {Math.round(row.cosine_alignment * 100)}% ({row.cosine_alignment.toFixed(2)})
-                          </span>
-                        </div>
-                        <div className="w-full h-2 bg-zinc-200 flex overflow-hidden" title={isEn ? 'Match with approved company position (1.00 = full match)' : 'Übereinstimmung mit freigegebener Grundposition (1.00 = voll)'}>
-                          <div
-                            className={`h-full ${
-                              row.cosine_alignment < 0.45
-                                ? 'bg-sbb-red'
-                                : row.cosine_alignment > 0.7
-                                ? 'bg-emerald-600'
-                                : 'bg-amber-500'
-                            }`}
-                            style={{ width: `${Math.round(row.cosine_alignment * 100)}%` }}
-                          />
-                        </div>
-                        <div className="text-[10px] text-zinc-600 flex justify-between">
-                          <span>0%</span>
-                          <span>{isEn ? 'Target: 100%' : 'Soll: 100%'}</span>
-                        </div>
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="text-zinc-600">{isEn ? 'Position Fit:' : 'Passung:'}</span>
+                        <span className={`px-1.5 py-0.5 text-[10px] font-bold border ${
+                          row.cosine_alignment < 0.45
+                            ? 'bg-red-50 text-red-700 border-red-200'
+                            : row.cosine_alignment > 0.7
+                            ? 'bg-emerald-50 text-emerald-800 border-emerald-200'
+                            : 'bg-amber-50 text-amber-800 border-amber-200'
+                        }`}>
+                          {row.cosine_alignment < 0.45
+                            ? (isEn ? 'Diverging' : 'Abweichend')
+                            : row.cosine_alignment > 0.7
+                            ? (isEn ? 'Aligned' : 'Stimmig')
+                            : (isEn ? 'Mixed' : 'Gemischt')}
+                        </span>
                       </div>
+                      <p className="text-[11px] font-sans text-zinc-600 leading-snug pt-1 border-t border-zinc-100">
+                        {row.strategic_risk_summary}
+                      </p>
                     </div>
                   </td>
 
@@ -296,41 +324,20 @@ export const NarrativeCockpitView: React.FC<Props> = ({
                     </p>
                   </td>
 
-                  {/* Col 5: AI Answer Summary + Visual Distortion Gap Bar */}
+                  {/* Col 5: AI Answer Summary */}
                   <td className="p-4 align-top max-w-[290px]">
-                    <div className="flex items-center justify-between text-[10px] font-mono font-bold uppercase mb-1">
+                    <div className="flex items-center justify-between text-[10px] font-mono font-bold uppercase mb-1.5">
                       <span className="flex items-center gap-1 text-zinc-700">
                         <Bot className="w-3.5 h-3.5 text-sbb-red" />
                         <span>{isEn ? 'AI ANSWER SUMMARY' : 'KI-ZUSAMMENFASSUNG'}</span>
                       </span>
-                      <span className={`px-1.5 py-0.2 border text-[10px] ${
+                      <span className={`px-1.5 py-0.5 border text-[10px] ${
                         row.llm_hallucination_rate > 35 ? 'bg-red-50 text-red-700 border-red-200' : 'bg-emerald-50 text-emerald-800 border-emerald-200'
                       }`}>
-                        {row.llm_hallucination_rate}% {isEn ? 'Distorted' : 'Verzerrt'}
+                        {row.llm_hallucination_rate > 35
+                          ? (isEn ? 'Distortion Risk' : 'Verzerrungsrisiko')
+                          : (isEn ? 'Mostly Accurate' : 'Weitgehend korrekt')}
                       </span>
-                    </div>
-                    {/* Visual Split Bar: Aligned Corporate Facts vs. LLM Distortion */}
-                    <div className="mb-2 space-y-0.5 font-mono">
-                      <div className="w-full h-1.5 bg-zinc-200 flex overflow-hidden">
-                        <div
-                          className="h-full bg-emerald-600"
-                          style={{ width: `${Math.max(0, 100 - row.llm_hallucination_rate)}%` }}
-                          title={isEn ? 'Aligned with Corporate Facts' : 'Faktentreu zum Unternehmens-Narrativ'}
-                        />
-                        <div
-                          className="h-full bg-sbb-red"
-                          style={{ width: `${Math.min(100, row.llm_hallucination_rate)}%` }}
-                          title={isEn ? 'LLM Distortion / Hallucination Share' : 'Anteil KI-Faktenverzerrung'}
-                        />
-                      </div>
-                      <div className="flex justify-between text-[10px] text-zinc-600">
-                        <span className="text-emerald-700 font-bold">
-                          {100 - row.llm_hallucination_rate}% {isEn ? 'Fact-Aligned' : 'Faktentreu'}
-                        </span>
-                        <span className="text-red-700 font-bold">
-                          {row.llm_hallucination_rate}% {isEn ? 'Gap' : 'Abweichung'}
-                        </span>
-                      </div>
                     </div>
                     <p className="text-zinc-800 leading-snug">
                       {row.llm_synthesis_frame}
@@ -387,13 +394,13 @@ export const NarrativeCockpitView: React.FC<Props> = ({
                 <span>01 // REMOVE DUPLICATES</span>
                 <span className="text-zinc-500">MinHash</span>
               </div>
-              <div className="text-2xl font-black text-sbb-black tracking-tight tabular-nums">
-                {data.pipeline.raw_ingested_72h.toLocaleString(locale)}
+              <div className="text-sm font-black text-sbb-black tracking-tight">
+                {isEn ? 'Collapse Wire Reprints' : 'Agentur-Dubletten bündeln'}
               </div>
               <p className="text-[11px] text-zinc-600 mt-1">
-                {isEn 
-                  ? `Combined ${data.pipeline.syndicated_reprints_collapsed.toLocaleString(locale)} duplicate wire reprints into ${data.pipeline.minhash_deduped_unique.toLocaleString(locale)} unique articles.` 
-                  : `${data.pipeline.syndicated_reprints_collapsed.toLocaleString(locale)} Agentur-Dubletten auf ${data.pipeline.minhash_deduped_unique.toLocaleString(locale)} Unikate verdichtet.`}
+                {isEn
+                  ? 'Groups syndicated copies so volume reflects distinct stories rather than wire echo.'
+                  : 'Fasst identische Agenturmeldungen zusammen, damit echte Themen sichtbar werden.'}
               </p>
             </div>
 
@@ -403,13 +410,13 @@ export const NarrativeCockpitView: React.FC<Props> = ({
                 <span>02 // GROUP BY TOPIC</span>
                 <span className="text-zinc-500">HDBSCAN</span>
               </div>
-              <div className="text-2xl font-black text-sbb-black tracking-tight tabular-nums">
-                {data.pipeline.hdbscan_clusters_identified} <span className="text-xs font-normal text-sbb-stone">{isEn ? 'Topics' : 'Themen'}</span>
+              <div className="text-sm font-black text-sbb-black tracking-tight">
+                {isEn ? 'Isolate Story Clusters' : 'Themen-Cluster trennen'}
               </div>
               <p className="text-[11px] text-zinc-600 mt-1">
-                {isEn 
-                  ? `Filtered out ${data.pipeline.off_topic_noise_filtered_pct}% off-topic chatter and grouped the rest into distinct topics.` 
-                  : `${data.pipeline.off_topic_noise_filtered_pct}% themenfremdes Rauschen gefiltert und den Rest in Themen gruppiert.`}
+                {isEn
+                  ? 'Separates relevant policy and clinical debates from background off-topic chatter.'
+                  : 'Trennt relevante Fach- und Politikdebatten von themenfremdem Rauschen.'}
               </p>
             </div>
 
@@ -419,8 +426,8 @@ export const NarrativeCockpitView: React.FC<Props> = ({
                 <span>03 // SPOT VOLUME SPIKES</span>
                 <span className="text-sbb-red font-bold">z-Score + Cosine</span>
               </div>
-              <div className="text-2xl font-black text-sbb-red tracking-tight tabular-nums">
-                {data.pipeline.peak_z_score} <span className="text-xs font-normal text-sbb-stone">{isEn ? 'Spike' : 'Spike'}</span>
+              <div className="text-sm font-black text-sbb-red tracking-tight">
+                {isEn ? 'Flag Regional Surges' : 'Regionale Spikes melden'}
               </div>
               <p className="text-[11px] text-zinc-600 mt-1">
                 {data.pipeline.peak_anomaly_summary}
@@ -433,13 +440,13 @@ export const NarrativeCockpitView: React.FC<Props> = ({
                 <span>04 // AI READS KEY ARTICLES</span>
                 <span className="text-zinc-700 font-bold">LLM Pass</span>
               </div>
-              <div className="text-2xl font-black text-sbb-black tracking-tight tabular-nums">
-                {data.pipeline.centroid_texts_analyzed_by_llm} <span className="text-xs font-normal text-sbb-stone">{isEn ? 'Key Articles' : 'Kernartikel'}</span>
+              <div className="text-sm font-black text-sbb-black tracking-tight">
+                {isEn ? 'Inspect Representative Texts' : 'Kernartikel prüfen'}
               </div>
               <p className="text-[11px] text-zinc-600 mt-1">
-                {isEn 
-                  ? `Instead of reading all ${data.pipeline.raw_ingested_72h.toLocaleString(locale)} items, the AI inspects only the ${data.pipeline.centroid_texts_analyzed_by_llm} most representative articles.` 
-                  : `Statt alle ${data.pipeline.raw_ingested_72h.toLocaleString(locale)} Meldungen zu lesen, prüft die KI nur die ${data.pipeline.centroid_texts_analyzed_by_llm} repräsentativsten Artikel.`}
+                {isEn
+                  ? 'Instead of feeding raw article streams into an LLM, AI inspects only the core representative articles.'
+                  : 'Statt rohe Medienströme in ein LLM zu geben, prüft die KI nur die repräsentativsten Kernartikel.'}
               </p>
             </div>
           </div>
@@ -485,7 +492,7 @@ export const NarrativeCockpitView: React.FC<Props> = ({
       </div>
 
       {/* ═══ NEXT-STEP WORKFLOW BRIDGE (01 → 02) ═══ */}
-      <div className="bg-sbb-black text-white border-l-4 border-sbb-red p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="bg-sbb-black text-white border-l-4 border-sbb-red px-5 py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div className="space-y-1">
           <div className="text-[10px] font-mono text-[#FFCC00] uppercase tracking-widest font-bold">
             {isEn ? 'NEXT STEP IN WORKFLOW // MODULE 01 → MODULE 02' : 'NÄCHSTER PROZESSSCHRITT // MODUL 01 → MODUL 02'}

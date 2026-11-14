@@ -31,7 +31,7 @@ export const ConceptMethodModal: React.FC<Props> = ({ isOpen, onClose, onOpenFlo
 
   return (
     <div 
-      className="fixed inset-0 z-[60] bg-black/60 flex items-start justify-center p-3 sm:p-6 overflow-y-auto animate-fadeIn"
+      className="fixed inset-0 z-[60] bg-black/60 flex items-start justify-center p-3 sm:p-6 overflow-y-auto"
       onClick={onClose}
     >
       <div 
@@ -81,7 +81,7 @@ export const ConceptMethodModal: React.FC<Props> = ({ isOpen, onClose, onOpenFlo
                 </>
               ) : (
                 <>
-                  <strong>Externe Feeds:</strong> Zehntausende wöchentliche Meldungen lassen sich nicht sinnvoll direkt in ein LLM geben. Eine 4-stufige Pipeline (Dubletten entfernen via MinHash &rarr; Themen gruppieren via HDBSCAN &rarr; Volumen-Spikes via <em>z</em>-Score &rarr; Cosinus-Abgleich) filtert zuerst auf repräsentative Artikel.
+                  <strong>Externe Feeds:</strong> Laufende wöchentliche Medienströme lassen sich nicht sinnvoll direkt in ein LLM geben. Eine 4-stufige Pipeline (Dubletten entfernen via MinHash &rarr; Themen gruppieren via HDBSCAN &rarr; Volumen-Spikes via <em>z</em>-Score &rarr; Cosinus-Abgleich) filtert zuerst auf repräsentative Artikel.
                 </>
               )}
             </p>
@@ -118,11 +118,11 @@ export const ConceptMethodModal: React.FC<Props> = ({ isOpen, onClose, onOpenFlo
             <p>
               {isEn ? (
                 <>
-                  <strong>Top-Down (03–04):</strong> Instead of lengthy static PDF manuals that teams skip under time pressure, approved Golden Sources (GS-01–GS-03) and four writing rules load directly into 1-click recipes inside Outlook and Word—using full plain language for websites/social, a light touch for clinical studies to protect scientific accuracy, and before/after draft stress-tests.
+                  <strong>Top-Down (03–04):</strong> Instead of lengthy static PDF manuals that teams skip under time pressure, approved Golden Sources and four writing rules load directly into 1-click recipes inside Outlook and Word—using full plain language for websites/social, a light touch for clinical studies to protect scientific accuracy, and before/after draft stress-tests.
                 </>
               ) : (
                 <>
-                  <strong>Top-Down (03–04):</strong> Statt umfangreicher statischer PDF-Leitfäden fliessen geprüfte Golden Sources (GS-01–GS-03) und vier Schreibregeln direkt in 1-Klick-Rezepte für Outlook und Word – mit klarer Alltagssprache für Website/Social, einem schonenden Modus für klinische Studien zum Schutz der wissenschaftlichen Präzision sowie Stresstests vor Freigabe.
+                  <strong>Top-Down (03–04):</strong> Statt umfangreicher statischer PDF-Leitfäden fliessen geprüfte Golden Sources und vier Schreibregeln direkt in 1-Klick-Rezepte für Outlook und Word – mit klarer Alltagssprache für Website/Social, einem schonenden Modus für klinische Studien zum Schutz der wissenschaftlichen Präzision sowie Stresstests vor Freigabe.
                 </>
               )}
             </p>

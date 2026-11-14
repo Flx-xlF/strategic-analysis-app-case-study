@@ -30,10 +30,6 @@ interface Props {
   currentTourStep?: number;
   lang: Language;
   setLang: (lang: Language) => void;
-  // Optional legacy props for backwards compatibility
-  onSimulate?: () => void;
-  isStreaming?: boolean;
-  onAbort?: () => void;
 }
 
 export const CommandHeader: React.FC<Props> = ({

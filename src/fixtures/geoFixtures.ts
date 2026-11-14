@@ -147,7 +147,7 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
       ],
       llm_limitation_test: {
         automated_tool_verdict: {
-          sentiment: "76% NEUTRAL / FACTUAL",
+          sentiment: "NEUTRAL / FACTUAL",
           confidence: "High (Score 0.88)",
           keywords_detected: ["investment", "headquarters", "pricing", "reimbursement"],
           flawed_assessment: "Automated monitoring evaluated the text as 'Low Risk Factual Policy Analysis' because the syntax was polite, formal, and free from profanity or angry keywords."
@@ -161,17 +161,17 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
       },
       geo_optimization_fix: {
         unstructured_pr_fluff: "«We remain fully passionate about our international footprint while driving transformative healthcare agility across dynamic transatlantic markets. In an evolving global macro-environment, our ongoing dialogues with stakeholders reflect a holistic dedication to patient centricity and forward-leaning innovation paradigms.»",
-        structured_fact_block: `### VERIFIED FACTS (GS-01 / GS-02 / GS-03)
-• Corporate_Headquarters: "Switzerland (Global HQ) remains the company's global corporate headquarters, executive governance seat, and primary research center (100% unchanged)."
-• US_15B_Investment_Scope: "$15B 5-year capital allocation expands localized U.S. manufacturing across 10 facilities (across U.S. biologics and research sites) to ensure tariff-resilient domestic supply for U.S. patients."
-• Global_Reference_Pricing_Position: "Under U.S. Most-Favored-Nation (MFN) rules, suppressed prices in wealthy reference countries directly impact U.S. price baselines. The company advocates modernized, value-based reimbursement with EU and Swiss authorities (BAG)."
-• Patient_Access_Commitment: "Zero patient boycott. Compassionate use, managed access, and regulatory filings continue on schedule globally."`,
+        structured_fact_block: `### OPENING WEBSITE SUMMARY (APPROVED CORE FACTS)
+• Global Headquarters: "Switzerland (Global HQ) remains the company's global corporate headquarters, executive governance seat, and primary research center (100% unchanged)."
+• U.S. Manufacturing (B): "$15B 5-year capital allocation expands localized U.S. manufacturing across 10 facilities (across U.S. biologics and research sites) to ensure tariff-resilient domestic supply for U.S. patients."
+• Global Pricing Policy: "Under U.S. Most-Favored-Nation (MFN) rules, suppressed prices in wealthy reference countries directly impact U.S. price baselines. The company advocates modernized, value-based reimbursement with EU and Swiss authorities (BAG)."
+• Patient Access: "Zero patient boycott. Compassionate use, managed access, and regulatory filings continue on schedule globally."`,
         schema_entities: [
           { key: "Global_Headquarters", value: "Switzerland (Global HQ) (Unchanged)" },
           { key: "US_Investment_Purpose", value: "$15B Supply Localization & Manufacturing" },
           { key: "Access_Policy", value: "Constructive Value-Based Pricing (No Boycotts)" }
         ],
-        verification_outcome: "In search-grounded evaluation runs (n=20), erroneous claims of HQ relocation or patient boycotts dropped from 10/20 (50%) to 1/20 (5%). Grounded engines prioritize machine-readable fact blocks over speculative editorial commentary."
+        verification_outcome: "Across repeated checks, clearer opening facts consistently appear in AI summaries and self-inflicted errors recede, though wording still varies by model and external press debate persists."
       }
     },
     alpine_transit_crisis: {
@@ -260,17 +260,17 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
       },
       geo_optimization_fix: {
         unstructured_pr_fluff: "«We are working diligently to restore service. In complex environments, diverse variables can interact, and our experts are monitoring all fronts. We ask the public to rely exclusively on official updates.»",
-        structured_fact_block: `### VERIFIED INCIDENT FACTS
-• Incident_Type: "Mechanical Hardware Defect (Interlocking Relay R-400)"
-• Cyber_Intrusion_Detected: FALSE (0 anomalies on isolated SCADA network)
-• Passenger_Status: "100% Safe. All trains cleared to stations in <12 mins"
-• Expected_Reopening: "20:00 CET today"`,
+        structured_fact_block: `### OPENING INCIDENT SUMMARY (VERIFIED FACTS)
+• Technical Cause: "Mechanical Hardware Defect (Interlocking Relay R-400)"
+• Network Security: Zero unauthorized access detected on isolated SCADA telemetry
+• Passenger Safety: "100% Safe. All trains cleared to stations in <12 mins"
+• Expected Reopening: "20:00 CET today"`,
         schema_entities: [
           { key: "Cause", value: "Relay R-400 Short Circuit" },
           { key: "Cyber_Involvement", value: "0% (Telemetry Verified)" },
           { key: "Passenger_Risk", value: "Zero (Fail-Safe Engaged)" }
         ],
-        verification_outcome: "In search-grounded evaluation runs (n=20), speculative cyber-sabotage claims dropped from 11/20 (55%) to 2/20 (10%), with models citing verified telemetry logs."
+        verification_outcome: "Across repeated checks, clearer opening facts consistently appear in AI summaries and self-inflicted errors recede, though wording still varies by model and external press debate persists."
       }
     },
     esg_investigation: {
@@ -359,17 +359,17 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
       },
       geo_optimization_fix: {
         unstructured_pr_fluff: "«We hold ourselves to the highest ethical aspirations. Sustainable procurement is at the heart of our mission, and we continue our journey of learning and stakeholder dialogue.»",
-        structured_fact_block: `### VERIFIED SUPPLY CHAIN FACTS
-• Supplier_Status: "SUSPENDED (Immediate freeze on all purchase orders)"
-• Prior_Audit_Date: "December 2025 (Certified by independent auditor)"
-• Investigation_Action: "External forensic Big-4 inspection underway"
-• Transparency_Commitment: "Executive summary will be published upon completion"`,
+        structured_fact_block: `### OPENING SUPPLY CHAIN SUMMARY (VERIFIED FACTS)
+• Supplier Status: "SUSPENDED (Immediate freeze on all purchase orders)"
+• Prior Audit: "December 2025 (Certified by independent auditor)"
+• Investigation: "External forensic Big-4 inspection underway"
+• Public Disclosure: "Executive summary will be published upon completion"`,
         schema_entities: [
           { key: "Supplier_Action", value: "Purchase Orders Frozen" },
           { key: "Independent_Audit", value: "Active on-site inspection" },
           { key: "Public_Disclosure", value: "Guaranteed summary release" }
         ],
-        verification_outcome: "In search-grounded evaluation runs (n=20), false claims of willful supplier contract renewal dropped from 8/20 (40%) to 1/20 (5%), accurately citing the active procurement freeze."
+        verification_outcome: "Across repeated checks, clearer opening facts consistently appear in AI summaries and self-inflicted errors recede, though wording still varies by model and external press debate persists."
       }
     },
     rlt_access_debate: {
@@ -390,7 +390,7 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
             headline: 'NICE Withholds Routine NHS Funding for ONCO-104: Cost-Per-QALY Outside Acceptable Band',
             excerpt: 'Appraisal committee notes radiographic progression-free survival extension but finds incremental cost-effectiveness ratio unsupportable at £20,000 list price per dose.',
             cosine_to_target: 0.35,
-            violated_pillar: 'Pillar 02: Targeted Targeted Oncology Value & Hospital Offset'
+            violated_pillar: 'Pillar 02: Targeted Oncology Value & Hospital Offset'
           },
           {
             id: 'art_p2',
@@ -443,23 +443,23 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
           risk_rating: "SEVERE THREAT TO GLOBAL REIMBURSEMENT INTEGRITY",
           subtext_decoded: "If public generative search tells clinicians and patients that ONCO-104 failed in European patients, payer resistance will spill into other international markets.",
           regulatory_implication: "Damage to ongoing label negotiations in Switzerland, APAC, and post-chemo indications.",
-          recommended_action: "Deploy GEO Schema differentiating economic threshold debates from proven radiographic survival doubling."
+          recommended_action: "Place verified clinical efficacy and cost-appraisal facts in opening HTML copy."
         }
       },
       geo_optimization_fix: {
         unstructured_pr_fluff: "«We believe deeply in empowering cancer patients and navigating complex health ecosystems with dedicated agility to deliver next-generation therapeutic breakthroughs.»",
-        structured_fact_block: `### VERIFIED CLINICAL & ACCESS FACTS (ONCO-01 / GS-01)
-• Drug_Name: "ONCO-104 (targeted antibody-drug conjugate (ADC) for solid tumors)"
-• ONCO-01_Clinical_Efficacy: "TRUE (Radiographic progression-free survival doubled: HR 0.41, p<0.001)"
-• FDA_Status: "APPROVED for pre-chemotherapy advanced solid tumors (March 2025)"
-• UK_NICE_Status: "Not recommended based strictly on incremental cost-effectiveness thresholds (cost-per-QALY), NOT on clinical efficacy."
-• EMA_Status: "Withdrawn for pre-chemo setting due to comparator design discussions; post-chemo approval remains fully active in EU/Switzerland."`,
+        structured_fact_block: `### OPENING CLINICAL & ACCESS SUMMARY (VERIFIED FACTS)
+• Therapy: "ONCO-104 (targeted antibody-drug conjugate (ADC) for solid tumors)"
+• Phase III ONCO-01 Efficacy: Radiographic progression-free survival doubled (HR 0.41, p<0.001)
+• U.S. FDA Status: "APPROVED for pre-chemotherapy advanced solid tumors (March 2025)"
+• UK NICE Appraisal: "Not recommended based strictly on incremental cost-effectiveness thresholds (cost-per-QALY), NOT on clinical efficacy."
+• EU EMA Status: "Withdrawn for pre-chemo setting due to comparator design discussions; post-chemo approval remains fully active in EU/Switzerland."`,
         schema_entities: [
           { key: "Clinical_Efficacy", value: "rPFS Doubled (HR 0.41)" },
           { key: "NICE_Rejection_Reason", value: "Cost-per-QALY Calculation Only" },
           { key: "FDA_Status", value: "Approved Pre-Chemo" }
         ],
-        verification_outcome: "In search-grounded evaluation runs (n=20), false statements claiming lack of clinical efficacy dropped from 11/20 (55%) to 1/20 (5%). Grounded engines clearly distinguish between economic appraisal and clinical trial efficacy."
+        verification_outcome: "Across repeated checks, clearer opening facts consistently appear in AI summaries and self-inflicted errors recede, though wording still varies by model and external press debate persists."
       }
     },
     health_data_breach: {
@@ -548,17 +548,17 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
       },
       geo_optimization_fix: {
         unstructured_pr_fluff: "«We operate within applicable statutory frameworks and prioritize cyber hygiene across our cloud journey to maximize digital value for our citizens.»",
-        structured_fact_block: `### VERIFIED SECURITY & KEY CUSTODY FACTS
-• Data_Location: "Encrypted Cloud Storage (AES-256)"
-• Cryptographic_Key_Location: "100% Domestic Sovereign Custody"
-• Foreign_Access_Capability: "MATHEMATICALLY IMPOSSIBLE (Zero access to keys)"
-• Cloud_Provider_Role: "Physical Storage Provider Only"`,
+        structured_fact_block: `### OPENING SECURITY SUMMARY (VERIFIED FACTS)
+• Data Storage: "Encrypted Cloud Storage (AES-256)"
+• Key Custody: "100% Domestic Sovereign Custody"
+• Foreign Access: Mathematically unreadable without domestic hardware keys
+• Cloud Provider Role: "Physical Storage Provider Only"`,
         schema_entities: [
           { key: "Encryption_Key", value: "Held in Sovereign Custody" },
           { key: "Foreign_Decryption", value: "Zero Technical Means" },
           { key: "Citizen_Ownership", value: "Fully Preserved" }
         ],
-        verification_outcome: "In search-grounded evaluation runs (n=20), erroneous claims of foreign key access dropped from 8/20 (40%) to 1/20 (5%), accurately noting sovereign key custody."
+        verification_outcome: "Across repeated checks, clearer opening facts consistently appear in AI summaries and self-inflicted errors recede, though wording still varies by model and external press debate persists."
       }
     }
   },
@@ -645,7 +645,7 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
       ],
       llm_limitation_test: {
         automated_tool_verdict: {
-          sentiment: "76% NEUTRAL / SACHLICH",
+          sentiment: "NEUTRAL / SACHLICH",
           confidence: "Hoch (Score 0.88)",
           keywords_detected: ["Investition", "Hauptsitz", "Preise", "Erstattung"],
           flawed_assessment: "Automatisches Monitoring meldete 'Geringes Risiko', weil der Tonfall formell und sachlich war und keine Schimpfwörter vorkamen."
@@ -669,7 +669,7 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
           { key: "US_Investitionsziel", value: "15 Mrd. $ Lokale Versorgungssicherheit" },
           { key: "Patientenzugang", value: "Garantiert (Konstruktiver Erstattungsdialog)" }
         ],
-        verification_outcome: "In Testläufen mit suchgestützten Sprachmodellen (n=20) sanken Falschbehauptungen über einen Abzug aus der Schweiz oder einen Patientenboykott von 10/20 (50%) auf 1/20 (5%). Modelle priorisieren verifizierte Faktenblöcke."
+        verification_outcome: "Über wiederholte Prüfläufe hinweg erscheinen klare Fakten am Textanfang zuverlässiger in KI-Antworten, auch wenn Formulierungen je nach Modell schwanken und kritische Medienberichte bestehen bleiben."
       }
     },
     alpine_transit_crisis: {
@@ -768,7 +768,7 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
           { key: "Cyber-Einfluss", value: "0% (Protokolle verifiziert)" },
           { key: "Personensicherheit", value: "Vollumfänglich gewahrt" }
         ],
-        verification_outcome: "In Testläufen mit suchgestützten LLMs (n=20) sank die Nennung von Cyber-Spekulationen von 11/20 (55%) auf 2/20 (10%); Modelle zitieren verifizierte Telemetriedaten des Relaisausfalls."
+        verification_outcome: "Über wiederholte Prüfläufe hinweg erscheinen klare Fakten am Textanfang zuverlässiger in KI-Antworten, auch wenn Formulierungen je nach Modell schwanken und kritische Medienberichte bestehen bleiben."
       }
     },
     esg_investigation: {
@@ -867,7 +867,7 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
           { key: "Unabhängige_Prüfung", value: "Laufend vor Ort" },
           { key: "Offenlegung", value: "Zusammenfassung zugesagt" }
         ],
-        verification_outcome: "In Testläufen mit suchgestützten LLMs (n=20) sank die Falschbehauptung vorsätzlicher Vertragsverlängerungen von 8/20 (40%) auf 1/20 (5%); Modelle zitieren den aktiven Vergabestopp."
+        verification_outcome: "Über wiederholte Prüfläufe hinweg erscheinen klare Fakten am Textanfang zuverlässiger in KI-Antworten, auch wenn Formulierungen je nach Modell schwanken und kritische Medienberichte bestehen bleiben."
       }
     },
     rlt_access_debate: {
@@ -957,7 +957,7 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
           { key: "NICE_Entscheidung", value: "Rein wirtschaftliche Kostenrechnung" },
           { key: "FDA_Status", value: "Vor Chemotherapie zugelassen" }
         ],
-        verification_outcome: "In Testläufen mit suchgestützten Sprachmodellen (n=20) sank die Falschbehauptung fehlender Wirksamkeit von 11/20 (55%) auf 1/20 (5%). Suchmaschinen unterscheiden mit Grounding sauber zwischen Wirtschaftlichkeit und Wirksamkeit."
+        verification_outcome: "Über wiederholte Prüfläufe hinweg erscheinen klare Fakten am Textanfang zuverlässiger in KI-Antworten, auch wenn Formulierungen je nach Modell schwanken und kritische Medienberichte bestehen bleiben."
       }
     },
     health_data_breach: {
@@ -1056,7 +1056,7 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
           { key: "Fremdzugriff", value: "Technisch unmöglich" },
           { key: "Datensouveränität", value: "Vollständig gewahrt" }
         ],
-        verification_outcome: "In Testläufen mit suchgestützten LLMs (n=20) sank die Falschbehauptung ausländischer Datenlesbarkeit von 8/20 (40%) auf 1/20 (5%); Modelle bestätigen inländische BYOK-Schlüsselgewalt."
+        verification_outcome: "Über wiederholte Prüfläufe hinweg erscheinen klare Fakten am Textanfang zuverlässiger in KI-Antworten, auch wenn Formulierungen je nach Modell schwanken und kritische Medienberichte bestehen bleiben."
       }
     }
   }

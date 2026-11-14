@@ -46,7 +46,7 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
     return [
       {
         stepNumber: '01',
-        shortLabel: 'Overview',
+        shortLabel: 'Two-Way Workspace',
         targetAnchorLabel: 'Scenario Switcher & Two-Way Tabs',
         headline: 'One Topic Across Press, Forums, and AI Search',
         whatYouSee:
@@ -64,7 +64,7 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
         targetAnchorLabel: 'Tab 01 // Regional Cockpit & Filter [EU]',
         headline: '01 Regional Cockpit: Why Sentiment Scores Miss Real Risks',
         whatYouSee:
-          'Filtered to EU: standard sentiment tools rate coverage as "76% Neutral" because trade articles use formal language—while critical coverage on patient access is spiking.',
+          'Filtered to EU: standard sentiment tools rate coverage as neutral because trade articles use formal language—while critical coverage on patient access is spiking.',
         whyItMatters:
           'Removing duplicate wire reprints and spotting unusual volume spikes shows where a debate is heating up before the tone turns openly hostile.',
         tryThisLabel: 'Reset Filter to ALL Regions',
@@ -92,7 +92,7 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
         targetAnchorLabel: 'Tab 03 // Approved Sources & Recipes',
         headline: '03 Sources & Recipes: Applying Rules Without PDF Manuals',
         whatYouSee:
-          'Anchors approved facts (GS-01–GS-03) and the 4 writing rules into 1-click Outlook/Word recipes. Test the 3 edit-depth modes (Plain Language, Study Rigor, Legal Boundary) and Before/After Diff.',
+          'Anchors approved Golden Sources and the 4 writing rules into 1-click Outlook/Word recipes. Test the 3 edit-depth modes (Plain Language, Study Rigor, Legal Boundary) and Before/After Diff.',
         whyItMatters:
           'Teams rarely open lengthy PDF manuals on deadline—and markets don’t want copy-paste boilerplate. Recipes lock only the core facts while AI adapts tone naturally to each audience and channel without hurting AI search.',
         tryThisLabel: 'Filter Recipes to Switzerland (CH)',
@@ -120,7 +120,7 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
   return [
     {
       stepNumber: '01',
-      shortLabel: 'Überblick',
+      shortLabel: 'Zwei-Wege-Ansicht',
       targetAnchorLabel: 'Szenario-Wahl & Zwei-Wege-Leiste',
       headline: 'Ein Thema über Presse, Foren und KI-Suche hinweg',
       whatYouSee:
@@ -138,7 +138,7 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
       targetAnchorLabel: 'Tab 01 // Regionales Cockpit & Filter [EU]',
       headline: '01 Regionales Cockpit: Warum Sentiment-Werte Risiken übersehen',
       whatYouSee:
-        'Auf EU gefiltert: Standard-Sentiment meldet "76% Neutral", da Fachmedien sachlich formulieren – während kritische Berichte zum Patientenzugang stark ansteigen.',
+        'Auf EU gefiltert: Standard-Sentiment stuft Berichte als neutral ein, da Fachmedien sachlich formulieren – während kritische Berichte zum Patientenzugang stark ansteigen.',
       whyItMatters:
         'Das Herausfiltern von Agentur-Dubletten und das Erkennen ungewöhnlicher Volumen-Anstiege zeigen frühzeitig, wo eine Debatte eskaliert.',
       tryThisLabel: 'Filter auf ALLE Regionen setzen',
@@ -166,7 +166,7 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
       targetAnchorLabel: 'Tab 03 // Geprüfte Quellen & Rezepte',
       headline: '03 Quellen & Rezepte: Regeln anwenden ohne PDF-Handbücher',
       whatYouSee:
-        'Bündelt geprüfte Golden Sources (GS-01–GS-03) und lädt die 4 Schreibregeln in 1-Klick-Rezepte. Testen Sie die 3 Eingriffstiefen (Alltagssprache, Studien-Präzision, Rechtsgrenze) und den Vorher/Nachher-Vergleich.',
+        'Bündelt geprüfte Golden Sources und lädt die 4 Schreibregeln in 1-Klick-Rezepte. Testen Sie die 3 Eingriffstiefen (Alltagssprache, Studien-Präzision, Rechtsgrenze) und den Vorher/Nachher-Vergleich.',
       whyItMatters:
         'Unter Zeitdruck öffnet niemand umfangreiche PDF-Leitfäden – und Märkte wollen keine starren Einheits-Texte. Rezepte sichern nur die Kernfakten; Tonalität und Länge passen sich organisch an Kanal und Zielgruppe an, ohne dass KI-Suche darunter leidet.',
       tryThisLabel: 'Rezepte auf Schweiz (CH) filtern',

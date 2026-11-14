@@ -963,7 +963,7 @@ A: No. Assembly facilities continue on schedule utilizing qualified alternative 
           regional_lead_frame: 'Supporting university hospital infrastructure and patient access in Switzerland.',
           blueprints: {
             hintergrund: { id: 'hintergrund', label: 'Swiss Medical Media Dossier', target_audience: 'Medical Trade Press', psychological_objective: 'Secure comprehensive center care.', blueprint_content: 'Expanding specialized targeted oncology therapeutic capacity across Swiss university medical centers.' },
-            social: { id: 'social', label: 'Headquarters Social Media', target_audience: 'Professional Community', psychological_objective: 'Clear clinical information.', blueprint_content: 'Targeted targeted oncology precision oncology is available for eligible patients across Swiss medical centers.' },
+            social: { id: 'social', label: 'Headquarters Social Media', target_audience: 'Professional Community', psychological_objective: 'Clear clinical information.', blueprint_content: 'Targeted oncology precision oncology is available for eligible patients across Swiss medical centers.' },
             talking_points: { id: 'talking_points', label: 'Swiss Spokesperson Points', target_audience: 'Spokespersons', psychological_objective: 'Clarity and partnership.', blueprint_content: 'Constructive collaboration with Swiss hospitals and health insurers ensures uninterrupted patient access.' },
             qa_brief: { id: 'qa_brief', label: 'Swiss Desk Q&A', target_audience: 'Media Relations', psychological_objective: 'Precision and transparency.', blueprint_content: 'Reimbursement progresses through proven Swiss Specialties List (SL) value assessment mechanisms.' }
           }
@@ -2297,4 +2297,128 @@ A: Indem Datendateien mathematisch versiegelt werden, bevor sie Speicherserver b
 export const getTrendingData = (lang: Language, scenarioId: string): TrendingScenarioData => {
   const langData = TRENDING_FIXTURES[lang] || TRENDING_FIXTURES.en;
   return langData[scenarioId] || langData.oncology_trial_update || langData.alpine_transit_crisis;
+};
+
+export type SteeringMode = 'plain' | 'study_rigor' | 'legal_boundary';
+
+export const getScenarioSourceRef = (scenarioId: string): string => {
+  switch (scenarioId) {
+    case 'alpine_transit_crisis':
+      return 'RAIL-FDV-301 & SEC-2026';
+    case 'esg_investigation':
+      return 'ESG-CODE-2025-V2 & SMETA';
+    case 'health_data_breach':
+      return 'BYOK-SPEC-2026 & EPDG-321';
+    case 'rlt_access_debate':
+      return 'ONCO-01-SAP & HEOR-03';
+    default:
+      return 'GS-01–GS-03 (MFN & CAPEX)';
+  }
+};
+
+export const getScenarioDiff = (
+  lang: Language,
+  scenarioId: string,
+  steering: SteeringMode
+): { removed: string; added: string } => {
+  const isEn = lang === 'en';
+  const map: Record<string, { removedEn: string; removedDe: string; addedEn: string; addedDe: string }> = {
+    rlt_access_debate: {
+      removedEn: '«Despite claims that ONCO-104 failed in European patients, we remain committed to navigating complex payer ecosystems.»',
+      removedDe: '«Entgegen Behauptungen, ONCO-104 sei bei europäischen Patienten gescheitert, engagieren wir uns weiter in komplexen Systemen.»',
+      addedEn: steering === 'study_rigor'
+        ? '«Phase III ONCO-01 doubled progression-free survival (HR 0.41, p<0.001) [endpoints preserved]. UK NICE’s decision reflects cost-per-QALY thresholds, not clinical efficacy.»'
+        : steering === 'legal_boundary'
+        ? '«Phase III ONCO-01 doubled progression-free survival (HR 0.41, p<0.001). [Open / To verify with Legal/MLR: exact UK NICE resubmission timeline].»'
+        : '«Phase III ONCO-01 doubled the time patients lived without their cancer growing (HR 0.41, p<0.001). The UK review was about price limits, not whether the medicine works.»',
+      addedDe: steering === 'study_rigor'
+        ? '«Phase-III-Studie ONCO-01 verdoppelte das progressionsfreie Überleben (HR 0.41, p<0.001) [Endpunkte unverändert]. Die NICE-Entscheidung betrifft Kostenschwellen, nicht die Wirksamkeit.»'
+        : steering === 'legal_boundary'
+        ? '«Phase-III-Studie ONCO-01 verdoppelte das progressionsfreie Überleben (HR 0.41, p<0.001). [Offen / Mit Legal/MLR prüfen: genaues Datum der NICE-Neueinreichung].»'
+        : '«Die Studie ONCO-01 verdoppelte die Zeit, in der Patienten ohne Tumorwachstum lebten (HR 0.41). In Grossbritannien ging es um Preisgrenzen, nicht um die Wirksamkeit.»'
+    },
+    health_data_breach: {
+      removedEn: '«We strongly deny that foreign authorities can read Swiss patient records; our cloud architecture leverages best-in-class zero-trust paradigms.»',
+      removedDe: '«Wir weisen entschieden zurück, dass ausländische Behörden Schweizer Patientendaten lesen können; unsere Cloud nutzt Best-in-Class-Zero-Trust-Paradigmen.»',
+      addedEn: steering === 'legal_boundary'
+        ? '«Patient data is encrypted with Bring-Your-Own-Key (BYOK) held in Switzerland under FDPIC oversight. [Open / To verify with Legal: exact audit log release date].»'
+        : '«Patient records are mathematically unreadable outside Switzerland: the decryption keys stay 100% in Swiss hands under federal privacy oversight.»',
+      addedDe: steering === 'legal_boundary'
+        ? '«Patientendaten werden mit Bring-Your-Own-Key (BYOK) in der Schweiz unter EDÖB-Aufsicht verschlüsselt. [Offen / Mit Legal prüfen: Datum des Prüfberichts].»'
+        : '«Patientendaten sind ausserhalb der Schweiz mathematisch unlesbar: Die digitalen Schlüssel bleiben zu 100 % in Schweizer Hand.»'
+    },
+    esg_investigation: {
+      removedEn: '«These isolated Tier-2 allegations do not reflect our holistic sustainability journey or our commitment to stakeholder-centric supply chain synergy.»',
+      removedDe: '«Diese isolierten Tier-2-Vorwürfe spiegeln nicht unsere ganzheitliche Nachhaltigkeitsreise und Lieferketten-Synergie wider.»',
+      addedEn: steering === 'legal_boundary'
+        ? '«All orders to the subcontractor are frozen effective immediately while an independent on-site audit runs. [Open / To verify with Legal: final audit publication date].»'
+        : '«Zero tolerance: we froze all orders to the affected supplier immediately and launched an independent on-site audit whose findings will be published.»',
+      addedDe: steering === 'legal_boundary'
+        ? '«Alle Aufträge an den Subunternehmer sind per sofort gestoppt; eine unabhängige Vor-Ort-Prüfung läuft. [Offen / Mit Legal prüfen: Publikationsdatum des Berichts].»'
+        : '«Nulltoleranz: Wir haben alle Aufträge an den betroffenen Zulieferer sofort gestoppt und eine unabhängige Prüfung vor Ort gestartet.»'
+    },
+    alpine_transit_crisis: {
+      removedEn: '«Contrary to unconfirmed sabotage rumors, passenger safety is our #1 priority during this unprecedented operational disruption.»',
+      removedDe: '«Entgegen unbestätigten Sabotage-Gerüchten hat Fahrgastsicherheit höchste Priorität während dieser beispiellosen Betriebsstörung.»',
+      addedEn: steering === 'legal_boundary'
+        ? '«Trains are routed safely via the scenic mountain line while a relay component is replaced. [Open / To verify with Security/NCSC: final root-cause sign-off].»'
+        : '«All trains are running safely via the scenic mountain route (+55 min) while engineers replace a signalling relay; full tunnel service resumes at 20:00 CET.»',
+      addedDe: steering === 'legal_boundary'
+        ? '«Züge verkehren sicher über die Bergstrecke, während ein Stellwerk-Bauteil ersetzt wird. [Offen / Mit Sicherheit/NCSC prüfen: abschliessende Ursachenfreigabe].»'
+        : '«Alle Züge fahren sicher über die Bergstrecke (+55 Min.), während Techniker ein Signal-Bauteil tauschen; ab 20:00 Uhr läuft der Tunnel wieder regulär.»'
+    },
+    oncology_trial_update: {
+      removedEn: '«We are not boycotting European patients or abandoning Switzerland—we are driving transformative healthcare agility.»',
+      removedDe: '«Wir boykottieren keine europäischen Patienten und verlassen die Schweiz nicht – wir treiben agile Transformation voran.»',
+      addedEn: steering === 'legal_boundary'
+        ? '«Switzerland remains our global headquarters. Our B U.S. investment expands local production. [Open / To verify with Legal: country-by-country launch dates].»'
+        : '«Switzerland remains our global headquarters and primary research hub. Our B U.S. investment expands local manufacturing while patient access programs continue on schedule.»',
+      addedDe: steering === 'legal_boundary'
+        ? '«Die Schweiz bleibt unser weltweiter Hauptsitz. Die 15-Mrd.-569XInvestition stärkt die US-Produktion. [Offen / Mit Legal prüfen: Länder-Einführungsdaten].»'
+        : '«Die Schweiz bleibt unser weltweiter Hauptsitz und Forschungsstandort. Die 15-Mrd.-569XInvestition baut die US-Produktion aus; Zugangsprogramme laufen planmässig weiter.»'
+    }
+  };
+  const entry = map[scenarioId] || map.oncology_trial_update;
+  return {
+    removed: isEn ? entry.removedEn : entry.removedDe,
+    added: isEn ? entry.addedEn : entry.addedDe
+  };
+};
+
+export const getSteeredDraftContent = (
+  lang: Language,
+  scenarioId: string,
+  steering: SteeringMode,
+  baseContent: string
+): string => {
+  const isEn = lang === 'en';
+  if (steering === 'plain') {
+    const tag = isEn
+      ? '**[PLAIN-LANGUAGE EDIT APPLIED]** Everyday phrasing; core figures and names kept intact.'
+      : '**[ALLTAGSSPRACHE AKTIV]** Verständliche Sprache; Kernzahlen und Namen unverändert.';
+    return `${tag}\n\n${baseContent}`;
+  }
+  if (steering === 'study_rigor') {
+    const lockNote =
+      scenarioId === 'rlt_access_debate'
+        ? isEn
+          ? '**[LOCKED CLINICAL ENDPOINT]** Phase III ONCO-01 (HR 0.41, p<0.001) preserved verbatim. Context note separates efficacy from local cost-per-QALY appraisals.'
+          : '**[GESCHÜTZTER STUDIEN-ENDPUNKT]** Phase-III ONCO-01 (HR 0.41, p<0.001) wörtlich geschützt. Kontext trennt Wirksamkeit von Kostenschwellen.'
+        : isEn
+        ? '**[LOCKED TECHNICAL / POLICY FACTS]** Exact figures, study codes, and regulatory terms preserved verbatim without simplification.'
+        : '**[GESCHÜTZTE FACHFAKTEN]** Exakte Zahlen, Studiencodes und Fachbegriffe wörtlich geschützt.';
+    return `${lockNote}\n\n${baseContent}`;
+  }
+  const legalTag = isEn
+    ? '**[OPEN / TO VERIFY WITH LEGAL & MLR]** Unconfirmed country timelines, settlement terms, or external audit release dates are held for sign-off.'
+    : '**[OFFEN / MIT LEGAL & MLR PRÜFEN]** Unbestätigte Länderdaten, Fristen oder Prüfberichts-Termine bleiben bis zur Freigabe markiert.';
+  const legalPlaceholder =
+    scenarioId === 'rlt_access_debate'
+      ? isEn
+        ? '[Open / To verify with Legal/MLR: exact UK NICE resubmission timeline and EMA comparator wording]'
+        : '[Offen / Mit Legal/MLR prüfen: genaues Datum der NICE-Neueinreichung]'
+      : isEn
+      ? '[Open / To verify with Legal/MLR: exact regional timeline & forward-looking commitments]'
+      : '[Offen / Mit Legal/MLR prüfen: genaue regionale Fristen & verbindliche Zusagen]';
+  return `${legalTag}\n\n${baseContent}\n\n${legalPlaceholder}`;
 };

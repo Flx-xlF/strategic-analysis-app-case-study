@@ -25,7 +25,7 @@ export const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<ActiveTab>(getInitialTab);
   const [selectedRegion, setSelectedRegion] = useState<WorldRegionId>('all');
   const [showConceptGuide, setShowConceptGuide] = useState<boolean>(false);
-  const [showQuickTour, setShowQuickTour] = useState<boolean>(true);
+  const [showQuickTour, setShowQuickTour] = useState<boolean>(false);
   const [tourStep, setTourStep] = useState<number>(0);
   
   // Keep scenarios in sync with current language
@@ -149,8 +149,6 @@ export const App: React.FC = () => {
             selectedRegion={selectedRegion}
             onSelectRegion={setSelectedRegion}
             onNavigateTab={handleTabChange}
-            isStreaming={false}
-            streamProgress={100}
           />
         )}
 
@@ -161,8 +159,6 @@ export const App: React.FC = () => {
             selectedRegion={selectedRegion}
             onSelectRegion={setSelectedRegion}
             onNavigateTab={handleTabChange}
-            isStreaming={false}
-            streamProgress={100}
           />
         )}
 
@@ -173,8 +169,6 @@ export const App: React.FC = () => {
             selectedRegion={selectedRegion}
             onSelectRegion={setSelectedRegion}
             onNavigateTab={handleTabChange}
-            isStreaming={false}
-            streamProgress={100}
           />
         )}
 
@@ -182,8 +176,6 @@ export const App: React.FC = () => {
           <StressTestAndInquiryView
             scenarioId={selectedScenario.id}
             lang={lang}
-            isStreaming={false}
-            streamProgress={100}
           />
         )}
       </main>

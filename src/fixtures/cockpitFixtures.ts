@@ -180,12 +180,12 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
         }
       ],
       surface_nlp_vs_forensic_reality: {
-        commercial_nlp_sentiment: '76% NEUTRAL / POLICY ANALYSIS (Score 0.84)',
-        commercial_nlp_confidence: 'High statistical confidence across 19,110 deduplicated records',
+        commercial_nlp_sentiment: 'NEUTRAL / POLICY ANALYSIS (Score 0.84)',
+        commercial_nlp_confidence: 'Formal, non-emotional trade language',
         commercial_nlp_blindspot: 'Standard NLP sentiment scores formal health-policy coverage and parliamentary inquiries as "Neutral" because they lack emotional profanity or consumer outrage keywords.',
         forensic_reality_verdict: 'ACUTE POLITICAL & REPUTATIONAL BACKLASH IN EU & SWITZERLAND',
-        forensic_reality_subtext: 'Cluster #01 ("Launch Delay Fears & Swiss Footprint") experienced a +3.9σ breakout across European and Swiss tier-1 outlets. Payer bodies in Brussels and commentators in Bern are framing pricing reform as an ultimatum against patients.',
-        statistical_proof_anchor: 'z = +3.9σ velocity outbreak | Cosine alignment 0.34 in EU | 48% AI answer distortion rate'
+        forensic_reality_subtext: 'Cluster #01 ("Launch Delay Fears & Swiss Footprint") experienced a sharp volume surge across European and Swiss tier-1 outlets. Payer bodies in Brussels and commentators in Bern are framing pricing reform as an ultimatum against patients.',
+        statistical_proof_anchor: 'High regional surge • Diverging AI synthesis'
       }
     },
     alpine_transit_crisis: {
@@ -298,12 +298,12 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
         }
       ],
       surface_nlp_vs_forensic_reality: {
-        commercial_nlp_sentiment: '68% NEUTRAL / DESCRIPTIVE',
+        commercial_nlp_sentiment: 'NEUTRAL / DESCRIPTIVE',
         commercial_nlp_confidence: 'High',
         commercial_nlp_blindspot: 'Misses that foreign media wires conflated domestic rail maintenance with international hybrid warfare threats.',
         forensic_reality_verdict: 'GEOPOLITICAL FRAMING DRIFT IN INTERNATIONAL WIRES',
         forensic_reality_subtext: 'While Swiss media focused on commuter delays, foreign wire services generated +3.2σ spikes framing the incident as proof of Western infrastructure vulnerability.',
-        statistical_proof_anchor: 'z = +4.6σ peak spike (+3.2σ intl) | Cross-border alignment 0.35 | 55% AI distortion'
+        statistical_proof_anchor: 'High regional surge • Diverging AI synthesis'
       }
     },
     esg_investigation: {
@@ -404,12 +404,12 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
         }
       ],
       surface_nlp_vs_forensic_reality: {
-        commercial_nlp_sentiment: '56% NEUTRAL / 34% NEGATIVE',
+        commercial_nlp_sentiment: 'NEUTRAL / 34% NEGATIVE',
         commercial_nlp_confidence: 'Medium',
         commercial_nlp_blindspot: 'Standard sentiment tools treat NGO campaign posts as general negative chatter without detecting legal CSDDD liability claims.',
         forensic_reality_verdict: 'CSDDD DUE DILIGENCE LITIGATION RISK',
         forensic_reality_subtext: 'European media cluster is linking the subcontractor allegations directly to corporate liability statutes, which could impact upcoming sustainability bond auctions.',
-        statistical_proof_anchor: 'z = +3.4σ European velocity | Cosine alignment 0.42 | 42% LLM bias rate'
+        statistical_proof_anchor: 'High regional surge • Diverging AI synthesis'
       }
     },
     rlt_access_debate: {
@@ -441,7 +441,7 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
         {
           id: 'p_pillar_2',
           pillar_number: '02',
-          title: 'Targeted Targeted Oncology Value & Hospital Offset (GS-03)',
+          title: 'Targeted Oncology Value & Hospital Offset (GS-03)',
           core_thesis: 'Precision targeted cancer therapy delivers targeted radiation directly to cancer cells, reducing debilitating chemotherapy toxicities and delaying costly acute inpatient admissions.',
           target_vector_anchor: 'Ref: GS-03 (Targeted Oncology Health Economics & Outcomes Research)',
           mandatory_proof_points: [
@@ -522,12 +522,12 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
         }
       ],
       surface_nlp_vs_forensic_reality: {
-        commercial_nlp_sentiment: '71% NEUTRAL / MEDICAL ANALYSIS (Score 0.79)',
+        commercial_nlp_sentiment: 'NEUTRAL / MEDICAL ANALYSIS (Score 0.79)',
         commercial_nlp_confidence: 'High',
         commercial_nlp_blindspot: 'Standard NLP misses that the NICE cost-effectiveness rejection is being cited by international payers as proof of unaffordability.',
         forensic_reality_verdict: 'TRANSATLANTIC ACCESS CHASM',
         forensic_reality_subtext: 'While the US embraces the pre-chemo indication, European HTA skepticism and AI hallucinations claim the drug is ineffective, threatening international reimbursement benchmarks.',
-        statistical_proof_anchor: 'z = +4.2σ European spike | Cosine alignment 0.31 | 54% LLM distortion rate in EU'
+        statistical_proof_anchor: 'High regional surge • Diverging AI synthesis'
       }
     },
     health_data_breach: {
@@ -628,12 +628,12 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
         }
       ],
       surface_nlp_vs_forensic_reality: {
-        commercial_nlp_sentiment: '64% NEUTRAL / JURIDICAL',
+        commercial_nlp_sentiment: 'NEUTRAL / JURIDICAL',
         commercial_nlp_confidence: 'High',
         commercial_nlp_blindspot: 'Misses that fear of foreign access is causing real-world doctor hesitation despite legal compliance.',
         forensic_reality_verdict: 'CLINICAL ADOPTION RETICENCE',
         forensic_reality_subtext: 'The debate is emotional and trust-driven. Abstract assurances about legal compliance fail to reassure doctors.',
-        statistical_proof_anchor: 'z = +3.1σ domestic spike | Cosine alignment 0.52 | 40% AI answer distortion on key ownership'
+        statistical_proof_anchor: 'High regional surge • Diverging AI synthesis'
       }
     }
   },
@@ -760,12 +760,12 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
         }
       ],
       surface_nlp_vs_forensic_reality: {
-        commercial_nlp_sentiment: '76% NEUTRAL / FACHPOLITISCH (Score 0.84)',
-        commercial_nlp_confidence: 'Hohe statistische Konfidenz über 19.110 deduplizierte Meldungen',
+        commercial_nlp_sentiment: 'NEUTRAL / FACHPOLITISCH (Score 0.84)',
+        commercial_nlp_confidence: 'Formale, ruhige Fachsprache',
         commercial_nlp_blindspot: 'Standard-NLP stuft die diplomatische Fachsprache der Gesundheitspolitiker als "neutral" ein, weil keine Vulgärsprache oder wütende Verbraucherbegriffe vorkommen.',
         forensic_reality_verdict: 'AKUTER POLITISCHER GEGENWIND IN EUROPA & DER SCHWEIZ',
         forensic_reality_subtext: 'Cluster #01 ("Einführungsverzögerungen & Standort Schweiz") verzeichnet einen +3.9σ Ausbruch. Europäische Kassen und Bundespolitiker in Bern deuten die Reformforderungen als Ultimatum gegen die Versorgung.',
-        statistical_proof_anchor: 'z = +3.9σ Anomalie | Cosinus-Ähnlichkeit 0.34 in EU | 48% KI-Verzerrungsrate'
+        statistical_proof_anchor: 'Hoher regionaler Anstieg • Abweichende KI-Synthese'
       }
     },
     alpine_transit_crisis: {
@@ -866,12 +866,12 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
         }
       ],
       surface_nlp_vs_forensic_reality: {
-        commercial_nlp_sentiment: '68% NEUTRAL / BESCHREIBEND',
+        commercial_nlp_sentiment: 'NEUTRAL / BESCHREIBEND',
         commercial_nlp_confidence: 'Hoch',
         commercial_nlp_blindspot: 'Erkennt nicht, dass ausländische Medien die Schweizer Stellwerkstörung mit hybrider Kriegsführung verknüpfen.',
         forensic_reality_verdict: 'GEOPOLITISCHE NARRATIV-VERZERRUNG IM AUSLAND',
         forensic_reality_subtext: 'Während Schweizer Medien sachlich über Umleitungen berichten, erzeugen internationale Agenturen einen +3.2σ Anstieg mit Fokus auf angebliche Sabotage.',
-        statistical_proof_anchor: 'z = +4.6σ Spitzen-Spike (+3.2σ Ausland) | Cosinus-Ähnlichkeit 0.35 | 55% KI-Verzerrung'
+        statistical_proof_anchor: 'Hoher regionaler Anstieg • Abweichende KI-Synthese'
       }
     },
     esg_investigation: {
@@ -972,12 +972,12 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
         }
       ],
       surface_nlp_vs_forensic_reality: {
-        commercial_nlp_sentiment: '56% NEUTRAL / 34% NEGATIV',
+        commercial_nlp_sentiment: 'NEUTRAL / 34% NEGATIV',
         commercial_nlp_confidence: 'Mittel',
         commercial_nlp_blindspot: 'Erkennt nicht, dass NGO-Aussagen juristische Haftungsansprüche unter CSDDD vorbereiten.',
         forensic_reality_verdict: 'CSDDD-HAFTUNGSRISIKO IN EUROPA',
         forensic_reality_subtext: 'Europäische Medien verknüpfen den Einzelfall direkt mit gesetzlichen Sorgfaltspflichten.',
-        statistical_proof_anchor: 'z = +3.4σ Europa-Dynamik | Cosinus-Ähnlichkeit 0.42 | 42% KI-Verzerrungsrate'
+        statistical_proof_anchor: 'Hoher regionaler Anstieg • Abweichende KI-Synthese'
       }
     },
     rlt_access_debate: {
@@ -1090,12 +1090,12 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
         }
       ],
       surface_nlp_vs_forensic_reality: {
-        commercial_nlp_sentiment: '71% NEUTRAL / FACHMEDIZINISCH (Score 0.79)',
+        commercial_nlp_sentiment: 'NEUTRAL / FACHMEDIZINISCH (Score 0.79)',
         commercial_nlp_confidence: 'Hoch',
         commercial_nlp_blindspot: 'Standard-NLP übersieht, dass die NICE-Ablehnung von Kassen als Beleg für Unwirtschaftlichkeit gewertet wird.',
         forensic_reality_verdict: 'TRANSATLANTISCHE VERSORGUNGSKLUFT',
         forensic_reality_subtext: 'Während die USA die Indikation rasch adaptieren, führen europäische HTA-Zweifel und KI-Halluzinationen zu Reputations- und Preisrisiken.',
-        statistical_proof_anchor: 'z = +4.2σ Europa-Spike | Cosinus-Ähnlichkeit 0.31 | 54% KI-Verzerrung in EU'
+        statistical_proof_anchor: 'Hoher regionaler Anstieg • Abweichende KI-Synthese'
       }
     },
     health_data_breach: {
@@ -1196,12 +1196,12 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
         }
       ],
       surface_nlp_vs_forensic_reality: {
-        commercial_nlp_sentiment: '64% NEUTRAL / JURISTISCH',
+        commercial_nlp_sentiment: 'NEUTRAL / JURISTISCH',
         commercial_nlp_confidence: 'Hoch',
         commercial_nlp_blindspot: 'Übersieht, dass emotionale Bedenken der Ärzte die reale Einführung bremsen, obwohl die rechtliche Compliance gewahrt ist.',
         forensic_reality_verdict: 'VERTRAUENSKRISE BEI MEDIZINERN',
         forensic_reality_subtext: 'Reine Gesetzestexte verfehlen ihre Wirkung; Ärzte fordern handfeste Garantien zur Schlüsselgewalt.',
-        statistical_proof_anchor: 'z = +3.1σ Inlands-Spike | Cosinus-Ähnlichkeit 0.52 | 40% KI-Verzerrungsrate'
+        statistical_proof_anchor: 'Hoher regionaler Anstieg • Abweichende KI-Synthese'
       }
     }
   }

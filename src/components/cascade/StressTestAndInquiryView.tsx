@@ -13,17 +13,13 @@ import {
 interface Props {
   scenarioId: string;
   lang: Language;
-  isStreaming: boolean;
-  streamProgress: number;
 }
 
 export type SubModuleMode = 'stress_test' | 'inquiry_defense';
 
 export const StressTestAndInquiryView: React.FC<Props> = ({
   scenarioId,
-  lang,
-  isStreaming,
-  streamProgress
+  lang
 }) => {
   const [subMode, setSubMode] = useState<SubModuleMode>('stress_test');
   const isEn = lang === 'en';
@@ -70,8 +66,6 @@ export const StressTestAndInquiryView: React.FC<Props> = ({
           <NarrativeCascadeView
             scenarioId={scenarioId}
             lang={lang}
-            isStreaming={isStreaming}
-            streamProgress={streamProgress}
           />
 
           {/* Sub-module Hand-off Bridge (04A → 04B) */}
@@ -103,8 +97,6 @@ export const StressTestAndInquiryView: React.FC<Props> = ({
           <MediaInquiryView
             scenarioId={scenarioId}
             lang={lang}
-            isStreaming={isStreaming}
-            streamProgress={streamProgress}
           />
 
           {/* Sub-module Hand-off Bridge (04B → 04A) */}
