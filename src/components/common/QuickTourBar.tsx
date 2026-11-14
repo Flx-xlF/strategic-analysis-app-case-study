@@ -52,7 +52,7 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
         whatYouSee:
           'Choose from 5 scenarios (Biopharma & Healthcare or Crisis & ESG) and filter by region (ALL, US, EU, CH, APAC). Search and AI assistants pull press articles, forums, company pages, and old PDFs into a single answer.',
         whyItMatters:
-          'When regional messages or old files contradict each other, AI answers mix them up. The bar above connects external monitoring (01–02) with approved sources and daily writing recipes (03–04).',
+          'When core facts, figures, or old PDFs contradict each other (not because local phrasing varies), AI answers mix them up. The bar above connects external monitoring (01–02) with approved facts and tailored writing recipes (03–04).',
         tryThisLabel: 'Switch to Cancer Therapy Case',
         targetTab: 'cockpit',
         targetRegion: 'all',
@@ -92,9 +92,9 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
         targetAnchorLabel: 'Tab 03 // Approved Sources & Recipes',
         headline: '03 Sources & Recipes: Applying Rules Without PDF Manuals',
         whatYouSee:
-          'Locks approved Golden Sources (GS-01–GS-03), flags old PDFs, and loads the 4 writing rules into 1-click recipes. Click the Steering Buttons or toggle the Before/After Diff above the draft.',
+          'Anchors approved facts (GS-01–GS-03) and the 4 writing rules into 1-click Outlook/Word recipes. Test the 3 edit-depth modes (Plain Language, Study Rigor, Legal Boundary) and Before/After Diff.',
         whyItMatters:
-          'Nobody reads 40-page PDF guidelines under time pressure. Recipes adjust how much they edit: full plain language for websites/social, and a light touch for clinical studies so scientific accuracy stays intact.',
+          'Nobody reads 40-page PDF manuals on deadline—and markets don’t want copy-paste boilerplate. Recipes lock only the core facts while AI adapts tone naturally to each audience and channel without hurting AI search.',
         tryThisLabel: 'Filter Recipes to Switzerland (CH)',
         targetTab: 'trending',
         targetRegion: 'all',
@@ -126,7 +126,7 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
       whatYouSee:
         'Wählen Sie aus 5 Szenarien (Biopharma & Gesundheit oder Krise & ESG) und filtern Sie nach Regionen (ALL, US, EU, CH, APAC). Such- und KI-Systeme ziehen Presseberichte, Foren, eigene Seiten und alte PDFs in einer Antwort zusammen.',
       whyItMatters:
-        'Widersprechen sich regionale Aussagen oder veraltete Dateien, vermischen KI-Antworten die Fakten. Oben verbinden Sie die Umfeld-Analyse (01–02) mit geprüften Quellen und Schreib-Rezepten (03–04).',
+        'Widersprechen sich Kernfakten, Zahlen oder veraltete Dateien (nicht wegen natürlicher lokaler Sprache), vermischen KI-Antworten sie. Oben verbinden Sie Monitoring (01–02) mit geprüften Fakten und Schreib-Rezepten (03–04).',
       tryThisLabel: 'Zum Krebstherapie-Fall wechseln',
       targetTab: 'cockpit',
       targetRegion: 'all',
@@ -168,7 +168,7 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
       whatYouSee:
         'Bündelt geprüfte Golden Sources (GS-01–GS-03) und lädt die 4 Schreibregeln in 1-Klick-Rezepte. Testen Sie die 3 Eingriffstiefen (Alltagssprache, Studien-Präzision, Rechtsgrenze) und den Vorher/Nachher-Vergleich.',
       whyItMatters:
-        'Unter Zeitdruck liest niemand 40-seitige PDF-Leitfäden. Rezepte passen ihre Eingriffstiefe an: einfache Sprache für Website/Social und ein schonender Modus für klinische Studien, damit die wissenschaftliche Präzision erhalten bleibt.',
+        'Unter Zeitdruck liest niemand 40-seitige PDF-Leitfäden – und Märkte wollen keine starren Einheits-Texte. Rezepte sichern nur die Kernfakten; Tonalität und Länge passen sich organisch an Kanal und Zielgruppe an, ohne dass KI-Suche darunter leidet.',
       tryThisLabel: 'Rezepte auf Schweiz (CH) filtern',
       targetTab: 'trending',
       targetRegion: 'all',

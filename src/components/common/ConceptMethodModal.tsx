@@ -11,10 +11,11 @@ import { Language } from '../../fixtures/scenarios';
 interface Props {
   isOpen: boolean;
   onClose: () => void;
+  onOpenFlowView?: () => void;
   lang: Language;
 }
 
-export const ConceptMethodModal: React.FC<Props> = ({ isOpen, onClose, lang }) => {
+export const ConceptMethodModal: React.FC<Props> = ({ isOpen, onClose, onOpenFlowView, lang }) => {
   useEffect(() => {
     if (!isOpen) return;
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -57,11 +58,11 @@ export const ConceptMethodModal: React.FC<Props> = ({ isOpen, onClose, lang }) =
         <div className="p-4 bg-white border-l-4 border-sbb-red border border-zinc-200 text-xs sm:text-sm text-sbb-black leading-relaxed">
           {isEn ? (
             <>
-              <strong>THE PREMISE:</strong> Search and AI assistants pull press coverage, forum threads, company pages, and old PDFs into a single answer. When regional teams use inconsistent framing—or outdated files stay online—models mix them into contradictions. This prototype explores pairing external monitoring (<strong>Outside-In: 01–02</strong>) with source-anchored regional drafting and stress-testing (<strong>Top-Down: 03–04</strong>).
+              <strong>THE PREMISE:</strong> Search and AI assistants pull press coverage, forum threads, company pages, and old PDFs into a single answer. When regional teams publish conflicting facts, mixed figures, or leave outdated PDFs online—even when phrasing naturally varies by market—models mix them into contradictions. This prototype pairs external monitoring (<strong>Outside-In: 01–02</strong>) with fact-anchored regional drafting and stress-testing (<strong>Top-Down: 03–04</strong>).
             </>
           ) : (
             <>
-              <strong>DER ANSATZ:</strong> Suchmaschinen und KI-Assistenten ziehen Presseberichte, Foren, eigene Seiten und alte PDFs in einer einzigen Antwort zusammen. Wenn regionale Teams uneinheitlich formulieren – oder veraltete Dateien online bleiben –, entstehen Widersprüche. Dieser Prototyp verbindet externes Monitoring (<strong>Outside-In: 01–02</strong>) mit quellengebundenen Entwürfen und Stresstests (<strong>Top-Down: 03–04</strong>).
+              <strong>DER ANSATZ:</strong> Suchmaschinen und KI-Assistenten ziehen Presseberichte, Foren, eigene Seiten und alte PDFs in einer einzigen Antwort zusammen. Wenn regionale Angaben bei Fakten und Zahlen auseinanderlaufen – oder veraltete PDFs online bleiben –, entstehen Widersprüche (selbst wenn Tonalität lokal variiert). Dieser Prototyp verbindet externes Monitoring (<strong>Outside-In: 01–02</strong>) mit faktenbasierten Entwürfen und Stresstests (<strong>Top-Down: 03–04</strong>).
             </>
           )}
         </div>
@@ -136,11 +137,11 @@ export const ConceptMethodModal: React.FC<Props> = ({ isOpen, onClose, lang }) =
             <p>
               {isEn ? (
                 <>
-                  <strong>Structure beats metadata tricks:</strong> Adding <code>Schema.org</code> tags or <code>llms.txt</code> does not fix vague copy. Clear conclusions and concrete numbers in the opening paragraph—plus avoiding repeating critic accusations (which search engines index directly alongside the company name)—hold up across <em>n</em>=20 test runs.
+                  <strong>Structure beats metadata tricks:</strong> Adding <code>Schema.org</code> tags or <code>llms.txt</code> does not fix vague copy. Clear conclusions and concrete numbers in the opening paragraph—plus avoiding repeating critic accusations (which search engines index directly alongside the company name)—hold up across <em>n</em>=20 test runs. Same facts, flexible voice: AI search evaluates semantic fact consistency, not identical sentences—so tailoring tone, format, and examples locally creates organic copy without hurting GEO.
                 </>
               ) : (
                 <>
-                  <strong>Struktur vor Metadaten-Tricks:</strong> <code>Schema.org</code> oder <code>llms.txt</code> retten keine vage Prosa. Klare Kernaussagen und Zahlen im ersten Absatz – sowie der Verzicht auf wiederholte Vorwürfe (die Suchmaschinen sonst direkt mit dem Unternehmensnamen verknüpfen) – bestehen im <em>n</em>=20-Test.
+                  <strong>Struktur vor Metadaten-Tricks:</strong> <code>Schema.org</code> oder <code>llms.txt</code> retten keine vage Prosa. Klare Kernaussagen und Zahlen im ersten Absatz – sowie der Verzicht auf wiederholte Vorwürfe (die Suchmaschinen sonst direkt mit dem Unternehmensnamen verknüpfen) – bestehen im <em>n</em>=20-Test. Gleiche Fakten, flexibler Ton: KI-Suche prüft semantische Faktenkonsistenz statt identischer Sätze – lokale Tonalität schadet GEO nicht.
                 </>
               )}
             </p>
@@ -199,7 +200,18 @@ export const ConceptMethodModal: React.FC<Props> = ({ isOpen, onClose, lang }) =
           </div>
         </div>
 
-        <div className="pt-3 border-t border-zinc-200 flex justify-end">
+        <div className="pt-3 border-t border-zinc-200 flex flex-wrap items-center justify-between gap-2">
+          {onOpenFlowView ? (
+            <button
+              type="button"
+              onClick={onOpenFlowView}
+              className="px-4 py-1.5 bg-[#FFCC00] hover:bg-amber-300 text-sbb-black border border-sbb-black font-mono text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer"
+            >
+              {isEn ? '▶ Watch 90-Sec Visual Overview' : '▶ 90-Sek.-Konzept-Flow ansehen'}
+            </button>
+          ) : (
+            <span />
+          )}
           <button
             onClick={onClose}
             className="px-4 py-1.5 bg-sbb-black text-white font-mono text-xs font-bold uppercase tracking-wider hover:bg-zinc-800 transition-colors cursor-pointer"

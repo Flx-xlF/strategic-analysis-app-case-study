@@ -134,15 +134,15 @@ export const TrendingFactoryView: React.FC<Props> = ({
             </h1>
             <p className="text-sm text-sbb-stone mt-1 max-w-3xl leading-relaxed">
               {isEn
-                ? `Defining approved facts centrally is only half the job—teams also need to apply them without friction. Instead of 40-page PDF guidelines, central Golden Sources (GS-01–GS-03) and four writing rules load directly into 1-click recipes for Outlook, Word, and M365 Copilot across owned media, clinical studies, social posts, and press Q&As.`
-                : `Geprüfte Fakten zentral festzulegen ist nur die halbe Miete – Teams müssen sie im Alltag auch reibungslos nutzen können. Statt 40-seitiger PDF-Leitfäden werden die Golden Sources (GS-01–GS-03) und vier Schreibregeln direkt in 1-Klick-Rezepte für Outlook, Word und M365 Copilot geladen.`}
+                ? `Defining approved facts centrally is only half the job—teams also need to apply them without friction. Instead of 40-page PDF manuals, central Golden Sources (GS-01–GS-03) and four writing rules load into 1-click recipes for Outlook, Word, and M365 Copilot—anchoring the core facts while tailoring tone naturally to each channel and market.`
+                : `Geprüfte Fakten zentral festzulegen ist nur die halbe Miete – Teams müssen sie im Alltag auch reibungslos nutzen können. Statt 40-seitiger PDF-Leitfäden laden 1-Klick-Rezepte für Outlook, Word und M365 Copilot die Golden Sources (GS-01–GS-03) direkt in den Text: Kernfakten bleiben verlässlich, Tonalität und Länge passen sich organisch an Markt und Kanal an.`}
             </p>
           </div>
 
           <div className="flex items-center gap-3 shrink-0">
             <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-sbb-cloud border border-sbb-aluminum font-mono text-xs text-sbb-black font-bold">
               <Lock className="w-3.5 h-3.5 text-sbb-red" />
-              <span>{isEn ? 'GOLDEN SOURCES LOCKED' : 'GOLDEN SOURCES FIXIERT'}</span>
+              <span>{isEn ? 'CORE FACTS ANCHORED' : 'KERNFAKTEN VERANKERT'}</span>
             </span>
           </div>
         </div>
@@ -197,7 +197,7 @@ export const TrendingFactoryView: React.FC<Props> = ({
                 <div className="p-3 bg-white border border-emerald-300">
                   <div className="text-[10px] text-emerald-800 uppercase font-bold">{isEn ? 'APPROVED GOLDEN SOURCES' : 'GEPRÜFTE GOLDEN SOURCES'}</div>
                   <div className="text-xl font-black text-emerald-700">{data.corpus_gate.canonical_golden_sources}</div>
-                  <div className="text-[10px] text-emerald-800 mt-0.5">{isEn ? 'Locked Wording Packs' : 'Verbindliche Quellen'}</div>
+                  <div className="text-[10px] text-emerald-800 mt-0.5">{isEn ? 'Approved Fact Sheets' : 'Geprüfte Fakten-Basis'}</div>
                 </div>
                 <div className="p-3 bg-red-50 border border-red-200">
                   <div className="text-[10px] text-red-700 uppercase font-bold">{isEn ? 'OUTDATED FILES & OLD PDFS' : 'VERALTETE DATEIEN & ALT-PDFS'}</div>
@@ -323,12 +323,12 @@ export const TrendingFactoryView: React.FC<Props> = ({
 
               <div className="p-3 bg-sbb-cloud/50 border border-sbb-aluminum space-y-1">
                 <div className="font-mono text-[10px] font-bold text-sbb-black uppercase">
-                  {isEn ? 'RULE 02 // Use consistent terms across regions' : 'REGEL 02 // Einheitliche Begriffe über Regionen'}
+                  {isEn ? 'RULE 02 // Same facts & names, natural local voice' : 'REGEL 02 // Gleiche Fakten & Namen, eigener Ton'}
                 </div>
                 <p className="text-[11px] text-zinc-700 leading-snug">
                   {isEn
-                    ? 'Keep key terms identical across countries and cantons so AI search does not read local wording differences as contradictions.'
-                    : 'Schlüsselbegriffe in allen Ländern und Kantonen gleich halten, damit KI-Antworten lokale Abweichungen nicht als Widerspruch werten.'}
+                    ? 'Keep core facts, numbers, and product/study names consistent—while adapting tone, examples, and length freely to each market. Varied organic phrasing never hurts AI search; only conflicting facts do.'
+                    : 'Fakten, Zahlen und Produkt-/Studiennamen bleiben verlässlich gleich – Tonalität, Länge und Beispiele passen Sie frei an Markt und Kanal an. Organische Vielfalt schadet der KI-Suche nicht; nur widersprüchliche Fakten.'}
                 </p>
               </div>
 
@@ -494,7 +494,25 @@ export const TrendingFactoryView: React.FC<Props> = ({
 
               {/* Interactive Turn 2 Recipe Edit-Depth Modes */}
               <div className="pt-2 border-t border-zinc-200 space-y-2">
-                <div className="text-[10px] font-mono font-bold uppercase text-sbb-stone">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px]">
+                  <div className="px-3 py-1.5 bg-emerald-50/70 border border-emerald-300 text-emerald-950">
+                    <strong className="font-mono text-[10px] uppercase text-emerald-900 mr-1.5">
+                      {isEn ? '🔒 Anchored (Must Match):' : '🔒 Verankert (Fix):'}
+                    </strong>
+                    <span>
+                      {isEn ? 'Core facts, numbers & drug/study names (GS-01–GS-03)' : 'Kernfakten, Zahlen & Produkt-/Studiennamen (GS-01–GS-03)'}
+                    </span>
+                  </div>
+                  <div className="px-3 py-1.5 bg-white border border-sbb-aluminum text-zinc-800">
+                    <strong className="font-mono text-[10px] uppercase text-sbb-black mr-1.5">
+                      {isEn ? '✍️ Flexible (AI Tailored):' : '✍️ Flexibel (KI-angepasst):'}
+                    </strong>
+                    <span>
+                      {isEn ? 'Tone, length & local angle — AI search checks meaning, not copy-paste' : 'Tonalität, Länge & Blickwinkel – KI prüft Bedeutung, keine Einheits-Sätze'}
+                    </span>
+                  </div>
+                </div>
+                <div className="text-[10px] font-mono font-bold uppercase text-sbb-stone pt-1">
                   {isEn ? 'CHOOSE RECIPE EDIT DEPTH (UPDATES DIFF & DRAFT BELOW):' : 'EINGRIFFSTIEFE WÄHLEN (PASST DIFF & ENTWURF AN):'}
                 </div>
                 <div className="flex flex-wrap gap-1.5">
@@ -543,8 +561,8 @@ export const TrendingFactoryView: React.FC<Props> = ({
                 </span>
                 <span className="text-[11px] text-sbb-stone block">
                   {isEn
-                    ? 'Anchored in Golden Sources GS-01–GS-03 and structured using the 4 rules above; local teams adapt tone and secure sign-off.'
-                    : 'Basiert auf den Golden Sources GS-01–GS-03 und den 4 Schreibregeln; Länderteams passen die Tonalität an und holen die Freigabe ein.'}
+                    ? 'Core facts anchored in Golden Sources GS-01–GS-03; AI tailors phrasing naturally to this audience without hurting GEO—local teams refine tone and approve.'
+                    : 'Kernfakten in Golden Sources GS-01–GS-03 verankert; KI passt die Sprache natürlich an Kanal und Zielgruppe an (ohne GEO-Nachteil) – Feinschliff & Freigabe bleiben lokal.'}
                 </span>
               </div>
 

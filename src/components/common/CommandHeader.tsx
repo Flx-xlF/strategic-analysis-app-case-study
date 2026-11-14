@@ -9,10 +9,11 @@ import {
   Sparkles,
   ShieldCheck,
   HelpCircle,
-  Compass
+  Compass,
+  PlayCircle
 } from 'lucide-react';
 
-export type ActiveTab = 'cockpit' | 'geo' | 'trending' | 'cascade';
+export type ActiveTab = 'overview' | 'cockpit' | 'geo' | 'trending' | 'cascade';
 
 interface Props {
   activeTab: ActiveTab;
@@ -148,6 +149,7 @@ export const CommandHeader: React.FC<Props> = ({
         </div>
 
         {/* Level 2: Primary Control Deck (Scenario Switcher + Shared Regional Filter) */}
+        {activeTab !== 'overview' && (
         <div className={`px-4 sm:px-8 py-2.5 bg-white border-b border-sbb-aluminum flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 transition-all min-w-0 ${
           showQuickTour && currentTourStep === 0 ? 'ring-2 ring-[#FFCC00] bg-amber-50/20' : ''
         }`}>
@@ -219,10 +221,27 @@ export const CommandHeader: React.FC<Props> = ({
             </div>
           </div>
         </div>
+        )}
 
         {/* Level 3: Two-Way Strategic Operating Model Navigation (Responsive Grid) */}
         <div className="px-4 sm:px-8 bg-[#F8F8F9] border-b border-sbb-aluminum py-1">
-          <div className="grid grid-cols-1 xl:grid-cols-2 gap-2 max-w-[1600px] mx-auto">
+          <div className="grid grid-cols-1 xl:grid-cols-[auto_1fr_1fr] gap-2 max-w-[1600px] mx-auto">
+            {/* 00: 90-Sec Visual Concept Flow Entry */}
+            <div className="flex items-stretch border border-zinc-200 bg-white p-1 min-w-0">
+              <button
+                onClick={() => setActiveTab('overview')}
+                className={`w-full px-3 py-1.5 font-mono text-xs font-bold tracking-wider uppercase transition-all flex items-center justify-center gap-1.5 cursor-pointer border whitespace-nowrap ${
+                  activeTab === 'overview'
+                    ? 'border-sbb-black bg-sbb-black text-[#FFCC00]'
+                    : 'border-transparent bg-amber-50/70 text-sbb-black hover:bg-[#FFCC00]'
+                }`}
+                title={isEn ? 'Watch the 90-second animated concept overview' : '90-Sekunden animierte Konzept-Übersicht ansehen'}
+              >
+                <span className={`text-[10px] font-black shrink-0 ${activeTab === 'overview' ? 'text-[#FFCC00]' : 'text-sbb-red'}`}>00</span>
+                <PlayCircle className={`w-3.5 h-3.5 shrink-0 ${activeTab === 'overview' ? 'text-[#FFCC00]' : 'text-sbb-red'}`} />
+                <span>{isEn ? 'Concept Flow (90s)' : 'Konzept-Flow (90s)'}</span>
+              </button>
+            </div>
             {/* Column 1: Direction 1 - Outside-In (Analyze & Measure) */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-1 border border-zinc-200 bg-white p-1 min-w-0">
               <span className="text-[10px] font-mono font-black text-sbb-black uppercase tracking-wider px-2 py-1 bg-zinc-100 border-b sm:border-b-0 sm:border-r border-zinc-200 shrink-0 whitespace-nowrap text-center sm:text-left">
@@ -325,6 +344,7 @@ export const CommandHeader: React.FC<Props> = ({
       </header>
 
       {/* Level 4: Compact Non-Sticky Executive Scenario Brief Strip */}
+      {activeTab !== 'overview' && (
       <div className="px-4 sm:px-8 py-2 bg-white border-b border-sbb-aluminum">
         <div className="max-w-[1600px] mx-auto flex flex-col lg:flex-row lg:items-center justify-between gap-2 text-xs">
           <div className="flex flex-wrap items-center gap-2 text-[10px] font-mono uppercase tracking-widest text-zinc-600 shrink-0">
@@ -340,6 +360,7 @@ export const CommandHeader: React.FC<Props> = ({
           </div>
         </div>
       </div>
+      )}
     </>
   );
 };

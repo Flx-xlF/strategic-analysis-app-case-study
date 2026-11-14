@@ -8,10 +8,21 @@ import { NarrativeCockpitView } from './components/cockpit/NarrativeCockpitView'
 import { GeoAuditView } from './components/geo/GeoAuditView';
 import { TrendingFactoryView } from './components/trending/TrendingFactoryView';
 import { StressTestAndInquiryView } from './components/cascade/StressTestAndInquiryView';
+import { ConceptFlowView } from './components/overview/ConceptFlowView';
+
+const getInitialTab = (): ActiveTab => {
+  if (typeof window !== 'undefined') {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('view') === 'demo' || window.location.hash === '#demo') {
+      return 'cockpit';
+    }
+  }
+  return 'overview';
+};
 
 export const App: React.FC = () => {
   const [lang, setLang] = useState<Language>('en');
-  const [activeTab, setActiveTab] = useState<ActiveTab>('cockpit');
+  const [activeTab, setActiveTab] = useState<ActiveTab>(getInitialTab);
   const [selectedRegion, setSelectedRegion] = useState<WorldRegionId>('all');
   const [showConceptGuide, setShowConceptGuide] = useState<boolean>(false);
   const [showQuickTour, setShowQuickTour] = useState<boolean>(true);
@@ -27,23 +38,42 @@ export const App: React.FC = () => {
     setSelectedScenarioId(sc.id);
   };
 
+  const handleTabChange = (tab: ActiveTab) => {
+    setActiveTab(tab);
+    if (typeof window !== 'undefined') {
+      const url = new URL(window.location.href);
+      if (tab === 'overview') {
+        url.searchParams.delete('view');
+        if (url.hash === '#demo') url.hash = '';
+      } else {
+        url.searchParams.set('view', 'demo');
+      }
+      window.history.replaceState({}, '', url.toString());
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   const handleSelectTourStep = (stepIndex: number) => {
     const steps = getTourSteps(lang);
     const target = steps[stepIndex];
     if (!target) return;
 
     setTourStep(stepIndex);
-    setActiveTab(target.targetTab);
+    handleTabChange(target.targetTab);
     if (target.targetRegion) {
       setSelectedRegion(target.targetRegion);
     }
     if (typeof target.openConceptGuide === 'boolean') {
       setShowConceptGuide(target.openConceptGuide);
     }
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleToggleQuickTour = () => {
+    if (activeTab === 'overview') {
+      setShowQuickTour(true);
+      handleSelectTourStep(0);
+      return;
+    }
     setShowQuickTour(prev => {
       const nextState = !prev;
       if (nextState) {
@@ -59,7 +89,7 @@ export const App: React.FC = () => {
     <div className="min-h-screen bg-[#F4F4F6] text-sbb-black flex flex-col font-sans selection:bg-sbb-red selection:text-white overflow-x-hidden">
       <CommandHeader
         activeTab={activeTab}
-        setActiveTab={setActiveTab}
+        setActiveTab={handleTabChange}
         selectedScenario={selectedScenario}
         scenariosList={scenariosList}
         onSelectScenario={handleSelectScenario}
@@ -75,7 +105,7 @@ export const App: React.FC = () => {
       />
 
       <QuickTourBar
-        isOpen={showQuickTour}
+        isOpen={activeTab !== 'overview' && showQuickTour}
         currentStep={tourStep}
         onSelectStep={handleSelectTourStep}
         onClose={() => {
@@ -93,20 +123,32 @@ export const App: React.FC = () => {
       <ConceptMethodModal
         isOpen={showConceptGuide}
         onClose={() => setShowConceptGuide(false)}
+        onOpenFlowView={() => {
+          setShowConceptGuide(false);
+          handleTabChange('overview');
+        }}
         lang={lang}
       />
 
       {/* Main Workspace Stage (with bottom padding for docked product tour) */}
       <main className={`flex-1 max-w-[1600px] w-full mx-auto px-4 sm:px-8 py-6 lg:py-8 transition-all ${
-        showQuickTour ? 'pb-36 lg:pb-32' : 'pb-12'
+        activeTab !== 'overview' && showQuickTour ? 'pb-36 lg:pb-32' : 'pb-12'
       }`}>
+        {activeTab === 'overview' && (
+          <ConceptFlowView
+            lang={lang}
+            onEnterWorkspace={(tab) => handleTabChange(tab || 'cockpit')}
+            onOpenConceptModal={() => setShowConceptGuide(true)}
+          />
+        )}
+
         {activeTab === 'cockpit' && (
           <NarrativeCockpitView
             scenarioId={selectedScenario.id}
             lang={lang}
             selectedRegion={selectedRegion}
             onSelectRegion={setSelectedRegion}
-            onNavigateTab={setActiveTab}
+            onNavigateTab={handleTabChange}
             isStreaming={false}
             streamProgress={100}
           />
@@ -118,7 +160,7 @@ export const App: React.FC = () => {
             lang={lang}
             selectedRegion={selectedRegion}
             onSelectRegion={setSelectedRegion}
-            onNavigateTab={setActiveTab}
+            onNavigateTab={handleTabChange}
             isStreaming={false}
             streamProgress={100}
           />
@@ -130,7 +172,7 @@ export const App: React.FC = () => {
             lang={lang}
             selectedRegion={selectedRegion}
             onSelectRegion={setSelectedRegion}
-            onNavigateTab={setActiveTab}
+            onNavigateTab={handleTabChange}
             isStreaming={false}
             streamProgress={100}
           />
