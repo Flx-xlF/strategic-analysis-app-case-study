@@ -32,6 +32,7 @@ interface Props {
   onToggleConceptGuide: () => void;
   showQuickTour?: boolean;
   onToggleQuickTour?: () => void;
+  currentTourStep?: number;
   lang: Language;
   setLang: (lang: Language) => void;
   // Optional legacy props for backwards compatibility
@@ -52,6 +53,7 @@ export const CommandHeader: React.FC<Props> = ({
   onToggleConceptGuide,
   showQuickTour = false,
   onToggleQuickTour,
+  currentTourStep = 0,
   lang,
   setLang
 }) => {
@@ -80,18 +82,22 @@ export const CommandHeader: React.FC<Props> = ({
 
           <div className="hidden md:block h-3 w-px bg-zinc-700" />
 
-          {/* 90-Second Recruiting & Executive Quick Tour Toggle */}
+          {/* Signal Yellow Interactive Product Tour Toggle */}
           {onToggleQuickTour && (
             <button
               onClick={onToggleQuickTour}
-              className={`px-2.5 py-1 font-mono text-[10px] font-bold tracking-wider uppercase transition-colors cursor-pointer border flex items-center gap-1.5 ${
+              className={`px-2.5 py-1 font-mono text-[10px] font-black tracking-wider uppercase transition-all cursor-pointer border flex items-center gap-1.5 ${
                 showQuickTour
-                  ? 'bg-sbb-red text-white border-sbb-red'
-                  : 'bg-zinc-900 text-white border-sbb-red/80 hover:bg-sbb-red hover:border-sbb-red'
+                  ? 'bg-[#FFCC00] text-sbb-black border-[#FFCC00] shadow-[0_0_12px_rgba(255,204,0,0.45)]'
+                  : 'bg-zinc-900 text-[#FFCC00] border-[#FFCC00]/80 hover:bg-[#FFCC00] hover:text-sbb-black'
               }`}
+              title={isEn ? 'Toggle Interactive 5-Step Product Tour' : 'Interaktive 5-Schritte Product Tour ein-/ausblenden'}
             >
-              <Compass className="w-3 h-3" />
-              <span>{isEn ? '90s Quick Tour' : '90s Kurz-Tour'}</span>
+              <Compass className="w-3.5 h-3.5" />
+              <span>{isEn ? 'Product Tour (5 Steps)' : 'Product Tour (5 Schritte)'}</span>
+              {showQuickTour && (
+                <span className="w-1.5 h-1.5 rounded-full bg-sbb-red animate-pulse" />
+              )}
             </button>
           )}
 
@@ -101,6 +107,8 @@ export const CommandHeader: React.FC<Props> = ({
             className={`px-2.5 py-1 font-mono text-[10px] font-bold tracking-wider uppercase transition-colors cursor-pointer border flex items-center gap-1.5 ${
               showConceptGuide
                 ? 'bg-sbb-red text-white border-sbb-red'
+                : showQuickTour && currentTourStep === 4
+                ? 'bg-zinc-900 text-white border-[#FFCC00] ring-2 ring-[#FFCC00] shadow-[0_0_8px_rgba(255,204,0,0.5)]'
                 : 'bg-zinc-900 text-zinc-300 border-zinc-700 hover:text-white hover:border-zinc-500'
             }`}
           >
@@ -315,12 +323,16 @@ export const CommandHeader: React.FC<Props> = ({
       )}
 
       {/* Level 2: Primary Control Deck (Scenario Switcher + Shared Regional Filter) */}
-      <div className="px-6 sm:px-8 py-3.5 bg-white border-b border-sbb-aluminum flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
+      <div className={`px-6 sm:px-8 py-3.5 bg-white border-b border-sbb-aluminum flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 transition-all ${
+        showQuickTour && currentTourStep === 0 ? 'ring-2 ring-[#FFCC00] bg-amber-50/20' : ''
+      }`}>
         {/* Scenario Selection Control */}
         <div className="flex flex-1 items-center gap-3">
           <label htmlFor="scenario-select" className="type-ui text-sbb-stone shrink-0 flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 bg-sbb-red" />
-            <span>{isEn ? 'Scenario:' : 'Szenario:'}</span>
+            <span className={`w-1.5 h-1.5 ${showQuickTour && currentTourStep === 0 ? 'bg-[#FFCC00]' : 'bg-sbb-red'}`} />
+            <span className={showQuickTour && currentTourStep === 0 ? 'text-sbb-black font-bold' : ''}>
+              {isEn ? 'Scenario:' : 'Szenario:'}
+            </span>
           </label>
           <div className="relative flex-1 max-w-md">
             <select
@@ -330,7 +342,11 @@ export const CommandHeader: React.FC<Props> = ({
                 const found = scenariosList.find(s => s.id === e.target.value);
                 if (found) onSelectScenario(found);
               }}
-              className="w-full appearance-none bg-sbb-cloud hover:bg-zinc-100 transition-colors border border-sbb-aluminum px-4 py-2 pr-10 text-sm font-bold text-sbb-black cursor-pointer focus:outline-none focus:border-sbb-black"
+              className={`w-full appearance-none bg-sbb-cloud hover:bg-zinc-100 transition-colors border px-4 py-2 pr-10 text-sm font-bold text-sbb-black cursor-pointer focus:outline-none ${
+                showQuickTour && currentTourStep === 0
+                  ? 'border-[#FFCC00] ring-1 ring-[#FFCC00]'
+                  : 'border-sbb-aluminum focus:border-sbb-black'
+              }`}
             >
               {scenariosList.map(s => (
                 <option key={s.id} value={s.id}>
@@ -347,7 +363,11 @@ export const CommandHeader: React.FC<Props> = ({
               <Globe className="w-3 h-3 text-zinc-500" />
               <span>{isEn ? 'Filter Region:' : 'Region filtern:'}</span>
             </span>
-            <div className="flex items-center gap-0.5 bg-sbb-cloud p-0.5 border border-sbb-aluminum text-xs font-mono">
+            <div className={`flex items-center gap-0.5 bg-sbb-cloud p-0.5 border text-xs font-mono ${
+              showQuickTour && currentTourStep === 1
+                ? 'border-[#FFCC00] ring-2 ring-[#FFCC00]'
+                : 'border-sbb-aluminum'
+            }`}>
               <button
                 onClick={() => onSelectRegion('all')}
                 className={`px-2.5 py-1 font-bold transition-all cursor-pointer ${
@@ -408,11 +428,18 @@ export const CommandHeader: React.FC<Props> = ({
                 activeTab === 'cockpit'
                   ? 'border-sbb-red bg-sbb-red text-white'
                   : 'border-transparent text-sbb-stone hover:text-sbb-black hover:bg-zinc-50'
+              } ${
+                showQuickTour && (currentTourStep === 0 || currentTourStep === 1)
+                  ? 'ring-2 ring-[#FFCC00] ring-offset-1'
+                  : ''
               }`}
             >
               <span className={`text-[10px] font-black ${activeTab === 'cockpit' ? 'text-white/80' : 'opacity-60'}`}>01</span>
               <BarChart3 className={`w-3.5 h-3.5 ${activeTab === 'cockpit' ? 'text-white' : 'text-sbb-red'}`} />
               <span className="truncate">{isEn ? 'Regional Cockpit' : 'Regionales Cockpit'}</span>
+              {showQuickTour && (currentTourStep === 0 || currentTourStep === 1) && (
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FFCC00] animate-pulse" />
+              )}
             </button>
 
             <button
@@ -421,11 +448,18 @@ export const CommandHeader: React.FC<Props> = ({
                 activeTab === 'geo'
                   ? 'border-sbb-red bg-sbb-red text-white'
                   : 'border-transparent text-sbb-stone hover:text-sbb-black hover:bg-zinc-50'
+              } ${
+                showQuickTour && currentTourStep === 2
+                  ? 'ring-2 ring-[#FFCC00] ring-offset-1'
+                  : ''
               }`}
             >
               <span className={`text-[10px] font-black ${activeTab === 'geo' ? 'text-white/80' : 'opacity-60'}`}>02</span>
               <BrainCircuit className={`w-3.5 h-3.5 ${activeTab === 'geo' ? 'text-white' : 'text-sbb-red'}`} />
               <span className="truncate">{isEn ? 'Cluster & AI Audit' : 'Cluster & KI-Audit'}</span>
+              {showQuickTour && currentTourStep === 2 && (
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FFCC00] animate-pulse" />
+              )}
             </button>
           </div>
 
@@ -441,11 +475,18 @@ export const CommandHeader: React.FC<Props> = ({
                 activeTab === 'trending'
                   ? 'border-sbb-red bg-sbb-red text-white'
                   : 'border-transparent text-sbb-stone hover:text-sbb-black hover:bg-zinc-50'
+              } ${
+                showQuickTour && currentTourStep === 3
+                  ? 'ring-2 ring-[#FFCC00] ring-offset-1'
+                  : ''
               }`}
             >
               <span className={`text-[10px] font-black ${activeTab === 'trending' ? 'text-white/80' : 'opacity-60'}`}>03</span>
               <Sparkles className={`w-3.5 h-3.5 ${activeTab === 'trending' ? 'text-white' : 'text-sbb-red'}`} />
               <span className="truncate">{isEn ? 'Regional Playbook' : 'Regionales Playbook'}</span>
+              {showQuickTour && currentTourStep === 3 && (
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FFCC00] animate-pulse" />
+              )}
             </button>
 
             <button
@@ -454,11 +495,18 @@ export const CommandHeader: React.FC<Props> = ({
                 activeTab === 'cascade'
                   ? 'border-sbb-red bg-sbb-red text-white'
                   : 'border-transparent text-sbb-stone hover:text-sbb-black hover:bg-zinc-50'
+              } ${
+                showQuickTour && currentTourStep === 4
+                  ? 'ring-2 ring-[#FFCC00] ring-offset-1'
+                  : ''
               }`}
             >
               <span className={`text-[10px] font-black ${activeTab === 'cascade' ? 'text-white/80' : 'opacity-60'}`}>04</span>
               <ShieldCheck className={`w-3.5 h-3.5 ${activeTab === 'cascade' ? 'text-white' : 'text-sbb-red'}`} />
               <span className="truncate">{isEn ? 'Stress-Test & Inquiry' : 'Stresstest & Anfrage'}</span>
+              {showQuickTour && currentTourStep === 4 && (
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FFCC00] animate-pulse" />
+              )}
             </button>
           </div>
         </div>

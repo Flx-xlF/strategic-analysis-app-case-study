@@ -67,6 +67,7 @@ export const App: React.FC = () => {
         onToggleConceptGuide={() => setShowConceptGuide(prev => !prev)}
         showQuickTour={showQuickTour}
         onToggleQuickTour={handleToggleQuickTour}
+        currentTourStep={tourStep}
         lang={lang}
         setLang={setLang}
       />

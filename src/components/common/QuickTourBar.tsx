@@ -7,15 +7,15 @@ import {
   ArrowRight,
   ArrowLeft,
   X,
-  CheckCircle2,
   Sparkles,
   Server,
-  Globe
+  Target
 } from 'lucide-react';
 
 export interface TourStepConfig {
   stepNumber: string;
   shortLabel: string;
+  targetAnchorLabel: string;
   headline: string;
   whatYouSee: string;
   whyItMatters: string;
@@ -46,11 +46,12 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
       {
         stepNumber: '01',
         shortLabel: 'Core Premise',
-        headline: 'Gaining Traction in the AI Shift: When Query Fan-Out Collapses Separate Channels Into One Answer',
+        targetAnchorLabel: 'Scenario Switcher & Direction 1 Cockpit',
+        headline: 'Gaining Traction in the AI Shift: Query Fan-Out Collapses Separate Channels Into One Answer',
         whatYouSee:
-          'Comms teams operate across earned media, owned stories, and regional briefings—historically consumed by separate audiences. In AI search, query fan-out (5–11 parallel sub-queries) pulls press coverage, forums, owned pages, and legacy files into one context window at once, exposing any framing incoherence.',
+          'Comms teams operate across earned media, owned stories, and regional briefings—historically consumed separately. In AI search, query fan-out (5–11 parallel sub-queries) pulls press coverage, forums, owned pages, and legacy files into one context window at once, exposing framing incoherence.',
         whyItMatters:
-          'Shows how corporate comms gains traction during this shift: auditing where narratives lose pull-through in media and AI search (Outside-In) while enforcing verified Golden Sources and channel-adapted GEO standards across earned and owned channels (Top-Down).',
+          'Audits where corporate narratives lose pull-through in media and AI search (Outside-In) while enforcing verified Golden Sources and channel-adapted GEO standards across earned and owned channels (Top-Down).',
         tryThisLabel: 'Switch to Oncology RLT Scenario',
         targetTab: 'cockpit',
         targetRegion: 'all',
@@ -59,9 +60,10 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
       {
         stepNumber: '02',
         shortLabel: 'Outside-In Measurement',
+        targetAnchorLabel: 'Tab 01 // Regional Cockpit & Region Filter [EU]',
         headline: '01 Regional Cockpit: Decision-Ready Context at the Push of a Button',
         whatYouSee:
-          'We filtered the view to EU (Europe). Out of 48,420 raw articles and posts, standard NLP scores coverage as "76% Neutral" because journalists use formal financial and clinical language. Yet our statistical velocity funnel flags a +3.9σ escalation in EU/Swiss patient-access criticism.',
+          'Filtered to EU: out of 48,420 raw articles and posts, standard NLP scores coverage as "76% Neutral" because journalists use formal clinical wording. Yet our statistical velocity funnel flags a +3.9σ escalation in EU/Swiss access criticism.',
         whyItMatters:
           'Assists leadership in making fast, informed decisions by synthesizing cross-regional reception, narrative pull-through, and market-access risks at the push of a button—while final judgment remains human.',
         tryThisLabel: 'Reset Filter to ALL Regions',
@@ -72,11 +74,12 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
       {
         stepNumber: '03',
         shortLabel: 'GEO & AI Search Audit',
+        targetAnchorLabel: 'Tab 02 // Cluster & AI Answer Audit',
         headline: '02 Cluster & AI Audit: Query Fan-Out, Absorption & Answer-First GEO',
         whatYouSee:
-          'When stakeholders query ChatGPT, Perplexity, or Google AI, the engine runs 5–11 parallel sub-queries (query fan-out) across regional press and corporate pages. When it hits buried PR preambles and incoherent regional coverage, it drops corporate context at the reranker cutoff and conflates facts.',
+          'When stakeholders query ChatGPT, Perplexity, or Google AI, the engine runs 5–11 parallel sub-queries. When it hits buried PR preambles and incoherent regional coverage, it drops corporate context at the reranker cutoff and conflates facts.',
         whyItMatters:
-          'Replaces debunked Schema.org/llms.txt shortcuts with empirical GEO: placing self-contained claims and quantitative stats (+61.5% absorption lift) in answer-first SSR HTML passages cuts LLM distortion from ~48% to ~5% across n=20 evaluation runs.',
+          'Replaces debunked Schema.org/llms.txt shortcuts with empirical GEO: placing self-contained claims and quantitative stats (+61.5% absorption lift) in answer-first SSR HTML passages cuts LLM distortion from ~48% to ~5% across n=20 runs.',
         tryThisLabel: 'Inspect Oncology RLT GEO Audit',
         targetTab: 'geo',
         targetRegion: 'all',
@@ -85,9 +88,10 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
       {
         stepNumber: '04',
         shortLabel: 'GEO Playbook & Stories',
+        targetAnchorLabel: 'Tab 03 // Multi-Region GEO Playbook',
         headline: '03 Multi-Region Playbook: Golden Sources, 4-Rule GEO Framework & Channel Adaptation',
         whatYouSee:
-          'Filters hundreds of thousands of internal vault files down to a small set of approved, topic-specific "Golden Sources" (GS-01 to GS-03) and equips central and regional teams with a mandatory 4-Rule Corporate GEO Framework across owned Corporate Stories, press releases, media answers, talking points, and Q&As.',
+          'Filters hundreds of thousands of internal vault files down to a small set of approved "Golden Sources" (GS-01 to GS-03) and equips central and regional teams with a mandatory 4-Rule Corporate GEO Framework across Corporate Stories, press releases, media answers, and Q&As.',
         whyItMatters:
           'While Owned Corporate Stories act as high-authority direct-to-AI primary sources, press releases and media inquiry answers follow the exact same GEO rules—ensuring third-party journalist quotes reinforce the company’s narrative in AI search.',
         tryThisLabel: 'Filter Playbook to Switzerland (CH)',
@@ -98,11 +102,12 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
       {
         stepNumber: '05',
         shortLabel: 'Stress-Test, GEO & IT',
+        targetAnchorLabel: 'Tab 04 // Stress-Test & Concept, Method & IT Fit',
         headline: '04 Multi-Angle Stress-Test, GEO Accusation Hygiene, Human Iteration & IT Fit',
         whatYouSee:
-          'An LLM never delivers a ready-to-send answer in one pass. Instead, it tests drafts across regional stakeholder angles simultaneously and enforces GEO hygiene: stripping negative accusations (which otherwise get indexed against the company’s own domain by AI search engines) and bridging to our own narrative.',
+          'An LLM never delivers a ready-to-send answer in one pass. It tests drafts across regional stakeholder angles simultaneously and enforces GEO hygiene: stripping negative accusations (which otherwise get indexed against the company’s own domain) and bridging to our narrative.',
         whyItMatters:
-          'Provides decision-ready context and a GEO-safe scaffold at the push of a button—leaving final nuance, trade-offs, and sign-off to human leadership within existing IT governance (Veeva Vault, SharePoint, AI Gateway).',
+          'Provides decision-ready context and a GEO-safe scaffold at the push of a button—leaving final nuance and sign-off to human leadership within existing IT governance (Veeva Vault, SharePoint, AI Gateway).',
         tryThisLabel: 'Toggle Enterprise IT & Method Guide',
         targetTab: 'cascade',
         targetRegion: 'all',
@@ -115,11 +120,12 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
     {
       stepNumber: '01',
       shortLabel: 'Grundthese',
+      targetAnchorLabel: 'Szenario-Wahl & Richtung 1 Cockpit',
       headline: 'Traktion im KI-Wandel: Wenn Query Fan-Out getrennte Kanäle in einer Antwort zusammenzieht',
       whatYouSee:
         'Kommunikation bespielt Earned Media, Owned Stories und regionale Briefings – früher getrennt nach Zielgruppen. In der KI-Suche zieht Query Fan-Out (5–11 parallele Sub-Anfragen) Presseberichte, Foren, eigene Seiten und Alt-Dateien simultan in ein Kontextfenster und legt jede Inkohärenz offen.',
       whyItMatters:
-        'Zeigt, wie Kommunikation in diesem Wandel Traktion sichert: durch Audits von Medien und KI-Antworten (Outside-In) sowie verbindliche Golden Sources und kanal-adaptierte GEO-Standards über Earned und Owned Media hinweg (Top-Down).',
+        'Zeigt, wie Kommunikation Traktion sichert: durch Audits von Medien und KI-Antworten (Outside-In) sowie verbindliche Golden Sources und kanal-adaptierte GEO-Standards über Earned und Owned Media hinweg (Top-Down).',
       tryThisLabel: 'Zum Onkologie-RLT-Szenario wechseln',
       targetTab: 'cockpit',
       targetRegion: 'all',
@@ -128,9 +134,10 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
     {
       stepNumber: '02',
       shortLabel: 'Outside-In Messung',
+      targetAnchorLabel: 'Tab 01 // Regionales Cockpit & Region-Filter [EU]',
       headline: '01 Regionales Cockpit: Entscheidungsrelevanter Kontext auf Knopfdruck',
       whatYouSee:
-        'Die Ansicht ist auf EU gefiltert. Aus 48.420 Rohartikeln meldet Standard-NLP "76% Neutral", da Fachmedien sachlich formulieren. Unser statistischer Trichter erkennt jedoch frühzeitig eine +3.9σ Eskalation in der europäischen Zugangsdebatte.',
+        'Auf EU gefiltert: Aus 48.420 Rohartikeln meldet Standard-NLP "76% Neutral", da Fachmedien sachlich formulieren. Unser statistischer Trichter erkennt jedoch frühzeitig eine +3.9σ Eskalation in der europäischen Zugangsdebatte.',
       whyItMatters:
         'Unterstützt Führungskräfte bei fundierten Entscheidungen, indem regionaler Rezeptionskontext und Market-Access-Risiken auf Knopfdruck bereitstehen – während die finale Abwägung beim Menschen bleibt.',
       tryThisLabel: 'Filter auf ALLE Regionen setzen',
@@ -141,11 +148,12 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
     {
       stepNumber: '03',
       shortLabel: 'GEO & KI-Such-Audit',
+      targetAnchorLabel: 'Tab 02 // Cluster & KI-Audit',
       headline: '02 Cluster & KI-Audit: Query Fan-Out, Absorption & Answer-First GEO',
       whatYouSee:
         'Befragen Stakeholder ChatGPT, Perplexity oder Google AI, zerlegt die Engine die Frage in 5–11 parallele Suchanfragen (Query Fan-Out). Trifft sie auf langatmige PR-Einleitungen und uneinheitliche regionale Berichte, fällt der Unternehmenskontext durch das Reranking-Raster.',
       whyItMatters:
-        'Ersetzt widerlegte Schema.org/llms.txt-mythen durch empirisches GEO: Answer-First HTML-Passagen mit direkten Zahlenbelegen (+61,5% Absorptions-Lift) senken KI-Verzerrungen über n=20 Prüfläufe von ~48% auf ~5%.',
+        'Ersetzt widerlegte Schema.org/llms.txt-Mythen durch empirisches GEO: Answer-First HTML-Passagen mit direkten Zahlenbelegen (+61,5% Absorptions-Lift) senken KI-Verzerrungen über n=20 Prüfläufe von ~48% auf ~5%.',
       tryThisLabel: 'Onkologie-RLT GEO-Audit ansehen',
       targetTab: 'geo',
       targetRegion: 'all',
@@ -154,9 +162,10 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
     {
       stepNumber: '04',
       shortLabel: 'GEO-Playbook & Stories',
+      targetAnchorLabel: 'Tab 03 // Multi-Regionen Playbook',
       headline: '03 Multi-Regionen-Playbook: Golden Sources, 4-Regel GEO-Framework & Kanal-Adaptierung',
       whatYouSee:
-        'Filtert Hunderttausende interne Vault-Dateien auf wenige freigegebene, themenspezifische "Golden Sources" (GS-01 bis GS-03) und gibt zentralen sowie regionalen Teams ein verbindliches 4-Regel GEO-Framework für Corporate Stories, Medienmitteilungen, Medienantworten und Q&As.',
+        'Filtert Hunderttausende interne Vault-Dateien auf wenige freigegebene "Golden Sources" (GS-01 bis GS-03) und gibt zentralen sowie regionalen Teams ein verbindliches 4-Regel GEO-Framework für Corporate Stories, Medienmitteilungen, Statements und Q&As.',
       whyItMatters:
         'Während Owned Corporate Stories als primäre KI-Quellen fungieren, folgen Medienmitteilungen und Statements denselben GEO-Regeln – damit Zitate in Drittmedien das eigene Narrativ in der KI-Suche stärken.',
       tryThisLabel: 'Playbook auf Schweiz (CH) filtern',
@@ -167,6 +176,7 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
     {
       stepNumber: '05',
       shortLabel: 'Stresstest, GEO & IT',
+      targetAnchorLabel: 'Tab 04 // Stresstest & Konzept, Methodik & IT-Fit',
       headline: '04 Multi-Winkel-Stresstest, GEO-Vorwurfshygiene, Menschliche Iteration & IT-Integration',
       whatYouSee:
         'Ein LLM liefert nie im ersten Durchlauf die fertige Antwort. Es prüft Entwürfe simultan aus regionalen Stakeholder-Perspektiven und sichert GEO-Hygiene: Es streicht Negativ-Vorwürfe (die KI-Suchmaschinen sonst auf der eigenen Domain indexieren) und baut Brücken zum eigenen Narrativ.',
@@ -215,47 +225,108 @@ export const QuickTourBar: React.FC<Props> = ({
   };
 
   return (
-    <section
-      aria-label={isEn ? '90-Second Executive Quick Tour' : '90-Sekunden Kurz-Tour'}
-      className="bg-sbb-black text-white border-b-2 border-sbb-red px-6 sm:px-8 py-4 transition-all"
+    <aside
+      aria-label={isEn ? 'Interactive Product Tour Tooltip' : 'Interaktive Product-Tour'}
+      className="fixed bottom-5 right-5 sm:right-8 z-50 w-[calc(100vw-2.5rem)] max-w-[430px] bg-sbb-black text-white border-2 border-[#FFCC00] shadow-[6px_6px_0px_0px_#FFCC00] transition-all"
     >
-      <div className="max-w-[1600px] mx-auto space-y-3.5">
-        {/* Top Row: Tour Badge + Step Progress Rail + Prev/Next/Close Controls */}
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 pb-3 border-b border-zinc-800">
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="bg-sbb-red text-white font-mono text-[10px] font-black uppercase tracking-widest px-2.5 py-1 flex items-center gap-1.5 shrink-0">
-              <Compass className="w-3.5 h-3.5" />
-              <span>{isEn ? '90s GUIDED TOUR (LIVE WORKSPACE SYNC)' : '90s GUIDED TOUR (LIVE-SYNC)'}</span>
-            </span>
+      {/* Product Tour Signal Yellow Header */}
+      <div className="bg-[#FFCC00] text-sbb-black px-3.5 py-2 flex items-center justify-between border-b border-black">
+        <div className="flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-sbb-red animate-pulse" />
+          <span className="font-mono text-[11px] font-black uppercase tracking-wider">
+            {isEn ? `PRODUCT TOUR // STEP ${activeStep.stepNumber} OF 05` : `PRODUCT TOUR // SCHRITT ${activeStep.stepNumber} VON 05`}
+          </span>
+        </div>
+        <button
+          onClick={onClose}
+          className="text-sbb-black hover:text-sbb-red p-0.5 transition-colors cursor-pointer"
+          title={isEn ? 'Dismiss Product Tour' : 'Tour schliessen'}
+        >
+          <X className="w-4 h-4" />
+        </button>
+      </div>
 
-            {/* Step Progress Rail */}
-            <div className="flex flex-wrap items-center gap-1">
-              {steps.map((step, idx) => {
-                const isCurrent = idx === currentStep;
-                const isCompleted = idx < currentStep;
-                return (
-                  <button
-                    key={step.stepNumber}
-                    onClick={() => onSelectStep(idx)}
-                    className={`px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-wider transition-all cursor-pointer border flex items-center gap-1.5 ${
-                      isCurrent
-                        ? 'bg-white text-sbb-black border-white'
-                        : isCompleted
-                        ? 'bg-zinc-900 text-zinc-200 border-zinc-700 hover:border-zinc-500'
-                        : 'bg-zinc-950 text-zinc-400 border-zinc-800 hover:text-white hover:border-zinc-600'
-                    }`}
-                  >
-                    {isCompleted && <CheckCircle2 className="w-3 h-3 text-emerald-400 shrink-0" />}
-                    <span>{step.stepNumber}</span>
-                    <span className="hidden xl:inline">{step.shortLabel}</span>
-                  </button>
-                );
-              })}
-            </div>
+      <div className="p-4 space-y-3">
+        {/* Target Anchor Pointer Badge */}
+        <div className="inline-flex items-center gap-1.5 bg-zinc-900 border border-[#FFCC00]/40 px-2.5 py-1 text-[10px] font-mono text-[#FFCC00]">
+          <Target className="w-3 h-3 text-[#FFCC00] shrink-0" />
+          <span className="font-bold uppercase tracking-wider">{isEn ? 'Pointing at:' : 'Fokus auf:'}</span>
+          <span className="text-zinc-200 truncate">{activeStep.targetAnchorLabel}</span>
+        </div>
+
+        {/* Step Title & Core Body */}
+        <div className="space-y-1.5">
+          <h4 className="text-sm font-bold text-white leading-snug">
+            {activeStep.headline}
+          </h4>
+          <p className="text-xs text-zinc-300 leading-relaxed">
+            {activeStep.whatYouSee}
+          </p>
+        </div>
+
+        {/* Strategic Significance Tag */}
+        <div className="p-2.5 bg-zinc-900/90 border-l-2 border-[#FFCC00] border border-zinc-800 text-[11px] text-zinc-300 leading-relaxed">
+          <strong className="text-white block font-mono text-[10px] uppercase tracking-wider mb-0.5">
+            {isEn ? 'Why It Matters:' : 'Strategischer Mehrwert:'}
+          </strong>
+          {activeStep.whyItMatters}
+        </div>
+
+        {/* Interactive "Try it" Action Button */}
+        <button
+          onClick={handleQuickAction}
+          className="w-full px-3 py-1.5 bg-zinc-900 hover:bg-zinc-800 text-[#FFCC00] border border-[#FFCC00]/60 hover:border-[#FFCC00] font-mono text-[10px] font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
+        >
+          {currentStep === 4 ? (
+            <Server className="w-3 h-3 text-[#FFCC00]" />
+          ) : (
+            <Sparkles className="w-3 h-3 text-[#FFCC00]" />
+          )}
+          <span>
+            {currentStep === 0 || currentStep === 2
+              ? selectedScenarioId === 'pluvicto_access_debate'
+                ? isEn
+                  ? 'Try: Switch to Biopharma MFN Pricing Case'
+                  : 'Ausprobieren: Zum Biopharma-MFN-Szenario wechseln'
+                : isEn
+                ? 'Try: Compare with Oncology Radioligand Case'
+                : 'Ausprobieren: Mit Onkologie-Radioliganden vergleichen'
+              : currentStep === 4
+              ? showConceptGuide
+                ? isEn
+                  ? 'Toggle: Hide IT & Method Panel Above'
+                  : 'Umschalten: IT- & Methodik-Panel ausblenden'
+                : isEn
+                ? 'Toggle: Open IT & Method Panel Above'
+                : 'Umschalten: IT- & Methodik-Panel öffnen'
+              : `Try: ${activeStep.tryThisLabel}`}
+          </span>
+        </button>
+
+        {/* Navigation Step Rails */}
+        <div className="flex items-center justify-between pt-2 border-t border-zinc-800 gap-2">
+          {/* Step Pill Indicators */}
+          <div className="flex items-center gap-1">
+            {steps.map((s, idx) => (
+              <button
+                key={s.stepNumber}
+                onClick={() => onSelectStep(idx)}
+                className={`w-6 h-5 font-mono text-[10px] font-bold border transition-colors cursor-pointer flex items-center justify-center ${
+                  idx === currentStep
+                    ? 'bg-[#FFCC00] text-sbb-black border-[#FFCC00]'
+                    : idx < currentStep
+                    ? 'bg-zinc-900 text-zinc-300 border-zinc-700 hover:border-zinc-500'
+                    : 'bg-zinc-950 text-zinc-500 border-zinc-800 hover:border-zinc-700'
+                }`}
+                title={s.shortLabel}
+              >
+                {s.stepNumber}
+              </button>
+            ))}
           </div>
 
-          {/* Navigation Controls */}
-          <div className="flex items-center gap-2 self-end lg:self-auto shrink-0">
+          {/* Prev / Next Buttons */}
+          <div className="flex items-center gap-1.5 shrink-0">
             <button
               onClick={() => onSelectStep(Math.max(0, currentStep - 1))}
               disabled={currentStep === 0}
@@ -277,96 +348,23 @@ export const QuickTourBar: React.FC<Props> = ({
                   onClose();
                 }
               }}
-              className="px-3.5 py-1 font-mono text-[10px] font-black uppercase border border-sbb-red bg-sbb-red text-white hover:bg-red-700 transition-colors flex items-center gap-1.5 cursor-pointer"
+              className="px-3 py-1 font-mono text-[10px] font-black uppercase border border-[#FFCC00] bg-[#FFCC00] text-sbb-black hover:bg-amber-300 transition-colors flex items-center gap-1.5 cursor-pointer shadow-sm"
             >
               <span>
                 {currentStep < steps.length - 1
                   ? isEn
                     ? 'Next Step'
-                    : 'Nächster Schritt'
+                    : 'Weiter'
                   : isEn
-                  ? 'Finish Tour'
-                  : 'Tour beenden'}
+                  ? 'Finish'
+                  : 'Fertig'}
               </span>
               <ArrowRight className="w-3 h-3" />
-            </button>
-
-            <button
-              onClick={onClose}
-              className="px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-zinc-400 hover:text-white border border-zinc-800 hover:border-zinc-600 transition-colors flex items-center gap-1 cursor-pointer"
-              title={isEn ? 'Hide Tour Bar' : 'Tour-Leiste ausblenden'}
-            >
-              <X className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">{isEn ? 'Dismiss' : 'Ausblenden'}</span>
-            </button>
-          </div>
-        </div>
-
-        {/* Compact Content Row: Headline + What You See + Strategic Value & Interactive Trigger */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-stretch">
-          <div className="lg:col-span-4 flex flex-col justify-center border-l-2 border-sbb-red pl-3.5">
-            <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest text-zinc-400 mb-1">
-              <span className="text-sbb-red font-black">
-                {isEn ? `STEP ${activeStep.stepNumber} OF 05` : `SCHRITT ${activeStep.stepNumber} VON 05`}
-              </span>
-              <span>//</span>
-              <span className="text-white font-bold">{activeStep.shortLabel}</span>
-            </div>
-            <h3 className="text-sm sm:text-base font-bold text-white leading-snug">
-              {activeStep.headline}
-            </h3>
-          </div>
-
-          <div className="lg:col-span-4 bg-zinc-900/90 border border-zinc-800 p-3.5 space-y-1">
-            <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-400 flex items-center gap-1.5">
-              <Globe className="w-3 h-3 text-sbb-red" />
-              <span>{isEn ? 'WHAT YOU SEE BELOW' : 'WAS SIE UNTEN SEHEN'}</span>
-            </div>
-            <p className="text-xs text-zinc-200 leading-relaxed">{activeStep.whatYouSee}</p>
-          </div>
-
-          <div className="lg:col-span-4 bg-zinc-900/90 border border-zinc-800 p-3.5 flex flex-col justify-between gap-2">
-            <div className="space-y-1">
-              <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-400 flex items-center gap-1.5">
-                <Sparkles className="w-3 h-3 text-sbb-red" />
-                <span>{isEn ? 'WHY IT MATTERS FOR STRATEGIC ENABLEMENT' : 'STRATEGISCHER MEHRWERT'}</span>
-              </div>
-              <p className="text-xs text-zinc-200 leading-relaxed">{activeStep.whyItMatters}</p>
-            </div>
-
-            <button
-              onClick={handleQuickAction}
-              className="w-full px-3 py-1.5 bg-zinc-800 hover:bg-zinc-700 text-white font-mono text-[10px] font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-1.5 cursor-pointer border border-zinc-700"
-            >
-              {currentStep === 4 ? (
-                <Server className="w-3 h-3 text-sbb-red" />
-              ) : (
-                <ArrowRight className="w-3 h-3 text-sbb-red" />
-              )}
-              <span>
-                {currentStep === 0 || currentStep === 2
-                  ? selectedScenarioId === 'pluvicto_access_debate'
-                    ? isEn
-                      ? 'Switch to Biopharma MFN Pricing Case'
-                      : 'Zum Biopharma-MFN-Preisszenario wechseln'
-                    : isEn
-                    ? 'Compare with Oncology Radioligand Case'
-                    : 'Mit Onkologie-Radioliganden-Fall vergleichen'
-                  : currentStep === 4
-                  ? showConceptGuide
-                    ? isEn
-                      ? 'Hide IT & Method Panel Above'
-                      : 'IT- & Methodik-Panel ausblenden'
-                    : isEn
-                    ? 'Open IT & Method Panel Above'
-                    : 'IT- & Methodik-Panel öffnen'
-                  : activeStep.tryThisLabel}
-              </span>
             </button>
           </div>
         </div>
       </div>
-    </section>
+    </aside>
   );
 };
 
