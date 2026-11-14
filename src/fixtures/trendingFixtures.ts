@@ -886,8 +886,8 @@ A: No. Assembly facilities continue on schedule utilizing qualified alternative 
         qa_brief: { id: 'qa_brief', label: 'Q&A', target_audience: 'Desk', psychological_objective: 'Facts', blueprint_content: 'Supply chain audit.' }
       }
     },
-    pluvicto_access_debate: {
-      scenario_id: 'pluvicto_access_debate',
+    rlt_access_debate: {
+      scenario_id: 'rlt_access_debate',
       corpus_gate: {
         raw_enterprise_files: 920000,
         active_governed_records: 14200,
@@ -1922,8 +1922,8 @@ A: Nein. Die Montage läuft planmässig mit freigegebenen Alternativkontingenten
         qa_brief: { id: 'qa_brief', label: 'Q&A', target_audience: 'Desk', psychological_objective: 'Fakten', blueprint_content: 'Audit läuft.' }
       }
     },
-    pluvicto_access_debate: {
-      scenario_id: 'pluvicto_access_debate',
+    rlt_access_debate: {
+      scenario_id: 'rlt_access_debate',
       corpus_gate: {
         raw_enterprise_files: 920000,
         active_governed_records: 14200,

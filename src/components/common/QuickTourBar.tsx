@@ -112,7 +112,7 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
         tryThisLabel: 'Toggle Concept, Method & IT Modal',
         targetTab: 'cascade',
         targetRegion: 'all',
-        openConceptGuide: true
+        openConceptGuide: false
       }
     ];
   }
@@ -186,7 +186,7 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
       tryThisLabel: 'Konzept-, Methodik- & IT-Modal öffnen',
       targetTab: 'cascade',
       targetRegion: 'all',
-      openConceptGuide: true
+      openConceptGuide: false
     }
   ];
 };
@@ -214,9 +214,9 @@ export const QuickTourBar: React.FC<Props> = ({
   const handleQuickAction = () => {
     if (currentStep === 0 || currentStep === 2) {
       const nextId =
-        selectedScenarioId === 'pluvicto_access_debate'
+        selectedScenarioId === 'rlt_access_debate'
           ? 'oncology_trial_update'
-          : 'pluvicto_access_debate';
+          : 'rlt_access_debate';
       onSelectScenarioById(nextId);
     } else if (currentStep === 1) {
       if (onSelectRegion) onSelectRegion('all');
@@ -299,7 +299,7 @@ export const QuickTourBar: React.FC<Props> = ({
               )}
               <span className="truncate">
                 {currentStep === 0 || currentStep === 2
-                  ? selectedScenarioId === 'pluvicto_access_debate'
+                  ? selectedScenarioId === 'rlt_access_debate'
                     ? isEn
                       ? 'Try: Biopharma MFN Case'
                       : 'Ausprobieren: Biopharma MFN'

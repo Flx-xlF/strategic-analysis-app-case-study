@@ -127,7 +127,7 @@ We request your responses:
       recommended_statement: "Upholding human rights and labor standards is non-negotiable across our organization. The supplier in question passed an independent third-party audit in December 2025. In light of the new allegations presented, we have immediately suspended all active purchase orders and commissioned an independent forensic investigation on the ground. We will act decisively based on the findings.",
       strategic_advisory: "Demonstrate swift institutional action. Avoid defensive arguments about Tier-2 vs Tier-3 designations; focus on the immediate contract freeze."
     },
-    pluvicto_access_debate: {
+    rlt_access_debate: {
       outlet: "The Guardian & Health Policy Watch",
       journalist: "Sarah Boseley & Health Team",
       deadline: "Today, 18:00 CET",
@@ -282,7 +282,7 @@ Wir bitten um Stellungnahme:
       recommended_statement: "Die Einhaltung von Menschenrechten und Arbeitsstandards ist für uns nicht verhandelbar. Der erwähnte Lieferant hat im Dezember 2025 ein unabhängiges Zertifizierungsaudit bestanden. Aufgrund der neuen Hinweise haben wir sämtliche weiteren Vergaben an das Unternehmen per sofort sistiert und eine unabhängige Vor-Ort-Untersuchung beauftragt. Wir werden die Ergebnisse transparent kommunizieren.",
       strategic_advisory: "Handlungsstärke belegen (sofortiger Vergabestopp). Nicht in bürokratische Ausflüchte zu Tier-2/Tier-3 flüchten."
     },
-    pluvicto_access_debate: {
+    rlt_access_debate: {
       outlet: "The Guardian & Europäischer Gesundheitsdienst",
       journalist: "Rechercheteam Gesundheitspolitik",
       deadline: "Heute, 18:00 Uhr",

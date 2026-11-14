@@ -372,8 +372,8 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
         verification_outcome: "In search-grounded evaluation runs (n=20), false claims of willful supplier contract renewal dropped from 8/20 (40%) to 1/20 (5%), accurately citing the active procurement freeze."
       }
     },
-    pluvicto_access_debate: {
-      scenario_id: 'pluvicto_access_debate',
+    rlt_access_debate: {
+      scenario_id: 'rlt_access_debate',
       active_cluster: {
         cluster_id: 'Cluster #01',
         name: 'European HTA & UK NICE Cost-Effectiveness Deadlock',
@@ -870,8 +870,8 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
         verification_outcome: "In Testläufen mit suchgestützten LLMs (n=20) sank die Falschbehauptung vorsätzlicher Vertragsverlängerungen von 8/20 (40%) auf 1/20 (5%); Modelle zitieren den aktiven Vergabestopp."
       }
     },
-    pluvicto_access_debate: {
-      scenario_id: 'pluvicto_access_debate',
+    rlt_access_debate: {
+      scenario_id: 'rlt_access_debate',
       active_cluster: {
         cluster_id: 'Cluster #01',
         name: 'Europäische HTA- & NICE-Kostenbewertungs-Blockade',

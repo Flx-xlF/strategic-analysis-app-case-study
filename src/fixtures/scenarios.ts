@@ -22,7 +22,7 @@ export const SCENARIOS_DATA: Record<Language, ScenarioMeta[]> = {
       organization: 'Biopharma Corporate Affairs & Communications'
     },
     {
-      id: 'pluvicto_access_debate',
+      id: 'rlt_access_debate',
       title: 'Targeted Cancer Therapy (Lu-177 RLT): Clinical Approval vs. Cost & Reimbursement',
       category: 'Frontier Medicine Value & Health Technology Assessment',
       date: '10.11.2026',
@@ -69,7 +69,7 @@ export const SCENARIOS_DATA: Record<Language, ScenarioMeta[]> = {
       organization: 'Biopharma Corporate Affairs & Kommunikation'
     },
     {
-      id: 'pluvicto_access_debate',
+      id: 'rlt_access_debate',
       title: 'Gezielte Krebstherapie (Lu-177 RLT): Klinische Zulassung vs. Kosten & Erstattung',
       category: 'Frontier-Medizin Nutzenbewertung & HTA',
       date: '10.11.2026',

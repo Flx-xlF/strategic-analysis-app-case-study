@@ -412,8 +412,8 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
         statistical_proof_anchor: 'z = +3.4σ European velocity | Cosine alignment 0.42 | 42% LLM bias rate'
       }
     },
-    pluvicto_access_debate: {
-      scenario_id: 'pluvicto_access_debate',
+    rlt_access_debate: {
+      scenario_id: 'rlt_access_debate',
       timeframe: 'Last 72 Hours (Transatlantic Health Economics)',
       pipeline: {
         raw_ingested_72h: 31200,
@@ -980,8 +980,8 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
         statistical_proof_anchor: 'z = +3.4σ Europa-Dynamik | Cosinus-Ähnlichkeit 0.42 | 42% KI-Verzerrungsrate'
       }
     },
-    pluvicto_access_debate: {
-      scenario_id: 'pluvicto_access_debate',
+    rlt_access_debate: {
+      scenario_id: 'rlt_access_debate',
       timeframe: 'Letzte 72 Stunden (Transatlantische Nutzenbewertung)',
       pipeline: {
         raw_ingested_72h: 31200,

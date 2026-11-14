@@ -2,10 +2,10 @@
 
 > **The Premise:** Corporate communications teams publish across press releases, newsroom stories, social posts, and regional briefings—traditionally assuming different audiences read those channels separately. In search and AI assistants, that separation disappears: a single question pulls press coverage, forum threads, company pages, and old PDFs into one answer. Small wording differences between central, regional, or cantonal teams then surface as contradictions. **Terrain is an interactive prototype exploring a two-way workflow: spotting where coverage and AI answers diverge from the facts (Outside-In), and keeping regional drafts anchored to approved source documents (Top-Down).**
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-GitHub_Pages-EB0000?style=flat-square&logo=github)](https://flx-xlF.github.io/strategic-analysis-app-case-study/)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-GitHub_Pages-EB0000?style=flat-square&logo=github)](https://flx-xlf.github.io/strategic-analysis-app-case-study/)
 [![Stack](https://img.shields.io/badge/Stack-React_19_%7C_TypeScript_5.9_%7C_Tailwind-black?style=flat-square)](https://react.dev/)
 
-👉 **Live Interactive Prototype:** [https://flx-xlF.github.io/strategic-analysis-app-case-study/](https://flx-xlF.github.io/strategic-analysis-app-case-study/)
+👉 **Live Interactive Prototype:** [https://flx-xlf.github.io/strategic-analysis-app-case-study/](https://flx-xlf.github.io/strategic-analysis-app-case-study/)
 
 ---
 
@@ -103,3 +103,9 @@ cd strategic-analysis-app-case-study
 npm install
 npm run dev
 ```
+
+---
+
+## About This Prototype
+
+Built by Felix as a self-directed case study to explore how communications teams, legal/MLR reviewers, and engineering can work together when AI search becomes a primary reader interface. All scenarios, figures, and internal records shown in the demo are synthetic examples created for demonstration purposes.

@@ -157,13 +157,13 @@ export const TrendingFactoryView: React.FC<Props> = ({
             <div className="p-3 bg-white border border-zinc-200">
               <div className="text-[10px] text-zinc-600 uppercase font-bold">{isEn ? 'ALL INTERNAL FILES' : 'ALLE INTERNEN DATEIEN'}</div>
               <div className="text-xl font-black text-sbb-black">{data.corpus_gate.raw_enterprise_files.toLocaleString(locale)}</div>
-              <div className="text-[10px] text-zinc-600 mt-0.5">{isEn ? 'Across Global Silos' : 'In allen Silos'}</div>
+              <div className="text-[10px] text-zinc-600 mt-0.5">{isEn ? 'Global HQ & Country Affiliates' : 'Zentrale & Ländergesellschaften'}</div>
             </div>
 
             <div className="p-3 bg-white border border-zinc-200">
               <div className="text-[10px] text-zinc-600 uppercase font-bold">{isEn ? 'CURRENT APPROVED FILES' : 'AKTUELL FREIGEGEBEN'}</div>
               <div className="text-xl font-black text-zinc-800">{data.corpus_gate.active_governed_records.toLocaleString(locale)}</div>
-              <div className="text-[10px] text-zinc-600 mt-0.5">{isEn ? 'Active Approved Records' : 'Aktive Freigaben'}</div>
+              <div className="text-[10px] text-zinc-600 mt-0.5">{isEn ? 'MLR / Legal Approved' : 'MLR- / Legal-freigegeben'}</div>
             </div>
 
             <div className="p-3 bg-white border border-emerald-300">
@@ -248,12 +248,12 @@ export const TrendingFactoryView: React.FC<Props> = ({
             <span className="text-[10px] font-mono px-2 py-0.5 bg-zinc-100 border border-zinc-200 text-zinc-700">
               {(() => {
                 if (scenarioId === 'alpine_transit_crisis') {
-                  return 'REF: SBB-FDV-301 & SCADA-LOG-409';
+                  return 'REF: RAIL-FDV-301 & SCADA-LOG-409';
                 } else if (scenarioId === 'esg_investigation') {
                   return 'REF: ESG-CODE-2025-V2 & SMETA-881';
                 } else if (scenarioId === 'health_data_breach') {
                   return 'REF: BYOK-SPEC-2026 & EPDG-321';
-                } else if (scenarioId === 'pluvicto_access_debate') {
+                } else if (scenarioId === 'rlt_access_debate') {
                   return 'REF: RLT-01-SAP & CSR-PROS-401';
                 }
                 return 'REF: GS-01-MFN & US-CAPEX-2026';

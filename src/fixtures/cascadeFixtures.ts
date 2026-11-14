@@ -378,7 +378,7 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
         ]
       }
     },
-    pluvicto_access_debate: {
+    rlt_access_debate: {
       draftA: {
         version_id: 'draftA',
         version_label: 'Draft A: Uncalibrated Medical Affairs Note',
@@ -904,7 +904,7 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
         ]
       }
     },
-    pluvicto_access_debate: {
+    rlt_access_debate: {
       draftA: {
         version_id: 'draftA',
         version_label: 'Entwurf A: Unkalibriertes medizinisches Statement',

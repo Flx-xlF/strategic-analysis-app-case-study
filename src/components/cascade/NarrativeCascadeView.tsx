@@ -146,11 +146,15 @@ export const NarrativeCascadeView: React.FC<Props> = ({
               className={`px-3 py-1 font-mono text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
                 selectedVersion === 'draftB'
                   ? 'bg-emerald-700 text-white shadow-xs'
-                  : 'text-sbb-stone hover:text-sbb-black'
+                  : 'bg-emerald-50 text-emerald-900 border border-emerald-300 hover:bg-emerald-100'
               }`}
             >
               <CheckCircle2 className="w-3.5 h-3.5" />
-              <span>{isEn ? 'Iteration 2: Revised Draft' : 'Iteration 2: Überarbeiteter Entwurf'}</span>
+              <span>
+                {isEn
+                  ? 'Iteration 2: Revised Draft (Risk 9.1 → 2.6)'
+                  : 'Iteration 2: Überarbeiteter Entwurf (Risiko 9.1 → 2.6)'}
+              </span>
             </button>
           </div>
         </div>
