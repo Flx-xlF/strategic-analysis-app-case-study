@@ -3,6 +3,7 @@ import { getScenarios, ScenarioMeta, Language } from './fixtures/scenarios';
 import { WorldRegionId } from './fixtures/cockpitFixtures';
 import { CommandHeader, ActiveTab } from './components/common/CommandHeader';
 import { QuickTourBar, getTourSteps } from './components/common/QuickTourBar';
+import { ConceptMethodModal } from './components/common/ConceptMethodModal';
 import { NarrativeCockpitView } from './components/cockpit/NarrativeCockpitView';
 import { GeoAuditView } from './components/geo/GeoAuditView';
 import { TrendingFactoryView } from './components/trending/TrendingFactoryView';
@@ -85,8 +86,16 @@ export const App: React.FC = () => {
         onSelectRegion={setSelectedRegion}
       />
 
-      {/* Main Workspace Stage */}
-      <main className="flex-1 max-w-[1600px] w-full mx-auto px-6 sm:px-10 py-8 lg:py-10">
+      <ConceptMethodModal
+        isOpen={showConceptGuide}
+        onClose={() => setShowConceptGuide(false)}
+        lang={lang}
+      />
+
+      {/* Main Workspace Stage (with bottom padding for docked product tour) */}
+      <main className={`flex-1 max-w-[1600px] w-full mx-auto px-4 sm:px-8 py-6 lg:py-8 transition-all ${
+        showQuickTour ? 'pb-36 lg:pb-32' : 'pb-12'
+      }`}>
         {activeTab === 'cockpit' && (
           <NarrativeCockpitView
             scenarioId={selectedScenario.id}

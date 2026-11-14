@@ -77,7 +77,7 @@ export const StressTestAndInquiryView: React.FC<Props> = ({
           {/* Sub-module Hand-off Bridge (04A → 04B) */}
           <div className="bg-sbb-black text-white border-l-4 border-sbb-red p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 mt-6">
             <div className="space-y-1">
-              <div className="text-[10px] font-mono text-sbb-red uppercase tracking-widest font-bold">
+              <div className="text-[10px] font-mono text-[#FFCC00] uppercase tracking-widest font-bold">
                 {isEn ? 'MODULE 04 SUB-WORKFLOW // 04A (DRAFT STRESS-TEST) → 04B (MEDIA INQUIRY CHECK)' : 'MODUL 04 TEILPROZESS // 04A (STRESSTEST) → 04B (MEDIENANFRAGE-PRÜFUNG)'}
               </div>
               <p className="text-xs sm:text-sm text-zinc-200">
@@ -110,7 +110,7 @@ export const StressTestAndInquiryView: React.FC<Props> = ({
           {/* Sub-module Hand-off Bridge (04B → 04A) */}
           <div className="bg-sbb-black text-white border-l-4 border-sbb-red p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 mt-6">
             <div className="space-y-1">
-              <div className="text-[10px] font-mono text-sbb-red uppercase tracking-widest font-bold">
+              <div className="text-[10px] font-mono text-[#FFCC00] uppercase tracking-widest font-bold">
                 {isEn ? 'MODULE 04 SUB-WORKFLOW // 04B (MEDIA INQUIRY CHECK) → 04A (DRAFT STRESS-TEST)' : 'MODUL 04 TEILPROZESS // 04B (MEDIENANFRAGE) → 04A (STRESSTEST)'}
               </div>
               <p className="text-xs sm:text-sm text-zinc-200">
@@ -126,7 +126,7 @@ export const StressTestAndInquiryView: React.FC<Props> = ({
               }}
               className="px-4 py-2.5 bg-zinc-800 hover:bg-zinc-700 text-white font-mono text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-2 cursor-pointer shrink-0 self-start sm:self-auto border border-zinc-700"
             >
-              <Layers className="w-4 h-4 text-sbb-red" />
+              <Layers className="w-4 h-4 text-[#FFCC00]" />
               <span>{isEn ? 'Return to 04A: Draft Stress-Test' : 'Zurück zu 04A: Entwurf-Stresstest'}</span>
             </button>
           </div>

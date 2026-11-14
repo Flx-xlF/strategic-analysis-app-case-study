@@ -1,12 +1,15 @@
 import React from 'react';
 import { AlertTriangle, ShieldAlert, CheckCircle } from 'lucide-react';
+import { Language } from '../../fixtures/scenarios';
 
 interface Props {
   score: number; // 0-10
   verdict?: string;
+  lang?: Language;
 }
 
-export const RiskGauge: React.FC<Props> = ({ score, verdict }) => {
+export const RiskGauge: React.FC<Props> = ({ score, verdict, lang = 'de' }) => {
+  const isEn = lang === 'en';
   const pct = Math.min(Math.max((score / 10) * 100, 0), 100);
   const isHigh = score >= 7.0;
   const isMedium = score >= 4.0 && score < 7.0;
@@ -23,8 +26,8 @@ export const RiskGauge: React.FC<Props> = ({ score, verdict }) => {
             ) : (
               <CheckCircle className="w-4 h-4 text-emerald-600" />
             )}
-            <span className="type-ui font-black text-sbb-black text-[11px]">
-              REPUTATIONS-RISIKO
+            <span className="type-ui font-black text-sbb-black text-[11px] uppercase tracking-wider">
+              {isEn ? 'REPUTATION RISK GAUGE' : 'REPUTATIONS-RISIKO'}
             </span>
           </div>
 
@@ -33,7 +36,7 @@ export const RiskGauge: React.FC<Props> = ({ score, verdict }) => {
               isHigh ? 'text-sbb-red' : isMedium ? 'text-amber-600' : 'text-sbb-black'
             }`}
           >
-            {score.toFixed(1)} <span className="text-xs font-normal text-sbb-stone">/ 10</span>
+            {score.toFixed(1)} <span className="text-xs font-normal text-zinc-500">/ 10</span>
           </span>
         </div>
 
@@ -49,10 +52,10 @@ export const RiskGauge: React.FC<Props> = ({ score, verdict }) => {
           <div className="absolute inset-0 grid grid-cols-10 pointer-events-none divide-x divide-white/40" />
         </div>
 
-        <div className="flex justify-between text-[9px] font-mono text-sbb-stone">
-          <span>0.0 GERING</span>
-          <span>5.0 MITTEL</span>
-          <span className="font-bold text-sbb-red">10.0 KRITISCH</span>
+        <div className="flex justify-between text-[9px] font-mono text-zinc-500">
+          <span>{isEn ? '0.0 LOW' : '0.0 GERING'}</span>
+          <span>{isEn ? '5.0 MEDIUM' : '5.0 MITTEL'}</span>
+          <span className="font-bold text-sbb-red">{isEn ? '10.0 CRITICAL' : '10.0 KRITISCH'}</span>
         </div>
       </div>
 
@@ -63,11 +66,15 @@ export const RiskGauge: React.FC<Props> = ({ score, verdict }) => {
           ? 'bg-amber-50 border-amber-200 text-amber-800' 
           : 'bg-zinc-50 border-zinc-200 text-zinc-700'
       }`}>
-        {isHigh ? 'STATUS: AKUTE ESKALATIONSGEFAHR' : isMedium ? 'STATUS: ERHÖHTE WACHSAMKEIT' : 'STATUS: KONTROLLIERT'}
+        {isHigh 
+          ? (isEn ? 'STATUS: ACUTE ESCALATION RISK' : 'STATUS: AKUTE ESKALATIONSGEFAHR') 
+          : isMedium 
+          ? (isEn ? 'STATUS: ELEVATED VIGILANCE' : 'STATUS: ERHÖHTE WACHSAMKEIT') 
+          : (isEn ? 'STATUS: CONTROLLED' : 'STATUS: KONTROLLIERT')}
       </div>
 
       {verdict && (
-        <p className="text-xs text-sbb-stone italic border-t border-sbb-aluminum pt-2">
+        <p className="text-xs text-zinc-500 italic border-t border-sbb-aluminum pt-2">
           {verdict}
         </p>
       )}

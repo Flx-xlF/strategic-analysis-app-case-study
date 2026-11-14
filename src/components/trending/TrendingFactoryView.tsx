@@ -48,6 +48,7 @@ export const TrendingFactoryView: React.FC<Props> = ({
   const data: TrendingScenarioData = getTrendingData(lang, scenarioId);
   const [selectedFormat, setSelectedFormat] = useState<ContentFormatId>('hintergrund');
   const [copied, setCopied] = useState(false);
+  const [showGovernanceDetails, setShowGovernanceDetails] = useState(false);
   const isEn = lang === 'en';
 
   const activeAdaptation: RegionalAdaptation = 
@@ -137,109 +138,147 @@ export const TrendingFactoryView: React.FC<Props> = ({
               </span>
             </div>
             <span className="text-[10px] font-mono text-zinc-500">
-              {isEn ? 'Veeva Vault + SharePoint + Regulatory Repositories' : 'Veeva Vault + SharePoint + Rechtsarchive'}
+              {(() => {
+                if (scenarioId === 'alpine_transit_crisis') {
+                  return isEn ? 'Technical Archives + SCADA Telemetry + Operating Rules' : 'Betriebsarchive + Leittechnik-Logs + Fahrdienstvorschriften';
+                } else if (scenarioId === 'esg_investigation') {
+                  return isEn ? 'Group Procurement + Supplier Audits + Legal Repositories' : 'Konzerneinkauf + Lieferanten-Audits + Rechtsdossiers';
+                } else if (scenarioId === 'health_data_breach') {
+                  return isEn ? 'Enterprise Cloud KMS + FDPIC Rulings + Security Specs' : 'Kryptosysteme + EDÖB-Gutachten + Sicherheitsdossiers';
+                }
+                return isEn ? 'Veeva Vault + SharePoint + Regulatory Repositories' : 'Veeva Vault + SharePoint + Rechtsarchive';
+              })()}
             </span>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 font-mono text-xs">
             <div className="p-3 bg-white border border-zinc-200">
-              <div className="text-[10px] text-sbb-stone uppercase">{isEn ? 'RAW ENTERPRISE CORPUS' : 'GESAMTE DOKUMENTE'}</div>
+              <div className="text-[10px] text-zinc-500 uppercase font-bold">{isEn ? 'RAW ENTERPRISE CORPUS' : 'GESAMTE DOKUMENTE'}</div>
               <div className="text-xl font-black text-sbb-black">{data.corpus_gate.raw_enterprise_files.toLocaleString()}</div>
-              <div className="text-[9px] text-zinc-400 mt-0.5">{isEn ? 'Across Global Silos' : 'In allen Silos'}</div>
+              <div className="text-[9px] text-zinc-500 mt-0.5">{isEn ? 'Across Global Silos' : 'In allen Silos'}</div>
             </div>
 
             <div className="p-3 bg-white border border-zinc-200">
-              <div className="text-[10px] text-sbb-stone uppercase">{isEn ? 'TEMPORAL & STATUS FILTER' : 'STATUS- & ZEITFILTER'}</div>
+              <div className="text-[10px] text-zinc-500 uppercase font-bold">{isEn ? 'TEMPORAL & STATUS FILTER' : 'STATUS- & ZEITFILTER'}</div>
               <div className="text-xl font-black text-zinc-800">{data.corpus_gate.active_governed_records.toLocaleString()}</div>
-              <div className="text-[9px] text-zinc-400 mt-0.5">{isEn ? 'Active Approved Records' : 'Aktive Freigaben'}</div>
+              <div className="text-[9px] text-zinc-500 mt-0.5">{isEn ? 'Active Approved Records' : 'Aktive Freigaben'}</div>
             </div>
 
             <div className="p-3 bg-white border border-emerald-300">
               <div className="text-[10px] text-emerald-800 uppercase font-bold">{isEn ? 'CANONICAL GOLDEN SOURCES' : 'CANONICAL GOLDEN SOURCES'}</div>
               <div className="text-xl font-black text-emerald-700">{data.corpus_gate.canonical_golden_sources}</div>
-              <div className="text-[9px] text-emerald-600 mt-0.5">{isEn ? 'Locked Wording Packs' : 'Verbindliche Sprachregelungen'}</div>
+              <div className="text-[9px] text-emerald-700 mt-0.5">{isEn ? 'Locked Wording Packs' : 'Verbindliche Sprachregelungen'}</div>
             </div>
 
             <div className="p-3 bg-red-50 border border-red-200">
               <div className="text-[10px] text-sbb-red uppercase font-bold">{isEn ? 'LEGACY CONFLICTS FLAGGED' : 'ALT-DOKUMENT-KONFLIKTE'}</div>
               <div className="text-xl font-black text-sbb-red">{data.corpus_gate.legacy_conflicts_flagged}</div>
-              <div className="text-[9px] text-sbb-red mt-0.5">{isEn ? 'Contradicting New Findings' : 'Widersprechen Phase III'}</div>
+              <div className="text-[9px] text-sbb-red mt-0.5">
+                {(() => {
+                  if (scenarioId === 'alpine_transit_crisis') {
+                    return isEn ? 'Outdated Maintenance Manuals' : 'Veraltete Wartungshandbücher';
+                  } else if (scenarioId === 'esg_investigation') {
+                    return isEn ? 'Pre-2025 Audit Baseline' : 'Vorherige Audit-Stände';
+                  } else if (scenarioId === 'health_data_breach') {
+                    return isEn ? 'Deprecated Cloud Drafts' : 'Überholte Migrationskonzepte';
+                  }
+                  return isEn ? 'Contradicting Canonical Policy' : 'Widersprechen Canonical Policy';
+                })()}
+              </div>
             </div>
           </div>
 
-          {/* Legacy Conflict Alert Drawer */}
-          {data.corpus_gate.conflict_details && data.corpus_gate.conflict_details.length > 0 && (
-            <div className="p-3 bg-red-50/80 border border-red-200 text-xs">
-              <div className="flex items-center gap-2 font-mono font-bold text-sbb-red mb-1">
-                <AlertOctagon className="w-3.5 h-3.5" />
-                <span>{isEn ? 'AUTOMATED INTERNAL CONFLICT DETECTED IN REGIONAL VAULTS:' : 'AUTOMATISCHER KONFLIKT IN REGIONALEN ABLAGEN ERKANNT:'}</span>
-              </div>
-              <div className="space-y-1.5 font-sans">
-                {data.corpus_gate.conflict_details.map((c, idx) => (
-                  <div key={idx} className="p-2 bg-white border border-red-200 text-[11px] space-y-0.5">
-                    <div className="font-mono font-bold text-sbb-black">{c.document_title} <span className="text-[10px] text-zinc-400 font-normal">({c.vault_location})</span></div>
-                    <div className="text-zinc-700">{c.conflict_reason}</div>
-                    <div className="font-mono text-sbb-red font-bold">{isEn ? 'Action: ' : 'Massnahme: '}{c.action_required}</div>
+          {/* Collapsible Toggle for Vault Conflicts & Process Value Cards */}
+          <div className="pt-2 flex justify-end">
+            <button
+              onClick={() => setShowGovernanceDetails(prev => !prev)}
+              className="text-[10px] font-mono font-bold text-sbb-black hover:text-sbb-red transition-colors flex items-center gap-1 cursor-pointer"
+            >
+              <span>
+                {showGovernanceDetails
+                  ? (isEn ? '▲ Hide Flagged Conflicts & Process Value' : '▲ Konflikte & Prozessnutzen ausblenden')
+                  : (isEn ? '▼ Inspect Flagged Vault Conflicts & Process Value' : '▼ Geflaggte Konflikte & Prozessnutzen einblenden')}
+              </span>
+            </button>
+          </div>
+
+          {showGovernanceDetails && (
+            <div className="space-y-4 pt-2 border-t border-zinc-200 animate-fadeIn">
+              {/* Legacy Conflict Alert Drawer */}
+              {data.corpus_gate.conflict_details && data.corpus_gate.conflict_details.length > 0 && (
+                <div className="p-3 bg-red-50/80 border border-red-200 text-xs">
+                  <div className="flex items-center gap-2 font-mono font-bold text-sbb-red mb-1">
+                    <AlertOctagon className="w-3.5 h-3.5" />
+                    <span>{isEn ? 'AUTOMATED INTERNAL CONFLICT DETECTED IN REGIONAL VAULTS:' : 'AUTOMATISCHER KONFLIKT IN REGIONALEN ABLAGEN ERKANNT:'}</span>
                   </div>
-                ))}
+                  <div className="space-y-1.5 font-sans">
+                    {data.corpus_gate.conflict_details.map((c, idx) => (
+                      <div key={idx} className="p-2 bg-white border border-red-200 text-[11px] space-y-0.5">
+                        <div className="font-mono font-bold text-sbb-black">{c.document_title} <span className="text-[10px] text-zinc-500 font-normal">({c.vault_location})</span></div>
+                        <div className="text-zinc-700">{c.conflict_reason}</div>
+                        <div className="font-mono text-sbb-red font-bold">{isEn ? 'Action: ' : 'Massnahme: '}{c.action_required}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Process Integration: Concrete Value for Management vs. Operational Teams */}
+              <div className="pt-2">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2.5">
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-sbb-black">
+                    {isEn
+                      ? 'PROCESS INTEGRATION: HOW THIS WORKFLOW IMPROVES MANAGEMENT STEERING & TEAM EXECUTION'
+                      : 'PROZESS-INTEGRATION: KONKRETER MEHRWERT FÜR MANAGEMENT-STEUERUNG & TEAM-UMSETZUNG'}
+                  </span>
+                  <span className="text-[10px] font-mono text-sbb-red font-bold">
+                    {isEn ? 'Embedded in Daily/Weekly Routines // Human-in-the-Loop' : 'Eingebettet in Regelprozesse // Human-in-the-Loop'}
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-[11px] font-sans">
+                  {/* Management Value */}
+                  <div className="p-3 bg-white border border-zinc-200 space-y-1">
+                    <div className="font-mono text-[10px] font-bold text-sbb-black uppercase flex items-center justify-between">
+                      <span>{isEn ? '1. For Leadership (Decision Support)' : '1. Für Führungskräfte (Entscheidungskontext)'}</span>
+                      <span className="text-emerald-700">{isEn ? 'On-Demand Context' : 'Kontext auf Knopfdruck'}</span>
+                    </div>
+                    <p className="text-zinc-600 leading-snug">
+                      {isEn
+                        ? 'Assists leadership in taking fast, informed decisions by providing cross-regional reception, regulatory trade-offs, and Golden Source alignment at the push of a button.'
+                        : 'Unterstützt Führungskräfte bei Entscheidungen, indem regionaler Rezeptionskontext, regulatorische Zielkonflikte und Golden-Source-Abgleiche auf Knopfdruck bereitstehen.'}
+                    </p>
+                  </div>
+
+                  {/* Team Value */}
+                  <div className="p-3 bg-white border border-zinc-200 space-y-1">
+                    <div className="font-mono text-[10px] font-bold text-sbb-black uppercase flex items-center justify-between">
+                      <span>{isEn ? '2. For Comms Teams (Speed)' : '2. Für Kommunikations-Teams (Tempo)'}</span>
+                      <span className="text-emerald-700">{isEn ? 'Days → Hours' : 'Tage → Stunden'}</span>
+                    </div>
+                    <p className="text-zinc-600 leading-snug">
+                      {isEn
+                        ? 'Eliminates repository hunting and prompt guesswork. Regional teams adapt pre-cleared Golden Sources (GS-01–GS-03), cutting Legal/Governance alignment cycles from days to hours.'
+                        : 'Kein Suchen in Dateiablagen oder Raten bei Prompts: Länderteams nutzen vorab geprüfte Golden Sources (GS-01–GS-03) und verkürzen Freigaben von Tagen auf Stunden.'}
+                    </p>
+                  </div>
+
+                  {/* Human Governance Gate */}
+                  <div className="p-3 bg-white border border-zinc-200 space-y-1">
+                    <div className="font-mono text-[10px] font-bold text-sbb-black uppercase flex items-center justify-between">
+                      <span>{isEn ? '3. Governance Gate (Control)' : '3. Governance-Gate (Kontrolle)'}</span>
+                      <span className="text-sbb-red">{isEn ? 'Mandatory Sign-Off' : 'Pflicht-Freigabe'}</span>
+                    </div>
+                    <p className="text-zinc-600 leading-snug">
+                      {isEn
+                        ? 'AI never auto-publishes. Every regional playbook and stress-tested draft logs its Golden Source ID and requires human Comms + Legal/Regulatory sign-off before release.'
+                        : 'Keine automatische Publikation durch KI: Jedes Playbook referenziert seine Golden-Source-ID und durchläuft vor Veröffentlichung die reguläre Kommunikations- und Rechtsfreigabe.'}
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           )}
-
-          {/* Process Integration: Concrete Value for Management vs. Operational Teams */}
-          <div className="pt-3 border-t border-zinc-200">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2.5">
-              <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-sbb-black">
-                {isEn
-                  ? 'PROCESS INTEGRATION: HOW THIS WORKFLOW IMPROVES MANAGEMENT STEERING & TEAM EXECUTION'
-                  : 'PROZESS-INTEGRATION: KONKRETER MEHRWERT FÜR MANAGEMENT-STEUERUNG & TEAM-UMSETZUNG'}
-              </span>
-              <span className="text-[10px] font-mono text-sbb-red font-bold">
-                {isEn ? 'Embedded in Daily/Weekly Routines // Human-in-the-Loop' : 'Eingebettet in Regelprozesse // Human-in-the-Loop'}
-              </span>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-[11px] font-sans">
-              {/* Management Value */}
-              <div className="p-3 bg-white border border-zinc-200 space-y-1">
-                <div className="font-mono text-[10px] font-bold text-sbb-black uppercase flex items-center justify-between">
-                  <span>{isEn ? '1. For Leadership (Decision Support)' : '1. Für Führungskräfte (Entscheidungskontext)'}</span>
-                  <span className="text-emerald-700">{isEn ? 'On-Demand Context' : 'Kontext auf Knopfdruck'}</span>
-                </div>
-                <p className="text-zinc-600 leading-snug">
-                  {isEn
-                    ? 'Assists leadership in taking fast, informed decisions by providing cross-regional reception, regulatory trade-offs, and Golden Source alignment at the push of a button.'
-                    : 'Unterstützt Führungskräfte bei Entscheidungen, indem regionaler Rezeptionskontext, regulatorische Zielkonflikte und Golden-Source-Abgleiche auf Knopfdruck bereitstehen.'}
-                </p>
-              </div>
-
-              {/* Team Value */}
-              <div className="p-3 bg-white border border-zinc-200 space-y-1">
-                <div className="font-mono text-[10px] font-bold text-sbb-black uppercase flex items-center justify-between">
-                  <span>{isEn ? '2. For Comms Teams (Speed)' : '2. Für Kommunikations-Teams (Tempo)'}</span>
-                  <span className="text-emerald-700">{isEn ? 'Days → Hours' : 'Tage → Stunden'}</span>
-                </div>
-                <p className="text-zinc-600 leading-snug">
-                  {isEn
-                    ? 'Eliminates SharePoint hunting and prompt guesswork. Affiliates adapt pre-cleared Golden Sources (GS-01–GS-03), cutting Legal/MLR alignment cycles from days to hours.'
-                    : 'Kein Suchen in SharePoint-Ordnern oder Raten bei Prompts: Länderteams nutzen vorab geprüfte Golden Sources (GS-01–GS-03) und verkürzen MLR-Freigaben von Tagen auf Stunden.'}
-                </p>
-              </div>
-
-              {/* Human Governance Gate */}
-              <div className="p-3 bg-white border border-zinc-200 space-y-1">
-                <div className="font-mono text-[10px] font-bold text-sbb-black uppercase flex items-center justify-between">
-                  <span>{isEn ? '3. Governance Gate (Control)' : '3. Governance-Gate (Kontrolle)'}</span>
-                  <span className="text-sbb-red">{isEn ? 'Mandatory Sign-Off' : 'Pflicht-Freigabe'}</span>
-                </div>
-                <p className="text-zinc-600 leading-snug">
-                  {isEn
-                    ? 'AI never auto-publishes. Every regional playbook and stress-tested draft logs its Golden Source ID and requires human Comms + Legal/Regulatory sign-off before release.'
-                    : 'Keine automatische Publikation durch KI: Jedes Playbook referenziert seine Golden-Source-ID und durchläuft vor Veröffentlichung die reguläre Kommunikations- und Rechtsfreigabe.'}
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -249,7 +288,7 @@ export const TrendingFactoryView: React.FC<Props> = ({
           <span className="w-7 h-7 bg-sbb-black text-white font-mono text-xs font-bold flex items-center justify-center">
             01
           </span>
-          <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-stone">
+          <span className="font-mono text-xs font-bold uppercase tracking-widest text-zinc-500">
             {isEn ? 'CENTRAL CORE NARRATIVE, MANDATORY GEO FRAMEWORK & GUARDRAILS' : 'ZENTRALES KERN-NARRATIV, VERBINDLICHES GEO-FRAMEWORK & LEITPLANKEN'}
           </span>
         </div>
@@ -260,7 +299,18 @@ export const TrendingFactoryView: React.FC<Props> = ({
               {isEn ? 'CANONICAL GLOBAL THESIS (APPROVED BY C-SUITE & LEGAL)' : 'AUTORISIERTE GLOBALE KERNTHESE (FREIGEGEBEN DURCH KONZERNLEITUNG)'}
             </span>
             <span className="text-[10px] font-mono px-2 py-0.5 bg-zinc-100 border border-zinc-200 text-zinc-700">
-              REF: SOP-MED-402 & CSR-701
+              {(() => {
+                if (scenarioId === 'alpine_transit_crisis') {
+                  return 'REF: SBB-FDV-301 & SCADA-LOG-409';
+                } else if (scenarioId === 'esg_investigation') {
+                  return 'REF: ESG-CODE-2025-V2 & SMETA-881';
+                } else if (scenarioId === 'health_data_breach') {
+                  return 'REF: BYOK-SPEC-2026 & EPDG-321';
+                } else if (scenarioId === 'pluvicto_access_debate') {
+                  return 'REF: RLT-01-SAP & CSR-PROS-401';
+                }
+                return 'REF: GS-01-MFN & US-CAPEX-2026';
+              })()}
             </span>
           </div>
 
@@ -342,8 +392,8 @@ export const TrendingFactoryView: React.FC<Props> = ({
                 </div>
                 <p className="text-[11px] text-zinc-700 leading-snug">
                   {isEn
-                    ? 'Never repeat an accusation ("boycott", "exodus") to deny it—repeating negative frames on corporate channels anchors those keywords to our entity in AI search indices.'
-                    : 'Vorwürfe ("Boykott", "Abwanderung") nie zur Verneinung wiederholen – sonst verknüpfen KI-Suchindizes die eigene Domain direkt mit dem Negativ-Frame.'}
+                    ? 'Never repeat an accusation to deny it—repeating hostile keyword frames on corporate channels anchors those terms directly to our entity in AI search indices.'
+                    : 'Vorwürfe nie zur Verneinung wiederholen – sonst verknüpfen KI-Suchindizes die eigene Domain direkt mit dem Negativ-Frame.'}
                 </p>
               </div>
 
@@ -455,7 +505,7 @@ export const TrendingFactoryView: React.FC<Props> = ({
                       {fmt.label}
                     </span>
                   </div>
-                  <div className="text-[10px] font-mono text-zinc-400 pl-6">
+                  <div className="text-[10px] font-mono text-zinc-500 pl-6">
                     {fmt.subtitle}
                   </div>
                 </button>
@@ -562,8 +612,23 @@ export const TrendingFactoryView: React.FC<Props> = ({
               </div>
             </div>
 
-            <div className="bg-sbb-cloud/40 p-6 sm:p-8 border-l-4 border-sbb-black text-sm text-sbb-black leading-relaxed whitespace-pre-line font-mono max-w-4xl">
-              {blueprint.blueprint_content}
+            <div className="bg-sbb-cloud/40 p-6 sm:p-8 border-l-4 border-sbb-black text-sm text-sbb-black leading-relaxed font-sans max-w-4xl space-y-3">
+              {blueprint.blueprint_content.split('\n\n').map((paragraph, pIdx) => {
+                if (paragraph.startsWith('### ')) {
+                  return (
+                    <h5 key={pIdx} className="font-mono text-xs font-black uppercase tracking-wider text-sbb-black pt-2 border-b border-zinc-200 pb-1">
+                      {paragraph.replace('### ', '')}
+                    </h5>
+                  );
+                }
+                return (
+                  <p key={pIdx} className="whitespace-pre-line text-xs sm:text-sm text-zinc-900 leading-relaxed font-sans">
+                    {paragraph.split('**').map((chunk, cIdx) => 
+                      cIdx % 2 === 1 ? <strong key={cIdx} className="font-bold text-sbb-black">{chunk}</strong> : chunk
+                    )}
+                  </p>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -573,7 +638,7 @@ export const TrendingFactoryView: React.FC<Props> = ({
       {onNavigateTab && (
         <div className="bg-sbb-black text-white border-l-4 border-sbb-red p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="space-y-1">
-            <div className="text-[10px] font-mono text-sbb-red uppercase tracking-widest font-bold">
+            <div className="text-[10px] font-mono text-[#FFCC00] uppercase tracking-widest font-bold">
               {isEn ? 'NEXT STEP IN WORKFLOW // MODULE 03 → MODULE 04 (STRESS-TEST & INQUIRY)' : 'NÄCHSTER PROZESSSCHRITT // MODUL 03 → MODUL 04 (STRESSTEST & ANFRAGE)'}
             </div>
             <p className="text-xs sm:text-sm text-zinc-200">

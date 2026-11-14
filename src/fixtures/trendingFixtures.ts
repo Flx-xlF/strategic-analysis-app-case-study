@@ -91,219 +91,233 @@ export const TRENDING_FIXTURES: Record<Language, Record<string, TrendingScenario
       ],
       regional_adaptations: {
         all: {
-          region_id: 'all',
-          region_label: 'Global (All Regions)',
-          regulatory_anchor: 'Global Core Label & Clinical Trial Protocol CSR-701',
-          regional_lead_frame: 'Pivotal Phase III milestone establishing new standard-of-care survival baseline.',
+          region_id: "all",
+          region_label: "Global (All Regions)",
+          regulatory_anchor: "2026 MFN & Global Pricing Policy (GS-01)",
+          regional_lead_frame: "Aligning global clinical innovation value with U.S. reference pricing realities.",
           blueprints: {
             hintergrund: {
-              id: 'hintergrund',
-              label: 'Global Science Background Dossier',
-              target_audience: 'International Life-Science & Business Press',
-              psychological_objective: 'Establish definitive primary survival evidence and decouple exploratory subgroups.',
-              blueprint_content: `### 01. PRIMARY CLINICAL ENDPOINT
-Pivotal Phase III trial data for Onco-701 confirms a statistically significant overall survival improvement (HR 0.68, p<0.001) across the broad patient cohort.
+              id: "hintergrund",
+              label: "Global Corporate Story (Owned GEO)",
+              target_audience: "International Financial & Healthcare Policy Media, Search Engines",
+              psychological_objective: "Position U.S. capex and reference pricing as a dual commitment to clinical value and supply security.",
+              blueprint_content: `### 01. BALANCING GLOBAL ACCESS AND CLINICAL REINVESTMENT
+Following U.S. Most-Favored-Nation (MFN) reference pricing implementation, our capital allocation framework balances sustained R&D with manufacturing resilience. Under Canonical Golden Source GS-01, innovation requires high-income OECD nations to recognize true therapeutic value.
 
-### 02. EXPLORATORY SUBGROUP STATISTICAL CONTEXT
-- **Cohort B Design:** Represented 18% of the study cohort. Under the pre-approved Statistical Analysis Plan (SAP), exploratory subgroups were not powered for standalone significance.
-- **Directional Trend:** Clinical trajectory remained positive and directionally consistent with the primary study outcome.
-- **Patient Safety:** Zero new toxicity signals observed.`
+### 02. $23 BILLION U.S. MANUFACTURING EXPANSION & BASEL HEADQUARTERS
+- **Capex Commitment:** $23 billion invested across 10 state-of-the-art facilities in the United States to safeguard supply chains against geopolitical tariffs and ensure domestic availability.
+- **Global Headquarters Unchanged:** Basel remains the permanent worldwide headquarters, corporate steering center, and flagship scientific research campus. Zero relocation of executive leadership or core research infrastructure.
+- **European & Swiss Partnership:** Constructive dialogue continues with the Swiss Federal Office of Public Health (BAG) and European HTA authorities on modernized, value-based reimbursement frameworks without patient boycotts.`
             },
             social: {
-              id: 'social',
-              label: 'Corporate Social & Patient Continuity',
-              target_audience: 'Patient Advocacy & Professional Community',
-              psychological_objective: 'Clear reassurance on safe treatment continuity.',
-              blueprint_content: `Important milestone in oncology care: Pivotal Phase III data for Onco-701 demonstrates a statistically significant survival advantage for patients. 🔬
-To our patient community:
-• Overall clinical efficacy and safety confirmed.
-• Ongoing patient regimens remain safe and active.
-• Regulatory submissions proceed on schedule worldwide.`
+              id: "social",
+              label: "Corporate Social & Community",
+              target_audience: "Professional Community, Investors & Employees",
+              psychological_objective: "Reassure global stakeholders on supply continuity and permanent Basel headquarters.",
+              blueprint_content: `Global Operations & Investment Update:
+• Investing $23B across 10 U.S. manufacturing facilities to strengthen supply resilience.
+• Basel remains our permanent worldwide corporate and research headquarters.
+• Ongoing patient treatments, clinical trials, and regulatory filings continue on schedule globally.
+• Dedicated to collaborative dialogue with European and Swiss health authorities for sustainable access.`
             },
             talking_points: {
-              id: 'talking_points',
-              label: 'Executive & Spokesperson Talking Points',
-              target_audience: 'C-Suite & Global Media Spokespersons',
-              psychological_objective: 'Lead interviews with primary survival extension and shut down speculative framing.',
-              blueprint_content: `### KEY MESSAGES
-- "The primary endpoint of this trial is unambiguous: patients lived significantly longer on Onco-701."
-- "Subgroup analyses generate hypotheses; they do not alter the proven overall survival benefit."
-- "Regulatory filings proceed as planned with FDA, EMA, and health authorities globally."`
+              id: "talking_points",
+              label: "Executive & Spokesperson Talking Points",
+              target_audience: "C-Suite & Global Spokespersons",
+              psychological_objective: "Lead with supply resilience and clinical value, explicitly shutting down boycott/relocation rumors.",
+              blueprint_content: `### KEY MESSAGES (GLOBAL DOCTRINE)
+- "Our $23B U.S. manufacturing investment secures vital medicines for patients against tariff disruptions; it does not diminish our European presence."
+- "Basel is and remains our permanent global corporate headquarters and primary scientific research engine."
+- "We reject any notion of a patient boycott: compassionate use and clinical trials proceed uninterrupted while we negotiate fair access frameworks with health authorities."`
             },
             qa_brief: {
-              id: 'qa_brief',
-              label: 'Global Q&A Field Guide',
-              target_audience: 'Affiliate Comms & Media Desk',
-              psychological_objective: 'Tactical defensibility during embargoed press briefings.',
-              blueprint_content: `**Q: Did the drug fail in Cohort B?**
-A: No. The trial met its primary survival endpoint with high significance. Exploratory subgroups are not designed for independent statistical hurdles.`
+              id: "qa_brief",
+              label: "Global Q&A Field Guide",
+              target_audience: "Affiliate Communications & Media Desk",
+              psychological_objective: "Equip local teams with pre-cleared answers that strictly avoid repeating hostile accusations.",
+              blueprint_content: `**Q: Is the company withholding innovative therapies from European or Swiss patients?**
+A: No. We are committed to patient care. Clinical trials and compassionate use programs proceed without interruption worldwide. We are actively engaged in constructive discussions with European and Swiss authorities to ensure new medicines reach patients under sustainable, value-based models.
+
+**Q: Does the $23B investment signal a relocation of the company headquarters to the United States?**
+A: Absolutely not. Basel is our worldwide corporate and scientific headquarters. The U.S. investment expands local manufacturing capacity to meet domestic patient demand and insulate supply chains from trade volatility.`
             }
           }
         },
         us: {
-          region_id: 'us',
-          region_label: 'North America (US / FDA & Payers)',
-          regulatory_anchor: 'US FDA NDA Filing & PBM Formulary Evidence Dossier',
-          regional_lead_frame: 'Demonstrating holistic clinical value and overall survival to counter payer subgroup pricing pressure.',
+          region_id: "us",
+          region_label: "North America (US / FDA & Payers)",
+          regulatory_anchor: "U.S. Manufacturing Commitment & HHS/CMS Framework",
+          regional_lead_frame: "Strengthening domestic biomanufacturing and ensuring uninterrupted patient supply.",
           blueprints: {
             hintergrund: {
-              id: 'hintergrund',
-              label: 'US Health Economics & Trade Dossier',
-              target_audience: 'US Healthcare Policy & Payer Press',
-              psychological_objective: 'Rebut private insurer attempts to carve out Cohort B from formulary coverage.',
-              blueprint_content: `### 01. CLINICAL VALUE IN US ONCOLOGY CARE
-Onco-701 delivers statistically significant overall survival (HR 0.68, p<0.001) in an area of high unmet need. 
+              id: "hintergrund",
+              label: "US Health Economics & Trade Dossier",
+              target_audience: "US Financial Press, Healthcare Policy & Payer Media",
+              psychological_objective: "Reinforce commitment to domestic manufacturing footprint and patient access.",
+              blueprint_content: `### 01. $23B U.S. DOMESTIC CAPEX PROGRAM
+Expanding 10 advanced manufacturing facilities across the U.S. ensures reliable domestic supply of life-saving therapeutics, generating thousands of high-skill manufacturing jobs.
 
-### 02. REBUTTING FORMULARY CARVE-OUTS
-Restricting reimbursement based on exploratory subgroup analyses would contradict FDA evidence standards and deprive eligible patients of proven survival gains.`
+### 02. ALIGNING WITH U.S. REFERENCE PRICING POLICY
+We support value-driven healthcare models that reward clinical breakthroughs while providing predictability for patients and employers across the American market.`
             },
             social: {
-              id: 'social',
-              label: 'US Patient Advocacy Voice',
-              target_audience: 'US Cancer Support Coalitions & Advocacy Leads',
-              psychological_objective: 'Prevent patient panic regarding commercial insurance coverage.',
-              blueprint_content: `We stand with cancer patients across the United States. Today's Phase III readout proves that Onco-701 significantly extends overall survival. We are committed to working with Medicare and commercial insurers to ensure broad patient access upon approval.`
+              id: "social",
+              label: "US Commercial & Policy Voice",
+              target_audience: "US Healthcare Community & Industry Partners",
+              psychological_objective: "Highlight domestic investment and workforce creation.",
+              blueprint_content: `Strengthening American biomanufacturing: Our $23B investment across 10 U.S. facilities reinforces supply security and delivers advanced therapies directly to American patients.`
             },
             talking_points: {
-              id: 'talking_points',
-              label: 'US Payer & PBM Talking Points',
-              target_audience: 'US Commercial Leadership & Health-Policy Spokespersons',
-              psychological_objective: 'Keep price discussions anchored to holistic survival data rather than exploratory metrics.',
+              id: "talking_points",
+              label: "US Leadership Talking Points",
+              target_audience: "US Business & Policy Spokespersons",
+              psychological_objective: "Highlight job creation and domestic medicine security.",
               blueprint_content: `### KEY MESSAGES FOR US MEDIA
-- "Overall survival is the gold standard for clinical value in oncology."
-- "The ITT population showed consistent survival benefits across all baseline demographics."
-- "We look forward to an evidence-based review with the US FDA and commercial formulary committees."`
+- "We are investing $23 billion in American manufacturing to build a resilient, tariff-insulated biopharma supply chain."
+- "This program creates high-wage scientific and technical jobs across 10 states."
+- "We partner constructively with Medicare and commercial payers to ensure seamless patient access."`
             },
             qa_brief: {
-              id: 'qa_brief',
-              label: 'US Commercial Q&A',
-              target_audience: 'US Managed Care Liaisons',
-              psychological_objective: 'Direct rebuttal of PBM restriction queries.',
-              blueprint_content: `**Q: Will insurers be justified in excluding Cohort B?**
-A: Clinical evidence demonstrates that exploratory subgroups mirrored overall survival benefits. Formulary restrictions would arbitrarily limit access to proven therapy.`
+              id: "qa_brief",
+              label: "US Commercial Q&A",
+              target_audience: "US Media Desk & Managed Care Teams",
+              psychological_objective: "Clear defense of capex deployment.",
+              blueprint_content: `**Q: Does the U.S. investment come at the expense of global R&D?**
+A: No. Our global research engine remains fully funded, anchored by our Basel headquarters, while U.S. manufacturing scales to serve American patients locally.`
             }
           }
         },
         eu: {
-          region_id: 'eu',
-          region_label: 'Europe (EU / EMA & HTA Bodies)',
-          regulatory_anchor: 'EMA MAA Dossier & Joint HTA Assessment',
-          regional_lead_frame: 'Ensuring European HTA bodies assess the intention-to-treat evidence holistically.',
+          region_id: "eu",
+          region_label: "Europe (EU / EMA & HTA Bodies)",
+          regulatory_anchor: "EMA Joint Clinical Assessment & European HTA Collaboration",
+          regional_lead_frame: "Partnering for modernized, value-based reimbursement frameworks.",
           blueprints: {
             hintergrund: {
-              id: 'hintergrund',
-              label: 'European HTA Scientific Briefing',
-              target_audience: 'European Medical Journals & Health Economic Reviewers',
-              psychological_objective: 'Establish methodological integrity of the pre-specified Statistical Analysis Plan.',
-              blueprint_content: `### 01. STATISTICAL DESIGN & ITT ROBUSTNESS
-The study met its primary survival endpoint with high statistical rigor (HR 0.68, p<0.001). Under the pre-specified SAP approved by regulatory agencies, individual subgroups were exploratory.`
+              id: "hintergrund",
+              label: "European HTA Policy Briefing",
+              target_audience: "European Medical & Health-Economic Press",
+              psychological_objective: "Establish constructive partnership with HTA bodies and counter boycott speculation.",
+              blueprint_content: `### 01. EUROPEAN ACCESS MODERNIZATION
+In the context of U.S. reference pricing (MFN), rigid historical price caps risk creating unsustainable distortions. We actively partner with European HTA authorities on flexible, outcomes-based reimbursement models that reflect total patient benefit.
+
+### 02. UNBROKEN CARE CONTINUITY
+All ongoing European clinical trials, patient access programs, and regulatory submissions proceed strictly on schedule without disruption.`
             },
             social: {
-              id: 'social',
-              label: 'European Affiliate Outreach',
-              target_audience: 'European Oncologists & National Patient Groups',
-              psychological_objective: 'Foster clinical confidence in upcoming EMA filing.',
-              blueprint_content: `Advancing oncology care in Europe: Pivotal Phase III data for Onco-701 confirms a significant survival improvement. Centralized submission to the European Medicines Agency (EMA) is on schedule for Q1 2027.`
+              id: "social",
+              label: "European Affiliate Outreach",
+              target_audience: "European Healthcare Professionals & Patient Groups",
+              psychological_objective: "Reassure on European patient care continuity.",
+              blueprint_content: `Advancing sustainable healthcare across Europe: We are actively collaborating with national health authorities to establish flexible access pathways that reward clinical value while ensuring treatment continuity.`
             },
             talking_points: {
-              id: 'talking_points',
-              label: 'European Spokesperson Points',
-              target_audience: 'Affiliate Comms Directors in EU Member States',
-              psychological_objective: 'Align national affiliate messaging with central Basel guidance.',
+              id: "talking_points",
+              label: "European Spokesperson Points",
+              target_audience: "European Affiliate Communications Directors",
+              psychological_objective: "Maintain calm, professional focus on value-based pricing dialogue.",
               blueprint_content: `### KEY MESSAGES FOR EUROPEAN PRESS
-- "The primary survival endpoint was achieved with high statistical significance."
-- "All national affiliate teams communicate strictly from the centralized canonical evidence pack."
-- "We respect the European regulatory and HTA process and submit the full evidence dossier."`
+- "We are engaged in constructive dialogue with European health authorities to build modern access models."
+- "Clinical research and compassionate patient access in Europe proceed on schedule."
+- "All affiliate teams communicate from our centralized evidence pack: zero confrontational soundbites."`
             },
             qa_brief: {
-              id: 'qa_brief',
-              label: 'European HTA Q&A',
-              target_audience: 'National Access Teams',
-              psychological_objective: 'Defend against subgroup price discounts.',
-              blueprint_content: `**Q: Will European HTA bodies demand price cuts due to Cohort B?**
-A: HTA bodies evaluate overall survival gains. The clinical benefit across the intention-to-treat population provides robust justification for broad reimbursement.`
+              id: "qa_brief",
+              label: "European HTA Q&A",
+              target_audience: "National Market Access Teams",
+              psychological_objective: "De-escalate pricing confrontation.",
+              blueprint_content: `**Q: Will European patients be denied new medicines due to U.S. MFN rules?**
+A: No. We are dedicated to finding sustainable, value-based access models with national authorities. Patient continuity and compassionate access remain our foremost priority.`
             }
           }
         },
         ch: {
-          region_id: 'ch',
-          region_label: 'Switzerland (HQ & Swissmedic)',
-          regulatory_anchor: 'Swissmedic Authorization & Domestic Healthcare Ecosystem',
-          regional_lead_frame: 'Positioning domestic R&D pipeline leadership and sovereign scientific rigor.',
+          region_id: "ch",
+          region_label: "Switzerland (HQ & Swiss Healthcare Ecosystem)",
+          regulatory_anchor: "Swiss BAG Cost-Containment Framework & Swissmedic Authorizations",
+          regional_lead_frame: "Reinforcing permanent commitment to Basel headquarters and domestic dialogue.",
           blueprints: {
             hintergrund: {
-              id: 'hintergrund',
-              label: 'Schweizer Wirtschafts- & Fachpresse Dossier',
-              target_audience: 'NZZ, Le Temps, Finanz und Wirtschaft',
-              psychological_objective: 'Verankerung der Innovationsführerschaft am Standort Schweiz.',
-              blueprint_content: `### 01. F&E-MEILENSTEIN AM STANDORT SCHWEIZ
-Die Phase-III-Studie für Onco-701 belegt einen signifikanten Überlebensvorteil für Krebspatienten weltweit. Die Einreichung bei Swissmedic erfolgt termingerecht.`
+              id: "hintergrund",
+              label: "Swiss Business & Policy Dossier",
+              target_audience: "NZZ, Le Temps, Swiss Financial & National Media",
+              psychological_objective: "Firmly debunk HQ relocation rumors and explain constructive dialogue with BAG.",
+              blueprint_content: `### 01. PERMANENT COMMITMENT TO BASEL AS GLOBAL HEADQUARTERS
+Basel is and remains the undisputed global headquarters, executive steering center, and principal research hub of the enterprise. Our $23B U.S. manufacturing commitment expands overseas production to navigate local trade tariffs—it does not alter our Swiss identity or headquarters governance.
+
+### 02. CONSTRUCTIVE DIALOGUE WITH THE SWISS FEDERAL OFFICE OF PUBLIC HEALTH (BAG)
+We are actively engaged in constructive discussions with the BAG on sustainable drug pricing mechanisms that safeguard innovation while preserving patient access across Switzerland.`
             },
             social: {
-              id: 'social',
-              label: 'Konzernsitz Social Media',
-              target_audience: 'Schweizer Fachkreise & Life-Sciences-Community',
-              psychological_objective: 'Faktenbasierte Zuversicht am Heimmarkt.',
-              blueprint_content: `Erfolg für die Krebsforschung: Unsere weltweite Phase-III-Studie bestätigt einen signifikanten Überlebensvorteil. Die Zulassungsunterlagen für die Schweizer Behörden sind in Vorbereitung.`
+              id: "social",
+              label: "Corporate Headquarters Social Media",
+              target_audience: "Swiss Stakeholders, Life-Sciences Ecosystem & Public",
+              psychological_objective: "Fact-based confidence at corporate headquarters.",
+              blueprint_content: `Committed to Switzerland: Basel remains our permanent global headquarters and research hub. Through constructive dialogue with Swiss authorities (BAG), we advocate fair, sustainable reimbursement that protects patient access.`
             },
             talking_points: {
-              id: 'talking_points',
-              label: 'Talking Points Konzernsitz',
-              target_audience: 'Konzernsprecher & Geschäftsleitung',
-              psychological_objective: 'Souveräne und transparente Positionierung.',
-              blueprint_content: `### KERNBOTSCHAFTEN FÜR DIE SCHWEIZ
-- "Die Studie liefert klare wissenschaftliche Evidenz: Patienten leben länger."
-- "Subgruppen-Varianzen sind in explorativen Analysen wissenschaftlicher Standard."
-- "Wir reichen die Zulassungsdossiers wie geplant termingerecht ein."`
+              id: "talking_points",
+              label: "Swiss Headquarters Talking Points",
+              target_audience: "Executive Committee & Swiss Spokespersons",
+              psychological_objective: "Sovereign and transparent positioning.",
+              blueprint_content: `### KEY MESSAGES FOR SWISS MEDIA
+- "Basel remains our permanent global corporate headquarters and scientific heart."
+- "Our $23B investment localizes U.S. manufacturing; it is not a relocation or withdrawal from Switzerland."
+- "We are in close, constructive dialogue with the BAG to ensure Swiss patients receive innovative medicines sustainably."`
             },
             qa_brief: {
-              id: 'qa_brief',
-              label: 'Q&A Medienstelle Basel',
-              target_audience: 'Medienteam Schweiz',
-              psychological_objective: 'Schnelle Klärung von Rückfragen.',
-              blueprint_content: `**Q: Wann ist das Medikament in der Schweiz verfügbar?**
-A: Das Zulassungsverfahren bei Swissmedic wird parallel zu den globalen Behörden in Q1 2027 eingeleitet.`
+              id: "qa_brief",
+              label: "Swiss Media Desk Q&A",
+              target_audience: "Media Relations Desk Basel/Bern",
+              psychological_objective: "Rapid, unequivocal clarification.",
+              blueprint_content: `**Q: Is the company moving its corporate headquarters or research from Basel to the United States?**
+A: No. Basel is and remains our global corporate and scientific headquarters. Our Swiss roots and research presence are permanent.
+
+**Q: Will Swiss patients face delays or exclusions for new medicines?**
+A: No. We work collaboratively with the BAG and Swiss authorities on value-based pricing models that ensure Swiss patients have prompt access to innovative therapies.`
             }
           }
         },
         apac: {
-          region_id: 'apac',
-          region_label: 'Asia-Pacific (APAC / PMDA & NMPA)',
-          regulatory_anchor: 'Asian Bridging Studies & Regional Health Authorities',
-          regional_lead_frame: 'Clarifying regional filing roadmaps and ongoing clinical trial accessibility.',
+          region_id: "apac",
+          region_label: "Asia-Pacific (APAC / Regional Access)",
+          regulatory_anchor: "APAC Regional Health Authorities & Strategic Supply",
+          regional_lead_frame: "Ensuring supply chain diversification and access across Asia-Pacific.",
           blueprints: {
             hintergrund: {
-              id: 'hintergrund',
-              label: 'Asia-Pacific Regional Access Briefing',
-              target_audience: 'Asian Healthcare & Medical Media',
-              psychological_objective: 'Address information vacuum regarding Asian patient inclusion.',
-              blueprint_content: `### 01. GLOBAL PHASE III RESULTS & ASIAN COHORTS
-The Phase III study demonstrated consistent overall survival benefits across multi-regional clinical sites, including participating centers across the Asia-Pacific region.`
+              id: "hintergrund",
+              label: "Asia-Pacific Access Briefing",
+              target_audience: "Regional Healthcare & Financial Media",
+              psychological_objective: "Assure uninterrupted supply continuity and regulatory filings.",
+              blueprint_content: `### 01. ASIA-PACIFIC HEALTHCARE COMMITMENT
+Global manufacturing diversification, including our U.S. capex and European facilities, strengthens total supply resiliency for Asia-Pacific health systems.
+
+### 02. REGULATORY & TRIAL CONTINUITY
+All regional clinical studies, regulatory submissions, and patient access partnerships proceed without disruption.`
             },
             social: {
-              id: 'social',
-              label: 'Regional Patient Information',
-              target_audience: 'Regional Patient Advocacy Groups',
-              psychological_objective: 'Assurance on localized regulatory progression.',
-              blueprint_content: `Advancing innovative oncology options across Asia-Pacific: Onco-701 Phase III results demonstrate verified survival extension. Local health authority submissions are advancing in alignment with regional requirements.`
+              id: "social",
+              label: "Regional Information Notice",
+              target_audience: "Regional Stakeholders & Healthcare Partners",
+              psychological_objective: "Assure regional partners on operational stability.",
+              blueprint_content: `Asia-Pacific operations update: Global manufacturing expansion strengthens supply chain security for all regional partner markets. Regulatory submissions proceed on schedule.`
             },
             talking_points: {
-              id: 'talking_points',
-              label: 'Regional Spokesperson Points',
-              target_audience: 'APAC Regional Communications Directors',
-              psychological_objective: 'Prevent proliferation of outdated Phase II data.',
+              id: "talking_points",
+              label: "Regional Spokesperson Points",
+              target_audience: "APAC Regional Communications Directors",
+              psychological_objective: "Focus on operational stability and patient care.",
               blueprint_content: `### KEY MESSAGES FOR ASIA-PACIFIC
-- "Global trial data confirms survival improvements across diverse patient cohorts."
-- "Local regulatory timelines are progressing in close consultation with regional health authorities."
-- "We are committed to rapid and equitable patient access across Asia-Pacific."`
+- "Global supply diversification ensures consistent delivery of essential therapies to APAC patients."
+- "Local regulatory and clinical milestones remain on schedule."`
             },
             qa_brief: {
-              id: 'qa_brief',
-              label: 'APAC Access Q&A',
-              target_audience: 'Regional Medical Hotlines',
-              psychological_objective: 'Direct answers on regional availability.',
-              blueprint_content: `**Q: Are regional bridging studies required?**
-A: Global study protocols incorporated regional Asian clinical sites. Formal dossiers are being aligned with PMDA and regional agencies as scheduled.`
+              id: "qa_brief",
+              label: "APAC Q&A",
+              target_audience: "Regional Media Desk",
+              psychological_objective: "Direct factual response.",
+              blueprint_content: `**Q: Does the U.S. reference pricing policy affect APAC supply or launch plans?**
+A: No. Our regional regulatory pathways and supply commitments remain completely on track.`
             }
           }
         }
@@ -311,13 +325,13 @@ A: Global study protocols incorporated regional Asian clinical sites. Formal dos
       cards: [
         {
           id: 'trend-o1',
-          topic: 'Clinical Value & Reimbursement',
-          headline: 'Health Economists Debate Cost-Effectiveness Following Subgroup Data',
-          outlets_involved: ['Endpoints News', 'BioCentury', 'Financial Times'],
+          topic: 'Reference Pricing & Access',
+          headline: 'European & Swiss Media Question $23B U.S. Capex Amid MFN Pricing Talks',
+          outlets_involved: ['Financial Times', 'NZZ', 'Endpoints News'],
           velocity_change: '+340% (8h)',
           tipping_point_score: 86,
           sentiment_split: { positive: 15, neutral: 25, negative: 60 },
-          summary: 'Medical trade press and analyst community dissect Cohort B exploratory findings, linking subgroup variance to upcoming health authority pricing reviews.'
+          summary: 'European and Swiss press link U.S. MFN pricing negotiations and $23B manufacturing capex to fears of launch delays and headquarters relocation.'
         }
       ],
       blueprints: {
@@ -375,7 +389,7 @@ A: Global study protocols incorporated regional Asian clinical sites. Formal dos
       ],
       global_guardrails: [
         'DO NOT use the phrase "cyberattack cannot be ruled out at this hour".',
-        'State passenger safety facts before explaining maintenance repair timelines.'
+        'DO NOT lead with maintenance repair timelines before confirming passenger safety facts.'
       ],
       regional_adaptations: {
         all: {
@@ -520,46 +534,46 @@ A: Point strictly to verified hardware telemetry. State clearly: 'The signaling 
         ch: {
           region_id: 'ch',
           region_label: 'Switzerland (National Infrastructure)',
-          regulatory_anchor: 'BAV & Schweizer Bahnkunden',
-          regional_lead_frame: 'Fahrgastinformation und planmässige Wiederinbetriebnahme.',
+          regulatory_anchor: 'FOT & Swiss Rail Passengers',
+          regional_lead_frame: 'Passenger information and scheduled service resumption.',
           blueprints: {
             hintergrund: {
               id: 'hintergrund',
-              label: 'Hintergrundbericht',
-              target_audience: 'Inlandspresse & Pendler-Medien',
-              psychological_objective: 'Faktenbasierte Information über Relaisaustausch.',
-              blueprint_content: `### MEDIENMITTEILUNG INFRASTRUKTUR & BETRIEB
-- **Ausgangslage:** Ein elektrischer Defekt am Relais R-400 im Stellwerk Faido hat heute früh eine automatische Sicherheitsabschaltung ausgelöst.
-- **Evakuation & Sicherheit:** Das Sicherheitskonzept hat planmässig gegriffen. Alle Personenzüge wurden innerhalb von 12 Minuten in Bahnhöfe zurückgeführt.
-- **Instandstellung:** Das defekte Bauteil wurde ausgetauscht. Der fahrplanmässige Betrieb durch den Basistunnel wird um 20:00 Uhr wieder aufgenommen.`
+              label: 'Background Briefing',
+              target_audience: 'National Press & Commuter Media',
+              psychological_objective: 'Fact-based update on relay replacement.',
+              blueprint_content: `### INFRASTRUCTURE & OPERATIONS MEDIA UPDATE
+- **Situation:** An electrical fault on relay R-400 in the Faido interlocking triggered an automatic safety shutdown earlier today.
+- **Safety & Evacuation:** The fail-safe protocol worked as designed. All passenger trains were safely guided back to stations within 12 minutes.
+- **Restoration:** The faulty component has been replaced. Regular scheduled traffic through the base tunnel resumes at 20:00 CET.`
             },
             social: {
               id: 'social',
-              label: 'Pendler-Ticker',
-              target_audience: 'Reisende & Pendler',
-              psychological_objective: 'Reisealternativen aufzeigen.',
-              blueprint_content: `Bahnverkehr Gotthard-Basistunnel:
-• Wegen eines Relaisdefekts im Stellwerk Faido ist der Tunnel bis 20:00 Uhr gesperrt.
-• Reisende nutzen die Gotthard-Panoramastrecke (Reisezeitverlängerung ca. 45-60 Min.).
-• Alle Züge wurden sicher zurückgeführt. Sicherheit war zu jedem Zeitpunkt gewährleistet.
-• Fahrplan in der Rail Mobile App aktualisiert.`
+              label: 'Commuter Ticker',
+              target_audience: 'Travelers & Commuters',
+              psychological_objective: 'Provide clear travel alternatives.',
+              blueprint_content: `Gotthard Base Tunnel Service Update:
+• Tunnel closed until 20:00 CET due to a localized relay fault in Faido interlocking.
+• Trains rerouted via the Gotthard Panorama Route (+45–60 min travel time).
+• All trains were safely cleared; passenger safety was assured at all times.
+• Live timetables updated in the Rail Mobile App.`
             },
             talking_points: {
               id: 'talking_points',
-              label: 'Sprecher-Briefing',
-              target_audience: 'Medienteam Schweiz',
-              psychological_objective: 'Ruhe und Kompetenz vermitteln.',
-              blueprint_content: `- "Die Sicherheit unserer Fahrgäste stand zu jedem Zeitpunkt an erster Stelle; die Sicherheitssysteme funktionierten einwandfrei."
-- "Es handelt sich um einen rein mechanischen Relaisdefekt, der behoben ist."
-- "Ab 20:00 Uhr rollt der Verkehr wieder normal durch den Basistunnel."`
+              label: 'Spokesperson Briefing',
+              target_audience: 'Swiss Media Desk',
+              psychological_objective: 'Project calm operational competence.',
+              blueprint_content: `- "Passenger safety remained our highest priority at all times; fail-safe interlocking protocols operated flawlessly."
+- "This was an isolated electrical relay fault that has already been resolved."
+- "Regular high-speed tunnel operations resume at 20:00 CET."`
             },
             qa_brief: {
               id: 'qa_brief',
-              label: 'Q&A Medienstelle',
-              target_audience: 'Medienstelle Schweiz',
-              psychological_objective: 'Klare Fakten liefern.',
-              blueprint_content: `**Q: Warum dauerte die Wiederinbetriebnahme mehrere Stunden?**
-A: Nach dem physischen Austausch eines sicherheitsrelevanten Stellwerk-Relais schreiben die BAV-Vorschriften obligatorische Mess- und Testfahrten vor der Freigabe für Passagiere vor.`
+              label: 'Media Desk Q&A',
+              target_audience: 'Swiss Press Office',
+              psychological_objective: 'Deliver precise technical facts.',
+              blueprint_content: `**Q: Why did service resumption take several hours?**
+A: Under Swiss Federal Office of Transport (FOT) regulations, replacing any safety-critical interlocking relay requires mandatory measurement runs and signal certification before passenger trains are cleared.`
             }
           }
         },
@@ -641,7 +655,7 @@ A: No. All destinations remain accessible via the panoramic route with minor tra
       ],
       global_guardrails: [
         'DO NOT defend the subcontractor or hide behind Tier-2/Tier-3 distinctions.',
-        'Emphasize independent verification over internal company assertions.'
+        'DO NOT rely on internal company assurances alone; mandate independent forensic verification.'
       ],
       regional_adaptations: {
         all: {
@@ -784,41 +798,41 @@ A: An exhaustive executive summary including corrective action plans will be rel
         ch: {
           region_id: 'ch',
           region_label: 'Switzerland (HQ & Regulatory Standards)',
-          regulatory_anchor: 'VOSUG Sorgfaltspflichten & Schweizer OR Art. 964',
-          regional_lead_frame: 'Verantwortung und lückenlose Transparenz.',
+          regulatory_anchor: 'Swiss Due Diligence Ordinance (VOSUG) & CO Art. 964',
+          regional_lead_frame: 'Upholding statutory due diligence and seamless supply chain transparency.',
           blueprints: {
             hintergrund: {
               id: 'hintergrund',
-              label: 'Dossier Lieferkettensorgfalt',
-              target_audience: 'Wirtschaftspresse & Inlandredaktionen',
-              psychological_objective: 'Sorgfalt lückenlos belegen.',
-              blueprint_content: `### DOSSIER LIEFERKETTEN-SORGFALTSPFLICHT (VOSUG)
-- **Schweizer Gesetzgebung:** Die eingeleiteten Massnahmen entsprechen den Vorgaben der Verordnung über Sorgfaltspflichten und Transparenz (VOSUG).
-- **Vergabestopp:** Sämtliche Lieferbeziehungen mit dem betroffenen Subunternehmer wurden per sofort sistiert.
-- **Unabhängige Begutachtung:** Eine externe Revisionsgesellschaft prüft die Einhaltung der Arbeitsstandards vor Ort.`
+              label: 'Swiss Supply Chain Due Diligence Brief',
+              target_audience: 'Swiss Financial & National Media (NZZ, Le Temps)',
+              psychological_objective: 'Demonstrate compliance with Swiss statutory due diligence.',
+              blueprint_content: `### SWISS SUPPLY CHAIN DUE DILIGENCE (VOSUG)
+- **Statutory Due Diligence:** The immediate suspension adheres strictly to the Swiss Ordinance on Due Diligence and Transparency (VOSUG).
+- **Commercial Procurement Freeze:** All active purchase orders with the affected subcontractor were suspended immediately upon receiving these allegations.
+- **Independent Forensic Audit:** A leading external forensic accounting firm is verifying workplace and accommodation standards on the ground.`
             },
             social: {
               id: 'social',
-              label: 'Haltungserklärung',
-              target_audience: 'Schweizer Öffentlichkeit & Partner',
-              psychological_objective: 'Klare Haltung zeigen.',
-              blueprint_content: `Haltung zu Arbeitsstandards: Nulltoleranz bei Menschenrechten. Nach Vorwürfen gegen einen Subunternehmer gilt per sofort ein Vergabestopp. Eine unabhängige Sonderprüfung läuft.`
+              label: 'Swiss Headquarters Statement',
+              target_audience: 'Swiss Public & Partner Ecosystem',
+              psychological_objective: 'Demonstrate decisive ethical stance.',
+              blueprint_content: `Commitment to human rights standards: Zero tolerance across our supply chain. All purchase orders with the subcontractor have been suspended immediately pending an independent forensic audit.`
             },
             talking_points: {
               id: 'talking_points',
-              label: 'Sprecherpunkte',
-              target_audience: 'Mediensprecher Schweiz',
-              psychological_objective: 'Klarheit und Verlässlichkeit.',
-              blueprint_content: `- "Integrität und Schweizer Sorgfaltsmassstäbe gelten lückenlos auch für internationale Beschaffungsketten."
-- "Wir haben sofort und ohne Zögern reagiert, sobald begründete Zweifel aufkamen."`
+              label: 'Swiss Spokesperson Points',
+              target_audience: 'Swiss Spokespersons & Media Desk',
+              psychological_objective: 'Clarity, accountability, and reliability.',
+              blueprint_content: `- "Integrity and Swiss statutory due diligence standards apply across all international tiers of our procurement network."
+- "We acted immediately and decisively the moment substantiated allegations emerged."`
             },
             qa_brief: {
               id: 'qa_brief',
-              label: 'Q&A Schweiz',
-              target_audience: 'Medienstelle Bern/Zürich',
-              psychological_objective: 'Transparenz schaffen.',
-              blueprint_content: `**Q: Wieso fiel der Vorfall bei früheren Audits nicht auf?**
-A: Der Lieferant hatte Ende 2025 ein reguläres, unabhängiges Sozialaudit bestanden. Gegenstand der Sonderprüfung ist, ob vor Ort bewusste Täuschungen stattfanden.`
+              label: 'Swiss Media Desk Q&A',
+              target_audience: 'Media Desk Bern/Zurich',
+              psychological_objective: 'Create transparency and address audit questions.',
+              blueprint_content: `**Q: Why was this issue not detected during previous supplier audits?**
+A: The supplier passed a certified independent SMETA social audit in late 2025. The independent forensic inquiry is investigating whether local factory management intentionally circumvented certified audit standards.`
             }
           }
         },
@@ -896,7 +910,7 @@ A: No. Assembly facilities continue on schedule utilizing qualified alternative 
       ],
       global_guardrails: [
         'DO NOT allow trade media to conflate UK NICE cost-per-QALY refusal with clinical failure.',
-        'Clarify that EMA withdrawal was due to trial comparator design nuances, not clinical safety or efficacy.'
+        'DO NOT allow media to misrepresent procedural EMA withdrawal as a clinical safety or efficacy failure.'
       ],
       regional_adaptations: {
         all: {
@@ -938,13 +952,13 @@ A: No. Assembly facilities continue on schedule utilizing qualified alternative 
         ch: {
           region_id: 'ch',
           region_label: 'Switzerland (Swissmedic & Nuclear Centers)',
-          regulatory_anchor: 'Swissmedic Authorization & Specialities List (SL)',
+          regulatory_anchor: 'Swissmedic Authorization & Specialties List (SL)',
           regional_lead_frame: 'Supporting university hospital infrastructure and patient access in Switzerland.',
           blueprints: {
-            hintergrund: { id: 'hintergrund', label: 'Schweizer Fachpresse Dossier', target_audience: 'Medizinische Fachpresse', psychological_objective: 'Zentrumsversorgung sichern.', blueprint_content: 'Ausbau nuklearmedizinischer Behandlungskapazitäten an Schweizer Zentren.' },
-            social: { id: 'social', label: 'Konzernsitz Social Media', target_audience: 'Fachkreise', psychological_objective: 'Information.', blueprint_content: 'Präzisions-Radioligandentherapie an Schweizer Spitälern verfügbar.' },
-            talking_points: { id: 'talking_points', label: 'Talking Points Schweiz', target_audience: 'Sprecher', psychological_objective: 'Klarheit.', blueprint_content: 'Erfolgreiche Zusammenarbeit mit Schweizer Spitälern und Kassen.' },
-            qa_brief: { id: 'qa_brief', label: 'Q&A Schweiz', target_audience: 'Medienteam', psychological_objective: 'Präzision.', blueprint_content: 'Vergütung erfolgt über die bewährten Schweizer Spezialitätenlisten-Mechanismen.' }
+            hintergrund: { id: 'hintergrund', label: 'Swiss Medical Media Dossier', target_audience: 'Medical Trade Press', psychological_objective: 'Secure comprehensive center care.', blueprint_content: 'Expanding specialized radioligand therapeutic capacity across Swiss university medical centers.' },
+            social: { id: 'social', label: 'Headquarters Social Media', target_audience: 'Professional Community', psychological_objective: 'Clear clinical information.', blueprint_content: 'Targeted radioligand precision oncology is available for eligible patients across Swiss medical centers.' },
+            talking_points: { id: 'talking_points', label: 'Swiss Spokesperson Points', target_audience: 'Spokespersons', psychological_objective: 'Clarity and partnership.', blueprint_content: 'Constructive collaboration with Swiss hospitals and health insurers ensures uninterrupted patient access.' },
+            qa_brief: { id: 'qa_brief', label: 'Swiss Desk Q&A', target_audience: 'Media Relations', psychological_objective: 'Precision and transparency.', blueprint_content: 'Reimbursement progresses through proven Swiss Specialties List (SL) value assessment mechanisms.' }
           }
         },
         apac: {
@@ -985,7 +999,7 @@ A: No. Assembly facilities continue on schedule utilizing qualified alternative 
       ],
       global_guardrails: [
         'Do not engage in endless legal jurisdictional debates; anchor the Safe Deposit Box analogy.',
-        'Avoid defensive legalese.'
+        'DO NOT resort to defensive legalese or speculative jurisdictional arguments.'
       ],
       regional_adaptations: {
         all: {
@@ -1127,47 +1141,45 @@ A: Yes. By ensuring keys never leave domestic sovereign jurisdiction, the techni
         },
         ch: {
           region_id: 'ch',
-          region_label: 'Schweiz (Ärzteschaft & Bürger)',
-          regulatory_anchor: 'EDÖB & EPD-Gesetzgebung (Art. 321 StGB Berufsgeheimnis)',
-          regional_lead_frame: 'Vertrauen bei Ärzten und Patienten stiften.',
+          region_label: 'Switzerland (Physicians & Citizens)',
+          regulatory_anchor: 'Swiss FDPIC & Electronic Patient Record Act (Criminal Code Art. 321)',
+          regional_lead_frame: 'Instilling trust across the medical profession and citizen patients.',
           blueprints: {
             hintergrund: {
               id: 'hintergrund',
-              label: 'Technischer Bericht',
-              target_audience: 'Schweizerische Ärztezeitung & Fachmedien',
-              psychological_objective: 'Berufsgeheimnis garantieren und Ärzte überzeugen.',
-              blueprint_content: `### FACHBRIEFING FÜR DIE SCHWEIZER ÄRZTESCHAFT
-- **Berufsgeheimnis Art. 321 StGB:** Das ärztliche Berufsgeheimnis wird durch kryptografische Schlüsselsouveränität lückenlos geschützt.
-- **Schlüsselgewalt:** Die kryptografischen Schlüssel verbleiben zu 100% in der Schweiz in inländischen Rechenzentren unter direkter Aufsicht.
-- **Unabhängige Auditierung:** Schweizer Hochschulen und akkreditierte Sicherheitsexperten haben den Quellcode und die Schlüsselarchitektur unabhängig auditiert und zertifiziert.`
+              label: 'Swiss Technical Architecture Brief',
+              target_audience: 'Swiss Medical Journal (SÄZ) & Health IT Press',
+              psychological_objective: 'Guarantee medical confidentiality and assure healthcare professionals.',
+              blueprint_content: `### BRIEFING FOR THE SWISS MEDICAL PROFESSION
+- **Medical Confidentiality (Art. 321 SCC):** Professional medical secrecy remains fully unbroken through domestic cryptographic key sovereignty.
+- **Key Custody:** 100% of cryptographic keys remain within Switzerland in sovereign, supervised data centers.
+- **Independent Verification:** Swiss universities and accredited cybersecurity auditors have independently certified the key management architecture.`
             },
             social: {
               id: 'social',
-              label: 'Bürgerinformation',
-              target_audience: 'Patienten & Schweizer Bevölkerung',
-              psychological_objective: 'Verlässliche Beruhigung.',
-              blueprint_content: `Wichtige Information zum elektronischen Patientendossier:
-• Ihre Gesundheitsdaten sind in der Cloud wie in einem Panzerschrank verwahrt.
-• Die Schlüssel dazu verbleiben zu 100% in der Schweiz.
-• Weder ausländische Behörden noch Cloudbetreiber können die Daten entschlüsseln.
-• Vertrauen und ärztliche Schweigepflicht bleiben vollständig gewahrt.`
+              label: 'Citizen Privacy Information',
+              target_audience: 'Patients & Swiss Public',
+              psychological_objective: 'Authoritative reassurance on health privacy.',
+              blueprint_content: `Key update on Electronic Patient Record security:
+• Health records stored in the cloud are encrypted with AES-256; data is unreadable without keys.
+• All keys remain permanently in Swiss sovereign custody.
+• Neither cloud providers nor foreign courts have the keys to unlock citizen records.`
             },
             talking_points: {
               id: 'talking_points',
-              label: 'Sprecherpunkte',
-              target_audience: 'Medienteam & Direktion',
-              psychological_objective: 'Vertrauen durch bildhafte Sprache schaffen.',
-              blueprint_content: `- "Für unsere Ärzte und Patientinnen gilt: Das Berufsgeheimnis ist nicht verhandelbar und wird durch modernste Kryptografie garantiert."
-- "Ausländische Behörden erhalten selbst mit Herausgabeverlangen nur unlesbaren Buchstabensalat."
-- "Die Schweiz behält jederzeit die volle digitale Souveränität über ihre Gesundheitsdaten."`
+              label: 'Public Health Spokesperson Points',
+              target_audience: 'Hospital Leadership & Spokespersons',
+              psychological_objective: 'Deliver clear cryptographic analogies.',
+              blueprint_content: `- "Professional medical confidentiality is protected by mathematical cryptography and domestic key sovereignty."
+- "Foreign court orders cannot compel decryption when keys remain exclusively under Swiss sovereign control."`
             },
             qa_brief: {
               id: 'qa_brief',
-              label: 'Hotline Q&A',
-              target_audience: 'Bürger-Hotline & Medienstelle',
-              psychological_objective: 'Klarheit und Sicherheit vermitteln.',
-              blueprint_content: `**Q: Warum nutzt man überhaupt Cloud-Server statt lokaler Schweizer Server?**
-A: Lokale inländische Server bieten oft nicht die Ausfallsicherheit und den Schutz vor Ransomware, den zertifizierte Rechenzentren garantieren. Durch die BYOK-Schlüsseltrennung kombinieren wir modernste Cyber-Resilienz mit 100% inländischer Datenhoheit.`
+              label: 'Citizen Desk Q&A',
+              target_audience: 'Patient Hotline & Desk',
+              psychological_objective: 'Plain-language clarity.',
+              blueprint_content: `**Q: Can foreign authorities access Swiss health records via the US CLOUD Act?**
+A: No. Because cryptographic keys remain exclusively in Switzerland, the cloud provider cannot decrypt or produce readable records.`
             }
           }
         },
@@ -1253,69 +1265,137 @@ A: By mathematically locking data files before they ever touch cloud storage ser
         'Versorgungssicherheit: Härtefallprogramme, Studien und Zulassungsverfahren laufen termingerecht weiter.'
       ],
       global_guardrails: [
-        'NIEMALS Formulierungen verwenden, die suggerieren, the company wolle Patienten in Europa oder der Schweiz "bestrafen" oder "Medikamente vorenthalten".',
+        'NIEMALS Formulierungen verwenden, die suggerieren, das Unternehmen wolle Patienten in Europa oder der Schweiz "bestrafen" oder "Medikamente vorenthalten".',
         'KEINE Berichterstattung unwidersprochen lassen, die den US-Produktionsausbau als Abkehr von Basel deutet.',
         'KEINE Vorwegnahme prozentualer Preisabschläge in Medienstatements vor behördlichen Abschlüssen.'
       ],
       regional_adaptations: {
         all: {
-          region_id: 'all',
-          region_label: 'Global (Alle Regionen)',
-          regulatory_anchor: 'Globales Kern-Label & Studienbericht CSR-701',
-          regional_lead_frame: 'Zulassungsrelevanter Phase-III-Meilenstein für neuen Therapiestandard.',
+          region_id: "all",
+          region_label: "Global (Alle Regionen)",
+          regulatory_anchor: "2026 MFN & Globale Preispolitik (GS-01)",
+          regional_lead_frame: "Globale Forschungsinvestitionen und US-Referenzpreise in Einklang bringen.",
           blueprints: {
-            hintergrund: { id: 'hintergrund', label: 'Wissenschaftliches Dossier', target_audience: 'Fachmedien', psychological_objective: 'Primäres Überleben etablieren.', blueprint_content: 'Phase-III-Studie bestätigt Gesamtüberlebensvorteil (HR 0.68, p<0.001).' },
-            social: { id: 'social', label: 'Patienten- & Social Media', target_audience: 'Patienten', psychological_objective: 'Therapiekontinuität sichern.', blueprint_content: 'Laufende Therapien werden unverändert und sicher fortgeführt.' },
-            talking_points: { id: 'talking_points', label: 'Talking Points', target_audience: 'Sprecher', psychological_objective: 'Führung.', blueprint_content: 'Primärer Endpunkt ist eindeutig erreicht.' },
-            qa_brief: { id: 'qa_brief', label: 'Q&A Leitfaden', target_audience: 'Medienstelle', psychological_objective: 'Präzision.', blueprint_content: 'Subgruppen sind explorativ angelegt.' }
+            hintergrund: {
+              id: "hintergrund",
+              label: "Globale Corporate Story (Owned GEO)",
+              target_audience: "Internationale Wirtschafts- & Fachpresse, KI-Suchmaschinen",
+              psychological_objective: "US-Investitionen als Stärkung der Versorgungssicherheit positionieren; Basel als Hauptsitz bekräftigen.",
+              blueprint_content: `### 01. GLOBALE FORSCHUNGSINVESTITIONEN & ERSTATTUNG
+Unter den neuen US-Referenzpreisregeln (MFN) setzt nachhaltige Spitzenforschung voraus, dass alle wohlhabenden OECD-Staaten den therapeutischen Mehrwert von Innovationen anerkennen (Canonical Golden Source GS-01).
+
+### 02. 23-MRD.-$-PRODUKTIONSINVESTITION & STANDORT BASEL
+- **Investitionsprogramm:** 23 Milliarden US-Dollar fliessen in den Ausbau von 10 hochmodernen Produktionsstandorten in den USA, um Lieferketten gegen Zolldrohungen abzusichern.
+- **Konzernsitz Basel bleibt unberührt:** Basel bleibt unverändert der weltweite Hauptsitz, Sitz der Konzernleitung und das globale Forschungsherz. Keine Verlagerung von Führungs- oder Forschungsfunktionen.
+- **Europäischer & Schweizer Dialog:** Mit dem Bundesamt für Gesundheit (BAG) und europäischen HTA-Behörden führen wir einen konstruktiven Dialog zu flexiblen, wertbasierten Preismodellen – ohne Patientenboykotte.`
+            },
+            social: {
+              id: "social",
+              label: "Konzern-Social-Media & Patienten",
+              target_audience: "Fachkreise, Anleger & Öffentlichkeit",
+              psychological_objective: "Therapiekontinuität und Treue zum Standort Basel vermitteln.",
+              blueprint_content: `Standort- & Investitions-Update:
+• 23 Mrd. $ Investition in 10 US-Werke stärkt weltweite Lieferketten gegen Zollrisiken.
+• Basel bleibt unser weltweiter Hauptsitz und wissenschaftliches Herz.
+• Laufende Behandlungen, Studien und Zulassungsverfahren laufen weltweit termingerecht weiter.
+• Konstruktiver Dialog mit BAG und europäischen Behörden für faire Erstattungsmodelle.`
+            },
+            talking_points: {
+              id: "talking_points",
+              label: "Executive Talking Points",
+              target_audience: "Konzernleitung & Mediensprecher",
+              psychological_objective: "Klarheit und Standfestigkeit gegenüber Boykott- und Abwanderungsgerüchten.",
+              blueprint_content: `### KERNBOTSCHAFTEN FÜR DIE MEDIEN
+- "Unsere 23-Mrd.-$-Investition sichert die Versorgung amerikanischer Patienten gegen Zölle ab – sie schwächt unsere europäische Präsenz in keiner Weise."
+- "Basel ist und bleibt unser weltweiter Hauptsitz und zentraler Forschungsstandort."
+- "Wir weisen Spekulationen über Patientenboykotte entschieden zurück: Studien und Härtefallprogramme laufen lückenlos weiter."`
+            },
+            qa_brief: {
+              id: "qa_brief",
+              label: "Q&A Leitfaden",
+              target_audience: "Medienstelle & Länderteams",
+              psychological_objective: "Klare Replik ohne Wiederholung von Vorwurfsbegriffen.",
+              blueprint_content: `**Q: Vorenthält das Unternehmen europäischen oder Schweizer Patienten neue Medikamente vor?**
+A: Nein. Patienten stehen für uns an erster Stelle. Klinische Studien und Härtefallprogramme laufen uneingeschränkt weiter. Wir führen mit dem BAG und europäischen Stellen konstruktive Gespräche über moderne, wertbasierte Erstattungsmodelle.
+
+**Q: Bedeutet die US-Milliardeninvestition eine schleichende Verlagerung des Konzernsitzes weg von Basel?**
+A: Keineswegs. Basel ist und bleibt unser weltweiter Hauptsitz und das Herz unserer Forschung. Der Ausbau in den USA dient der lokalen Produktion und schützt vor Handelshemmnissen.`
+            }
           }
         },
         us: {
-          region_id: 'us',
-          region_label: 'Nordamerika (USA / FDA & Payer)',
-          regulatory_anchor: 'FDA NDA-Einreichung & US-Payer-Dossier',
-          regional_lead_frame: 'Klinischen Gesamtwert belegen, um Preissenkungsdruck der US-Kassen abzuwehren.',
+          region_id: "us",
+          region_label: "Nordamerika (USA / FDA & Payer)",
+          regulatory_anchor: "US-Produktionsprogramm & CMS/HHS-Rahmen",
+          regional_lead_frame: "Stärkung der heimischen Bioproduktion und Gewährleistung sicherer Versorgung.",
           blueprints: {
-            hintergrund: { id: 'hintergrund', label: 'US-Gesundheitsökonomie Dossier', target_audience: 'US-Wirtschaftspresse', psychological_objective: 'Kostendruck entkräften.', blueprint_content: 'Gesamtüberleben ist der Goldstandard klinischer Evidenz.' },
-            social: { id: 'social', label: 'US-Patienteninformation', target_audience: 'Patientenverbände', psychological_objective: 'Versorgungssicherheit belegen.', blueprint_content: 'Wir setzen uns für breiten Patientenzugang bei US-Kassen ein.' },
-            talking_points: { id: 'talking_points', label: 'Payer-Talking Points', target_audience: 'US-Führung', psychological_objective: 'Wert verankern.', blueprint_content: 'Einschränkungen würden Patienten wirksame Therapien vorenthalten.' },
-            qa_brief: { id: 'qa_brief', label: 'US-Commercial Q&A', target_audience: 'Access-Team', psychological_objective: 'Klarheit.', blueprint_content: 'Studienpopulation zeigte konsistenten Überlebensvorteil.' }
+            hintergrund: {
+              id: "hintergrund",
+              label: "US-Wirtschafts- & Versorgungsdossier",
+              target_audience: "US-Wirtschaftsmedien & Gesundheitspolitik",
+              psychological_objective: "Wert der lokalen Produktion und Arbeitsplatzschaffung hervorheben.",
+              blueprint_content: `### 01. 23-MRD.-$-PRODUKTIONSAUSBAU
+Der Ausbau von 10 hochmodernen Produktionsstätten in den USA schafft tausende hochqualifizierte Arbeitsplätze und sichert die Versorgung von US-Patienten ab.`
+            },
+            social: { id: "social", label: "US-Mitteilung", target_audience: "US-Community", psychological_objective: "Vertrauen.", blueprint_content: "Stärkung der lokalen Produktion für US-Patienten." },
+            talking_points: { id: "talking_points", label: "US-Talking Points", target_audience: "US-Sprecher", psychological_objective: "Arbeitsplätze und Versorgung.", blueprint_content: "23 Mrd. $ Investition schafft zollsichere Produktionskapazitäten in 10 US-Bundesstaaten." },
+            qa_brief: { id: "qa_brief", label: "US-Q&A", target_audience: "US-Desk", psychological_objective: "Fakten.", blueprint_content: "Lokale Fertigung schützt Patientenversorgung vor weltweiten Lieferengpässen." }
           }
         },
         eu: {
-          region_id: 'eu',
-          region_label: 'Europa (EU / EMA & HTA)',
-          regulatory_anchor: 'EMA MAA-Zulassung & Gemeinsame HTA-Prüfung',
-          regional_lead_frame: 'Ganzheitliche HTA-Bewertung des Intention-to-Treat-Kollektivs einfordern.',
+          region_id: "eu",
+          region_label: "Europa (EU / EMA & HTA)",
+          regulatory_anchor: "EMA Joint HTA & Europäische Erstattungsdialoge",
+          regional_lead_frame: "Konstruktive Partnerschaft für zukunftsfähige Nutzenbewertungen.",
           blueprints: {
-            hintergrund: { id: 'hintergrund', label: 'Europäisches HTA-Briefing', target_audience: 'Europäische Fachpresse', psychological_objective: 'Methodik verteidigen.', blueprint_content: 'Studienplan entsprach strikt den EMA-Vorgaben.' },
-            social: { id: 'social', label: 'EU-Affiliate Kommunikation', target_audience: 'Fachkreise', psychological_objective: 'Vertrauen stärken.', blueprint_content: 'Zulassungsantrag bei der EMA erfolgt termingerecht in Q1 2027.' },
-            talking_points: { id: 'talking_points', label: 'Punkte für EU-Sprecher', target_audience: 'Länderteams', psychological_objective: 'Einheitlichkeit.', blueprint_content: 'Alle Affiliates kommunizieren aus dem zentralen Evidence-Paket.' },
-            qa_brief: { id: 'qa_brief', label: 'HTA Q&A', target_audience: 'Marktzugangsteams', psychological_objective: 'Preise schützen.', blueprint_content: 'Der belegte Gesamtnutzen rechtfertigt eine breite Erstattung.' }
+            hintergrund: {
+              id: "hintergrund",
+              label: "Europäisches HTA-Briefing",
+              target_audience: "Europäische Fach- & Wirtschaftspresse",
+              psychological_objective: "Boykott-Vorwürfe entkräften und wertebasierte Modelle aufzeigen.",
+              blueprint_content: `### 01. DIALOG ZU WERTBASIERTEN MODELLEN
+Starre historische Preisdeckel greifen im Zeitalter globaler Referenzpreise zu kurz. Wir arbeiten mit europäischen Partnern an flexiblen Modellen, die echten Nutzen anerkennen.
+
+### 02. SICHERE BEHANDLUNGSKONTINUITÄT
+Laufende Studien und Härtefallprogramme in Europa laufen ohne jede Einschränkung weiter.`
+            },
+            social: { id: "social", label: "EU-Information", target_audience: "Fachkreise", psychological_objective: "Verlässlichkeit.", blueprint_content: "Wir setzen uns für zukunftsfähige Erstattungsmodelle in ganz Europa ein." },
+            talking_points: { id: "talking_points", label: "EU-Sprecherpunkte", target_audience: "Länderteams", psychological_objective: "Einheitlichkeit.", blueprint_content: "Konstruktiver Dialog mit HTA-Behörden; alle Studien laufen planmässig weiter." },
+            qa_brief: { id: "qa_brief", label: "EU-Q&A", target_audience: "Affiliates", psychological_objective: "Beruhigung.", blueprint_content: "Keine Verzögerung von Studien oder Behandlungen für europäische Patienten." }
           }
         },
         ch: {
-          region_id: 'ch',
-          region_label: 'Schweiz (Konzernsitz & Swissmedic)',
-          regulatory_anchor: 'Swissmedic-Zulassung & Schweizer Gesundheitswesen',
-          regional_lead_frame: 'Innovationskraft und wissenschaftliche Exzellenz am Standort Schweiz verankern.',
+          region_id: "ch",
+          region_label: "Schweiz (Konzernsitz & Schweizer Gesundheitswesen)",
+          regulatory_anchor: "BAG-Kostendämpfungsdialog & Swissmedic",
+          regional_lead_frame: "Unverbrüchliches Bekenntnis zum Hauptsitz Basel und enger Austausch mit dem BAG.",
           blueprints: {
-            hintergrund: { id: 'hintergrund', label: 'Schweizer Mediendossier', target_audience: 'Inlandspresse', psychological_objective: 'F&E-Erfolg belegen.', blueprint_content: 'Erfolg der Krebsforschung am Standort Schweiz.' },
-            social: { id: 'social', label: 'Konzernsitz Social Media', target_audience: 'Community', psychological_objective: 'Fakten vermitteln.', blueprint_content: 'Unterlagen für Swissmedic sind in Vorbereitung.' },
-            talking_points: { id: 'talking_points', label: 'Konzernsprecher Talking Points', target_audience: 'Sprecher', psychological_objective: 'Klarheit.', blueprint_content: 'Patienten leben mit Onco-701 signifikant länger.' },
-            qa_brief: { id: 'qa_brief', label: 'Q&A Medienstelle Basel', target_audience: 'Medienteam', psychological_objective: 'Verfügbarkeit.', blueprint_content: 'Zulassungsverfahren bei Swissmedic startet parallel zu den USA.' }
+            hintergrund: {
+              id: "hintergrund",
+              label: "Schweizer Mediendossier",
+              target_audience: "NZZ, Le Temps, SRF, Finanz und Wirtschaft",
+              psychological_objective: "Abwanderungsgerüchte entschieden ausräumen; Partnerschaft mit dem BAG betonen.",
+              blueprint_content: `### 01. BASEL BLEIBT WELTWEITER HAUPTSITZ & FORSCHUNGSZENTRUM
+Basel ist und bleibt das unerschütterliche wissenschaftliche und unternehmerische Zentrum des Konzerns. Die 23-Mrd.-Investition in den USA erweitert gezielt die lokale Produktion für den amerikanischen Markt – sie berührt die Schweizer Führung und Forschung nicht.
+
+### 02. KONSTRUKTIVER AUSTAUSCH MIT DEM BUNDESAMT FÜR GESUNDHEIT (BAG)
+Wir führen einen engen, faktenbasierten Dialog mit dem BAG zu nachhaltigen Preismodellen, die Schweizer Patienten verlässlich den Zugang zu bahnbrechenden Therapien sichern.`
+            },
+            social: { id: "social", label: "Konzernsitz Social Media", target_audience: "Schweizer Öffentlichkeit & Fachkreise", psychological_objective: "Bekenntnis zur Schweiz.", blueprint_content: "Bekenntnis zum Standort Schweiz: Basel bleibt der weltweite Hauptsitz und das Forschungsherz des Unternehmens." },
+            talking_points: { id: "talking_points", label: "Talking Points Schweiz", target_audience: "Geschäftsleitung & Medienstelle", psychological_objective: "Souveränität.", blueprint_content: "Basel bleibt unverändert unser weltweiter Hauptsitz; partnerschaftlicher Dialog mit dem BAG." },
+            qa_brief: { id: "qa_brief", label: "Q&A Medienstelle Basel", target_audience: "Medienteam", psychological_objective: "Schnelle Entkräftung.", blueprint_content: "Das Unternehmen zieht weder Forschung noch Führung aus Basel ab; Schweizer Patienten haben uneingeschränkten Zugang zu Studien." }
           }
         },
         apac: {
-          region_id: 'apac',
-          region_label: 'Asien-Pazifik (APAC)',
-          regulatory_anchor: 'Regionale Zulassungen',
-          regional_lead_frame: 'Klarheit über lokale Einreichungstermine schaffen.',
+          region_id: "apac",
+          region_label: "Asien-Pazifik (APAC)",
+          regulatory_anchor: "APAC-Zulassungsbehörden & Lieferketten",
+          regional_lead_frame: "Lieferketten-Diversifikation und Versorgungssicherheit in Asien-Pazifik.",
           blueprints: {
-            hintergrund: { id: 'hintergrund', label: 'APAC Briefing', target_audience: 'Fachmedien', psychological_objective: 'Präsenz.', blueprint_content: 'Globale Daten schliessen regionale Studienzentren ein.' },
-            social: { id: 'social', label: 'Patienteninfo APAC', target_audience: 'Patienten', psychological_objective: 'Orientierung.', blueprint_content: 'Regionale Anträge laufen nach Plan.' },
-            talking_points: { id: 'talking_points', label: 'Talking Points', target_audience: 'Sprecher', psychological_objective: 'Ruhe.', blueprint_content: 'Lokale Fristen werden termingerecht eingehalten.' },
-            qa_brief: { id: 'qa_brief', label: 'Q&A', target_audience: 'Hotline', psychological_objective: 'Fakten.', blueprint_content: 'Verfügbarkeit folgt behördlichen Freigaben.' }
+            hintergrund: { id: "hintergrund", label: "APAC-Briefing", target_audience: "Regionale Wirtschaftspresse", psychological_objective: "Stabilität.", blueprint_content: "Globale Produktionsdiversifikation sichert Versorgung für Patienten im asiatisch-pazifischen Raum." },
+            social: { id: "social", label: "APAC-Information", target_audience: "Partner", psychological_objective: "Zuverlässigkeit.", blueprint_content: "Regionale Studien und Zulassungsverfahren laufen termingerecht weiter." },
+            talking_points: { id: "talking_points", label: "APAC-Sprecherpunkte", target_audience: "Regionaldirektoren", psychological_objective: "Ruhe.", blueprint_content: "US-Investitionen stärken weltweite Produktionsresilienz ohne Auswirkung auf regionale Pläne." },
+            qa_brief: { id: "qa_brief", label: "APAC-Q&A", target_audience: "Medienstelle", psychological_objective: "Klarheit.", blueprint_content: "Lokale Zulassungsverfahren und Lieferungen laufen planmässig weiter." }
           }
         }
       },
@@ -1351,7 +1431,7 @@ A: By mathematically locking data files before they ever touch cloud storage ser
       ],
       global_guardrails: [
         'KEINE Spekulationen oder Formulierungen wie "Cyberangriff kann zur Stunde nicht ausgeschlossen werden".',
-        'Fahrgastsicherheit immer an erster Stelle nennen, bevor über Instandsetzungsdauer informiert wird.'
+        'NIEMALS mit Reparaturzeiten beginnen, bevor die Fahrgastsicherheit eindeutig bestätigt wurde.'
       ],
       regional_adaptations: {
         all: {
@@ -1611,7 +1691,7 @@ A: Nein. Sämtliche Destinationen bleiben erreichbar; Züge nutzen mit geringer 
       ],
       global_guardrails: [
         'KEINE Ausflüchte zu Subunternehmer-Stufen (Tier-2/Tier-3); die Verantwortung liegt beim Konzern.',
-        'Fokus auf unabhängige Prüfungsergebnisse statt auf interne Beteuerungen legen.'
+        'KEINE rein internen Beteuerungen ohne unabhängige forensische Prüfungsergebnisse abgeben.'
       ],
       regional_adaptations: {
         all: {
@@ -1866,7 +1946,7 @@ A: Nein. Die Montage läuft planmässig mit freigegebenen Alternativkontingenten
       ],
       global_guardrails: [
         'NICHT zulassen, dass die britische NICE-Kostenablehnung mit klinischem Unvermögen gleichgesetzt wird.',
-        'Klarstellen, dass der EMA-Rückzug auf Studiendesignfragen beruhte, nicht auf Sicherheitsmängeln.'
+        'NICHT zulassen, dass der prozedurale EMA-Rückzug als Sicherheits- oder Wirksamkeitsmangel dargestellt wird.'
       ],
       regional_adaptations: {
         all: {
@@ -1961,7 +2041,7 @@ A: Nein. Die Montage läuft planmässig mit freigegebenen Alternativkontingenten
         'Ärztliches Berufsgeheimnis wird durch mathematische Kryptografie lückenlos gewahrt.'
       ],
       global_guardrails: [
-        'Tresor-Schlüssel-Analogie als Hauptbotschaft nutzen statt juristischer Abhandlungen.',
+        'KEINE endlosen juristischen Zuständigkeitsdebatten führen; stattdessen auf die Tresor-Analogie fokussieren.',
         'Keine defensive Fachsprache verwenden.'
       ],
       regional_adaptations: {

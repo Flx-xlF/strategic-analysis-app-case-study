@@ -75,8 +75,8 @@ export const NarrativeCockpitView: React.FC<Props> = ({
             </h1>
             <p className="text-sm text-sbb-stone mt-1 max-w-3xl leading-relaxed">
               {isEn
-                ? 'Beyond volume and sentiment monitoring: compresses 48,000+ weekly articles, forum threads, and AI search outputs into the few topics gaining momentum—showing where corporate arguments are absorbed and where cross-channel or regional incoherence weakens the company’s signal.'
-                : 'Mehr als Volumen- und Sentiment-Monitoring: verdichtet über 48.000 wöchentliche Artikel, Forenbeiträge und KI-Suchantworten – und zeigt, wo Kernargumente absorbiert werden oder wo kanalübergreifende und regionale Inkohärenz die eigene Position schwächt.'}
+                ? `Beyond volume and sentiment monitoring: compresses ${data.pipeline.raw_ingested_72h.toLocaleString()}+ external articles, forum threads, and AI search outputs into the few topics gaining momentum—showing where corporate arguments are absorbed and where cross-channel or regional incoherence weakens the company’s signal.`
+                : `Mehr als Volumen- und Sentiment-Monitoring: verdichtet über ${data.pipeline.raw_ingested_72h.toLocaleString()}+ externe Artikel, Forenbeiträge und KI-Suchantworten – und zeigt, wo Kernargumente absorbiert werden oder wo kanalübergreifende und regionale Inkohärenz die eigene Position schwächt.`}
             </p>
           </div>
 
@@ -130,9 +130,20 @@ export const NarrativeCockpitView: React.FC<Props> = ({
               <div className="flex items-center justify-between pb-2 border-b border-red-200">
                 <span className="text-[10px] font-mono text-sbb-red uppercase font-bold flex items-center gap-1.5">
                   <Flame className="w-3.5 h-3.5 text-sbb-red" />
-                  <span>{isEn ? 'REAL REPUTATION & REIMBURSEMENT RISK' : 'ECHTES REPUTATIONS- & ERSTATTUNGSRISIKO'}</span>
+                  <span>
+                    {(() => {
+                      if (scenarioId === 'alpine_transit_crisis') {
+                        return isEn ? 'CRITICAL INFRASTRUCTURE & SAFETY SIGNAL' : 'KRITISCHES INFRASTRUKTUR- & SICHERHEITSSIGNAL';
+                      } else if (scenarioId === 'esg_investigation') {
+                        return isEn ? 'ESG SUPPLY CHAIN & LEGAL EXPOSURE' : 'ESG-LIEFERKETTEN- & REPUTATIONSRISIKO';
+                      } else if (scenarioId === 'health_data_breach') {
+                        return isEn ? 'DATA PRIVACY & REGULATORY SOVEREIGNTY RISK' : 'DATENSCHUTZ- & SOUVERÄNITÄTSRISIKO';
+                      }
+                      return isEn ? 'REAL REPUTATION & REIMBURSEMENT RISK' : 'ECHTES REPUTATIONS- & ERSTATTUNGSRISIKO';
+                    })()}
+                  </span>
                 </span>
-                <span className="text-[9px] font-mono px-2 py-0.5 bg-red-100 text-sbb-red font-bold">
+                <span className="text-[9px] font-mono px-2 py-0.5 bg-red-100 text-sbb-red font-bold whitespace-nowrap shrink-0">
                   {data.surface_nlp_vs_forensic_reality.statistical_proof_anchor}
                 </span>
               </div>
@@ -158,7 +169,7 @@ export const NarrativeCockpitView: React.FC<Props> = ({
                 className="px-4 py-2 bg-sbb-cloud hover:bg-zinc-200 border border-sbb-aluminum font-mono text-xs font-bold uppercase tracking-wider text-sbb-black transition-all cursor-pointer flex items-center gap-1.5"
               >
                 <Search className="w-3.5 h-3.5 text-sbb-red" />
-                <span>{isEn ? 'Inspect Raw Sources (Mod 02)' : 'Quellen prüfen (Mod 02)'}</span>
+                <span>{isEn ? 'Cluster & AI Audit (Mod 02)' : 'Cluster & KI-Audit (Mod 02)'}</span>
               </button>
 
               <button
@@ -226,18 +237,18 @@ export const NarrativeCockpitView: React.FC<Props> = ({
                   <td className="p-4 align-top w-[220px] font-mono">
                     <div className="space-y-1.5 text-[11px]">
                       <div className="flex justify-between">
-                        <span className="text-sbb-stone">Volume:</span>
-                        <span className="font-bold text-sbb-black">{row.deduped_volume.toLocaleString()} <span className="text-[9px] text-zinc-400">({row.raw_volume.toLocaleString()} raw)</span></span>
+                        <span className="text-zinc-500">{isEn ? 'Volume:' : 'Volumen:'}</span>
+                        <span className="font-bold text-sbb-black">{row.deduped_volume.toLocaleString()} <span className="text-[9px] text-zinc-500">({row.raw_volume.toLocaleString()} {isEn ? 'raw' : 'Roh'})</span></span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-sbb-stone">Velocity:</span>
+                        <span className="text-zinc-500">{isEn ? 'Velocity:' : 'Dynamik:'}</span>
                         <span className={`font-bold ${row.velocity_z_score >= 3.0 ? 'text-sbb-red' : 'text-zinc-800'}`}>
                           z = +{row.velocity_z_score}σ
                         </span>
                       </div>
                       <div className="pt-1 space-y-1">
                         <div className="flex justify-between text-[10px]">
-                          <span className="text-sbb-stone">{isEn ? 'HQ Narrative Fit:' : 'HQ-Narrativ-Fit:'}</span>
+                          <span className="text-zinc-500">{isEn ? 'HQ Narrative Fit:' : 'HQ-Narrativ-Fit:'}</span>
                           <span className={`font-bold ${row.cosine_alignment < 0.45 ? 'text-sbb-red' : row.cosine_alignment > 0.7 ? 'text-emerald-700' : 'text-amber-800'}`}>
                             {Math.round(row.cosine_alignment * 100)}% ({row.cosine_alignment.toFixed(2)})
                           </span>
@@ -254,7 +265,7 @@ export const NarrativeCockpitView: React.FC<Props> = ({
                             style={{ width: `${Math.round(row.cosine_alignment * 100)}%` }}
                           />
                         </div>
-                        <div className="text-[9px] text-zinc-400 flex justify-between">
+                        <div className="text-[9px] text-zinc-500 flex justify-between">
                           <span>0%</span>
                           <span>{isEn ? 'Target: 100%' : 'Soll: 100%'}</span>
                         </div>
@@ -264,7 +275,7 @@ export const NarrativeCockpitView: React.FC<Props> = ({
 
                   {/* Col 3: Legacy Media */}
                   <td className="p-4 align-top max-w-[260px]">
-                    <div className="flex items-center gap-1.5 text-[10px] font-mono font-bold text-sbb-stone uppercase mb-1">
+                    <div className="flex items-center gap-1.5 text-[10px] font-mono font-bold text-zinc-500 uppercase mb-1">
                       <Newspaper className="w-3.5 h-3.5 text-zinc-600" />
                       <span>{isEn ? 'DOMINANT FRAME' : 'DOMINANTER FRAME'}</span>
                     </div>
@@ -275,7 +286,7 @@ export const NarrativeCockpitView: React.FC<Props> = ({
 
                   {/* Col 4: Social Forums */}
                   <td className="p-4 align-top max-w-[240px]">
-                    <div className="flex items-center gap-1.5 text-[10px] font-mono font-bold text-sbb-stone uppercase mb-1">
+                    <div className="flex items-center gap-1.5 text-[10px] font-mono font-bold text-zinc-500 uppercase mb-1">
                       <MessageSquare className="w-3.5 h-3.5 text-zinc-600" />
                       <span>{isEn ? 'COMMUNITY CHATTER' : 'COMMUNITY-DISKUSSION'}</span>
                     </div>
@@ -289,7 +300,7 @@ export const NarrativeCockpitView: React.FC<Props> = ({
                     <div className="flex items-center justify-between text-[10px] font-mono font-bold uppercase mb-1">
                       <span className="flex items-center gap-1 text-zinc-700">
                         <Bot className="w-3.5 h-3.5 text-sbb-red" />
-                        <span>AI SEARCH SYNTHESIS</span>
+                        <span>{isEn ? 'AI SEARCH SYNTHESIS' : 'KI-SUCH-SYNTHESE'}</span>
                       </span>
                       <span className={`px-1.5 py-0.2 border text-[9px] ${
                         row.llm_hallucination_rate > 35 ? 'bg-red-50 text-sbb-red border-red-200' : 'bg-emerald-50 text-emerald-800 border-emerald-200'
@@ -438,7 +449,7 @@ export const NarrativeCockpitView: React.FC<Props> = ({
           {data.target_narratives.map((pillar) => (
             <div key={pillar.id} className="bg-white border border-sbb-aluminum p-6 flex flex-col justify-between">
               <div>
-                <div className="flex items-center justify-between pb-2 mb-3 border-b border-zinc-100">
+                <div className="flex items-center justify-between pb-2 border-b border-zinc-100">
                   <span className="text-xs font-mono font-bold text-sbb-red">
                     {isEn ? `PILLAR ${pillar.pillar_number}` : `SÄULE ${pillar.pillar_number}`}
                   </span>
@@ -475,7 +486,7 @@ export const NarrativeCockpitView: React.FC<Props> = ({
       {/* ═══ NEXT-STEP WORKFLOW BRIDGE (01 → 02) ═══ */}
       <div className="bg-sbb-black text-white border-l-4 border-sbb-red p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div className="space-y-1">
-          <div className="text-[10px] font-mono text-sbb-red uppercase tracking-widest font-bold">
+          <div className="text-[10px] font-mono text-[#FFCC00] uppercase tracking-widest font-bold">
             {isEn ? 'NEXT STEP IN WORKFLOW // MODULE 01 → MODULE 02' : 'NÄCHSTER PROZESSSCHRITT // MODUL 01 → MODUL 02'}
           </div>
           <p className="text-xs sm:text-sm text-zinc-200">

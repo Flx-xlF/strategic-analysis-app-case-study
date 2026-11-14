@@ -39,7 +39,7 @@ We request your official response on the record to the following questions by 16
 2. Following your $23 billion U.S. manufacturing commitment, is the company gradually shifting its corporate center of gravity and executive leadership away from Basel?
 3. How do you respond to Swiss and European healthcare payers who argue the company is using U.S. trade pressure to force public healthcare funds to subsidize American margins?`,
       official_wording_title: "Global Pricing, Launch Governance & Footprint Policy (GS-01 / GS-02)",
-      official_wording_quote: "«the company advocates pricing frameworks that fairly reflect therapeutic value across OECD economies to support continuous innovation. Capital expenditure across localized U.S. production facilities serves domestic supply resilience. Basel remains the permanent corporate headquarters, executive governance seat, and global scientific nerve center. Spokespersons shall strictly reject characterizations of launch sequencing as patient boycotts.»",
+      official_wording_quote: "«The Company advocates pricing frameworks that fairly reflect therapeutic value across OECD economies to support continuous innovation. Capital expenditure across localized U.S. production facilities serves domestic supply resilience. Basel remains the permanent corporate headquarters, executive governance seat, and global scientific nerve center. Spokespersons shall strictly reject characterizations of launch sequencing as patient boycotts.»",
       compliance_authority: "Executive Committee & Corporate Legal Governance",
       contradictions: [
         {
@@ -54,7 +54,7 @@ We request your official response on the record to the following questions by 16
         },
         {
           severity: "HIGH",
-          title: "Basel Headquarter Exodus Rumor vs. Capital Allocation Reality",
+          title: "Basel Headquarters Exodus Rumor vs. Capital Allocation Reality",
           quote_journalist: "Is the company gradually shifting its corporate center of gravity away from Basel following the $23B US capex?",
           quote_doctrine: "Basel remains the permanent corporate headquarters, executive seat, and scientific nerve center.",
           inquiry_trap: "Establishing a narrative of corporate desertion of Switzerland (Standort Schweiz) to spark political backlash in Bern.",
@@ -63,7 +63,7 @@ We request your official response on the record to the following questions by 16
           assessment: "Deliver a crisp, unequivocal statement on Basel's permanent status as global headquarters."
         }
       ],
-      recommended_statement: "the company is committed to ensuring patients worldwide benefit from breakthrough medical innovation. Under U.S. Most-Favored-Nation reference rules, healthcare systems in high-income nations must modernize pricing frameworks to reflect the genuine therapeutic and economic value of innovation, rather than imposing blunt price cuts that export distortions globally. Our $23 billion U.S. investment expands domestic manufacturing across 10 sites to secure tariff-resilient supply for American patients. Basel remains our undisputed corporate headquarters and scientific core as we partner constructively with Swiss (BAG) and European authorities to ensure rapid, sustainable patient access.",
+      recommended_statement: "The Company is committed to ensuring patients worldwide benefit from breakthrough medical innovation. Under U.S. Most-Favored-Nation reference rules, healthcare systems in high-income nations must modernize pricing frameworks to reflect the genuine therapeutic and economic value of innovation, rather than imposing blunt price cuts that export distortions globally. Our $23 billion U.S. investment expands domestic manufacturing across 10 sites to secure tariff-resilient supply for American patients. Basel remains our undisputed corporate headquarters and scientific core as we partner constructively with Swiss (BAG) and European authorities to ensure rapid, sustainable patient access.",
       strategic_advisory: "Decouple the $23B U.S. manufacturing expansion from HQ identity. Reaffirm Basel unambiguously, and reject any framing of launch sequencing as a 'patient boycott'."
     },
     alpine_transit_crisis: {
@@ -190,19 +190,19 @@ Following the UK NICE final guidance refusing routine NHS funding for Lu-177 RLT
 wir recherchieren zu den Äusserungen von the CEO, der ein 'grundlegendes Umdenken' bei europäischen und Schweizer Medikamentenpreisen fordert.
 
 Wir bitten um Beantwortung folgender Fragen bis 16:30 Uhr:
-1. Bedeutet Ihre US-Referenzpreis-Vereinbarung (MFN), dass the company künftige Medikamente (wie neue Biologika) in der Schweiz und der EU bewusst verzögert oder gar nicht einführt, falls Preisnachlässe gefordert werden?
-2. Verlagert the company mit der 23-Milliarden-Investition in US-Werke schrittweise sein unternehmerisches Schwergewicht und die Führung weg von Basel?
-3. Wie reagieren Sie auf Vorwürfe Schweizer Kassen, the company nutze US-Handelsdrohungen, um europäische Beitragszahler unter Druck zu setzen?`,
+1. Bedeutet Ihre US-Referenzpreis-Vereinbarung (MFN), dass das Unternehmen künftige Medikamente (wie neue Biologika) in der Schweiz und der EU bewusst verzögert oder gar nicht einführt, falls Preisnachlässe gefordert werden?
+2. Verlagert das Unternehmen mit der 23-Milliarden-Investition in US-Werke schrittweise sein unternehmerisches Schwergewicht und die Führung weg von Basel?
+3. Wie reagieren Sie auf Vorwürfe Schweizer Kassen, das Unternehmen nutze US-Handelsdrohungen, um europäische Beitragszahler unter Druck zu setzen?`,
       official_wording_title: "Konzern-Governance zu Preisgestaltung & Standort Basel (GS-01 / GS-02)",
-      official_wording_quote: "«the company setzt sich für faire, wertbasierte Erstattungsmodelle in allen OECD-Staaten ein. Die 23-Mrd.-$-Investition in den USA stärkt die lokale Versorgungssicherheit. Basel bleibt der weltweite Hauptsitz, Sitz der Geschäftsleitung und zentrales Forschungszentrum. Spekulationen über Patientenboykotte sind entschieden zurückzuweisen.»",
+      official_wording_quote: "«Das Unternehmen setzt sich für faire, wertbasierte Erstattungsmodelle in allen OECD-Staaten ein. Die 23-Mrd.-$-Investition in den USA stärkt die lokale Versorgungssicherheit. Basel bleibt der weltweite Hauptsitz, Sitz der Geschäftsleitung und zentrales Forschungszentrum. Spekulationen über Patientenboykotte sind entschieden zurückzuweisen.»",
       compliance_authority: "Konzernleitung & Rechtsdienst",
       contradictions: [
         {
           severity: "HOCH",
           title: "Boykott-Falle vs. Partnerschaftlicher Erstattungsdialog",
-          quote_journalist: "Wird the company die Einführung in der Schweiz und der EU verzögern, um US-Preise zu schützen?",
+          quote_journalist: "Wird das Unternehmen die Einführung in der Schweiz und der EU verzögern, um US-Preise zu schützen?",
           quote_doctrine: "Null Boykott; partnerschaftlicher Dialog mit dem BAG und HTA-Stellen für wertbasierte Erstattung.",
-          inquiry_trap: "Der Journalist will ein Zitat provozieren, wonach the company europäische oder Schweizer Patienten erpresst.",
+          inquiry_trap: "Der Journalist will ein Zitat provozieren, wonach das Unternehmen europäische oder Schweizer Patienten erpresst.",
           legal_boundary: "Kartell- und wettbewerbsrechtliche Grenzen verbieten konditionierte Boykott-Drohungen.",
           clear_translation: "Klarstellen, dass künstlich gedrückte Preise internationale Verzerrungen erzeugen, und belegen, dass klinische Studien und Härtefallprogramme unverändert weiterlaufen.",
           assessment: "Den Vorwurf eines Boykotts kategorisch entkräften. Markteinführungen als evidenzbasierten Dialog darstellen."
@@ -210,7 +210,7 @@ Wir bitten um Beantwortung folgender Fragen bis 16:30 Uhr:
         {
           severity: "HOCH",
           title: "Abwanderungs-Gerücht vs. Investitionswirklichkeit",
-          quote_journalist: "Verlagert the company das Schwergewicht schrittweise weg von Basel in die USA?",
+          quote_journalist: "Verlagert das Unternehmen das Schwergewicht schrittweise weg von Basel in die USA?",
           quote_doctrine: "Basel bleibt der dauerhafte Hauptsitz, Sitz der Geschäftsleitung und Forschungszentrale.",
           inquiry_trap: "Konstruktion einer Schwächung des Standorts Schweiz zur Auslösung politischer Vorstösse in Bern.",
           legal_boundary: "Börsenrechtliche Vorgaben (SIX) regeln Mitteilungen zum Konzernsitz und Governance-Strukturen.",
@@ -218,7 +218,7 @@ Wir bitten um Beantwortung folgender Fragen bis 16:30 Uhr:
           assessment: "Ein klares, unerschütterliches Bekenntnis zu Basel als weltweitem Hauptsitz abgeben."
         }
       ],
-      recommended_statement: "the company setzt sich dafür ein, dass Patientinnen und Patienten weltweit von medizinischem Fortschritt profitieren. Unter den neuen US-Referenzpreisregeln (MFN) müssen wohlhabende Industriestaaten ihre Erstattungssysteme so weiterentwickeln, dass echter therapeutischer Mehrwert anerkannt wird, anstatt durch starre Preisdeckel weltweite Verzerrungen zu erzeugen. Unsere 23-Milliarden-Dollar-Investition in den USA baut an 10 Standorten eine zollresistente Produktion für US-Patienten auf. Basel bleibt unser unbestrittener weltweiter Hauptsitz und das wissenschaftliche Herz des Unternehmens; mit dem Schweizer BAG und europäischen Behörden führen wir einen konstruktiven Dialog für zukunftsfähige Erstattungsmodelle.",
+      recommended_statement: "Das Unternehmen setzt sich dafür ein, dass Patientinnen und Patienten weltweit von medizinischem Fortschritt profitieren. Unter den neuen US-Referenzpreisregeln (MFN) müssen wohlhabende Industriestaaten ihre Erstattungssysteme so weiterentwickeln, dass echter therapeutischer Mehrwert anerkannt wird, anstatt durch starre Preisdeckel weltweite Verzerrungen zu erzeugen. Unsere 23-Milliarden-Dollar-Investition in den USA baut an 10 Standorten eine zollresistente Produktion für US-Patienten auf. Basel bleibt unser unbestrittener weltweiter Hauptsitz und das wissenschaftliche Herz des Unternehmens; mit dem Schweizer BAG und europäischen Behörden führen wir einen konstruktiven Dialog für zukunftsfähige Erstattungsmodelle.",
       strategic_advisory: "Die 23-Mrd.-$-US-Investition strikt von der Standortfrage trennen. Klares Bekenntnis zu Basel abgeben und jegliche Boykott-Rhetorik zurückweisen."
     },
     alpine_transit_crisis: {
@@ -290,17 +290,17 @@ Wir bitten um Stellungnahme:
 
 nach der Entscheidung des britischen NICE, Lu-177 RLT nicht für den Routineeinsatz im NHS zu empfehlen, und dem Rückzug des europäischen Zulassungsantrags bitten wir um Stellungnahme:
 
-1. Akzeptiert the company die Einschätzung von NICE, dass Lu-177 RLT bei 20.000 Pfund pro Dosis unwirtschaftlich ist?
+1. Akzeptiert das Unternehmen die Einschätzung von NICE, dass Lu-177 RLT bei 20.000 Pfund pro Dosis unwirtschaftlich ist?
 2. Warum ist Lu-177 RLT in den USA vor Chemotherapie zugelassen, während europäische Behörden die Datenlage als unzureichend ansehen?
-3. Wird the company Preisnachlässe gewähren, damit Patienten in Europa und Grossbritannien nicht leer ausgehen?`,
+3. Wird das Unternehmen Preisnachlässe gewähren, damit Patienten in Europa und Grossbritannien nicht leer ausgehen?`,
       official_wording_title: "Radioliganden-Evidenz & Nutzenbewertungs-Richtlinie (GS-01 / GS-03)",
-      official_wording_quote: "«Lu-177 RLT belegt in der Phase-III-Studie RLT-01 eine signifikante Verdopplung des progressionsfreien Überlebens (HR 0.41). Die NICE-Bewertung reflektiert gesundheitsökonomische Kostenschwellen, nicht die klinische Wirksamkeit. The company bietet flexible Erstattungsmodelle an, die Spitalentlastungen berücksichtigen.»",
+      official_wording_quote: "«Lu-177 RLT belegt in der Phase-III-Studie RLT-01 eine signifikante Verdopplung des progressionsfreien Überlebens (HR 0.41). Die NICE-Bewertung reflektiert gesundheitsökonomische Kostenschwellen, nicht die klinische Wirksamkeit. Das Unternehmen bietet flexible Erstattungsmodelle an, die Spitalentlastungen berücksichtigen.»",
       compliance_authority: "Onkologie-Leitung & Legal",
       contradictions: [
         {
           severity: "HOCH",
           title: "Wirtschaftliche HTA-Schwelle vs. Biologische Wirksamkeit",
-          quote_journalist: "Akzeptiert the company, dass Lu-177 RLT unzureichend und unwirtschaftlich ist?",
+          quote_journalist: "Akzeptiert das Unternehmen, dass Lu-177 RLT unzureichend und unwirtschaftlich ist?",
           quote_doctrine: "RLT-01 belegt signifikante Verdopplung des rPFS; NICE-Verfahren ist rein ökonomisch.",
           inquiry_trap: "Verwechslung von Wirtschaftlichkeitsgrenzen mit klinischem Studienversagen.",
           legal_boundary: "Regulatorische Pflicht zur korrekten Darstellung klinischer Studienergebnisse.",

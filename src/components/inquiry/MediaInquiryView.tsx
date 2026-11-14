@@ -76,7 +76,7 @@ export const MediaInquiryView: React.FC<Props> = ({
             <div className="text-[10px] font-mono text-sbb-stone uppercase tracking-wider mb-1">
               {isEn ? 'INQUIRING OUTLET' : 'RECHERCHIERENDES MEDIUM'}
             </div>
-            <div className="text-base font-bold text-sbb-black truncate">
+            <div className="text-base font-bold text-sbb-black truncate" title={data.outlet}>
               {data.outlet}
             </div>
             <div className="text-[10px] font-mono text-sbb-stone mt-1">
@@ -422,9 +422,9 @@ export const MediaInquiryView: React.FC<Props> = ({
 
           {/* Strategic Advisory Alert Banner */}
           <div className="p-4 bg-zinc-900 text-white flex items-start gap-3">
-            <MessageSquare className="w-4 h-4 text-sbb-red shrink-0 mt-0.5" />
+            <MessageSquare className="w-4 h-4 text-[#FFCC00] shrink-0 mt-0.5" />
             <div className="space-y-1">
-              <div className="font-mono text-[10px] uppercase font-bold tracking-wider text-sbb-red">
+              <div className="font-mono text-[10px] uppercase font-bold tracking-wider text-[#FFCC00]">
                 {isEn ? 'SPOKESPERSON BRIEFING / BEFORE CALLING THE JOURNALIST' : 'HINWEIS FÜR MEDIENSPRECHER / BRIEFING VOR DEM TELEFONAT'}
               </div>
               <p className="text-xs text-zinc-300 leading-relaxed font-mono">

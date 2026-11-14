@@ -129,39 +129,56 @@ export const GeoAuditView: React.FC<Props> = ({
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {(filteredCentroids.length > 0 ? filteredCentroids : data.active_cluster.centroid_articles).map((art: CentroidArticle) => (
-            <div key={art.id} className="bg-white border border-sbb-aluminum p-6 flex flex-col justify-between shadow-sm">
-              <div>
-                <div className="flex items-center justify-between pb-2 mb-3 border-b border-zinc-100">
-                  <span className="text-[10px] font-mono font-bold text-sbb-stone uppercase">
-                    {art.outlet}
-                  </span>
-                  <span className="text-[9px] font-mono px-2 py-0.5 bg-zinc-100 text-zinc-700 border border-zinc-200">
-                    {art.tier}
-                  </span>
-                </div>
-                <h3 className="font-bold text-sm text-sbb-black leading-snug mb-3">
-                  «{art.headline}»
-                </h3>
-                <p className="text-xs text-zinc-600 leading-relaxed italic mb-4 border-l-2 border-zinc-300 pl-3">
-                  {art.excerpt}
-                </p>
-              </div>
+        {/* Empty state banner when specific region has no local centroids */}
+        {selectedRegion !== 'all' && filteredCentroids.length === 0 && (
+          <div className="p-3 bg-amber-50 border border-amber-300 text-xs text-amber-900 font-mono flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-amber-500 shrink-0" />
+            <span>
+              {isEn 
+                ? `No local centroid articles originated directly in ${selectedRegion.toUpperCase()}. Displaying dominant cross-regional cluster sources synthesized globally by AI search engines.`
+                : `Keine lokalen Centroid-Artikel stammen direkt aus ${selectedRegion.toUpperCase()}. Anzeige der dominanten überregionalen Cluster-Quellen, die KI-Suchmaschinen global synthetisieren.`}
+            </span>
+          </div>
+        )}
 
-              <div className="pt-3 border-t border-zinc-100 space-y-1.5 font-mono text-[10px]">
-                <div className="flex justify-between">
-                  <span className="text-sbb-stone">Cosine to Target Vector:</span>
-                  <span className={`font-bold ${art.cosine_to_target < 0.35 ? 'text-sbb-red' : 'text-zinc-800'}`}>
-                    {art.cosine_to_target.toFixed(2)}
-                  </span>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {(filteredCentroids.length > 0 ? filteredCentroids : data.active_cluster.centroid_articles).map((art: CentroidArticle) => {
+            const isAligned = art.cosine_to_target >= 0.65;
+
+            return (
+              <div key={art.id} className="bg-white border border-sbb-aluminum p-6 flex flex-col justify-between shadow-sm">
+                <div>
+                  <div className="flex items-center justify-between pb-2 mb-3 border-b border-zinc-100">
+                    <span className="text-[10px] font-mono font-bold text-zinc-500 uppercase">
+                      {art.outlet}
+                    </span>
+                    <span className="text-[9px] font-mono px-2 py-0.5 bg-zinc-100 text-zinc-700 border border-zinc-200">
+                      {art.tier}
+                    </span>
+                  </div>
+                  <h3 className="font-bold text-sm text-sbb-black leading-snug mb-3">
+                    «{art.headline}»
+                  </h3>
+                  <p className="text-xs text-zinc-600 leading-relaxed italic mb-4 border-l-2 border-zinc-300 pl-3">
+                    {art.excerpt}
+                  </p>
                 </div>
-                <div className="text-sbb-red truncate">
-                  <span className="font-bold">Contradicts: </span>{art.violated_pillar}
+
+                <div className="pt-3 border-t border-zinc-100 space-y-1.5 font-mono text-[10px]">
+                  <div className="flex justify-between">
+                    <span className="text-zinc-500">{isEn ? 'Cosine to Target Vector:' : 'Cosinus zum Soll-Vektor:'}</span>
+                    <span className={`font-bold ${isAligned ? 'text-emerald-700' : art.cosine_to_target < 0.35 ? 'text-sbb-red' : 'text-amber-800'}`}>
+                      {art.cosine_to_target.toFixed(2)}
+                    </span>
+                  </div>
+                  <div className={`truncate ${isAligned ? 'text-emerald-800' : 'text-sbb-red'}`}>
+                    <span className="font-bold">{isAligned ? (isEn ? 'Aligns with: ' : 'Stützt: ') : (isEn ? 'Contradicts: ' : 'Widerspricht: ')}</span>
+                    {art.violated_pillar}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 
@@ -269,8 +286,17 @@ export const GeoAuditView: React.FC<Props> = ({
           <div className="bg-sbb-cloud/80 p-4 border border-sbb-aluminum flex items-center gap-3">
             <Search className="w-5 h-5 text-sbb-red shrink-0" />
             <div className="flex-1">
-              <div className="text-[10px] font-mono text-sbb-stone uppercase tracking-wider">
-                {isEn ? 'STAKEHOLDER QUERY (PHYSICIAN, JOURNALIST, INVESTOR):' : 'STAKEHOLDER-SUCHANFRAGE (ARZT, JOURNALIST, INVESTOR):'}
+              <div className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider font-bold">
+                {(() => {
+                  if (scenarioId === 'alpine_transit_crisis') {
+                    return isEn ? 'STAKEHOLDER QUERY (PASSENGER, COMMUTER, JOURNALIST):' : 'STAKEHOLDER-SUCHANFRAGE (FAHRGAST, PENDLER, MEDIEN):';
+                  } else if (scenarioId === 'esg_investigation') {
+                    return isEn ? 'STAKEHOLDER QUERY (INVESTIGATIVE DESK, ESG ANALYST, INVESTOR):' : 'STAKEHOLDER-SUCHANFRAGE (RECHERCHEDESK, ESG-ANALYST, ANLEGER):';
+                  } else if (scenarioId === 'health_data_breach') {
+                    return isEn ? 'STAKEHOLDER QUERY (PATIENT, PHYSICIAN, PRIVACY ADVOCATE):' : 'STAKEHOLDER-SUCHANFRAGE (PATIENT, ARZT, DATENSCHÜTZER):';
+                  }
+                  return isEn ? 'STAKEHOLDER QUERY (PHYSICIAN, JOURNALIST, INVESTOR):' : 'STAKEHOLDER-SUCHANFRAGE (ARZT, JOURNALIST, INVESTOR):';
+                })()}
               </div>
               <div className="text-base sm:text-lg font-bold text-sbb-black">
                 «{data.stakeholder_query}»
@@ -288,32 +314,42 @@ export const GeoAuditView: React.FC<Props> = ({
                 </span>
               </div>
               <span className="text-[10px] font-mono text-sbb-red bg-red-50 border border-red-200 px-2 py-0.5 font-bold">
-                {isEn ? 'RED = CRITICAL FACTUAL DISTORTION' : 'ROT = KRITISCHE FAKTENVERZERRUNG'}
+                {isEn ? 'CLICK RED PASSAGE [1] / [2] TO INSPECT AUDIT' : 'ROTE PASSAGEN [1] / [2] ANKLICKEN FÜR FORENSIK'}
               </span>
             </div>
 
             <div className="bg-zinc-50 border border-zinc-200 p-6 font-serif text-base sm:text-lg leading-relaxed text-zinc-900">
-              {data.ai_synthesis_spans.map((span: HallucinationSpan, i: number) => {
-                if (!span.isDistorted) {
-                  return <span key={i}>{span.text}</span>;
-                }
+              {(() => {
+                let distortedCount = 0;
+                return data.ai_synthesis_spans.map((span: HallucinationSpan, i: number) => {
+                  if (!span.isDistorted) {
+                    return <span key={i}>{span.text}</span>;
+                  }
 
-                const isSelected = activeSpanIndex === i;
+                  distortedCount++;
+                  const badgeIndex = distortedCount;
+                  const isSelected = activeSpanIndex === i;
 
-                return (
-                  <mark
-                    key={i}
-                    onClick={() => setActiveSpanIndex(i)}
-                    className={`cursor-pointer px-1 py-0.5 mx-0.5 transition-all inline ${
-                      isSelected 
-                        ? 'bg-red-200 text-red-950 underline decoration-sbb-red decoration-2 font-medium shadow-xs' 
-                        : 'bg-red-100 hover:bg-red-200 text-red-900'
-                    }`}
-                  >
-                    {span.text}
-                  </mark>
-                );
-              })}
+                  return (
+                    <button
+                      type="button"
+                      key={i}
+                      onClick={() => setActiveSpanIndex(i)}
+                      aria-pressed={isSelected}
+                      className={`cursor-pointer px-1.5 py-0.5 mx-0.5 transition-all inline text-left font-serif text-base sm:text-lg border ${
+                        isSelected 
+                          ? 'bg-red-200 text-red-950 border-sbb-red ring-2 ring-sbb-red/40 underline font-medium shadow-xs' 
+                          : 'bg-red-100 hover:bg-red-200 text-red-950 border-red-300'
+                      }`}
+                    >
+                      <span className="font-mono text-[10px] font-bold bg-sbb-red text-white px-1 py-0.2 mr-1 rounded-xs align-middle">
+                        [{badgeIndex}]
+                      </span>
+                      {span.text}
+                    </button>
+                  );
+                });
+              })()}
             </div>
           </div>
 
@@ -385,7 +421,7 @@ export const GeoAuditView: React.FC<Props> = ({
                   <p className="text-zinc-600 leading-relaxed">
                     {data.llm_limitation_test.automated_tool_verdict.flawed_assessment}
                   </p>
-                  <div className="text-[10px] font-mono text-zinc-400 pt-1.5">
+                  <div className="text-[10px] font-mono text-zinc-500 pt-1.5">
                     Keywords: {data.llm_limitation_test.automated_tool_verdict.keywords_detected.join(', ')}
                   </div>
                 </div>
@@ -505,7 +541,7 @@ export const GeoAuditView: React.FC<Props> = ({
       {onNavigateTab && (
         <div className="bg-sbb-black text-white border-l-4 border-sbb-red p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="space-y-1">
-            <div className="text-[10px] font-mono text-sbb-red uppercase tracking-widest font-bold">
+            <div className="text-[10px] font-mono text-[#FFCC00] uppercase tracking-widest font-bold">
               {isEn ? 'NEXT STEP IN WORKFLOW // MODULE 02 → MODULE 03 (TOP-DOWN ENABLEMENT)' : 'NÄCHSTER PROZESSSCHRITT // MODUL 02 → MODUL 03 (TOP-DOWN BEFÄHIGUNG)'}
             </div>
             <p className="text-xs sm:text-sm text-zinc-200">

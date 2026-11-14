@@ -104,7 +104,7 @@ export const NarrativeCascadeView: React.FC<Props> = ({
               {isEn ? 'ESCALATION WINDOW' : 'ZEITLICHE DYNAMIK'}
             </div>
             <div className="text-2xl font-black text-sbb-black tracking-tight">
-              {isDraftA ? '< 2h' : 'Stable'}
+              {isDraftA ? '< 2h' : (isEn ? 'Stable' : 'Stabil')}
             </div>
             <div className="text-[10px] font-mono text-sbb-stone mt-1">
               {isDraftA 
@@ -226,7 +226,11 @@ export const NarrativeCascadeView: React.FC<Props> = ({
               className="text-sbb-red hover:underline flex items-center gap-1 font-bold cursor-pointer"
             >
               <RefreshCw className="w-3 h-3" />
-              <span>{isEn ? 'Compare Iterations' : 'Iterationen vergleichen'}</span>
+              <span>
+                {isDraftA 
+                  ? (isEn ? 'Switch to Iteration 2 (GEO-Aligned) →' : 'Zu Iteration 2 (GEO-optimiert) wechseln →')
+                  : (isEn ? '← Back to Iteration 1 (Initial Draft)' : '← Zurück zu Iteration 1 (Rohentwurf)')}
+              </span>
             </button>
           </div>
         </div>
@@ -251,7 +255,9 @@ export const NarrativeCascadeView: React.FC<Props> = ({
           <span className={`font-mono text-xs font-bold uppercase tracking-widest ${
             isDraftA ? 'text-sbb-red' : 'text-emerald-800'
           }`}>
-            {isEn ? 'MEDIA ECHO SIMULATION: PROJECTED CRITICAL HEADLINE' : 'MEDIALE ECHO-SIMULATION: ERWARTETE KRITISCHE SCHLAGZEILE'}
+            {isDraftA 
+              ? (isEn ? 'MEDIA ECHO SIMULATION: PROJECTED CRITICAL HEADLINE' : 'MEDIALE ECHO-SIMULATION: ERWARTETE KRITISCHE SCHLAGZEILE')
+              : (isEn ? 'MEDIA ECHO SIMULATION: CALIBRATED COVERAGE OUTCOME' : 'MEDIALE ECHO-SIMULATION: SACHLICHE BERICHTERSTATTUNG')}
           </span>
         </div>
 
@@ -325,11 +331,11 @@ export const NarrativeCascadeView: React.FC<Props> = ({
           </span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {data.stakeholder_reactions.map((node, i) => (
-            <CascadeNode key={i} node={node} index={i} />
-          ))}
-        </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {data.stakeholder_reactions.map((node, i) => (
+              <CascadeNode key={i} node={node} index={i} lang={lang} />
+            ))}
+          </div>
       </div>
 
       {/* ═══ STEP 04: SECOND ORDER EFFECTS ═══ */}
@@ -422,7 +428,7 @@ export const NarrativeCascadeView: React.FC<Props> = ({
 
           {/* Risk Gauge & Immediate Actions */}
           <div className="bg-white border border-sbb-aluminum p-6 sm:p-8 shadow-sm flex flex-col justify-between">
-            <RiskGauge score={data.risk_score} />
+            <RiskGauge score={data.risk_score} lang={lang} />
 
             <div className="mt-6 pt-5 border-t border-zinc-100">
               <div className="text-[10px] font-mono text-sbb-stone uppercase tracking-wider mb-3">

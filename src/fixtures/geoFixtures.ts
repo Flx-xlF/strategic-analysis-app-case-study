@@ -90,7 +90,7 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
             region: 'ch',
             outlet: 'Neue Zürcher Zeitung (NZZ)',
             tier: 'Tier-1 National',
-            headline: '23 Billion for the US and Reference Price Pressure: What Does the company\'s Strategy Mean for Basel and Swiss Patients?',
+            headline: '23 Billion for the US and Reference Price Pressure: What Does the Company\'s Strategy Mean for Basel and Swiss Patients?',
             excerpt: 'As billions flow into American manufacturing and drugmakers push back on Swiss reference baskets, observers ask whether Basel\'s global weight is slipping and if Swiss patients will wait longer for treatments.',
             cosine_to_target: 0.39,
             violated_pillar: 'Pillar 02: Dual Commitment ($23B US & Basel Heart)'
@@ -100,7 +100,7 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
             region: 'us',
             outlet: 'Washington BioPharma Wire',
             tier: 'Tier-1 Trade',
-            headline: 'the company Locks In $23B US Manufacturing Footprint and MFN Accord to Shield Supply from Tariffs',
+            headline: 'The Company Locks In $23B US Manufacturing Footprint and MFN Accord to Shield Supply from Tariffs',
             excerpt: 'Multi-billion dollar commitment across 10 facilities creates local supply chain resilience while aligning future launches with international reference pricing commitments.',
             cosine_to_target: 0.81,
             violated_pillar: 'Pillar 02: Dual Commitment ($23B US & Basel Heart)'
@@ -113,19 +113,19 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
       hallucination_rate: 48,
       ai_synthesis_spans: [
         {
-          text: "the company recently announced a $23 billion manufacturing and research expansion in the United States. ",
+          text: "The Company recently announced a $23 billion manufacturing and research expansion in the United States. ",
           isDistorted: false,
           correction: ""
         },
         {
           text: "According to policy commentators, the pharmaceutical giant is shifting its primary corporate center of gravity from Basel to the US, effectively beginning a phased relocation of its global headquarters. ",
           isDistorted: true,
-          correction: "CRITICAL HALLUCINATION: the company is NOT relocating its headquarters. Basel remains the corporate headquarters, executive governance seat, and global scientific nerve center (GS-02)."
+          correction: "CRITICAL HALLUCINATION: The Company is NOT relocating its headquarters. Basel remains the corporate headquarters, executive governance seat, and global scientific nerve center (GS-02)."
         },
         {
           text: "In response to European price caps, the CEO announced that the company will freeze all upcoming cancer drug launches in European and Swiss healthcare markets until governments match US reimbursement rates. ",
           isDistorted: true,
-          correction: "DISTORTION: the company announced no launch freeze or boycott. The company called for modernized value-based HTA models to prevent international price-spillover distortions under US MFN rules, while continuing compassionate and regulatory access programs (GS-01 / GS-03)."
+          correction: "DISTORTION: The Company announced no launch freeze or boycott. The company called for modernized value-based HTA models to prevent international price-spillover distortions under US MFN rules, while continuing compassionate and regulatory access programs (GS-01 / GS-03)."
         },
         {
           text: "The company stated that localized production facilities will insulate American medicines from impending international tariffs.",
@@ -422,7 +422,7 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
         {
           text: "Consequently, European regulators advised doctors against prescribing the medicine in pre-chemotherapy stages.",
           isDistorted: true,
-          correction: "DISTORTION: the company withdrew its European pre-chemo filing following EMA discussions over trial comparator design, not due to toxicity or efficacy failure."
+          correction: "DISTORTION: The Company withdrew its European pre-chemo filing following EMA discussions over trial comparator design, not due to toxicity or efficacy failure."
         }
       ],
       distortion_root_causes: [
@@ -588,7 +588,7 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
             region: 'ch',
             outlet: 'Neue Zürcher Zeitung (NZZ)',
             tier: 'Leitmedium Schweiz',
-            headline: '23 Milliarden für die USA und Druck auf Referenzpreise: Was bedeutet the company\' Kurs für Basel und Schweizer Patienten?',
+            headline: '23 Milliarden für die USA und Druck auf Referenzpreise: Was bedeutet der Kurs des Unternehmens für Basel und Schweizer Patienten?',
             excerpt: 'Während Milliarden in US-Produktionsstätten fliessen und die Kritik an Schweizer BAG-Referenzkörben wächst, fragen Beobachter nach der Zukunft des Standorts Basel.',
             cosine_to_target: 0.39,
             violated_pillar: 'Säule 02: Doppeltes Bekenntnis (23 Mrd. US & Basel)'
@@ -598,32 +598,32 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
             region: 'us',
             outlet: 'Washington BioPharma Wire',
             tier: 'Tier-1 Fachdienst',
-            headline: 'the company sichert 23-Mrd.-$-Produktionsnetzwerk in den USA gegen künftige Zölle ab',
+            headline: 'Das Unternehmen sichert 23-Mrd.-$-Produktionsnetzwerk in den USA gegen künftige Zölle ab',
             excerpt: 'Gezielte Lokalisierung der Produktion an 10 Standorten schützt die Medikamentenversorgung und aligniert künftige Produkte mit MFN-Zielen.',
             cosine_to_target: 0.81,
             violated_pillar: 'Säule 02: Doppeltes Bekenntnis (23 Mrd. US & Basel)'
           }
         ]
       },
-      stakeholder_query: "Verlegt the company mit der 23-Milliarden-Investition den Hauptsitz in die USA und boykottiert der Konzern europäische und Schweizer Patienten?",
+      stakeholder_query: "Verlegt das Unternehmen mit der 23-Milliarden-Investition den Hauptsitz in die USA und boykottiert der Konzern europäische und Schweizer Patienten?",
       queried_engine: "Frontier LLM & Generative Search Synthesis",
       retrieval_date: "Live-Audit 13.11.2026",
       hallucination_rate: 48,
       ai_synthesis_spans: [
         {
-          text: "the company hat kürzlich eine 23-Milliarden-Dollar-Investition in Forschung und Produktion in den USA bekanntgegeben. ",
+          text: "Das Unternehmen hat kürzlich eine 23-Milliarden-Dollar-Investition in Forschung und Produktion in den USA bekanntgegeben. ",
           isDistorted: false,
           correction: ""
         },
         {
           text: "Laut Medienkommentaren verlegt der Pharmakonzern damit schrittweise sein unternehmerisches Zentrum von Basel nach Nordamerika und leitet die Verlegung des Konzernsitzes ein. ",
           isDistorted: true,
-          correction: "KRITISCHE HALLUZINATION: the company verlegt den Hauptsitz NICHT. Basel bleibt der globale Konzernsitz, Sitz der Geschäftsleitung und zentrales Forschungszentrum (GS-02)."
+          correction: "KRITISCHE HALLUZINATION: Das Unternehmen verlegt den Hauptsitz NICHT. Basel bleibt der globale Konzernsitz, Sitz der Geschäftsleitung und zentrales Forschungszentrum (GS-02)."
         },
         {
           text: "Als Reaktion auf europäische Preisdeckel erklärte der Konzernchef zudem, man werde die Markteinführung neuer Krebstherapien in Europa und der Schweiz aussetzen, bis die Kassen höhere Preise zahlen. ",
           isDistorted: true,
-          correction: "VERZERRUNG: Es gibt keinerlei Zulassungsstopp oder Patientenboykott. The company fordert eine Modernisierung der Erstattungssysteme, um internationale Preisverzerrungen unter US-Regeln zu verhindern, während Härtefallprogramme unverändert weiterlaufen (GS-01 / GS-03)."
+          correction: "VERZERRUNG: Es gibt keinerlei Zulassungsstopp oder Patientenboykott. Das Unternehmen fordert eine Modernisierung der Erstattungssysteme, um internationale Preisverzerrungen unter US-Regeln zu verhindern, während Härtefallprogramme unverändert weiterlaufen (GS-01 / GS-03)."
         },
         {
           text: "Das Unternehmen betonte, die US-Standorte dienten der lokalen Versorgungssicherheit gegen drohende Zölle.",
@@ -639,7 +639,7 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
         },
         {
           issue: "Reformaufruf als 'Patientenboykott' missverstanden",
-          description: "des Konzernchefs Appell zur Reform veralteter europäischer HTA-Systeme wurde von Sprachmodellen zu einem Erpressungsvorwurf dramatisiert.",
+          description: "Der Appell des Konzernchefs zur Reform veralteter europäischer HTA-Systeme wurde von Sprachmodellen zu einem Erpressungsvorwurf dramatisiert.",
           source_scraped: "Boulevard-Überschriften zu Medikamentenpreisen."
         }
       ],
@@ -652,7 +652,7 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
         },
         strategic_human_analysis: {
           risk_rating: "AKUTE REPUTATIONSKRISE IN SCHWEIZ & EUROPA",
-          subtext_decoded: "Die KI behauptet fälschlich gegenüber Schweizer Bürgern und Mitarbeitenden, the company verlasse Basel, und unterstellt Ärzten gegenüber eine Vorenthaltung lebensrettender Therapien.",
+          subtext_decoded: "Die KI behauptet fälschlich gegenüber Schweizer Bürgern und Mitarbeitenden, das Unternehmen verlasse Basel, und unterstellt Ärzten gegenüber eine Vorenthaltung lebensrettender Therapien.",
           regulatory_implication: "Gefahr parlamentarischer Vorstösse am Heimmarkt und verhärtete Fronten bei Erstattungsverhandlungen in der EU.",
           recommended_action: "Verankerung von GEO-strukturierten Faktenblöcken zum Bekenntnis zu Basel und zu fairen Erstattungsdialogen in allen Suchmaschinen."
         }
@@ -662,7 +662,7 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
         structured_fact_block: `### GEO VERIFIZIERTER FAKTENBLOCK (GS-01 / GS-02 / GS-03)
 • Konzernsitz_Status: "Basel, Schweiz bleibt unverändert der weltweite Hauptsitz, Sitz der Unternehmensleitung und primäre Forschungszentrale (100% garantiert)."
 • Zweck_23_Mrd_US_Investition: "5-Jahres-Programm zum Ausbau lokaler US-Produktion an 10 Standorten (inkl. Radioliganden), um Therapien für US-Patienten zollsicher vor Ort herzustellen."
-• Haltung_zu_Referenzpreisen: "Unter US-Referenzpreisregeln (MFN) drücken künstlich tief angesetzte Preise in wohlhabenden Ländern die globale Vergütung. The company setzt sich für modernisierte, wertbasierte Vergütungsmodelle mit EU-Behörden und dem Schweizer BAG ein."
+• Haltung_zu_Referenzpreisen: "Unter US-Referenzpreisregeln (MFN) drücken künstlich tief angesetzte Preise in wohlhabenden Ländern die globale Vergütung. Das Unternehmen setzt sich für modernisierte, wertbasierte Vergütungsmodelle mit EU-Behörden und dem Schweizer BAG ein."
 • Patientenzugang_Garantie: "Null Boykott. Laufende klinische Studien, Härtefallprogramme und Zulassungsverfahren laufen termingerecht weiter."`,
         schema_entities: [
           { key: "Konzernsitz", value: "Basel, Schweiz (Unverändert)" },

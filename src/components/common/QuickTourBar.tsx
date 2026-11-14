@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Language } from '../../fixtures/scenarios';
 import { WorldRegionId } from '../../fixtures/cockpitFixtures';
 import { ActiveTab } from './CommandHeader';
 import {
-  Compass,
   ArrowRight,
   ArrowLeft,
   X,
   Sparkles,
   Server,
-  Target
+  Target,
+  ChevronDown,
+  ChevronUp
 } from 'lucide-react';
 
 export interface TourStepConfig {
@@ -202,6 +203,8 @@ export const QuickTourBar: React.FC<Props> = ({
   onToggleConceptGuide,
   onSelectRegion
 }) => {
+  const [isMinimized, setIsMinimized] = useState<boolean>(false);
+
   if (!isOpen) return null;
 
   const isEn = lang === 'en';
@@ -226,144 +229,155 @@ export const QuickTourBar: React.FC<Props> = ({
 
   return (
     <aside
-      aria-label={isEn ? 'Interactive Product Tour Tooltip' : 'Interaktive Product-Tour'}
-      className="fixed bottom-5 right-5 sm:right-8 z-50 w-[calc(100vw-2.5rem)] max-w-[430px] bg-sbb-black text-white border-2 border-[#FFCC00] shadow-[6px_6px_0px_0px_#FFCC00] transition-all"
+      aria-label={isEn ? 'Interactive Product Tour' : 'Interaktive Product-Tour'}
+      className="fixed bottom-0 inset-x-0 z-40 bg-sbb-black text-white border-t-2 border-[#FFCC00] shadow-[0_-4px_20px_rgba(0,0,0,0.5)] transition-all"
     >
-      {/* Product Tour Signal Yellow Header */}
-      <div className="bg-[#FFCC00] text-sbb-black px-3.5 py-2 flex items-center justify-between border-b border-black">
+      {/* Top Banner Control Rail */}
+      <div className="bg-[#FFCC00] text-sbb-black px-4 sm:px-8 py-1.5 flex items-center justify-between border-b border-black text-xs font-mono">
         <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-sbb-red animate-pulse" />
-          <span className="font-mono text-[11px] font-black uppercase tracking-wider">
-            {isEn ? `PRODUCT TOUR // STEP ${activeStep.stepNumber} OF 05` : `PRODUCT TOUR // SCHRITT ${activeStep.stepNumber} VON 05`}
+          <span className="w-2 h-2 rounded-full bg-sbb-red animate-pulse shrink-0" />
+          <span className="font-black uppercase tracking-wider text-[11px]">
+            {isEn ? `PRODUCT TOUR // STEP ${activeStep.stepNumber} OF 05:` : `PRODUCT TOUR // SCHRITT ${activeStep.stepNumber} VON 05:`}
           </span>
+          <span className="font-bold text-black hidden sm:inline">{activeStep.shortLabel}</span>
+          <span className="text-zinc-700 hidden md:inline">|</span>
+          <div className="hidden md:inline-flex items-center gap-1 text-[10px] text-black/80 font-bold">
+            <Target className="w-3 h-3 text-black shrink-0" />
+            <span>{isEn ? 'Target:' : 'Fokus:'}</span>
+            <span className="underline">{activeStep.targetAnchorLabel}</span>
+          </div>
         </div>
-        <button
-          onClick={onClose}
-          className="text-sbb-black hover:text-sbb-red p-0.5 transition-colors cursor-pointer"
-          title={isEn ? 'Dismiss Product Tour' : 'Tour schliessen'}
-        >
-          <X className="w-4 h-4" />
-        </button>
+
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => setIsMinimized(prev => !prev)}
+            className="text-black hover:text-sbb-red font-bold text-[10px] uppercase flex items-center gap-1 px-1.5 py-0.5 border border-black/40 bg-amber-400/30 cursor-pointer"
+          >
+            {isMinimized ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+            <span>{isMinimized ? (isEn ? 'Expand Tour' : 'Aufklappen') : (isEn ? 'Minimize' : 'Minimieren')}</span>
+          </button>
+          <button
+            onClick={onClose}
+            className="text-black hover:text-sbb-red p-0.5 transition-colors cursor-pointer"
+            title={isEn ? 'Dismiss Product Tour' : 'Tour beenden'}
+          >
+            <X className="w-4 h-4" />
+          </button>
+        </div>
       </div>
 
-      <div className="p-4 space-y-3">
-        {/* Target Anchor Pointer Badge */}
-        <div className="inline-flex items-center gap-1.5 bg-zinc-900 border border-[#FFCC00]/40 px-2.5 py-1 text-[10px] font-mono text-[#FFCC00]">
-          <Target className="w-3 h-3 text-[#FFCC00] shrink-0" />
-          <span className="font-bold uppercase tracking-wider">{isEn ? 'Pointing at:' : 'Fokus auf:'}</span>
-          <span className="text-zinc-200 truncate">{activeStep.targetAnchorLabel}</span>
-        </div>
-
-        {/* Step Title & Core Body */}
-        <div className="space-y-1.5">
-          <h4 className="text-sm font-bold text-white leading-snug">
-            {activeStep.headline}
-          </h4>
-          <p className="text-xs text-zinc-300 leading-relaxed">
-            {activeStep.whatYouSee}
-          </p>
-        </div>
-
-        {/* Strategic Significance Tag */}
-        <div className="p-2.5 bg-zinc-900/90 border-l-2 border-[#FFCC00] border border-zinc-800 text-[11px] text-zinc-300 leading-relaxed">
-          <strong className="text-white block font-mono text-[10px] uppercase tracking-wider mb-0.5">
-            {isEn ? 'Why It Matters:' : 'Strategischer Mehrwert:'}
-          </strong>
-          {activeStep.whyItMatters}
-        </div>
-
-        {/* Interactive "Try it" Action Button */}
-        <button
-          onClick={handleQuickAction}
-          className="w-full px-3 py-1.5 bg-zinc-900 hover:bg-zinc-800 text-[#FFCC00] border border-[#FFCC00]/60 hover:border-[#FFCC00] font-mono text-[10px] font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
-        >
-          {currentStep === 4 ? (
-            <Server className="w-3 h-3 text-[#FFCC00]" />
-          ) : (
-            <Sparkles className="w-3 h-3 text-[#FFCC00]" />
-          )}
-          <span>
-            {currentStep === 0 || currentStep === 2
-              ? selectedScenarioId === 'pluvicto_access_debate'
-                ? isEn
-                  ? 'Try: Switch to Biopharma MFN Pricing Case'
-                  : 'Ausprobieren: Zum Biopharma-MFN-Szenario wechseln'
-                : isEn
-                ? 'Try: Compare with Oncology Radioligand Case'
-                : 'Ausprobieren: Mit Onkologie-Radioliganden vergleichen'
-              : currentStep === 4
-              ? showConceptGuide
-                ? isEn
-                  ? 'Toggle: Hide IT & Method Panel Above'
-                  : 'Umschalten: IT- & Methodik-Panel ausblenden'
-                : isEn
-                ? 'Toggle: Open IT & Method Panel Above'
-                : 'Umschalten: IT- & Methodik-Panel öffnen'
-              : `Try: ${activeStep.tryThisLabel}`}
-          </span>
-        </button>
-
-        {/* Navigation Step Rails */}
-        <div className="flex items-center justify-between pt-2 border-t border-zinc-800 gap-2">
-          {/* Step Pill Indicators */}
-          <div className="flex items-center gap-1">
-            {steps.map((s, idx) => (
-              <button
-                key={s.stepNumber}
-                onClick={() => onSelectStep(idx)}
-                className={`w-6 h-5 font-mono text-[10px] font-bold border transition-colors cursor-pointer flex items-center justify-center ${
-                  idx === currentStep
-                    ? 'bg-[#FFCC00] text-sbb-black border-[#FFCC00]'
-                    : idx < currentStep
-                    ? 'bg-zinc-900 text-zinc-300 border-zinc-700 hover:border-zinc-500'
-                    : 'bg-zinc-950 text-zinc-500 border-zinc-800 hover:border-zinc-700'
-                }`}
-                title={s.shortLabel}
-              >
-                {s.stepNumber}
-              </button>
-            ))}
+      {!isMinimized && (
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-8 py-3 grid grid-cols-1 lg:grid-cols-12 gap-3 items-center">
+          {/* Col 1: Step Overview & Headline */}
+          <div className="lg:col-span-5 space-y-1">
+            <h4 className="text-xs sm:text-sm font-bold text-white leading-snug">
+              {activeStep.headline}
+            </h4>
+            <p className="text-[11px] text-zinc-300 leading-relaxed line-clamp-2">
+              {activeStep.whatYouSee}
+            </p>
           </div>
 
-          {/* Prev / Next Buttons */}
-          <div className="flex items-center gap-1.5 shrink-0">
-            <button
-              onClick={() => onSelectStep(Math.max(0, currentStep - 1))}
-              disabled={currentStep === 0}
-              className={`px-2.5 py-1 font-mono text-[10px] font-bold uppercase border transition-colors flex items-center gap-1 ${
-                currentStep === 0
-                  ? 'border-zinc-800 text-zinc-600 cursor-not-allowed'
-                  : 'border-zinc-700 bg-zinc-900 text-white hover:bg-zinc-800 cursor-pointer'
-              }`}
-            >
-              <ArrowLeft className="w-3 h-3" />
-              <span>{isEn ? 'Prev' : 'Zurück'}</span>
-            </button>
+          {/* Col 2: Strategic Value Tag */}
+          <div className="lg:col-span-4 bg-zinc-900 border-l-2 border-[#FFCC00] border border-zinc-800 p-2 text-[10px] text-zinc-300 leading-snug">
+            <strong className="text-white block font-mono uppercase mb-0.5">
+              {isEn ? 'Why It Matters:' : 'Strategischer Mehrwert:'}
+            </strong>
+            <p className="line-clamp-2">{activeStep.whyItMatters}</p>
+          </div>
 
+          {/* Col 3: Controls, Quick Action & Step Rail */}
+          <div className="lg:col-span-3 flex flex-col justify-between gap-2">
             <button
-              onClick={() => {
-                if (currentStep < steps.length - 1) {
-                  onSelectStep(currentStep + 1);
-                } else {
-                  onClose();
-                }
-              }}
-              className="px-3 py-1 font-mono text-[10px] font-black uppercase border border-[#FFCC00] bg-[#FFCC00] text-sbb-black hover:bg-amber-300 transition-colors flex items-center gap-1.5 cursor-pointer shadow-sm"
+              onClick={handleQuickAction}
+              className="w-full px-2.5 py-1 bg-zinc-900 hover:bg-zinc-800 text-[#FFCC00] border border-[#FFCC00]/60 hover:border-[#FFCC00] font-mono text-[10px] font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-1.5 cursor-pointer truncate"
             >
-              <span>
-                {currentStep < steps.length - 1
-                  ? isEn
-                    ? 'Next Step'
-                    : 'Weiter'
-                  : isEn
-                  ? 'Finish'
-                  : 'Fertig'}
+              {currentStep === 4 ? (
+                <Server className="w-3 h-3 text-[#FFCC00] shrink-0" />
+              ) : (
+                <Sparkles className="w-3 h-3 text-[#FFCC00] shrink-0" />
+              )}
+              <span className="truncate">
+                {currentStep === 0 || currentStep === 2
+                  ? selectedScenarioId === 'pluvicto_access_debate'
+                    ? isEn
+                      ? 'Try: Biopharma MFN Case'
+                      : 'Ausprobieren: Biopharma MFN'
+                    : isEn
+                    ? 'Try: Oncology RLT Case'
+                    : 'Ausprobieren: Onkologie RLT'
+                  : currentStep === 4
+                  ? showConceptGuide
+                    ? isEn
+                      ? 'Toggle: Hide IT Guide'
+                      : 'Umschalten: IT-Guide schliessen'
+                    : isEn
+                    ? 'Toggle: Open IT Guide'
+                    : 'Umschalten: IT-Guide öffnen'
+                  : `${isEn ? 'Try' : 'Ausprobieren'}: ${activeStep.tryThisLabel}`}
               </span>
-              <ArrowRight className="w-3 h-3" />
             </button>
+
+            <div className="flex items-center justify-between gap-1.5">
+              <div className="flex items-center gap-0.5">
+                {steps.map((s, idx) => (
+                  <button
+                    key={s.stepNumber}
+                    onClick={() => onSelectStep(idx)}
+                    className={`w-5 h-5 font-mono text-[9px] font-bold border transition-colors cursor-pointer flex items-center justify-center ${
+                      idx === currentStep
+                        ? 'bg-[#FFCC00] text-sbb-black border-[#FFCC00]'
+                        : idx < currentStep
+                        ? 'bg-zinc-900 text-zinc-300 border-zinc-700 hover:border-zinc-500'
+                        : 'bg-zinc-950 text-zinc-600 border-zinc-800'
+                    }`}
+                    title={s.shortLabel}
+                  >
+                    {s.stepNumber}
+                  </button>
+                ))}
+              </div>
+
+              <div className="flex items-center gap-1 shrink-0">
+                <button
+                  onClick={() => onSelectStep(Math.max(0, currentStep - 1))}
+                  disabled={currentStep === 0}
+                  className={`px-2 py-0.5 font-mono text-[10px] font-bold uppercase border transition-colors flex items-center gap-1 ${
+                    currentStep === 0
+                      ? 'border-zinc-800 text-zinc-700 cursor-not-allowed'
+                      : 'border-zinc-700 bg-zinc-900 text-white hover:bg-zinc-800 cursor-pointer'
+                  }`}
+                >
+                  <ArrowLeft className="w-3 h-3" />
+                  <span>{isEn ? 'Prev' : 'Zurück'}</span>
+                </button>
+
+                <button
+                  onClick={() => {
+                    if (currentStep < steps.length - 1) {
+                      onSelectStep(currentStep + 1);
+                    } else {
+                      onClose();
+                    }
+                  }}
+                  className="px-2.5 py-0.5 font-mono text-[10px] font-black uppercase border border-[#FFCC00] bg-[#FFCC00] text-sbb-black hover:bg-amber-300 transition-colors flex items-center gap-1 cursor-pointer"
+                >
+                  <span>
+                    {currentStep < steps.length - 1
+                      ? isEn
+                        ? 'Next'
+                        : 'Weiter'
+                      : isEn
+                      ? 'Finish'
+                      : 'Fertig'}
+                  </span>
+                  <ArrowRight className="w-3 h-3" />
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </aside>
   );
 };

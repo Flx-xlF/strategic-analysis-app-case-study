@@ -81,7 +81,7 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           mandatory_proof_points: [
             'Global R&D reinvestment depends on sustainable pricing across all high-income markets',
             'Artificial price cuts in reference baskets distort international access and create launch friction',
-            'the company advocates modernized value-based assessment rather than blunt budget caps'
+            'The Company advocates modernized value-based assessment rather than blunt budget caps'
           ]
         },
         {
@@ -100,7 +100,7 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           id: 'pillar_3',
           pillar_number: '03',
           title: 'Constructive Patient Access & Value Modernization (GS-03)',
-          core_thesis: 'the company does not boycott patients. We actively partner with European HTA bodies and the Swiss BAG on flexible access models, while sequencing launches to preserve international reference integrity.',
+          core_thesis: 'The Company does not boycott patients. We actively partner with European HTA bodies and the Swiss BAG on flexible access models, while sequencing launches to preserve international reference integrity.',
           target_vector_anchor: 'Ref: GS-03 (Health Economics & International Access Principles)',
           mandatory_proof_points: [
             'No patient boycott: compassionate use and managed access programs continue actively',
@@ -283,9 +283,9 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           region_id: 'apac',
           region_name: 'Asia-Pacific (Global Logistics)',
           regulatory_context: 'International Freight Routing',
-          raw_volume: 0,
-          deduped_volume: 0,
-          velocity_z_score: 0,
+          raw_volume: 620,
+          deduped_volume: 140,
+          velocity_z_score: 0.4,
           velocity_trend: 'Baseline',
           cosine_alignment: 0.70,
           pull_through_status: 'ALIGNED',
@@ -661,7 +661,7 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           mandatory_proof_points: [
             'Weltweite Reinvestitionen in Forschung setzen nachhaltige Erstattung in allen Industriestaaten voraus',
             'Künstliche Preissenkungen in Referenzkörben verzerren den internationalen Zugang und verzögern Launches',
-            'the company fordert ein modernisiertes, wertbasiertes Modell statt starrer Budgetdeckel'
+            'Das Unternehmen fordert ein modernisiertes, wertbasiertes Modell statt starrer Budgetdeckel'
           ]
         },
         {
@@ -680,7 +680,7 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           id: 'pillar_3',
           pillar_number: '03',
           title: 'Konstruktiver Patientenzugang & Nutzenmodernisierung (GS-03)',
-          core_thesis: 'the company boykottiert keine Patienten. Wir arbeiten aktiv mit europäischen HTA-Behörden und dem BAG an flexiblen Modellen, während Markteinführungen sorgfältig gestaffelt werden.',
+          core_thesis: 'Das Unternehmen boykottiert keine Patienten. Wir arbeiten aktiv mit europäischen HTA-Behörden und dem BAG an flexiblen Modellen, während Markteinführungen sorgfältig gestaffelt werden.',
           target_vector_anchor: 'Ref: GS-03 (Gesundheitsökonomie & Internationale Marktzugangsgrundsätze)',
           mandatory_proof_points: [
             'Kein Patientenboykott: Härtefall- und Vorabzugangsprogramme (Compassionate Use) laufen unverändert',
@@ -720,7 +720,7 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           status_label: 'Gefahr von "Launch-Verzögerungs"-Vorwürfen',
           legacy_media_frame: 'Preiskonflikt: "Pharmabosse fordern Brüssel heraus: Höhere Preise oder verzögerter Zugang zu neuen Therapien."',
           social_forum_frame: 'Gesundheitspolitische Foren: Vorwurf, Patienten als Geiseln für US-Margen einzuspannen.',
-          llm_synthesis_frame: 'Schwere Verzerrung: KI-Modelle behaupten fälschlicherweise, the company habe einen offiziellen Zulassungsstopp in Europa verhängt.',
+          llm_synthesis_frame: 'Schwere Verzerrung: KI-Modelle behaupten fälschlicherweise, das Unternehmen habe einen offiziellen Zulassungsstopp in Europa verhängt.',
           llm_hallucination_rate: 48,
           strategic_risk_summary: 'Kritische Abweichung. Kostenträger instrumentalisieren des Konzernchefs Warnungen zu Wettbewerbsfähigkeit als vermeintliche Erpressung.'
         },

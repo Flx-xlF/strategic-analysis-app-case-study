@@ -1,34 +1,38 @@
 import React from 'react';
 import { StakeholderNode } from '../../fixtures/cascadeFixtures';
+import { Language } from '../../fixtures/scenarios';
 import { AlertCircle, CheckCircle2, HelpCircle, Quote } from 'lucide-react';
 
 interface Props {
   node: StakeholderNode;
   index: number;
+  lang?: Language;
 }
 
-export const CascadeNode: React.FC<Props> = ({ node, index }) => {
+export const CascadeNode: React.FC<Props> = ({ node, index, lang = 'de' }) => {
+  const isEn = lang === 'en';
+
   const sentimentConfig = {
     positive: {
       border: 'border-emerald-500',
       badge: 'bg-emerald-50 text-emerald-800 border-emerald-200',
       icon: CheckCircle2,
       accent: 'var(--sbb-black)',
-      label: 'POSITIV / ZUSTIMMEND'
+      label: isEn ? 'POSITIVE / ALIGNED' : 'POSITIV / ZUSTIMMEND'
     },
     negative: {
       border: 'border-sbb-red',
       badge: 'bg-red-50 text-sbb-red border-red-200',
       icon: AlertCircle,
       accent: 'var(--sbb-red)',
-      label: 'KRITISCH / ABLEHNEND'
+      label: isEn ? 'CRITICAL / OPPOSING' : 'KRITISCH / ABLEHNEND'
     },
     mixed: {
       border: 'border-amber-500',
       badge: 'bg-amber-50 text-amber-800 border-amber-200',
       icon: HelpCircle,
       accent: 'var(--sbb-stone)',
-      label: 'ABWARTEND / GEMISCHT'
+      label: isEn ? 'WAIT-AND-SEE / MIXED' : 'ABWARTEND / GEMISCHT'
     },
   }[node.sentiment || 'mixed'];
 
@@ -40,7 +44,7 @@ export const CascadeNode: React.FC<Props> = ({ node, index }) => {
         {/* Header with Stakeholder Index & Sentiment Tag */}
         <div className="flex items-start justify-between gap-3 mb-4 pb-3 border-b border-zinc-100">
           <div>
-            <div className="text-[10px] font-mono text-sbb-stone uppercase tracking-wider mb-1">
+            <div className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider mb-1">
               STAKEHOLDER 0{index + 1}
             </div>
             <h4 className="font-bold text-base text-sbb-black tracking-tight group-hover:text-sbb-red transition-colors">
@@ -56,8 +60,8 @@ export const CascadeNode: React.FC<Props> = ({ node, index }) => {
 
         {/* Tactical Reasoning */}
         <div className="mb-4">
-          <div className="text-[10px] font-mono text-sbb-stone uppercase tracking-wider mb-1.5">
-            ERWARTETE REAKTION & BEGRÜNDUNG
+          <div className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider mb-1.5 font-bold">
+            {isEn ? 'PROJECTED REACTION & RATIONALE' : 'ERWARTETE REAKTION & BEGRÜNDUNG'}
           </div>
           <p className="text-sm text-zinc-700 leading-relaxed">
             {node.reasoning}
@@ -68,9 +72,9 @@ export const CascadeNode: React.FC<Props> = ({ node, index }) => {
       {/* Dossier Quote / Precedent */}
       {node.dossier_citation && (
         <div className="mt-4 pt-3 border-t border-zinc-100 bg-sbb-cloud/60 p-3.5 border-l-2 border-sbb-black/40">
-          <div className="flex items-center gap-1.5 text-[9px] font-mono uppercase text-sbb-stone mb-1 font-bold">
+          <div className="flex items-center gap-1.5 text-[9px] font-mono uppercase text-zinc-500 mb-1 font-bold">
             <Quote className="w-3 h-3 text-sbb-red" />
-            <span>BELEG AUS DOSSIER-ARCHIV</span>
+            <span>{isEn ? 'EVIDENCE FROM DOSSIER ARCHIVE' : 'BELEG AUS DOSSIER-ARCHIV'}</span>
           </div>
           <p className="text-xs italic text-sbb-black leading-snug">
             «{node.dossier_citation}»
