@@ -118,11 +118,11 @@ export const ConceptMethodModal: React.FC<Props> = ({ isOpen, onClose, onOpenFlo
             <p>
               {isEn ? (
                 <>
-                  <strong>Top-Down (03–04):</strong> Instead of 40-page PDF manuals that teams skip under time pressure, approved Golden Sources (GS-01–GS-03) and four writing rules load directly into 1-click recipes inside Outlook and Word—using full plain language for websites/social, a light touch for clinical studies to protect scientific accuracy, and before/after draft stress-tests.
+                  <strong>Top-Down (03–04):</strong> Instead of lengthy static PDF manuals that teams skip under time pressure, approved Golden Sources (GS-01–GS-03) and four writing rules load directly into 1-click recipes inside Outlook and Word—using full plain language for websites/social, a light touch for clinical studies to protect scientific accuracy, and before/after draft stress-tests.
                 </>
               ) : (
                 <>
-                  <strong>Top-Down (03–04):</strong> Statt 40-seitiger PDF-Leitfäden fliessen geprüfte Golden Sources (GS-01–GS-03) und vier Schreibregeln direkt in 1-Klick-Rezepte für Outlook und Word – mit klarer Alltagssprache für Website/Social, einem schonenden Modus für klinische Studien zum Schutz der wissenschaftlichen Präzision sowie Stresstests vor Freigabe.
+                  <strong>Top-Down (03–04):</strong> Statt umfangreicher statischer PDF-Leitfäden fliessen geprüfte Golden Sources (GS-01–GS-03) und vier Schreibregeln direkt in 1-Klick-Rezepte für Outlook und Word – mit klarer Alltagssprache für Website/Social, einem schonenden Modus für klinische Studien zum Schutz der wissenschaftlichen Präzision sowie Stresstests vor Freigabe.
                 </>
               )}
             </p>
@@ -137,11 +137,11 @@ export const ConceptMethodModal: React.FC<Props> = ({ isOpen, onClose, onOpenFlo
             <p>
               {isEn ? (
                 <>
-                  <strong>Structure beats metadata tricks:</strong> Adding <code>Schema.org</code> tags or <code>llms.txt</code> does not fix vague copy. Clear conclusions and concrete numbers in the opening paragraph—plus avoiding repeating critic accusations (which search engines index directly alongside the company name)—hold up across <em>n</em>=20 test runs. Same facts, flexible voice: AI search evaluates semantic fact consistency, not identical sentences—so tailoring tone, format, and examples locally creates organic copy without hurting GEO.
+                  <strong>Structure beats metadata tricks:</strong> Adding <code>Schema.org</code> tags or <code>llms.txt</code> does not fix vague copy. Clear conclusions and concrete numbers in the opening paragraph—plus avoiding repeating critic accusations (which search engines index directly alongside the company name)—hold up across repeated test runs. Same facts, flexible voice: AI search evaluates semantic fact consistency, not identical sentences—so tailoring tone, format, and examples locally creates organic copy without hurting GEO.
                 </>
               ) : (
                 <>
-                  <strong>Struktur vor Metadaten-Tricks:</strong> <code>Schema.org</code> oder <code>llms.txt</code> retten keine vage Prosa. Klare Kernaussagen und Zahlen im ersten Absatz – sowie der Verzicht auf wiederholte Vorwürfe (die Suchmaschinen sonst direkt mit dem Unternehmensnamen verknüpfen) – bestehen im <em>n</em>=20-Test. Gleiche Fakten, flexibler Ton: KI-Suche prüft semantische Faktenkonsistenz statt identischer Sätze – lokale Tonalität schadet GEO nicht.
+                  <strong>Struktur vor Metadaten-Tricks:</strong> <code>Schema.org</code> oder <code>llms.txt</code> retten keine vage Prosa. Klare Kernaussagen und Zahlen im ersten Absatz – sowie der Verzicht auf wiederholte Vorwürfe (die Suchmaschinen sonst direkt mit dem Unternehmensnamen verknüpfen) – bestehen über wiederholte Testläufe. Gleiche Fakten, flexibler Ton: KI-Suche prüft semantische Faktenkonsistenz statt identischer Sätze – lokale Tonalität schadet GEO nicht.
                 </>
               )}
             </p>
@@ -207,7 +207,7 @@ export const ConceptMethodModal: React.FC<Props> = ({ isOpen, onClose, onOpenFlo
               onClick={onOpenFlowView}
               className="px-4 py-1.5 bg-[#FFCC00] hover:bg-amber-300 text-sbb-black border border-sbb-black font-mono text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer"
             >
-              {isEn ? '← Back to Visual Overview' : '← Zurück zur Übersicht'}
+              {isEn ? '← Back to Concept Overview' : '← Zurück zum Konzept-Überblick'}
             </button>
           ) : (
             <span />

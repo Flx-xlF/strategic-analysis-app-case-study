@@ -134,8 +134,8 @@ export const TrendingFactoryView: React.FC<Props> = ({
             </h1>
             <p className="text-sm text-sbb-stone mt-1 max-w-3xl leading-relaxed">
               {isEn
-                ? `Defining approved facts centrally is only half the job—teams also need to apply them without friction. Instead of 40-page PDF manuals, central Golden Sources (GS-01–GS-03) and four writing rules load into 1-click recipes for Outlook, Word, and M365 Copilot—anchoring the core facts while tailoring tone naturally to each channel and market.`
-                : `Geprüfte Fakten zentral festzulegen ist nur die halbe Miete – Teams müssen sie im Alltag auch reibungslos nutzen können. Statt 40-seitiger PDF-Leitfäden laden 1-Klick-Rezepte für Outlook, Word und M365 Copilot die Golden Sources (GS-01–GS-03) direkt in den Text: Kernfakten bleiben verlässlich, Tonalität und Länge passen sich organisch an Markt und Kanal an.`}
+                ? `Defining approved facts centrally is only half the job—teams also need to apply them without friction. Instead of lengthy static PDF manuals, central Golden Sources (GS-01–GS-03) and four writing rules load into 1-click recipes for Outlook, Word, and M365 Copilot—anchoring the core facts while tailoring tone naturally to each channel and market.`
+                : `Geprüfte Fakten zentral festzulegen ist nur die halbe Miete – Teams müssen sie im Alltag auch reibungslos nutzen können. Statt umfangreicher statischer PDF-Leitfäden laden 1-Klick-Rezepte für Outlook, Word und M365 Copilot die Golden Sources (GS-01–GS-03) direkt in den Text: Kernfakten bleiben verlässlich, Tonalität und Länge passen sich organisch an Markt und Kanal an.`}
             </p>
           </div>
 
@@ -364,8 +364,8 @@ export const TrendingFactoryView: React.FC<Props> = ({
               </div>
               <p className="text-[11px] text-zinc-700 leading-snug">
                 {isEn
-                  ? 'Under deadline pressure, nobody opens a 40-page PDF manual on SharePoint before answering an email or editing a draft. High friction leads to improvisation and regional contradictions.'
-                  : 'Unter Zeitdruck öffnet niemand ein 40-seitiges PDF-Handbuch auf SharePoint, bevor eine E-Mail beantwortet oder ein Text geprüft wird. Hohe Hürden führen zu Improvisation und Widersprüchen.'}
+                  ? 'Under deadline pressure, nobody opens a lengthy static PDF manual on SharePoint before answering an email or editing a draft. High friction leads to improvisation and regional contradictions.'
+                  : 'Unter Zeitdruck öffnet niemand ein langes statisches PDF-Handbuch auf SharePoint, bevor eine E-Mail beantwortet oder ein Text geprüft wird. Hohe Hürden führen zu Improvisation und Widersprüchen.'}
               </p>
             </div>
 
@@ -375,8 +375,8 @@ export const TrendingFactoryView: React.FC<Props> = ({
               </div>
               <p className="text-[11px] text-zinc-800 leading-snug">
                 {isEn
-                  ? 'A lightweight sidebar helper injects these Golden Sources and writing rules automatically into the open email or document. Users click it because it saves 30 minutes of work—and the rules enforce themselves.'
-                  : 'Eine schlanke Seitenleiste lädt diese Golden Sources und Schreibregeln automatisch in die offene E-Mail oder Datei. Teams nutzen sie, weil sie 30 Minuten Arbeit spart – und die Regeln greifen automatisch.'}
+                  ? 'A lightweight sidebar helper injects these Golden Sources and writing rules automatically into the open email or document. Teams use it because it helps directly inside the open draft and prevents manual rework—instead of feeling like another compliance checklist.'
+                  : 'Eine schlanke Seitenleiste lädt diese Golden Sources und Schreibregeln automatisch in die offene E-Mail oder Datei. Teams nutzen sie, weil sie direkt im offenen Text hilft und mühsame Nacharbeit erspart – statt wie eine zusätzliche Kontrollpflicht zu wirken.'}
               </p>
             </div>
           </div>

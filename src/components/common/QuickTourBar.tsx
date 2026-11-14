@@ -94,7 +94,7 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
         whatYouSee:
           'Anchors approved facts (GS-01–GS-03) and the 4 writing rules into 1-click Outlook/Word recipes. Test the 3 edit-depth modes (Plain Language, Study Rigor, Legal Boundary) and Before/After Diff.',
         whyItMatters:
-          'Nobody reads 40-page PDF manuals on deadline—and markets don’t want copy-paste boilerplate. Recipes lock only the core facts while AI adapts tone naturally to each audience and channel without hurting AI search.',
+          'Teams rarely open lengthy PDF manuals on deadline—and markets don’t want copy-paste boilerplate. Recipes lock only the core facts while AI adapts tone naturally to each audience and channel without hurting AI search.',
         tryThisLabel: 'Filter Recipes to Switzerland (CH)',
         targetTab: 'trending',
         targetRegion: 'all',
@@ -168,7 +168,7 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
       whatYouSee:
         'Bündelt geprüfte Golden Sources (GS-01–GS-03) und lädt die 4 Schreibregeln in 1-Klick-Rezepte. Testen Sie die 3 Eingriffstiefen (Alltagssprache, Studien-Präzision, Rechtsgrenze) und den Vorher/Nachher-Vergleich.',
       whyItMatters:
-        'Unter Zeitdruck liest niemand 40-seitige PDF-Leitfäden – und Märkte wollen keine starren Einheits-Texte. Rezepte sichern nur die Kernfakten; Tonalität und Länge passen sich organisch an Kanal und Zielgruppe an, ohne dass KI-Suche darunter leidet.',
+        'Unter Zeitdruck öffnet niemand umfangreiche PDF-Leitfäden – und Märkte wollen keine starren Einheits-Texte. Rezepte sichern nur die Kernfakten; Tonalität und Länge passen sich organisch an Kanal und Zielgruppe an, ohne dass KI-Suche darunter leidet.',
       tryThisLabel: 'Rezepte auf Schweiz (CH) filtern',
       targetTab: 'trending',
       targetRegion: 'all',

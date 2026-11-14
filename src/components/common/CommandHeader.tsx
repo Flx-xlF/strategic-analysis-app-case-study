@@ -10,7 +10,7 @@ import {
   ShieldCheck,
   HelpCircle,
   Compass,
-  PlayCircle
+  BookOpen
 } from 'lucide-react';
 
 export type ActiveTab = 'overview' | 'cockpit' | 'geo' | 'trending' | 'cascade';
@@ -67,15 +67,19 @@ export const CommandHeader: React.FC<Props> = ({
           </div>
 
           <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-[10px] font-mono">
-            {/* Honest methodology badge */}
-            <div className="hidden lg:flex items-center gap-2 text-zinc-300">
-              <span className="w-1.5 h-1.5 bg-zinc-400" />
-              <span className="tracking-widest whitespace-nowrap">
-                {isEn ? 'STATISTICAL FILTERING + AI AUDIT' : 'STATISTISCHE FILTERUNG + KI-PRÜFUNG'}
-              </span>
-            </div>
+            {/* Honest methodology badge (hidden on Overview) */}
+            {activeTab !== 'overview' && (
+              <>
+                <div className="hidden lg:flex items-center gap-2 text-zinc-300">
+                  <span className="w-1.5 h-1.5 bg-zinc-400" />
+                  <span className="tracking-widest whitespace-nowrap">
+                    {isEn ? 'STATISTICAL FILTERING + AI AUDIT' : 'STATISTISCHE FILTERUNG + KI-PRÜFUNG'}
+                  </span>
+                </div>
 
-            <div className="hidden lg:block h-3 w-px bg-zinc-700" />
+                <div className="hidden lg:block h-3 w-px bg-zinc-700" />
+              </>
+            )}
 
             {/* Signal Yellow Interactive Product Tour Toggle */}
             {onToggleQuickTour && (
@@ -226,7 +230,7 @@ export const CommandHeader: React.FC<Props> = ({
         {/* Level 3: Two-Way Strategic Operating Model Navigation (Responsive Grid) */}
         <div className="px-4 sm:px-8 bg-[#F8F8F9] border-b border-sbb-aluminum py-1">
           <div className="grid grid-cols-1 xl:grid-cols-[auto_1fr_1fr] gap-2 max-w-[1600px] mx-auto">
-            {/* 00: 90-Sec Visual Concept Flow Entry */}
+            {/* 00: Concept Overview Entry */}
             <div className="flex items-stretch border border-zinc-200 bg-white p-1 min-w-0">
               <button
                 onClick={() => setActiveTab('overview')}
@@ -235,10 +239,10 @@ export const CommandHeader: React.FC<Props> = ({
                     ? 'border-sbb-black bg-sbb-black text-[#FFCC00]'
                     : 'border-transparent bg-amber-50/70 text-sbb-black hover:bg-[#FFCC00]'
                 }`}
-                title={isEn ? 'Watch the 90-second animated concept overview' : '90-Sekunden animierte Konzept-Übersicht ansehen'}
+                title={isEn ? 'Open concept overview' : 'Konzept-Überblick öffnen'}
               >
                 <span className={`text-[10px] font-black shrink-0 ${activeTab === 'overview' ? 'text-[#FFCC00]' : 'text-sbb-red'}`}>00</span>
-                <PlayCircle className={`w-3.5 h-3.5 shrink-0 ${activeTab === 'overview' ? 'text-[#FFCC00]' : 'text-sbb-red'}`} />
+                <BookOpen className={`w-3.5 h-3.5 shrink-0 ${activeTab === 'overview' ? 'text-[#FFCC00]' : 'text-sbb-red'}`} />
                 <span>{isEn ? 'Overview' : 'Überblick'}</span>
               </button>
             </div>
