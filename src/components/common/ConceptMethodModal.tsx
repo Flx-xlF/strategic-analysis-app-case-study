@@ -42,7 +42,7 @@ export const ConceptMethodModal: React.FC<Props> = ({ isOpen, onClose, onOpenFlo
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 bg-sbb-red" />
             <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-widest text-sbb-black">
-              {isEn ? 'CONCEPT, METHODOLOGY & IT INTEGRATION' : 'KONZEPT, METHODIK & IT-INTEGRATION'}
+              {isEn ? 'IT & METHODOLOGY' : 'IT & METHODIK'}
             </span>
           </div>
           <button
@@ -207,7 +207,7 @@ export const ConceptMethodModal: React.FC<Props> = ({ isOpen, onClose, onOpenFlo
               onClick={onOpenFlowView}
               className="px-4 py-1.5 bg-[#FFCC00] hover:bg-amber-300 text-sbb-black border border-sbb-black font-mono text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer"
             >
-              {isEn ? '▶ Watch 90-Sec Visual Overview' : '▶ 90-Sek.-Konzept-Flow ansehen'}
+              {isEn ? '← Back to Visual Overview' : '← Zurück zur Übersicht'}
             </button>
           ) : (
             <span />

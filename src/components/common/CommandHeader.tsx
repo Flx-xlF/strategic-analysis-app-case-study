@@ -108,7 +108,7 @@ export const CommandHeader: React.FC<Props> = ({
               }`}
             >
               <HelpCircle className="w-3 h-3" />
-              <span>{isEn ? 'Concept, Method & IT Fit' : 'Konzept, Methodik & IT-Fit'}</span>
+              <span>{isEn ? 'IT & Method' : 'IT & Methodik'}</span>
             </button>
 
             <div className="hidden sm:block h-3 w-px bg-zinc-700" />
@@ -239,7 +239,7 @@ export const CommandHeader: React.FC<Props> = ({
               >
                 <span className={`text-[10px] font-black shrink-0 ${activeTab === 'overview' ? 'text-[#FFCC00]' : 'text-sbb-red'}`}>00</span>
                 <PlayCircle className={`w-3.5 h-3.5 shrink-0 ${activeTab === 'overview' ? 'text-[#FFCC00]' : 'text-sbb-red'}`} />
-                <span>{isEn ? 'Concept Flow (90s)' : 'Konzept-Flow (90s)'}</span>
+                <span>{isEn ? 'Overview' : 'Überblick'}</span>
               </button>
             </div>
             {/* Column 1: Direction 1 - Outside-In (Analyze & Measure) */}
