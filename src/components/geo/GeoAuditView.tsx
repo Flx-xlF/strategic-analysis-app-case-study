@@ -118,7 +118,7 @@ export const GeoAuditView: React.FC<Props> = ({
               01
             </span>
             <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-stone">
-              {isEn ? 'REPRESENTATIVE CENTROID TEXTS (LEGACY MEDIA & FORUMS)' : 'REPRÄSENTATIVE CENTROID-TEXTE (FACHMEDIEN & FOREN)'}
+              {isEn ? 'REPRESENTATIVE ARTICLES IN THIS CLUSTER (MEDIA & FORUMS)' : 'REPRÄSENTATIVE ARTIKEL IN DIESEM CLUSTER (MEDIEN & FOREN)'}
             </span>
           </div>
 
@@ -147,8 +147,8 @@ export const GeoAuditView: React.FC<Props> = ({
             <span className="w-2 h-2 rounded-full bg-amber-500 shrink-0" />
             <span>
               {isEn 
-                ? `No local centroid articles originated directly in ${selectedRegion.toUpperCase()}. Displaying dominant cross-regional cluster sources synthesized globally by AI search engines.`
-                : `Keine lokalen Centroid-Artikel stammen direkt aus ${selectedRegion.toUpperCase()}. Anzeige der dominanten überregionalen Cluster-Quellen, die KI-Suchmaschinen global synthetisieren.`}
+                ? `No local sample articles originated directly in ${selectedRegion.toUpperCase()}. Displaying dominant cross-regional cluster sources synthesized globally by AI search engines.`
+                : `Keine lokalen Beispiel-Artikel stammen direkt aus ${selectedRegion.toUpperCase()}. Anzeige der dominanten überregionalen Cluster-Quellen, die KI-Suchmaschinen global synthetisieren.`}
             </span>
           </div>
         )}
@@ -178,9 +178,9 @@ export const GeoAuditView: React.FC<Props> = ({
 
                 <div className="pt-3 border-t border-zinc-100 space-y-1.5 font-mono text-[10px]">
                   <div className="flex justify-between">
-                    <span className="text-zinc-500">{isEn ? 'Cosine to Target Vector:' : 'Cosinus zum Soll-Vektor:'}</span>
+                    <span className="text-zinc-500">{isEn ? 'Match with Company Position:' : 'Passung zur Grundposition:'}</span>
                     <span className={`font-bold ${isAligned ? 'text-emerald-700' : art.cosine_to_target < 0.35 ? 'text-sbb-red' : 'text-amber-800'}`}>
-                      {art.cosine_to_target.toFixed(2)}
+                      {Math.round(art.cosine_to_target * 100)}% ({art.cosine_to_target.toFixed(2)})
                     </span>
                   </div>
                   <div className={`truncate ${isAligned ? 'text-emerald-800' : 'text-sbb-red'}`}>
@@ -255,7 +255,7 @@ export const GeoAuditView: React.FC<Props> = ({
               {/* Bar 2: Unsupervised LLM Search Output (Before GEO) */}
               <div className="p-3.5 bg-red-50/40 border border-red-200 space-y-2">
                 <div className="flex items-center justify-between text-[10px] uppercase font-bold">
-                  <span className="text-sbb-black">{isEn ? '2. CURRENT LLM OUTPUT (RAW)' : '2. AKTUELLE KI-ANTWORT (ROH)'}</span>
+                  <span className="text-sbb-black">{isEn ? '2. CURRENT AI ANSWER (BEFORE FIX)' : '2. AKTUELLE KI-ANTWORT (VOR KORREKTUR)'}</span>
                   <span className="text-sbb-red">{data.hallucination_rate}% {isEn ? 'Distorted' : 'Verzerrt'}</span>
                 </div>
                 <div className="w-full h-2.5 bg-zinc-200 flex overflow-hidden">
@@ -279,8 +279,8 @@ export const GeoAuditView: React.FC<Props> = ({
               {/* Bar 3: Search-Grounded LLM Output (After Answer-First GEO Passage Block) */}
               <div className="p-3.5 bg-emerald-50/40 border border-emerald-300 space-y-2">
                 <div className="flex items-center justify-between text-[10px] uppercase font-bold">
-                  <span className="text-emerald-950">{isEn ? '3. AFTER ANSWER-FIRST GEO PASSAGE (n=20)' : '3. NACH ANSWER-FIRST GEO-PASSAGE (n=20)'}</span>
-                  <span className="text-emerald-700">~95% {isEn ? 'Absorbed' : 'Absorbiert'}</span>
+                  <span className="text-emerald-950">{isEn ? '3. AFTER CLEAR FACT BLOCK (n=20)' : '3. MIT KLAREM FAKTENBLOCK (n=20)'}</span>
+                  <span className="text-emerald-700">~95% {isEn ? 'Accurate' : 'Korrekt'}</span>
                 </div>
                 <div className="w-full h-2.5 bg-zinc-200 flex overflow-hidden">
                   <div className="h-full bg-emerald-600" style={{ width: '95%' }} />
@@ -322,11 +322,11 @@ export const GeoAuditView: React.FC<Props> = ({
               <div className="flex items-center gap-2">
                 <Bot className="w-4 h-4 text-sbb-black" />
                 <span className="text-xs font-mono font-bold uppercase tracking-wider text-sbb-black">
-                  {isEn ? 'UNSUPERVISED AI ANSWER SYNTHESIS (BEFORE GEO FIX)' : 'UNKONTROLLIERTE KI-SYNTHESE (VOR GEO-OPTIMIERUNG)'}
+                  {isEn ? 'CURRENT AI SEARCH ANSWER (BEFORE FIX)' : 'AKTUELLE KI-SUCHANTWORT (VOR KORREKTUR)'}
                 </span>
               </div>
               <span className="text-[10px] font-mono text-sbb-red bg-red-50 border border-red-200 px-2 py-0.5 font-bold">
-                {isEn ? 'CLICK RED PASSAGE [1] / [2] TO INSPECT AUDIT' : 'ROTE PASSAGEN [1] / [2] ANKLICKEN FÜR FORENSIK'}
+                {isEn ? 'CLICK RED PASSAGE [1] OR [2] TO SEE WHAT IS WRONG' : 'ROTE PASSAGE [1] ODER [2] ANKLICKEN'}
               </span>
             </div>
 
@@ -371,7 +371,7 @@ export const GeoAuditView: React.FC<Props> = ({
               <AlertTriangle className="w-4 h-4 text-sbb-red shrink-0 mt-0.5" />
               <div className="space-y-1">
                 <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-sbb-red">
-                  {isEn ? 'FORENSIC AUDIT OF HIGHLIGHTED PASSAGE:' : 'FORENSISCHE PRÜFUNG DER MARKIERTEN PASSAGE:'}
+                  {isEn ? 'WHAT THE AI GOT WRONG:' : 'WAS IN DIESER PASSAGE FALSCH IST:'}
                 </div>
                 <p className="text-xs text-red-950 font-sans leading-relaxed">
                   {data.ai_synthesis_spans[activeSpanIndex].correction}
@@ -409,7 +409,7 @@ export const GeoAuditView: React.FC<Props> = ({
             <div className="pt-5 border-t border-zinc-200 space-y-3">
               <div className="flex items-center justify-between">
                 <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-sbb-stone">
-                  {isEn ? 'DIAGNOSTIC DIVERGENCE: AUTOMATED NLP TOOLS VS. STRATEGIC HUMAN JUDGMENT' : 'DIAGNOSTISCHE DIVERGENZ: AUTOMATISIERTES NLP-TOOL VS. STRATEGISCHE URTEILSKRAFT'}
+                  {isEn ? 'WHY AUTOMATED SENTIMENT SCORES MISSED THIS RISK' : 'WARUM AUTOMATISCHES SENTIMENT DIESES RISIKO ÜBERSAH'}
                 </span>
                 <span className="text-[10px] font-mono text-sbb-red font-bold">
                   {isEn ? 'Why naive automation fails' : 'Warum reine Automatisierung versagt'}
@@ -499,12 +499,12 @@ export const GeoAuditView: React.FC<Props> = ({
               {copied ? (
                 <>
                   <Check className="w-3.5 h-3.5 text-emerald-400" />
-                  <span>{isEn ? 'Passage Copied' : 'Passage kopiert'}</span>
+                  <span>{isEn ? 'Fact Block Copied' : 'Faktenblock kopiert'}</span>
                 </>
               ) : (
                 <>
                   <Copy className="w-3.5 h-3.5 text-zinc-400" />
-                  <span>{isEn ? 'Copy GEO Passage' : 'GEO-Passage kopieren'}</span>
+                  <span>{isEn ? 'Copy Fact Block' : 'Faktenblock kopieren'}</span>
                 </>
               )}
             </button>
@@ -532,7 +532,7 @@ export const GeoAuditView: React.FC<Props> = ({
               <div>
                 <div className="text-[10px] font-mono text-emerald-800 uppercase font-bold mb-2 flex items-center gap-1.5">
                   <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                  <span>{isEn ? 'AFTER: ANSWER-FIRST PASSAGE & QUANTITATIVE PROOF BLOCK (SSR HTML)' : 'NACHHER: ANSWER-FIRST PASSAGE & ZAHLENBELEG-BLOCK (SSR HTML)'}</span>
+                  <span>{isEn ? 'AFTER: CLEAR OPENING FACTS & KEY NUMBERS (WEBSITE HTML)' : 'NACHHER: KLARE FAKTEN & ZAHLEN AM ANFANG (WEBSITE-HTML)'}</span>
                 </div>
                 <pre className="text-xs text-emerald-950 font-mono leading-relaxed p-4 bg-white border border-emerald-200 overflow-x-auto whitespace-pre-wrap">
                   {data.geo_optimization_fix.structured_fact_block}
@@ -554,12 +554,12 @@ export const GeoAuditView: React.FC<Props> = ({
         <div className="bg-sbb-black text-white border-l-4 border-sbb-red p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="space-y-1">
             <div className="text-[10px] font-mono text-[#FFCC00] uppercase tracking-widest font-bold">
-              {isEn ? 'NEXT STEP IN WORKFLOW // MODULE 02 → MODULE 03 (TOP-DOWN ENABLEMENT)' : 'NÄCHSTER PROZESSSCHRITT // MODUL 02 → MODUL 03 (TOP-DOWN BEFÄHIGUNG)'}
+              {isEn ? 'NEXT STEP // MODULE 02 → MODULE 03' : 'NÄCHSTER SCHRITT // MODUL 02 → MODUL 03'}
             </div>
             <p className="text-xs sm:text-sm text-zinc-200">
               {isEn
-                ? 'AI search distortion diagnosed. Now lock onto verified Golden Sources and cascade the 4-Rule GEO Framework across regional Corporate Stories, press releases, and Q&As.'
-                : 'KI-Verzerrung diagnostiziert. Verankern Sie nun geprüfte Golden Sources und das 4-Regel GEO-Framework in regionalen Corporate Stories, Medienmitteilungen und Q&As.'}
+                ? 'AI search distortion diagnosed. Now lock onto approved Golden Sources and apply the 4 shared writing rules across regional drafts.'
+                : 'KI-Verzerrung erkannt. Nutzen Sie nun geprüfte Golden Sources und die 4 Schreibregeln für regionale Entwürfe.'}
             </p>
           </div>
           <button
@@ -569,7 +569,7 @@ export const GeoAuditView: React.FC<Props> = ({
             }}
             className="px-4 py-2.5 bg-sbb-red hover:bg-red-700 text-white font-mono text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-2 cursor-pointer shrink-0 self-start sm:self-auto"
           >
-            <span>{isEn ? 'Proceed to 03: Regional GEO Playbook' : 'Weiter zu 03: Regionales GEO-Playbook'}</span>
+            <span>{isEn ? 'Proceed to 03: Regional Playbook' : 'Weiter zu 03: Regionales Playbook'}</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>

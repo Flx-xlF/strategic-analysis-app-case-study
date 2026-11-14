@@ -160,7 +160,7 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
         },
         immediate_actions: [
           "Deploy regional briefing packs to US, EU, and Swiss affiliate media teams",
-          "Publish machine-readable GEO fact block on corporate newsroom",
+          "Publish structured fact block on corporate newsroom",
           "Host confidential background briefing for Swiss economic journalists"
         ]
       }
@@ -476,7 +476,7 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
         immediate_actions: [
           "Distribute evidence dossier highlighting hospitalization offsets",
           "Equip country medical directors with statistical crossover talking points",
-          "Embed GEO structured fact blocks in regional press materials"
+          "Embed structured fact blocks in regional press materials"
         ]
       }
     },
@@ -686,7 +686,7 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
         },
         immediate_actions: [
           "Abgestimmte Botschaften an Kommunikationsleiter in den USA, der EU und der Schweiz senden",
-          "GEO-strukturierten Faktenblock im Newsroom online stellen",
+          "strukturierten Faktenblock im Newsroom online stellen",
           "Hintergrund-Briefing für Schweizer Leitmedien anbieten"
         ]
       }
@@ -1002,7 +1002,7 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
         immediate_actions: [
           "Evidenzdossier zu vermiedenen Spitaltagen bereitstellen",
           "Medizinische Leiter der Länderorganisationen mit Argumentarien ausstatten",
-          "GEO-Faktenstruktur im Newsroom hinterlegen"
+          "Faktenstruktur im Newsroom hinterlegen"
         ]
       }
     },

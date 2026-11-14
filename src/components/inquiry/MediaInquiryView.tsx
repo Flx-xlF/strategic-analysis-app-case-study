@@ -50,15 +50,15 @@ export const MediaInquiryView: React.FC<Props> = ({
           <div>
             <div className="flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-sbb-red uppercase mb-1.5">
               <ShieldAlert className="w-4 h-4" />
-              <span>{isEn ? 'DIRECTION 2: TOP-DOWN // 04B JOURNALIST INQUIRY & LEGAL CHECK' : 'RICHTUNG 2: TOP-DOWN // 04B MEDIENANFRAGE- & RECHTS-AUDIT'}</span>
+              <span>{isEn ? 'STEP 4B // JOURNALIST INQUIRY CHECK' : 'SCHRITT 4B // MEDIENANFRAGE-CHECK'}</span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-black text-sbb-black tracking-tight">
-              {isEn ? 'Journalist Inquiry Check & Cross-Functional Alignment' : 'Medienanfrage-Prüfung & Abgleich mit Fachabteilungen'}
+              {isEn ? 'Journalist Inquiry Check & Legal Alignment' : 'Medienanfrage-Prüfung & Rechts-Abgleich'}
             </h1>
             <p className="text-sm text-sbb-stone mt-1 max-w-3xl leading-relaxed">
               {isEn
-                ? 'Applies the channel-adapted GEO Framework to media answers (where journalist quotes become top retrieval sources for AI search engines): exposes loaded traps that must never be repeated, verifies legal boundaries, and builds an affirmative response that delivers the company’s own narrative.'
-                : 'Wendet das kanal-adaptierte GEO-Framework auf Medienantworten an (deren Zitate in Presseartikeln zu primären KI-Retrieval-Quellen werden): deckt Fallen auf, die nie wiederholt werden dürfen, prüft Rechtsgrenzen und liefert ein Gerüst für das eigene Unternehmens-Narrativ.'}
+                ? 'Breaks down critical press questions into the embedded trap to avoid repeating, the legal boundary, and a draft answer built on approved facts.'
+                : 'Zerlegt kritische Medienfragen in die versteckte Falle (die nicht wiederholt werden darf), die rechtliche Grenze und einen Antwort-Entwurf auf Basis freigegebener Fakten.'}
             </p>
           </div>
 
@@ -113,7 +113,7 @@ export const MediaInquiryView: React.FC<Props> = ({
               {isEn ? 'WORKFLOW STATUS' : 'PROZESS-STATUS'}
             </div>
             <div className="text-base font-bold text-sbb-black">
-              {isEn ? 'BRIDGING SCAFFOLD READY' : 'BRIDGING-GERÜST BEREIT'}
+              {isEn ? 'DRAFT ANSWER READY' : 'ANTWORT-ENTWURF BEREIT'}
             </div>
             <div className="text-[10px] font-mono text-amber-800 font-bold mt-1">
               {isEn ? 'Awaiting Human & Legal Iteration' : 'Menschliche & Legal-Iteration nötig'}
@@ -129,7 +129,7 @@ export const MediaInquiryView: React.FC<Props> = ({
             01
           </span>
           <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-stone">
-            {isEn ? 'SIDE-BY-SIDE COMPARISON: INCOMING INQUIRY VS. DOCTRINE' : 'GEGENÜBERSTELLUNG: ANFRAGE VS. DOKTRIN'}
+            {isEn ? 'JOURNALIST QUESTIONS VS. APPROVED COMPANY POSITION' : 'JOURNALISTENFRAGEN VS. FREIGEGEBENE POSITION'}
           </span>
         </div>
 
@@ -171,7 +171,7 @@ export const MediaInquiryView: React.FC<Props> = ({
                 <div className="flex items-center gap-2">
                   <Lock className="w-4 h-4 text-sbb-black" />
                   <span className="text-xs font-mono font-bold uppercase tracking-wider text-sbb-black">
-                    {isEn ? 'OFFICIAL CORPORATE DOCTRINE & COMPLIANCE STANDARD' : 'GELTENDE UNTERNEHMENS-DOKTRIN'}
+                    {isEn ? 'APPROVED COMPANY POSITION & LEGAL BOUNDARIES' : 'FREIGEGEBENE POSITION & RECHTSRAHMEN'}
                   </span>
                 </div>
                 <span className="text-[10px] font-mono text-emerald-700 uppercase px-2 py-0.5 bg-emerald-50 border border-emerald-200 font-bold">
@@ -214,7 +214,7 @@ export const MediaInquiryView: React.FC<Props> = ({
               02
             </span>
             <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-red">
-              {isEn ? 'CONTRADICTION ANALYSIS & CROSS-FUNCTIONAL TRANSLATION' : 'IDENTIFIZIERTE WIDERSPRÜCHE & DISKREPANZEN'}
+              {isEn ? 'QUESTION-BY-QUESTION BREAKDOWN: TRAP, LEGAL LIMIT & RESPONSE' : 'FRAGEN-ANALYSE: FALLE, RECHTSGRENZE & ANTWORT'}
             </span>
           </div>
           <span className="text-xs font-mono text-sbb-stone">
@@ -273,7 +273,7 @@ export const MediaInquiryView: React.FC<Props> = ({
 
                   <div className="p-3 bg-zinc-50 border-l-2 border-sbb-black">
                     <div className="text-[10px] font-mono text-sbb-stone uppercase font-bold mb-1">
-                      {isEn ? 'DOCTRINAL POSTURE:' : 'DOKTRINÄRE POSITIONIERUNG:'}
+                      {isEn ? 'APPROVED POSITION:' : 'FREIGEGEBENE POSITION:'}
                     </div>
                     <p className="text-xs font-medium text-sbb-black">
                       «{c.quote_doctrine}»
@@ -287,7 +287,7 @@ export const MediaInquiryView: React.FC<Props> = ({
                     <div className="flex items-center justify-between gap-1 text-[10px] font-mono font-bold uppercase text-red-700">
                       <span className="flex items-center gap-1.5">
                         <Target className="w-3.5 h-3.5" />
-                        <span>{isEn ? '1. NEGATIVE FRAME (DO NOT REPEAT)' : '1. NEGATIV-FRAME (NIE WIEDERHOLEN)'}</span>
+                        <span>{isEn ? '1. TRAP IN THE QUESTION (DO NOT REPEAT)' : '1. FALLE IN DER FRAGE (NICHT WIEDERHOLEN)'}</span>
                       </span>
                     </div>
                     <p className="text-xs text-zinc-700 leading-snug">
@@ -308,7 +308,7 @@ export const MediaInquiryView: React.FC<Props> = ({
                   <div className="space-y-1 border-t md:border-t-0 md:border-l border-zinc-200 pt-3 md:pt-0 md:pl-3">
                     <div className="flex items-center gap-1.5 text-[10px] font-mono font-bold uppercase text-emerald-800">
                       <FileCheck2 className="w-3.5 h-3.5 text-emerald-600" />
-                      <span>{isEn ? '3. BRIDGING TACTIC → CORE NARRATIVE' : '3. BRIDGING-TAKTIK → KERN-NARRATIV'}</span>
+                      <span>{isEn ? '3. HOW TO ANSWER WITH OUR FACTS' : '3. ANTWORT MIT EIGENEN FAKTEN'}</span>
                     </div>
                     <p className="text-xs text-zinc-800 font-medium leading-snug">
                       {c.clear_translation}
@@ -319,7 +319,7 @@ export const MediaInquiryView: React.FC<Props> = ({
                 {/* Tactical Assessment */}
                 <div className="mt-3 pt-3 border-t border-zinc-100">
                   <div className="text-[10px] font-mono text-sbb-stone uppercase tracking-wider mb-1 font-bold">
-                    {isEn ? 'STRATEGIC SPOKESPERSON ADVISORY (BRIDGING & GEO HYGIENE):' : 'STRATEGISCHE EINSCHÄTZUNG (BRIDGING & GEO-HYGIENE):'}
+                    {isEn ? 'PRACTICAL ADVICE FOR THE SPOKESPERSON:' : 'PRAKTISCHER HINWEIS FÜR MEDIENSPRECHER:'}
                   </div>
                   <p className="text-sm text-zinc-800 leading-relaxed font-sans">
                     {c.assessment}
@@ -339,8 +339,8 @@ export const MediaInquiryView: React.FC<Props> = ({
           </span>
           <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-stone">
             {isEn
-              ? 'WORKING RESPONSE SCAFFOLD (NEGATIVE FRAMES STRIPPED // FOR HUMAN ITERATION)'
-              : 'ANTWORT-ARBEITSGERÜST (OHNE NEGATIV-FRAMES // FÜR MENSCHLICHE ITERATION)'}
+              ? 'DRAFT ANSWER FOR THE SPOKESPERSON (REVIEW BEFORE SENDING)'
+              : 'ANTWORT-ENTWURF FÜR MEDIENSPRECHER (VOR VERSAND PRÜFEN)'}
           </span>
         </div>
 
@@ -351,14 +351,14 @@ export const MediaInquiryView: React.FC<Props> = ({
                 <Sparkles className="w-4 h-4" />
                 <span>
                   {isEn
-                    ? 'BRIDGING SCAFFOLD TO CORE NARRATIVE (NOT ONE-SHOT READY-TO-SEND)'
-                    : 'BRIDGING-GERÜST ZUM KERN-NARRATIV (NICHT UNGEPRÜFT VERSANDFERTIG)'}
+                    ? 'WORKING DRAFT (REQUIRES SPOKESPERSON & LEGAL REVIEW)'
+                    : 'ARBEITSENTWURF (FREIGABE DURCH SPRECHER & RECHT NÖTIG)'}
                 </span>
               </div>
               <h3 className="text-lg font-bold text-sbb-black">
                 {isEn
-                  ? 'Baseline Draft Avoiding Accusation Echoes — Requires Spokesperson Iteration'
-                  : 'Basis-Entwurf ohne Vorwurfs-Wiederholung — Erfordert Feinjustierung durch Mediensprecher'}
+                  ? 'Baseline Draft Avoiding Accusation Echoes — Requires Spokesperson Review'
+                  : 'Basis-Entwurf ohne Vorwurfs-Wiederholung — Erfordert Prüfung durch Mediensprecher'}
               </h3>
             </div>
 
@@ -369,12 +369,12 @@ export const MediaInquiryView: React.FC<Props> = ({
               {copied ? (
                 <>
                   <Check className="w-4 h-4 text-emerald-400" />
-                  <span>{isEn ? 'Scaffold Copied' : 'Gerüst kopiert'}</span>
+                  <span>{isEn ? 'Draft Copied' : 'Entwurf kopiert'}</span>
                 </>
               ) : (
                 <>
                   <Copy className="w-4 h-4 text-zinc-400" />
-                  <span>{isEn ? 'Copy Working Scaffold' : 'Arbeitsgerüst kopieren'}</span>
+                  <span>{isEn ? 'Copy Draft Answer' : 'Antwort-Entwurf kopieren'}</span>
                 </>
               )}
             </button>

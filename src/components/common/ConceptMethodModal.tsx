@@ -76,11 +76,11 @@ export const ConceptMethodModal: React.FC<Props> = ({ isOpen, onClose, lang }) =
             <p>
               {isEn ? (
                 <>
-                  <strong>External feeds:</strong> Raw weekly article streams are too large to feed straight into an LLM. A 4-stage pipeline (MinHash deduplication &rarr; HDBSCAN clustering &rarr; <em>z</em>-score velocity &rarr; cosine check) narrows noise down to representative cluster texts before an LLM inspects them.
+                  <strong>External feeds:</strong> Raw weekly article streams are too large to feed straight into an LLM. A 4-stage pipeline (removing duplicate reprints via MinHash &rarr; grouping by topic via HDBSCAN &rarr; spotting volume spikes via <em>z</em>-score &rarr; checking alignment via cosine) narrows noise down to representative articles before an LLM inspects them.
                 </>
               ) : (
                 <>
-                  <strong>Externe Feeds:</strong> Zehntausende wöchentliche Meldungen lassen sich nicht sinnvoll direkt in ein LLM geben. Eine 4-stufige Pipeline (MinHash &rarr; HDBSCAN &rarr; <em>z</em>-Score &rarr; Cosinus-Abgleich) filtert zuerst auf repräsentative Cluster-Texte.
+                  <strong>Externe Feeds:</strong> Zehntausende wöchentliche Meldungen lassen sich nicht sinnvoll direkt in ein LLM geben. Eine 4-stufige Pipeline (Dubletten entfernen via MinHash &rarr; Themen gruppieren via HDBSCAN &rarr; Volumen-Spikes via <em>z</em>-Score &rarr; Cosinus-Abgleich) filtert zuerst auf repräsentative Artikel.
                 </>
               )}
             </p>
@@ -136,11 +136,11 @@ export const ConceptMethodModal: React.FC<Props> = ({ isOpen, onClose, lang }) =
             <p>
               {isEn ? (
                 <>
-                  <strong>Structure beats metadata tricks:</strong> Adding <code>Schema.org</code> tags or <code>llms.txt</code> does not fix vague copy. Clear conclusions and concrete numbers in the opening paragraph—plus avoiding repeating critic accusations (which hybrid BM25 + dense vector retrieval indexes against the company)—hold up across <em>n</em>=20 test runs.
+                  <strong>Structure beats metadata tricks:</strong> Adding <code>Schema.org</code> tags or <code>llms.txt</code> does not fix vague copy. Clear conclusions and concrete numbers in the opening paragraph—plus avoiding repeating critic accusations (which search engines index directly alongside the company name)—hold up across <em>n</em>=20 test runs.
                 </>
               ) : (
                 <>
-                  <strong>Struktur vor Metadaten-Tricks:</strong> <code>Schema.org</code> oder <code>llms.txt</code> retten keine vage Prosa. Klare Kernaussagen und Zahlen im ersten Absatz – sowie der Verzicht auf wiederholte Vorwürfe (die BM25 + Dense-Vector-Retrieval sonst mit dem Unternehmen verknüpfen) – bestehen im <em>n</em>=20-Test.
+                  <strong>Struktur vor Metadaten-Tricks:</strong> <code>Schema.org</code> oder <code>llms.txt</code> retten keine vage Prosa. Klare Kernaussagen und Zahlen im ersten Absatz – sowie der Verzicht auf wiederholte Vorwürfe (die Suchmaschinen sonst direkt mit dem Unternehmensnamen verknüpfen) – bestehen im <em>n</em>=20-Test.
                 </>
               )}
             </p>

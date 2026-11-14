@@ -68,7 +68,7 @@ export const TrendingFactoryView: React.FC<Props> = ({
   }> = [
     { 
       id: 'hintergrund', 
-      label: isEn ? 'Corporate Story (Owned GEO)' : 'Corporate Story (Owned GEO)', 
+      label: isEn ? 'Corporate Story (Website & AI Search)' : 'Corporate Story (Website & KI-Suche)', 
       subtitle: isEn ? 'Corporate Newsroom & AI Search' : 'Newsroom & KI-Such-Quelle',
       icon: FileText 
     },
@@ -108,7 +108,7 @@ export const TrendingFactoryView: React.FC<Props> = ({
           <div>
             <div className="flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-sbb-red uppercase mb-1.5">
               <Sparkles className="w-4 h-4" />
-              <span>{isEn ? 'DIRECTION 2: TOP-DOWN (DEFINE & ENABLE) // MODULE 03' : 'RICHTUNG 2: TOP-DOWN (DEFINIEREN & BEFÄHIGEN) // MODUL 03'}</span>
+              <span>{isEn ? 'STEP 3: ALIGN SOURCES & REGIONAL DRAFTS // MODULE 03' : 'SCHRITT 3: QUELLEN & REGIONALE ENTWÜRFE // MODUL 03'}</span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-black text-sbb-black tracking-tight">
               {isEn ? 'Approved Sources & Regional Draft Playbook' : 'Geprüfte Quellen & Regionales Entwurfs-Playbook'}
@@ -155,25 +155,25 @@ export const TrendingFactoryView: React.FC<Props> = ({
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 font-mono text-xs">
             <div className="p-3 bg-white border border-zinc-200">
-              <div className="text-[10px] text-zinc-600 uppercase font-bold">{isEn ? 'RAW ENTERPRISE CORPUS' : 'GESAMTE DOKUMENTE'}</div>
+              <div className="text-[10px] text-zinc-600 uppercase font-bold">{isEn ? 'ALL INTERNAL FILES' : 'ALLE INTERNEN DATEIEN'}</div>
               <div className="text-xl font-black text-sbb-black">{data.corpus_gate.raw_enterprise_files.toLocaleString(locale)}</div>
               <div className="text-[10px] text-zinc-600 mt-0.5">{isEn ? 'Across Global Silos' : 'In allen Silos'}</div>
             </div>
 
             <div className="p-3 bg-white border border-zinc-200">
-              <div className="text-[10px] text-zinc-600 uppercase font-bold">{isEn ? 'TEMPORAL & STATUS FILTER' : 'STATUS- & ZEITFILTER'}</div>
+              <div className="text-[10px] text-zinc-600 uppercase font-bold">{isEn ? 'CURRENT APPROVED FILES' : 'AKTUELL FREIGEGEBEN'}</div>
               <div className="text-xl font-black text-zinc-800">{data.corpus_gate.active_governed_records.toLocaleString(locale)}</div>
               <div className="text-[10px] text-zinc-600 mt-0.5">{isEn ? 'Active Approved Records' : 'Aktive Freigaben'}</div>
             </div>
 
             <div className="p-3 bg-white border border-emerald-300">
-              <div className="text-[10px] text-emerald-800 uppercase font-bold">{isEn ? 'CANONICAL GOLDEN SOURCES' : 'CANONICAL GOLDEN SOURCES'}</div>
+              <div className="text-[10px] text-emerald-800 uppercase font-bold">{isEn ? 'APPROVED GOLDEN SOURCES' : 'GEPRÜFTE GOLDEN SOURCES'}</div>
               <div className="text-xl font-black text-emerald-700">{data.corpus_gate.canonical_golden_sources}</div>
               <div className="text-[10px] text-emerald-800 mt-0.5">{isEn ? 'Locked Wording Packs' : 'Verbindliche Sprachregelungen'}</div>
             </div>
 
             <div className="p-3 bg-red-50 border border-red-200">
-              <div className="text-[10px] text-red-700 uppercase font-bold">{isEn ? 'LEGACY CONFLICTS & SUPERSEDED PDFS' : 'ALT-KONFLIKTE & VERALTETE PDFS'}</div>
+              <div className="text-[10px] text-red-700 uppercase font-bold">{isEn ? 'OUTDATED FILES & OLD PDFS' : 'VERALTETE DATEIEN & ALT-PDFS'}</div>
               <div className="text-xl font-black text-red-700">{data.corpus_gate.legacy_conflicts_flagged}</div>
               <div className="text-[10px] text-red-700 mt-0.5">
                 {(() => {
@@ -236,7 +236,7 @@ export const TrendingFactoryView: React.FC<Props> = ({
             01
           </span>
           <span className="font-mono text-xs font-bold uppercase tracking-widest text-zinc-500">
-            {isEn ? 'CENTRAL CORE NARRATIVE, MANDATORY GEO FRAMEWORK & GUARDRAILS' : 'ZENTRALES KERN-NARRATIV, VERBINDLICHES GEO-FRAMEWORK & LEITPLANKEN'}
+            {isEn ? '01 // CORE POSITION, SHARED WRITING RULES & DO-NOT-SAY LIST' : '01 // KERNPOSITION, SCHREIBREGELN & NO-GOS'}
           </span>
         </div>
 
@@ -346,12 +346,12 @@ export const TrendingFactoryView: React.FC<Props> = ({
 
               <div className="p-3 bg-emerald-50/40 border border-emerald-300 space-y-1">
                 <div className="font-mono text-[10px] font-bold text-emerald-900 uppercase">
-                  {isEn ? 'RULE 04 // Answer, then bridge to our facts' : 'REGEL 04 // Antworten, dann zu eigenen Fakten leiten'}
+                  {isEn ? 'RULE 04 // Answer the question, then state our facts' : 'REGEL 04 // Frage beantworten, dann eigene Fakten nennen'}
                 </div>
                 <p className="text-[11px] text-zinc-700 leading-snug">
                   {isEn
-                    ? 'Address the question directly and bridge immediately to verified Golden Source facts (GS-01–GS-03).'
-                    : 'Frage direkt aufnehmen und sofort auf die geprüften Golden-Source-Fakten (GS-01–GS-03) überleiten.'}
+                    ? 'Address the question directly and lead directly into verified Golden Source facts (GS-01–GS-03).'
+                    : 'Frage direkt aufnehmen und sofort die geprüften Golden-Source-Fakten (GS-01–GS-03) nennen.'}
                 </p>
               </div>
             </div>
@@ -405,8 +405,8 @@ export const TrendingFactoryView: React.FC<Props> = ({
           </span>
           <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-stone">
             {isEn
-              ? 'FOUR-FORMAT REGIONAL ENABLEMENT: CORPORATE STORIES (OWNED GEO), SOCIAL, TALKING POINTS & Q&A'
-              : 'VIER-FORMAT-BEFÄHIGUNG: CORPORATE STORIES (OWNED GEO), SOCIAL, TALKING POINTS & Q&A'}
+              ? 'REGIONAL DRAFTS ACROSS 4 CHANNELS: WEBSITE STORY, SOCIAL, TALKING POINTS & Q&A'
+              : 'REGIONALE ENTWÜRFE FÜR 4 KANÄLE: WEBSITE-STORY, SOCIAL, TALKING POINTS & Q&A'}
           </span>
         </div>
 
@@ -506,12 +506,12 @@ export const TrendingFactoryView: React.FC<Props> = ({
                 {copied ? (
                   <>
                     <Check className="w-3.5 h-3.5 text-emerald-400" />
-                    <span>{isEn ? 'Scaffold Copied' : 'Gerüst kopiert'}</span>
+                    <span>{isEn ? 'Draft Copied' : 'Entwurf kopiert'}</span>
                   </>
                 ) : (
                   <>
                     <Copy className="w-3.5 h-3.5 text-zinc-400" />
-                    <span>{isEn ? 'Copy Working Scaffold' : 'Arbeitsgerüst kopieren'}</span>
+                    <span>{isEn ? 'Copy Draft' : 'Entwurf kopieren'}</span>
                   </>
                 )}
               </button>
@@ -560,8 +560,8 @@ export const TrendingFactoryView: React.FC<Props> = ({
             </div>
             <p className="text-xs sm:text-sm text-zinc-200">
               {isEn
-                ? 'Regional working scaffold locked. Now stress-test the draft against critical stakeholder reactions and verify tough media questions before distribution.'
-                : 'Regionales Arbeitsgerüst steht. Führen Sie nun den Stresstest gegen Stakeholder-Reaktionen und den Medienanfragen-Check vor Freigabe durch.'}
+                ? 'Regional drafts ready. Now stress-test the draft against critical stakeholder reactions and check tough media questions before release.'
+                : 'Regionale Entwürfe bereit. Testen Sie den Entwurf nun gegen kritische Reaktionen und prüfen Sie schwierige Medienfragen vor der Freigabe.'}
             </p>
           </div>
           <button

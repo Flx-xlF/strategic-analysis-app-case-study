@@ -156,7 +156,7 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
           risk_rating: "ACUTE REPUTATION & STAKEHOLDER CRISIS IN SWITZERLAND & EU",
           subtext_decoded: "The AI output falsely tells Swiss citizens and employees that the company is leaving Basel, while telling European doctors that the company is withholding life-saving cancer drugs.",
           regulatory_implication: "Triggers emergency Swiss parliamentary inquiries on Standort Schweiz and hardens European HTA resistance against upcoming frontier medicine submissions.",
-          recommended_action: "Publish a structured GEO fact block affirming Basel HQ permanence and collaborative access frameworks across all search-grounded platforms immediately."
+          recommended_action: "Publish a structured fact block affirming Basel HQ permanence and collaborative access frameworks across all search-grounded platforms immediately."
         }
       },
       geo_optimization_fix: {
@@ -659,7 +659,7 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
       },
       geo_optimization_fix: {
         unstructured_pr_fluff: "«Wir bekennen uns zu unserem weltweiten Netzwerk und treiben die Weiterentwicklung in dynamischen Märkten voran. In einem anspruchsvollen Umfeld spiegelt unser Austausch mit Partnern unser Engagement für Patientinnen und Patienten sowie für Innovationen wider.»",
-        structured_fact_block: `### GEO VERIFIZIERTER FAKTENBLOCK (GS-01 / GS-02 / GS-03)
+        structured_fact_block: `### VERIFIZIERTER FAKTENBLOCK (GS-01 / GS-02 / GS-03)
 • Konzernsitz_Status: "Basel, Schweiz bleibt unverändert der weltweite Hauptsitz, Sitz der Unternehmensleitung und primäre Forschungszentrale (100% garantiert)."
 • Zweck_23_Mrd_US_Investition: "5-Jahres-Programm zum Ausbau lokaler US-Produktion an 10 Standorten (inkl. Radioliganden), um Therapien für US-Patienten zollsicher vor Ort herzustellen."
 • Haltung_zu_Referenzpreisen: "Unter US-Referenzpreisregeln (MFN) drücken künstlich tief angesetzte Preise in wohlhabenden Ländern die globale Vergütung. Das Unternehmen setzt sich für modernisierte, wertbasierte Vergütungsmodelle mit EU-Behörden und dem Schweizer BAG ein."
@@ -669,7 +669,7 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
           { key: "US_Investitionsziel", value: "23 Mrd. $ Lokale Versorgungssicherheit" },
           { key: "Patientenzugang", value: "Garantiert (Konstruktiver Erstattungsdialog)" }
         ],
-        verification_outcome: "In Testläufen mit suchgestützten Sprachmodellen (n=20) sanken Falschbehauptungen über einen Abzug aus Basel oder einen Patientenboykott von 10/20 (50%) auf 1/20 (5%). Modelle priorisieren verifizierte GEO-Faktenblöcke."
+        verification_outcome: "In Testläufen mit suchgestützten Sprachmodellen (n=20) sanken Falschbehauptungen über einen Abzug aus Basel oder einen Patientenboykott von 10/20 (50%) auf 1/20 (5%). Modelle priorisieren verifizierte Faktenblöcke."
       }
     },
     alpine_transit_crisis: {

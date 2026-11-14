@@ -64,7 +64,7 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
         targetAnchorLabel: 'Tab 01 // Regional Cockpit & Filter [EU]',
         headline: '01 Regional Cockpit: Why Tone Alone Misses Topic Risk',
         whatYouSee:
-          'Filtered to EU: automated sentiment scores coverage as "76% Neutral" because trade articles use formal wording. Meanwhile, the statistical funnel flags a +3.9σ spike in access criticism.',
+          'Filtered to EU: automated sentiment scores coverage as "76% Neutral" because trade articles use formal wording. Meanwhile, the statistical funnel flags an unusual volume spike (+3.9σ) in access criticism.',
         whyItMatters:
           'Deduplicating wire reprints and measuring topic velocity shows where a debate is escalating before the tone turns openly hostile.',
         tryThisLabel: 'Reset Filter to ALL Regions',
@@ -81,7 +81,7 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
           'Shows the representative articles driving the cluster and the resulting AI answer below. Click the red passages [1] and [2] to inspect the exact factual errors.',
         whyItMatters:
           'Vague PR intros get cut off by search retrieval. Section 03 below shows how rewriting vague copy into clear, front-loaded facts fixes the AI summary across n=20 test runs.',
-        tryThisLabel: 'Inspect Oncology RLT GEO Audit',
+        tryThisLabel: 'Switch to Cancer Therapy (RLT) Case',
         targetTab: 'geo',
         targetRegion: 'all',
         openConceptGuide: false
@@ -106,7 +106,7 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
         targetAnchorLabel: 'Tab 04 // Stress-Test & Concept Modal',
         headline: '04 Stress-Test & Inquiry Check: Challenging Drafts Before Release',
         whatYouSee:
-          'Toggle between Iteration 1 and Iteration 2 (or switch to 04B Inquiry Check) to see how repeating a critic’s accusation triggers hostile headlines and how bridging to core facts lowers risk (9.1 → 2.6).',
+          'Toggle between Iteration 1 and Iteration 2 (or switch to 04B Inquiry Check) to see how repeating a critic’s accusation triggers hostile headlines and how leading with our own facts lowers risk (9.1 → 2.6).',
         whyItMatters:
           'LLMs are useful for pressure-testing a draft from multiple stakeholder angles—final editing, tone, and sign-off stay with comms and legal teams.',
         tryThisLabel: 'Toggle Concept, Method & IT Modal',
@@ -180,7 +180,7 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
       targetAnchorLabel: 'Tab 04 // Stresstest & Konzept-Modal',
       headline: '04 Stresstest & Anfrage-Check: Entwürfe vor Freigabe prüfen',
       whatYouSee:
-        'Wechseln Sie zwischen Iteration 1 und Iteration 2 (oder zu 04B Medienanfrage), um zu sehen, wie wiederholte Vorwürfe Schlagzeilen auslösen und wie Bridging das Risiko senkt (9.1 → 2.6).',
+        'Wechseln Sie zwischen Iteration 1 und Iteration 2 (oder zu 04B Medienanfrage), um zu sehen, wie wiederholte Vorwürfe Schlagzeilen auslösen und wie klare eigene Fakten das Risiko senken (9.1 → 2.6).',
       whyItMatters:
         'LLMs eignen sich für den Stresstest aus verschiedenen Stakeholder-Perspektiven – Feinschliff, Tonalität und Freigabe bleiben bei Kommunikation und Recht.',
       tryThisLabel: 'Konzept-, Methodik- & IT-Modal öffnen',

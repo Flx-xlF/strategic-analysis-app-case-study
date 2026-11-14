@@ -70,7 +70,7 @@ export const CommandHeader: React.FC<Props> = ({
             <div className="hidden lg:flex items-center gap-2 text-zinc-300">
               <span className="w-1.5 h-1.5 bg-zinc-400" />
               <span className="tracking-widest whitespace-nowrap">
-                {isEn ? 'STATISTICAL & LLM HYBRID ARCHITECTURE' : 'STATISTISCHE & LLM HYBRID-ARCHITEKTUR'}
+                {isEn ? 'STATISTICAL FILTERING + AI AUDIT' : 'STATISTISCHE FILTERUNG + KI-PRÜFUNG'}
               </span>
             </div>
 
@@ -217,7 +217,7 @@ export const CommandHeader: React.FC<Props> = ({
             {/* Column 1: Direction 1 - Outside-In (Analyze & Measure) */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-1 border border-zinc-200 bg-white p-1 min-w-0">
               <span className="text-[10px] font-mono font-black text-sbb-black uppercase tracking-wider px-2 py-1 bg-zinc-100 border-b sm:border-b-0 sm:border-r border-zinc-200 shrink-0 whitespace-nowrap text-center sm:text-left">
-                {isEn ? '◄ DIRECTION 1: OUTSIDE-IN (MEASURE)' : '◄ RICHTUNG 1: OUTSIDE-IN (MESSEN)'}
+                {isEn ? '◄ 1. MONITOR: MEDIA & AI SEARCH' : '◄ 1. ANALYSE: MEDIEN & KI-SUCHE'}
               </span>
 
               <div className="flex items-center gap-1 flex-1 min-w-0">
@@ -266,7 +266,7 @@ export const CommandHeader: React.FC<Props> = ({
             {/* Column 2: Direction 2 - Top-Down (Define & Enable) */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-1 border border-zinc-200 bg-white p-1 min-w-0">
               <span className="text-[10px] font-mono font-black text-sbb-black uppercase tracking-wider px-2 py-1 bg-zinc-100 border-b sm:border-b-0 sm:border-r border-zinc-200 shrink-0 whitespace-nowrap text-center sm:text-left">
-                {isEn ? 'DIRECTION 2: TOP-DOWN (ENABLE) ►' : 'RICHTUNG 2: TOP-DOWN (BEFÄHIGEN) ►'}
+                {isEn ? '2. RESPOND: DRAFTS & STRESS-TEST ►' : '2. ANTWORT: ENTWÜRFE & TEST ►'}
               </span>
 
               <div className="flex items-center gap-1 flex-1 min-w-0">

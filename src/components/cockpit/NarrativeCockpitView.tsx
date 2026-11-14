@@ -69,15 +69,15 @@ export const NarrativeCockpitView: React.FC<Props> = ({
           <div>
             <div className="flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-sbb-red uppercase mb-1.5">
               <BarChart3 className="w-4 h-4" />
-              <span>{isEn ? 'DIRECTION 1: OUTSIDE-IN (ANALYZE & MEASURE) // MODULE 01' : 'RICHTUNG 1: OUTSIDE-IN (ANALYSIEREN & MESSEN) // MODUL 01'}</span>
+              <span>{isEn ? 'STEP 1: MONITOR COVERAGE & AI SEARCH // MODULE 01' : 'SCHRITT 1: MEDIEN & KI-SUCHE PRÜFEN // MODUL 01'}</span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-black text-sbb-black tracking-tight">
               {isEn ? 'Regional Media & AI Search Cockpit' : 'Regionales Medien- & KI-Such-Cockpit'}
             </h1>
             <p className="text-sm text-sbb-stone mt-1 max-w-3xl leading-relaxed">
               {isEn
-                ? `Beyond volume and sentiment monitoring: compresses ${data.pipeline.raw_ingested_72h.toLocaleString(locale)}+ external articles, forum threads, and AI search outputs into the few topics gaining momentum—showing where corporate arguments are absorbed and where cross-channel or regional incoherence weakens the company’s signal.`
-                : `Mehr als Volumen- und Sentiment-Monitoring: verdichtet über ${data.pipeline.raw_ingested_72h.toLocaleString(locale)} externe Artikel, Forenbeiträge und KI-Suchantworten – und zeigt, wo Kernargumente absorbiert werden oder wo kanalübergreifende und regionale Inkohärenz die eigene Position schwächt.`}
+                ? `Beyond volume and sentiment monitoring: compresses ${data.pipeline.raw_ingested_72h.toLocaleString(locale)}+ external articles, forum threads, and AI search outputs into the few topics gaining momentum—showing where corporate arguments are absorbed and where contradictions between regions or channels weaken the company’s signal.`
+                : `Mehr als Volumen- und Sentiment-Monitoring: verdichtet über ${data.pipeline.raw_ingested_72h.toLocaleString(locale)} externe Artikel, Forenbeiträge und KI-Suchantworten – und zeigt, wo Kernargumente ankommen oder wo Widersprüche zwischen Regionen und Kanälen die eigene Position schwächen.`}
             </p>
           </div>
 
@@ -112,7 +112,7 @@ export const NarrativeCockpitView: React.FC<Props> = ({
             <div className="p-5 bg-zinc-50 border border-zinc-200 space-y-3">
               <div className="flex items-center justify-between pb-2 border-b border-zinc-200">
                 <span className="text-[10px] font-mono text-zinc-500 uppercase font-bold">
-                  {isEn ? 'STANDARD COMMERCIAL NLP SENTIMENT' : 'STANDARD-NLP-SENTIMENT (AUTOMATISIERT)'}
+                  {isEn ? 'STANDARD AUTOMATED SENTIMENT SCORE' : 'AUTOMATISCHER STANDARD-SENTIMENTWERT'}
                 </span>
                 <span className="text-[9px] font-mono px-2 py-0.5 bg-zinc-200 text-zinc-700">
                   {data.surface_nlp_vs_forensic_reality.commercial_nlp_confidence}
@@ -249,12 +249,12 @@ export const NarrativeCockpitView: React.FC<Props> = ({
                       </div>
                       <div className="pt-1 space-y-1">
                         <div className="flex justify-between text-[10px]">
-                          <span className="text-zinc-600">{isEn ? 'HQ Narrative Fit:' : 'HQ-Narrativ-Fit:'}</span>
+                          <span className="text-zinc-600">{isEn ? 'Match with Company Position:' : 'Übereinstimmung mit Grundposition:'}</span>
                           <span className={`font-bold ${row.cosine_alignment < 0.45 ? 'text-red-700' : row.cosine_alignment > 0.7 ? 'text-emerald-700' : 'text-amber-800'}`}>
                             {Math.round(row.cosine_alignment * 100)}% ({row.cosine_alignment.toFixed(2)})
                           </span>
                         </div>
-                        <div className="w-full h-2 bg-zinc-200 flex overflow-hidden" title={isEn ? 'Cosine alignment with HQ corporate narrative benchmark (1.00)' : 'Cosinus-Übereinstimmung mit HQ-Soll-Narrativ (1.00)'}>
+                        <div className="w-full h-2 bg-zinc-200 flex overflow-hidden" title={isEn ? 'Match with approved company position (1.00 = full match)' : 'Übereinstimmung mit freigegebener Grundposition (1.00 = voll)'}>
                           <div
                             className={`h-full ${
                               row.cosine_alignment < 0.45
@@ -369,7 +369,7 @@ export const NarrativeCockpitView: React.FC<Props> = ({
             </span>
           </div>
           <span className="text-[10px] font-mono text-sbb-stone hidden sm:inline">
-            {isEn ? 'Ground Truth Vector Anchors' : 'Referenz-Vektoren für Cosinus-Abgleich'}
+            {isEn ? 'Approved Company Position' : 'Freigegebene Grundposition'}
           </span>
         </div>
 
@@ -384,15 +384,15 @@ export const NarrativeCockpitView: React.FC<Props> = ({
             {/* Step 1 */}
             <div className="p-4 bg-sbb-cloud/60 border border-sbb-aluminum">
               <div className="flex items-center justify-between text-[10px] font-mono text-sbb-stone mb-1 font-bold">
-                <span>01 // INGEST & DEDUP</span>
-                <span className="text-zinc-500">MinHash LSH</span>
+                <span>01 // REMOVE DUPLICATES</span>
+                <span className="text-zinc-500">MinHash</span>
               </div>
               <div className="text-2xl font-black text-sbb-black tracking-tight tabular-nums">
                 {data.pipeline.raw_ingested_72h.toLocaleString(locale)}
               </div>
               <p className="text-[11px] text-zinc-600 mt-1">
                 {isEn 
-                  ? `Collapsed ${data.pipeline.syndicated_reprints_collapsed.toLocaleString(locale)} syndicated wire reprints into ${data.pipeline.minhash_deduped_unique.toLocaleString(locale)} unique items.` 
+                  ? `Combined ${data.pipeline.syndicated_reprints_collapsed.toLocaleString(locale)} duplicate wire reprints into ${data.pipeline.minhash_deduped_unique.toLocaleString(locale)} unique articles.` 
                   : `${data.pipeline.syndicated_reprints_collapsed.toLocaleString(locale)} Agentur-Dubletten auf ${data.pipeline.minhash_deduped_unique.toLocaleString(locale)} Unikate verdichtet.`}
               </p>
             </div>
@@ -400,27 +400,27 @@ export const NarrativeCockpitView: React.FC<Props> = ({
             {/* Step 2 */}
             <div className="p-4 bg-sbb-cloud/60 border border-sbb-aluminum">
               <div className="flex items-center justify-between text-[10px] font-mono text-sbb-stone mb-1 font-bold">
-                <span>02 // VECTOR CLUSTER</span>
-                <span className="text-zinc-500">HDBSCAN + UMAP</span>
+                <span>02 // GROUP BY TOPIC</span>
+                <span className="text-zinc-500">HDBSCAN</span>
               </div>
               <div className="text-2xl font-black text-sbb-black tracking-tight tabular-nums">
-                {data.pipeline.hdbscan_clusters_identified} <span className="text-xs font-normal text-sbb-stone">{isEn ? 'Clusters' : 'Cluster'}</span>
+                {data.pipeline.hdbscan_clusters_identified} <span className="text-xs font-normal text-sbb-stone">{isEn ? 'Topics' : 'Themen'}</span>
               </div>
               <p className="text-[11px] text-zinc-600 mt-1">
                 {isEn 
-                  ? `Filtered out ${data.pipeline.off_topic_noise_filtered_pct}% irrelevant ambient chatter; grouped remainder into distinct narrative vectors.` 
-                  : `${data.pipeline.off_topic_noise_filtered_pct}% themenfremdes Rauschen gefiltert; Rest in distinkte Narrativ-Vektoren gruppiert.`}
+                  ? `Filtered out ${data.pipeline.off_topic_noise_filtered_pct}% off-topic chatter and grouped the rest into distinct topics.` 
+                  : `${data.pipeline.off_topic_noise_filtered_pct}% themenfremdes Rauschen gefiltert und den Rest in Themen gruppiert.`}
               </p>
             </div>
 
             {/* Step 3 */}
             <div className="p-4 bg-sbb-cloud/60 border border-sbb-aluminum">
               <div className="flex items-center justify-between text-[10px] font-mono text-sbb-stone mb-1 font-bold">
-                <span>03 // STATISTICAL SCORE</span>
+                <span>03 // SPOT VOLUME SPIKES</span>
                 <span className="text-sbb-red font-bold">z-Score + Cosine</span>
               </div>
               <div className="text-2xl font-black text-sbb-red tracking-tight tabular-nums">
-                {data.pipeline.peak_z_score} <span className="text-xs font-normal text-sbb-stone">{isEn ? 'Anomaly' : 'Spike'}</span>
+                {data.pipeline.peak_z_score} <span className="text-xs font-normal text-sbb-stone">{isEn ? 'Spike' : 'Spike'}</span>
               </div>
               <p className="text-[11px] text-zinc-600 mt-1">
                 {data.pipeline.peak_anomaly_summary}
@@ -430,16 +430,16 @@ export const NarrativeCockpitView: React.FC<Props> = ({
             {/* Step 4 */}
             <div className="p-4 bg-sbb-cloud/60 border border-sbb-aluminum">
               <div className="flex items-center justify-between text-[10px] font-mono text-sbb-stone mb-1 font-bold">
-                <span>04 // TARGETED LLM PASS</span>
-                <span className="text-zinc-700 font-bold">Deep Forensics</span>
+                <span>04 // AI READS KEY ARTICLES</span>
+                <span className="text-zinc-700 font-bold">LLM Pass</span>
               </div>
               <div className="text-2xl font-black text-sbb-black tracking-tight tabular-nums">
-                {data.pipeline.centroid_texts_analyzed_by_llm} <span className="text-xs font-normal text-sbb-stone">{isEn ? 'Centroids' : 'Centroids'}</span>
+                {data.pipeline.centroid_texts_analyzed_by_llm} <span className="text-xs font-normal text-sbb-stone">{isEn ? 'Key Articles' : 'Kernartikel'}</span>
               </div>
               <p className="text-[11px] text-zinc-600 mt-1">
                 {isEn 
-                  ? `LLMs read only the ${data.pipeline.centroid_texts_analyzed_by_llm} cluster centroid texts for nuance, irony, and hallucination audits.` 
-                  : `Große Sprachmodelle analysieren gezielt nur die ${data.pipeline.centroid_texts_analyzed_by_llm} repräsentativen Centroid-Texte.`}
+                  ? `Instead of reading all ${data.pipeline.raw_ingested_72h.toLocaleString(locale)} items, the AI inspects only the ${data.pipeline.centroid_texts_analyzed_by_llm} most representative articles.` 
+                  : `Statt alle ${data.pipeline.raw_ingested_72h.toLocaleString(locale)} Meldungen zu lesen, prüft die KI nur die ${data.pipeline.centroid_texts_analyzed_by_llm} repräsentativsten Artikel.`}
               </p>
             </div>
           </div>

@@ -14,16 +14,16 @@ export const SCENARIOS_DATA: Record<Language, ScenarioMeta[]> = {
   en: [
     {
       id: 'oncology_trial_update',
-      title: 'Biopharma Corporate Narrative: Reference Pricing, $23B Capex & Regional Access',
+      title: 'Biopharma Pricing & Investment: $23B U.S. Expansion, Reference Pricing & Regional Access',
       category: 'Corporate Narrative & International Public Affairs',
       date: '13.11.2026',
       urgency: 'High',
-      summary: 'Following U.S. Most-Favored-Nation (MFN) reference pricing and a $23B U.S. manufacturing commitment, a biopharmaceutical group calls for a rethink of European and Swiss price controls. Comms must align Washington, Brussels, and Basel without triggering "patient boycott" or "HQ exodus" rumors.',
+      summary: 'After committing $23B to U.S. manufacturing and agreeing to link U.S. launch prices to other wealthy countries (MFN reference pricing), a biopharma company calls for updated European and Swiss pricing models—sparking "patient boycott" and "Basel HQ exit" rumors.',
       organization: 'Biopharma Corporate Affairs & Communications'
     },
     {
       id: 'pluvicto_access_debate',
-      title: 'Oncology Radioligand Therapy (Lu-177 RLT): Health Authority Approval vs. Regional HTA & Reimbursement',
+      title: 'Targeted Cancer Therapy (Lu-177 RLT): Clinical Approval vs. Cost & Reimbursement',
       category: 'Frontier Medicine Value & Health Technology Assessment',
       date: '10.11.2026',
       urgency: 'High',
@@ -70,7 +70,7 @@ export const SCENARIOS_DATA: Record<Language, ScenarioMeta[]> = {
     },
     {
       id: 'pluvicto_access_debate',
-      title: 'Onkologie-Radioligandentherapie (Lu-177 RLT): Behördenzulassung vs. Regionale HTA & Erstattung',
+      title: 'Gezielte Krebstherapie (Lu-177 RLT): Klinische Zulassung vs. Kosten & Erstattung',
       category: 'Frontier-Medizin Nutzenbewertung & HTA',
       date: '10.11.2026',
       urgency: 'Hoch',

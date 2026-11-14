@@ -43,15 +43,15 @@ export const NarrativeCascadeView: React.FC<Props> = ({
           <div>
             <div className="flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-sbb-red uppercase mb-1.5">
               <Layers className="w-4 h-4" />
-              <span>{isEn ? 'DIRECTION 2: TOP-DOWN // 04A DRAFT STRESS-TEST' : 'RICHTUNG 2: TOP-DOWN // 04A ENTWURF-STRESSTEST'}</span>
+              <span>{isEn ? 'STEP 4A // DRAFT STRESS-TEST' : 'SCHRITT 4A // ENTWURF-STRESSTEST'}</span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-black text-sbb-black tracking-tight">
-              {isEn ? 'Press Release & Statement Stress-Test (Adapted GEO + 48h Reception)' : 'Medienmitteilungen- & Statement-Stresstest (GEO + 48h Reaktion)'}
+              {isEn ? 'Press Release & Statement Stress-Test (Before vs. After)' : 'Medienmitteilungen- & Statement-Stresstest (Vorher vs. Nachher)'}
             </h1>
             <p className="text-sm text-sbb-stone mt-1 max-w-3xl leading-relaxed">
               {isEn
-                ? 'Audits releases and statements against the channel-adapted GEO Framework and simulates 48-hour reactions across media, payers, regulators, and AI search—showing why repeating negative frames in Iteration 1 poisons AI search indices and how Iteration 2 delivers the company’s own narrative.'
-                : 'Prüft Medienmitteilungen und Statements gegen das kanal-adaptierte GEO-Framework und simuliert 48-Stunden-Reaktionen von Medien, Behörden und KI-Suche – zeigt, warum Negativ-Frames in Iteration 1 KI-Indizes vergiften und wie Iteration 2 das eigene Narrativ durchsetzt.'}
+                ? 'Compares a defensive first draft (Iteration 1) against a revised draft (Iteration 2)—simulating critical headlines, 48-hour stakeholder reactions, and reputation risk before release.'
+                : 'Vergleicht einen defensiven Rohentwurf (Iteration 1) mit einer überarbeiteten Fassung (Iteration 2) – und simuliert kritische Schlagzeilen, 48-Stunden-Reaktionen und das Reputationsrisiko vor der Freigabe.'}
             </p>
           </div>
 
@@ -81,7 +81,7 @@ export const NarrativeCascadeView: React.FC<Props> = ({
 
           <div className="p-4 bg-sbb-cloud/50 border-l-2 border-zinc-800">
             <div className="text-[10px] font-mono text-sbb-stone uppercase tracking-wider mb-1">
-              {isEn ? 'STAKEHOLDER NODES' : 'STAKEHOLDER-NODES'}
+              {isEn ? 'KEY GROUPS TESTED' : 'GEPRÜFTE GRUPPEN'}
             </div>
             <div className="text-2xl font-black text-sbb-black tracking-tight">
               {data.stakeholder_reactions.length}
@@ -109,7 +109,7 @@ export const NarrativeCascadeView: React.FC<Props> = ({
             <div className="text-[10px] font-mono text-sbb-stone mt-1">
               {isDraftA 
                 ? (isEn ? 'Until Media Sensationalism' : 'Bis Boulevard-Zuspitzung') 
-                : (isEn ? 'Controlled News Cadence' : 'Kontrollierte Berichterstattung')}
+                : (isEn ? 'Calm Coverage' : 'Sachliche Berichterstattung')}
             </div>
           </div>
         </div>
@@ -150,7 +150,7 @@ export const NarrativeCascadeView: React.FC<Props> = ({
               }`}
             >
               <CheckCircle2 className="w-3.5 h-3.5" />
-              <span>{isEn ? 'Iteration 2: Bridged & Refined' : 'Iteration 2: Mit Bridging iteriert'}</span>
+              <span>{isEn ? 'Iteration 2: Revised Draft' : 'Iteration 2: Überarbeiteter Entwurf'}</span>
             </button>
           </div>
         </div>
@@ -167,11 +167,11 @@ export const NarrativeCascadeView: React.FC<Props> = ({
             }`}>
               {isDraftA
                 ? isEn
-                  ? 'STATUS: PRE-CHALLENGE DRAFT (TRIGGERS NEGATIVE FRAMES)'
-                  : 'STATUS: ROHENTWURF (LÖST NEGATIV-FRAMES AUS)'
+                  ? 'STATUS: FIRST DRAFT (REPEATS CRITIC’S ACCUSATION)'
+                  : 'STATUS: ROHENTWURF (WIEDERHOLT VORWURF)'
                 : isEn
-                ? 'STATUS: HUMAN-ITERATED WITH BRIDGING TO CORE NARRATIVE'
-                : 'STATUS: MENSCHLICH ITERIERT MIT BRIDGING ZUM KERN-NARRATIV'}
+                ? 'STATUS: REVISED DRAFT (CLEAR FACTS, NO ACCUSATIONS)'
+                : 'STATUS: ÜBERARBEITET (KLARE FAKTEN OHNE VORWURF)'}
             </span>
           </div>
 
@@ -182,8 +182,8 @@ export const NarrativeCascadeView: React.FC<Props> = ({
           <div className="mt-4 pt-3 border-t border-zinc-100 flex items-center justify-between text-xs font-mono text-sbb-stone">
             <span>
               {isDraftA 
-                ? (isEn ? '💡 Click "Iteration 2: Bridged & Refined" to see how bridging tactics and human iteration close the vulnerabilities.' : '💡 Klicken Sie auf "Iteration 2", um zu sehen, wie Bridging-Taktiken und menschliche Iteration die Flanken schliessen.')
-                : (isEn ? '✓ Zero repetition of hostile frames; actively bridges back to core corporate narrative & GEO facts.' : '✓ Keine Wiederholung feindlicher Frames; schlägt aktiv die Brücke zum Unternehmens-Narrativ & GEO-Fakten.')}
+                ? (isEn ? '💡 Click "Iteration 2: Revised Draft" to see how leading with our own facts lowers risk.' : '💡 Klicken Sie auf "Iteration 2", um zu sehen, wie klare eigene Fakten das Risiko senken.')
+                : (isEn ? '✓ No repetition of critic accusations; leads directly with approved company facts.' : '✓ Keine Wiederholung von Vorwürfen; führt direkt zu den freigegebenen Fakten.')}
             </span>
             <button
               onClick={() => setSelectedVersion(isDraftA ? 'draftB' : 'draftA')}
@@ -192,7 +192,7 @@ export const NarrativeCascadeView: React.FC<Props> = ({
               <RefreshCw className="w-3 h-3" />
               <span>
                 {isDraftA 
-                  ? (isEn ? 'Switch to Iteration 2 (GEO-Aligned) →' : 'Zu Iteration 2 (GEO-optimiert) wechseln →')
+                  ? (isEn ? 'Switch to Iteration 2 (Revised Draft) →' : 'Zu Iteration 2 (Überarbeiteter Entwurf) wechseln →')
                   : (isEn ? '← Back to Iteration 1 (Initial Draft)' : '← Zurück zu Iteration 1 (Rohentwurf)')}
               </span>
             </button>
@@ -314,7 +314,7 @@ export const NarrativeCascadeView: React.FC<Props> = ({
               04
             </span>
             <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-stone">
-              {isEn ? 'SECOND-ORDER REPUTATIONAL & BUSINESS EFFECTS' : 'FOLGEWIRKUNGEN ZWEITER ORDNUNG'}
+              {isEn ? 'KNOCK-ON EFFECTS (NEXT 2–14 DAYS)' : 'FOLGEWIRKUNGEN (NÄCHSTE 2–14 TAGE)'}
             </span>
           </div>
 
@@ -400,7 +400,7 @@ export const NarrativeCascadeView: React.FC<Props> = ({
 
             <div className="mt-6 pt-5 border-t border-zinc-100">
               <div className="text-[10px] font-mono text-sbb-stone uppercase tracking-wider mb-3">
-                {isEn ? 'IMMEDIATE ENABLEMENT ACTIONS' : 'SOFORT-MASSNAHMEN FÜR DIE MEDIENSTELLE'}
+                {isEn ? 'NEXT STEPS FOR THE TEAM' : 'NÄCHSTE SCHRITTE FÜR DAS TEAM'}
               </div>
               <ul className="space-y-2 text-xs text-zinc-700 font-mono">
                 {data.immediate_actions?.map((act, i) => (

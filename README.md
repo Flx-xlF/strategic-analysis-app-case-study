@@ -12,7 +12,7 @@
 ## What the Prototype Explores
 
 1. **Outside-In (`01–02`): Statistical Filtering Before AI Analysis**
-   You cannot paste tens of thousands of weekly articles into an LLM without losing signal. Terrain first collapses wire reprints (`MinHash`), groups articles into topic clusters (`HDBSCAN`), and measures volume spikes ($z$-score) and alignment with core messaging (cosine similarity). Only the representative cluster texts are inspected in the AI answer audit across repeated test runs (`n=20`) to see where search-grounded models mix up or omit facts.
+   You cannot paste tens of thousands of weekly articles into an LLM without losing signal. Terrain first removes duplicate wire reprints (`MinHash`), groups articles by topic (`HDBSCAN`), and measures unusual volume spikes (`z`-score) and how closely coverage matches the company's position (`cosine similarity`). Only the most representative articles are inspected in the AI answer audit across repeated test runs (`n=20`) to see where search-grounded models mix up or omit facts.
 2. **Top-Down (`03–04`): Source-Anchored Regional Drafting & Stress-Testing**
    Incoherence builds up naturally when regional teams adapt messaging under deadline pressure. Terrain filters internal repositories down to a small set of approved, topic-specific **"Golden Sources"**, flags outdated files and superseded public PDFs, and applies four practical writing rules across **Corporate Stories** (server-rendered HTML), social posts, talking points, and Q&As—followed by a before/after draft stress-test and journalist inquiry check.
 
@@ -22,7 +22,7 @@
 
 ```text
 ┌──────────────────────────────────────────────────────────────────────────────────────┐
-│                         DIRECTION 1: OUTSIDE-IN (MEASURE)                            │
+│                         1. MONITOR COVERAGE & AI ANSWERS (OUTSIDE-IN)                  │
 │                                                                                      │
 │  48,000+ Raw Items ──► MinHash Dedup ──► HDBSCAN Clusters ──► z-Score & Cosine Check │
 │                                                                      │               │
@@ -33,7 +33,7 @@
                           HUMAN EDITORIAL & LEGAL JUDGMENT
                                            │
 ┌──────────────────────────────────────────▼───────────────────────────────────────────┐
-│                         DIRECTION 2: TOP-DOWN (ENABLE)                             │
+│                         2. PREPARE & TEST DRAFTS (TOP-DOWN)                          │
 │                                                                                      │
 │  Internal Vault Files ──► Status Filter ──► Golden Sources + Shared Writing Rules    │
 │                                                                      │               │
@@ -58,14 +58,14 @@
   4. Answer the question, then bridge to approved facts.
 * **Stress-Test & Inquiry Check (`04A` & `04B`):**
   * **04A (Draft Stress-Test):** Toggles between an initial draft (`Iteration 1`) and a revised version (`Iteration 2`) to inspect likely critical headlines, 48-hour stakeholder reactions, and reputation risk scores (`9.1/10` → `2.6/10`).
-  * **04B (Journalist Inquiry Check):** Breaks down tough press questions into the embedded trap, legal/regulatory boundary, and a response scaffold that avoids repeating hostile framing.
+  * **04B (Journalist Inquiry Check):** Breaks down tough press questions into the embedded trap, legal/regulatory boundary, and a draft answer that avoids repeating hostile framing.
 
 ---
 
 ## Design Choices & Realistic Limits of AI
 
 * **No "one-shot, ready-to-send" press statements:** An LLM should not ship a finished executive statement in a single pass. Its practical role here is organizing approved facts and testing drafts against multiple stakeholder angles so human communicators and legal teams can edit and sign off the final text.
-* **Why repeating accusations backfires in search & AI:** Under deadline pressure, defensive drafts often echo a critic's wording to deny it (e.g., *"We are not boycotting European patients"*). Search retrieval pipelines (`BM25` + dense vector matching) index official quotes and associate that negative term directly with the company's name. Stripping hostile framing and bridging directly to verified facts avoids reinforcing the accusation.
+* **Why repeating accusations backfires in search & AI:** Under deadline pressure, defensive drafts often echo a critic's wording to deny it (e.g., *"We are not boycotting European patients"*). Search retrieval pipelines (keyword and meaning-based matching: `BM25` + dense vector) index official quotes and associate that negative term directly with the company's name. Stripping hostile framing and bridging directly to verified facts avoids reinforcing the accusation.
 * **Structure over metadata shortcuts:** Metadata tricks (`Schema.org` tags, `llms.txt`) do not fix vague copy. Placing concrete conclusions and verified figures in the opening paragraph of server-rendered HTML pages, decommissioning superseded public PDFs, and backing claims with quotable figures in press materials give both journalists and AI crawlers clear facts to cite.
 * **Testing across repeated runs (`n=20`):** Because AI search answers vary from prompt to prompt, single-run spot checks are unreliable. Auditing across `n=20` runs shows whether factual accuracy actually holds.
 
@@ -78,7 +78,7 @@ This repository is a **client-side prototype** running in the browser with pre-b
 | Layer | Existing Corporate Systems | Integration Role |
 |---|---|---|
 | **1. External Feeds (Outside-In)** | Licensed media & social aggregators (*Factiva, Meltwater, Talkwalker*) + LLM APIs | Ingests article streams via REST webhooks; runs scheduled `n=20` regional prompt checks against search-grounded LLMs. |
-| **2. Document & Web Governance (Top-Down)** | **Veeva Vault** (*PromoMats / MedComms*), **SharePoint / M365** & Corporate CMS | Connects read-only via Veeva/Graph APIs (inheriting **RBAC** and indexing only `Approved` / `Effective` records). Flags superseded public PDFs and publishes server-rendered (SSR) HTML for AI search crawlers (`OAI-SearchBot`, `PerplexityBot`, `Claude-SearchBot`). |
+| **2. Document & Web Governance (Top-Down)** | **Veeva Vault** (*PromoMats / MedComms*), **SharePoint / M365** & Corporate CMS | Connects read-only via Veeva/Graph APIs (inheriting existing user access permissions and indexing only `Approved` / `Effective` records). Flags superseded public PDFs and publishes server-rendered (SSR) HTML (pages that load without JavaScript) for AI search crawlers (`OAI-SearchBot`, `PerplexityBot`, `Claude-SearchBot`). |
 | **3. Cloud Compute & Private AI** | Corporate Cloud VPC (*Azure / AWS*) + Data Platform (*Databricks / Snowflake*) | Runs statistical clustering (`MinHash`, `HDBSCAN`) as scheduled Python jobs. Routes LLM calls through the internal **Enterprise AI Gateway** (zero data retention, GDPR/FADP/GxP compliant). |
 | **4. Identity & Audit** | Corporate SSO (*Entra ID / Okta*) & Review Workflows | Authenticates users via SSO and logs which Golden Source ID and version backed each draft. |
 
