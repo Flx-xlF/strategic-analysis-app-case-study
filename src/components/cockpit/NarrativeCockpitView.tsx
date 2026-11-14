@@ -128,7 +128,7 @@ export const NarrativeCockpitView: React.FC<Props> = ({
 
             {/* Right: The statistical anomaly + strategic reality */}
             <div className="p-5 bg-red-50/60 border border-red-200 space-y-3">
-              <div className="flex items-center justify-between pb-2 border-b border-red-200 gap-2">
+              <div className="flex flex-wrap items-center justify-between pb-2 border-b border-red-200 gap-2">
                 <span className="text-[10px] font-mono text-red-700 uppercase font-bold flex items-center gap-1.5">
                   <Flame className="w-3.5 h-3.5 text-red-700 shrink-0" />
                   <span>

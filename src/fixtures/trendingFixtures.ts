@@ -77,16 +77,16 @@ export const TRENDING_FIXTURES: Record<Language, Record<string, TrendingScenario
           }
         ]
       },
-      global_core_thesis: "Sustainable innovation requires health systems across wealthy OECD nations to reward clinical value. Our $15B investment localizes U.S. manufacturing across 10 facilities while Swiss HQ remains the company's corporate and research headquarters; we actively engage European and Swiss authorities on modernized access frameworks without compromising patient care.",
+      global_core_thesis: "Sustainable innovation requires health systems across wealthy OECD nations to reward clinical value. Our $15B investment localizes U.S. manufacturing across 10 facilities while Switzerland remains the company's corporate and research headquarters; we actively engage European and Swiss authorities on modernized access frameworks without compromising patient care.",
       global_proof_points: [
         'GS-01: Reinvestment in breakthrough therapies requires high-income nations to value true clinical benefit fairly.',
-        'GS-02: $15B U.S. capex localizes supply against geopolitical tariffs; global corporate headquarters remains permanently at the Swiss headquarters.',
+        'GS-02: $15B U.S. capex localizes supply against geopolitical tariffs; global corporate headquarters remains permanently in Switzerland.',
         'GS-03: Active collaboration with Swiss BAG and European HTA bodies on flexible value-based pricing, with zero patient boycotts.',
         'Supply continuity: Compassionate use, clinical trials, and regulatory filings proceed on schedule globally.'
       ],
       global_guardrails: [
         'NEVER use phrasing suggesting the company is "punishing", "boycotting", or "withholding therapies" from European or Swiss patients.',
-        'DO NOT allow media to frame the $15B U.S. manufacturing investment as an exit from or downsizing of Swiss HQ.',
+        'DO NOT allow media to frame the $15B U.S. manufacturing investment as an exit from or downsizing of our Swiss headquarters.',
         'DO NOT debate individual national rebate percentages in press statements before health authority determinations.'
       ],
       regional_adaptations: {
@@ -106,7 +106,7 @@ Following U.S. Most-Favored-Nation (MFN) reference pricing implementation, our c
 
 ### 02. $15 BILLION U.S. MANUFACTURING EXPANSION & SWISS HEADQUARTERS
 - **Capex Commitment:** $15 billion invested across 10 state-of-the-art facilities in the United States to safeguard supply chains against geopolitical tariffs and ensure domestic availability.
-- **Global Headquarters Unchanged:** Swiss HQ remains the permanent worldwide headquarters, corporate steering center, and flagship scientific research campus. Zero relocation of executive leadership or core research infrastructure.
+- **Global Headquarters Unchanged:** Switzerland remains the permanent worldwide headquarters, corporate steering center, and flagship scientific research campus. Zero relocation of executive leadership or core research infrastructure.
 - **European & Swiss Partnership:** Constructive dialogue continues with the Swiss Federal Office of Public Health (BAG) and European HTA authorities on modernized, value-based reimbursement frameworks without patient boycotts.`
             },
             social: {
@@ -116,7 +116,7 @@ Following U.S. Most-Favored-Nation (MFN) reference pricing implementation, our c
               psychological_objective: "Reassure global stakeholders on supply continuity and permanent Swiss headquarters.",
               blueprint_content: `Global Operations & Investment Update:
 • Investing $15B across 10 U.S. manufacturing facilities to strengthen supply resilience.
-• Swiss HQ remains our permanent worldwide corporate and research headquarters.
+• Switzerland remains our permanent worldwide corporate and research headquarters.
 • Ongoing patient treatments, clinical trials, and regulatory filings continue on schedule globally.
 • Dedicated to collaborative dialogue with European and Swiss health authorities for sustainable access.`
             },
@@ -127,7 +127,7 @@ Following U.S. Most-Favored-Nation (MFN) reference pricing implementation, our c
               psychological_objective: "Lead with supply resilience and clinical value, explicitly shutting down boycott/relocation rumors.",
               blueprint_content: `### KEY MESSAGES (SHARED CORE FACTS)
 - "Our $15B U.S. manufacturing investment secures vital medicines for patients against tariff disruptions; it does not diminish our European presence."
-- "Swiss HQ is and remains our permanent global corporate headquarters and primary scientific research engine."
+- "Switzerland is and remains our permanent global corporate headquarters and primary scientific research engine."
 - "We reject any notion of a patient boycott: compassionate use and clinical trials proceed uninterrupted while we negotiate fair access frameworks with health authorities."`
             },
             qa_brief: {
@@ -139,7 +139,7 @@ Following U.S. Most-Favored-Nation (MFN) reference pricing implementation, our c
 A: No. We are committed to patient care. Clinical trials and compassionate use programs proceed without interruption worldwide. We are actively engaged in constructive discussions with European and Swiss authorities to ensure new medicines reach patients under sustainable, value-based models.
 
 **Q: Does the $15B investment signal a relocation of the company headquarters to the United States?**
-A: Absolutely not. Swiss HQ is our worldwide corporate and scientific headquarters. The U.S. investment expands local manufacturing capacity to meet domestic patient demand and insulate supply chains from trade volatility.`
+A: Absolutely not. Switzerland is our worldwide corporate and scientific headquarters. The U.S. investment expands local manufacturing capacity to meet domestic patient demand and insulate supply chains from trade volatility.`
             }
           }
         },
@@ -243,7 +243,7 @@ A: No. We are dedicated to finding sustainable, value-based access models with n
               target_audience: "NZZ, Le Temps, Swiss Financial & National Media",
               psychological_objective: "Firmly debunk HQ relocation rumors and explain constructive dialogue with BAG.",
               blueprint_content: `### 01. PERMANENT COMMITMENT TO SWITZERLAND AS GLOBAL HEADQUARTERS
-Swiss HQ is and remains the undisputed global headquarters, executive steering center, and principal research hub of the enterprise. Our $15B U.S. manufacturing commitment expands overseas production to navigate local trade tariffs—it does not alter our Swiss identity or headquarters governance.
+Switzerland is and remains the undisputed global headquarters, executive steering center, and principal research hub of the enterprise. Our $15B U.S. manufacturing commitment expands overseas production to navigate local trade tariffs—it does not alter our Swiss identity or headquarters governance.
 
 ### 02. CONSTRUCTIVE DIALOGUE WITH THE SWISS FEDERAL OFFICE OF PUBLIC HEALTH (BAG)
 We are actively engaged in constructive discussions with the BAG on sustainable drug pricing mechanisms that safeguard innovation while preserving patient access across Switzerland.`
@@ -253,7 +253,7 @@ We are actively engaged in constructive discussions with the BAG on sustainable 
               label: "Corporate Headquarters Social Media",
               target_audience: "Swiss Stakeholders, Life-Sciences Ecosystem & Public",
               psychological_objective: "Fact-based confidence at corporate headquarters.",
-              blueprint_content: `Committed to Switzerland: Swiss HQ remains our permanent global headquarters and research hub. Through constructive dialogue with Swiss authorities (BAG), we advocate fair, sustainable reimbursement that protects patient access.`
+              blueprint_content: `Committed to Switzerland: Our Swiss headquarters remains our permanent global corporate and research hub. Through constructive dialogue with Swiss authorities (BAG), we advocate fair, sustainable reimbursement that protects patient access.`
             },
             talking_points: {
               id: "talking_points",
@@ -261,17 +261,17 @@ We are actively engaged in constructive discussions with the BAG on sustainable 
               target_audience: "Executive Committee & Swiss Spokespersons",
               psychological_objective: "Sovereign and transparent positioning.",
               blueprint_content: `### KEY MESSAGES FOR SWISS MEDIA
-- "Swiss HQ remains our permanent global corporate headquarters and scientific heart."
+- "Switzerland remains our permanent global corporate headquarters and scientific heart."
 - "Our $15B investment localizes U.S. manufacturing; it is not a relocation or withdrawal from Switzerland."
 - "We are in close, constructive dialogue with the BAG to ensure Swiss patients receive innovative medicines sustainably."`
             },
             qa_brief: {
               id: "qa_brief",
               label: "Swiss Media Desk Q&A",
-              target_audience: "Media Relations Desk Swiss HQ/Bern",
+              target_audience: "Media Relations Desk Switzerland / Bern",
               psychological_objective: "Rapid, unequivocal clarification.",
               blueprint_content: `**Q: Is the company moving its corporate headquarters or research from Switzerland to the United States?**
-A: No. Swiss HQ is and remains our global corporate and scientific headquarters. Our Swiss roots and research presence are permanent.
+A: No. Switzerland is and remains our global corporate and scientific headquarters. Our Swiss roots and research presence are permanent.
 
 **Q: Will Swiss patients face delays or exclusions for new medicines?**
 A: No. We work collaboratively with the BAG and Swiss authorities on value-based pricing models that ensure Swiss patients have prompt access to innovative therapies.`
@@ -510,7 +510,7 @@ A: Delays are contained to under 90 minutes via active bypass routes. Corridor c
               label: 'Cross-Border Notice',
               target_audience: 'Cross-Border Travelers',
               psychological_objective: 'Travel clarity and reassurance.',
-              blueprint_content: `Cross-border transit advisory: EuroCity and freight trains between Zurich, Swiss HQ, and Milan are operating via the scenic mountain route during technical relay maintenance. Full base tunnel service resumes at 20:00 CET.`
+              blueprint_content: `Cross-border transit advisory: EuroCity and freight trains between Zurich, Basel, and Milan are operating via the scenic mountain route during technical relay maintenance. Full base tunnel service resumes at 20:00 CET.`
             },
             talking_points: {
               id: 'talking_points',
@@ -645,7 +645,14 @@ A: No. All destinations remain accessible via the panoramic route with minor tra
         active_governed_records: 9400,
         canonical_golden_sources: 19,
         legacy_conflicts_flagged: 2,
-        conflict_details: []
+        conflict_details: [
+          {
+            vault_location: 'Group Procurement / Supplier Audit Registry',
+            document_title: 'Supplier_Code_Audit_Guidelines_2023.pdf',
+            conflict_reason: 'Contains outdated 90-day remediation grace periods for severe labor violations.',
+            action_required: 'Quarantined; superseded by ESG-2025-V2 immediate contract suspension rule.'
+          }
+        ]
       },
       global_core_thesis: 'Zero tolerance for labor violations across our entire supply chain. All allocations to the supplier in question have been frozen immediately, and an independent forensic audit is active.',
       global_proof_points: [
@@ -674,7 +681,7 @@ Upon receipt of supplier audit irregularities regarding labor accommodation stan
 
 ### 02. INDEPENDENT FORENSIC VERIFICATION
 - **Scope:** Big-4 forensic auditors have been deployed on site to conduct confidential, unannounced worker interviews.
-- **Prior Swiss HQine:** The supplier had passed a certified SMETA social audit in December 2025. Today's review examines whether local management bypassed certified protocols.
+- **Prior Baseline:** The supplier had passed a certified SMETA social audit in December 2025. Today's review examines whether local management bypassed certified protocols.
 
 ### 03. TRANSPARENCY COMMITMENT
 An executive summary of the independent investigation findings will be published openly upon conclusion. Zero tolerance applies across all tiers.`
@@ -917,10 +924,10 @@ A: No. Assembly facilities continue on schedule utilizing qualified alternative 
           region_id: 'all',
           region_label: 'Global (All Regions)',
           regulatory_anchor: 'ONCO-01 Protocol & Targeted Oncology Clinical Overview',
-          regional_lead_frame: 'Pivotal precision oncology milestone moving targeted oncologys to pre-chemotherapy patients.',
+          regional_lead_frame: 'Pivotal precision oncology milestone moving targeted cancer therapy (ONCO-104) to pre-chemotherapy patients.',
           blueprints: {
             hintergrund: { id: 'hintergrund', label: 'Global Science Briefing', target_audience: 'Medical Editors', psychological_objective: 'Anchor rPFS doubling.', blueprint_content: 'ONCO-01 data confirms doubling of radiographic progression-free survival.' },
-            social: { id: 'social', label: 'Patient Channel', target_audience: 'Patients', psychological_objective: 'Reassurance.', blueprint_content: 'Advancing precision targeted cancer therapy for men with advanced solid-tumor oncology.' },
+            social: { id: 'social', label: 'Patient Channel', target_audience: 'Patients', psychological_objective: 'Reassurance.', blueprint_content: 'Advancing precision targeted cancer therapy (ONCO-104 / Phase III ONCO-01) for patients with advanced solid tumors.' },
             talking_points: { id: 'talking_points', label: 'Spokesperson Talking Points', target_audience: 'Media Desk', psychological_objective: 'Clinical clarity.', blueprint_content: 'Lead with rPFS doubling and quality-of-life benefits.' },
             qa_brief: { id: 'qa_brief', label: 'Field Q&A', target_audience: 'Comms', psychological_objective: 'Direct facts.', blueprint_content: 'NICE evaluated cost-effectiveness thresholds, not biological efficacy.' }
           }
@@ -931,7 +938,7 @@ A: No. Assembly facilities continue on schedule utilizing qualified alternative 
           regulatory_anchor: 'US FDA Expanded Prescribing Information',
           regional_lead_frame: 'Commercial availability and reimbursement rollout across comprehensive cancer centers.',
           blueprints: {
-            hintergrund: { id: 'hintergrund', label: 'US Clinical & Reimbursement Brief', target_audience: 'US Oncology Media', psychological_objective: 'Formulary inclusion.', blueprint_content: 'FDA approved expanded indication for pre-chemotherapy mCRPC.' },
+            hintergrund: { id: 'hintergrund', label: 'US Clinical & Reimbursement Brief', target_audience: 'US Oncology Media', psychological_objective: 'Formulary inclusion.', blueprint_content: 'FDA approved expanded indication for ONCO-104 in pre-chemotherapy advanced solid tumors based on Phase III ONCO-01.' },
             social: { id: 'social', label: 'US Patient Voice', target_audience: 'Advocacy Groups', psychological_objective: 'Support.', blueprint_content: 'Expanding access to targeted solid-tumor oncology therapy before chemotherapy.' },
             talking_points: { id: 'talking_points', label: 'Payer Talking Points', target_audience: 'Access Teams', psychological_objective: 'Value justification.', blueprint_content: 'Offsets late-stage acute hospitalizations and emergency visits.' },
             qa_brief: { id: 'qa_brief', label: 'US Access Q&A', target_audience: 'Hotlines', psychological_objective: 'Clarity.', blueprint_content: 'Commercial Medicare and commercial health plans are active.' }
@@ -989,7 +996,14 @@ A: No. Assembly facilities continue on schedule utilizing qualified alternative 
         active_governed_records: 6200,
         canonical_golden_sources: 14,
         legacy_conflicts_flagged: 1,
-        conflict_details: []
+        conflict_details: [
+          {
+            vault_location: 'Enterprise IT Security / Cloud Governance Archive',
+            document_title: 'Cloud_Architecture_Privacy_Briefing_2024.pdf',
+            conflict_reason: 'Describes standard provider-managed encryption without explicit customer key sovereignty (BYOK).',
+            action_required: 'Quarantined; superseded by SEC-CRYPTO §1 hardware key sovereignty.'
+          }
+        ]
       },
       global_core_thesis: 'Patient records stored on cloud infrastructure are mathematically unreadable without encryption keys held permanently in domestic sovereign custody.',
       global_proof_points: [
@@ -1257,16 +1271,16 @@ A: By mathematically locking data files before they ever touch cloud storage ser
           }
         ]
       },
-      global_core_thesis: 'Nachhaltige Spitzenforschung erfordert, dass OECD-Staaten den therapeutischen Nutzen fair anerkennen. Unsere 15-Mrd.-$-Investition baut die US-Produktion an 10 Standorten aus, während Swiss HQ unverändert der Konzernsitz und Forschungsstandort bleibt; wir suchen den aktiven Dialog mit europäischen Behörden und dem BAG für flexible Zugangsmodelle.',
+      global_core_thesis: 'Nachhaltige Spitzenforschung erfordert, dass OECD-Staaten den therapeutischen Nutzen fair anerkennen. Unsere 15-Mrd.-$-Investition baut die US-Produktion an 10 Standorten aus, während die Schweiz unverändert der Konzernsitz und Forschungsstandort bleibt; wir suchen den aktiven Dialog mit europäischen Behörden und dem BAG für flexible Zugangsmodelle.',
       global_proof_points: [
         'GS-01: Reinvestitionen in Forschung setzen faire Erstattung in allen wohlhabenden Industriestaaten voraus.',
-        'GS-02: 15 Mrd. $ US-Investition sichert Versorgung gegen Zölle; der weltweite Hauptsitz bleibt unerschütterlich at the Swiss headquarters.',
+        'GS-02: 15 Mrd. $ US-Investition sichert Versorgung gegen Zölle; der weltweite Hauptsitz bleibt unerschütterlich in der Schweiz.',
         'GS-03: Konstruktiver Austausch mit dem Schweizer BAG und europäischen HTA-Stellen zu wertbasierten Modellen ohne Boykotte.',
         'Versorgungssicherheit: Härtefallprogramme, Studien und Zulassungsverfahren laufen termingerecht weiter.'
       ],
       global_guardrails: [
         'NIEMALS Formulierungen verwenden, die suggerieren, das Unternehmen wolle Patienten in Europa oder der Schweiz "bestrafen" oder "Medikamente vorenthalten".',
-        'KEINE Berichterstattung unwidersprochen lassen, die den US-Produktionsausbau als Abkehr von Swiss HQ deutet.',
+        'KEINE Berichterstattung unwidersprochen lassen, die den US-Produktionsausbau als Abkehr vom Schweizer Hauptsitz deutet.',
         'KEINE Vorwegnahme prozentualer Preisabschläge in Medienstatements vor behördlichen Abschlüssen.'
       ],
       regional_adaptations: {
@@ -1280,7 +1294,7 @@ A: By mathematically locking data files before they ever touch cloud storage ser
               id: "hintergrund",
               label: "Globale Corporate Story (Owned GEO)",
               target_audience: "Internationale Wirtschafts- & Fachpresse, KI-Suchmaschinen",
-              psychological_objective: "US-Investitionen als Stärkung der Versorgungssicherheit positionieren; Swiss HQ als Hauptsitz bekräftigen.",
+              psychological_objective: "US-Investitionen als Stärkung der Versorgungssicherheit positionieren; Standort Schweiz als Hauptsitz bekräftigen.",
               blueprint_content: `### 01. GLOBALE FORSCHUNGSINVESTITIONEN & ERSTATTUNG
 Unter den neuen US-Referenzpreisregeln (MFN) setzt nachhaltige Spitzenforschung voraus, dass alle wohlhabenden OECD-Staaten den therapeutischen Mehrwert von Innovationen anerkennen (Geprüfte Golden Source GS-01).
 
@@ -1307,7 +1321,7 @@ Unter den neuen US-Referenzpreisregeln (MFN) setzt nachhaltige Spitzenforschung 
               psychological_objective: "Klarheit und Standfestigkeit gegenüber Boykott- und Abwanderungsgerüchten.",
               blueprint_content: `### KERNBOTSCHAFTEN FÜR DIE MEDIEN
 - "Unsere 15-Mrd.-$-Investition sichert die Versorgung amerikanischer Patienten gegen Zölle ab – sie schwächt unsere europäische Präsenz in keiner Weise."
-- "Swiss HQ ist und bleibt unser weltweiter Hauptsitz und zentraler Forschungsstandort."
+- "Die Schweiz ist und bleibt unser weltweiter Hauptsitz und zentraler Forschungsstandort."
 - "Wir weisen Spekulationen über Patientenboykotte entschieden zurück: Studien und Härtefallprogramme laufen lückenlos weiter."`
             },
             qa_brief: {
@@ -1318,8 +1332,8 @@ Unter den neuen US-Referenzpreisregeln (MFN) setzt nachhaltige Spitzenforschung 
               blueprint_content: `**Q: Vorenthält das Unternehmen europäischen oder Schweizer Patienten neue Medikamente vor?**
 A: Nein. Patienten stehen für uns an erster Stelle. Klinische Studien und Härtefallprogramme laufen uneingeschränkt weiter. Wir führen mit dem BAG und europäischen Stellen konstruktive Gespräche über moderne, wertbasierte Erstattungsmodelle.
 
-**Q: Bedeutet die US-Milliardeninvestition eine schleichende Verlagerung des Konzernsitzes weg von Swiss HQ?**
-A: Keineswegs. Swiss HQ ist und bleibt unser weltweiter Hauptsitz und das Herz unserer Forschung. Der Ausbau in den USA dient der lokalen Produktion und schützt vor Handelshemmnissen.`
+**Q: Bedeutet die US-Milliardeninvestition eine schleichende Verlagerung des Konzernsitzes weg aus der Schweiz?**
+A: Keineswegs. Die Schweiz ist und bleibt unser weltweiter Hauptsitz und das Herz unserer Forschung. Der Ausbau in den USA dient der lokalen Produktion und schützt vor Handelshemmnissen.`
             }
           }
         },
@@ -1368,7 +1382,7 @@ Laufende Studien und Härtefallprogramme in Europa laufen ohne jede Einschränku
           region_id: "ch",
           region_label: "Schweiz (Konzernsitz & Schweizer Gesundheitswesen)",
           regulatory_anchor: "BAG-Kostendämpfungsdialog & Swissmedic",
-          regional_lead_frame: "Unverbrüchliches Bekenntnis zum Hauptsitz Swiss HQ und enger Austausch mit dem BAG.",
+          regional_lead_frame: "Unverbrüchliches Bekenntnis zum Hauptsitz Schweiz und enger Austausch mit dem BAG.",
           blueprints: {
             hintergrund: {
               id: "hintergrund",
@@ -1376,14 +1390,14 @@ Laufende Studien und Härtefallprogramme in Europa laufen ohne jede Einschränku
               target_audience: "NZZ, Le Temps, SRF, Finanz und Wirtschaft",
               psychological_objective: "Abwanderungsgerüchte entschieden ausräumen; Partnerschaft mit dem BAG betonen.",
               blueprint_content: `### 01. DIE SCHWEIZ BLEIBT WELTWEITER HAUPTSITZ & FORSCHUNGSZENTRUM
-Swiss HQ ist und bleibt das unerschütterliche wissenschaftliche und unternehmerische Zentrum des Konzerns. Die 15-Mrd.-Investition in den USA erweitert gezielt die lokale Produktion für den amerikanischen Markt – sie berührt die Schweizer Führung und Forschung nicht.
+Die Schweiz ist und bleibt das unerschütterliche wissenschaftliche und unternehmerische Zentrum des Konzerns. Die 15-Mrd.-Investition in den USA erweitert gezielt die lokale Produktion für den amerikanischen Markt – sie berührt die Schweizer Führung und Forschung nicht.
 
 ### 02. KONSTRUKTIVER AUSTAUSCH MIT DEM BUNDESAMT FÜR GESUNDHEIT (BAG)
 Wir führen einen engen, faktenbasierten Dialog mit dem BAG zu nachhaltigen Preismodellen, die Schweizer Patienten verlässlich den Zugang zu bahnbrechenden Therapien sichern.`
             },
             social: { id: "social", label: "Konzernsitz Social Media", target_audience: "Schweizer Öffentlichkeit & Fachkreise", psychological_objective: "Bekenntnis zur Schweiz.", blueprint_content: "Bekenntnis zum Standort Schweiz: Die Schweiz bleibt der weltweite Hauptsitz und das Forschungsherz des Unternehmens." },
             talking_points: { id: "talking_points", label: "Talking Points Schweiz", target_audience: "Geschäftsleitung & Medienstelle", psychological_objective: "Souveränität.", blueprint_content: "Die Schweiz bleibt unverändert unser weltweiter Hauptsitz; partnerschaftlicher Dialog mit dem BAG." },
-            qa_brief: { id: "qa_brief", label: "Q&A Medienstelle Swiss HQ", target_audience: "Medienteam", psychological_objective: "Schnelle Entkräftung.", blueprint_content: "Das Unternehmen zieht weder Forschung noch Führung aus der Schweiz ab; Schweizer Patienten haben uneingeschränkten Zugang zu Studien." }
+            qa_brief: { id: "qa_brief", label: "Q&A Medienstelle Schweiz", target_audience: "Medienteam", psychological_objective: "Schnelle Entkräftung.", blueprint_content: "Das Unternehmen zieht weder Forschung noch Führung aus der Schweiz ab; Schweizer Patienten haben uneingeschränkten Zugang zu Studien." }
           }
         },
         apac: {
@@ -1551,7 +1565,7 @@ A: Verspätungen bleiben im Rahmen von 60 bis 90 Minuten. Ab 20:00 Uhr verkehren
               label: 'EuroCity Reisehinweis',
               target_audience: 'Grenzüberschreitende Reisende',
               psychological_objective: 'Transparenz für Fernreisende.',
-              blueprint_content: `Grenzüberschreitender Bahnverkehr: EuroCity-Züge zwischen Zürich/Swiss HQ und Mailand verkehren über die Panoramastrecke. Tunnelinstandstellung schreitet planmässig voran; Normalbetrieb ab 20:00 Uhr.`
+              blueprint_content: `Grenzüberschreitender Bahnverkehr: EuroCity-Züge zwischen Zürich/Basel und Mailand verkehren über die Panoramastrecke. Tunnelinstandstellung schreitet planmässig voran; Normalbetrieb ab 20:00 Uhr.`
             },
             talking_points: {
               id: 'talking_points',
@@ -1938,7 +1952,7 @@ A: Nein. Die Montage läuft planmässig mit freigegebenen Alternativkontingenten
           }
         ]
       },
-      global_core_thesis: 'ONCO-104 verdoppelt nachweislich das progressionsfreie Überleben bei Onkologie vor Chemotherapie. Wir arbeiten eng mit europäischen Behörden und dem britischen NICE an wertbasierten Erstattungsmodellen, die Spitalentlastungen berücksichtigen.',
+      global_core_thesis: 'ONCO-104 verdoppelt in der Phase-III-Studie ONCO-01 nachweislich das progressionsfreie Überleben bei fortgeschrittenen soliden Tumoren vor Chemotherapie. Wir arbeiten eng mit europäischen Behörden und dem britischen NICE an wertbasierten Erstattungsmodellen, die Spitalentlastungen berücksichtigen.',
       global_proof_points: [
         'ONCO-01 belegt statistisch signifikante Verdopplung des rPFS (HR 0.41, p<0.001).',
         'US-FDA-Zulassung bestätigt hervorragendes Nutzen-Risiko-Profil vor belastender Chemotherapie.',
@@ -1956,7 +1970,7 @@ A: Nein. Die Montage läuft planmässig mit freigegebenen Alternativkontingenten
           regional_lead_frame: 'Meilenstein der Präzisionsonkologie für Patienten vor Chemotherapie.',
           blueprints: {
             hintergrund: { id: 'hintergrund', label: 'Wissenschaftliches Dossier', target_audience: 'Fachmedien', psychological_objective: 'rPFS-Verdopplung verankern.', blueprint_content: 'ONCO-01 bestätigt Verdopplung des progressionsfreien Überlebens.' },
-            social: { id: 'social', label: 'Patientenkanäle', target_audience: 'Patienten', psychological_objective: 'Zuversicht.', blueprint_content: 'Fortschritt bei zielgerichteter zielgerichtete Krebstherapie gegen Onkologie.' },
+            social: { id: 'social', label: 'Patientenkanäle', target_audience: 'Patienten', psychological_objective: 'Zuversicht.', blueprint_content: 'Fortschritt bei zielgerichteter Krebstherapie (ONCO-104) für Patientinnen und Patienten mit fortgeschrittenen soliden Tumoren.' },
             talking_points: { id: 'talking_points', label: 'Sprecherpunkte', target_audience: 'Medienstelle', psychological_objective: 'Klinische Klarheit.', blueprint_content: 'rPFS-Vorteil und Lebensqualität in den Vordergrund stellen.' },
             qa_brief: { id: 'qa_brief', label: 'Q&A Leitfaden', target_audience: 'Kommunikation', psychological_objective: 'Fakten.', blueprint_content: 'NICE bewertete Kostenschwellen, nicht die biologische Wirksamkeit.' }
           }

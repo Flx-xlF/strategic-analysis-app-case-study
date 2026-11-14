@@ -166,7 +166,7 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
       targetAnchorLabel: 'Tab 03 // Geprüfte Quellen & Rezepte',
       headline: '03 Quellen & Rezepte: Regeln anwenden ohne PDF-Handbücher',
       whatYouSee:
-        'Bündelt geprüfte Golden Sources (GS-01–GS-03), markiert alte PDFs und lädt die 4 Schreibregeln in 1-Klick-Rezepte. Testen Sie die Steuerungs-Buttons oder den Vorher/Nachher-Vergleich über dem Entwurf.',
+        'Bündelt geprüfte Golden Sources (GS-01–GS-03) und lädt die 4 Schreibregeln in 1-Klick-Rezepte. Testen Sie die 3 Eingriffstiefen (Alltagssprache, Studien-Präzision, Rechtsgrenze) und den Vorher/Nachher-Vergleich.',
       whyItMatters:
         'Unter Zeitdruck liest niemand 40-seitige PDF-Leitfäden. Rezepte passen ihre Eingriffstiefe an: einfache Sprache für Website/Social und ein schonender Modus für klinische Studien, damit die wissenschaftliche Präzision erhalten bleibt.',
       tryThisLabel: 'Rezepte auf Schweiz (CH) filtern',

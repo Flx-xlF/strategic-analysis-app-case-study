@@ -19,13 +19,13 @@ export const SCENARIOS_DATA: Record<Language, ScenarioMeta[]> = {
       category: 'Corporate Narrative & International Public Affairs',
       date: '13.11.2026',
       urgency: 'High',
-      summary: 'After committing $15B to U.S. manufacturing and agreeing to tie U.S. launch prices to prices in other wealthy countries (reference pricing), a global biopharma company calls for updated European and Swiss pricing models—sparking "patient boycott" and "Swiss HQ exit" rumors.',
+      summary: 'After committing $15B to U.S. manufacturing and agreeing to tie U.S. launch prices to prices in other wealthy countries (reference pricing), a global biopharma company calls for updated European and Swiss pricing models—sparking "patient boycott" and "Swiss headquarters exit" rumors.',
       organization: 'Biopharma Corporate Affairs & Communications',
       group: 'healthcare'
     },
     {
       id: 'rlt_access_debate',
-      title: 'Targeted Cancer Therapy (ONCO-01): Clinical Approval vs. Cost & Reimbursement',
+      title: 'Targeted Cancer Therapy (ONCO-104 / Phase III ONCO-01): Clinical Approval vs. Cost & Reimbursement',
       category: 'Clinical Study Value & Reimbursement',
       date: '10.11.2026',
       urgency: 'High',
@@ -77,7 +77,7 @@ export const SCENARIOS_DATA: Record<Language, ScenarioMeta[]> = {
     },
     {
       id: 'rlt_access_debate',
-      title: 'Zielgerichtete Krebstherapie (ONCO-01): Klinische Zulassung vs. Kosten & Erstattung',
+      title: 'Zielgerichtete Krebstherapie (ONCO-104 / Studie ONCO-01): Klinische Zulassung vs. Kosten & Erstattung',
       category: 'Klinische Studiendaten & Kostenerstattung',
       date: '10.11.2026',
       urgency: 'Hoch',

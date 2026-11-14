@@ -40,6 +40,7 @@ export const App: React.FC = () => {
     if (typeof target.openConceptGuide === 'boolean') {
       setShowConceptGuide(target.openConceptGuide);
     }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleToggleQuickTour = () => {
@@ -77,7 +78,10 @@ export const App: React.FC = () => {
         isOpen={showQuickTour}
         currentStep={tourStep}
         onSelectStep={handleSelectTourStep}
-        onClose={() => setShowQuickTour(false)}
+        onClose={() => {
+          setShowQuickTour(false);
+          setShowConceptGuide(false);
+        }}
         lang={lang}
         onSelectScenarioById={setSelectedScenarioId}
         selectedScenarioId={selectedScenario.id}

@@ -39,7 +39,9 @@ export const MediaInquiryView: React.FC<Props> = ({
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const highContradictions = data.contradictions.filter(c => c.severity === 'HIGH' || c.severity === 'HOCH');
+  const highContradictions = data.contradictions.filter(
+    c => ['HIGH', 'HOCH', 'CRITICAL', 'KRITISCH'].includes(c.severity as string)
+  );
   const midContradictions = data.contradictions.filter(c => c.severity === 'MEDIUM' || c.severity === 'MITTEL');
 
   return (
@@ -101,7 +103,12 @@ export const MediaInquiryView: React.FC<Props> = ({
               {isEn ? 'CONTRADICTIONS IDENTIFIED' : 'IDENTIFIZIERTE WIDERSPRÜCHE'}
             </div>
             <div className="text-2xl font-black text-sbb-red tracking-tight">
-              {data.contradictions.length} <span className="text-xs font-normal text-sbb-stone font-mono">{isEn ? 'Findings' : 'Befunde'}</span>
+              {data.contradictions.length}{' '}
+              <span className="text-xs font-normal text-sbb-stone font-mono">
+                {data.contradictions.length === 1
+                  ? (isEn ? 'Finding' : 'Befund')
+                  : (isEn ? 'Findings' : 'Befunde')}
+              </span>
             </div>
             <div className="text-[10px] font-mono text-sbb-stone mt-1">
               {highContradictions.length}x {isEn ? 'Critical' : 'Kritisch'} • {midContradictions.length}x {isEn ? 'Moderate' : 'Moderat'}

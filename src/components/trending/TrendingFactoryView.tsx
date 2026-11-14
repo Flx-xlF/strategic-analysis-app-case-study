@@ -49,15 +49,26 @@ export const TrendingFactoryView: React.FC<Props> = ({
   const [selectedFormat, setSelectedFormat] = useState<ContentFormatId>('hintergrund');
   const [copied, setCopied] = useState(false);
   const [showGovernanceDetails, setShowGovernanceDetails] = useState(false);
-  const [activeSteering, setActiveSteering] = useState<'study_rigor' | 'layperson' | 'local_proof' | 'legal_boundary' | 'express'>(
-    scenarioId === 'rlt_access_debate' ? 'study_rigor' : 'layperson'
+  const [activeSteering, setActiveSteering] = useState<'plain' | 'study_rigor' | 'legal_boundary'>(
+    scenarioId === 'rlt_access_debate' ? 'study_rigor' : 'plain'
   );
   const [showWordDiff, setShowWordDiff] = useState<boolean>(true);
   const isEn = lang === 'en';
 
   React.useEffect(() => {
-    setActiveSteering(scenarioId === 'rlt_access_debate' ? 'study_rigor' : 'layperson');
+    setActiveSteering(scenarioId === 'rlt_access_debate' ? 'study_rigor' : 'plain');
   }, [scenarioId]);
+
+  const handleSelectFormat = (fmtId: ContentFormatId) => {
+    setSelectedFormat(fmtId);
+    if (fmtId === 'qa_brief') {
+      setActiveSteering('legal_boundary');
+    } else if (fmtId === 'social') {
+      setActiveSteering('plain');
+    } else if (fmtId === 'hintergrund' && scenarioId === 'rlt_access_debate') {
+      setActiveSteering('study_rigor');
+    }
+  };
 
   const activeAdaptation: RegionalAdaptation = 
     data.regional_adaptations[selectedRegion] || 
@@ -76,26 +87,26 @@ export const TrendingFactoryView: React.FC<Props> = ({
   }> = [
     { 
       id: 'hintergrund', 
-      label: isEn ? 'Corporate Story (Website & AI Search)' : 'Corporate Story (Website & KI-Suche)', 
-      subtitle: isEn ? 'Corporate Newsroom & AI Search' : 'Newsroom & KI-Such-Quelle',
+      label: isEn ? 'Website & Study Briefing' : 'Website & Studien-Briefing', 
+      subtitle: isEn ? 'Owned Media, Studies & AI Search' : 'Owned Media, Studien & KI-Suche',
       icon: FileText 
     },
     { 
       id: 'social', 
-      label: isEn ? 'Social & Community' : 'Social & Patientenkanäle', 
-      subtitle: isEn ? 'Plain-Language Channels' : 'Laientaugliche Kanäle',
+      label: isEn ? 'Social & Community' : 'Social & Community', 
+      subtitle: isEn ? 'Plain-Language Public Channels' : 'Klare Alltagssprache ohne Jargon',
       icon: Share2 
     },
     { 
       id: 'talking_points', 
       label: isEn ? 'Executive Talking Points' : 'Talking Points Führung', 
-      subtitle: isEn ? 'Leadership & Spokespersons' : 'Direktion & Mediensprecher',
+      subtitle: isEn ? 'Leadership & Interviews' : 'Führung & Interviews',
       icon: Mic 
     },
     { 
       id: 'qa_brief', 
-      label: isEn ? 'Q&A Field Manual' : 'Q&A Leitfaden', 
-      subtitle: isEn ? 'Affiliate Comms & Desk' : 'Medienstelle & Affiliates',
+      label: isEn ? 'Press Q&A & Legal Check' : 'Medien-Q&A & Rechtscheck', 
+      subtitle: isEn ? 'Media Desk & [Open / To Verify]' : 'Medienstelle & [Offen / Zu prüfen]',
       icon: HelpCircle 
     },
   ];
@@ -136,84 +147,64 @@ export const TrendingFactoryView: React.FC<Props> = ({
           </div>
         </div>
 
-        {/* ═══ STEP 00: INTERNAL DOCUMENT FILTER ═══ */}
-        <div className="p-5 bg-sbb-cloud/60 border border-sbb-aluminum space-y-4">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-zinc-200 pb-2">
-            <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase text-sbb-black">
-              <Database className="w-4 h-4 text-sbb-red" />
-              <span>
+        {/* ═══ STEP 00: COMPACT INTERNAL DOCUMENT FILTER BAR ═══ */}
+        <div className="p-4 bg-sbb-cloud/60 border border-sbb-aluminum space-y-3">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div className="flex flex-wrap items-center gap-2 text-xs font-mono">
+              <Database className="w-4 h-4 text-sbb-red shrink-0" />
+              <span className="font-bold uppercase text-sbb-black">
+                {isEn ? 'Internal Document Filter:' : 'Interner Dokumenten-Filter:'}
+              </span>
+              <span className="text-zinc-700">
                 {isEn
-                  ? `INTERNAL DOCUMENT FILTER (${data.corpus_gate.raw_enterprise_files.toLocaleString(locale)} FILES → ${data.corpus_gate.canonical_golden_sources} APPROVED GOLDEN SOURCES)`
-                  : `INTERNER DOKUMENTEN-FILTER (${data.corpus_gate.raw_enterprise_files.toLocaleString(locale)} DATEIEN → ${data.corpus_gate.canonical_golden_sources} GOLDEN SOURCES)`}
+                  ? `${data.corpus_gate.raw_enterprise_files.toLocaleString(locale)} files → `
+                  : `${data.corpus_gate.raw_enterprise_files.toLocaleString(locale)} Dateien → `}
+                <strong className="text-emerald-800">
+                  {data.corpus_gate.canonical_golden_sources} {isEn ? 'approved Golden Sources locked' : 'geprüfte Golden Sources fixiert'}
+                </strong>
+                {' • '}
+                <strong className="text-sbb-red">
+                  {data.corpus_gate.legacy_conflicts_flagged} {isEn ? 'outdated PDFs flagged' : 'veraltete PDFs markiert'}
+                </strong>
               </span>
             </div>
-            <span className="text-[10px] font-mono text-zinc-500">
-              {(() => {
-                if (scenarioId === 'alpine_transit_crisis') {
-                  return isEn ? 'Technical Archives + SCADA Telemetry + Operating Rules' : 'Betriebsarchive + Leittechnik-Logs + Fahrdienstvorschriften';
-                } else if (scenarioId === 'esg_investigation') {
-                  return isEn ? 'Group Procurement + Supplier Audits + Legal Repositories' : 'Konzerneinkauf + Lieferanten-Audits + Rechtsdossiers';
-                } else if (scenarioId === 'health_data_breach') {
-                  return isEn ? 'Enterprise Cloud KMS + FDPIC Rulings + Security Specs' : 'Kryptosysteme + EDÖB-Gutachten + Sicherheitsdossiers';
-                }
-                return isEn ? 'Veeva Vault + SharePoint + Regulatory Repositories' : 'Veeva Vault + SharePoint + Rechtsarchive';
-              })()}
-            </span>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 font-mono text-xs">
-            <div className="p-3 bg-white border border-zinc-200">
-              <div className="text-[10px] text-zinc-600 uppercase font-bold">{isEn ? 'ALL INTERNAL FILES' : 'ALLE INTERNEN DATEIEN'}</div>
-              <div className="text-xl font-black text-sbb-black">{data.corpus_gate.raw_enterprise_files.toLocaleString(locale)}</div>
-              <div className="text-[10px] text-zinc-600 mt-0.5">{isEn ? 'Global HQ & Country Affiliates' : 'Zentrale & Ländergesellschaften'}</div>
-            </div>
-
-            <div className="p-3 bg-white border border-zinc-200">
-              <div className="text-[10px] text-zinc-600 uppercase font-bold">{isEn ? 'CURRENT APPROVED FILES' : 'AKTUELL FREIGEGEBEN'}</div>
-              <div className="text-xl font-black text-zinc-800">{data.corpus_gate.active_governed_records.toLocaleString(locale)}</div>
-              <div className="text-[10px] text-zinc-600 mt-0.5">{isEn ? 'MLR / Legal Approved' : 'MLR- / Legal-freigegeben'}</div>
-            </div>
-
-            <div className="p-3 bg-white border border-emerald-300">
-              <div className="text-[10px] text-emerald-800 uppercase font-bold">{isEn ? 'APPROVED GOLDEN SOURCES' : 'GEPRÜFTE GOLDEN SOURCES'}</div>
-              <div className="text-xl font-black text-emerald-700">{data.corpus_gate.canonical_golden_sources}</div>
-              <div className="text-[10px] text-emerald-800 mt-0.5">{isEn ? 'Locked Wording Packs' : 'Verbindliche Sprachregelungen'}</div>
-            </div>
-
-            <div className="p-3 bg-red-50 border border-red-200">
-              <div className="text-[10px] text-red-700 uppercase font-bold">{isEn ? 'OUTDATED FILES & OLD PDFS' : 'VERALTETE DATEIEN & ALT-PDFS'}</div>
-              <div className="text-xl font-black text-red-700">{data.corpus_gate.legacy_conflicts_flagged}</div>
-              <div className="text-[10px] text-red-700 mt-0.5">
-                {(() => {
-                  if (scenarioId === 'alpine_transit_crisis') {
-                    return isEn ? 'Decommission Stale Manuals & PDFs' : 'Veraltete Handbücher & Alt-PDFs abschalten';
-                  } else if (scenarioId === 'esg_investigation') {
-                    return isEn ? 'Decommission Pre-2025 Audit PDFs' : 'Alte Audit-PDFs ausser Betrieb nehmen';
-                  } else if (scenarioId === 'health_data_breach') {
-                    return isEn ? 'Decommission Deprecated Draft PDFs' : 'Überholte Konzept-PDFs abschalten';
-                  }
-                  return isEn ? 'Flagged for Public PDF Decommissioning' : 'Zur Abschaltung veralteter PDFs markiert';
-                })()}
-              </div>
-            </div>
-          </div>
-
-          {/* Collapsible Toggle for Flagged Outdated Files */}
-          <div className="pt-2 flex justify-end">
             <button
+              type="button"
               onClick={() => setShowGovernanceDetails(prev => !prev)}
-              className="text-[10px] font-mono font-bold text-sbb-black hover:text-sbb-red transition-colors flex items-center gap-1 cursor-pointer"
+              className="text-[10px] font-mono font-bold text-sbb-black hover:text-sbb-red transition-colors flex items-center gap-1 cursor-pointer self-start sm:self-auto shrink-0"
             >
               <span>
                 {showGovernanceDetails
-                  ? (isEn ? '▲ Hide Flagged Outdated Files' : '▲ Markierte Alt-Dateien ausblenden')
-                  : (isEn ? '▼ Inspect Flagged Outdated Files' : '▼ Markierte Alt-Dateien prüfen')}
+                  ? (isEn ? '▲ Hide Filter & Outdated PDFs' : '▲ Filter & Alt-PDFs ausblenden')
+                  : (isEn ? '▼ Inspect Filter & Outdated PDFs' : '▼ Filter & Alt-PDFs prüfen')}
               </span>
             </button>
           </div>
 
           {showGovernanceDetails && (
-            <div className="space-y-4 pt-2 border-t border-zinc-200 animate-fadeIn">
+            <div className="space-y-4 pt-3 border-t border-zinc-200 animate-fadeIn">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 font-mono text-xs">
+                <div className="p-3 bg-white border border-zinc-200">
+                  <div className="text-[10px] text-zinc-600 uppercase font-bold">{isEn ? 'ALL INTERNAL FILES' : 'ALLE INTERNEN DATEIEN'}</div>
+                  <div className="text-xl font-black text-sbb-black">{data.corpus_gate.raw_enterprise_files.toLocaleString(locale)}</div>
+                  <div className="text-[10px] text-zinc-600 mt-0.5">{isEn ? 'Global HQ & Affiliates' : 'Zentrale & Länder'}</div>
+                </div>
+                <div className="p-3 bg-white border border-zinc-200">
+                  <div className="text-[10px] text-zinc-600 uppercase font-bold">{isEn ? 'CURRENT APPROVED FILES' : 'AKTUELL FREIGEGEBEN'}</div>
+                  <div className="text-xl font-black text-zinc-800">{data.corpus_gate.active_governed_records.toLocaleString(locale)}</div>
+                  <div className="text-[10px] text-zinc-600 mt-0.5">{isEn ? 'MLR / Legal Approved' : 'MLR- / Legal-freigegeben'}</div>
+                </div>
+                <div className="p-3 bg-white border border-emerald-300">
+                  <div className="text-[10px] text-emerald-800 uppercase font-bold">{isEn ? 'APPROVED GOLDEN SOURCES' : 'GEPRÜFTE GOLDEN SOURCES'}</div>
+                  <div className="text-xl font-black text-emerald-700">{data.corpus_gate.canonical_golden_sources}</div>
+                  <div className="text-[10px] text-emerald-800 mt-0.5">{isEn ? 'Locked Wording Packs' : 'Verbindliche Quellen'}</div>
+                </div>
+                <div className="p-3 bg-red-50 border border-red-200">
+                  <div className="text-[10px] text-red-700 uppercase font-bold">{isEn ? 'OUTDATED FILES & OLD PDFS' : 'VERALTETE DATEIEN & ALT-PDFS'}</div>
+                  <div className="text-xl font-black text-red-700">{data.corpus_gate.legacy_conflicts_flagged}</div>
+                  <div className="text-[10px] text-red-700 mt-0.5">{isEn ? 'Quarantined from Recipes' : 'Für Rezepte gesperrt'}</div>
+                </div>
+              </div>
               {/* Legacy Conflict Alert Drawer */}
               {data.corpus_gate.conflict_details && data.corpus_gate.conflict_details.length > 0 && (
                 <div className="p-3 bg-red-50/80 border border-red-200 text-xs">
@@ -411,65 +402,7 @@ export const TrendingFactoryView: React.FC<Props> = ({
           </div>
         </div>
 
-        {/* Use-Case Scope Strip: How Much the Recipe Edits */}
-        <div className="bg-white border border-sbb-aluminum p-4 space-y-2.5">
-          <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-sbb-stone">
-            {isEn ? 'HOW MUCH THE RECIPE EDITS BY USE CASE (NO ONE-SIZE-FITS-ALL REWRITE):' : 'WIE STARK DAS REZEPT JE NACH AUFGABE EINGREIFT (KEIN EINHEITSBREI):'}
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 text-[11px]">
-            <div className="p-2.5 bg-sbb-cloud/50 border border-sbb-aluminum">
-              <div className="font-mono text-[10px] font-bold text-sbb-black uppercase mb-0.5">
-                {isEn ? 'Owned Media & Website' : 'Owned Media & Website'}
-              </div>
-              <p className="text-zinc-700 leading-snug">
-                {isEn ? 'Full answer-first structure & plain language so readers and AI search get the key facts right.' : 'Klare Kernaussage am Anfang & Alltagssprache für Lesende und KI-Suche.'}
-              </p>
-            </div>
-            <div className="p-2.5 bg-emerald-50/50 border border-emerald-300">
-              <div className="font-mono text-[10px] font-bold text-emerald-900 uppercase mb-0.5">
-                {isEn ? 'Clinical Studies & Data' : 'Klinische Studien & Daten'}
-              </div>
-              <p className="text-zinc-700 leading-snug">
-                {isEn ? 'Light touch (scientific accuracy protected): endpoints (HR 0.41, p<0.001) stay untouched; adds a clear context header.' : 'Schonender Eingriff: Studien-Endpunkte bleiben exakt erhalten; ergänzt nur klaren Kontext.'}
-              </p>
-            </div>
-            <div className="p-2.5 bg-sbb-cloud/50 border border-sbb-aluminum">
-              <div className="font-mono text-[10px] font-bold text-sbb-black uppercase mb-0.5">
-                {isEn ? 'Social & Leadership' : 'Social & Führung'}
-              </div>
-              <p className="text-zinc-700 leading-snug">
-                {isEn ? 'Removes hollow LinkedIn clichés; focuses on tangible everyday human value.' : 'Streicht hohle LinkedIn-Floskeln; stellt den greifbaren Alltagsnutzen voran.'}
-              </p>
-            </div>
-            <div className="p-2.5 bg-sbb-cloud/50 border border-sbb-aluminum">
-              <div className="font-mono text-[10px] font-bold text-sbb-black uppercase mb-0.5">
-                {isEn ? 'Press Q&A & Draft Review' : 'Medien-Q&A & Textprüfung'}
-              </div>
-              <p className="text-zinc-700 leading-snug">
-                {isEn ? 'Spots loaded questions without repeating accusations; marks gaps as [Open / To verify].' : 'Erkennt Fangfragen ohne Vorwürfe zu wiederholen; markiert Lücken als [Offen / Zu prüfen].'}
-              </p>
-            </div>
-          </div>
-        </div>
-
         <div className="bg-white border border-sbb-aluminum">
-          {/* Role of Owned HTML + Press Formats */}
-          <div className="px-6 py-3 bg-sbb-cloud/70 border-b border-sbb-aluminum flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
-            <div className="text-sbb-black leading-snug">
-              {isEn ? (
-                <>
-                  <strong className="font-mono uppercase text-red-700">Owned + Press Formats:</strong> AI search pulls heavily from independent press coverage while checking corporate pages (server-rendered HTML) for primary figures.
-                </>
-              ) : (
-                <>
-                  <strong className="font-mono uppercase text-red-700">Owned- + Presse-Formate:</strong> KI-Suchmaschinen zitieren stark aus unabhängigen Medienberichten und prüfen Unternehmensseiten (SSR HTML) für Primärzahlen.
-                </>
-              )}
-            </div>
-            <span className="font-mono text-[10px] font-bold uppercase px-2 py-0.5 bg-white border border-zinc-300 text-sbb-black shrink-0">
-              {isEn ? 'Owned HTML + Press Formats' : 'Owned HTML + Presse-Formate'}
-            </span>
-          </div>
           {/* Format Selector Tabs */}
           <div className="grid grid-cols-2 md:grid-cols-4 border-b border-sbb-aluminum bg-sbb-cloud/40">
             {formatTabs.map(fmt => {
@@ -479,7 +412,7 @@ export const TrendingFactoryView: React.FC<Props> = ({
               return (
                 <button
                   key={fmt.id}
-                  onClick={() => setSelectedFormat(fmt.id)}
+                  onClick={() => handleSelectFormat(fmt.id)}
                   className={`p-4 sm:p-5 text-left border-r border-sbb-aluminum last:border-r-0 transition-all cursor-pointer ${
                     isSelected
                       ? 'bg-white border-b-2 border-b-sbb-red'
@@ -559,24 +492,22 @@ export const TrendingFactoryView: React.FC<Props> = ({
                 </div>
               </div>
 
-              {/* Interactive Turn 2 Steering Buttons */}
+              {/* Interactive Turn 2 Recipe Edit-Depth Modes */}
               <div className="pt-2 border-t border-zinc-200 space-y-2">
                 <div className="text-[10px] font-mono font-bold uppercase text-sbb-stone">
-                  {isEn ? 'STEER TURN 2 BEFORE DRAFTING (CLICK TO ADJUST):' : 'SCHRITT 2 VOR DEM ENTWURF STEUERN (KLICKEN):'}
+                  {isEn ? 'CHOOSE RECIPE EDIT DEPTH (UPDATES DIFF & DRAFT BELOW):' : 'EINGRIFFSTIEFE WÄHLEN (PASST DIFF & ENTWURF AN):'}
                 </div>
                 <div className="flex flex-wrap gap-1.5">
                   {[
-                    { id: 'study_rigor' as const, label: isEn ? '🔬 Study / Scientific Mode' : '🔬 Studien- / Wissenschafts-Modus' },
-                    { id: 'layperson' as const, label: isEn ? '+ Plain everyday language' : '+ Klare Alltagssprache' },
-                    { id: 'local_proof' as const, label: isEn ? '+ Highlight local market facts' : '+ Lokale Fakten betonen' },
-                    { id: 'legal_boundary' as const, label: isEn ? '+ Strict legal boundary' : '+ Strikte Rechtsgrenze' },
-                    { id: 'express' as const, label: isEn ? '⚡ Express 1-Click Mode' : '⚡ Express 1-Klick-Modus' },
+                    { id: 'plain' as const, label: isEn ? '💬 Plain Language (Owned & Social)' : '💬 Alltagssprache (Owned & Social)' },
+                    { id: 'study_rigor' as const, label: isEn ? '🔬 Study & Technical Rigor (Light Touch)' : '🔬 Studien- & Fachpräzision (Schonend)' },
+                    { id: 'legal_boundary' as const, label: isEn ? '⚖️ Legal & Q&A Boundary ([Open / To Verify])' : '⚖️ Rechtsgrenze & Q&A ([Offen / Zu prüfen])' },
                   ].map((chip) => (
                     <button
                       key={chip.id}
                       type="button"
                       onClick={() => setActiveSteering(chip.id)}
-                      className={`px-2.5 py-1 font-mono text-[10px] font-bold border transition-colors cursor-pointer ${
+                      className={`px-3 py-1.5 font-mono text-[10px] font-bold border transition-colors cursor-pointer ${
                         activeSteering === chip.id
                           ? 'bg-sbb-black text-white border-sbb-black'
                           : 'bg-white text-zinc-700 border-zinc-300 hover:border-sbb-black'
@@ -589,24 +520,16 @@ export const TrendingFactoryView: React.FC<Props> = ({
                 <div className="text-[11px] text-zinc-700 bg-white border-l-2 border-sbb-red px-3 py-1.5">
                   {activeSteering === 'study_rigor' &&
                     (isEn
-                      ? 'Light-touch mode active: Clinical endpoints, statistical precision, and medical terminology stay untouched so scientific credibility is protected. Edits add only a clear context header separating trial results from reimbursement debates.'
-                      : 'Schonender Studien-Modus aktiv: Klinische Endpunkte, Statistik und Fachbegriffe bleiben unverändert, um die wissenschaftliche Glaubwürdigkeit zu schützen. Ergänzt wird nur ein klarer Kontext-Kopf zur Trennung von Studiendaten und Preisdebatte.')}
-                  {activeSteering === 'layperson' &&
+                      ? 'Light-touch mode active: Clinical endpoints, statistical precision, and technical figures stay untouched so scientific credibility is protected. Edits add only a clear context header.'
+                      : 'Schonender Fach-Modus aktiv: Klinische Endpunkte, Statistik und technische Kennzahlen bleiben unverändert, um die Glaubwürdigkeit zu schützen. Ergänzt wird nur ein klarer Kontext-Kopf.')}
+                  {activeSteering === 'plain' &&
                     (isEn
                       ? 'Plain-language mode active: Replaces internal jargon and defensive phrasing with clear, everyday language that readers without background knowledge understand immediately.'
                       : 'Alltagssprachen-Modus aktiv: Ersetzt internen Fachjargon und defensive Formulierungen durch klare Sprache, die auch Laien sofort verstehen.')}
-                  {activeSteering === 'local_proof' &&
-                    (isEn
-                      ? 'Local-facts mode active: Prioritizes country-specific regulatory anchors and local patient access details from GS-01–GS-03.'
-                      : 'Lokal-Modus aktiv: Hebt länderspezifische Behörden-Anker und konkrete Zugangsdaten aus GS-01–GS-03 hervor.')}
                   {activeSteering === 'legal_boundary' &&
                     (isEn
-                      ? 'Legal-boundary mode active: Locks unverified figures as [Open / To verify] and avoids any forward-looking commitments.'
-                      : 'Rechtsgrenzen-Modus aktiv: Markiert ungeprüfte Angaben als [Offen / Zu prüfen] und vermeidet vorzeitige Zusagen.')}
-                  {activeSteering === 'express' &&
-                    (isEn
-                      ? 'Express 80/20 mode active: Runs the Turn 1 fact check as a compact gate and outputs the draft in a single pass for urgent deadlines.'
-                      : 'Express-Modus aktiv: Führt den Faktencheck kompakt im Hintergrund aus und liefert den Entwurf in einem Schritt.')}
+                      ? 'Legal-boundary mode active: Locks unverified figures as [Open / To verify with Legal/MLR] and avoids any forward-looking commitments.'
+                      : 'Rechtsgrenzen-Modus aktiv: Markiert ungeprüfte Angaben als [Offen / Mit Legal/MLR prüfen] und vermeidet vorzeitige Zusagen.')}
                 </div>
               </div>
             </div>
@@ -660,41 +583,106 @@ export const TrendingFactoryView: React.FC<Props> = ({
             </div>
 
             {/* Interactive Before / After Word Diff Box */}
-            {showWordDiff && (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 p-3.5 bg-zinc-50 border border-zinc-200 text-xs">
-                <div className="p-2.5 bg-red-50/60 border border-red-200 space-y-1">
-                  <div className="font-mono text-[10px] font-bold text-red-800 uppercase">
-                    {isEn ? 'REMOVED BY RECIPE (RUSHED DRAFT TRAP):' : 'VOM REZEPT ENTFERNT (TYPISCHE FALLE):'}
-                  </div>
-                  <p className="text-red-900 line-through leading-snug">
-                    {scenarioId === 'rlt_access_debate'
-                      ? (isEn
-                          ? '«Despite claims that ONCO-104 failed in European patients, we remain committed to navigating complex payer ecosystems.»'
-                          : '«Entgegen Behauptungen, ONCO-104 sei bei europäischen Patienten gescheitert, engagieren wir uns weiter in komplexen Systemen.»')
-                      : (isEn
-                          ? '«We are not boycotting European patients or abandoning our Swiss headquarters—we are driving transformative healthcare agility.»'
-                          : '«Wir boykottieren keine europäischen Patienten und verlassen den Schweizer Hauptsitz nicht – wir treiben agile Transformation voran.»')}
-                  </p>
-                </div>
+            {showWordDiff && (() => {
+              const diffMap: Record<string, { removedEn: string; removedDe: string; addedEn: string; addedDe: string }> = {
+                rlt_access_debate: {
+                  removedEn: '«Despite claims that ONCO-104 failed in European patients, we remain committed to navigating complex payer ecosystems.»',
+                  removedDe: '«Entgegen Behauptungen, ONCO-104 sei bei europäischen Patienten gescheitert, engagieren wir uns weiter in komplexen Systemen.»',
+                  addedEn: activeSteering === 'study_rigor'
+                    ? '«Phase III ONCO-01 doubled progression-free survival (HR 0.41, p<0.001) [endpoints preserved]. UK NICE’s decision reflects cost-per-QALY thresholds, not clinical efficacy.»'
+                    : activeSteering === 'legal_boundary'
+                    ? '«Phase III ONCO-01 doubled progression-free survival (HR 0.41, p<0.001). [Open / To verify with Legal/MLR: exact UK NICE resubmission timeline].»'
+                    : '«Phase III ONCO-01 doubled the time patients lived without their cancer growing (HR 0.41, p<0.001). The UK review was about price limits, not whether the medicine works.»',
+                  addedDe: activeSteering === 'study_rigor'
+                    ? '«Phase-III-Studie ONCO-01 verdoppelte das progressionsfreie Überleben (HR 0.41, p<0.001) [Endpunkte unverändert]. Die NICE-Entscheidung betrifft Kostenschwellen, nicht die Wirksamkeit.»'
+                    : activeSteering === 'legal_boundary'
+                    ? '«Phase-III-Studie ONCO-01 verdoppelte das progressionsfreie Überleben (HR 0.41, p<0.001). [Offen / Mit Legal/MLR prüfen: genaues Datum der NICE-Neueinreichung].»'
+                    : '«Die Studie ONCO-01 verdoppelte die Zeit, in der Patienten ohne Tumorwachstum lebten (HR 0.41). In Grossbritannien ging es um Preisgrenzen, nicht um die Wirksamkeit.»'
+                },
+                health_data_breach: {
+                  removedEn: '«We strongly deny that foreign authorities can read Swiss patient records; our cloud architecture leverages best-in-class zero-trust paradigms.»',
+                  removedDe: '«Wir weisen entschieden zurück, dass ausländische Behörden Schweizer Patientendaten lesen können; unsere Cloud nutzt Best-in-Class-Zero-Trust-Paradigmen.»',
+                  addedEn: activeSteering === 'legal_boundary'
+                    ? '«Patient data is encrypted with Bring-Your-Own-Key (BYOK) held in Switzerland under FDPIC oversight. [Open / To verify with Legal: exact audit log release date].»'
+                    : '«Patient records are mathematically unreadable outside Switzerland: the decryption keys stay 100% in Swiss hands under federal privacy oversight.»',
+                  addedDe: activeSteering === 'legal_boundary'
+                    ? '«Patientendaten werden mit Bring-Your-Own-Key (BYOK) in der Schweiz unter EDÖB-Aufsicht verschlüsselt. [Offen / Mit Legal prüfen: Datum des Prüfberichts].»'
+                    : '«Patientendaten sind ausserhalb der Schweiz mathematisch unlesbar: Die digitalen Schlüssel bleiben zu 100 % in Schweizer Hand.»'
+                },
+                esg_investigation: {
+                  removedEn: '«These isolated Tier-2 allegations do not reflect our holistic sustainability journey or our commitment to stakeholder-centric supply chain synergy.»',
+                  removedDe: '«Diese isolierten Tier-2-Vorwürfe spiegeln nicht unsere ganzheitliche Nachhaltigkeitsreise und Lieferketten-Synergie wider.»',
+                  addedEn: activeSteering === 'legal_boundary'
+                    ? '«All orders to the subcontractor are frozen effective immediately while an independent Big-4 on-site audit runs. [Open / To verify with Legal: final audit publication date].»'
+                    : '«Zero tolerance: we froze all orders to the affected supplier immediately and launched an independent on-site audit whose findings will be published.»',
+                  addedDe: activeSteering === 'legal_boundary'
+                    ? '«Alle Aufträge an den Subunternehmer sind per sofort gestoppt; eine unabhängige Vor-Ort-Prüfung läuft. [Offen / Mit Legal prüfen: Publikationsdatum des Berichts].»'
+                    : '«Nulltoleranz: Wir haben alle Aufträge an den betroffenen Zulieferer sofort gestoppt und eine unabhängige Prüfung vor Ort gestartet.»'
+                },
+                alpine_transit_crisis: {
+                  removedEn: '«Contrary to unconfirmed sabotage rumors, passenger safety is our #1 priority during this unprecedented operational disruption.»',
+                  removedDe: '«Entgegen unbestätigten Sabotage-Gerüchten hat Fahrgastsicherheit höchste Priorität während dieser beispiellosen Betriebsstörung.»',
+                  addedEn: activeSteering === 'legal_boundary'
+                    ? '«Trains are routed safely via the scenic mountain line while a relay component is replaced. [Open / To verify with Security/NCSC: final root-cause sign-off].»'
+                    : '«All trains are running safely via the scenic mountain route (+55 min) while engineers replace a signalling relay; full tunnel service resumes at 20:00 CET.»',
+                  addedDe: activeSteering === 'legal_boundary'
+                    ? '«Züge verkehren sicher über die Bergstrecke, während ein Stellwerk-Bauteil ersetzt wird. [Offen / Mit Sicherheit/NCSC prüfen: abschliessende Ursachenfreigabe].»'
+                    : '«Alle Züge fahren sicher über die Bergstrecke (+55 Min.), während Techniker ein Signal-Bauteil tauschen; ab 20:00 Uhr läuft der Tunnel wieder regulär.»'
+                },
+                oncology_trial_update: {
+                  removedEn: '«We are not boycotting European patients or abandoning Switzerland—we are driving transformative healthcare agility.»',
+                  removedDe: '«Wir boykottieren keine europäischen Patienten und verlassen die Schweiz nicht – wir treiben agile Transformation voran.»',
+                  addedEn: activeSteering === 'legal_boundary'
+                    ? '«Switzerland remains our global headquarters. Our $15B U.S. investment expands local production. [Open / To verify with Legal: country-by-country launch dates].»'
+                    : '«Switzerland remains our global headquarters and primary research hub. Our $15B U.S. investment expands local manufacturing while patient access programs continue on schedule.»',
+                  addedDe: activeSteering === 'legal_boundary'
+                    ? '«Die Schweiz bleibt unser weltweiter Hauptsitz. Die 15-Mrd.-$-Investition stärkt die US-Produktion. [Offen / Mit Legal prüfen: Länder-Einführungsdaten].»'
+                    : '«Die Schweiz bleibt unser weltweiter Hauptsitz und Forschungsstandort. Die 15-Mrd.-$-Investition baut die US-Produktion aus; Zugangsprogramme laufen planmässig weiter.»'
+                }
+              };
+              const activeDiff = diffMap[scenarioId] || diffMap.oncology_trial_update;
 
-                <div className="p-2.5 bg-emerald-50/70 border border-emerald-300 space-y-1">
-                  <div className="font-mono text-[10px] font-bold text-emerald-900 uppercase">
-                    {isEn ? 'ADDED BY RECIPE (GOLDEN SOURCES GS-01–GS-03):' : 'VOM REZEPT VERANKERT (GOLDEN SOURCES GS-01–GS-03):'}
+              return (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 p-3.5 bg-zinc-50 border border-zinc-200 text-xs">
+                  <div className="p-2.5 bg-red-50/60 border border-red-200 space-y-1">
+                    <div className="font-mono text-[10px] font-bold text-red-800 uppercase">
+                      {isEn ? 'REMOVED BY RECIPE (RUSHED DRAFT TRAP):' : 'VOM REZEPT ENTFERNT (TYPISCHE FALLE):'}
+                    </div>
+                    <p className="text-red-900 line-through leading-snug">
+                      {isEn ? activeDiff.removedEn : activeDiff.removedDe}
+                    </p>
                   </div>
-                  <p className="text-emerald-950 font-medium leading-snug">
-                    {scenarioId === 'rlt_access_debate'
-                      ? (isEn
-                          ? '«Phase III ONCO-01 doubled progression-free survival (HR 0.41, p<0.001). UK NICE’s decision reflects cost-per-QALY thresholds, not clinical efficacy.»'
-                          : '«Phase-III-Studie ONCO-01 verdoppelte das progressionsfreie Überleben (HR 0.41, p<0.001). Die NICE-Entscheidung betrifft nur Kosten-Schwellenwerte, nicht die Wirksamkeit.»')
-                      : (isEn
-                          ? '«Switzerland remains our global headquarters and primary research hub. Our $15B U.S. investment expands local manufacturing while patient access programs continue on schedule.»'
-                          : '«Die Schweiz bleibt unser weltweiter Hauptsitz und Forschungsstandort. Die 15-Mrd.-$-Investition baut die US-Produktion aus; Zugangsprogramme laufen planmässig weiter.»')}
-                  </p>
+
+                  <div className="p-2.5 bg-emerald-50/70 border border-emerald-300 space-y-1">
+                    <div className="font-mono text-[10px] font-bold text-emerald-900 uppercase">
+                      {isEn ? 'ADDED BY RECIPE (GOLDEN SOURCES GS-01–GS-03):' : 'VOM REZEPT VERANKERT (GOLDEN SOURCES GS-01–GS-03):'}
+                    </div>
+                    <p className="text-emerald-950 font-medium leading-snug">
+                      {isEn ? activeDiff.addedEn : activeDiff.addedDe}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            )}
+              );
+            })()}
 
             <div className="bg-sbb-cloud/40 p-6 sm:p-8 border-l-4 border-sbb-black text-sm text-sbb-black leading-relaxed font-sans max-w-4xl space-y-3">
+              {/* Active Recipe Mode Callout inside the Draft */}
+              <div className="p-2.5 bg-white border border-sbb-aluminum text-[11px] font-mono text-zinc-800 flex flex-wrap items-center justify-between gap-2">
+                <span>
+                  <strong className="text-sbb-red uppercase">
+                    {activeSteering === 'study_rigor'
+                      ? (isEn ? '🔬 STUDY RIGOR ACTIVE:' : '🔬 STUDIEN-PRÄZISION AKTIV:')
+                      : activeSteering === 'legal_boundary'
+                      ? (isEn ? '⚖️ LEGAL BOUNDARY ACTIVE:' : '⚖️ RECHTSGRENZE AKTIV:')
+                      : (isEn ? '💬 PLAIN LANGUAGE ACTIVE:' : '💬 ALLTAGSSPRACHE AKTIV:')}
+                  </strong>{' '}
+                  {activeSteering === 'study_rigor'
+                    ? (isEn ? 'Endpoints & technical numbers locked verbatim; context header separates data from pricing.' : 'Endpunkte & Kennzahlen wörtlich geschützt; Kontext-Kopf trennt Daten von Preisdebatte.')
+                    : activeSteering === 'legal_boundary'
+                    ? (isEn ? 'Unverified timelines/claims marked [Open / To verify with Legal/MLR].' : 'Ungeprüfte Angaben als [Offen / Mit Legal/MLR prüfen] markiert.')
+                    : (isEn ? 'Answer-first structure, everyday language, zero defensive denials.' : 'Antwort zuerst, klare Alltagssprache, keine defensiven Dementis.')}
+                </span>
+              </div>
               {blueprint.blueprint_content.split('\n\n').map((block, bIdx) => {
                 const lines = block.split('\n');
                 const renderBold = (text: string) =>

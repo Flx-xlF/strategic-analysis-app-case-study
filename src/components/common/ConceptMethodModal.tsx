@@ -30,7 +30,7 @@ export const ConceptMethodModal: React.FC<Props> = ({ isOpen, onClose, lang }) =
 
   return (
     <div 
-      className="fixed inset-0 z-40 bg-black/60 flex items-start justify-center p-3 sm:p-6 pb-36 overflow-y-auto animate-fadeIn"
+      className="fixed inset-0 z-[60] bg-black/60 flex items-start justify-center p-3 sm:p-6 overflow-y-auto animate-fadeIn"
       onClick={onClose}
     >
       <div 

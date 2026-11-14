@@ -386,83 +386,44 @@ export const GeoAuditView: React.FC<Props> = ({
               {isEn ? 'WHY THE AI ENGINE DISTORTED THE FACTS:' : 'WARUM DIE KI DIE BOTSCHAFT VERZERRT HAT:'}
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {data.distortion_root_causes.map((rc, idx) => (
-                <div key={idx} className="p-4 bg-sbb-cloud/50 border border-sbb-aluminum">
-                  <div className="text-xs font-mono font-bold text-sbb-black mb-1 flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 bg-sbb-red" />
-                    <span>{rc.issue}</span>
-                  </div>
-                  <p className="text-xs text-zinc-700 leading-relaxed mb-3">
-                    {rc.description}
-                  </p>
-                  <div className="text-[10px] font-mono text-sbb-stone pt-2 border-t border-zinc-200">
-                    <span className="font-bold">{isEn ? 'Scraped source: ' : 'Gescrapte Quelle: '}</span>
-                    <span>{rc.source_scraped}</span>
-                  </div>
-                </div>
-              ))}
+              {data.distortion_root_causes.map((rc, idx) => {
+                const distortedIndices = data.ai_synthesis_spans
+                  .map((s, sIdx) => (s.isDistorted ? sIdx : -1))
+                  .filter(sIdx => sIdx !== -1);
+                const targetSpanIndex = distortedIndices[idx] ?? null;
+                const isHighlighted = targetSpanIndex !== null && activeSpanIndex === targetSpanIndex;
+
+                return (
+                  <button
+                    key={idx}
+                    type="button"
+                    onClick={() => {
+                      if (targetSpanIndex !== null) setActiveSpanIndex(targetSpanIndex);
+                    }}
+                    className={`p-4 text-left border transition-all cursor-pointer ${
+                      isHighlighted
+                        ? 'bg-red-50/70 border-sbb-red ring-1 ring-sbb-red/30'
+                        : 'bg-sbb-cloud/50 border-sbb-aluminum hover:border-sbb-black'
+                    }`}
+                  >
+                    <div className="text-xs font-mono font-bold text-sbb-black mb-1 flex items-center gap-1.5">
+                      <span className="px-1.5 py-0.5 bg-sbb-red text-white text-[10px] font-bold">
+                        [{idx + 1}]
+                      </span>
+                      <span>{rc.issue}</span>
+                    </div>
+                    <p className="text-xs text-zinc-700 leading-relaxed mb-3">
+                      {rc.description}
+                    </p>
+                    <div className="text-[10px] font-mono text-sbb-stone pt-2 border-t border-zinc-200">
+                      <span className="font-bold">{isEn ? 'Scraped source: ' : 'Gescrapte Quelle: '}</span>
+                      <span>{rc.source_scraped}</span>
+                    </div>
+                  </button>
+                );
+              })}
             </div>
           </div>
-
-          {/* Diagnostic Comparison: Automated NLP Tool vs Strategic Human Judgment */}
-          {data.llm_limitation_test && (
-            <div className="pt-5 border-t border-zinc-200 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-sbb-stone">
-                  {isEn ? 'WHY AUTOMATED SENTIMENT SCORES MISSED THIS RISK' : 'WARUM AUTOMATISCHES SENTIMENT DIESES RISIKO ÜBERSAH'}
-                </span>
-                <span className="text-[10px] font-mono text-sbb-red font-bold">
-                  {isEn ? 'Why naive automation fails' : 'Warum reine Automatisierung versagt'}
-                </span>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-                {/* Left: Automated NLP Tool */}
-                <div className="p-4 bg-zinc-50 border border-zinc-200 space-y-2">
-                  <div className="flex items-center justify-between pb-1.5 border-b border-zinc-200">
-                    <span className="font-mono text-[10px] text-zinc-500 uppercase font-bold">
-                      {isEn ? 'Commercial Tool Assessment' : 'Kommerzielles NLP-Tool'}
-                    </span>
-                    <span className="font-mono text-[9px] px-1.5 py-0.5 bg-zinc-200 text-zinc-700">
-                      {data.llm_limitation_test.automated_tool_verdict.confidence}
-                    </span>
-                  </div>
-                  <div className="font-bold text-zinc-800 text-sm">
-                    {data.llm_limitation_test.automated_tool_verdict.sentiment}
-                  </div>
-                  <p className="text-zinc-600 leading-relaxed">
-                    {data.llm_limitation_test.automated_tool_verdict.flawed_assessment}
-                  </p>
-                  <div className="text-[10px] font-mono text-zinc-500 pt-1.5">
-                    Keywords: {data.llm_limitation_test.automated_tool_verdict.keywords_detected.join(', ')}
-                  </div>
-                </div>
-
-                {/* Right: Strategic Human Analysis */}
-                <div className="p-4 bg-red-50/50 border border-red-200 space-y-2">
-                  <div className="flex items-center justify-between pb-1.5 border-b border-red-200">
-                    <span className="font-mono text-[10px] text-sbb-red uppercase font-bold">
-                      {isEn ? 'Human Strategic Diagnosis' : 'Menschliche Strategie-Einordnung'}
-                    </span>
-                    <span className="font-mono text-[9px] px-1.5 py-0.5 bg-red-100 text-sbb-red font-bold">
-                      {data.llm_limitation_test.strategic_human_analysis.risk_rating}
-                    </span>
-                  </div>
-                  <div className="font-bold text-sbb-red text-sm">
-                    {data.llm_limitation_test.strategic_human_analysis.subtext_decoded}
-                  </div>
-                  <p className="text-zinc-800 leading-relaxed">
-                    <span className="font-bold">{isEn ? 'Regulatory / Business Implication: ' : 'Regulatorische Folge: '}</span>
-                    {data.llm_limitation_test.strategic_human_analysis.regulatory_implication}
-                  </p>
-                  <div className="text-[11px] font-mono text-sbb-black pt-1.5 border-t border-red-100">
-                    <span className="font-bold text-sbb-red">{isEn ? 'Action: ' : 'Handlungsempfehlung: '}</span>
-                    {data.llm_limitation_test.strategic_human_analysis.recommended_action}
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
         </div>
       </div>
 

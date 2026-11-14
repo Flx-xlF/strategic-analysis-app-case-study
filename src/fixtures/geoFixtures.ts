@@ -90,8 +90,8 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
             region: 'ch',
             outlet: 'Neue Zürcher Zeitung (NZZ)',
             tier: 'Tier-1 National',
-            headline: '15 Billion for the US and Reference Price Pressure: What Does the Company\'s Strategy Mean for the Swiss headquarters and Swiss Patients?',
-            excerpt: 'As billions flow into American manufacturing and drugmakers push back on Swiss reference baskets, observers ask whether Swiss HQ\'s global weight is slipping and if Swiss patients will wait longer for treatments.',
+            headline: '15 Billion for the US and Reference Price Pressure: What Does the Company\'s Strategy Mean for the Swiss Headquarters and Swiss Patients?',
+            excerpt: 'As billions flow into American manufacturing and drugmakers push back on Swiss reference baskets, observers ask whether Switzerland\'s global headquarters weight is slipping and if Swiss patients will wait longer for treatments.',
             cosine_to_target: 0.39,
             violated_pillar: 'Pillar 02: Dual Commitment ($15B US & Swiss HQ)'
           },
@@ -120,7 +120,7 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
         {
           text: "According to policy commentators, the pharmaceutical giant is shifting its primary corporate center of gravity from Switzerland to the US, effectively beginning a phased relocation of its global headquarters. ",
           isDistorted: true,
-          correction: "CRITICAL HALLUCINATION: The Company is NOT relocating its headquarters. Swiss HQ remains the corporate headquarters, executive governance seat, and global scientific nerve center (GS-02)."
+          correction: "CRITICAL HALLUCINATION: The Company is NOT relocating its headquarters. Switzerland remains the corporate headquarters, executive governance seat, and global scientific nerve center (GS-02)."
         },
         {
           text: "In response to European price caps, the CEO announced that the company will freeze all upcoming cancer drug launches in European and Swiss healthcare markets until governments match US reimbursement rates. ",
@@ -156,7 +156,7 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
           risk_rating: "ACUTE REPUTATION & STAKEHOLDER CRISIS IN SWITZERLAND & EU",
           subtext_decoded: "The AI output falsely tells Swiss citizens and employees that the company is leaving Switzerland, while telling European doctors that the company is withholding life-saving cancer drugs.",
           regulatory_implication: "Triggers emergency Swiss parliamentary inquiries on Standort Schweiz and hardens European HTA resistance against upcoming frontier medicine submissions.",
-          recommended_action: "Publish a structured fact block affirming Swiss HQ permanence and collaborative access frameworks across all search-grounded platforms immediately."
+          recommended_action: "Publish a structured fact block affirming Swiss headquarters permanence and collaborative access frameworks across all search-grounded platforms immediately."
         }
       },
       geo_optimization_fix: {
@@ -410,7 +410,7 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
       hallucination_rate: 54,
       ai_synthesis_spans: [
         {
-          text: "ONCO-104 is an advanced targeted targeted cancer therapy for metastatic castration-resistant solid-tumor oncology. ",
+          text: "ONCO-104 is an advanced targeted cancer therapy evaluated in the Phase III ONCO-01 trial for advanced solid tumors. ",
           isDistorted: false,
           correction: ""
         },
@@ -451,7 +451,7 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
         structured_fact_block: `### VERIFIED CLINICAL & ACCESS FACTS (ONCO-01 / GS-01)
 • Drug_Name: "ONCO-104 (targeted antibody-drug conjugate (ADC) for solid tumors)"
 • ONCO-01_Clinical_Efficacy: "TRUE (Radiographic progression-free survival doubled: HR 0.41, p<0.001)"
-• FDA_Status: "APPROVED for pre-chemotherapy mCRPC (March 2025)"
+• FDA_Status: "APPROVED for pre-chemotherapy advanced solid tumors (March 2025)"
 • UK_NICE_Status: "Not recommended based strictly on incremental cost-effectiveness thresholds (cost-per-QALY), NOT on clinical efficacy."
 • EMA_Status: "Withdrawn for pre-chemo setting due to comparator design discussions; post-chemo approval remains fully active in EU/Switzerland."`,
         schema_entities: [
@@ -567,11 +567,11 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
       scenario_id: 'oncology_trial_update',
       active_cluster: {
         cluster_id: 'Cluster #01',
-        name: 'Vorwurf von "Einführungsverzögerungen" in Europa & Gerüchte um Swiss HQ',
+        name: 'Vorwurf von "Einführungsverzögerungen" in Europa & Gerüchte um den Schweizer Hauptsitz',
         z_score: 3.9,
         deduped_volume: 4680,
         dominant_region: 'Europa (EU) & Schweiz (CH)',
-        target_pillar_gap: 'Verdreht Säule 01 (Faire Innovationsvergütung) und Säule 02 (Standorttreue Swiss HQ) in Vorwürfe von Patienten-Erpressung und Abwanderung',
+        target_pillar_gap: 'Verdreht Säule 01 (Faire Innovationsvergütung) und Säule 02 (Standorttreue Schweiz) in Vorwürfe von Patienten-Erpressung und Abwanderung',
         centroid_articles: [
           {
             id: 'art_1',
@@ -589,9 +589,9 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
             outlet: 'Neue Zürcher Zeitung (NZZ)',
             tier: 'Leitmedium Schweiz',
             headline: '15 Milliarden für die USA und Druck auf Referenzpreise: Was bedeutet der Kurs des Unternehmens für den Standort Schweiz und Schweizer Patienten?',
-            excerpt: 'Während Milliarden in US-Produktionsstätten fliessen und die Kritik an Schweizer BAG-Referenzkörben wächst, fragen Beobachter nach der Zukunft des Standorts Swiss HQ.',
+            excerpt: 'Während Milliarden in US-Produktionsstätten fliessen und die Kritik an Schweizer BAG-Referenzkörben wächst, fragen Beobachter nach der Zukunft des Schweizer Hauptsitzes.',
             cosine_to_target: 0.39,
-            violated_pillar: 'Säule 02: Doppeltes Bekenntnis (15 Mrd. US & Swiss HQ)'
+            violated_pillar: 'Säule 02: Doppeltes Bekenntnis (15 Mrd. US & Hauptsitz Schweiz)'
           },
           {
             id: 'art_3',
@@ -601,22 +601,22 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
             headline: 'Das Unternehmen sichert 15-Mrd.-$-Produktionsnetzwerk in den USA gegen künftige Zölle ab',
             excerpt: 'Gezielte Lokalisierung der Produktion an 10 Standorten schützt die Medikamentenversorgung und aligniert künftige Produkte mit MFN-Zielen.',
             cosine_to_target: 0.81,
-            violated_pillar: 'Säule 02: Doppeltes Bekenntnis (15 Mrd. US & Swiss HQ)'
+            violated_pillar: 'Säule 02: Doppeltes Bekenntnis (15 Mrd. US & Hauptsitz Schweiz)'
           }
         ]
       },
-      stakeholder_query: "Verlegt das Unternehmen mit der 23-Milliarden-Investition den Hauptsitz in die USA und boykottiert der Konzern europäische und Schweizer Patienten?",
+      stakeholder_query: "Verlegt das Unternehmen mit der 15-Milliarden-Investition den Hauptsitz in die USA und boykottiert der Konzern europäische und Schweizer Patienten?",
       queried_engine: "Frontier LLM & Generative Search Synthesis",
       retrieval_date: "Live-Audit 13.11.2026",
       hallucination_rate: 48,
       ai_synthesis_spans: [
         {
-          text: "Das Unternehmen hat kürzlich eine 23-Milliarden-Dollar-Investition in Forschung und Produktion in den USA bekanntgegeben. ",
+          text: "Das Unternehmen hat kürzlich eine 15-Milliarden-Dollar-Investition in Forschung und Produktion in den USA bekanntgegeben. ",
           isDistorted: false,
           correction: ""
         },
         {
-          text: "Laut Medienkommentaren verlegt der Pharmakonzern damit schrittweise sein unternehmerisches Zentrum von Swiss HQ nach Nordamerika und leitet die Verlegung des Konzernsitzes ein. ",
+          text: "Laut Medienkommentaren verlegt der Pharmakonzern damit schrittweise sein unternehmerisches Zentrum aus der Schweiz nach Nordamerika und leitet die Verlegung des Konzernsitzes ein. ",
           isDistorted: true,
           correction: "KRITISCHE HALLUZINATION: Das Unternehmen verlegt den Hauptsitz NICHT. Die Schweiz bleibt der globale Konzernsitz, Sitz der Geschäftsleitung und zentrales Forschungszentrum (GS-02)."
         },
@@ -652,9 +652,9 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
         },
         strategic_human_analysis: {
           risk_rating: "AKUTE REPUTATIONSKRISE IN SCHWEIZ & EUROPA",
-          subtext_decoded: "Die KI behauptet fälschlich gegenüber Schweizer Bürgern und Mitarbeitenden, das Unternehmen verlasse Swiss HQ, und unterstellt Ärzten gegenüber eine Vorenthaltung lebensrettender Therapien.",
+          subtext_decoded: "Die KI behauptet fälschlich gegenüber Schweizer Bürgern und Mitarbeitenden, das Unternehmen verlasse den Schweizer Hauptsitz, und unterstellt Ärzten gegenüber eine Vorenthaltung lebensrettender Therapien.",
           regulatory_implication: "Gefahr parlamentarischer Vorstösse am Heimmarkt und verhärtete Fronten bei Erstattungsverhandlungen in der EU.",
-          recommended_action: "Verankerung von GEO-strukturierten Faktenblöcken zum Bekenntnis zu Swiss HQ und zu fairen Erstattungsdialogen in allen Suchmaschinen."
+          recommended_action: "Verankerung von klaren Faktenblöcken zum Bekenntnis zum Standort Schweiz und zu fairen Erstattungsdialogen in allen Suchmaschinen."
         }
       },
       geo_optimization_fix: {
@@ -908,7 +908,7 @@ export const GEO_FIXTURES: Record<Language, Record<string, GeoAuditData>> = {
       hallucination_rate: 54,
       ai_synthesis_spans: [
         {
-          text: "ONCO-104 ist eine zielgerichtete zielgerichtete Krebstherapie für metastasierten Onkologie. ",
+          text: "ONCO-104 ist eine zielgerichtete Krebstherapie für fortgeschrittene solide Tumoren (Phase-III-Studie ONCO-01). ",
           isDistorted: false,
           correction: ""
         },

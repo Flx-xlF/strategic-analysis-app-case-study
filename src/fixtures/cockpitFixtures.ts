@@ -67,7 +67,7 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
         syndicated_reprints_collapsed: 31110,
         hdbscan_clusters_identified: 14,
         off_topic_noise_filtered_pct: 88,
-        peak_z_score: '+3.8σ',
+        peak_z_score: '+3.9σ',
         peak_anomaly_summary: 'Statistically significant velocity outbreak in US & EU health policy and payer coverage.',
         centroid_texts_analyzed_by_llm: 340
       },
@@ -88,11 +88,11 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           id: 'pillar_2',
           pillar_number: '02',
           title: 'Dual Commitment: $15B US Footprint & Swiss Global R&D Hub (GS-02)',
-          core_thesis: 'Our $15B 5-year investment expands U.S. manufacturing across 10 facilities so American patients receive locally produced therapies, while Swiss HQ remains the corporate headquarters and global scientific nerve center.',
+          core_thesis: 'Our $15B 5-year investment expands U.S. manufacturing across 10 facilities so American patients receive locally produced therapies, while Switzerland remains the corporate headquarters and global scientific nerve center.',
           target_vector_anchor: 'Ref: GS-02 (Corporate Footprint & Capital Allocation Review)',
           mandatory_proof_points: [
             '$15B capex expands U.S. production (across U.S. biologics and research sites)',
-            'Corporate headquarters, core governance, and primary research remain firmly anchored at the Swiss headquarters',
+            'Corporate headquarters, core governance, and primary research remain firmly anchored at our Swiss headquarters',
             'Supply localization insulates critical patient therapies against geopolitical trade tariffs'
           ]
         },
@@ -105,7 +105,7 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           mandatory_proof_points: [
             'No patient boycott: compassionate use and managed access programs continue actively',
             'Constructive dialogue with Swiss BAG and European authorities to modernize pricing benchmarks',
-            'Test cases (such as next-generation biologics and targeted oncologys) showcase value-based contracting alternatives'
+            'Test cases (such as next-generation biologics and targeted oncology therapies) showcase value-based contracting alternatives'
           ]
         }
       ],
@@ -154,12 +154,12 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           velocity_trend: '+3.5σ Domestic Debate',
           cosine_alignment: 0.41,
           pull_through_status: 'AT_RISK',
-          status_label: 'Dual Anxiety: Swiss HQ Weight & BAG Access',
+          status_label: 'Dual Anxiety: Swiss HQ Role & BAG Access',
           legacy_media_frame: 'National Scrutiny: "15 billion for the US: Is the company shifting weight away from Switzerland while warning Bern on drug prices?"',
           social_forum_frame: 'Domestic Opinion Leaders: Debating whether Swiss cost-containment rules in international baskets will delay patient access.',
           llm_synthesis_frame: 'Corporate Entity Confusion: AI search blends the $15B US capex with rumors of HQ relocation.',
           llm_hallucination_rate: 42,
-          strategic_risk_summary: 'High reputational sensitivity. Need immediate reassurance on Swiss HQ permanence and collaborative dialogue with the Federal Office of Public Health (BAG).'
+          strategic_risk_summary: 'High reputational sensitivity. Need immediate reassurance on Swiss headquarters permanence and collaborative dialogue with the Federal Office of Public Health (BAG).'
         },
         {
           region_id: 'apac',
@@ -181,7 +181,7 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
       ],
       surface_nlp_vs_forensic_reality: {
         commercial_nlp_sentiment: '76% NEUTRAL / POLICY ANALYSIS (Score 0.84)',
-        commercial_nlp_confidence: 'High statistical confidence across 19,350 deduplicated records',
+        commercial_nlp_confidence: 'High statistical confidence across 19,110 deduplicated records',
         commercial_nlp_blindspot: 'Standard NLP sentiment scores formal health-policy coverage and parliamentary inquiries as "Neutral" because they lack emotional profanity or consumer outrage keywords.',
         forensic_reality_verdict: 'ACUTE POLITICAL & REPUTATIONAL BACKLASH IN EU & SWITZERLAND',
         forensic_reality_subtext: 'Cluster #01 ("Launch Delay Fears & Swiss Footprint") experienced a +3.9σ breakout across European and Swiss tier-1 outlets. Payer bodies in Brussels and commentators in Bern are framing pricing reform as an ultimatum against patients.',
@@ -198,7 +198,7 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
         hdbscan_clusters_identified: 9,
         off_topic_noise_filtered_pct: 91,
         peak_z_score: '+4.6σ',
-        peak_anomaly_summary: 'Domestic commuter dynamic in Switzerland; +3.2σ international wire speculation on infrastructure resilience.',
+        peak_anomaly_summary: 'High commuter volume (+4.6σ) in Switzerland; +3.2σ international wire speculation on infrastructure resilience.',
         centroid_texts_analyzed_by_llm: 210
       },
       target_narratives: [
@@ -286,7 +286,7 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           raw_volume: 620,
           deduped_volume: 140,
           velocity_z_score: 0.4,
-          velocity_trend: 'Swiss HQine',
+          velocity_trend: 'Baseline',
           cosine_alignment: 0.70,
           pull_through_status: 'ALIGNED',
           status_label: 'Minimal Exposure',
@@ -303,7 +303,7 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
         commercial_nlp_blindspot: 'Misses that foreign media wires conflated domestic rail maintenance with international hybrid warfare threats.',
         forensic_reality_verdict: 'GEOPOLITICAL FRAMING DRIFT IN INTERNATIONAL WIRES',
         forensic_reality_subtext: 'While Swiss media focused on commuter delays, foreign wire services generated +3.2σ spikes framing the incident as proof of Western infrastructure vulnerability.',
-        statistical_proof_anchor: 'z = +3.2σ international spike | Cross-border alignment 0.35 | 55% international AI distortion'
+        statistical_proof_anchor: 'z = +4.6σ peak spike (+3.2σ intl) | Cross-border alignment 0.35 | 55% AI distortion'
       }
     },
     esg_investigation: {
@@ -430,7 +430,7 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           id: 'p_pillar_1',
           pillar_number: '01',
           title: 'Clinically Proven rPFS Doubling (ONCO-01 / GS-01)',
-          core_thesis: 'ONCO-01 demonstrated a clinically meaningful doubling of radiographic progression-free survival (HR 0.41) in pre-taxane mCRPC, supporting the FDA label expansion.',
+          core_thesis: 'Phase III ONCO-01 demonstrated a clinically meaningful doubling of radiographic progression-free survival (HR 0.41) for ONCO-104 in pre-chemotherapy advanced solid tumors, supporting the FDA label expansion.',
           target_vector_anchor: 'Ref: ONCO-01 §2.1 (Clinical Study Report)',
           mandatory_proof_points: [
             'Radiographic progression-free survival doubled with high statistical significance (HR 0.41)',
@@ -510,7 +510,7 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           raw_volume: 0,
           deduped_volume: 0,
           velocity_z_score: 0,
-          velocity_trend: 'Swiss HQine',
+          velocity_trend: 'Baseline',
           cosine_alignment: 0.70,
           pull_through_status: 'ALIGNED',
           status_label: 'Monitoring Transatlantic Outcome',
@@ -599,7 +599,7 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           raw_volume: 2200,
           deduped_volume: 600,
           velocity_z_score: 0.4,
-          velocity_trend: '+0.4σ Swiss HQine',
+          velocity_trend: '+0.4σ Baseline',
           cosine_alignment: 0.75,
           pull_through_status: 'ALIGNED',
           status_label: 'Standard Implementation',
@@ -616,7 +616,7 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           raw_volume: 0,
           deduped_volume: 0,
           velocity_z_score: 0,
-          velocity_trend: 'Swiss HQine',
+          velocity_trend: 'Baseline',
           cosine_alignment: 0.70,
           pull_through_status: 'ALIGNED',
           status_label: 'No Exposure',
@@ -647,7 +647,7 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
         syndicated_reprints_collapsed: 31110,
         hdbscan_clusters_identified: 14,
         off_topic_noise_filtered_pct: 88,
-        peak_z_score: '+3.8σ',
+        peak_z_score: '+3.9σ',
         peak_anomaly_summary: 'Statistisch signifikante Beschleunigung im US- und EU-Kostenträgerdiskurs.',
         centroid_texts_analyzed_by_llm: 340
       },
@@ -667,12 +667,12 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
         {
           id: 'pillar_2',
           pillar_number: '02',
-          title: 'Doppeltes Bekenntnis: 15-Mrd.-$-US-Präsenz & F&E-Kern Swiss HQ (GS-02)',
+          title: 'Doppeltes Bekenntnis: 15-Mrd.-$-US-Präsenz & F&E-Hauptsitz Schweiz (GS-02)',
           core_thesis: 'Unsere 5-Jahres-Investition über 15 Mrd. $ erweitert die US-Produktion an 10 Standorten für lokale Versorgungssicherheit. Die Schweiz bleibt der globale Konzernsitz und das wissenschaftliche Herz.',
           target_vector_anchor: 'Ref: GS-02 (Konzernstandort- & Kapitalallokationsbericht)',
           mandatory_proof_points: [
             '15 Mrd. $ Investitionen erweitern die US-Produktion (z. B. Präzisionsonkologie in IN & NJ; San Diego F&E)',
-            'Konzernsitz, Haupt-Governance und Spitzenforschung verbleiben unerschütterlich at the Swiss headquarters',
+            'Konzernsitz, Haupt-Governance und Spitzenforschung verbleiben unerschütterlich am Schweizer Hauptsitz',
             'Lokale Produktion schützt versorgungsrelevante Therapien vor geopolitischen Zöllen'
           ]
         },
@@ -734,12 +734,12 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           velocity_trend: '+3.5σ Inländische Debatte',
           cosine_alignment: 0.41,
           pull_through_status: 'AT_RISK',
-          status_label: 'Doppelsorge: Swiss HQ-Gewicht & BAG-Zugang',
-          legacy_media_frame: 'Standortdebatte: "15 Milliarden für die USA: Verliert Swiss HQ an Gewicht und drohen Schweizer Patienten Verzögerungen?"',
+          status_label: 'Doppelsorge: Standort Schweiz & BAG-Zugang',
+          legacy_media_frame: 'Standortdebatte: "15 Milliarden für die USA: Verliert der Schweizer Hauptsitz an Gewicht und drohen Patienten Verzögerungen?"',
           social_forum_frame: 'Meinungsführer: Debatte, ob starre BAG-Preissenkungen in internationalen Referenzkörben den Zugang zu neuen Therapien bremsen.',
           llm_synthesis_frame: 'Verwechslung von Standorten: KI vermischt US-Investitionen mit Gerüchten über eine Verlegung des Konzernsitzes.',
           llm_hallucination_rate: 42,
-          strategic_risk_summary: 'Hohe politische Sensibilität. Dringender Bedarf für ein klares Bekenntnis zu Swiss HQ und einen konstruktiven Dialog mit dem BAG.'
+          strategic_risk_summary: 'Hohe politische Sensibilität. Dringender Bedarf für ein klares Bekenntnis zum Schweizer Hauptsitz und einen konstruktiven Dialog mit dem BAG.'
         },
         {
           region_id: 'apac',
@@ -761,10 +761,10 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
       ],
       surface_nlp_vs_forensic_reality: {
         commercial_nlp_sentiment: '76% NEUTRAL / FACHPOLITISCH (Score 0.84)',
-        commercial_nlp_confidence: 'Hohe statistische Konfidenz über 19.350 deduplizierte Meldungen',
+        commercial_nlp_confidence: 'Hohe statistische Konfidenz über 19.110 deduplizierte Meldungen',
         commercial_nlp_blindspot: 'Standard-NLP stuft die diplomatische Fachsprache der Gesundheitspolitiker als "neutral" ein, weil keine Vulgärsprache oder wütende Verbraucherbegriffe vorkommen.',
         forensic_reality_verdict: 'AKUTER POLITISCHER GEGENWIND IN EUROPA & DER SCHWEIZ',
-        forensic_reality_subtext: 'Cluster #01 ("Einführungsverzögerungen & Swiss HQ-Gewicht") verzeichnet einen +3.9σ Ausbruch. Europäische Kassen und Bundespolitiker in Bern deuten die Reformforderungen als Ultimatum gegen die Versorgung.',
+        forensic_reality_subtext: 'Cluster #01 ("Einführungsverzögerungen & Standort Schweiz") verzeichnet einen +3.9σ Ausbruch. Europäische Kassen und Bundespolitiker in Bern deuten die Reformforderungen als Ultimatum gegen die Versorgung.',
         statistical_proof_anchor: 'z = +3.9σ Anomalie | Cosinus-Ähnlichkeit 0.34 in EU | 48% KI-Verzerrungsrate'
       }
     },
@@ -778,7 +778,7 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
         hdbscan_clusters_identified: 9,
         off_topic_noise_filtered_pct: 91,
         peak_z_score: '+4.6σ',
-        peak_anomaly_summary: 'Hohe Dynamik im Schweizer Pendlerverkehr; +3.2σ internationale Spekulation über Infrastruktur-Resilienz.',
+        peak_anomaly_summary: 'Hohe Dynamik (+4.6σ) im Schweizer Pendlerverkehr; +3.2σ internationale Spekulation über Infrastruktur-Resilienz.',
         centroid_texts_analyzed_by_llm: 210
       },
       target_narratives: [
@@ -854,7 +854,7 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           raw_volume: 0,
           deduped_volume: 0,
           velocity_z_score: 0,
-          velocity_trend: 'Swiss HQine',
+          velocity_trend: 'Baseline',
           cosine_alignment: 0.70,
           pull_through_status: 'ALIGNED',
           status_label: 'Keine Relevanz',
@@ -871,7 +871,7 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
         commercial_nlp_blindspot: 'Erkennt nicht, dass ausländische Medien die Schweizer Stellwerkstörung mit hybrider Kriegsführung verknüpfen.',
         forensic_reality_verdict: 'GEOPOLITISCHE NARRATIV-VERZERRUNG IM AUSLAND',
         forensic_reality_subtext: 'Während Schweizer Medien sachlich über Umleitungen berichten, erzeugen internationale Agenturen einen +3.2σ Anstieg mit Fokus auf angebliche Sabotage.',
-        statistical_proof_anchor: 'z = +3.2σ Auslands-Spike | Cosinus-Ähnlichkeit 0.35 | 55% KI-Verzerrungsrate'
+        statistical_proof_anchor: 'z = +4.6σ Spitzen-Spike (+3.2σ Ausland) | Cosinus-Ähnlichkeit 0.35 | 55% KI-Verzerrung'
       }
     },
     esg_investigation: {
@@ -1078,7 +1078,7 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           raw_volume: 0,
           deduped_volume: 0,
           velocity_z_score: 0,
-          velocity_trend: 'Swiss HQine',
+          velocity_trend: 'Baseline',
           cosine_alignment: 0.70,
           pull_through_status: 'ALIGNED',
           status_label: 'Transatlantische HTA-Beobachtung',
@@ -1184,7 +1184,7 @@ export const COCKPIT_FIXTURES: Record<Language, Record<string, CockpitData>> = {
           raw_volume: 0,
           deduped_volume: 0,
           velocity_z_score: 0,
-          velocity_trend: 'Swiss HQine',
+          velocity_trend: 'Baseline',
           cosine_alignment: 0.70,
           pull_through_status: 'ALIGNED',
           status_label: 'Keine Exposition',

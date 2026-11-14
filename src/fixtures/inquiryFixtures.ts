@@ -32,14 +32,14 @@ export const INQUIRY_FIXTURES: Record<Language, Record<string, InquiryData>> = {
       deadline: "Today, 16:30 CET",
       inquiry_text: `Dear Corporate Media Relations,
 
-We are reporting on the CEO's recent statements in London and Swiss HQ calling for a 'complete rethink' of European and Swiss drug pricing policies.
+We are reporting on the CEO's recent statements in London and Zurich calling for a 'complete rethink' of European and Swiss drug pricing policies.
 
 We request your official response on the record to the following questions by 16:30 CET:
 1. Does your pledge to align U.S. launch prices with wealthy nations (MFN) mean the company will deliberately delay or withhold launches of upcoming therapies (such as next-generation biologics) in Switzerland and the EU if authorities refuse higher price demands?
 2. Following your $15 billion U.S. manufacturing commitment, is the company gradually shifting its corporate center of gravity and executive leadership away from Switzerland?
 3. How do you respond to Swiss and European healthcare payers who argue the company is using U.S. trade pressure to force public healthcare funds to subsidize American margins?`,
       official_wording_title: "Global Pricing, Launch Governance & Footprint Policy (GS-01 / GS-02)",
-      official_wording_quote: "«The Company advocates pricing frameworks that fairly reflect therapeutic value across OECD economies to support continuous innovation. Capital expenditure across localized U.S. production facilities serves domestic supply resilience. Swiss HQ remains the permanent corporate headquarters, executive governance seat, and global scientific nerve center. Spokespersons shall strictly reject characterizations of launch sequencing as patient boycotts.»",
+      official_wording_quote: "«The Company advocates pricing frameworks that fairly reflect therapeutic value across OECD economies to support continuous innovation. Capital expenditure across localized U.S. production facilities serves domestic supply resilience. Switzerland remains the permanent corporate headquarters, executive governance seat, and global scientific nerve center. Spokespersons shall strictly reject characterizations of launch sequencing as patient boycotts.»",
       compliance_authority: "Executive Committee & Corporate Legal Governance",
       contradictions: [
         {
@@ -54,17 +54,27 @@ We request your official response on the record to the following questions by 16
         },
         {
           severity: "HIGH",
-          title: "Swiss HQ Headquarters Exodus Rumor vs. Capital Allocation Reality",
+          title: "Swiss Headquarters Exodus Rumor vs. Capital Allocation Reality",
           quote_journalist: "Is the company gradually shifting its corporate center of gravity away from Switzerland following the $15B US capex?",
-          quote_doctrine: "Swiss HQ remains the permanent corporate headquarters, executive seat, and scientific nerve center.",
+          quote_doctrine: "Switzerland remains the permanent corporate headquarters, executive seat, and scientific nerve center.",
           inquiry_trap: "Establishing a narrative of corporate desertion of Switzerland (Standort Schweiz) to spark political backlash in Bern.",
           legal_boundary: "Corporate governance and Swiss stock exchange (SIX) disclosure rules govern statements on corporate domicile and headquarters.",
           clear_translation: "Reaffirm without ambiguity that the $15B investment expands manufacturing capacity for American patients in America, while Switzerland's corporate and R&D role is unchanged and growing.",
           assessment: "Deliver a crisp, unequivocal statement on Switzerland's permanent status as global headquarters."
+        },
+        {
+          severity: "MEDIUM",
+          title: "Cross-Border Subsidy Trap vs. Value-Based Contracting (Question 3)",
+          quote_journalist: "How do you respond to payers who argue the company is using U.S. trade pressure to force public funds to subsidize American margins?",
+          quote_doctrine: "Pricing reflects domestic clinical value and hospital cost offsets in each country, never cross-border margin subsidies.",
+          inquiry_trap: "Baiting the company into debating U.S. trade politics instead of clinical outcomes and local health-system savings.",
+          legal_boundary: "National reimbursement negotiations are governed by local health technology assessment (HTA) rules (BAG / NICE / EMA).",
+          clear_translation: "Explain that every country's reimbursement model is evaluated on how a therapy reduces hospital stays and progression in that health system.",
+          assessment: "Pivot from geopolitical trade framing back to measurable clinical value and outcome-based agreements."
         }
       ],
-      recommended_statement: "The Company is committed to ensuring patients worldwide benefit from breakthrough medical innovation. Under U.S. Most-Favored-Nation reference rules, healthcare systems in high-income nations must modernize pricing frameworks to reflect the genuine therapeutic and economic value of innovation, rather than imposing blunt price cuts that export distortions globally. Our $15 billion U.S. investment expands domestic manufacturing across 10 sites to secure tariff-resilient supply for American patients. Swiss HQ remains our undisputed corporate headquarters and scientific core as we partner constructively with Swiss (BAG) and European authorities to ensure rapid, sustainable patient access.",
-      strategic_advisory: "Decouple the $15B U.S. manufacturing expansion from HQ identity. Reaffirm Swiss HQ unambiguously, and reject any framing of launch sequencing as a 'patient boycott'."
+      recommended_statement: "The Company is committed to ensuring patients worldwide benefit from breakthrough medical innovation. Under U.S. Most-Favored-Nation reference rules, healthcare systems in high-income nations must modernize pricing frameworks to reflect the genuine therapeutic and economic value of innovation, rather than imposing blunt price cuts that export distortions globally. Our $15 billion U.S. investment expands domestic manufacturing across 10 sites to secure tariff-resilient supply for American patients. Switzerland remains our undisputed corporate headquarters and scientific core as we partner constructively with Swiss (BAG) and European authorities to ensure rapid, sustainable patient access.",
+      strategic_advisory: "Decouple the $15B U.S. manufacturing expansion from HQ identity. Reaffirm the Swiss headquarters unambiguously, and reject any framing of launch sequencing as a 'patient boycott'."
     },
     alpine_transit_crisis: {
       outlet: "Keystone-SDA News Agency",
@@ -153,7 +163,7 @@ Following the UK NICE final guidance refusing routine NHS funding for ONCO-104 i
           assessment: "Reiterate the HR 0.41 rPFS doubling first, then address ongoing commercial pricing dialogues."
         }
       ],
-      recommended_statement: "The clinical benefit of ONCO-104 is proven: the Phase III ONCO-01 study demonstrated a statistically significant doubling of radiographic progression-free survival (HR 0.41, p<0.001) in men with solid-tumor oncology prior to chemotherapy. While health technology assessment methodologies differ by country—leading to FDA approval in the U.S.—we are actively working with UK NICE and European health authorities to find sustainable, value-based reimbursement solutions that recognize the therapy's ability to offset downstream acute hospitalizations.",
+      recommended_statement: "The clinical benefit of ONCO-104 is proven: the Phase III ONCO-01 study demonstrated a statistically significant doubling of radiographic progression-free survival (HR 0.41, p<0.001) in patients with advanced solid tumors prior to chemotherapy. While health technology assessment methodologies differ by country—leading to FDA approval in the U.S.—we are actively working with UK NICE and European health authorities to find sustainable, value-based reimbursement solutions that recognize the therapy's ability to offset downstream acute hospitalizations.",
       strategic_advisory: "Ground the response in the HR 0.41 statistic and patient quality of life. Do not engage in speculative price concession percentages."
     },
     health_data_breach: {
@@ -187,11 +197,11 @@ Following the UK NICE final guidance refusing routine NHS funding for ONCO-104 i
       deadline: "Heute, 16:30 Uhr",
       inquiry_text: `Sehr geehrte Damen und Herren,
 
-wir recherchieren zu den Äusserungen von the CEO, der ein 'grundlegendes Umdenken' bei europäischen und Schweizer Medikamentenpreisen fordert.
+wir recherchieren zu den jüngsten Äusserungen der Konzernleitung, die ein 'grundlegendes Umdenken' bei europäischen und Schweizer Medikamentenpreisen fordert.
 
 Wir bitten um Beantwortung folgender Fragen bis 16:30 Uhr:
 1. Bedeutet Ihre US-Referenzpreis-Vereinbarung (MFN), dass das Unternehmen künftige Medikamente (wie neue Biologika) in der Schweiz und der EU bewusst verzögert oder gar nicht einführt, falls Preisnachlässe gefordert werden?
-2. Verlagert das Unternehmen mit der 23-Milliarden-Investition in US-Werke schrittweise sein unternehmerisches Schwergewicht und die Führung weg von Swiss HQ?
+2. Verlagert das Unternehmen mit der 15-Milliarden-Investition in US-Werke schrittweise sein unternehmerisches Schwergewicht und die Führung weg aus der Schweiz?
 3. Wie reagieren Sie auf Vorwürfe Schweizer Kassen, das Unternehmen nutze US-Handelsdrohungen, um europäische Beitragszahler unter Druck zu setzen?`,
       official_wording_title: "Konzern-Governance zu Preisgestaltung & Standort Schweiz (GS-01 / GS-02)",
       official_wording_quote: "«Das Unternehmen setzt sich für faire, wertbasierte Erstattungsmodelle in allen OECD-Staaten ein. Die 15-Mrd.-$-Investition in den USA stärkt die lokale Versorgungssicherheit. Die Schweiz bleibt der weltweite Hauptsitz, Sitz der Geschäftsleitung und zentrales Forschungszentrum. Spekulationen über Patientenboykotte sind entschieden zurückzuweisen.»",
@@ -210,16 +220,26 @@ Wir bitten um Beantwortung folgender Fragen bis 16:30 Uhr:
         {
           severity: "HOCH",
           title: "Abwanderungs-Gerücht vs. Investitionswirklichkeit",
-          quote_journalist: "Verlagert das Unternehmen das Schwergewicht schrittweise weg von Swiss HQ in die USA?",
+          quote_journalist: "Verlagert das Unternehmen das Schwergewicht schrittweise weg aus der Schweiz in die USA?",
           quote_doctrine: "Die Schweiz bleibt der dauerhafte Hauptsitz, Sitz der Geschäftsleitung und Forschungszentrale.",
           inquiry_trap: "Konstruktion einer Schwächung des Standorts Schweiz zur Auslösung politischer Vorstösse in Bern.",
           legal_boundary: "Börsenrechtliche Vorgaben (SIX) regeln Mitteilungen zum Konzernsitz und Governance-Strukturen.",
-          clear_translation: "Unmissverständlich bekräftigen: 15 Mrd. $ bauen Produktion in den USA für US-Patienten aus, während Swiss HQ das weltweite Herz des Konzerns bleibt.",
-          assessment: "Ein klares, unerschütterliches Bekenntnis zu Swiss HQ als weltweitem Hauptsitz abgeben."
+          clear_translation: "Unmissverständlich bekräftigen: 15 Mrd. $ bauen Produktion in den USA für US-Patienten aus, während die Schweiz das weltweite Herz des Konzerns bleibt.",
+          assessment: "Ein klares, unerschütterliches Bekenntnis zum Schweizer Hauptsitz abgeben."
+        },
+        {
+          severity: "MITTEL",
+          title: "Quersubventionierungs-Vorwurf vs. Lokaler Therapienutzen (Frage 3)",
+          quote_journalist: "Nutzt das Unternehmen US-Handelsdrohungen, um europäische Beitragszahler zur Subventionierung amerikanischer Margen zu zwingen?",
+          quote_doctrine: "Erstattungspreise bemessen sich am klinischen Nutzen und eingesparten Folgekosten im jeweiligen Gesundheitssystem.",
+          inquiry_trap: "Versuch, das Unternehmen in eine politische Debatte über US-Zölle statt über klinischen Mehrwert zu verwickeln.",
+          legal_boundary: "Preisfestsetzungen erfolgen nach nationalem Krankenversicherungsrecht (KVG/BAG) auf Basis klinischer Evidenz.",
+          clear_translation: "Sachlich darlegen, dass jede Therapie danach bewertet wird, wie stark sie Krankheitsverlauf und Spitalaufenthalte vor Ort reduziert.",
+          assessment: "Von der Zoll-Rhetorik konsequent auf messbare klinische Ergebnisse und ergebnisbasierte Modelle überleiten."
         }
       ],
-      recommended_statement: "Das Unternehmen setzt sich dafür ein, dass Patientinnen und Patienten weltweit von medizinischem Fortschritt profitieren. Unter den neuen US-Referenzpreisregeln (MFN) müssen wohlhabende Industriestaaten ihre Erstattungssysteme so weiterentwickeln, dass echter therapeutischer Mehrwert anerkannt wird, anstatt durch starre Preisdeckel weltweite Verzerrungen zu erzeugen. Unsere 23-Milliarden-Dollar-Investition in den USA baut an 10 Standorten eine zollresistente Produktion für US-Patienten auf. Die Schweiz bleibt unser unbestrittener weltweiter Hauptsitz und das wissenschaftliche Herz des Unternehmens; mit dem Schweizer BAG und europäischen Behörden führen wir einen konstruktiven Dialog für zukunftsfähige Erstattungsmodelle.",
-      strategic_advisory: "Die 15-Mrd.-$-US-Investition strikt von der Standortfrage trennen. Klares Bekenntnis zu Swiss HQ abgeben und jegliche Boykott-Rhetorik zurückweisen."
+      recommended_statement: "Das Unternehmen setzt sich dafür ein, dass Patientinnen und Patienten weltweit von medizinischem Fortschritt profitieren. Unter den neuen US-Referenzpreisregeln (MFN) müssen wohlhabende Industriestaaten ihre Erstattungssysteme so weiterentwickeln, dass echter therapeutischer Mehrwert anerkannt wird, anstatt durch starre Preisdeckel weltweite Verzerrungen zu erzeugen. Unsere 15-Milliarden-Dollar-Investition in den USA baut an 10 Standorten eine zollresistente Produktion für US-Patienten auf. Die Schweiz bleibt unser unbestrittener weltweiter Hauptsitz und das wissenschaftliche Herz des Unternehmens; mit dem Schweizer BAG und europäischen Behörden führen wir einen konstruktiven Dialog für zukunftsfähige Erstattungsmodelle.",
+      strategic_advisory: "Die 15-Mrd.-$-US-Investition strikt von der Standortfrage trennen. Klares Bekenntnis zum Standort Schweiz abgeben und jegliche Boykott-Rhetorik zurückweisen."
     },
     alpine_transit_crisis: {
       outlet: "Nachrichtenagentur Keystone-SDA",

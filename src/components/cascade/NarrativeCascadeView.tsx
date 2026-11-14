@@ -32,7 +32,9 @@ export const NarrativeCascadeView: React.FC<Props> = ({
   const [selectedVersion, setSelectedVersion] = useState<'draftA' | 'draftB'>('draftA');
   const isEn = lang === 'en';
 
-  const data: CascadeVersionData = getCascadeData(lang, scenarioId, selectedVersion);
+  const draftAData: CascadeVersionData = getCascadeData(lang, scenarioId, 'draftA');
+  const draftBData: CascadeVersionData = getCascadeData(lang, scenarioId, 'draftB');
+  const data: CascadeVersionData = selectedVersion === 'draftA' ? draftAData : draftBData;
   const isDraftA = selectedVersion === 'draftA';
 
   return (
@@ -152,8 +154,8 @@ export const NarrativeCascadeView: React.FC<Props> = ({
               <CheckCircle2 className="w-3.5 h-3.5" />
               <span>
                 {isEn
-                  ? 'Iteration 2: Revised Draft (Risk 9.1 → 2.6)'
-                  : 'Iteration 2: Überarbeiteter Entwurf (Risiko 9.1 → 2.6)'}
+                  ? `Iteration 2: Revised Draft (Risk ${draftAData.risk_score} → ${draftBData.risk_score})`
+                  : `Iteration 2: Überarbeiteter Entwurf (Risiko ${draftAData.risk_score} → ${draftBData.risk_score})`}
               </span>
             </button>
           </div>

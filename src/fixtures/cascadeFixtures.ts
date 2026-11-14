@@ -56,7 +56,7 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
           },
           {
             topic: "Standort Schweiz Abandonment",
-            explanation: "Contrasting US investments with Swiss/EU friction triggers political panic at the Swiss headquarters and Bern over headquarter flight."
+            explanation: "Contrasting US investments with Swiss/EU friction triggers political concern in Switzerland and Bern over headquarters jobs."
           },
           {
             topic: "Antitrust & Payer Leverage",
@@ -79,16 +79,16 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
             sentiment: "negative"
           },
           {
-            stakeholder: "Swiss Media & Swiss HQ Employees",
+            stakeholder: "Swiss Media & Headquarters Employees",
             likely_reaction: "Anxiety Over Corporate Drift",
-            reasoning: "Fear that the $15B US commitment marks the beginning of the end for the Swiss headquarters as the global operational heart.",
-            dossier_citation: "Swiss HQ-Stadt Economic Affairs Monitoring",
+            reasoning: "Fear that the $15B US commitment marks the beginning of a shift away from the Swiss headquarters as the global operational heart.",
+            dossier_citation: "Cantonal Economic Affairs & Location Monitoring",
             sentiment: "negative"
           }
         ],
         second_order_effects: [
           {
-            effect: "Parliamentary interpellations in Bern questioning pharma tax frameworks at the Swiss headquarters-Stadt.",
+            effect: "Parliamentary interpellations in Bern questioning cantonal and federal pharma location frameworks.",
             probability: "high",
             timeframe: "Within 24–48 hours"
           },
@@ -101,11 +101,11 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
         management_summary: {
           diagnosis: "Aggressive commercial frustration was vented directly into public channels, converting a legitimate policy debate on innovation incentives into a toxic public relations crisis.",
           impact: "Destroys goodwill with European and Swiss health authorities; triggers investor alarm over European market access.",
-          verdict: "Recommendation: Immediately re-anchor in Golden Sources GS-01 and GS-02: lead with fair international innovation reward, reaffirm permanent Swiss HQ commitment, and frame discussions as partnership for modern value assessment."
+          verdict: "Recommendation: Immediately re-anchor in Golden Sources GS-01 and GS-02: lead with fair international innovation reward, reaffirm permanent Swiss headquarters commitment, and frame discussions as partnership for modern value assessment."
         },
         immediate_actions: [
           "Retract aggressive draft before embargo lifts",
-          "Issue explicit reaffirmation of Swiss HQ global headquarters status",
+          "Issue explicit reaffirmation of Switzerland as permanent global headquarters",
           "Re-align affiliate comms on constructive value-based pricing wording"
         ]
       },
@@ -113,7 +113,7 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
         version_id: 'draftB',
         version_label: 'Draft B: Grounded in GS-01 & GS-02 / Stress-Tested Wording',
         version_badge: 'CALIBRATED & SECURE',
-        communication: "To ensure patients worldwide continue to benefit from transformative medicines, healthcare systems across high-income OECD nations must fairly recognize clinical value and avoid unintended international reference distortions under U.S. MFN frameworks. Our $15 billion U.S. investment expands domestic manufacturing across 10 sites to secure tariff-resilient supply for American patients, while Swiss HQ remains our undisputed corporate headquarters and scientific core as we partner constructively with Swiss (BAG) and European health authorities.",
+        communication: "To ensure patients worldwide continue to benefit from transformative medicines, healthcare systems across high-income OECD nations must fairly recognize clinical value and avoid unintended international reference distortions under U.S. MFN frameworks. Our $15 billion U.S. investment expands domestic manufacturing across 10 sites to secure tariff-resilient supply for American patients, while Switzerland remains our undisputed corporate headquarters and scientific core as we partner constructively with Swiss (BAG) and European health authorities.",
         headline_from_hell: "PHARMA GROUP EXPANDS U.S. MANUFACTURING BY $15B AND ADVOCATES MODERNIZED EUROPEAN VALUE-BASED PRICING",
         risk_score: 2.6,
         risk_level: 'Controlled & Authoritative',
@@ -139,10 +139,10 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
             sentiment: "mixed"
           },
           {
-            stakeholder: "Swiss Media & Swiss HQ Employees",
+            stakeholder: "Swiss Media & Headquarters Employees",
             likely_reaction: "Reassured Pride",
-            reasoning: "Explicit reaffirmation of Swiss HQ as the global scientific and corporate headquarters quells relocation anxiety.",
-            dossier_citation: "Swiss HQ-Stadt Economic Affairs Monitoring",
+            reasoning: "Explicit reaffirmation of Switzerland as the global scientific and corporate headquarters quells relocation anxiety.",
+            dossier_citation: "Cantonal Economic Affairs & Location Monitoring",
             sentiment: "positive"
           }
         ],
@@ -384,7 +384,7 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
         version_label: 'Draft A: Uncalibrated Medical Affairs Note',
         version_badge: 'CRITICAL EXPOSURE',
         communication: "Following EMA and UK NICE refusals to fund ONCO-104 at requested price points in pre-chemotherapy solid-tumor oncology, the company has discontinued European pre-chemo filings, while focusing commercial expansion on the US market where the FDA granted label approval.",
-        headline_from_hell: "PHARMA GROUP ABANDONS EUROPEAN PATIENTS AFTER UK AND EU REJECT PROSTATE CANCER THERAPY ONCO-104",
+        headline_from_hell: "PHARMA GROUP ABANDONS EUROPEAN PATIENTS AFTER UK AND EU REJECT TARGETED CANCER THERAPY ONCO-104",
         risk_score: 9.3,
         risk_level: 'Acute Reputational Fallout',
         vulnerabilities: [
@@ -572,7 +572,7 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
         version_label: 'Entwurf A: Unkalibriertes Public-Affairs-Statement',
         version_badge: 'KRITISCHE ANGRIFFSFLÄCHE',
         communication: "Weil US-Regeln künftig amerikanische Preise an ausländische Referenzwerte koppeln, wird das Unternehmen innovative Therapien nicht mehr in europäischen oder Schweizer Märkten einführen, die unsere Preise nicht mitgehen, während wir 15 Milliarden Dollar in die US-Produktion umschichten.",
-        headline_from_hell: "PHARMAKONZERN DROHT MIT LIEFERSTOPP FÜR EUROPA UND SCHWEIZ BEI GLEICHZEITIGEM 23-MRD-US-AUSBAU",
+        headline_from_hell: "PHARMAKONZERN DROHT MIT LIEFERSTOPP FÜR EUROPA UND SCHWEIZ BEI GLEICHZEITIGEM 15-MRD-US-AUSBAU",
         risk_score: 9.1,
         risk_level: 'Schwere politische Gegenreaktion',
         vulnerabilities: [
@@ -608,7 +608,7 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
             stakeholder: "Schweizer Öffentlichkeit & Basler Belegschaft",
             likely_reaction: "Sorge vor Bedeutungsverlust",
             reasoning: "Befürchtung, das 15-Mrd.-US-Paket leite den schleichenden Rückzug aus der Schweiz ein.",
-            dossier_citation: "Wirtschaftsstandort Swiss HQ Monitoring",
+            dossier_citation: "Wirtschaftsstandort Nordwestschweiz Monitoring",
             sentiment: "negative"
           }
         ],
@@ -627,11 +627,11 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
         management_summary: {
           diagnosis: "Berechtigte wirtschaftliche Reformanliegen wurden in aggressive Droh-Rhetorik verpackt und zerstören den politischen Konsens.",
           impact: "Massiver Reputationsverlust am Heimmarkt und verhärtete Fronten bei Erstattungsverhandlungen weltweit.",
-          verdict: "Empfehlung: Umgehende Rückbesinnung auf GS-01 und GS-02: faire Innovationsvergütung fordern, unerschütterliche Standorttreue zu Swiss HQ betonen und partnerschaftliche Lösungen suchen."
+          verdict: "Empfehlung: Umgehende Rückbesinnung auf GS-01 und GS-02: faire Innovationsvergütung fordern, unerschütterliche Standorttreue zur Schweiz betonen und partnerschaftliche Lösungen suchen."
         },
         immediate_actions: [
           "Verbreitung des Entwurfs vor Ablauf des Embargos stoppen",
-          "Klares Bekenntnis zum Hauptsitz Swiss HQ als wissenschaftliches Zentrum publizieren",
+          "Klares Bekenntnis zum Schweizer Hauptsitz als wissenschaftliches Zentrum publizieren",
           "Länderteams auf partnerschaftliche Reform-Sprachregelungen einschwören"
         ]
       },
@@ -639,7 +639,7 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
         version_id: 'draftB',
         version_label: 'Entwurf B: Auf GS-01 & GS-02 gestütztes / gestresstestetes Wording',
         version_badge: 'KALIBRIERT & SOUVERÄN',
-        communication: "Damit Patientinnen und Patienten weltweit von bahnbrechenden Medikamenten profitieren, müssen OECD-Gesundheitssysteme den klinischen Nutzen fair anerkennen und unbeabsichtigte internationale Referenzverzerrungen unter US-Regeln vermeiden. Unsere 23-Milliarden-Dollar-Investition baut die US-Produktion an 10 Standorten für lokale Versorgungssicherheit aus, während Swiss HQ unverändert unser weltweiter Hauptsitz und wissenschaftliches Herz bleibt; mit dem BAG und europäischen Behörden suchen wir den aktiven Dialog für zeitgemässe Erstattungsmodelle.",
+        communication: "Damit Patientinnen und Patienten weltweit von bahnbrechenden Medikamenten profitieren, müssen OECD-Gesundheitssysteme den klinischen Nutzen fair anerkennen und unbeabsichtigte internationale Referenzverzerrungen unter US-Regeln vermeiden. Unsere 15-Milliarden-Dollar-Investition baut die US-Produktion an 10 Standorten für lokale Versorgungssicherheit aus, während die Schweiz unverändert unser weltweiter Hauptsitz und wissenschaftliches Herz bleibt; mit dem BAG und europäischen Behörden suchen wir den aktiven Dialog für zeitgemässe Erstattungsmodelle.",
         headline_from_hell: "PHARMAKONZERN INVESTIERT 23 MILLIARDEN IN US-PRODUKTION UND FORDERT MODERNISIERTE NUTZENBEWERTUNG IN EUROPA",
         risk_score: 2.6,
         risk_level: 'Kontrolliert & Glaubwürdig',
@@ -667,8 +667,8 @@ export const CASCADE_FIXTURES: Record<Language, Record<string, CascadeScenarioPa
           {
             stakeholder: "Schweizer Öffentlichkeit & Basler Belegschaft",
             likely_reaction: "Beruhigtes Vertrauen",
-            reasoning: "Das klare Bekenntnis zu Swiss HQ als Forschungszentrale zerstreut Abwanderungsängste.",
-            dossier_citation: "Wirtschaftsstandort Swiss HQ Monitoring",
+            reasoning: "Das klare Bekenntnis zum Schweizer Hauptsitz als Forschungszentrale zerstreut Abwanderungsängste.",
+            dossier_citation: "Wirtschaftsstandort Nordwestschweiz Monitoring",
             sentiment: "positive"
           }
         ],
