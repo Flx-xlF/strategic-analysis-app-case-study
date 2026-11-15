@@ -3,6 +3,7 @@ import { Language } from '../../fixtures/scenarios';
 import { ActiveTab } from '../common/CommandHeader';
 import {
   AlertTriangle,
+  ArrowDown,
   ArrowLeft,
   ArrowRight,
   Database,
@@ -29,6 +30,7 @@ export const NarrativeCockpitView: React.FC<Props> = ({ lang, onNavigateTab }) =
   const channels: Record<
     ChannelId,
     {
+      shortBadge: string;
       labelEn: string;
       labelDe: string;
       subQueryLabelEn: string;
@@ -49,8 +51,9 @@ export const NarrativeCockpitView: React.FC<Props> = ({ lang, onNavigateTab }) =
     }
   > = {
     earned: {
-      labelEn: '1. Earned Media (Newspapers & Wires)',
-      labelDe: '1. Earned Media (Zeitungen & Agenturen)',
+      shortBadge: 'Q1',
+      labelEn: 'Earned Media (Newspapers & Wires)',
+      labelDe: 'Earned Media (Zeitungen & Agenturen)',
       subQueryLabelEn: 'Sub-Query 1: Newspaper & wire coverage',
       subQueryLabelDe: 'Teilabfrage 1: Zeitungen & Agenturen',
       icon: <Newspaper className="w-3.5 h-3.5 shrink-0" />,
@@ -76,8 +79,9 @@ export const NarrativeCockpitView: React.FC<Props> = ({ lang, onNavigateTab }) =
         'Beitrag aus 1. Earned Media: Prägt den Einstiegssatz mit globalen Ausbauzahlen – was ohne lokalen Kontext einen Kontrast erzeugt.'
     },
     owned: {
-      labelEn: '2. Owned Stories & Pages',
-      labelDe: '2. Owned Stories & Seiten',
+      shortBadge: 'Q2',
+      labelEn: 'Owned Stories & Pages',
+      labelDe: 'Owned Stories & Seiten',
       subQueryLabelEn: 'Sub-Query 2: Strategy pages',
       subQueryLabelDe: 'Teilabfrage 2: Strategie-Seiten',
       icon: <FileText className="w-3.5 h-3.5 shrink-0" />,
@@ -103,8 +107,9 @@ export const NarrativeCockpitView: React.FC<Props> = ({ lang, onNavigateTab }) =
         'Beitrag aus 2. Owned Stories & Pages: Liefert nur die vage Formulierung «agile globale Aufstellung» – zu unkonkret, um lokale Zusagen zu verankern.'
     },
     regional: {
-      labelEn: '3. Regional / Cantonal & Legacy Files',
-      labelDe: '3. Regionale Briefings & Altdateien',
+      shortBadge: 'Q3–4',
+      labelEn: 'Regional / Cantonal & Legacy Files',
+      labelDe: 'Regionale Briefings & Altdateien',
       subQueryLabelEn: 'Sub-Queries 3–4: Regional PDFs',
       subQueryLabelDe: 'Teilabfragen 3–4: Regionale PDFs',
       icon: <Layers className="w-3.5 h-3.5 shrink-0" />,
@@ -130,8 +135,9 @@ export const NarrativeCockpitView: React.FC<Props> = ({ lang, onNavigateTab }) =
         'Beitrag aus 3. Regionale Briefings & Altdateien: Bringt den «Gleichzeitig…»-Widerspruch direkt aus einem veralteten PDF von 2022 in die Antwort.'
     },
     forums: {
-      labelEn: '4. Online Forums',
-      labelDe: '4. Online-Foren',
+      shortBadge: 'Q5–8',
+      labelEn: 'Online Forums',
+      labelDe: 'Online-Foren',
       subQueryLabelEn: 'Sub-Queries 5–8: Forum threads',
       subQueryLabelDe: 'Teilabfragen 5–8: Foren-Threads',
       icon: <MessageSquare className="w-3.5 h-3.5 shrink-0" />,
@@ -271,7 +277,7 @@ export const NarrativeCockpitView: React.FC<Props> = ({ lang, onNavigateTab }) =
         </div>
 
         {/* Question Strip */}
-        <div className="p-4 bg-sbb-cloud border border-sbb-black space-y-2">
+        <div className="p-4 bg-sbb-cloud border-2 border-sbb-black space-y-2">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
             <span className="font-mono text-[11px] font-bold uppercase text-sbb-stone">
               {isEn ? '1 STAKEHOLDER QUESTION IN ZERO-CLICK AI SEARCH:' : '1 STAKEHOLDER-FRAGE IN DER ZERO-CLICK-KI-SUCHE:'}
@@ -287,105 +293,194 @@ export const NarrativeCockpitView: React.FC<Props> = ({ lang, onNavigateTab }) =
           </div>
         </div>
 
-        {/* Unified 4-Channel & Sub-Query Selector Tabs */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
-          {(Object.keys(channels) as ChannelId[]).map(chId => {
-            const ch = channels[chId];
-            const isActive = selectedChannel === chId;
-            return (
-              <button
-                key={chId}
-                type="button"
-                onClick={() => setSelectedChannel(chId)}
-                className={`p-3 border text-left transition-all cursor-pointer flex flex-col gap-1 ${
-                  isActive
-                    ? 'bg-sbb-black text-white border-sbb-black'
-                    : 'bg-sbb-cloud text-zinc-800 border-sbb-aluminum hover:bg-white hover:border-sbb-black'
-                }`}
-              >
-                <div className="flex items-center gap-2 font-mono text-xs font-bold">
-                  <span className={isActive ? 'text-[#FFCC00]' : 'text-sbb-red'}>{ch.icon}</span>
-                  <span className="leading-snug">{isEn ? ch.labelEn : ch.labelDe}</span>
-                </div>
-                <span className={`font-mono text-[10px] pl-5.5 ${isActive ? 'text-[#FFCC00]' : 'text-zinc-500'}`}>
-                  {isEn ? ch.subQueryLabelEn : ch.subQueryLabelDe}
-                </span>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Selected Channel Inspection Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-          <div className="p-4 bg-[#F8F8F9] border border-zinc-300 space-y-2">
-            <div className="font-mono text-[10px] font-black uppercase tracking-wider text-zinc-600">
-              {isEn ? '1. Matrix Role & Why It Diverges' : '1. Rolle in der Matrix & Abweichungs-Grund'}
-            </div>
-            <p className="text-xs font-bold text-sbb-black leading-snug">
-              {isEn ? activeChannel.roleEn : activeChannel.roleDe}
-            </p>
-            <p className="text-xs text-zinc-700 leading-relaxed">
-              {isEn ? activeChannel.matrixReasonEn : activeChannel.matrixReasonDe}
-            </p>
-          </div>
-
-          <div className="p-4 bg-white border border-sbb-black space-y-2">
-            <div className="font-mono text-[10px] font-black uppercase tracking-wider text-sbb-black">
-              {isEn ? '2. Passage Pulled Into AI Context Window' : '2. Passage im KI-Kontextfenster'}
-            </div>
-            <p className="text-xs sm:text-sm font-medium text-sbb-black italic leading-relaxed bg-sbb-cloud p-3 border border-zinc-200">
-              {isEn ? activeChannel.passageEn : activeChannel.passageDe}
-            </p>
-          </div>
-
-          <div className="p-4 bg-red-50/40 border border-sbb-red space-y-2">
-            <div className="font-mono text-[10px] font-black uppercase tracking-wider text-sbb-red flex items-center gap-1.5">
-              <AlertTriangle className="w-3.5 h-3.5 shrink-0" />
-              <span>{isEn ? '3. Result When Cross-Referenced' : '3. Effekt beim KI-Abgleich'}</span>
-            </div>
-            <p className="text-xs sm:text-sm text-red-950 leading-relaxed font-medium">
-              {isEn ? activeChannel.collisionEn : activeChannel.collisionDe}
-            </p>
-          </div>
-        </div>
-
-        {/* Combined AI Answer Synthesis Box (Dynamically Highlights Selected Channel) */}
-        <div className="p-4 sm:p-5 bg-red-50/50 border-2 border-sbb-red space-y-2.5">
-          <div className="flex flex-wrap items-center justify-between gap-2">
-            <span className="font-mono text-[11px] font-black uppercase text-sbb-red flex items-center gap-1.5">
-              <AlertTriangle className="w-4 h-4 shrink-0" />
-              <span>
-                {isEn
-                  ? 'COMBINED AI ANSWER ENGINE OUTPUT (ACTIVE CHANNEL HIGHLIGHTED)'
-                  : 'KOMBINIERTE KI-ANTWORT (AKTIVER KANAL HERVORGEHOBEN)'}
-              </span>
+        {/* Vertical Connector 1: Question -> 4 Sub-Query Tabs */}
+        <div className="flex flex-col items-center">
+          <div className="w-0.5 h-3 bg-sbb-black" />
+          <div className="px-3 py-1 bg-sbb-black text-white font-mono text-[10px] font-bold uppercase tracking-wider flex items-center gap-1.5 text-center">
+            <ArrowDown className="w-3 h-3 text-[#FFCC00] shrink-0" />
+            <span>
+              {isEn
+                ? 'AI decomposes 1 question into 5–11 parallel sub-queries across 4 channels (click any tab)'
+                : 'KI zerlegt 1 Frage in 5–11 parallele Teilabfragen über 4 Kanäle (Tab anklicken)'}
             </span>
           </div>
-          <p className="text-xs sm:text-sm leading-relaxed">
-            {(['earned', 'owned', 'regional', 'forums'] as ChannelId[]).map((chId, idx) => {
+          <div className="w-0.5 h-3 bg-sbb-black" />
+        </div>
+
+        {/* Grounded Folder Tabs + Workbench */}
+        <div>
+          {/* Flush-Mounted 4-Channel Tabs */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-2 border-b-0 border-sbb-black divide-y sm:divide-y-0 sm:divide-x divide-zinc-300">
+            {(Object.keys(channels) as ChannelId[]).map(chId => {
               const ch = channels[chId];
-              const isSelected = chId === selectedChannel;
+              const isActive = selectedChannel === chId;
               return (
-                <React.Fragment key={chId}>
-                  {idx > 0 && ' '}
-                  <button
-                    type="button"
-                    onClick={() => setSelectedChannel(chId)}
-                    className={`inline text-left transition-colors cursor-pointer ${
-                      isSelected
-                        ? 'bg-sbb-red text-white px-1.5 py-0.5 font-bold'
-                        : 'text-zinc-600 hover:text-sbb-black font-medium'
-                    }`}
-                  >
-                    {isEn ? ch.answerClauseEn : ch.answerClauseDe}
-                  </button>
-                </React.Fragment>
+                <button
+                  key={chId}
+                  type="button"
+                  onClick={() => setSelectedChannel(chId)}
+                  className={`p-3 text-left transition-all cursor-pointer flex flex-col gap-1 border-t-4 ${
+                    isActive
+                      ? 'bg-sbb-black text-white border-t-[#FFCC00]'
+                      : 'bg-white text-zinc-700 border-t-transparent hover:bg-sbb-cloud hover:text-sbb-black'
+                  }`}
+                >
+                  <div className="flex items-center gap-2 font-mono text-xs font-bold">
+                    <span
+                      className={`px-1.5 py-0.5 text-[10px] font-black shrink-0 ${
+                        isActive ? 'bg-[#FFCC00] text-sbb-black' : 'bg-zinc-200 text-sbb-black'
+                      }`}
+                    >
+                      {ch.shortBadge}
+                    </span>
+                    <span className={isActive ? 'text-[#FFCC00]' : 'text-sbb-red'}>{ch.icon}</span>
+                    <span className="leading-snug">{isEn ? ch.labelEn : ch.labelDe}</span>
+                  </div>
+                  <span className={`font-mono text-[10px] ${isActive ? 'text-zinc-300' : 'text-zinc-500'}`}>
+                    {isEn ? ch.subQueryLabelEn : ch.subQueryLabelDe}
+                  </span>
+                </button>
               );
             })}
-          </p>
-          <p className="text-[11px] font-mono text-red-950 pt-2 border-t border-red-200 font-bold">
-            {isEn ? activeChannel.answerRoleEn : activeChannel.answerRoleDe}
-          </p>
+          </div>
+
+          {/* Grounded Active-Channel Workbench */}
+          <div className="border-2 border-sbb-black bg-[#F4F4F6] p-4 sm:p-5 space-y-4">
+            <div className="bg-sbb-black text-white px-3.5 py-2 flex flex-wrap items-center justify-between gap-2 font-mono text-[11px] font-bold uppercase">
+              <span className="flex items-center gap-2">
+                <span className="px-1.5 py-0.5 bg-[#FFCC00] text-sbb-black text-[10px] font-black">
+                  {activeChannel.shortBadge}
+                </span>
+                <span>
+                  {isEn
+                    ? `INSPECTING: ${activeChannel.labelEn}`
+                    : `IM DETAIL: ${activeChannel.labelDe}`}
+                </span>
+              </span>
+              <span className="text-[#FFCC00] text-[10px]">
+                {isEn ? 'STEP A → STEP B → STEP C' : 'SCHRITT A → SCHRITT B → SCHRITT C'}
+              </span>
+            </div>
+
+            {/* Connected 3-Step Causal Pipeline Inside Active Channel */}
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr_auto_1fr] items-stretch gap-2.5">
+              {/* STEP A */}
+              <div className="p-4 bg-white border border-zinc-300 space-y-2">
+                <div className="font-mono text-[10px] font-black uppercase tracking-wider text-zinc-600">
+                  {isEn ? 'STEP A // TEAM & WHY IT DIVERGES' : 'SCHRITT A // ROLLE & ABWEICHUNG'}
+                </div>
+                <p className="text-xs font-bold text-sbb-black leading-snug">
+                  {isEn ? activeChannel.roleEn : activeChannel.roleDe}
+                </p>
+                <p className="text-xs text-zinc-700 leading-relaxed">
+                  {isEn ? activeChannel.matrixReasonEn : activeChannel.matrixReasonDe}
+                </p>
+              </div>
+
+              {/* Arrow A -> B */}
+              <div className="hidden lg:flex items-center justify-center">
+                <svg width="26" height="24" viewBox="0 0 26 24" className="shrink-0">
+                  <line x1="0" y1="12" x2="20" y2="12" stroke="#18181B" strokeWidth="2" className="terrain-flow-line" />
+                  <polygon points="18,7 26,12 18,17" fill="#18181B" />
+                </svg>
+              </div>
+
+              {/* STEP B */}
+              <div className="p-4 bg-white border-2 border-sbb-black space-y-2">
+                <div className="font-mono text-[10px] font-black uppercase tracking-wider text-sbb-black">
+                  {isEn ? 'STEP B // PASSAGE PULLED BY AI' : 'SCHRITT B // PASSAGE IM KI-FENSTER'}
+                </div>
+                <p className="text-xs sm:text-sm font-medium text-sbb-black italic leading-relaxed bg-sbb-cloud p-3 border border-zinc-200">
+                  {isEn ? activeChannel.passageEn : activeChannel.passageDe}
+                </p>
+              </div>
+
+              {/* Arrow B -> C */}
+              <div className="hidden lg:flex items-center justify-center">
+                <svg width="26" height="24" viewBox="0 0 26 24" className="shrink-0">
+                  <line x1="0" y1="12" x2="20" y2="12" stroke="#EB0000" strokeWidth="2" className="terrain-flow-line" />
+                  <polygon points="18,7 26,12 18,17" fill="#EB0000" />
+                </svg>
+              </div>
+
+              {/* STEP C */}
+              <div className="p-4 bg-red-50/70 border-2 border-sbb-red space-y-2">
+                <div className="font-mono text-[10px] font-black uppercase tracking-wider text-sbb-red flex items-center gap-1.5">
+                  <AlertTriangle className="w-3.5 h-3.5 shrink-0" />
+                  <span>{isEn ? 'STEP C // EFFECT IN AI ANSWER' : 'SCHRITT C // EFFEKT IN KI-ANTWORT'}</span>
+                </div>
+                <p className="text-xs sm:text-sm text-red-950 leading-relaxed font-medium">
+                  {isEn ? activeChannel.collisionEn : activeChannel.collisionDe}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Vertical Connector 2: Workbench -> Combined AI Answer */}
+        <div className="flex flex-col items-center">
+          <div className="w-0.5 h-3 bg-sbb-red" />
+          <div className="px-3 py-1 bg-sbb-red text-white font-mono text-[10px] font-bold uppercase tracking-wider flex items-center gap-1.5 text-center">
+            <ArrowDown className="w-3 h-3 shrink-0" />
+            <span>
+              {isEn
+                ? `All 4 channels merge into 1 AI answer — active [${activeChannel.shortBadge}] clause highlighted below`
+                : `Alle 4 Kanäle fliessen in 1 KI-Antwort zusammen — aktiver Teil [${activeChannel.shortBadge}] hervorgehoben`}
+            </span>
+          </div>
+          <div className="w-0.5 h-3 bg-sbb-red" />
+        </div>
+
+        {/* Combined AI Answer Synthesis Box (Synchronized Black + Gold Highlight) */}
+        <div className="border-2 border-sbb-black bg-white overflow-hidden">
+          <div className="bg-sbb-black text-white px-4 py-2.5 flex flex-wrap items-center justify-between gap-2">
+            <span className="font-mono text-[11px] font-black uppercase flex items-center gap-1.5">
+              <AlertTriangle className="w-4 h-4 text-[#FFCC00] shrink-0" />
+              <span>
+                {isEn
+                  ? 'COMBINED AI ANSWER ENGINE OUTPUT (ALL 4 SUB-QUERIES MERGED)'
+                  : 'KOMBINIERTE KI-ANTWORT (ALLE 4 TEILABFRAGEN ZUSAMMENGEFÜHRT)'}
+              </span>
+            </span>
+            <span className="px-2 py-0.5 bg-[#FFCC00] text-sbb-black font-mono text-[10px] font-black uppercase">
+              {isEn ? `HIGHLIGHTING [${activeChannel.shortBadge}]` : `HERVORGEHOBEN: [${activeChannel.shortBadge}]`}
+            </span>
+          </div>
+
+          <div className="p-4 sm:p-5 space-y-3">
+            <p className="text-xs sm:text-sm leading-loose">
+              {(['earned', 'owned', 'regional', 'forums'] as ChannelId[]).map((chId, idx) => {
+                const ch = channels[chId];
+                const isSelected = chId === selectedChannel;
+                return (
+                  <React.Fragment key={chId}>
+                    {idx > 0 && ' '}
+                    <button
+                      type="button"
+                      onClick={() => setSelectedChannel(chId)}
+                      className={`inline text-left transition-colors cursor-pointer px-1.5 py-0.5 ${
+                        isSelected
+                          ? 'bg-sbb-black text-[#FFCC00] font-bold border-b-2 border-sbb-red'
+                          : 'bg-zinc-100 text-zinc-600 hover:bg-zinc-200 hover:text-sbb-black font-medium'
+                      }`}
+                    >
+                      <span
+                        className={`font-mono text-[10px] font-black mr-1.5 px-1 py-0.2 ${
+                          isSelected ? 'bg-[#FFCC00] text-sbb-black' : 'bg-zinc-300 text-zinc-800'
+                        }`}
+                      >
+                        {ch.shortBadge}
+                      </span>
+                      {isEn ? ch.answerClauseEn : ch.answerClauseDe}
+                    </button>
+                  </React.Fragment>
+                );
+              })}
+            </p>
+            <div className="p-3 bg-amber-50/80 border-l-4 border-[#FFCC00] border border-amber-200 font-mono text-[11px] font-bold text-sbb-black">
+              [{activeChannel.shortBadge}] {isEn ? activeChannel.answerRoleEn : activeChannel.answerRoleDe}
+            </div>
+          </div>
         </div>
       </div>
 
@@ -407,58 +502,96 @@ export const NarrativeCockpitView: React.FC<Props> = ({ lang, onNavigateTab }) =
           </p>
         </div>
 
-        {/* 3 Crisp Pipeline Stage Tabs */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-          {stages.map(stage => {
-            const isActive = activeStage === stage.num;
-            return (
-              <button
-                key={stage.num}
-                type="button"
-                onClick={() => setActiveStage(stage.num)}
-                className={`p-3.5 border-2 text-left transition-all cursor-pointer flex flex-col justify-center gap-1 ${
-                  isActive
-                    ? 'border-sbb-red bg-red-50/40'
-                    : 'border-sbb-aluminum bg-sbb-cloud/60 hover:border-sbb-black hover:bg-white'
-                }`}
-              >
-                <div className={`font-mono text-xs font-black uppercase ${isActive ? 'text-sbb-red' : 'text-sbb-black'}`}>
-                  {isEn ? stage.titleEn : stage.titleDe}
+        {/* Flush-Mounted 3 Pipeline Stage Tabs + Dark Workbench */}
+        <div>
+          <div className="grid grid-cols-1 md:grid-cols-3 border-2 border-b-0 border-sbb-black divide-y md:divide-y-0 md:divide-x divide-zinc-300">
+            {stages.map(stage => {
+              const isActive = activeStage === stage.num;
+              return (
+                <button
+                  key={stage.num}
+                  type="button"
+                  onClick={() => setActiveStage(stage.num)}
+                  className={`p-3.5 text-left transition-all cursor-pointer flex flex-col justify-center gap-1 border-t-4 ${
+                    isActive
+                      ? 'bg-sbb-black text-white border-t-[#FFCC00]'
+                      : 'bg-white text-sbb-black border-t-transparent hover:bg-sbb-cloud'
+                  }`}
+                >
+                  <div className="flex items-center gap-2 font-mono text-xs font-black uppercase">
+                    <span
+                      className={`px-1.5 py-0.5 text-[10px] font-black shrink-0 ${
+                        isActive ? 'bg-[#FFCC00] text-sbb-black' : 'bg-zinc-200 text-sbb-black'
+                      }`}
+                    >
+                      STAGE 0{stage.num}
+                    </span>
+                    <span className="leading-snug">
+                      {(isEn ? stage.titleEn : stage.titleDe).replace(/^\d+\.\s*/, '')}
+                    </span>
+                  </div>
+                  <div className={`font-mono text-[10px] font-bold ${isActive ? 'text-zinc-300' : 'text-zinc-600'}`}>
+                    {stage.tools}
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Grounded Dark Stage Workbench with Horizontal Flow Arrows */}
+          <div className="p-4 sm:p-5 bg-sbb-black text-white border-2 border-sbb-black space-y-4">
+            <div className="flex flex-wrap items-center justify-between gap-2 pb-2.5 border-b border-zinc-800 font-mono text-[11px] font-bold uppercase">
+              <span className="text-[#FFCC00]">
+                {isEn
+                  ? `INSPECTING STAGE 0${activeStage} // ${(currentStage.titleEn).replace(/^\d+\.\s*/, '')}`
+                  : `STUFE 0${activeStage} IM DETAIL // ${(currentStage.titleDe).replace(/^\d+\.\s*/, '')}`}
+              </span>
+              <span className="text-zinc-400 text-[10px]">
+                {isEn ? 'STEP A (INPUT) → STEP B (PROCESS) → STEP C (OUTPUT)' : 'SCHRITT A (INPUT) → SCHRITT B (PROZESS) → SCHRITT C (ERGEBNIS)'}
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr_auto_1fr] items-stretch gap-2.5">
+              <div className="p-3.5 bg-zinc-900 border border-zinc-700 space-y-1.5">
+                <div className="font-mono text-[10px] font-bold uppercase text-zinc-400">
+                  {isEn ? 'STEP A // WHAT ENTERS (INPUT)' : 'SCHRITT A // EINGANG (INPUT)'}
                 </div>
-                <div className="font-mono text-[10px] font-bold text-zinc-600">{stage.tools}</div>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Selected Stage 3-Column Input -> Process -> Output Breakdown */}
-        <div className="p-4 sm:p-5 bg-sbb-black text-white border-l-4 border-[#FFCC00]">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-            <div className="p-3 bg-zinc-900 border border-zinc-700 space-y-1">
-              <div className="font-mono text-[10px] font-bold uppercase text-zinc-400">
-                {isEn ? '1. What Enters (Input)' : '1. Eingang (Input)'}
+                <p className="text-xs text-zinc-100 leading-relaxed">
+                  {isEn ? currentStage.inputEn : currentStage.inputDe}
+                </p>
               </div>
-              <p className="text-xs text-zinc-100 leading-relaxed">
-                {isEn ? currentStage.inputEn : currentStage.inputDe}
-              </p>
-            </div>
 
-            <div className="p-3 bg-zinc-900 border border-zinc-700 space-y-1">
-              <div className="font-mono text-[10px] font-bold uppercase text-[#FFCC00]">
-                {isEn ? '2. How It Works (Process)' : '2. Verarbeitung (Prozess)'}
+              <div className="hidden md:flex items-center justify-center">
+                <svg width="24" height="24" viewBox="0 0 24 24" className="shrink-0">
+                  <line x1="0" y1="12" x2="18" y2="12" stroke="#FFCC00" strokeWidth="2" className="terrain-flow-line" />
+                  <polygon points="16,7 24,12 16,17" fill="#FFCC00" />
+                </svg>
               </div>
-              <p className="text-xs text-zinc-100 leading-relaxed">
-                {isEn ? currentStage.processEn : currentStage.processDe}
-              </p>
-            </div>
 
-            <div className="p-3 bg-zinc-900 border border-zinc-700 space-y-1">
-              <div className="font-mono text-[10px] font-bold uppercase text-emerald-400">
-                {isEn ? '3. Concrete Output' : '3. Konkretes Ergebnis'}
+              <div className="p-3.5 bg-zinc-900 border border-zinc-700 space-y-1.5">
+                <div className="font-mono text-[10px] font-bold uppercase text-[#FFCC00]">
+                  {isEn ? 'STEP B // HOW IT WORKS (PROCESS)' : 'SCHRITT B // VERARBEITUNG (PROZESS)'}
+                </div>
+                <p className="text-xs text-zinc-100 leading-relaxed">
+                  {isEn ? currentStage.processEn : currentStage.processDe}
+                </p>
               </div>
-              <p className="text-xs text-zinc-100 leading-relaxed">
-                {isEn ? currentStage.outputEn : currentStage.outputDe}
-              </p>
+
+              <div className="hidden md:flex items-center justify-center">
+                <svg width="24" height="24" viewBox="0 0 24 24" className="shrink-0">
+                  <line x1="0" y1="12" x2="18" y2="12" stroke="#34D399" strokeWidth="2" className="terrain-flow-line" />
+                  <polygon points="16,7 24,12 16,17" fill="#34D399" />
+                </svg>
+              </div>
+
+              <div className="p-3.5 bg-zinc-900 border border-emerald-700/70 space-y-1.5">
+                <div className="font-mono text-[10px] font-bold uppercase text-emerald-400">
+                  {isEn ? 'STEP C // CONCRETE OUTPUT' : 'SCHRITT C // KONKRETES ERGEBNIS'}
+                </div>
+                <p className="text-xs text-zinc-100 leading-relaxed">
+                  {isEn ? currentStage.outputEn : currentStage.outputDe}
+                </p>
+              </div>
             </div>
           </div>
         </div>

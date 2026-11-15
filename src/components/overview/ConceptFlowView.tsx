@@ -487,8 +487,8 @@ export const ConceptFlowView: React.FC<Props> = ({
                   {isEn ? '2. Top-Down Layer:' : '2. Top-Down-Ebene:'}
                 </strong>
                 {isEn
-                  ? 'Central Comms administers key narratives and GEO frameworks, translates them into prompt recipes, and distributes them through existing enterprise systems right where work is done: via document add-ins (Word / Docs), Web CMS browser extensions, and email assistants (Outlook / Teams)—minimizing friction so teams benefit immediately.'
-                  : 'Die zentrale Kommunikation verwaltet Kern-Narrative und GEO-Frameworks, übersetzt sie in Prompt-Rezepte und verteilt sie über bestehende Systeme direkt dorthin, wo gearbeitet wird: über Editor-Add-ins (Word / Docs), Browser-Extensions fürs Web-CMS und E-Mail-Assistenten (Outlook / Teams) – mit minimaler Reibung und sofortigem Nutzen.'}
+                  ? 'Central Comms administers key narratives and GEO frameworks, translates them into prompt recipes, and distributes them through existing enterprise systems right where work is done: via embedded assistants and add-ins (e.g. Microsoft Copilot in Word, Outlook, and Teams) as well as Web CMS browser extensions—minimizing friction so teams benefit immediately.'
+                  : 'Die zentrale Kommunikation verwaltet Kern-Narrative und GEO-Frameworks, übersetzt sie in Prompt-Rezepte und verteilt sie über bestehende Systeme direkt dorthin, wo gearbeitet wird: über integrierte Assistenten und Add-ins (z. B. Microsoft Copilot in Word, Outlook und Teams) sowie Browser-Extensions fürs Web-CMS – mit minimaler Reibung und sofortigem Nutzen.'}
               </div>
             </div>
           </div>
@@ -620,7 +620,7 @@ export const ConceptFlowView: React.FC<Props> = ({
                   <FileText className="w-4 h-4 text-emerald-800 shrink-0" />
                   <div className="min-w-0">
                     <div className="text-xs font-bold text-sbb-black">
-                      {isEn ? 'Word / Docs Add-in' : 'Word / Docs Add-in'}
+                      {isEn ? 'Word / Docs (Copilot & Add-ins)' : 'Word / Docs (Copilot & Add-ins)'}
                     </div>
                     <div className="text-[11px] text-zinc-700 leading-snug">
                       {isEn ? 'Stories, statements & briefings' : 'Stories, Statements & Briefings'}
@@ -644,7 +644,7 @@ export const ConceptFlowView: React.FC<Props> = ({
                   <Mail className="w-4 h-4 text-emerald-800 shrink-0" />
                   <div className="min-w-0">
                     <div className="text-xs font-bold text-sbb-black">
-                      {isEn ? 'Outlook / Teams Assistant' : 'Outlook / Teams Assistent'}
+                      {isEn ? 'Outlook / Teams (Copilot & Add-ins)' : 'Outlook / Teams (Copilot & Add-ins)'}
                     </div>
                     <div className="text-[11px] text-zinc-700 leading-snug">
                       {isEn ? 'Stakeholder & media replies' : 'Stakeholder- & Medienantworten'}

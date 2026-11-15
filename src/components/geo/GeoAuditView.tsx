@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Language } from '../../fixtures/scenarios';
 import { ActiveTab } from '../common/CommandHeader';
 import {
+  ArrowDown,
   ArrowLeft,
   ArrowRight,
   CheckCircle2,
@@ -214,7 +215,7 @@ export const GeoAuditView: React.FC<Props> = ({ lang, onNavigateTab }) => {
         </div>
 
         {/* Central Core Anchor */}
-        <div className="p-3.5 bg-sbb-cloud border-l-4 border-sbb-red border border-zinc-300 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <div className="p-4 bg-sbb-cloud border-2 border-sbb-black border-l-4 border-l-sbb-red flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div className="space-y-0.5">
             <div className="font-mono text-[10px] font-black uppercase text-sbb-red">
               {isEn ? '● CENTRALLY ADMINISTERED CORE NARRATIVE' : '● ZENTRAL VERWALTETES KERN-NARRATIV'}
@@ -227,61 +228,90 @@ export const GeoAuditView: React.FC<Props> = ({ lang, onNavigateTab }) => {
           </div>
         </div>
 
-        {/* 3 Target Context Tabs */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
-          {(Object.keys(contexts) as TargetContext[]).map(ctxId => {
-            const ctx = contexts[ctxId];
-            const isActive = selectedContext === ctxId;
-            return (
-              <button
-                key={ctxId}
-                type="button"
-                onClick={() => setSelectedContext(ctxId)}
-                className={`p-3 border text-left font-mono text-xs font-bold transition-all cursor-pointer ${
-                  isActive
-                    ? 'bg-emerald-800 text-white border-emerald-900'
-                    : 'bg-sbb-cloud text-zinc-800 border-sbb-aluminum hover:bg-white hover:border-sbb-black'
-                }`}
-              >
-                {isEn ? ctx.labelEn : ctx.labelDe}
-              </button>
-            );
-          })}
+        {/* Vertical Connector: Core Narrative -> 3 Target Channel Tabs */}
+        <div className="flex flex-col items-center">
+          <div className="w-0.5 h-3 bg-sbb-black" />
+          <div className="px-3 py-1 bg-sbb-black text-white font-mono text-[10px] font-bold uppercase tracking-wider flex items-center gap-1.5 text-center">
+            <ArrowDown className="w-3 h-3 text-[#FFCC00] shrink-0" />
+            <span>
+              {isEn
+                ? 'AI analyzes target channel & audience to tailor the core narrative (select a channel)'
+                : 'KI analysiert Zielkanal & Publikum, um das Kern-Narrativ anzupassen (Kanal wählen)'}
+            </span>
+          </div>
+          <div className="w-0.5 h-3 bg-sbb-black" />
         </div>
 
-        {/* Side-by-side Comparison */}
-        <div className="space-y-3">
-          <div className="text-xs text-zinc-700 bg-[#F8F8F9] p-3 border border-zinc-200">
-            <strong className="text-sbb-black uppercase font-mono text-[10px] mr-2">
-              {isEn ? 'Target Audience & Context:' : 'Zielgruppe & Kontext:'}
-            </strong>
-            {isEn ? activeCtx.audienceEn : activeCtx.audienceDe}
+        {/* Flush-Mounted 3 Target Channel Tabs + Grounded Comparison Workbench */}
+        <div>
+          <div className="grid grid-cols-1 md:grid-cols-3 border-2 border-b-0 border-sbb-black divide-y md:divide-y-0 md:divide-x divide-zinc-300">
+            {(Object.keys(contexts) as TargetContext[]).map((ctxId, idx) => {
+              const ctx = contexts[ctxId];
+              const isActive = selectedContext === ctxId;
+              return (
+                <button
+                  key={ctxId}
+                  type="button"
+                  onClick={() => setSelectedContext(ctxId)}
+                  className={`p-3 text-left font-mono text-xs font-bold transition-all cursor-pointer flex items-center gap-2 border-t-4 ${
+                    isActive
+                      ? 'bg-sbb-black text-white border-t-[#FFCC00]'
+                      : 'bg-white text-zinc-700 border-t-transparent hover:bg-sbb-cloud hover:text-sbb-black'
+                  }`}
+                >
+                  <span
+                    className={`px-1.5 py-0.5 text-[10px] font-black shrink-0 ${
+                      isActive ? 'bg-[#FFCC00] text-sbb-black' : 'bg-zinc-200 text-sbb-black'
+                    }`}
+                  >
+                    CH 0{idx + 1}
+                  </span>
+                  <span>{(isEn ? ctx.labelEn : ctx.labelDe).replace(/^\d+\.\s*/, '')}</span>
+                </button>
+              );
+            })}
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-            <div className="p-4 bg-red-50/40 border border-red-300 space-y-2">
-              <div className="font-mono text-[11px] font-bold uppercase text-sbb-red flex items-center gap-1.5">
-                <XCircle className="w-4 h-4 shrink-0" />
-                <span>{isEn ? 'Robotic Copy-Paste (Fails in Context)' : 'Stures Copy-Paste (Scheitert im Kontext)'}</span>
-              </div>
-              <p className="text-xs sm:text-sm text-red-950 leading-relaxed">
-                {isEn ? activeCtx.copyPasteFailEn : activeCtx.copyPasteFailDe}
-              </p>
+          {/* Grounded Comparison Workbench */}
+          <div className="border-2 border-sbb-black bg-[#F4F4F6] p-4 sm:p-5 space-y-4">
+            <div className="bg-sbb-black text-white px-3.5 py-2 text-xs">
+              <strong className="text-[#FFCC00] uppercase font-mono text-[10px] mr-2">
+                {isEn ? 'TARGET AUDIENCE & CONTEXT //' : 'ZIELGRUPPE & KONTEXT //'}
+              </strong>
+              <span>{isEn ? activeCtx.audienceEn : activeCtx.audienceDe}</span>
             </div>
 
-            <div className="p-4 bg-emerald-50/40 border-2 border-emerald-700 space-y-2.5">
-              <div className="font-mono text-[11px] font-bold uppercase text-emerald-900 flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-700" />
-                <span>{isEn ? 'AI Context-Tailored Passage (Aligned Core)' : 'KI-Kontext-Anpassung (Konsistenter Kern)'}</span>
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] items-stretch gap-3">
+              <div className="p-4 bg-white border border-red-300 space-y-2">
+                <div className="font-mono text-[11px] font-bold uppercase text-sbb-red flex items-center gap-1.5">
+                  <XCircle className="w-4 h-4 shrink-0" />
+                  <span>{isEn ? 'Robotic Copy-Paste (Fails in Context)' : 'Stures Copy-Paste (Scheitert im Kontext)'}</span>
+                </div>
+                <p className="text-xs sm:text-sm text-red-950 leading-relaxed">
+                  {isEn ? activeCtx.copyPasteFailEn : activeCtx.copyPasteFailDe}
+                </p>
               </div>
-              <p className="text-xs sm:text-sm text-emerald-950 leading-relaxed font-medium italic bg-white/80 p-3 border border-emerald-200">
-                {isEn ? activeCtx.tailoredQuoteEn : activeCtx.tailoredQuoteDe}
-              </p>
-              <p className="text-xs text-emerald-950 leading-relaxed">
-                {isEn ? activeCtx.whyItWorksEn : activeCtx.whyItWorksDe}
-              </p>
-              <div className="pt-2 border-t border-emerald-200 font-mono text-[11px] text-emerald-900 font-bold">
-                ● {isEn ? activeCtx.coreAnchorEn : activeCtx.coreAnchorDe}
+
+              <div className="hidden lg:flex items-center justify-center">
+                <span className="px-2 py-1 bg-sbb-black text-[#FFCC00] font-mono text-[10px] font-black uppercase">
+                  VS.
+                </span>
+              </div>
+
+              <div className="p-4 bg-emerald-50/70 border-2 border-emerald-700 space-y-2.5">
+                <div className="font-mono text-[11px] font-bold uppercase text-emerald-900 flex items-center gap-1.5">
+                  <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-700" />
+                  <span>{isEn ? 'AI Context-Tailored Passage (Aligned Core)' : 'KI-Kontext-Anpassung (Konsistenter Kern)'}</span>
+                </div>
+                <p className="text-xs sm:text-sm text-emerald-950 leading-relaxed font-medium italic bg-white p-3 border border-emerald-200">
+                  {isEn ? activeCtx.tailoredQuoteEn : activeCtx.tailoredQuoteDe}
+                </p>
+                <p className="text-xs text-emerald-950 leading-relaxed">
+                  {isEn ? activeCtx.whyItWorksEn : activeCtx.whyItWorksDe}
+                </p>
+                <div className="pt-2 border-t border-emerald-200 font-mono text-[11px] text-emerald-900 font-bold">
+                  ● {isEn ? activeCtx.coreAnchorEn : activeCtx.coreAnchorDe}
+                </div>
               </div>
             </div>
           </div>
@@ -306,58 +336,76 @@ export const GeoAuditView: React.FC<Props> = ({ lang, onNavigateTab }) => {
           </p>
         </div>
 
-        {/* 4 Rule Selector Tabs */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
-          {geoPrinciples.map((p, idx) => {
-            const isActive = selectedPrinciple === idx;
-            return (
-              <button
-                key={p.titleEn}
-                type="button"
-                onClick={() => setSelectedPrinciple(idx as GeoPrincipleIndex)}
-                className={`p-3 border text-left font-mono text-xs font-bold transition-all cursor-pointer ${
-                  isActive
-                    ? 'bg-sbb-black text-[#FFCC00] border-sbb-black'
-                    : 'bg-sbb-cloud text-zinc-800 border-sbb-aluminum hover:bg-white hover:border-sbb-black'
-                }`}
-              >
-                {isEn ? p.titleEn : p.titleDe}
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Rule Explanation + Before / After Passages */}
-        <div className="space-y-4">
-          <div className="p-3.5 bg-amber-50/70 border-l-4 border-[#FFCC00] border border-amber-200 text-xs sm:text-sm text-zinc-900 leading-relaxed space-y-1.5">
-            <div>
-              <strong>{isEn ? 'Why this matters: ' : 'Warum das wichtig ist: '}</strong>
-              {isEn ? activePrinciple.ruleEn : activePrinciple.ruleDe}
-            </div>
-            <div className="font-mono text-[11px] font-bold text-sbb-black">
-              {isEn ? activePrinciple.takeawayEn : activePrinciple.takeawayDe}
-            </div>
+        {/* Flush-Mounted 4 Rule Selector Tabs + Grounded Workbench */}
+        <div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-2 border-b-0 border-sbb-black divide-y sm:divide-y-0 sm:divide-x divide-zinc-300">
+            {geoPrinciples.map((p, idx) => {
+              const isActive = selectedPrinciple === idx;
+              return (
+                <button
+                  key={p.titleEn}
+                  type="button"
+                  onClick={() => setSelectedPrinciple(idx as GeoPrincipleIndex)}
+                  className={`p-3 text-left font-mono text-xs font-bold transition-all cursor-pointer flex items-center gap-2 border-t-4 ${
+                    isActive
+                      ? 'bg-sbb-black text-white border-t-[#FFCC00]'
+                      : 'bg-white text-zinc-700 border-t-transparent hover:bg-sbb-cloud hover:text-sbb-black'
+                  }`}
+                >
+                  <span
+                    className={`px-1.5 py-0.5 text-[10px] font-black shrink-0 ${
+                      isActive ? 'bg-[#FFCC00] text-sbb-black' : 'bg-zinc-200 text-sbb-black'
+                    }`}
+                  >
+                    0{idx + 1}
+                  </span>
+                  <span className="leading-snug">{(isEn ? p.titleEn : p.titleDe).replace(/^\d+\.\s*/, '')}</span>
+                </button>
+              );
+            })}
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-            <div className="p-4 bg-red-50/40 border border-red-300 space-y-2">
-              <div className="font-mono text-[11px] font-bold uppercase text-sbb-red flex items-center gap-1.5">
-                <XCircle className="w-4 h-4 shrink-0" />
-                <span>{isEn ? 'Unstructured / Conflicting Draft' : 'Unstrukturierter / widersprüchlicher Entwurf'}</span>
+          {/* Grounded Rule Workbench */}
+          <div className="border-2 border-sbb-black bg-[#F4F4F6] p-4 sm:p-5 space-y-4">
+            <div className="p-3.5 bg-sbb-black text-white border-l-4 border-[#FFCC00] text-xs sm:text-sm leading-relaxed space-y-1.5">
+              <div>
+                <strong className="text-[#FFCC00]">{isEn ? 'Why this matters: ' : 'Warum das wichtig ist: '}</strong>
+                <span className="text-zinc-100">{isEn ? activePrinciple.ruleEn : activePrinciple.ruleDe}</span>
               </div>
-              <p className="text-xs sm:text-sm text-red-950 leading-relaxed">
-                {isEn ? activePrinciple.badEn : activePrinciple.badDe}
-              </p>
+              <div className="font-mono text-[11px] font-bold text-[#FFCC00]">
+                {isEn ? activePrinciple.takeawayEn : activePrinciple.takeawayDe}
+              </div>
             </div>
 
-            <div className="p-4 bg-emerald-50/40 border-2 border-emerald-700 space-y-2">
-              <div className="font-mono text-[11px] font-bold uppercase text-emerald-900 flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-700" />
-                <span>{isEn ? 'GEO-Structured Draft (Clear for AI Search)' : 'GEO-strukturierter Entwurf (Klar für KI-Suche)'}</span>
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] items-stretch gap-3">
+              <div className="p-4 bg-white border border-red-300 space-y-2">
+                <div className="font-mono text-[11px] font-bold uppercase text-sbb-red flex items-center gap-1.5">
+                  <XCircle className="w-4 h-4 shrink-0" />
+                  <span>{isEn ? 'BEFORE // Unstructured Draft' : 'VORHER // Unstrukturierter Entwurf'}</span>
+                </div>
+                <p className="text-xs sm:text-sm text-red-950 leading-relaxed">
+                  {isEn ? activePrinciple.badEn : activePrinciple.badDe}
+                </p>
               </div>
-              <p className="text-xs sm:text-sm text-emerald-950 leading-relaxed font-medium">
-                {isEn ? activePrinciple.goodEn : activePrinciple.goodDe}
-              </p>
+
+              {/* Transformation Arrow Before -> After */}
+              <div className="hidden lg:flex flex-col items-center justify-center gap-1">
+                <svg width="32" height="24" viewBox="0 0 32 24" className="shrink-0">
+                  <line x1="0" y1="12" x2="24" y2="12" stroke="#047857" strokeWidth="2" className="terrain-flow-line" />
+                  <polygon points="22,7 32,12 22,17" fill="#047857" />
+                </svg>
+                <span className="font-mono text-[9px] font-black uppercase text-emerald-800">GEO</span>
+              </div>
+
+              <div className="p-4 bg-emerald-50/70 border-2 border-emerald-700 space-y-2">
+                <div className="font-mono text-[11px] font-bold uppercase text-emerald-900 flex items-center gap-1.5">
+                  <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-700" />
+                  <span>{isEn ? 'AFTER // GEO-Structured Draft' : 'NACHHER // GEO-strukturierter Entwurf'}</span>
+                </div>
+                <p className="text-xs sm:text-sm text-emerald-950 leading-relaxed font-medium">
+                  {isEn ? activePrinciple.goodEn : activePrinciple.goodDe}
+                </p>
+              </div>
             </div>
           </div>
         </div>

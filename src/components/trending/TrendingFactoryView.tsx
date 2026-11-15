@@ -3,6 +3,7 @@ import { Language } from '../../fixtures/scenarios';
 import { ActiveTab } from '../common/CommandHeader';
 import {
   AlertTriangle,
+  ArrowDown,
   ArrowLeft,
   CheckCircle2,
   Globe,
@@ -89,8 +90,8 @@ export const TrendingFactoryView: React.FC<Props> = ({ lang, onNavigateTab }) =>
     docs: {
       nameEn: '1. Document Editors (Word / Docs)',
       nameDe: '1. Texteditoren (Word / Docs)',
-      channelSubEn: 'Embedded Assistant / Workspace Add-in',
-      channelSubDe: 'Integrierter Assistent / Workspace-Add-in',
+      channelSubEn: 'e.g. Microsoft Copilot / Workspace Add-in',
+      channelSubDe: 'z. B. Microsoft Copilot / Workspace-Add-in',
       icon: <FileText className="w-4 h-4 shrink-0" />,
       taskEn: 'Drafting a corporate story, press release, or regional stakeholder briefing.',
       taskDe: 'Ausarbeiten einer Corporate Story, Medienmitteilung oder eines regionalen Stakeholder-Briefings.',
@@ -99,9 +100,9 @@ export const TrendingFactoryView: React.FC<Props> = ({ lang, onNavigateTab }) =>
       whyManualFailsDe:
         'In Ordnern nach der aktuell gültigen PDF-Version zu suchen, ein 30-seitiges Dokument zu öffnen und abstrakte Regeln manuell auf den Entwurf zu übertragen, erzeugt im Alltag zu viel Reibung.',
       recipeActionEn:
-        'Central Comms streams the always-current prompt recipe into an editor side-panel (via add-in or assistant)—applying narrative & GEO structure right beside the draft.',
+        'Central Comms streams the always-current prompt recipe into an editor side-panel (e.g. via Microsoft Copilot or a custom add-in)—applying narrative & GEO structure right beside the draft.',
       recipeActionDe:
-        'Die zentrale Kommunikation streamt das stets aktuelle Prompt-Rezept direkt in die Seitenleiste des Editors – Narrativ und GEO-Struktur liegen unmittelbar neben dem Text.',
+        'Die zentrale Kommunikation streamt das stets aktuelle Prompt-Rezept direkt in die Seitenleiste des Editors (z. B. über Microsoft Copilot oder ein Add-in) – Narrativ und GEO-Struktur liegen unmittelbar neben dem Text.',
       input1En:
         '«Expanding our global production network goes hand in hand with our established research hubs: while new international lines scale supply from Q2, regional R&D teams continue on their established schedule.»',
       input1De:
@@ -163,8 +164,8 @@ export const TrendingFactoryView: React.FC<Props> = ({ lang, onNavigateTab }) =>
     email: {
       nameEn: '3. Email & Messaging (Outlook / Teams)',
       nameDe: '3. E-Mail & Messaging (Outlook / Teams)',
-      channelSubEn: 'In-Client Assistant / Side-Panel',
-      channelSubDe: 'In-Client-Assistent / Seitenleiste',
+      channelSubEn: 'e.g. Microsoft Copilot / Side-Panel Add-in',
+      channelSubDe: 'z. B. Microsoft Copilot / Seitenleisten-Add-in',
       icon: <Mail className="w-4 h-4 shrink-0" />,
       taskEn: 'Replying under time pressure to an incoming media or regional stakeholder inquiry.',
       taskDe: 'Schnelle Antwort unter Zeitdruck auf eine eingehende Medien- oder Stakeholder-Anfrage.',
@@ -173,9 +174,9 @@ export const TrendingFactoryView: React.FC<Props> = ({ lang, onNavigateTab }) =>
       whyManualFailsDe:
         'Wenn eine Redaktion mit 30 Minuten Frist anfragt, ist das Suchen, Öffnen und Durchsuchen eines statischen PDF-Handbuchs vor dem Antworten schlicht unrealistisch.',
       recipeActionEn:
-        'The prompt recipe runs right beside the reply window—analyzing the inquiry’s sensitivity and assembling tailored core facts plus Outside-In risk alerts in seconds.',
+        'The prompt recipe runs right beside the reply window (e.g. via Microsoft Copilot in Outlook/Teams)—analyzing the inquiry’s sensitivity and assembling tailored core facts plus Outside-In risk alerts in seconds.',
       recipeActionDe:
-        'Das Prompt-Rezept läuft direkt neben dem Antwortfeld – analysiert die Anfrage und stellt passende Kernfakten sowie Outside-In-Risiken in Sekunden bereit.',
+        'Das Prompt-Rezept läuft direkt neben dem Antwortfeld (z. B. via Microsoft Copilot in Outlook/Teams) – analysiert die Anfrage und stellt passende Kernfakten sowie Outside-In-Risiken in Sekunden bereit.',
       input1En:
         '«Global manufacturing investments scale international supply resilience, while central governance and existing regional R&D commitments remain anchored.»',
       input1De:
@@ -217,8 +218,8 @@ export const TrendingFactoryView: React.FC<Props> = ({ lang, onNavigateTab }) =>
         </h1>
         <p className="text-sm text-zinc-700 max-w-4xl leading-relaxed">
           {isEn
-            ? 'Finding and opening the current version of a static rulebook PDF creates too much friction in a busy workday. Instead, Central Comms streams prompt recipes into day-to-day tools (Word/Docs add-ins, Web CMS browser extensions, and email clients)—delivering tailored context while humans steer the final iteration.'
-            : 'Im hektischen Alltag erst die aktuelle Version eines statischen Regel-PDFs zu suchen und zu öffnen, erzeugt zu viel Reibung. Stattdessen bringt die zentrale Kommunikation Prompt-Rezepte direkt in die täglichen Tools (Word/Docs-Add-ins, Browser-Extensions fürs Web-CMS und E-Mail) – die KI liefert den strukturierten Kontext, der Mensch iteriert.'}
+            ? 'Finding and opening the current version of a static rulebook PDF creates too much friction in a busy workday. Instead, Central Comms streams prompt recipes into day-to-day tools (e.g. Microsoft Copilot or add-ins in Word/Docs and Outlook/Teams, plus Web CMS browser extensions)—delivering tailored context while humans steer the final iteration.'
+            : 'Im hektischen Alltag erst die aktuelle Version eines statischen Regel-PDFs zu suchen und zu öffnen, erzeugt zu viel Reibung. Stattdessen bringt die zentrale Kommunikation Prompt-Rezepte direkt in die täglichen Tools (z. B. Microsoft Copilot oder Add-ins in Word/Docs und Outlook/Teams sowie Browser-Extensions fürs Web-CMS) – die KI liefert den strukturierten Kontext, der Mensch iteriert.'}
         </p>
       </div>
 
@@ -237,65 +238,120 @@ export const TrendingFactoryView: React.FC<Props> = ({ lang, onNavigateTab }) =>
           </p>
         </div>
 
-        {/* 3 Surface Tabs */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
-          {(['docs', 'browser', 'email'] as ToolId[]).map(toolId => {
-            const t = tools[toolId];
-            const isActive = selectedTool === toolId;
-            return (
-              <button
-                key={toolId}
-                type="button"
-                onClick={() => setSelectedTool(toolId)}
-                className={`p-3.5 border-2 text-left font-mono transition-all cursor-pointer flex flex-col gap-1 ${
-                  isActive
-                    ? 'bg-sbb-black text-white border-sbb-black'
-                    : 'bg-sbb-cloud text-sbb-black border-sbb-aluminum hover:bg-white hover:border-sbb-black'
-                }`}
-              >
-                <div className="flex items-center gap-2 text-xs font-bold">
-                  <span className={isActive ? 'text-[#FFCC00]' : 'text-sbb-red'}>{t.icon}</span>
-                  <span>{isEn ? t.nameEn : t.nameDe}</span>
+        {/* Flush-Mounted 3 Surface Tabs + Grounded Workbench */}
+        <div>
+          <div className="grid grid-cols-1 md:grid-cols-3 border-2 border-b-0 border-sbb-black divide-y md:divide-y-0 md:divide-x divide-zinc-300">
+            {(['docs', 'browser', 'email'] as ToolId[]).map((toolId, idx) => {
+              const t = tools[toolId];
+              const isActive = selectedTool === toolId;
+              return (
+                <button
+                  key={toolId}
+                  type="button"
+                  onClick={() => setSelectedTool(toolId)}
+                  className={`p-3.5 text-left font-mono transition-all cursor-pointer flex flex-col gap-1 border-t-4 ${
+                    isActive
+                      ? 'bg-sbb-black text-white border-t-[#FFCC00]'
+                      : 'bg-white text-sbb-black border-t-transparent hover:bg-sbb-cloud'
+                  }`}
+                >
+                  <div className="flex items-center gap-2 text-xs font-bold">
+                    <span
+                      className={`px-1.5 py-0.5 text-[10px] font-black shrink-0 ${
+                        isActive ? 'bg-[#FFCC00] text-sbb-black' : 'bg-zinc-200 text-sbb-black'
+                      }`}
+                    >
+                      S0{idx + 1}
+                    </span>
+                    <span className={isActive ? 'text-[#FFCC00]' : 'text-sbb-red'}>{t.icon}</span>
+                    <span>{(isEn ? t.nameEn : t.nameDe).replace(/^\d+\.\s*/, '')}</span>
+                  </div>
+                  <span className={`text-[10px] ${isActive ? 'text-zinc-300' : 'text-zinc-600'}`}>
+                    {isEn ? t.channelSubEn : t.channelSubDe}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Grounded Surface Workbench */}
+          <div className="border-2 border-sbb-black bg-[#F4F4F6] p-4 sm:p-5 space-y-4">
+            <div className="bg-sbb-black text-white px-3.5 py-2 flex flex-wrap items-center justify-between gap-2 font-mono text-[11px] font-bold uppercase">
+              <span>
+                {isEn
+                  ? `INSPECTING WORKPLACE SURFACE // ${activeName.replace(/^\d+\.\s*/, '')}`
+                  : `ARBEITSUMGEBUNG IM DETAIL // ${activeName.replace(/^\d+\.\s*/, '')}`}
+              </span>
+              <span className="text-[#FFCC00] text-[10px]">
+                {isEn ? 'STEP A → STEP B → STEP C' : 'SCHRITT A → SCHRITT B → SCHRITT C'}
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr_auto_1fr] items-stretch gap-2.5">
+              {/* STEP A */}
+              <div className="p-4 bg-white border border-zinc-300 space-y-1.5">
+                <div className="font-mono text-[10px] font-black uppercase text-zinc-600">
+                  {isEn ? 'STEP A // DAY-TO-DAY TASK' : 'SCHRITT A // TYPISCHE AUFGABE'}
                 </div>
-                <span className={`text-[10px] pl-6 ${isActive ? 'text-[#FFCC00]' : 'text-zinc-600'}`}>
-                  {isEn ? t.channelSubEn : t.channelSubDe}
-                </span>
-              </button>
-            );
-          })}
+                <p className="text-xs sm:text-sm font-bold text-sbb-black leading-snug">
+                  {isEn ? active.taskEn : active.taskDe}
+                </p>
+              </div>
+
+              {/* Arrow A -> B */}
+              <div className="hidden lg:flex items-center justify-center">
+                <svg width="24" height="24" viewBox="0 0 24 24" className="shrink-0">
+                  <line x1="0" y1="12" x2="18" y2="12" stroke="#18181B" strokeWidth="2" className="terrain-flow-line" />
+                  <polygon points="16,7 24,12 16,17" fill="#18181B" />
+                </svg>
+              </div>
+
+              {/* STEP B */}
+              <div className="p-4 bg-red-50/70 border border-red-300 space-y-1.5">
+                <div className="font-mono text-[10px] font-black uppercase text-sbb-red flex items-center gap-1.5">
+                  <XCircle className="w-3.5 h-3.5 shrink-0" />
+                  <span>{isEn ? 'STEP B // WHY STATIC PDFS FAIL' : 'SCHRITT B // WARUM PDFS SCHEITERN'}</span>
+                </div>
+                <p className="text-xs sm:text-sm text-red-950 leading-relaxed">
+                  {isEn ? active.whyManualFailsEn : active.whyManualFailsDe}
+                </p>
+              </div>
+
+              {/* Arrow B -> C */}
+              <div className="hidden lg:flex items-center justify-center">
+                <svg width="24" height="24" viewBox="0 0 24 24" className="shrink-0">
+                  <line x1="0" y1="12" x2="18" y2="12" stroke="#047857" strokeWidth="2" className="terrain-flow-line" />
+                  <polygon points="16,7 24,12 16,17" fill="#047857" />
+                </svg>
+              </div>
+
+              {/* STEP C */}
+              <div className="p-4 bg-emerald-50/70 border-2 border-emerald-700 space-y-1.5">
+                <div className="font-mono text-[10px] font-black uppercase text-emerald-900 flex items-center gap-1.5">
+                  <CheckCircle2 className="w-3.5 h-3.5 shrink-0 text-emerald-700" />
+                  <span>{isEn ? 'STEP C // EMBEDDED PROMPT RECIPE' : 'SCHRITT C // PROMPT-REZEPT IM TOOL'}</span>
+                </div>
+                <p className="text-xs sm:text-sm text-emerald-950 leading-relaxed font-medium">
+                  {isEn ? active.recipeActionEn : active.recipeActionDe}
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
 
-        {/* Tool Comparison Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-          <div className="p-4 bg-[#F8F8F9] border border-zinc-300 space-y-1.5">
-            <div className="font-mono text-[10px] font-black uppercase text-zinc-600">
-              {isEn ? `Day-to-Day Task — ${activeName}` : `Typische Aufgabe — ${activeName}`}
-            </div>
-            <p className="text-xs sm:text-sm font-bold text-sbb-black leading-snug">
-              {isEn ? active.taskEn : active.taskDe}
-            </p>
-          </div>
-
-          <div className="p-4 bg-red-50/40 border border-red-300 space-y-1.5">
-            <div className="font-mono text-[10px] font-black uppercase text-sbb-red flex items-center gap-1.5">
-              <XCircle className="w-3.5 h-3.5 shrink-0" />
-              <span>{isEn ? 'Why Static Rulebook PDFs Fail Here' : 'Warum statische Regel-PDFs scheitern'}</span>
-            </div>
-            <p className="text-xs sm:text-sm text-red-950 leading-relaxed">
-              {isEn ? active.whyManualFailsEn : active.whyManualFailsDe}
-            </p>
-          </div>
-
-          <div className="p-4 bg-emerald-50/40 border-2 border-emerald-700 space-y-1.5">
-            <div className="font-mono text-[10px] font-black uppercase text-emerald-900 flex items-center gap-1.5">
-              <CheckCircle2 className="w-3.5 h-3.5 shrink-0 text-emerald-700" />
-              <span>{isEn ? 'Embedded Prompt Recipe' : 'Integriertes Prompt-Rezept'}</span>
-            </div>
-            <p className="text-xs sm:text-sm text-emerald-950 leading-relaxed font-medium">
-              {isEn ? active.recipeActionEn : active.recipeActionDe}
-            </p>
-          </div>
+      {/* Vertical Flow Connector: Part A -> Part B */}
+      <div className="flex flex-col items-center -my-3">
+        <div className="w-0.5 h-4 bg-sbb-black" />
+        <div className="px-3.5 py-1.5 bg-sbb-black text-white font-mono text-[10px] font-bold uppercase tracking-wider flex items-center gap-1.5 text-center border-l-4 border-[#FFCC00]">
+          <ArrowDown className="w-3.5 h-3.5 text-[#FFCC00] shrink-0" />
+          <span>
+            {isEn
+              ? `Inside ${activeName.replace(/^\d+\.\s*/, '')}, the prompt recipe delivers 3 concrete inputs — and hands off to the human`
+              : `In ${activeName.replace(/^\d+\.\s*/, '')} liefert das Prompt-Rezept 3 Bausteine – und übergibt an den Menschen`}
+          </span>
         </div>
+        <div className="w-0.5 h-4 bg-sbb-black" />
       </div>
 
       {/* ═══ PART B: REALISTIC LIMITATIONS — 3 INPUTS + HUMAN ITERATION ═══ */}
@@ -319,78 +375,124 @@ export const TrendingFactoryView: React.FC<Props> = ({ lang, onNavigateTab }) =>
           </div>
         </div>
 
-        {/* 3 Concrete Inputs Packed for the Selected Tool */}
-        <div className="space-y-2.5">
-          <div className="font-mono text-[11px] font-bold uppercase tracking-wider text-zinc-600">
-            {isEn
-              ? `CONCRETE OUTPUTS FROM THE PROMPT RECIPE (${activeName.toUpperCase()}):`
-              : `KONKRETE BAUSTEINE AUS DEM PROMPT-REZEPT (${activeName.toUpperCase()}):`}
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="p-4 bg-sbb-cloud border-l-4 border-emerald-700 border border-zinc-300 space-y-1.5">
-              <div className="font-mono text-[10px] font-black uppercase text-emerald-800">
-                {isEn ? 'Input 01 // Tailored Key Narrative' : 'Baustein 01 // Zugeschnittenes Kern-Narrativ'}
-              </div>
-              <p className="text-xs sm:text-sm text-sbb-black leading-relaxed italic">
-                {isEn ? active.input1En : active.input1De}
-              </p>
-            </div>
-
-            <div className="p-4 bg-sbb-cloud border-l-4 border-[#FFCC00] border border-zinc-300 space-y-1.5">
-              <div className="font-mono text-[10px] font-black uppercase text-zinc-700">
-                {isEn ? 'Input 02 // Structured GEO Framework' : 'Baustein 02 // Strukturiertes GEO-Framework'}
-              </div>
-              <p className="text-xs sm:text-sm text-sbb-black leading-relaxed">
-                {isEn ? active.input2En : active.input2De}
-              </p>
-            </div>
-
-            <div className="p-4 bg-sbb-cloud border-l-4 border-sbb-red border border-zinc-300 space-y-1.5">
-              <div className="font-mono text-[10px] font-black uppercase text-sbb-red">
-                {isEn ? 'Input 03 // Outside-In Comm Risks' : 'Baustein 03 // Outside-In-Risiken'}
-              </div>
-              <p className="text-xs sm:text-sm text-sbb-black leading-relaxed">
-                {isEn ? active.input3En : active.input3De}
-              </p>
+        {/* Synchronized Active Surface Bar + 3 Concrete Inputs */}
+        <div className="border-2 border-sbb-black bg-[#F4F4F6]">
+          <div className="bg-sbb-black text-white px-4 py-2.5 flex flex-wrap items-center justify-between gap-2">
+            <span className="font-mono text-[11px] font-bold uppercase text-[#FFCC00]">
+              {isEn
+                ? `ACTIVE SURFACE: ${activeName.replace(/^\d+\.\s*/, '').toUpperCase()}`
+                : `AKTIVE UMGEBUNG: ${activeName.replace(/^\d+\.\s*/, '').toUpperCase()}`}
+            </span>
+            <div className="flex flex-wrap items-center gap-1.5 font-mono text-[10px]">
+              {(['docs', 'browser', 'email'] as ToolId[]).map(toolId => {
+                const isActive = selectedTool === toolId;
+                const shortLabel =
+                  toolId === 'docs' ? 'Word / Docs' : toolId === 'browser' ? 'Browser / CMS' : 'Outlook / Teams';
+                return (
+                  <button
+                    key={toolId}
+                    type="button"
+                    onClick={() => setSelectedTool(toolId)}
+                    className={`px-2 py-0.5 border transition-colors cursor-pointer ${
+                      isActive
+                        ? 'bg-[#FFCC00] text-sbb-black border-[#FFCC00] font-black'
+                        : 'bg-zinc-900 text-zinc-300 border-zinc-700 hover:text-white'
+                    }`}
+                  >
+                    {shortLabel}
+                  </button>
+                );
+              })}
             </div>
           </div>
-        </div>
 
-        {/* Why One-Shot Stops Here vs. Human Communicator Iteration */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          <div className="p-4 bg-[#F8F8F9] border border-zinc-300 space-y-1.5">
-            <div className="font-mono text-[11px] font-black uppercase text-sbb-red flex items-center gap-1.5">
-              <XCircle className="w-4 h-4 shrink-0" />
-              <span>
-                {isEn
-                  ? 'Why One-Shot Output Stops Here'
-                  : 'Warum ein einzelner KI-Durchgang hier nicht reicht'}
-              </span>
+          <div className="p-4 sm:p-5 space-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="p-4 bg-white border-l-4 border-emerald-700 border border-zinc-300 space-y-1.5">
+                <div className="font-mono text-[10px] font-black uppercase text-emerald-800">
+                  {isEn ? 'Input 01 // Tailored Key Narrative' : 'Baustein 01 // Zugeschnittenes Kern-Narrativ'}
+                </div>
+                <p className="text-xs sm:text-sm text-sbb-black leading-relaxed italic">
+                  {isEn ? active.input1En : active.input1De}
+                </p>
+              </div>
+
+              <div className="p-4 bg-white border-l-4 border-[#FFCC00] border border-zinc-300 space-y-1.5">
+                <div className="font-mono text-[10px] font-black uppercase text-zinc-700">
+                  {isEn ? 'Input 02 // Structured GEO Framework' : 'Baustein 02 // Strukturiertes GEO-Framework'}
+                </div>
+                <p className="text-xs sm:text-sm text-sbb-black leading-relaxed">
+                  {isEn ? active.input2En : active.input2De}
+                </p>
+              </div>
+
+              <div className="p-4 bg-white border-l-4 border-sbb-red border border-zinc-300 space-y-1.5">
+                <div className="font-mono text-[10px] font-black uppercase text-sbb-red">
+                  {isEn ? 'Input 03 // Outside-In Comm Risks' : 'Baustein 03 // Outside-In-Risiken'}
+                </div>
+                <p className="text-xs sm:text-sm text-sbb-black leading-relaxed">
+                  {isEn ? active.input3En : active.input3De}
+                </p>
+              </div>
             </div>
-            <p className="text-xs sm:text-sm text-zinc-800 leading-relaxed">
-              {isEn ? active.whyNotOneShotEn : active.whyNotOneShotDe}
-            </p>
-          </div>
 
-          <div className="p-4 bg-sbb-black text-white border-l-4 border-[#FFCC00] space-y-2">
-            <div className="flex items-center justify-between gap-2">
-              <span className="font-mono text-[11px] font-black uppercase tracking-wider text-[#FFCC00] flex items-center gap-1.5">
-                <Users className="w-4 h-4 shrink-0" />
+            {/* Convergence Connector: 3 AI Inputs -> Human Iteration */}
+            <div className="flex flex-col items-center">
+              <div className="w-0.5 h-3 bg-sbb-black" />
+              <div className="px-3 py-1 bg-white border border-sbb-black font-mono text-[10px] font-bold uppercase text-sbb-black flex items-center gap-1.5 text-center">
+                <ArrowDown className="w-3 h-3 text-sbb-red shrink-0" />
                 <span>
                   {isEn
-                    ? 'Human Co-Creation & Sign-Off'
-                    : 'Menschliche Iteration & Freigabe'}
+                    ? 'These 3 AI inputs deliver full context — Human communicator iterates the final text'
+                    : 'Diese 3 KI-Bausteine liefern den vollen Kontext – der Mensch iteriert den finalen Text'}
                 </span>
-              </span>
-              <span className="inline-flex items-center gap-1 font-mono text-[10px] font-bold text-[#FFCC00]">
-                <RefreshCw className="w-3 h-3" />
-                {isEn ? 'Iterative Loop' : 'Iterative Schleife'}
-              </span>
+              </div>
+              <div className="w-0.5 h-3 bg-sbb-black" />
             </div>
-            <p className="text-xs sm:text-sm text-zinc-200 leading-relaxed">
-              {isEn ? active.humanIterationEn : active.humanIterationDe}
-            </p>
+
+            {/* Why One-Shot Stops Here -> Human Communicator Iteration */}
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] items-stretch gap-3">
+              <div className="p-4 bg-white border border-zinc-300 space-y-1.5">
+                <div className="font-mono text-[11px] font-black uppercase text-sbb-red flex items-center gap-1.5">
+                  <XCircle className="w-4 h-4 shrink-0" />
+                  <span>
+                    {isEn
+                      ? 'STEP 1 // Why One-Shot Output Stops Here'
+                      : 'SCHRITT 1 // Warum ein KI-Durchgang hier endet'}
+                  </span>
+                </div>
+                <p className="text-xs sm:text-sm text-zinc-800 leading-relaxed">
+                  {isEn ? active.whyNotOneShotEn : active.whyNotOneShotDe}
+                </p>
+              </div>
+
+              <div className="hidden lg:flex items-center justify-center">
+                <svg width="26" height="24" viewBox="0 0 26 24" className="shrink-0">
+                  <line x1="0" y1="12" x2="20" y2="12" stroke="#18181B" strokeWidth="2" className="terrain-flow-line" />
+                  <polygon points="18,7 26,12 18,17" fill="#18181B" />
+                </svg>
+              </div>
+
+              <div className="p-4 bg-sbb-black text-white border-l-4 border-[#FFCC00] space-y-2">
+                <div className="flex items-center justify-between gap-2">
+                  <span className="font-mono text-[11px] font-black uppercase tracking-wider text-[#FFCC00] flex items-center gap-1.5">
+                    <Users className="w-4 h-4 shrink-0" />
+                    <span>
+                      {isEn
+                        ? 'STEP 2 // Human Co-Creation & Sign-Off'
+                        : 'SCHRITT 2 // Menschliche Iteration & Freigabe'}
+                    </span>
+                  </span>
+                  <span className="inline-flex items-center gap-1 font-mono text-[10px] font-bold text-[#FFCC00]">
+                    <RefreshCw className="w-3 h-3" />
+                    {isEn ? 'Iterative Loop' : 'Iterative Schleife'}
+                  </span>
+                </div>
+                <p className="text-xs sm:text-sm text-zinc-200 leading-relaxed">
+                  {isEn ? active.humanIterationEn : active.humanIterationDe}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
