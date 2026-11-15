@@ -110,8 +110,8 @@ export const App: React.FC = () => {
             <span className="text-zinc-400">·</span>
             <span>
               {isEn
-                ? 'Interactive Concept Prototype'
-                : 'Interaktiver Konzept-Prototyp'}
+                ? 'Interactive Case Study & Concept Walkthrough'
+                : 'Interaktive Case Study & Konzept-Walkthrough'}
             </span>
           </div>
           <a

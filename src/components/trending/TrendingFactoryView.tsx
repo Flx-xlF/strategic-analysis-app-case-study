@@ -564,8 +564,8 @@ export const TrendingFactoryView: React.FC<Props> = ({ lang, onNavigateTab }) =>
             >
               <h2 className="text-2xl sm:text-4xl font-black tracking-tight text-sbb-black leading-[1.15]">
                 {isEn
-                  ? 'Why build an interactive prototype instead of just describing a mindset in a cover letter?'
-                  : 'Warum einen interaktiven Prototyp bauen, statt eine Haltung nur im Anschreiben zu beschreiben?'}
+                  ? 'Why build an interactive case study instead of just describing a mindset in a cover letter?'
+                  : 'Warum eine interaktive Case Study bauen, statt eine Haltung nur im Anschreiben zu beschreiben?'}
               </h2>
 
               <p className="text-base sm:text-xl font-bold text-sbb-red leading-snug">
