@@ -103,18 +103,6 @@ export const ConceptFlowView: React.FC<Props> = ({
                 : 'Im Zeitalter der Zero-Click-KI-Suche verschwindet diese Trennung: Antwortmaschinen zerlegen eine einzige Frage in 5 bis 11 parallele Teilabfragen und ziehen Passagen aus Presseberichten, Foren, eigenen Seiten und Altdateien gleichzeitig in ein einziges Arbeitsfenster (Context Window).'}
             </p>
           </div>
-
-          <div className="pt-3 border-t border-zinc-200 flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono text-zinc-600">
-            <span>{isEn ? '1 prompt → 5–11 parallel sub-queries' : '1 Frage → 5–11 parallele Teilabfragen'}</span>
-            <button
-              type="button"
-              onClick={() => onEnterWorkspace('cockpit')}
-              className="text-sbb-red font-bold hover:underline flex items-center gap-1 cursor-pointer"
-            >
-              <span>{isEn ? 'Inspect in 01 Outside-In' : 'In 01 Outside-In ansehen'}</span>
-              <ArrowRight className="w-3 h-3" />
-            </button>
-          </div>
         </div>
 
         {/* Right: Animated Illustration 01 (7 cols) */}
@@ -318,17 +306,6 @@ export const ConceptFlowView: React.FC<Props> = ({
                 : 'Wichtig dabei: Widersprüche zu vermeiden heisst nicht, Kernbotschaften stur per Copy-Paste zu kopieren. Es bedeutet, den jeweiligen Kontext per KI zu analysieren und das Narrativ passgenau auf diesen Kontext zuzuschneiden.'}
             </p>
           </div>
-
-          <div className="pt-3 border-t border-zinc-200 flex items-center justify-end text-[11px] font-mono">
-            <button
-              type="button"
-              onClick={() => onEnterWorkspace('geo')}
-              className="text-emerald-800 font-bold hover:underline flex items-center gap-1 cursor-pointer"
-            >
-              <span>{isEn ? 'Explore 02 GEO & Tailoring' : '02 GEO & Anpassung ansehen'}</span>
-              <ArrowRight className="w-3 h-3" />
-            </button>
-          </div>
         </div>
 
         {/* Right: Animated Illustration 02 (7 cols) */}
@@ -514,17 +491,6 @@ export const ConceptFlowView: React.FC<Props> = ({
                   : 'Die zentrale Kommunikation verwaltet Kern-Narrative und GEO-Frameworks, übersetzt sie in Prompt-Rezepte und verteilt sie über bestehende Systeme direkt dorthin, wo gearbeitet wird: in Word, Excel und Outlook – mit minimaler Reibung und sofortigem Nutzen.'}
               </div>
             </div>
-          </div>
-
-          <div className="pt-3 border-t border-zinc-200 flex items-center justify-end text-[11px] font-mono">
-            <button
-              type="button"
-              onClick={() => onEnterWorkspace('trending')}
-              className="text-emerald-800 font-bold hover:underline flex items-center gap-1 cursor-pointer"
-            >
-              <span>{isEn ? 'Open 03 Office Recipes' : '03 Office-Rezepte öffnen'}</span>
-              <ArrowRight className="w-3 h-3" />
-            </button>
           </div>
         </div>
 
@@ -767,17 +733,6 @@ export const ConceptFlowView: React.FC<Props> = ({
                 ? '…so human communicators can iterate the final text with full context.'
                 : '…damit menschliche Kommunikatoren den finalen Text mit vollem Kontext ausarbeiten können.'}
             </p>
-          </div>
-
-          <div className="pt-3 border-t border-zinc-200 flex items-center justify-end text-[11px] font-mono">
-            <button
-              type="button"
-              onClick={() => onEnterWorkspace('trending')}
-              className="text-sbb-red font-bold hover:underline flex items-center gap-1 cursor-pointer"
-            >
-              <span>{isEn ? 'See Human Iteration in 03' : 'Menschliche Iteration in 03 ansehen'}</span>
-              <ArrowRight className="w-3 h-3" />
-            </button>
           </div>
         </div>
 
