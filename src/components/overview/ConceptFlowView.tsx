@@ -9,7 +9,6 @@ import {
   FileSpreadsheet,
   FileText,
   GitBranch,
-  HelpCircle,
   Layers,
   Mail,
   RefreshCw,
@@ -22,22 +21,14 @@ import {
 interface Props {
   lang: Language;
   onEnterWorkspace: (tab?: 'cockpit' | 'geo' | 'trending') => void;
-  onOpenConceptModal: () => void;
+  onOpenConceptModal?: () => void;
 }
 
 export const ConceptFlowView: React.FC<Props> = ({
   lang,
-  onEnterWorkspace,
-  onOpenConceptModal
+  onEnterWorkspace
 }) => {
   const isEn = lang === 'en';
-
-  const scrollToSlide = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
 
   return (
     <div className="max-w-6xl mx-auto pb-16 space-y-0">
@@ -67,37 +58,16 @@ export const ConceptFlowView: React.FC<Props> = ({
         }
       `}</style>
 
-      {/* ═══ TOP NAVIGATION & JUMP BAR ═══ */}
-      <div className="bg-white border border-sbb-aluminum p-4 sm:p-5 mb-6 flex flex-col lg:flex-row lg:items-center justify-between gap-4 shadow-xs">
-        <div className="space-y-1">
-          <div className="text-[11px] font-mono font-bold tracking-widest text-sbb-red uppercase">
-            {isEn ? 'TERRAIN // INTRODUCTION & SYSTEM LOGIC' : 'TERRAIN // EINFÜHRUNG & SYSTEMLOGIK'}
-          </div>
-          <p className="text-xs sm:text-sm text-zinc-700">
-            {isEn
-              ? 'Scroll down through the 4 connected steps at your own pace—every step builds directly on the previous one.'
-              : 'Scrollen Sie in Ihrem eigenen Tempo durch die 4 verbundenen Schritte – jeder Schritt baut direkt auf dem vorherigen auf.'}
-          </p>
+      {/* ═══ TOP ORIENTATION BAR ═══ */}
+      <div className="bg-white border border-sbb-aluminum px-5 py-4 mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-2 shadow-xs">
+        <div className="text-[11px] font-mono font-bold tracking-widest text-sbb-red uppercase">
+          {isEn ? 'TERRAIN // INTRODUCTION & SYSTEM LOGIC' : 'TERRAIN // EINFÜHRUNG & SYSTEMLOGIK'}
         </div>
-
-        <div className="flex flex-wrap items-center gap-1.5">
-          {[
-            { id: 'slide-01', num: '01', labelEn: 'AI Search Shift', labelDe: 'KI-Suche & Kanäle' },
-            { id: 'slide-02', num: '02', labelEn: 'Outside-In, Top-Down & GEO', labelDe: 'Outside-In, Top-Down & GEO' },
-            { id: 'slide-03', num: '03', labelEn: 'Enterprise IT & Tools', labelDe: 'IT & Arbeitsplatz' },
-            { id: 'slide-04', num: '04', labelEn: 'Limits & Human Iteration', labelDe: 'Grenzen & Mensch' }
-          ].map((item) => (
-            <button
-              key={item.id}
-              type="button"
-              onClick={() => scrollToSlide(item.id)}
-              className="px-2.5 py-1.5 bg-sbb-cloud hover:bg-zinc-200/80 border border-sbb-aluminum font-mono text-[11px] font-bold text-sbb-black transition-colors cursor-pointer flex items-center gap-1.5"
-            >
-              <span className="text-sbb-red font-black">{item.num}</span>
-              <span>{isEn ? item.labelEn : item.labelDe}</span>
-            </button>
-          ))}
-        </div>
+        <p className="text-xs sm:text-sm text-zinc-700">
+          {isEn
+            ? 'Four connected steps—scroll down at your own pace or open any deep-dive module.'
+            : 'Vier verbundene Schritte – scrollen Sie in Ihrem eigenen Tempo oder öffnen Sie direkt ein Modul.'}
+        </p>
       </div>
 
       {/* ═══════════════════════════════════════════════════════════════════════
@@ -134,9 +104,16 @@ export const ConceptFlowView: React.FC<Props> = ({
             </p>
           </div>
 
-          <div className="pt-3 border-t border-zinc-200 flex items-center justify-between text-[11px] font-mono text-zinc-600">
+          <div className="pt-3 border-t border-zinc-200 flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono text-zinc-600">
             <span>{isEn ? '1 prompt → 5–11 parallel sub-queries' : '1 Frage → 5–11 parallele Teilabfragen'}</span>
-            <span className="text-sbb-red font-bold">{isEn ? 'All channels merged' : 'Alle Kanäle zusammengeführt'}</span>
+            <button
+              type="button"
+              onClick={() => onEnterWorkspace('cockpit')}
+              className="text-sbb-red font-bold hover:underline flex items-center gap-1 cursor-pointer"
+            >
+              <span>{isEn ? 'Inspect in 01 Outside-In' : 'In 01 Outside-In ansehen'}</span>
+              <ArrowRight className="w-3 h-3" />
+            </button>
           </div>
         </div>
 
@@ -153,7 +130,7 @@ export const ConceptFlowView: React.FC<Props> = ({
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1.2fr_auto_1.2fr] items-center gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-[0.95fr_auto_1.35fr_auto_1.2fr] items-center gap-2.5">
             {/* Step A: 1 Question */}
             <div className="bg-white border-2 border-sbb-black p-3.5 space-y-2 shadow-2xs">
               <div className="flex items-center gap-1.5 font-mono text-[10px] font-bold uppercase text-sbb-red">
@@ -172,11 +149,11 @@ export const ConceptFlowView: React.FC<Props> = ({
 
             {/* Animated SVG Fan-Out */}
             <div className="hidden md:flex items-center justify-center">
-              <svg width="44" height="150" viewBox="0 0 44 150" className="overflow-visible">
-                <path d="M 0 75 C 22 75, 22 20, 44 20" fill="none" stroke="#EB0000" strokeWidth="1.75" className="terrain-flow-line" />
-                <path d="M 0 75 C 22 75, 22 56, 44 56" fill="none" stroke="#EB0000" strokeWidth="1.75" className="terrain-flow-line" />
-                <path d="M 0 75 C 22 75, 22 94, 44 94" fill="none" stroke="#EB0000" strokeWidth="1.75" className="terrain-flow-line" />
-                <path d="M 0 75 C 22 75, 22 130, 44 130" fill="none" stroke="#EB0000" strokeWidth="1.75" className="terrain-flow-line" />
+              <svg width="32" height="150" viewBox="0 0 32 150" className="overflow-visible">
+                <path d="M 0 75 C 16 75, 16 20, 32 20" fill="none" stroke="#EB0000" strokeWidth="1.75" className="terrain-flow-line" />
+                <path d="M 0 75 C 16 75, 16 56, 32 56" fill="none" stroke="#EB0000" strokeWidth="1.75" className="terrain-flow-line" />
+                <path d="M 0 75 C 16 75, 16 94, 32 94" fill="none" stroke="#EB0000" strokeWidth="1.75" className="terrain-flow-line" />
+                <path d="M 0 75 C 16 75, 16 130, 32 130" fill="none" stroke="#EB0000" strokeWidth="1.75" className="terrain-flow-line" />
                 <circle cx="3" cy="75" r="3.5" fill="#EB0000" />
               </svg>
             </div>
@@ -219,10 +196,10 @@ export const ConceptFlowView: React.FC<Props> = ({
                   }`}
                 >
                   <div className="min-w-0">
-                    <div className="font-bold text-sbb-black truncate">
+                    <div className="font-bold text-sbb-black leading-snug">
                       {isEn ? ch.titleEn : ch.titleDe}
                     </div>
-                    <div className="text-[11px] text-zinc-600 truncate">
+                    <div className="text-[11px] text-zinc-600 leading-snug">
                       {isEn ? ch.subEn : ch.subDe}
                     </div>
                   </div>
@@ -233,12 +210,12 @@ export const ConceptFlowView: React.FC<Props> = ({
 
             {/* Animated SVG Convergence */}
             <div className="hidden md:flex items-center justify-center">
-              <svg width="44" height="150" viewBox="0 0 44 150" className="overflow-visible">
-                <path d="M 0 20 C 22 20, 22 75, 44 75" fill="none" stroke="#18181B" strokeWidth="1.75" className="terrain-flow-line" />
-                <path d="M 0 56 C 22 56, 22 75, 44 75" fill="none" stroke="#18181B" strokeWidth="1.75" className="terrain-flow-line" />
-                <path d="M 0 94 C 22 94, 22 75, 44 75" fill="none" stroke="#18181B" strokeWidth="1.75" className="terrain-flow-line" />
-                <path d="M 0 130 C 22 130, 22 75, 44 75" fill="none" stroke="#EB0000" strokeWidth="1.75" className="terrain-flow-line" />
-                <circle cx="41" cy="75" r="3.5" fill="#18181B" />
+              <svg width="32" height="150" viewBox="0 0 32 150" className="overflow-visible">
+                <path d="M 0 20 C 16 20, 16 75, 32 75" fill="none" stroke="#18181B" strokeWidth="1.75" className="terrain-flow-line" />
+                <path d="M 0 56 C 16 56, 16 75, 32 75" fill="none" stroke="#18181B" strokeWidth="1.75" className="terrain-flow-line" />
+                <path d="M 0 94 C 16 94, 16 75, 32 75" fill="none" stroke="#18181B" strokeWidth="1.75" className="terrain-flow-line" />
+                <path d="M 0 130 C 16 130, 16 75, 32 75" fill="none" stroke="#EB0000" strokeWidth="1.75" className="terrain-flow-line" />
+                <circle cx="29" cy="75" r="3.5" fill="#18181B" />
               </svg>
             </div>
 
@@ -254,7 +231,9 @@ export const ConceptFlowView: React.FC<Props> = ({
                   <span className="font-mono font-bold text-[10px] uppercase block text-zinc-600">
                     {isEn ? 'Central Statement:' : 'Zentrale Aussage:'}
                   </span>
-                  {isEn ? 'Message A from global owned page' : 'Aussage A der globalen Seite'}
+                  {isEn
+                    ? 'Current central narrative on global strategy page'
+                    : 'Aktuelles zentrales Narrativ der globalen Seite'}
                 </div>
 
                 <div className="p-2 bg-red-50 border border-red-300 text-red-950">
@@ -262,8 +241,8 @@ export const ConceptFlowView: React.FC<Props> = ({
                     {isEn ? 'Regional / Legacy Excerpt:' : 'Regionaler / älterer Auszug:'}
                   </span>
                   {isEn
-                    ? 'Conflicting framing B pulled at the same time'
-                    : 'Abweichende Aussage B gleichzeitig geladen'}
+                    ? 'Divergent regional phrasing or outdated file pulled in parallel'
+                    : 'Abweichende regionale Formulierung oder Altdatei parallel geladen'}
                 </div>
               </div>
 
@@ -341,6 +320,17 @@ export const ConceptFlowView: React.FC<Props> = ({
                 : 'Wichtig dabei: Widersprüche zu vermeiden heisst nicht, Kernbotschaften stur per Copy-Paste zu kopieren. Es bedeutet, den jeweiligen Kontext per KI zu analysieren und das Narrativ passgenau auf diesen Kontext zuzuschneiden.'}
             </p>
           </div>
+
+          <div className="pt-3 border-t border-zinc-200 flex items-center justify-end text-[11px] font-mono">
+            <button
+              type="button"
+              onClick={() => onEnterWorkspace('geo')}
+              className="text-emerald-800 font-bold hover:underline flex items-center gap-1 cursor-pointer"
+            >
+              <span>{isEn ? 'Explore 02 GEO & Tailoring' : '02 GEO & Anpassung ansehen'}</span>
+              <ArrowRight className="w-3 h-3" />
+            </button>
+          </div>
         </div>
 
         {/* Right: Animated Illustration 02 (7 cols) */}
@@ -357,7 +347,7 @@ export const ConceptFlowView: React.FC<Props> = ({
                 </span>
               </span>
               <span className="px-2 py-0.5 bg-red-50 border border-red-200 font-mono text-[10px] font-bold text-sbb-red">
-                {isEn ? 'Detects where narrative drops off' : 'Erkennt, wo Botschaften abreißen'}
+                {isEn ? 'Detects where narrative drops off' : 'Erkennt, wo Botschaften abreissen'}
               </span>
             </div>
             <p className="text-xs text-zinc-700">
@@ -473,8 +463,8 @@ export const ConceptFlowView: React.FC<Props> = ({
           </span>
           <p className="text-xs sm:text-sm font-medium text-zinc-100 leading-snug">
             {isEn
-              ? 'Establishing coherent narratives and frameworks top-down fails if rules sit in lingering documents—in a busy environment, teams overlook them in a hurry.'
-              : 'Kohärente Narrative und Frameworks lassen sich Top-Down nicht über abgelegte Regel-Dokumente durchsetzen – im hektischen Alltag werden diese in der Eile übersehen.'}
+              ? 'Establishing coherent narratives and frameworks top-down fails if rules sit in static rulebook documents—in a busy environment, teams overlook them in a hurry.'
+              : 'Kohärente Narrative und Frameworks lassen sich Top-Down nicht über statische Regel-Dokumente durchsetzen – im hektischen Alltag werden diese in der Eile übersehen.'}
           </p>
         </div>
         <div className="w-0.5 h-4 bg-sbb-black" />
@@ -503,8 +493,8 @@ export const ConceptFlowView: React.FC<Props> = ({
 
             <p className="text-sm text-zinc-800 leading-relaxed">
               {isEn
-                ? 'In a regulated enterprise or institution operating across central and regional hubs, this system is not built as a standalone "shadow IT" silo. To reduce friction and generate immediate benefits, centrally administered prompt recipes are distributed through whatever system the company already uses—appearing right where work is done: inside Word, Excel, and Outlook.'
-                : 'In einem regulierten Unternehmen mit zentralen und regionalen Standorten wird dieses System nicht als isoliertes «Shadow-IT»-Silo gebaut. Um Reibung zu minimieren und direkten Nutzen zu schaffen, werden zentral gepflegte Prompt-Rezepte über das bereits vorhandene Unternehmenssystem verteilt – direkt dorthin, wo gearbeitet wird: in Word, Excel und Outlook.'}
+                ? 'In a regulated enterprise or institution operating across central and regional hubs, this system cannot be a standalone "shadow IT" silo or a folder of static rulebook documents. It connects existing enterprise layers across two streams:'
+                : 'In einem regulierten Unternehmen mit zentralen und regionalen Standorten wird dieses System nicht als isoliertes «Shadow-IT»-Silo oder als Ordner voller Regel-Dokumente gebaut. Es verbindet bestehende Unternehmenssysteme entlang zweier Ströme:'}
             </p>
 
             <div className="space-y-2.5 pt-1">
@@ -522,10 +512,21 @@ export const ConceptFlowView: React.FC<Props> = ({
                   {isEn ? '2. Top-Down Layer:' : '2. Top-Down-Ebene:'}
                 </strong>
                 {isEn
-                  ? 'Key narratives and GEO frameworks are administered and translated into prompt recipes by central comms and streamed downwards into the tools teams use in their day-to-day work. If friction isn’t reduced and teams don’t benefit immediately, they won’t use it.'
-                  : 'Kern-Narrative und GEO-Frameworks werden von der zentralen Kommunikation verwaltet, in Prompt-Rezepte übersetzt und direkt in die täglichen Arbeitstools gestreamt. Nur wenn Reibung minimiert wird und Teams sofort profitieren, werden die Tools im Alltag auch genutzt.'}
+                  ? 'Central Comms administers key narratives and GEO frameworks, translates them into prompt recipes, and distributes them through existing enterprise systems right where work is done: inside Word, Excel, and Outlook—minimizing friction so teams benefit immediately and actually use them.'
+                  : 'Die zentrale Kommunikation verwaltet Kern-Narrative und GEO-Frameworks, übersetzt sie in Prompt-Rezepte und verteilt sie über bestehende Systeme direkt dorthin, wo gearbeitet wird: in Word, Excel und Outlook – mit minimaler Reibung und sofortigem Nutzen.'}
               </div>
             </div>
+          </div>
+
+          <div className="pt-3 border-t border-zinc-200 flex items-center justify-end text-[11px] font-mono">
+            <button
+              type="button"
+              onClick={() => onEnterWorkspace('trending')}
+              className="text-emerald-800 font-bold hover:underline flex items-center gap-1 cursor-pointer"
+            >
+              <span>{isEn ? 'Open 03 Office Recipes' : '03 Office-Rezepte öffnen'}</span>
+              <ArrowRight className="w-3 h-3" />
+            </button>
           </div>
         </div>
 
@@ -539,7 +540,7 @@ export const ConceptFlowView: React.FC<Props> = ({
             <div className="flex flex-wrap items-center gap-3 font-mono text-[11px]">
               <span className="inline-flex items-center gap-1 line-through text-zinc-600">
                 <XCircle className="w-3.5 h-3.5 text-sbb-red shrink-0" />
-                {isEn ? 'Lingering rulebook documents (overlooked in a hurry)' : 'Statische Regel-Dokumente (in Eile übersehen)'}
+                {isEn ? 'Unread rulebook documents' : 'Ungelesene Regel-Dokumente'}
               </span>
               <span className="inline-flex items-center gap-1 line-through text-zinc-600">
                 <XCircle className="w-3.5 h-3.5 text-sbb-red shrink-0" />
@@ -655,7 +656,7 @@ export const ConceptFlowView: React.FC<Props> = ({
                   <FileText className="w-4 h-4 text-emerald-800 shrink-0" />
                   <div className="min-w-0">
                     <div className="text-xs font-bold text-sbb-black">Word</div>
-                    <div className="text-[11px] text-zinc-700 truncate">
+                    <div className="text-[11px] text-zinc-700 leading-snug">
                       {isEn ? 'Stories, statements & briefings' : 'Stories, Statements & Briefings'}
                     </div>
                   </div>
@@ -665,7 +666,7 @@ export const ConceptFlowView: React.FC<Props> = ({
                   <FileSpreadsheet className="w-4 h-4 text-emerald-800 shrink-0" />
                   <div className="min-w-0">
                     <div className="text-xs font-bold text-sbb-black">Excel</div>
-                    <div className="text-[11px] text-zinc-700 truncate">
+                    <div className="text-[11px] text-zinc-700 leading-snug">
                       {isEn ? 'Structured Q&A & message grids' : 'Strukturierte Q&As & Faktenraster'}
                     </div>
                   </div>
@@ -675,7 +676,7 @@ export const ConceptFlowView: React.FC<Props> = ({
                   <Mail className="w-4 h-4 text-emerald-800 shrink-0" />
                   <div className="min-w-0">
                     <div className="text-xs font-bold text-sbb-black">Outlook</div>
-                    <div className="text-[11px] text-zinc-700 truncate">
+                    <div className="text-[11px] text-zinc-700 leading-snug">
                       {isEn ? 'Stakeholder & media replies' : 'Stakeholder- & Medienantworten'}
                     </div>
                   </div>
@@ -726,7 +727,7 @@ export const ConceptFlowView: React.FC<Props> = ({
 
             <p className="text-sm text-zinc-800 leading-relaxed font-medium">
               {isEn
-                ? 'An LLM will never produce a finished, ready-to-send statement, corporate story, etc. in a single pass (at least for the time being).'
+                ? 'An LLM will never produce a finished, ready-to-send statement or corporate story in a single pass (at least for the time being).'
                 : 'Ein LLM wird (zumindest auf absehbare Zeit) niemals in einem einzigen Durchgang ein fertiges, versandbereites Statement oder eine fertige Corporate Story schreiben.'}
             </p>
 
@@ -768,6 +769,17 @@ export const ConceptFlowView: React.FC<Props> = ({
                 ? '…so human communicators can iterate the final text with full context.'
                 : '…damit menschliche Kommunikatoren den finalen Text mit vollem Kontext ausarbeiten können.'}
             </p>
+          </div>
+
+          <div className="pt-3 border-t border-zinc-200 flex items-center justify-end text-[11px] font-mono">
+            <button
+              type="button"
+              onClick={() => onEnterWorkspace('trending')}
+              className="text-sbb-red font-bold hover:underline flex items-center gap-1 cursor-pointer"
+            >
+              <span>{isEn ? 'See Human Iteration in 03' : 'Menschliche Iteration in 03 ansehen'}</span>
+              <ArrowRight className="w-3 h-3" />
+            </button>
           </div>
         </div>
 
@@ -893,15 +905,6 @@ export const ConceptFlowView: React.FC<Props> = ({
           </div>
 
           <div className="flex flex-wrap items-center gap-2.5 shrink-0">
-            <button
-              type="button"
-              onClick={onOpenConceptModal}
-              className="px-3 py-2 bg-sbb-cloud hover:bg-zinc-200 border border-sbb-aluminum font-mono text-xs font-bold uppercase tracking-wider text-sbb-black transition-colors flex items-center gap-1.5 cursor-pointer"
-            >
-              <HelpCircle className="w-3.5 h-3.5 text-sbb-stone" />
-              <span>{isEn ? 'IT & Method' : 'IT & Methodik'}</span>
-            </button>
-
             <button
               type="button"
               onClick={() => onEnterWorkspace('geo')}

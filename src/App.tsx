@@ -53,10 +53,14 @@ export const App: React.FC = () => {
       <ConceptMethodModal
         isOpen={showConceptGuide}
         onClose={() => setShowConceptGuide(false)}
-        onOpenFlowView={() => {
-          setShowConceptGuide(false);
-          handleTabChange('overview');
-        }}
+        onOpenFlowView={
+          activeTab !== 'overview'
+            ? () => {
+                setShowConceptGuide(false);
+                handleTabChange('overview');
+              }
+            : undefined
+        }
         lang={lang}
       />
 

@@ -28,6 +28,33 @@ export const NarrativeCockpitView: React.FC<Props> = ({ lang, onNavigateTab }) =
   const [activeStage, setActiveStage] = useState<PipelineStage>(1);
   const isEn = lang === 'en';
 
+  const subQueries: { id: string; channel: ChannelId; labelEn: string; labelDe: string }[] = [
+    {
+      id: 'q1',
+      channel: 'earned',
+      labelEn: 'Query 1: global investment press coverage',
+      labelDe: 'Abfrage 1: Presseberichte zu Investitionen'
+    },
+    {
+      id: 'q2',
+      channel: 'owned',
+      labelEn: 'Query 2: corporate strategy page',
+      labelDe: 'Abfrage 2: Corporate-Strategy-Seite'
+    },
+    {
+      id: 'q3',
+      channel: 'regional',
+      labelEn: 'Query 3–4: regional briefings & archived PDFs',
+      labelDe: 'Abfrage 3–4: Regionale Briefings & Alt-PDFs'
+    },
+    {
+      id: 'q4',
+      channel: 'forums',
+      labelEn: 'Query 5–8: forum & stakeholder reactions',
+      labelDe: 'Abfrage 5–8: Foren & Reaktionen'
+    }
+  ];
+
   const channels: Record<
     ChannelId,
     {
@@ -97,9 +124,9 @@ export const NarrativeCockpitView: React.FC<Props> = ({ lang, onNavigateTab }) =
       passageDe:
         '«Regionales Standort-Briefing 2022 (PDF): Die Prüfung europäischer Standortoptionen läuft abhängig von lokalen Rahmenbedingungen weiter.»',
       collisionEn:
-        'An outdated PDF pulled in sub-query #7 directly contradicts current central messaging—diluting the company’s voice in the same answer.',
+        'An outdated PDF pulled in sub-query #3–4 directly contradicts current central messaging—diluting the company’s voice in the same answer.',
       collisionDe:
-        'Ein veraltetes PDF in Teilabfrage Nr. 7 widerspricht der aktuellen zentralen Aussage direkt – die Unternehmensstimme wird in derselben Antwort verwässert.'
+        'Ein veraltetes PDF in Teilabfrage Nr. 3–4 widerspricht der aktuellen zentralen Aussage direkt – die Unternehmensstimme wird in derselben Antwort verwässert.'
     },
     forums: {
       labelEn: '4. Online Forums',
@@ -112,9 +139,9 @@ export const NarrativeCockpitView: React.FC<Props> = ({ lang, onNavigateTab }) =
       matrixReasonDe:
         'Forumnutzer vergleichen Schlagzeilen mit regionalen Gerüchten in direkter Alltagssprache, die KI-Suchmaschinen oft als Stimmungsbild heranziehen.',
       passageEn:
-        '«Thread: Why does the US press release highlight big expansion while the local PDF talks about site reviews?»',
+        '«Thread: Why does the international press release highlight expansion while the local PDF talks about site reviews?»',
       passageDe:
-        '«Diskussion: Warum spricht die US-Mitteilung von Ausbau, während ein lokales PDF Standortprüfungen erwähnt?»',
+        '«Diskussion: Warum spricht die internationale Mitteilung von Ausbau, während ein lokales PDF Standortprüfungen erwähnt?»',
       collisionEn:
         'When company channels show discrepancies, forums amplify the tension—and AI models pull both the contradiction and the forum speculation into one summary.',
       collisionDe:
@@ -124,9 +151,22 @@ export const NarrativeCockpitView: React.FC<Props> = ({ lang, onNavigateTab }) =
 
   const activeChannel = channels[selectedChannel];
 
-  const stages = [
+  const stages: {
+    num: PipelineStage;
+    titleEn: string;
+    titleDe: string;
+    tools: string;
+    summaryEn: string;
+    summaryDe: string;
+    inputEn: string;
+    inputDe: string;
+    processEn: string;
+    processDe: string;
+    outputEn: string;
+    outputDe: string;
+  }[] = [
     {
-      num: 1 as PipelineStage,
+      num: 1,
       titleEn: '1. External Feeds & Public LLM APIs',
       titleDe: '1. Externe Feeds & öffentliche LLM-APIs',
       tools: 'Factiva, Meltwater, Talkwalker + Public LLM APIs',
@@ -134,13 +174,21 @@ export const NarrativeCockpitView: React.FC<Props> = ({ lang, onNavigateTab }) =
         'Ingests continuous article streams across press, trade media, and social discussions, alongside repeated queries to public LLM APIs.',
       summaryDe:
         'Erfasst laufende Artikelströme aus Presse, Fachmedien und Social-Diskussionen sowie wiederholte Abfragen über öffentliche LLM-APIs.',
-      detailEn:
-        'In a global enterprise, you cannot build a standalone "shadow IT" scraper. The Outside-In branch connects to licensed media and social aggregators the company already uses (Factiva, Meltwater, Talkwalker) and public LLM APIs to capture both coverage and how AI search engines currently summarize the company.',
-      detailDe:
-        'In einem regulierten Unternehmen wird kein isoliertes «Shadow-IT»-Tool gebaut. Der Outside-In-Zweig nutzt bestehende lizenzierte Aggregatoren (Factiva, Meltwater, Talkwalker) und öffentliche LLM-APIs, um Medienströme und aktuelle KI-Antworten parallel zu erfassen.'
+      inputEn:
+        'Continuous licensed news wires, trade articles, social threads (via Factiva, Meltwater, Talkwalker) plus live responses from public LLM APIs.',
+      inputDe:
+        'Laufende lizenzierte Nachrichtenströme, Fachartikel, Social-Threads (über Factiva, Meltwater, Talkwalker) sowie Antworten öffentlicher LLM-APIs.',
+      processEn:
+        'Connects directly to enterprise feed agreements already in place—never a standalone "shadow IT" scraper.',
+      processDe:
+        'Nutzt direkt bestehende lizenzierte Unternehmens-Feeds und API-Zugänge – kein isoliertes «Shadow-IT»-Scraping.',
+      outputEn:
+        'Huge, unstructured raw text streams covering what media, forums, and AI answer engines are currently saying across regions.',
+      outputDe:
+        'Grosse, unstrukturierte Rohdatenströme darüber, was Medien, Foren und KI-Suchmaschinen über Regionen hinweg aktuell wiedergeben.'
     },
     {
-      num: 2 as PipelineStage,
+      num: 2,
       titleEn: '2. Digestion Into Structured Data',
       titleDe: '2. Aufbereitung in strukturierte Daten',
       tools: isEn ? 'Stream Normalization & Tagging' : 'Normalisierung & Strukturierung',
@@ -148,13 +196,21 @@ export const NarrativeCockpitView: React.FC<Props> = ({ lang, onNavigateTab }) =
         'Transforms huge raw article and answer volumes into clean, structured records by topic, channel, region, and narrative claim.',
       summaryDe:
         'Überführt enorme Rohdatenmengen aus Artikeln und KI-Antworten in strukturierte Datensätze nach Thema, Kanal, Region und Kernaussage.',
-      detailEn:
-        'Licensed feeds produce huge amounts of raw text every day—far too much to read manually or paste straight into an LLM prompt. Before any analysis happens, the stream must be digested and transformed into structured data so patterns across central, regional, and cantonal markets become comparable.',
-      detailDe:
-        'Lizenzierte Feeds liefern täglich riesige Textmengen – viel zu viel zum manuellen Lesen oder für direkte LLM-Prompts. Deshalb werden die Ströme zuerst verdichtet und in strukturierte Daten überführt, damit Muster über zentrale, regionale und kantonale Märkte hinweg vergleichbar werden.'
+      inputEn:
+        'Massive daily volumes of raw articles, forum threads, and multi-query LLM responses that are impossible to inspect manually or dump straight into an LLM.',
+      inputDe:
+        'Riesige tägliche Mengen an Rohartikeln, Forenbeiträgen und LLM-Antworten, die sich weder manuell lesen noch roh in ein LLM geben lassen.',
+      processEn:
+        'Digests and transforms raw text into clean, structured records—tagging source channel, region/canton, topic, and cited company claims.',
+      processDe:
+        'Verdichtet Rohtexte in strukturierte Datensätze – mit sauberer Zuordnung nach Quellkanal, Region/Kanton, Thema und zitierten Aussagen.',
+      outputEn:
+        'Structured dataset ready for both statistical aggregation and targeted LLM inspection (Example record: Region = CH / Source = Legacy PDF / Topic = Footprint).',
+      outputDe:
+        'Strukturierter Datensatz für Statistik und gezielte LLM-Prüfung (Beispieldatensatz: Region = CH / Quelle = Alt-PDF / Thema = Standort).'
     },
     {
-      num: 3 as PipelineStage,
+      num: 3,
       titleEn: '3. Statistical & LLM Processing',
       titleDe: '3. Statistische & LLM-Auswertung',
       tools: isEn ? 'Pull-Through & Gap Identification' : 'Durchdringung & Handlungsbedarf',
@@ -162,10 +218,18 @@ export const NarrativeCockpitView: React.FC<Props> = ({ lang, onNavigateTab }) =
         'Combines statistical filtering with LLM analysis to show where narratives come through and where work needs to be done.',
       summaryDe:
         'Kombiniert statistische Auswertung mit LLM-Analyse, um zu zeigen, wo Botschaften durchdringen und wo Handlungsbedarf besteht.',
-      detailEn:
-        'Statistics narrow the massive volume down to real shifts and recurring themes; LLMs inspect whether the company’s core narrative actually comes through in media and AI answers or gets distorted by missing context or discrepancies across teams. The output is clear priorities—not raw noise.',
-      detailDe:
-        'Statistik filtert aus dem Gesamtvolumen echte Verschiebungen und Häufungen heraus; LLMs prüfen anschliessend, ob das Kern-Narrativ in Medien und KI-Antworten durchdringt oder durch fehlenden Kontext und Team-Abweichungen verzerrt wird. Ergebnis sind klare Prioritäten statt Datenrauschen.'
+      inputEn:
+        'Structured records from Stage 2 paired with the company’s centrally defined core narratives.',
+      inputDe:
+        'Strukturierte Datensätze aus Stufe 2 abgeglichen mit den zentral definierten Kern-Narrativen des Unternehmens.',
+      processEn:
+        'Statistical processing spots shifts and recurring patterns across the huge volume; LLMs check whether key messages actually come through or get distorted by missing context.',
+      processDe:
+        'Statistik erkennt Verschiebungen und Häufungen im Gesamtvolumen; LLMs prüfen, ob Kernbotschaften durchdringen oder durch fehlenden Kontext verzerrt werden.',
+      outputEn:
+        'Clear qualitative map showing teams exactly where narratives hold—and where discrepancies need Top-Down action.',
+      outputDe:
+        'Klare qualitative Übersicht, wo Narrative tragen – und wo Abweichungen gezielte Top-Down-Arbeit erfordern.'
     }
   ];
 
@@ -211,7 +275,7 @@ export const NarrativeCockpitView: React.FC<Props> = ({ lang, onNavigateTab }) =
           </div>
         </div>
 
-        {/* Question + 5-11 Sub-query Strip */}
+        {/* Question + Linked 5-11 Sub-query Strip */}
         <div className="p-4 bg-sbb-cloud border border-sbb-black space-y-3">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
             <span className="font-mono text-[11px] font-bold uppercase text-sbb-stone">
@@ -227,31 +291,28 @@ export const NarrativeCockpitView: React.FC<Props> = ({ lang, onNavigateTab }) =
               : '«Wie verbindet das Unternehmen globale Investitionsprioritäten mit regionalen und lokalen Standorten?»'}
           </div>
           <div className="flex flex-wrap gap-1.5 pt-1">
-            {(isEn
-              ? [
-                  'Query 1: global investment press coverage',
-                  'Query 2: corporate strategy page',
-                  'Query 3: regional & cantonal briefings',
-                  'Query 4: archived PDF footprint plans',
-                  'Query 5–8: forum & stakeholder reactions'
-                ]
-              : [
-                  'Abfrage 1: Presseberichte zu Investitionen',
-                  'Abfrage 2: Corporate-Strategy-Seite',
-                  'Abfrage 3: Regionale & kantonale Briefings',
-                  'Abfrage 4: Archivierte Standort-PDFs',
-                  'Abfrage 5–8: Foren & Reaktionen'
-                ]
-            ).map(q => (
-              <span key={q} className="px-2 py-1 bg-white border border-zinc-300 font-mono text-[10px] text-zinc-700">
-                {q}
-              </span>
-            ))}
+            {subQueries.map(q => {
+              const isLinked = q.channel === selectedChannel;
+              return (
+                <button
+                  key={q.id}
+                  type="button"
+                  onClick={() => setSelectedChannel(q.channel)}
+                  className={`px-2.5 py-1 border font-mono text-[10px] transition-colors cursor-pointer ${
+                    isLinked
+                      ? 'bg-sbb-red text-white border-sbb-red font-bold'
+                      : 'bg-white border-zinc-300 text-zinc-700 hover:border-sbb-black'
+                  }`}
+                >
+                  {isEn ? q.labelEn : q.labelDe}
+                </button>
+              );
+            })}
           </div>
         </div>
 
-        {/* Channel Switcher Tabs */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2">
+        {/* Channel Switcher Tabs (No Truncation) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
           {(Object.keys(channels) as ChannelId[]).map(chId => {
             const ch = channels[chId];
             const isActive = selectedChannel === chId;
@@ -267,7 +328,7 @@ export const NarrativeCockpitView: React.FC<Props> = ({ lang, onNavigateTab }) =
                 }`}
               >
                 <span className={isActive ? 'text-[#FFCC00]' : 'text-sbb-red'}>{ch.icon}</span>
-                <span className="truncate">{isEn ? ch.labelEn : ch.labelDe}</span>
+                <span className="leading-snug">{isEn ? ch.labelEn : ch.labelDe}</span>
               </button>
             );
           })}
@@ -306,6 +367,30 @@ export const NarrativeCockpitView: React.FC<Props> = ({ lang, onNavigateTab }) =
             </p>
           </div>
         </div>
+
+        {/* Combined AI Answer Synthesis Box */}
+        <div className="p-4 sm:p-5 bg-red-50/50 border-2 border-sbb-red space-y-2">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <span className="font-mono text-[11px] font-black uppercase text-sbb-red flex items-center gap-1.5">
+              <AlertTriangle className="w-4 h-4 shrink-0" />
+              <span>
+                {isEn
+                  ? 'COMBINED AI ANSWER ENGINE OUTPUT (WHEN ALL 4 CHANNELS MERGE INTO 1 WINDOW)'
+                  : 'KOMBINIERTE KI-ANTWORT (WENN ALLE 4 KANÄLE IN EINEM FENSTER ZUSAMMENFLIESSEN)'}
+              </span>
+            </span>
+          </div>
+          <p className="text-xs sm:text-sm text-red-950 font-medium leading-relaxed">
+            {isEn
+              ? '«The company confirmed major international manufacturing expansion while corporate pages highlight an agile global footprint. However, an older regional briefing PDF still references ongoing European site consolidation reviews—fueling online forum questions about whether local commitments are shifting.»'
+              : '«Das Unternehmen bestätigte einen grossen Ausbau internationaler Produktionskapazitäten, während Unternehmensseiten eine agile globale Aufstellung betonen. Gleichzeitig verweist ein älteres regionales Briefing-PDF noch auf laufende Prüfungen zur Standortkonsolidierung – was in Foren Fragen nach der künftigen lokalen Verankerung auslöst.»'}
+          </p>
+          <p className="text-[11px] font-mono text-red-900 pt-1 border-t border-red-200">
+            {isEn
+              ? 'Takeaway: No single team acted negligently—yet cross-referencing unaligned channels side by side dilutes the company’s voice.'
+              : 'Fazit: Kein Team hat fahrlässig gehandelt – doch der direkte KI-Abgleich unkoordinierter Kanäle verwässert die Stimme des Unternehmens.'}
+          </p>
+        </div>
       </div>
 
       {/* ═══ PART B: THE OUTSIDE-IN DATA PIPELINE ═══ */}
@@ -321,8 +406,8 @@ export const NarrativeCockpitView: React.FC<Props> = ({ lang, onNavigateTab }) =
           </div>
           <p className="text-xs sm:text-sm text-zinc-700">
             {isEn
-              ? 'Click any stage in the pipeline to see how existing licensed feeds and public LLM APIs are processed before human teams act.'
-              : 'Klicken Sie auf eine Stufe, um zu sehen, wie lizenzierte Feeds und öffentliche LLM-APIs verarbeitet werden, bevor Teams handeln.'}
+              ? 'Click any stage in the pipeline to inspect its exact input, processing mechanism, and output.'
+              : 'Klicken Sie auf eine Stufe, um Eingangsdaten, Verarbeitung und konkretes Ergebnis zu prüfen.'}
           </p>
         </div>
 
@@ -355,14 +440,40 @@ export const NarrativeCockpitView: React.FC<Props> = ({ lang, onNavigateTab }) =
           })}
         </div>
 
-        {/* Selected Stage Detail */}
-        <div className="p-4 sm:p-5 bg-sbb-black text-white border-l-4 border-[#FFCC00] space-y-2">
+        {/* Selected Stage 3-Column Input -> Process -> Output Breakdown */}
+        <div className="p-4 sm:p-5 bg-sbb-black text-white border-l-4 border-[#FFCC00] space-y-4">
           <div className="font-mono text-xs font-bold uppercase text-[#FFCC00]">
             {isEn ? currentStage.titleEn : currentStage.titleDe} — {currentStage.tools}
           </div>
-          <p className="text-xs sm:text-sm text-zinc-100 leading-relaxed">
-            {isEn ? currentStage.detailEn : currentStage.detailDe}
-          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <div className="p-3 bg-zinc-900 border border-zinc-700 space-y-1">
+              <div className="font-mono text-[10px] font-bold uppercase text-zinc-400">
+                {isEn ? '1. What Enters (Input)' : '1. Eingang (Input)'}
+              </div>
+              <p className="text-xs text-zinc-100 leading-relaxed">
+                {isEn ? currentStage.inputEn : currentStage.inputDe}
+              </p>
+            </div>
+
+            <div className="p-3 bg-zinc-900 border border-zinc-700 space-y-1">
+              <div className="font-mono text-[10px] font-bold uppercase text-[#FFCC00]">
+                {isEn ? '2. How It Works (Process)' : '2. Verarbeitung (Prozess)'}
+              </div>
+              <p className="text-xs text-zinc-100 leading-relaxed">
+                {isEn ? currentStage.processEn : currentStage.processDe}
+              </p>
+            </div>
+
+            <div className="p-3 bg-zinc-900 border border-zinc-700 space-y-1">
+              <div className="font-mono text-[10px] font-bold uppercase text-emerald-400">
+                {isEn ? '3. Result (Output)' : '3. Ergebnis (Output)'}
+              </div>
+              <p className="text-xs text-zinc-100 leading-relaxed">
+                {isEn ? currentStage.outputEn : currentStage.outputDe}
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Qualitative Pull-Through Output Table (Zero Fake Numbers) */}

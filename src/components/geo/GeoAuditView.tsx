@@ -32,8 +32,10 @@ export const GeoAuditView: React.FC<Props> = ({ lang, onNavigateTab }) => {
       audienceDe: string;
       copyPasteFailEn: string;
       copyPasteFailDe: string;
-      tailoredEn: string;
-      tailoredDe: string;
+      tailoredQuoteEn: string;
+      tailoredQuoteDe: string;
+      whyItWorksEn: string;
+      whyItWorksDe: string;
       coreAnchorEn: string;
       coreAnchorDe: string;
     }
@@ -44,15 +46,17 @@ export const GeoAuditView: React.FC<Props> = ({ lang, onNavigateTab }) => {
       audienceEn: 'Journalists and editors looking for direct, quotable answers under tight deadlines.',
       audienceDe: 'Journalistinnen und Redaktionen, die unter Zeitdruck direkte, zitierbare Fakten suchen.',
       copyPasteFailEn:
-        '«We are committed to driving sustainable value across our integrated global portfolio while staying agile for stakeholders.» (Sounds like generic boilerplate—journalists ignore it or paraphrase skeptically.)',
+        '«We are committed to driving sustainable value across our integrated global portfolio while staying agile for stakeholders.» (Generic corporate boilerplate—journalists ignore it or paraphrase skeptically.)',
       copyPasteFailDe:
         '«Wir setzen uns für nachhaltige Wertschöpfung in unserem integrierten globalen Portfolio ein und bleiben agil für Stakeholder.» (Klingt nach Standard-Floskel – Redaktionen ignorieren es.)',
-      tailoredEn:
-        '«Global capacity investments expand supply resilience, while core governance, strategic leadership, and long-term commitments at existing regional hubs remain unchanged.»',
-      tailoredDe:
-        '«Globale Kapazitätsinvestitionen stärken die Versorgungssicherheit, während zentrale Governance, strategische Führung und bestehende regionale Verpflichtungen unverändert bleiben.»',
+      tailoredQuoteEn:
+        '«Global capacity investments expand supply resilience across international markets, while core governance, strategic leadership, and long-term commitments at existing regional hubs remain unchanged.»',
+      tailoredQuoteDe:
+        '«Globale Kapazitätsinvestitionen stärken die Versorgungssicherheit in internationalen Märkten, während zentrale Governance, strategische Führung und bestehende regionale Verpflichtungen unverändert bleiben.»',
+      whyItWorksEn: 'Short, quotable, and directly answers the journalist’s question without defensive jargon.',
+      whyItWorksDe: 'Kurz, zitierfähig und beantwortet die Medienfrage direkt ohne Abwehrfloskeln.',
       coreAnchorEn: 'Core fact intact, phrased concisely for press citation.',
-      coreAnchorDe: 'Kernfakt bleibt identisch, prägnant formuliert als Pressestatements.'
+      coreAnchorDe: 'Kernfakt bleibt identisch, prägnant formuliert als Pressestatement.'
     },
     owned: {
       labelEn: '2. Owned Corporate Story',
@@ -60,13 +64,15 @@ export const GeoAuditView: React.FC<Props> = ({ lang, onNavigateTab }) => {
       audienceEn: 'Stakeholders, candidates, partners, and AI search crawlers reading full corporate web pages.',
       audienceDe: 'Stakeholder, Bewerbende, Partner und KI-Suchsysteme auf eigenen Unternehmensseiten.',
       copyPasteFailEn:
-        'Pasting a short press quote verbatim without narrative context leaves readers wondering how global growth connects to local innovation.',
+        '«The company confirmed major capacity expansion over the next five years.» (Pasting a bare press quote onto a corporate story page gives no broader narrative or human context.)',
       copyPasteFailDe:
-        'Ein reines Copy-Paste eines kurzen Pressezitats ohne Kontext erklärt nicht, wie globales Wachstum und lokale Innovation zusammenhängen.',
-      tailoredEn:
-        'Opens with a clear factual summary block (for immediate clarity and AI search extraction), followed by an editorial story showing how global scale and regional hubs reinforce each other.',
-      tailoredDe:
-        'Startet mit einer klaren Fakten-Zusammenfassung (für Leser und KI-Suche) und entfaltet dann die Geschichte, wie globale Grösse und regionale Standorte zusammenspielen.',
+        '«Das Unternehmen bestätigte grössere Kapazitätserweiterungen über fünf Jahre.» (Ein nacktes Pressezitat liefert auf einer Story-Seite keinen erzählerischen Zusammenhang.)',
+      tailoredQuoteEn:
+        '«Expanding our global production network goes hand in hand with our established research hubs: while new international lines scale supply, our headquarters and core regional R&D teams continue to drive early-stage discovery.»',
+      tailoredQuoteDe:
+        '«Der Ausbau unseres globalen Produktionsnetzwerks geht Hand in Hand mit unseren etablierten Forschungsstandorten: Während neue internationale Linien die Versorgung skalieren, treiben Hauptsitz und regionale F&E-Teams weiterhin die frühe Forschung voran.»',
+      whyItWorksEn: 'Opens with an upfront factual summary for AI search while framing a clear editorial story for readers.',
+      whyItWorksDe: 'Beginnt mit einer klaren Fakten-Klammer für die KI-Suche und spannt zugleich den Story-Bogen für Lesende.',
       coreAnchorEn: 'Core fact intact, wrapped in an engaging editorial story with clear structure.',
       coreAnchorDe: 'Kernfakt bleibt identisch, eingebettet in eine gut strukturierte Story.'
     },
@@ -76,13 +82,15 @@ export const GeoAuditView: React.FC<Props> = ({ lang, onNavigateTab }) => {
       audienceEn: 'Cantonal authorities, local industry partners, and regional teams addressing local priorities.',
       audienceDe: 'Kantonale Behörden, lokale Partner und regionale Teams mit konkreten Standortfragen.',
       copyPasteFailEn:
-        'Pasting global HQ talking points without addressing regional workforce, infrastructure, or regulatory context feels disconnected from local reality.',
+        '«Our long-term global strategy focuses on an agile worldwide footprint across priority regions.» (Global boilerplate ignores local workforce, infrastructure, and regulatory commitments.)',
       copyPasteFailDe:
-        'Globale Standardtextbausteine ohne Bezug zu lokalen Arbeitsplätzen oder Rahmenbedingungen wirken an der Realität vor Ort vorbei.',
-      tailoredEn:
-        'Translates the global commitment into concrete regional relevance—addressing local collaboration and site continuity directly while matching the exact global facts.',
-      tailoredDe:
-        'Übersetzt die globale Zusage in konkreten regionalen Bezug – geht direkt auf lokale Zusammenarbeit und Standortkontinuität ein, exakt abgestimmt mit den globalen Fakten.',
+        '«Unsere globale Langfriststrategie setzt auf eine agile weltweite Aufstellung in Schwerpunktregionen.» (Globale Standardformeln ignorieren lokale Arbeitsplätze und Rahmenbedingungen.)',
+      tailoredQuoteEn:
+        '«For our regional and cantonal partners, this global capacity expansion reinforces—rather than replaces—our local hub: headquarters governance and regional R&D teams remain fully anchored here alongside our local infrastructure partnerships.»',
+      tailoredQuoteDe:
+        '«Für unsere regionalen und kantonalen Partner gilt: Der globale Kapazitätsausbau ergänzt – und ersetzt nicht – unseren lokalen Standort. Zentrale Steuerung und regionale F&E-Teams bleiben hier fest verankert.»',
+      whyItWorksEn: 'Addresses local stakeholder concerns directly while matching global facts word-for-fact.',
+      whyItWorksDe: 'Spricht lokale Stakeholder direkt an und deckt sich faktisch zu 100 % mit dem globalen Narrativ.',
       coreAnchorEn: 'Core fact intact, adapted organically to regional and cantonal context.',
       coreAnchorDe: 'Kernfakt bleibt identisch, organisch an den regionalen Kontext angepasst.'
     }
@@ -105,7 +113,9 @@ export const GeoAuditView: React.FC<Props> = ({ lang, onNavigateTab }) => {
       goodEn:
         '«Global manufacturing investments expand international capacity while headquarters, core governance, and regional R&D commitments remain anchored in place.»',
       goodDe:
-        '«Globale Investitionen bauen internationale Kapazitäten aus, während Hauptsitz, zentrale Steuerung und regionale F&E-Zusagen fest verankert bleiben.»'
+        '«Globale Investitionen bauen internationale Kapazitäten aus, während Hauptsitz, zentrale Steuerung und regionale F&E-Zusagen fest verankert bleiben.»',
+      takeawayEn: 'AI Takeaway: Opening lines carry the highest chance of being retrieved verbatim by a sub-query.',
+      takeawayDe: 'KI-Effekt: Die ersten Sätze haben die grösste Chance, direkt von einer Teilabfrage übernommen zu werden.'
     },
     {
       titleEn: '2. Self-Contained Passages',
@@ -121,7 +131,9 @@ export const GeoAuditView: React.FC<Props> = ({ lang, onNavigateTab }) => {
       goodEn:
         '«The 2026–2030 Global Expansion Program adds new international production lines while keeping existing regional research hubs fully staffed and operational.»',
       goodDe:
-        '«Das globale Ausbauprogramm 2026–2030 ergänzt internationale Produktionslinien, während bestehende regionale Forschungsstandorte voll besetzt und aktiv bleiben.»'
+        '«Das globale Ausbauprogramm 2026–2030 ergänzt internationale Produktionslinien, während bestehende regionale Forschungsstandorte voll besetzt und aktiv bleiben.»',
+      takeawayEn: 'AI Takeaway: Self-contained facts survive excerpting even when surrounding paragraphs are skipped.',
+      takeawayDe: 'KI-Effekt: Eigenständige Aussagen bleiben auch dann korrekt, wenn umliegende Absätze abgeschnitten werden.'
     },
     {
       titleEn: '3. Consistent Facts, Organic Voice',
@@ -131,13 +143,15 @@ export const GeoAuditView: React.FC<Props> = ({ lang, onNavigateTab }) => {
       ruleDe:
         'GEO verlangt kein wortgleiches Copy-Paste. Halten Sie Kernfakten, Zeitpläne und Zusagen über alle Teams konsistent, während der Ton zum Kanal passt.',
       badEn:
-        'Global website says "new sites start in Q2", while a regional briefing says "timeline under review", creating an apparent contradiction in AI answers.',
+        'Global page: «New lines launch in Q2.» vs. Regional brief: «European capacity timelines remain under review.» (Same topic, unaligned core facts.)',
       badDe:
-        'Globale Website nennt «Start in Q2», während ein regionales Briefing «Zeitplan in Prüfung» sagt – KI-Antworten melden einen Widerspruch.',
+        'Globale Seite: «Neue Linien starten in Q2.» vs. Regionales Briefing: «Zeitpläne bleiben in Prüfung.» (Gleiches Thema, unabgestimmte Kernfakten.)',
       goodEn:
-        'All channels align on the same core timeline and scope, while the press note stays concise, the corporate story explains why it matters, and regional briefings focus on local impact.',
+        'Global page: «New international lines begin phased operation in Q2.» | Regional brief: «As global lines phase in from Q2, regional R&D teams continue on their established schedule.»',
       goodDe:
-        'Alle Kanäle nennen denselben Zeitrahmen und Umfang – die Medienmitteilung bleibt knapp, die Corporate Story erklärt den Nutzen, das Regional-Briefing den lokalen Effekt.'
+        'Globale Seite: «Neue internationale Linien starten gestaffelt ab Q2.» | Regionales Briefing: «Parallel zum globalen Start ab Q2 arbeiten regionale F&E-Teams nach festem Plan weiter.»',
+      takeawayEn: 'AI Takeaway: Aligned timelines and facts prevent cross-channel contradictions while letting tone stay organic.',
+      takeawayDe: 'KI-Effekt: Abgestimmte Fakten verhindern Widersprüche, während der Ton je Kanal natürlich bleibt.'
     },
     {
       titleEn: '4. Direct, Affirmative Framing',
@@ -153,7 +167,9 @@ export const GeoAuditView: React.FC<Props> = ({ lang, onNavigateTab }) => {
       goodEn:
         '«European R&D hubs and regional operations remain a core part of our long-term strategy alongside international capacity growth.»',
       goodDe:
-        '«Europäische F&E-Standorte und regionale Aktivitäten bleiben neben dem internationalen Ausbau ein fester Kern unserer Langfriststrategie.»'
+        '«Europäische F&E-Standorte und regionale Aktivitäten bleiben neben dem internationalen Ausbau ein fester Kern unserer Langfriststrategie.»',
+      takeawayEn: 'AI Takeaway: Positive statements anchor what the company stands for without amplifying false accusations.',
+      takeawayDe: 'KI-Effekt: Positive Fakten verankern Ihre Aussage, ohne falsche Vorwürfe im Suchindex zu verstärken.'
     }
   ];
 
@@ -192,8 +208,8 @@ export const GeoAuditView: React.FC<Props> = ({ lang, onNavigateTab }) => {
           </div>
           <p className="text-xs sm:text-sm text-zinc-700">
             {isEn
-              ? 'Switch between the 3 target channels below to see how one centrally administered narrative adapts organically to different audiences.'
-              : 'Wechseln Sie zwischen den 3 Zielkanälen, um zu sehen, wie sich ein zentrales Narrativ organisch an unterschiedliche Zielgruppen anpasst.'}
+              ? 'Switch between the 3 target channels below to see actual tailored passages compared against robotic copy-pasting.'
+              : 'Wechseln Sie zwischen den 3 Zielkanälen, um echte angepasste Textpassagen direkt mit sturem Copy-Paste zu vergleichen.'}
           </p>
         </div>
 
@@ -253,13 +269,16 @@ export const GeoAuditView: React.FC<Props> = ({ lang, onNavigateTab }) => {
               </p>
             </div>
 
-            <div className="p-4 bg-emerald-50/40 border-2 border-emerald-700 space-y-2">
+            <div className="p-4 bg-emerald-50/40 border-2 border-emerald-700 space-y-2.5">
               <div className="font-mono text-[11px] font-bold uppercase text-emerald-900 flex items-center gap-1.5">
                 <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-700" />
-                <span>{isEn ? 'AI Context-Tailored Narrative (Aligned Core)' : 'KI-Kontext-Anpassung (Konsistenter Kern)'}</span>
+                <span>{isEn ? 'AI Context-Tailored Passage (Aligned Core)' : 'KI-Kontext-Anpassung (Konsistenter Kern)'}</span>
               </div>
-              <p className="text-xs sm:text-sm text-emerald-950 leading-relaxed font-medium">
-                {isEn ? activeCtx.tailoredEn : activeCtx.tailoredDe}
+              <p className="text-xs sm:text-sm text-emerald-950 leading-relaxed font-medium italic bg-white/80 p-3 border border-emerald-200">
+                {isEn ? activeCtx.tailoredQuoteEn : activeCtx.tailoredQuoteDe}
+              </p>
+              <p className="text-xs text-emerald-950 leading-relaxed">
+                {isEn ? activeCtx.whyItWorksEn : activeCtx.whyItWorksDe}
               </p>
               <div className="pt-2 border-t border-emerald-200 font-mono text-[11px] text-emerald-900 font-bold">
                 ● {isEn ? activeCtx.coreAnchorEn : activeCtx.coreAnchorDe}
@@ -310,16 +329,21 @@ export const GeoAuditView: React.FC<Props> = ({ lang, onNavigateTab }) => {
 
         {/* Rule Explanation + Before / After Passages */}
         <div className="space-y-4">
-          <div className="p-3.5 bg-amber-50/70 border-l-4 border-[#FFCC00] border border-amber-200 text-xs sm:text-sm text-zinc-900 leading-relaxed">
-            <strong>{isEn ? 'Why this matters: ' : 'Warum das wichtig ist: '}</strong>
-            {isEn ? activePrinciple.ruleEn : activePrinciple.ruleDe}
+          <div className="p-3.5 bg-amber-50/70 border-l-4 border-[#FFCC00] border border-amber-200 text-xs sm:text-sm text-zinc-900 leading-relaxed space-y-1.5">
+            <div>
+              <strong>{isEn ? 'Why this matters: ' : 'Warum das wichtig ist: '}</strong>
+              {isEn ? activePrinciple.ruleEn : activePrinciple.ruleDe}
+            </div>
+            <div className="font-mono text-[11px] font-bold text-sbb-black">
+              {isEn ? activePrinciple.takeawayEn : activePrinciple.takeawayDe}
+            </div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             <div className="p-4 bg-red-50/40 border border-red-300 space-y-2">
               <div className="font-mono text-[11px] font-bold uppercase text-sbb-red flex items-center gap-1.5">
                 <XCircle className="w-4 h-4 shrink-0" />
-                <span>{isEn ? 'Unstructured Draft (Loses Pull-Through)' : 'Unstrukturierter Entwurf (Verliert Wirkung)'}</span>
+                <span>{isEn ? 'Unstructured / Conflicting Draft' : 'Unstrukturierter / widersprüchlicher Entwurf'}</span>
               </div>
               <p className="text-xs sm:text-sm text-red-950 leading-relaxed">
                 {isEn ? activePrinciple.badEn : activePrinciple.badDe}

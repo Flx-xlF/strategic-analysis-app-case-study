@@ -135,7 +135,7 @@ export const CommandHeader: React.FC<Props> = ({
             >
               <span className={`text-[10px] font-black shrink-0 ${activeTab === 'cockpit' ? 'text-white/90' : 'text-zinc-600'}`}>01</span>
               <Search className={`w-3.5 h-3.5 shrink-0 ${activeTab === 'cockpit' ? 'text-white' : 'text-sbb-red'}`} />
-              <span className="truncate">{isEn ? 'AI Search & Feed Pipeline' : 'KI-Suche & Feed-Pipeline'}</span>
+              <span className="leading-tight text-center">{isEn ? 'AI Search & Feed Pipeline' : 'KI-Suche & Feed-Pipeline'}</span>
             </button>
           </div>
 
@@ -157,7 +157,7 @@ export const CommandHeader: React.FC<Props> = ({
               >
                 <span className={`text-[10px] font-black shrink-0 ${activeTab === 'geo' ? 'text-white/90' : 'text-zinc-600'}`}>02</span>
                 <GitBranch className={`w-3.5 h-3.5 shrink-0 ${activeTab === 'geo' ? 'text-white' : 'text-sbb-red'}`} />
-                <span className="truncate">{isEn ? 'GEO & Context Tailoring' : 'GEO & Kontext-Anpassung'}</span>
+                <span className="leading-tight text-center">{isEn ? 'GEO & Context Tailoring' : 'GEO & Kontext-Anpassung'}</span>
               </button>
 
               <button
@@ -171,7 +171,7 @@ export const CommandHeader: React.FC<Props> = ({
               >
                 <span className={`text-[10px] font-black shrink-0 ${activeTab === 'trending' ? 'text-white/90' : 'text-zinc-600'}`}>03</span>
                 <FileText className={`w-3.5 h-3.5 shrink-0 ${activeTab === 'trending' ? 'text-white' : 'text-sbb-red'}`} />
-                <span className="truncate">{isEn ? 'Office Recipes & Human Role' : 'Office-Rezepte & Mensch'}</span>
+                <span className="leading-tight text-center">{isEn ? 'Office Recipes & Human Role' : 'Office-Rezepte & Mensch'}</span>
               </button>
             </div>
           </div>

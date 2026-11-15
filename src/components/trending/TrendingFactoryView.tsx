@@ -41,6 +41,8 @@ export const TrendingFactoryView: React.FC<Props> = ({ lang, onNavigateTab }) =>
       input2De: string;
       input3En: string;
       input3De: string;
+      whyNotOneShotEn: string;
+      whyNotOneShotDe: string;
       humanIterationEn: string;
       humanIterationDe: string;
     }
@@ -59,21 +61,25 @@ export const TrendingFactoryView: React.FC<Props> = ({ lang, onNavigateTab }) =>
       recipeActionDe:
         'Die zentrale Kommunikation streamt das Narrativ- & GEO-Prompt-Rezept direkt in eine Word-Seitenleiste neben dem Entwurf.',
       input1En:
-        'Narrative adapted for an owned corporate story—keeping global commitments and regional anchors consistent.',
+        '«Expanding our global production network goes hand in hand with our established research hubs: while new international lines scale supply from Q2, regional R&D teams continue on their established schedule.»',
       input1De:
-        'Narrativ zugeschnitten auf eine Corporate Story – mit abgestimmten globalen Zusagen und regionalen Ankern.',
+        '«Der Ausbau unseres globalen Produktionsnetzwerks geht Hand in Hand mit unseren etablierten Forschungsstandorten: Während neue Linien ab Q2 skalieren, arbeiten regionale F&E-Teams nach Plan weiter.»',
       input2En:
-        'Answer-first summary block + self-contained headings so AI sub-queries cite the main point accurately.',
+        '1. Place core scope & Q2 timeline in Paragraph 1 (Answer-First). 2. Make the regional-hub paragraph self-contained without vague pronouns.',
       input2De:
-        'Answer-First-Einstieg + eigenständige Absätze, damit KI-Teilabfragen den Kernpunkt exakt erfassen.',
+        '1. Kernumfang & Q2-Zeitplan in Absatz 1 (Answer-First). 2. Regional-Absatz eigenständig formulieren ohne vage Verweise.',
       input3En:
-        'Flag from Outside-In: "Older 2022 footprint PDFs still surface in search; make current timeline explicit."',
+        'Outside-In Risk Alert: «Older 2022 regional PDFs still surface in AI search—state current hub continuity explicitly and retire superseded files.»',
       input3De:
-        'Hinweis aus Outside-In: «Ältere 2022er PDFs tauchen noch in der Suche auf – aktuellen Zeitplan explizit nennen.»',
+        'Outside-In-Risikohinweis: «Ältere 2022er PDFs tauchen noch in KI-Antworten auf – Standortkontinuität explizit nennen und Altdateien bereinigen.»',
+      whyNotOneShotEn:
+        'AI does not know internal leadership quotes, real employee stories, or which regional nuance matters most this week.',
+      whyNotOneShotDe:
+        'Die KI kennt keine aktuellen internen O-Töne, echten Mitarbeiter-Beispiele oder regionale Prioritäten dieser Woche.',
       humanIterationEn:
-        'The writer refines voice, adds real human stories and examples, aligns with regional stakeholders, and signs off.',
+        'The writer weaves in concrete leadership voices and examples, verifies accuracy with regional colleagues, and iterates the final story.',
       humanIterationDe:
-        'Das Team feilt an Tonalität, ergänzt konkrete Beispiele, stimmt sich mit regionalen Stakeholdern ab und gibt frei.'
+        'Das Team ergänzt echte O-Töne und Praxisbeispiele, stimmt Fakten mit regionalen Kolleginnen ab und feilt am finalen Text.'
     },
     excel: {
       name: 'Excel',
@@ -89,21 +95,25 @@ export const TrendingFactoryView: React.FC<Props> = ({ lang, onNavigateTab }) =>
       recipeActionDe:
         'Direkt in Excel bereitgestellte Prompt-Rezepte helfen, Q&As klar für KI-Suche zu strukturieren und Widersprüche zwischen Tabs zu erkennen.',
       input1En:
-        'Context-tailored Q&A rows tailored per target audience without losing alignment with the central core position.',
+        'Tailored Q&A row (Regional Tab): «Global capacity expansion complements—rather than replaces—regional R&D commitments and local partner programs.»',
       input1De:
-        'Auf Zielgruppen zugeschnittene Q&A-Einträge ohne Abweichung von der zentralen Kernposition.',
+        'Zugeschnittene Q&A-Zeile (Regional-Tab): «Der globale Kapazitätsausbau ergänzt – und ersetzt nicht – regionale F&E-Zusagen und lokale Partnerschaften.»',
       input2En:
-        'Concise, affirmative answer structure per cell so published FAQ pages don’t repeat rumour wording.',
+        '1. Keep each Q&A cell under 3 clear sentences. 2. Align Q2 dates across Global, Commercial, and Regional tabs.',
       input2De:
-        'Prägnante, positive Antwortstruktur je Zelle, damit spätere FAQs keine Gerüchte wiederholen.',
+        '1. Jede Q&A-Zelle unter 3 klaren Sätzen halten. 2. Q2-Termine über Global-, Commercial- und Regional-Tabs abgleichen.',
       input3En:
-        'Flag from Outside-In: "Online forums are comparing Q2 global launch dates against un-updated regional tables."',
+        'Outside-In Risk Alert: «Online forums are comparing global expansion quotes against outdated regional briefing tables.»',
       input3De:
-        'Hinweis aus Outside-In: «Foren vergleichen globale Q2-Daten mit nicht aktualisierten regionalen Tabellen.»',
+        'Outside-In-Risikohinweis: «Foren vergleichen globale Ausbau-Zitate mit veralteten regionalen Briefing-Tabellen.»',
+      whyNotOneShotEn:
+        'AI cannot decide market prioritization, sequencing across teams, or which stakeholder questions carry reputational sensitivity.',
+      whyNotOneShotDe:
+        'Die KI kann weder Marktprioritäten noch das Timing zwischen Teams oder sensible Stakeholder-Fragen selbst gewichten.',
       humanIterationEn:
-        'Editorial leads decide prioritization across markets, resolve cross-functional dependencies, and approve final Q&As.',
+        'Editorial leads align market owners, resolve cross-functional dependencies, and sign off on the unified Q&A sheet.',
       humanIterationDe:
-        'Die Redaktionsleitung priorisiert Märkte, klärt funktionsübergreifende Abhängigkeiten und gibt die Q&As frei.'
+        'Die Redaktionsleitung stimmt Marktverantwortliche ab, klärt Abhängigkeiten und gibt das abgestimmte Q&A-Raster frei.'
     },
     outlook: {
       name: 'Outlook',
@@ -119,21 +129,25 @@ export const TrendingFactoryView: React.FC<Props> = ({ lang, onNavigateTab }) =>
       recipeActionDe:
         'Das Prompt-Rezept erscheint direkt in Outlook und legt passende Kernfakten sowie Outside-In-Risiken neben das Antwortfeld.',
       input1En:
-        'Concise, direct press-ready framing of the company narrative tailored specifically to the journalist’s question.',
+        '«Global manufacturing investments scale international supply resilience, while central governance and existing regional R&D commitments remain anchored.»',
       input1De:
-        'Knappe, zitierfähige Einordnung des Kern-Narrativs, zugeschnitten auf die konkrete Medienfrage.',
+        '«Globale Produktionsinvestitionen stärken die internationale Versorgung, während zentrale Steuerung und regionale F&E-Zusagen verankert bleiben.»',
       input2En:
-        'Direct, self-contained two-sentence core statement placed first so quotes remain accurate if excerpted.',
+        '1. Lead with a direct 2-sentence quotable core answer. 2. Avoid repeating negative phrasing from the inquiry.',
       input2De:
-        'Klare, eigenständige Zweisatz-Kernaussage am Anfang, damit Zitate auch gekürzt präzise bleiben.',
+        '1. Mit einer direkten, zitierfähigen Zweisatz-Antwort beginnen. 2. Kritische Vorwurfs-Begriffe aus der Anfrage nicht wiederholen.',
       input3En:
-        'Flag from Outside-In: "Question echoes hostile framing from recent trade coverage—answer positively without repeating the accusation."',
+        'Outside-In Risk Alert: «Journalist’s framing echoes recent trade speculation—answer positively without repeating "site abandonment".»',
       input3De:
-        'Hinweis aus Outside-In: «Frage übernimmt kritisches Framing – positiv antworten, ohne den Vorwurf zu wiederholen.»',
+        'Outside-In-Risikohinweis: «Anfrage greift Spekulationen aus Fachmedien auf – positiv antworten, ohne ‹Standortaufgabe› zu wiederholen.»',
+      whyNotOneShotEn:
+        'AI cannot judge the journalist’s intent, calibrate relationship tone, or take legal and reputational accountability for a quote.',
+      whyNotOneShotDe:
+        'Die KI kennt weder die Beziehung zum Kontakt noch kann sie rechtliche und kommunikative Verantwortung für ein Zitat tragen.',
       humanIterationEn:
-        'The spokesperson reviews nuance, checks legal/business sensitivities, adapts tone to the journalist relationship, and sends.',
+        'The spokesperson reviews nuance, checks legal boundaries, adapts tone to the journalist contact, and hits send.',
       humanIterationDe:
-        'Die Sprecherin prüft Nuancen und rechtliche Grenzen, passt den Ton an den Kontakt an und versendet selbst.'
+        'Die Sprecherin prüft Nuancen und rechtliche Grenzen, passt den Ton an den Kontakt an und sendet selbst.'
     }
   };
 
@@ -154,8 +168,8 @@ export const TrendingFactoryView: React.FC<Props> = ({ lang, onNavigateTab }) =>
         </h1>
         <p className="text-sm text-zinc-700 max-w-4xl leading-relaxed">
           {isEn
-            ? 'Lingering rulebook documents in folders get ignored when teams are in a hurry. Instead, Central Comms distributes prompt recipes through existing systems right into Word, Excel, and Outlook—delivering context without pretending an LLM can write a final statement in one shot.'
-            : 'Abgelegte Regel-Dokumente werden im hektischen Alltag übersehen. Stattdessen verteilt die zentrale Kommunikation Prompt-Rezepte über bestehende Systeme direkt in Word, Excel und Outlook – für sofortigen Nutzen, ohne ein fertiges Statement auf Knopfdruck zu versprechen.'}
+            ? 'Static rulebook documents in folders get ignored when teams are in a hurry. Instead, Central Comms distributes prompt recipes through existing systems right into Word, Excel, and Outlook—delivering context without pretending an LLM can write a final statement in one shot.'
+            : 'Statische Regel-Dokumente werden im hektischen Alltag übersehen. Stattdessen verteilt die zentrale Kommunikation Prompt-Rezepte über bestehende Systeme direkt in Word, Excel und Outlook – für sofortigen Nutzen, ohne ein fertiges Statement auf Knopfdruck zu versprechen.'}
         </p>
       </div>
 
@@ -252,26 +266,26 @@ export const TrendingFactoryView: React.FC<Props> = ({ lang, onNavigateTab }) =>
         </div>
 
         {/* 3 Concrete Inputs Packed for the Selected Tool */}
-        <div className="space-y-2">
+        <div className="space-y-2.5">
           <div className="font-mono text-[11px] font-bold uppercase tracking-wider text-zinc-600">
             {isEn
-              ? `WHAT THE ${active.name.toUpperCase()} PROMPT RECIPE ACTUALLY HANDS THE COMMUNICATOR:`
-              : `WAS DAS ${active.name.toUpperCase()}-PROMPT-REZEPT KONKRET BEREITSTELLT:`}
+              ? `CONCRETE OUTPUTS FROM THE ${active.name.toUpperCase()} PROMPT RECIPE:`
+              : `KONKRETE BAUSTEINE AUS DEM ${active.name.toUpperCase()}-PROMPT-REZEPT:`}
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="p-4 bg-sbb-cloud border-l-4 border-emerald-700 border border-zinc-300 space-y-1.5">
               <div className="font-mono text-[10px] font-black uppercase text-emerald-800">
-                {isEn ? 'Input 01 // Tailored Narrative' : 'Baustein 01 // Zugeschnittenes Narrativ'}
+                {isEn ? 'Input 01 // Tailored Key Narrative' : 'Baustein 01 // Zugeschnittenes Kern-Narrativ'}
               </div>
-              <p className="text-xs sm:text-sm text-sbb-black leading-relaxed">
+              <p className="text-xs sm:text-sm text-sbb-black leading-relaxed italic">
                 {isEn ? active.input1En : active.input1De}
               </p>
             </div>
 
             <div className="p-4 bg-sbb-cloud border-l-4 border-[#FFCC00] border border-zinc-300 space-y-1.5">
               <div className="font-mono text-[10px] font-black uppercase text-zinc-700">
-                {isEn ? 'Input 02 // Structured GEO Frame' : 'Baustein 02 // Strukturiertes GEO-Framework'}
+                {isEn ? 'Input 02 // Structured GEO Framework' : 'Baustein 02 // Strukturiertes GEO-Framework'}
               </div>
               <p className="text-xs sm:text-sm text-sbb-black leading-relaxed">
                 {isEn ? active.input2En : active.input2De}
@@ -289,24 +303,40 @@ export const TrendingFactoryView: React.FC<Props> = ({ lang, onNavigateTab }) =>
           </div>
         </div>
 
-        {/* Human Iteration Final Step */}
-        <div className="p-5 bg-sbb-black text-white border-l-4 border-[#FFCC00] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <div className="space-y-1.5">
-            <div className="font-mono text-xs font-black uppercase tracking-wider text-[#FFCC00] flex items-center gap-2">
-              <Users className="w-4 h-4 shrink-0" />
+        {/* Why One-Shot Stops Here vs. Human Communicator Iteration */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <div className="p-4 bg-[#F8F8F9] border border-zinc-300 space-y-1.5">
+            <div className="font-mono text-[11px] font-black uppercase text-sbb-red flex items-center gap-1.5">
+              <XCircle className="w-4 h-4 shrink-0" />
               <span>
                 {isEn
-                  ? `HUMAN COMMUNICATOR ITERATION IN ${active.name.toUpperCase()}`
-                  : `MENSCHLICHE ITERATION IN ${active.name.toUpperCase()}`}
+                  ? `Why Raw AI Stops Here in ${active.name}`
+                  : `Warum roher KI-Output in ${active.name} nicht reicht`}
               </span>
             </div>
-            <p className="text-xs sm:text-sm text-zinc-200 leading-relaxed max-w-3xl">
-              {isEn ? active.humanIterationEn : active.humanIterationDe}
+            <p className="text-xs sm:text-sm text-zinc-800 leading-relaxed">
+              {isEn ? active.whyNotOneShotEn : active.whyNotOneShotDe}
             </p>
           </div>
-          <div className="px-3 py-2 bg-zinc-900 border border-zinc-700 font-mono text-[11px] font-bold text-[#FFCC00] flex items-center gap-2 shrink-0 self-start sm:self-center">
-            <RefreshCw className="w-3.5 h-3.5" />
-            <span>{isEn ? 'Iterated with full context' : 'Mit vollem Kontext iteriert'}</span>
+
+          <div className="p-4 bg-sbb-black text-white border-l-4 border-[#FFCC00] space-y-2">
+            <div className="flex items-center justify-between gap-2">
+              <span className="font-mono text-[11px] font-black uppercase tracking-wider text-[#FFCC00] flex items-center gap-1.5">
+                <Users className="w-4 h-4 shrink-0" />
+                <span>
+                  {isEn
+                    ? `Human Iteration in ${active.name}`
+                    : `Menschliche Iteration in ${active.name}`}
+                </span>
+              </span>
+              <span className="inline-flex items-center gap-1 font-mono text-[10px] font-bold text-[#FFCC00]">
+                <RefreshCw className="w-3 h-3" />
+                {isEn ? 'Full Context' : 'Voller Kontext'}
+              </span>
+            </div>
+            <p className="text-xs sm:text-sm text-zinc-200 leading-relaxed">
+              {isEn ? active.humanIterationEn : active.humanIterationDe}
+            </p>
           </div>
         </div>
       </div>
