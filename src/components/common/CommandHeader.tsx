@@ -113,7 +113,7 @@ export const CommandHeader: React.FC<Props> = ({
             <span className="truncate">{isEn ? 'Top-Down: GEO & Tailoring' : 'Top-Down: GEO & Anpassung'}</span>
           </button>
 
-          {/* 03: Enablement & Office Recipes */}
+          {/* 03: Enablement & Workflow Recipes */}
           <button
             type="button"
             onClick={() => setActiveTab('trending')}
@@ -125,7 +125,7 @@ export const CommandHeader: React.FC<Props> = ({
           >
             <span className={`text-[10px] font-black shrink-0 ${activeTab === 'trending' ? 'text-white/90' : 'text-zinc-500'}`}>03</span>
             <FileText className={`w-3.5 h-3.5 shrink-0 ${activeTab === 'trending' ? 'text-white' : 'text-sbb-red'}`} />
-            <span className="truncate">{isEn ? 'Enablement: Office Recipes' : 'Enablement: Office-Rezepte'}</span>
+            <span className="truncate">{isEn ? 'Enablement: Workflow Recipes' : 'Enablement: Workflow-Rezepte'}</span>
           </button>
         </div>
       </div>

@@ -295,8 +295,8 @@ export const GeoAuditView: React.FC<Props> = ({ lang, onNavigateTab }) => {
             <Layers className="w-4 h-4 text-sbb-red" />
             <span>
               {isEn
-                ? 'PART B // 4 PRACTICAL GEO BEST PRACTICES (EXPLAINED WITHOUT JARGON)'
-                : 'TEIL B // 4 PRAXISNAHE GEO-REGELN (OHNE FACHCHINESISCH)'}
+                ? 'PART B // 4 PRACTICAL GEO BEST PRACTICES'
+                : 'TEIL B // 4 PRAXISNAHE GEO-PRINZIPIEN'}
             </span>
           </div>
           <p className="text-xs sm:text-sm text-zinc-700">
@@ -381,8 +381,8 @@ export const GeoAuditView: React.FC<Props> = ({ lang, onNavigateTab }) => {
         >
           <span>
             {isEn
-              ? 'Next: 03 Office Recipes & Human Role'
-              : 'Weiter: 03 Office-Rezepte & Rolle des Menschen'}
+              ? 'Next: 03 Workflow Recipes & Human Role'
+              : 'Weiter: 03 Workflow-Rezepte & Rolle des Menschen'}
           </span>
           <ArrowRight className="w-3.5 h-3.5" />
         </button>

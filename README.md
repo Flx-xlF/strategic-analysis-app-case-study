@@ -38,8 +38,8 @@ Establishing coherent narratives and frameworks top-down fails if rules sit in s
 
 A production setup connects existing enterprise layers across two streams:
 
-1. **Outside-In Layer:** Connects to external feeds—licensed media and social aggregators (**Factiva, Meltwater, Talkwalker**) plus public LLM APIs—to ingest ongoing article streams. Because these produce huge amounts of data, the stream is digested into structured data and processed statistically and by LLMs to identify where messages come through and where work needs to be done.
-2. **Top-Down Layer:** Central Comms administers key narratives and GEO frameworks, translates them into **prompt recipes**, and streams them through existing company systems right where work is done: inside **Word, Excel, and Outlook**. Keeping friction low and delivering immediate daily benefit ensures teams actually use them.
+1. **Outside-In Layer:** Connects to external feeds—licensed newspaper, media and social aggregators (**Factiva, Meltwater, Talkwalker**) plus public LLM APIs—to ingest ongoing article and answer streams. Because these produce huge amounts of data, the stream is digested into structured data and processed statistically and by LLMs to identify where messages come through and where work needs to be done.
+2. **Top-Down Layer:** Central Comms administers key narratives and GEO frameworks, translates them into **prompt recipes**, and streams them through existing company systems right where work is done: via **document editor add-ins (`Word / Docs`), Web CMS browser extensions, and email assistants (`Outlook / Teams`)**. Keeping friction low and delivering immediate daily benefit ensures teams actually use them.
 
 ---
 
@@ -47,7 +47,7 @@ A production setup connects existing enterprise layers across two streams:
 
 There is no "one-shot, ready-to-send" output. An LLM will not produce a finished, ready-to-send statement or corporate story in a single pass (at least for the time being).
 
-AI enforces the GEO framework and tailors the narratives; **humans iterate**. Its real value is handing teams three concrete inputs in one place:
+AI analyzes sensitivities, enforces the GEO framework, and tailors the narratives; **humans bring unwritten context and iterate**. Its real value is handing teams three concrete inputs in one place:
 1. **Tailored versions of the company’s key narrative**
 2. **A structured GEO framework**
 3. **The most important communication risks derived from the Outside-In branch**
@@ -62,5 +62,5 @@ AI enforces the GEO framework and tailors the narratives; **humans iterate**. It
 | :--- | :--- |
 | **`00 Overview`** | 4-step visual flowchart connecting the shift in AI search, the two-way GEO approach, Enterprise IT integration, and human iteration. |
 | **`01 AI Search & Feed Pipeline`** | Interactive 4-channel AI context-window inspector (`Earned Media`, `Owned Stories`, `Regional/Legacy Files`, `Forums`) + 3-stage `Outside-In` data pipeline walkthrough. |
-| **`02 GEO & Context Tailoring`** | Side-by-side comparison of robotic copy-paste vs. AI context tailoring across channels + 4 plain-English GEO best practices (`Before` vs. `After`). |
-| **`03 Office Recipes & Human Role`** | Interactive `Word`, `Excel`, and `Outlook` prompt-recipe inspector showing the 3 AI inputs alongside human iteration. |
+| **`02 GEO & Context Tailoring`** | Side-by-side comparison of robotic copy-paste vs. AI context tailoring across channels + 4 practical GEO best practices (`Before` vs. `After`). |
+| **`03 Workflow Recipes & Human Role`** | Interactive prompt-recipe inspector across `Document Editors (Word / Docs)`, `Browser & Web CMS (Extension)`, and `Email & Messaging (Outlook / Teams)` showing the 3 AI inputs alongside human iteration. |

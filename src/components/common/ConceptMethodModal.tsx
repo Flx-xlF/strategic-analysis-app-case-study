@@ -148,11 +148,11 @@ export const ConceptMethodModal: React.FC<Props> = ({ isOpen, onClose, onOpenFlo
             <p>
               {isEn ? (
                 <>
-                  <strong>In-workflow prompt recipes:</strong> Central Comms administers key narratives and GEO frameworks, translates them into prompt recipes, and streams them through existing company systems right where work is done: inside <strong>Word, Excel, and Outlook</strong>—reducing friction so teams benefit immediately and actually use them.
+                  <strong>In-workflow prompt recipes:</strong> Central Comms administers key narratives and GEO frameworks, translates them into prompt recipes, and streams them through existing company systems right where work is done: inside <strong>document editors (Word / Docs), Web CMS browser extensions, and email clients (Outlook / Teams)</strong>—reducing friction so teams benefit immediately.
                 </>
               ) : (
                 <>
-                  <strong>Prompt-Rezepte direkt im Workflow:</strong> Die zentrale Kommunikation übersetzt Kern-Narrative und GEO-Frameworks in Prompt-Rezepte und verteilt sie über bestehende Systeme direkt in <strong>Word, Excel und Outlook</strong> – mit minimaler Reibung und sofortigem Nutzen.
+                  <strong>Prompt-Rezepte direkt im Workflow:</strong> Die zentrale Kommunikation übersetzt Kern-Narrative und GEO-Frameworks in Prompt-Rezepte und verteilt sie über bestehende Systeme direkt in <strong>Texteditoren (Word / Docs), Browser-Extensions fürs Web-CMS und E-Mail-Clients (Outlook / Teams)</strong> – mit minimaler Reibung und sofortigem Nutzen.
                 </>
               )}
             </p>

@@ -6,7 +6,7 @@ import {
   ArrowRight,
   CheckCircle2,
   Database,
-  FileSpreadsheet,
+  Globe,
   FileText,
   GitBranch,
   Layers,
@@ -462,14 +462,14 @@ export const ConceptFlowView: React.FC<Props> = ({
 
             <h2 className="text-xl sm:text-2xl font-black text-sbb-black tracking-tight leading-snug">
               {isEn
-                ? 'No unread rulebooks, no "shadow IT": plug into existing layers and Office tools'
-                : 'Keine ungelesenen Regelwerke, keine «Shadow IT»: Direkt in bestehende Systeme und Office-Tools'}
+                ? 'No unread rulebook PDFs, no "shadow IT": plug into existing layers and daily tools'
+                : 'Keine ungelesenen Regel-PDFs, keine «Shadow IT»: Direkt in bestehende Systeme und Alltagstools'}
             </h2>
 
             <p className="text-sm text-zinc-800 leading-relaxed">
               {isEn
-                ? 'In a regulated enterprise or institution operating across central and regional hubs, this system cannot be a standalone "shadow IT" silo or a folder of static rulebook documents. It connects existing enterprise layers across two streams:'
-                : 'In einem regulierten Unternehmen mit zentralen und regionalen Standorten wird dieses System nicht als isoliertes «Shadow-IT»-Silo oder als Ordner voller Regel-Dokumente gebaut. Es verbindet bestehende Unternehmenssysteme entlang zweier Ströme:'}
+                ? 'In a regulated enterprise or institution operating across central and regional hubs, this system cannot be a standalone "shadow IT" silo—nor a folder of static rulebook PDFs where hunting for the current version creates friction. It connects existing enterprise layers across two streams:'
+                : 'In einem regulierten Unternehmen mit zentralen und regionalen Standorten wird dieses System weder als isoliertes «Shadow-IT»-Silo gebaut noch als Ordner statischer Regel-PDFs, bei denen schon die Suche nach der aktuellen Version Reibung erzeugt. Es verbindet bestehende Unternehmenssysteme entlang zweier Ströme:'}
             </p>
 
             <div className="space-y-2.5 pt-1">
@@ -487,8 +487,8 @@ export const ConceptFlowView: React.FC<Props> = ({
                   {isEn ? '2. Top-Down Layer:' : '2. Top-Down-Ebene:'}
                 </strong>
                 {isEn
-                  ? 'Central Comms administers key narratives and GEO frameworks, translates them into prompt recipes, and distributes them through existing enterprise systems right where work is done: inside Word, Excel, and Outlook—minimizing friction so teams benefit immediately and actually use them.'
-                  : 'Die zentrale Kommunikation verwaltet Kern-Narrative und GEO-Frameworks, übersetzt sie in Prompt-Rezepte und verteilt sie über bestehende Systeme direkt dorthin, wo gearbeitet wird: in Word, Excel und Outlook – mit minimaler Reibung und sofortigem Nutzen.'}
+                  ? 'Central Comms administers key narratives and GEO frameworks, translates them into prompt recipes, and distributes them through existing enterprise systems right where work is done: via document add-ins (Word / Docs), Web CMS browser extensions, and email assistants (Outlook / Teams)—minimizing friction so teams benefit immediately.'
+                  : 'Die zentrale Kommunikation verwaltet Kern-Narrative und GEO-Frameworks, übersetzt sie in Prompt-Rezepte und verteilt sie über bestehende Systeme direkt dorthin, wo gearbeitet wird: über Editor-Add-ins (Word / Docs), Browser-Extensions fürs Web-CMS und E-Mail-Assistenten (Outlook / Teams) – mit minimaler Reibung und sofortigem Nutzen.'}
               </div>
             </div>
           </div>
@@ -614,12 +614,14 @@ export const ConceptFlowView: React.FC<Props> = ({
                 </svg>
               </div>
 
-              {/* Word, Excel, Outlook */}
+              {/* Editors, Browser Extension, Email */}
               <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-1 gap-2">
                 <div className="p-2.5 bg-emerald-50/40 border border-emerald-700/60 flex items-center gap-2.5">
                   <FileText className="w-4 h-4 text-emerald-800 shrink-0" />
                   <div className="min-w-0">
-                    <div className="text-xs font-bold text-sbb-black">Word</div>
+                    <div className="text-xs font-bold text-sbb-black">
+                      {isEn ? 'Word / Docs Add-in' : 'Word / Docs Add-in'}
+                    </div>
                     <div className="text-[11px] text-zinc-700 leading-snug">
                       {isEn ? 'Stories, statements & briefings' : 'Stories, Statements & Briefings'}
                     </div>
@@ -627,11 +629,13 @@ export const ConceptFlowView: React.FC<Props> = ({
                 </div>
 
                 <div className="p-2.5 bg-emerald-50/40 border border-emerald-700/60 flex items-center gap-2.5">
-                  <FileSpreadsheet className="w-4 h-4 text-emerald-800 shrink-0" />
+                  <Globe className="w-4 h-4 text-emerald-800 shrink-0" />
                   <div className="min-w-0">
-                    <div className="text-xs font-bold text-sbb-black">Excel</div>
+                    <div className="text-xs font-bold text-sbb-black">
+                      {isEn ? 'Browser Extension (CMS)' : 'Browser-Extension (CMS)'}
+                    </div>
                     <div className="text-[11px] text-zinc-700 leading-snug">
-                      {isEn ? 'Structured Q&A & message grids' : 'Strukturierte Q&As & Faktenraster'}
+                      {isEn ? 'Owned web pages & newsroom' : 'Strategie-Seiten & Newsroom'}
                     </div>
                   </div>
                 </div>
@@ -639,7 +643,9 @@ export const ConceptFlowView: React.FC<Props> = ({
                 <div className="p-2.5 bg-emerald-50/40 border border-emerald-700/60 flex items-center gap-2.5">
                   <Mail className="w-4 h-4 text-emerald-800 shrink-0" />
                   <div className="min-w-0">
-                    <div className="text-xs font-bold text-sbb-black">Outlook</div>
+                    <div className="text-xs font-bold text-sbb-black">
+                      {isEn ? 'Outlook / Teams Assistant' : 'Outlook / Teams Assistent'}
+                    </div>
                     <div className="text-[11px] text-zinc-700 leading-snug">
                       {isEn ? 'Stakeholder & media replies' : 'Stakeholder- & Medienantworten'}
                     </div>
@@ -661,8 +667,8 @@ export const ConceptFlowView: React.FC<Props> = ({
           </span>
           <p className="text-xs sm:text-sm font-medium text-zinc-100 leading-snug">
             {isEn
-              ? 'When a communicator runs a prompt recipe inside Word or Outlook, what can an LLM realistically deliver—and where do humans take over?'
-              : 'Wenn Kommunikatoren ein Prompt-Rezept in Word oder Outlook starten: Was kann ein LLM realistisch liefern – und wo übernimmt der Mensch?'}
+              ? 'When a communicator runs a prompt recipe inside an editor, browser extension, or email client, what can an LLM realistically deliver—and where do humans take over?'
+              : 'Wenn Kommunikatoren ein Prompt-Rezept im Editor, per Browser-Extension oder im E-Mail-Client starten: Was liefert das LLM – und wo übernimmt der Mensch?'}
           </p>
         </div>
         <div className="w-0.5 h-4 bg-sbb-black" />
@@ -829,8 +835,8 @@ export const ConceptFlowView: React.FC<Props> = ({
 
                 <p className="text-xs text-zinc-300 leading-relaxed">
                   {isEn
-                    ? 'Inside Word, Excel, or Outlook, the communicator reviews the tailored draft, weighs the Outside-In risks, and refines the final wording.'
-                    : 'Direkt in Word, Excel oder Outlook prüft das Team den zugeschnittenen Entwurf, wägt die Outside-In-Risiken ab und schärft den finalen Text.'}
+                    ? 'Inside the editor, browser extension, or email client, the communicator brings unwritten organizational context, iterates with the model, and signs off on the final text.'
+                    : 'Direkt im Editor, der Browser-Extension oder im E-Mail-Client bringt das Team ungeschriebenen Kontext ein, iteriert mit dem Modell und gibt den finalen Text frei.'}
                 </p>
               </div>
             </div>
