@@ -381,8 +381,8 @@ export const GeoAuditView: React.FC<Props> = ({ lang, onNavigateTab }) => {
         >
           <span>
             {isEn
-              ? 'Therefore: 03 Office Recipes & Human Role'
-              : 'Deshalb: 03 Office-Rezepte & Rolle des Menschen'}
+              ? 'Next: 03 Office Recipes & Human Role'
+              : 'Weiter: 03 Office-Rezepte & Rolle des Menschen'}
           </span>
           <ArrowRight className="w-3.5 h-3.5" />
         </button>

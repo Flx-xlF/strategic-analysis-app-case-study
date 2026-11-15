@@ -256,18 +256,18 @@ export const ConceptFlowView: React.FC<Props> = ({
         </div>
       </section>
 
-      {/* ─── THEREFORE BRIDGE 01 → 02 ─── */}
+      {/* ─── TRANSITION BRIDGE 01 → 02 ─── */}
       <div className="flex flex-col items-center py-3">
         <div className="w-0.5 h-4 bg-sbb-black" />
-        <div className="bg-sbb-black text-white px-4 py-2 border-l-4 border-[#FFCC00] max-w-2xl w-full flex items-center gap-3 shadow-2xs">
+        <div className="bg-sbb-black text-white px-4 py-2.5 border-l-4 border-[#FFCC00] max-w-2xl w-full flex items-center gap-3 shadow-2xs">
           <span className="font-mono text-[11px] font-black uppercase tracking-widest text-[#FFCC00] shrink-0 flex items-center gap-1">
             <ArrowDown className="w-3.5 h-3.5" />
-            <span>{isEn ? 'THEREFORE' : 'DESHALB'}</span>
+            <span>{isEn ? 'THE CONSEQUENCE' : 'DIE FOLGE'}</span>
           </span>
           <p className="text-xs sm:text-sm font-medium text-zinc-100 leading-snug">
             {isEn
-              ? 'Incoherence becomes the central vulnerability: discrepancies across central, regional, or cantonal teams dilute the company’s voice when AI models cross-reference them.'
-              : 'Inkohärenz wird zur zentralen Schwachstelle: Abweichungen zwischen zentralen, regionalen oder kantonalen Teams verwässern die Stimme des Unternehmens, sobald KI-Modelle sie abgleichen.'}
+              ? 'As a result, incoherence becomes the central vulnerability: discrepancies across central, regional, or cantonal teams dilute the company’s voice when AI models cross-reference them.'
+              : 'Dadurch wird Inkohärenz zur zentralen Schwachstelle: Abweichungen zwischen zentralen, regionalen oder kantonalen Teams verwässern die Stimme des Unternehmens, sobald KI-Modelle sie abgleichen.'}
           </p>
         </div>
         <div className="w-0.5 h-4 bg-sbb-black" />
@@ -303,9 +303,7 @@ export const ConceptFlowView: React.FC<Props> = ({
             {/* Plain-English GEO explanation box */}
             <div className="p-3.5 bg-amber-50/70 border-l-4 border-[#FFCC00] border border-amber-200 space-y-1">
               <div className="font-mono text-[11px] font-black uppercase tracking-wider text-sbb-black">
-                {isEn
-                  ? 'What is GEO? (Plain-English Explanation)'
-                  : 'Was bedeutet GEO? (Einfach erklärt)'}
+                {isEn ? 'What is GEO?' : 'Was bedeutet GEO?'}
               </div>
               <p className="text-xs sm:text-sm text-zinc-800 leading-relaxed">
                 {isEn
@@ -453,18 +451,18 @@ export const ConceptFlowView: React.FC<Props> = ({
         </div>
       </section>
 
-      {/* ─── THEREFORE BRIDGE 02 → 03 ─── */}
+      {/* ─── TRANSITION BRIDGE 02 → 03 ─── */}
       <div className="flex flex-col items-center py-3">
         <div className="w-0.5 h-4 bg-sbb-black" />
-        <div className="bg-sbb-black text-white px-4 py-2 border-l-4 border-[#FFCC00] max-w-2xl w-full flex items-center gap-3 shadow-2xs">
+        <div className="bg-sbb-black text-white px-4 py-2.5 border-l-4 border-[#FFCC00] max-w-2xl w-full flex items-center gap-3 shadow-2xs">
           <span className="font-mono text-[11px] font-black uppercase tracking-widest text-[#FFCC00] shrink-0 flex items-center gap-1">
             <ArrowDown className="w-3.5 h-3.5" />
-            <span>{isEn ? 'THEREFORE' : 'DESHALB'}</span>
+            <span>{isEn ? 'THE PRACTICAL HURDLE' : 'DIE HÜRDE IM ALLTAG'}</span>
           </span>
           <p className="text-xs sm:text-sm font-medium text-zinc-100 leading-snug">
             {isEn
-              ? 'Establishing coherent narratives and frameworks top-down fails if rules sit in static rulebook documents—in a busy environment, teams overlook them in a hurry.'
-              : 'Kohärente Narrative und Frameworks lassen sich Top-Down nicht über statische Regel-Dokumente durchsetzen – im hektischen Alltag werden diese in der Eile übersehen.'}
+              ? 'Establishing coherent narratives and frameworks top-down is a challenge: if rules sit in static rulebook documents, busy teams overlook them in a hurry.'
+              : 'Kohärente Narrative und Frameworks Top-Down durchzusetzen ist im Alltag schwierig: Liegen Regeln in statischen Dokumenten, werden sie unter Zeitdruck leicht übersehen.'}
           </p>
         </div>
         <div className="w-0.5 h-4 bg-sbb-black" />
@@ -687,13 +685,13 @@ export const ConceptFlowView: React.FC<Props> = ({
         </div>
       </section>
 
-      {/* ─── THEREFORE BRIDGE 03 → 04 ─── */}
+      {/* ─── TRANSITION BRIDGE 03 → 04 ─── */}
       <div className="flex flex-col items-center py-3">
         <div className="w-0.5 h-4 bg-sbb-black" />
-        <div className="bg-sbb-black text-white px-4 py-2 border-l-4 border-[#FFCC00] max-w-2xl w-full flex items-center gap-3 shadow-2xs">
+        <div className="bg-sbb-black text-white px-4 py-2.5 border-l-4 border-[#FFCC00] max-w-2xl w-full flex items-center gap-3 shadow-2xs">
           <span className="font-mono text-[11px] font-black uppercase tracking-widest text-[#FFCC00] shrink-0 flex items-center gap-1">
             <ArrowDown className="w-3.5 h-3.5" />
-            <span>{isEn ? 'THEREFORE' : 'DESHALB'}</span>
+            <span>{isEn ? 'THE REALISTIC BOUNDARY' : 'DIE REALISTISCHE GRENZE'}</span>
           </span>
           <p className="text-xs sm:text-sm font-medium text-zinc-100 leading-snug">
             {isEn

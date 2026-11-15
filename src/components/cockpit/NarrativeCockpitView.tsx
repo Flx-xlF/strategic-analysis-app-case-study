@@ -568,8 +568,8 @@ export const NarrativeCockpitView: React.FC<Props> = ({ lang, onNavigateTab }) =
         >
           <span>
             {isEn
-              ? 'Therefore: 02 Top-Down GEO & Context Tailoring'
-              : 'Deshalb: 02 Top-Down GEO & Kontext-Anpassung'}
+              ? 'Next: 02 Top-Down GEO & Context Tailoring'
+              : 'Weiter: 02 Top-Down GEO & Kontext-Anpassung'}
           </span>
           <ArrowRight className="w-3.5 h-3.5" />
         </button>
