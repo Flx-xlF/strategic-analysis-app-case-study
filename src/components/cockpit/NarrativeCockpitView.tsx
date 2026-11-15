@@ -5,14 +5,12 @@ import {
   AlertTriangle,
   ArrowLeft,
   ArrowRight,
-  CheckCircle2,
   Database,
   Layers,
   MessageSquare,
   Newspaper,
   FileText,
-  Search,
-  BarChart3
+  Search
 } from 'lucide-react';
 
 interface Props {
@@ -51,13 +49,13 @@ export const NarrativeCockpitView: React.FC<Props> = ({ lang, onNavigateTab }) =
     }
   > = {
     earned: {
-      labelEn: '1. Earned Media',
-      labelDe: '1. Earned Media (Presse)',
-      subQueryLabelEn: 'Sub-Query 1: Press coverage',
-      subQueryLabelDe: 'Teilabfrage 1: Presseberichte',
+      labelEn: '1. Earned Media (Newspapers & Wires)',
+      labelDe: '1. Earned Media (Zeitungen & Agenturen)',
+      subQueryLabelEn: 'Sub-Query 1: Newspaper & wire coverage',
+      subQueryLabelDe: 'Teilabfrage 1: Zeitungen & Agenturen',
       icon: <Newspaper className="w-3.5 h-3.5 shrink-0" />,
-      roleEn: 'Corporate media desk answering fast-moving journalist questions.',
-      roleDe: 'Medienstelle, die unter Zeitdruck auf journalistische Anfragen reagiert.',
+      roleEn: 'Corporate media desk answering questions from daily newspapers, business press, and news agencies.',
+      roleDe: 'Medienstelle im Austausch mit Tageszeitungen, Wirtschaftspresse und Nachrichtenagenturen.',
       matrixReasonEn:
         'Journalists ask pointed questions about global investments or restructuring—so press quotes naturally emphasize global capital allocation.',
       matrixReasonDe:
@@ -167,8 +165,6 @@ export const NarrativeCockpitView: React.FC<Props> = ({ lang, onNavigateTab }) =
     titleEn: string;
     titleDe: string;
     tools: string;
-    summaryEn: string;
-    summaryDe: string;
     inputEn: string;
     inputDe: string;
     processEn: string;
@@ -181,66 +177,54 @@ export const NarrativeCockpitView: React.FC<Props> = ({ lang, onNavigateTab }) =
       titleEn: '1. External Feeds & Public LLM APIs',
       titleDe: '1. Externe Feeds & öffentliche LLM-APIs',
       tools: 'Factiva, Meltwater, Talkwalker + Public LLM APIs',
-      summaryEn:
-        'Ingests continuous article streams across press, trade media, and social discussions, alongside repeated queries to public LLM APIs.',
-      summaryDe:
-        'Erfasst laufende Artikelströme aus Presse, Fachmedien und Social-Diskussionen sowie wiederholte Abfragen über öffentliche LLM-APIs.',
       inputEn:
-        'Continuous licensed news wires, trade articles, social threads (via Factiva, Meltwater, Talkwalker) plus live responses from public LLM APIs.',
+        'Classic daily & business newspapers (print & online), news wires, trade media, and social forums—plus live responses from public LLM APIs.',
       inputDe:
-        'Laufende lizenzierte Nachrichtenströme, Fachartikel, Social-Threads (über Factiva, Meltwater, Talkwalker) sowie Antworten öffentlicher LLM-APIs.',
+        'Klassische Tages- und Wirtschaftszeitungen (Print & Online), Agenturen, Fachmedien und Foren – plus Live-Antworten öffentlicher LLM-APIs.',
       processEn:
-        'Connects directly to enterprise feed agreements already in place—never a standalone "shadow IT" scraper.',
+        'Connects directly to existing enterprise media-monitoring agreements and API access—never a standalone "shadow IT" scraper.',
       processDe:
-        'Nutzt direkt bestehende lizenzierte Unternehmens-Feeds und API-Zugänge – kein isoliertes «Shadow-IT»-Scraping.',
+        'Nutzt direkt bestehende lizenzierte Medienbeobachtungs-Feeds und API-Zugänge – kein isoliertes «Shadow-IT»-Scraping.',
       outputEn:
-        'Huge, unstructured raw text streams covering what media, forums, and AI answer engines are currently saying across regions.',
+        'Continuous, unstructured raw streams across regions (thousands of newspaper articles, forum threads, and multi-query AI answers) too large to read manually or dump straight into an LLM.',
       outputDe:
-        'Grosse, unstrukturierte Rohdatenströme darüber, was Medien, Foren und KI-Suchmaschinen über Regionen hinweg aktuell wiedergeben.'
+        'Laufende, unstrukturierte Rohdatenströme über Regionen hinweg (Tausende Zeitungsartikel, Forenbeiträge und KI-Antworten), die sich weder manuell lesen noch roh in ein LLM geben lassen.'
     },
     {
       num: 2,
       titleEn: '2. Digestion Into Structured Data',
       titleDe: '2. Aufbereitung in strukturierte Daten',
       tools: isEn ? 'Stream Normalization & Tagging' : 'Normalisierung & Strukturierung',
-      summaryEn:
-        'Transforms huge raw article and answer volumes into clean, structured records by topic, channel, region, and narrative claim.',
-      summaryDe:
-        'Überführt enorme Rohdatenmengen aus Artikeln und KI-Antworten in strukturierte Datensätze nach Thema, Kanal, Region und Kernaussage.',
       inputEn:
-        'Massive daily volumes of raw articles, forum threads, and multi-query LLM responses that are impossible to inspect manually or dump straight into an LLM.',
+        'High-volume raw newspaper, wire, forum, and multi-query LLM streams from Stage 1.',
       inputDe:
-        'Riesige tägliche Mengen an Rohartikeln, Forenbeiträgen und LLM-Antworten, die sich weder manuell lesen noch roh in ein LLM geben lassen.',
+        'Grosse Mengen an rohen Zeitungs-, Agentur-, Foren- und LLM-Antwortströmen aus Stufe 1.',
       processEn:
-        'Digests and transforms raw text into clean, structured records—tagging source channel, region/canton, topic, and cited company claims.',
+        'Digests and normalizes raw text into structured records—tagging source type (newspaper, wire, legacy PDF, forum, LLM), region/canton, topic, and cited claims.',
       processDe:
-        'Verdichtet Rohtexte in strukturierte Datensätze – mit sauberer Zuordnung nach Quellkanal, Region/Kanton, Thema und zitierten Aussagen.',
+        'Verdichtet Rohtexte in strukturierte Datensätze – getaggt nach Quelltyp (Zeitung, Agentur, Alt-PDF, Forum, LLM), Region/Kanton, Thema und Kernaussage.',
       outputEn:
-        'Structured dataset ready for both statistical aggregation and targeted LLM inspection (Example record: Region = CH / Source = Legacy PDF / Topic = Footprint).',
+        'Clean, computable dataset—for example, separating a current business newspaper quote (2026) from an outdated regional briefing PDF (2022) and local forum reaction.',
       outputDe:
-        'Strukturierter Datensatz für Statistik und gezielte LLM-Prüfung (Beispieldatensatz: Region = CH / Quelle = Alt-PDF / Thema = Standort).'
+        'Auswertbarer Datensatz – trennt z. B. ein aktuelles Wirtschaftszeitungs-Zitat (2026) sauber von einem veralteten regionalen Briefing-PDF (2022) und Foren-Reaktionen.'
     },
     {
       num: 3,
       titleEn: '3. Statistical & LLM Processing',
       titleDe: '3. Statistische & LLM-Auswertung',
       tools: isEn ? 'Pull-Through & Gap Identification' : 'Durchdringung & Handlungsbedarf',
-      summaryEn:
-        'Combines statistical filtering with LLM analysis to show where narratives come through and where work needs to be done.',
-      summaryDe:
-        'Kombiniert statistische Auswertung mit LLM-Analyse, um zu zeigen, wo Botschaften durchdringen und wo Handlungsbedarf besteht.',
       inputEn:
         'Structured records from Stage 2 paired with the company’s centrally defined core narratives.',
       inputDe:
         'Strukturierte Datensätze aus Stufe 2 abgeglichen mit den zentral definierten Kern-Narrativen des Unternehmens.',
       processEn:
-        'Statistical processing spots shifts and recurring patterns across the huge volume; LLMs check whether key messages actually come through or get distorted by missing context.',
+        'Statistical processing spots volume shifts and recurring patterns across regions; LLMs check whether key messages come through or get distorted by missing context.',
       processDe:
-        'Statistik erkennt Verschiebungen und Häufungen im Gesamtvolumen; LLMs prüfen, ob Kernbotschaften durchdringen oder durch fehlenden Kontext verzerrt werden.',
+        'Statistik erkennt Volumenverschiebungen und Muster über Regionen hinweg; LLMs prüfen, ob Kernbotschaften durchdringen oder durch fehlenden Kontext verzerrt werden.',
       outputEn:
-        'Clear qualitative map showing teams exactly where narratives hold—and where discrepancies need Top-Down action.',
+        'Actionable priority map: shows where core facts hold (Owned Pages), where local context is missing (Newspapers & Wires), and where legacy files contradict current messaging (2022 Regional PDF).',
       outputDe:
-        'Klare qualitative Übersicht, wo Narrative tragen – und wo Abweichungen gezielte Top-Down-Arbeit erfordern.'
+        'Klare Prioritäten-Übersicht: zeigt, wo Kernfakten tragen (Owned-Seiten), wo regionaler Kontext fehlt (Zeitungen & Agenturen) und wo Altdateien widersprechen (Regional-PDF 2022).'
     }
   ];
 
@@ -470,211 +454,12 @@ export const NarrativeCockpitView: React.FC<Props> = ({ lang, onNavigateTab }) =
 
             <div className="p-3 bg-zinc-900 border border-zinc-700 space-y-1">
               <div className="font-mono text-[10px] font-bold uppercase text-emerald-400">
-                {isEn ? '3. Result (Output)' : '3. Ergebnis (Output)'}
+                {isEn ? '3. Concrete Output' : '3. Konkretes Ergebnis'}
               </div>
               <p className="text-xs text-zinc-100 leading-relaxed">
                 {isEn ? currentStage.outputEn : currentStage.outputDe}
               </p>
             </div>
-          </div>
-        </div>
-
-        {/* Stage-Specific Data Artifact Table */}
-        <div className="space-y-2 pt-2">
-          <div className="font-mono text-[11px] font-bold uppercase tracking-wider text-zinc-600 flex items-center gap-1.5">
-            <BarChart3 className="w-3.5 h-3.5 text-sbb-red" />
-            <span>
-              {activeStage === 1 &&
-                (isEn
-                  ? 'SAMPLE STAGE 1 ARTIFACT: RAW UNSTRUCTURED FEED & API STREAM'
-                  : 'BEISPIEL-ERGEBNIS STUFE 1: ROHER UNSTRUKTURIERTER FEED- & API-STROM')}
-              {activeStage === 2 &&
-                (isEn
-                  ? 'SAMPLE STAGE 2 ARTIFACT: NORMALIZED & TAGGED STRUCTURED RECORDS'
-                  : 'BEISPIEL-ERGEBNIS STUFE 2: NORMALISIERTE & GETAGGTE DATENSÄTZE')}
-              {activeStage === 3 &&
-                (isEn
-                  ? 'SAMPLE STAGE 3 ARTIFACT: QUALITATIVE PULL-THROUGH & ACTION MAP'
-                  : 'BEISPIEL-ERGEBNIS STUFE 3: QUALITATIVE DURCHDRINGUNG & HANDLUNGSBEDARF')}
-            </span>
-          </div>
-
-          <div className="overflow-x-auto border border-sbb-aluminum">
-            {activeStage === 1 && (
-              <table className="w-full text-left border-collapse text-xs">
-                <thead>
-                  <tr className="bg-sbb-cloud border-b border-sbb-aluminum font-mono text-[10px] uppercase text-zinc-700">
-                    <th className="p-3">{isEn ? 'Source Stream' : 'Quellstrom'}</th>
-                    <th className="p-3">{isEn ? 'Raw Unstructured Excerpt' : 'Roher Textauszug'}</th>
-                    <th className="p-3">{isEn ? 'Why Raw Streams Need Stage 2' : 'Warum Stufe 2 nötig ist'}</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-zinc-200 bg-white">
-                  <tr>
-                    <td className="p-3 font-bold text-sbb-black">Factiva / Meltwater Wire</td>
-                    <td className="p-3 text-zinc-700 italic">
-                      {isEn
-                        ? '«...confirmed major expansion investments in international manufacturing capacity over the next five years...»'
-                        : '«...bestätigte umfangreiche Erweiterungsinvestitionen in internationale Produktionskapazitäten über die nächsten fünf Jahre...»'}
-                    </td>
-                    <td className="p-3 text-zinc-700">
-                      {isEn
-                        ? 'Arrives as thousands of untagged articles mixed with routine market noise.'
-                        : 'Trifft als Tausende ungetaggte Artikel im allgemeinen Nachrichtenrauschen ein.'}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="p-3 font-bold text-sbb-black">Public LLM API Response</td>
-                    <td className="p-3 text-zinc-700 italic">
-                      {isEn
-                        ? '«...expansion abroad... while a 2022 regional PDF references ongoing European site consolidation reviews...»'
-                        : '«...Ausbau im Ausland... während ein regionales PDF von 2022 laufende Standortprüfungen erwähnt...»'}
-                    </td>
-                    <td className="p-3 text-zinc-700">
-                      {isEn
-                        ? 'Combines multiple sources in prose without separating which claim came from which channel.'
-                        : 'Mischt mehrere Quellen im Fliesstext, ohne Herkunft und Aktualität sauber zu trennen.'}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="p-3 font-bold text-sbb-black">Talkwalker / Forum Stream</td>
-                    <td className="p-3 text-zinc-700 italic">
-                      {isEn
-                        ? '«Why does the global release highlight expansion while the local PDF talks about site reviews?»'
-                        : '«Warum spricht die globale Mitteilung von Ausbau, während ein lokales PDF Standortprüfungen nennt?»'}
-                    </td>
-                    <td className="p-3 text-zinc-700">
-                      {isEn
-                        ? 'Raw comments lack regional tagging and claim linkage until normalized.'
-                        : 'Rohkommentare haben ohne Aufbereitung weder Regions-Tag noch Bezug zur Kernaussage.'}
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            )}
-
-            {activeStage === 2 && (
-              <table className="w-full text-left border-collapse text-xs">
-                <thead>
-                  <tr className="bg-sbb-cloud border-b border-sbb-aluminum font-mono text-[10px] uppercase text-zinc-700">
-                    <th className="p-3">{isEn ? 'Record Source & Date' : 'Quelle & Stand'}</th>
-                    <th className="p-3">{isEn ? 'Tagged Topic & Region' : 'Thema & Region'}</th>
-                    <th className="p-3">{isEn ? 'Extracted Claim & Status' : 'Extrahierte Aussage & Status'}</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-zinc-200 bg-white">
-                  <tr>
-                    <td className="p-3 font-bold text-sbb-black">
-                      {isEn ? 'Global Press Wire (Current)' : 'Globale Presse-Meldung (Aktuell)'}
-                    </td>
-                    <td className="p-3 font-mono text-[11px] text-zinc-700">
-                      {isEn ? 'Topic: Capacity · Scope: Global' : 'Thema: Kapazität · Raum: Global'}
-                    </td>
-                    <td className="p-3">
-                      <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-emerald-50 border border-emerald-300 font-mono text-[10px] font-bold text-emerald-900 mr-2">
-                        {isEn ? 'Current Global Narrative' : 'Aktuelles globales Narrativ'}
-                      </span>
-                      <span className="text-zinc-700">
-                        {isEn ? 'International capacity expansion' : 'Internationaler Kapazitätsausbau'}
-                      </span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="p-3 font-bold text-sbb-black">
-                      {isEn ? 'Regional Briefing PDF (Indexed 2022)' : 'Regionales Briefing-PDF (Stand 2022)'}
-                    </td>
-                    <td className="p-3 font-mono text-[11px] text-zinc-700">
-                      {isEn ? 'Topic: Site Footprint · Region: Europe' : 'Thema: Standort · Region: Europa'}
-                    </td>
-                    <td className="p-3">
-                      <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-red-50 border border-red-300 font-mono text-[10px] font-bold text-sbb-red mr-2">
-                        {isEn ? 'Outdated Legacy File' : 'Veraltete Altdatei'}
-                      </span>
-                      <span className="text-zinc-700">
-                        {isEn ? 'References ongoing site consolidation review' : 'Nennt laufende Standortkonsolidierung'}
-                      </span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="p-3 font-bold text-sbb-black">
-                      {isEn ? 'Forum Thread + LLM Answer (Current)' : 'Foren-Thread + KI-Antwort (Aktuell)'}
-                    </td>
-                    <td className="p-3 font-mono text-[11px] text-zinc-700">
-                      {isEn ? 'Topic: Local Hub · Region: Cantonal' : 'Thema: Lokalstandort · Region: Kantonal'}
-                    </td>
-                    <td className="p-3">
-                      <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-amber-50 border border-amber-300 font-mono text-[10px] font-bold text-amber-900 mr-2">
-                        {isEn ? 'Cross-Channel Contradiction' : 'Kanal-Widerspruch'}
-                      </span>
-                      <span className="text-zinc-700">
-                        {isEn ? 'Questions local commitment continuity' : 'Stellt lokale Verankerung infrage'}
-                      </span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            )}
-
-            {activeStage === 3 && (
-              <table className="w-full text-left border-collapse text-xs">
-                <thead>
-                  <tr className="bg-sbb-cloud border-b border-sbb-aluminum font-mono text-[10px] uppercase text-zinc-700">
-                    <th className="p-3">{isEn ? 'Channel / Topic Area' : 'Kanal / Themenfeld'}</th>
-                    <th className="p-3">{isEn ? 'Message Pull-Through' : 'Botschafts-Durchdringung'}</th>
-                    <th className="p-3">{isEn ? 'Where Work Is Needed' : 'Wo Handlungsbedarf besteht'}</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-zinc-200 bg-white">
-                  <tr>
-                    <td className="p-3 font-bold text-sbb-black">
-                      {isEn ? 'Central Owned Strategy Pages' : 'Zentrale Strategie-Seiten'}
-                    </td>
-                    <td className="p-3">
-                      <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-emerald-50 border border-emerald-300 font-mono text-[10px] font-bold text-emerald-900">
-                        <CheckCircle2 className="w-3 h-3 shrink-0" />
-                        {isEn ? 'Core Facts Present' : 'Kernfakten vorhanden'}
-                      </span>
-                    </td>
-                    <td className="p-3 text-zinc-700">
-                      {isEn
-                        ? 'Move key facts higher so AI sub-queries don’t grab vague opening paragraphs.'
-                        : 'Kernfakten weiter nach oben ziehen, damit KI-Teilabfragen nicht bei vagen Einleitungen stoppen.'}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="p-3 font-bold text-sbb-black">
-                      {isEn ? 'Regional & Cantonal Briefings / Archived PDFs' : 'Regionale / Kantonale Briefings & Alt-PDFs'}
-                    </td>
-                    <td className="p-3">
-                      <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-red-50 border border-red-300 font-mono text-[10px] font-bold text-sbb-red">
-                        <AlertTriangle className="w-3 h-3 shrink-0" />
-                        {isEn ? 'Discrepancy Detected' : 'Abweichung erkannt'}
-                      </span>
-                    </td>
-                    <td className="p-3 text-zinc-700">
-                      {isEn
-                        ? 'Older regional PDF conflicts with current global narrative in AI search answers.'
-                        : 'Älteres regionales PDF widerspricht dem aktuellen globalen Narrativ in KI-Antworten.'}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="p-3 font-bold text-sbb-black">
-                      {isEn ? 'Earned Media & Trade Coverage' : 'Earned Media & Fachpresse'}
-                    </td>
-                    <td className="p-3">
-                      <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-amber-50 border border-amber-300 font-mono text-[10px] font-bold text-amber-900">
-                        {isEn ? 'Partial Pull-Through' : 'Teilweise Durchdringung'}
-                      </span>
-                    </td>
-                    <td className="p-3 text-zinc-700">
-                      {isEn
-                        ? 'Media quotes global investment figures well, but omits regional context—needs tailored briefing inputs.'
-                        : 'Medien zitieren globale Investitionen, lassen aber regionalen Kontext weg – braucht zugeschnittene Briefing-Inputs.'}
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            )}
           </div>
         </div>
       </div>

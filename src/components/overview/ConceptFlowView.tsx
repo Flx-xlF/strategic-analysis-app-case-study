@@ -478,8 +478,8 @@ export const ConceptFlowView: React.FC<Props> = ({
                   {isEn ? '1. Outside-In Layer:' : '1. Outside-In-Ebene:'}
                 </strong>
                 {isEn
-                  ? 'External feeds, licensed media & social aggregators (Factiva, Meltwater, Talkwalker) + public LLM APIs ingest article streams. Because these produce huge amounts of data, they are digested into structured data and processed statistically and by LLMs to identify where messages come through and where work needs to be done.'
-                  : 'Externe Feeds, lizenzierte Medien- & Social-Aggregatoren (Factiva, Meltwater, Talkwalker) sowie öffentliche LLM-APIs erfassen Artikelströme. Da diese enorme Datenmengen erzeugen, werden sie in strukturierte Daten überführt und statistisch sowie per LLM ausgewertet, um zu erkennen, wo Botschaften durchdringen und wo Handlungsbedarf besteht.'}
+                  ? 'External feeds—licensed newspaper, media & social aggregators (Factiva, Meltwater, Talkwalker) plus public LLM APIs—ingest article and answer streams. Because these produce huge amounts of data, they are digested into structured data and processed statistically and by LLMs to identify where messages come through and where work needs to be done.'
+                  : 'Externe Feeds – lizenzierte Zeitungs-, Medien- & Social-Aggregatoren (Factiva, Meltwater, Talkwalker) sowie öffentliche LLM-APIs – erfassen Artikel- und Antwortströme. Da diese enorme Datenmengen erzeugen, werden sie in strukturierte Daten überführt und statistisch sowie per LLM ausgewertet, um zu erkennen, wo Botschaften durchdringen und wo Handlungsbedarf besteht.'}
               </div>
 
               <div className="p-3 bg-sbb-cloud border-l-4 border-emerald-700 text-xs sm:text-sm text-zinc-800 leading-relaxed">
