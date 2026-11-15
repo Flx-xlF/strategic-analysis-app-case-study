@@ -28,38 +28,13 @@ export const NarrativeCockpitView: React.FC<Props> = ({ lang, onNavigateTab }) =
   const [activeStage, setActiveStage] = useState<PipelineStage>(1);
   const isEn = lang === 'en';
 
-  const subQueries: { id: string; channel: ChannelId; labelEn: string; labelDe: string }[] = [
-    {
-      id: 'q1',
-      channel: 'earned',
-      labelEn: 'Query 1: global investment press coverage',
-      labelDe: 'Abfrage 1: Presseberichte zu Investitionen'
-    },
-    {
-      id: 'q2',
-      channel: 'owned',
-      labelEn: 'Query 2: corporate strategy page',
-      labelDe: 'Abfrage 2: Corporate-Strategy-Seite'
-    },
-    {
-      id: 'q3',
-      channel: 'regional',
-      labelEn: 'Query 3–4: regional briefings & archived PDFs',
-      labelDe: 'Abfrage 3–4: Regionale Briefings & Alt-PDFs'
-    },
-    {
-      id: 'q4',
-      channel: 'forums',
-      labelEn: 'Query 5–8: forum & stakeholder reactions',
-      labelDe: 'Abfrage 5–8: Foren & Reaktionen'
-    }
-  ];
-
   const channels: Record<
     ChannelId,
     {
       labelEn: string;
       labelDe: string;
+      subQueryLabelEn: string;
+      subQueryLabelDe: string;
       icon: React.ReactNode;
       roleEn: string;
       roleDe: string;
@@ -69,11 +44,17 @@ export const NarrativeCockpitView: React.FC<Props> = ({ lang, onNavigateTab }) =
       passageDe: string;
       collisionEn: string;
       collisionDe: string;
+      answerClauseEn: string;
+      answerClauseDe: string;
+      answerRoleEn: string;
+      answerRoleDe: string;
     }
   > = {
     earned: {
       labelEn: '1. Earned Media',
       labelDe: '1. Earned Media (Presse)',
+      subQueryLabelEn: 'Sub-Query 1: Press coverage',
+      subQueryLabelDe: 'Teilabfrage 1: Presseberichte',
       icon: <Newspaper className="w-3.5 h-3.5 shrink-0" />,
       roleEn: 'Corporate media desk answering fast-moving journalist questions.',
       roleDe: 'Medienstelle, die unter Zeitdruck auf journalistische Anfragen reagiert.',
@@ -88,11 +69,19 @@ export const NarrativeCockpitView: React.FC<Props> = ({ lang, onNavigateTab }) =
       collisionEn:
         'When pulled without context alongside a regional briefing, AI engines often infer a shift away from local operations.',
       collisionDe:
-        'Wird dieses Zitat ohne Kontext neben einem regionalen Briefing geladen, folgern KI-Systeme oft eine Verlagerung weg vom Heimatstandort.'
+        'Wird dieses Zitat ohne Kontext neben einem regionalen Briefing geladen, folgern KI-Systeme oft eine Verlagerung weg vom Heimatstandort.',
+      answerClauseEn: '«The company confirmed major international manufacturing expansion',
+      answerClauseDe: '«Das Unternehmen bestätigte einen grossen Ausbau internationaler Produktionskapazitäten,',
+      answerRoleEn:
+        'Contribution from 1. Earned Media: Anchors the opening sentence with global expansion figures—setting up a contrast if local context is missing.',
+      answerRoleDe:
+        'Beitrag aus 1. Earned Media: Prägt den Einstiegssatz mit globalen Ausbauzahlen – was ohne lokalen Kontext einen Kontrast erzeugt.'
     },
     owned: {
       labelEn: '2. Owned Stories & Pages',
       labelDe: '2. Owned Stories & Seiten',
+      subQueryLabelEn: 'Sub-Query 2: Strategy pages',
+      subQueryLabelDe: 'Teilabfrage 2: Strategie-Seiten',
       icon: <FileText className="w-3.5 h-3.5 shrink-0" />,
       roleEn: 'Central editorial team publishing corporate strategy pages and executive posts.',
       roleDe: 'Zentrale Redaktion für Corporate Stories, Strategie-Seiten und Executive-Kanäle.',
@@ -107,11 +96,19 @@ export const NarrativeCockpitView: React.FC<Props> = ({ lang, onNavigateTab }) =
       collisionEn:
         'Because AI sub-queries extract short snippets, vague intros fail to anchor core facts—leaving room for third-party commentary to fill the gap.',
       collisionDe:
-        'Da KI-Teilabfragen kurze Passagen ziehen, liefern vage Einleitungen keine harten Fakten – Drittkommentare füllen diese Lücke.'
+        'Da KI-Teilabfragen kurze Passagen ziehen, liefern vage Einleitungen keine harten Fakten – Drittkommentare füllen diese Lücke.',
+      answerClauseEn: 'while corporate pages highlight an agile global footprint.',
+      answerClauseDe: 'während Unternehmensseiten eine agile globale Aufstellung betonen.',
+      answerRoleEn:
+        'Contribution from 2. Owned Stories & Pages: Adds only the broad phrase "agile global footprint"—too vague to anchor concrete local commitments.',
+      answerRoleDe:
+        'Beitrag aus 2. Owned Stories & Pages: Liefert nur die vage Formulierung «agile globale Aufstellung» – zu unkonkret, um lokale Zusagen zu verankern.'
     },
     regional: {
       labelEn: '3. Regional / Cantonal & Legacy Files',
       labelDe: '3. Regionale Briefings & Altdateien',
+      subQueryLabelEn: 'Sub-Queries 3–4: Regional PDFs',
+      subQueryLabelDe: 'Teilabfragen 3–4: Regionale PDFs',
       icon: <Layers className="w-3.5 h-3.5 shrink-0" />,
       roleEn: 'Regional and cantonal teams briefing local authorities, plus older PDFs still indexed online.',
       roleDe: 'Regionale und kantonale Teams im Austausch mit Behörden sowie ältere online abrufbare PDFs.',
@@ -126,11 +123,19 @@ export const NarrativeCockpitView: React.FC<Props> = ({ lang, onNavigateTab }) =
       collisionEn:
         'An outdated PDF pulled in sub-query #3–4 directly contradicts current central messaging—diluting the company’s voice in the same answer.',
       collisionDe:
-        'Ein veraltetes PDF in Teilabfrage Nr. 3–4 widerspricht der aktuellen zentralen Aussage direkt – die Unternehmensstimme wird in derselben Antwort verwässert.'
+        'Ein veraltetes PDF in Teilabfrage Nr. 3–4 widerspricht der aktuellen zentralen Aussage direkt – die Unternehmensstimme wird in derselben Antwort verwässert.',
+      answerClauseEn: 'However, an older regional briefing PDF still references ongoing European site consolidation reviews—',
+      answerClauseDe: 'Gleichzeitig verweist ein älteres regionales Briefing-PDF noch auf laufende Prüfungen zur Standortkonsolidierung –',
+      answerRoleEn:
+        'Contribution from 3. Regional / Legacy Files: Injects the "However…" pivot directly from an outdated 2022 PDF still indexed online.',
+      answerRoleDe:
+        'Beitrag aus 3. Regionale Briefings & Altdateien: Bringt den «Gleichzeitig…»-Widerspruch direkt aus einem veralteten PDF von 2022 in die Antwort.'
     },
     forums: {
       labelEn: '4. Online Forums',
       labelDe: '4. Online-Foren',
+      subQueryLabelEn: 'Sub-Queries 5–8: Forum threads',
+      subQueryLabelDe: 'Teilabfragen 5–8: Foren-Threads',
       icon: <MessageSquare className="w-3.5 h-3.5 shrink-0" />,
       roleEn: 'Open industry, investor, and employee discussion threads.',
       roleDe: 'Öffentliche Branchen-, Investoren- und Community-Diskussionen.',
@@ -145,7 +150,13 @@ export const NarrativeCockpitView: React.FC<Props> = ({ lang, onNavigateTab }) =
       collisionEn:
         'When company channels show discrepancies, forums amplify the tension—and AI models pull both the contradiction and the forum speculation into one summary.',
       collisionDe:
-        'Zeigen eigene Kanäle Widersprüche, verstärken Foren diese Spannung – und KI-Modelle ziehen beides zusammen in eine Antwort.'
+        'Zeigen eigene Kanäle Widersprüche, verstärken Foren diese Spannung – und KI-Modelle ziehen beides zusammen in eine Antwort.',
+      answerClauseEn: 'fueling online forum questions about whether local commitments are shifting.»',
+      answerClauseDe: 'was in Foren Fragen nach der künftigen lokalen Verankerung auslöst.»',
+      answerRoleEn:
+        'Contribution from 4. Online Forums: Closes the AI summary by surfacing forum speculation triggered by the gap between press and regional files.',
+      answerRoleDe:
+        'Beitrag aus 4. Online-Foren: Schliesst die KI-Antwort mit Foren-Spekulationen ab, die durch die Lücke zwischen Presse und Alt-PDF entstanden sind.'
     }
   };
 
@@ -275,8 +286,8 @@ export const NarrativeCockpitView: React.FC<Props> = ({ lang, onNavigateTab }) =
           </div>
         </div>
 
-        {/* Question + Linked 5-11 Sub-query Strip */}
-        <div className="p-4 bg-sbb-cloud border border-sbb-black space-y-3">
+        {/* Question Strip */}
+        <div className="p-4 bg-sbb-cloud border border-sbb-black space-y-2">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
             <span className="font-mono text-[11px] font-bold uppercase text-sbb-stone">
               {isEn ? '1 STAKEHOLDER QUESTION IN ZERO-CLICK AI SEARCH:' : '1 STAKEHOLDER-FRAGE IN DER ZERO-CLICK-KI-SUCHE:'}
@@ -290,28 +301,9 @@ export const NarrativeCockpitView: React.FC<Props> = ({ lang, onNavigateTab }) =
               ? '«How is the company balancing global investment priorities with regional and local operations?»'
               : '«Wie verbindet das Unternehmen globale Investitionsprioritäten mit regionalen und lokalen Standorten?»'}
           </div>
-          <div className="flex flex-wrap gap-1.5 pt-1">
-            {subQueries.map(q => {
-              const isLinked = q.channel === selectedChannel;
-              return (
-                <button
-                  key={q.id}
-                  type="button"
-                  onClick={() => setSelectedChannel(q.channel)}
-                  className={`px-2.5 py-1 border font-mono text-[10px] transition-colors cursor-pointer ${
-                    isLinked
-                      ? 'bg-sbb-red text-white border-sbb-red font-bold'
-                      : 'bg-white border-zinc-300 text-zinc-700 hover:border-sbb-black'
-                  }`}
-                >
-                  {isEn ? q.labelEn : q.labelDe}
-                </button>
-              );
-            })}
-          </div>
         </div>
 
-        {/* Channel Switcher Tabs (No Truncation) */}
+        {/* Unified 4-Channel & Sub-Query Selector Tabs */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
           {(Object.keys(channels) as ChannelId[]).map(chId => {
             const ch = channels[chId];
@@ -321,14 +313,19 @@ export const NarrativeCockpitView: React.FC<Props> = ({ lang, onNavigateTab }) =
                 key={chId}
                 type="button"
                 onClick={() => setSelectedChannel(chId)}
-                className={`p-3 border text-left font-mono text-xs font-bold transition-all cursor-pointer flex items-center gap-2 ${
+                className={`p-3 border text-left transition-all cursor-pointer flex flex-col gap-1 ${
                   isActive
                     ? 'bg-sbb-black text-white border-sbb-black'
                     : 'bg-sbb-cloud text-zinc-800 border-sbb-aluminum hover:bg-white hover:border-sbb-black'
                 }`}
               >
-                <span className={isActive ? 'text-[#FFCC00]' : 'text-sbb-red'}>{ch.icon}</span>
-                <span className="leading-snug">{isEn ? ch.labelEn : ch.labelDe}</span>
+                <div className="flex items-center gap-2 font-mono text-xs font-bold">
+                  <span className={isActive ? 'text-[#FFCC00]' : 'text-sbb-red'}>{ch.icon}</span>
+                  <span className="leading-snug">{isEn ? ch.labelEn : ch.labelDe}</span>
+                </div>
+                <span className={`font-mono text-[10px] pl-5.5 ${isActive ? 'text-[#FFCC00]' : 'text-zinc-500'}`}>
+                  {isEn ? ch.subQueryLabelEn : ch.subQueryLabelDe}
+                </span>
               </button>
             );
           })}
@@ -368,27 +365,42 @@ export const NarrativeCockpitView: React.FC<Props> = ({ lang, onNavigateTab }) =
           </div>
         </div>
 
-        {/* Combined AI Answer Synthesis Box */}
-        <div className="p-4 sm:p-5 bg-red-50/50 border-2 border-sbb-red space-y-2">
+        {/* Combined AI Answer Synthesis Box (Dynamically Highlights Selected Channel) */}
+        <div className="p-4 sm:p-5 bg-red-50/50 border-2 border-sbb-red space-y-2.5">
           <div className="flex flex-wrap items-center justify-between gap-2">
             <span className="font-mono text-[11px] font-black uppercase text-sbb-red flex items-center gap-1.5">
               <AlertTriangle className="w-4 h-4 shrink-0" />
               <span>
                 {isEn
-                  ? 'COMBINED AI ANSWER ENGINE OUTPUT (WHEN ALL 4 CHANNELS MERGE INTO 1 WINDOW)'
-                  : 'KOMBINIERTE KI-ANTWORT (WENN ALLE 4 KANÄLE IN EINEM FENSTER ZUSAMMENFLIESSEN)'}
+                  ? 'COMBINED AI ANSWER ENGINE OUTPUT (ACTIVE CHANNEL HIGHLIGHTED)'
+                  : 'KOMBINIERTE KI-ANTWORT (AKTIVER KANAL HERVORGEHOBEN)'}
               </span>
             </span>
           </div>
-          <p className="text-xs sm:text-sm text-red-950 font-medium leading-relaxed">
-            {isEn
-              ? '«The company confirmed major international manufacturing expansion while corporate pages highlight an agile global footprint. However, an older regional briefing PDF still references ongoing European site consolidation reviews—fueling online forum questions about whether local commitments are shifting.»'
-              : '«Das Unternehmen bestätigte einen grossen Ausbau internationaler Produktionskapazitäten, während Unternehmensseiten eine agile globale Aufstellung betonen. Gleichzeitig verweist ein älteres regionales Briefing-PDF noch auf laufende Prüfungen zur Standortkonsolidierung – was in Foren Fragen nach der künftigen lokalen Verankerung auslöst.»'}
+          <p className="text-xs sm:text-sm leading-relaxed">
+            {(['earned', 'owned', 'regional', 'forums'] as ChannelId[]).map((chId, idx) => {
+              const ch = channels[chId];
+              const isSelected = chId === selectedChannel;
+              return (
+                <React.Fragment key={chId}>
+                  {idx > 0 && ' '}
+                  <button
+                    type="button"
+                    onClick={() => setSelectedChannel(chId)}
+                    className={`inline text-left transition-colors cursor-pointer ${
+                      isSelected
+                        ? 'bg-sbb-red text-white px-1.5 py-0.5 font-bold'
+                        : 'text-zinc-600 hover:text-sbb-black font-medium'
+                    }`}
+                  >
+                    {isEn ? ch.answerClauseEn : ch.answerClauseDe}
+                  </button>
+                </React.Fragment>
+              );
+            })}
           </p>
-          <p className="text-[11px] font-mono text-red-900 pt-1 border-t border-red-200">
-            {isEn
-              ? 'Takeaway: No single team acted negligently—yet cross-referencing unaligned channels side by side dilutes the company’s voice.'
-              : 'Fazit: Kein Team hat fahrlässig gehandelt – doch der direkte KI-Abgleich unkoordinierter Kanäle verwässert die Stimme des Unternehmens.'}
+          <p className="text-[11px] font-mono text-red-950 pt-2 border-t border-red-200 font-bold">
+            {isEn ? activeChannel.answerRoleEn : activeChannel.answerRoleDe}
           </p>
         </div>
       </div>
@@ -411,7 +423,7 @@ export const NarrativeCockpitView: React.FC<Props> = ({ lang, onNavigateTab }) =
           </p>
         </div>
 
-        {/* 3 Stage Buttons */}
+        {/* 3 Crisp Pipeline Stage Tabs */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
           {stages.map(stage => {
             const isActive = activeStage === stage.num;
@@ -420,32 +432,23 @@ export const NarrativeCockpitView: React.FC<Props> = ({ lang, onNavigateTab }) =
                 key={stage.num}
                 type="button"
                 onClick={() => setActiveStage(stage.num)}
-                className={`p-4 border-2 text-left transition-all cursor-pointer flex flex-col justify-between gap-2 ${
+                className={`p-3.5 border-2 text-left transition-all cursor-pointer flex flex-col justify-center gap-1 ${
                   isActive
-                    ? 'border-sbb-red bg-red-50/30'
+                    ? 'border-sbb-red bg-red-50/40'
                     : 'border-sbb-aluminum bg-sbb-cloud/60 hover:border-sbb-black hover:bg-white'
                 }`}
               >
-                <div className="space-y-1">
-                  <div className={`font-mono text-xs font-black uppercase ${isActive ? 'text-sbb-red' : 'text-sbb-black'}`}>
-                    {isEn ? stage.titleEn : stage.titleDe}
-                  </div>
-                  <div className="font-mono text-[10px] font-bold text-zinc-600">{stage.tools}</div>
+                <div className={`font-mono text-xs font-black uppercase ${isActive ? 'text-sbb-red' : 'text-sbb-black'}`}>
+                  {isEn ? stage.titleEn : stage.titleDe}
                 </div>
-                <p className="text-xs text-zinc-800 leading-relaxed">
-                  {isEn ? stage.summaryEn : stage.summaryDe}
-                </p>
+                <div className="font-mono text-[10px] font-bold text-zinc-600">{stage.tools}</div>
               </button>
             );
           })}
         </div>
 
         {/* Selected Stage 3-Column Input -> Process -> Output Breakdown */}
-        <div className="p-4 sm:p-5 bg-sbb-black text-white border-l-4 border-[#FFCC00] space-y-4">
-          <div className="font-mono text-xs font-bold uppercase text-[#FFCC00]">
-            {isEn ? currentStage.titleEn : currentStage.titleDe} — {currentStage.tools}
-          </div>
-
+        <div className="p-4 sm:p-5 bg-sbb-black text-white border-l-4 border-[#FFCC00]">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             <div className="p-3 bg-zinc-900 border border-zinc-700 space-y-1">
               <div className="font-mono text-[10px] font-bold uppercase text-zinc-400">
@@ -476,76 +479,202 @@ export const NarrativeCockpitView: React.FC<Props> = ({ lang, onNavigateTab }) =
           </div>
         </div>
 
-        {/* Qualitative Pull-Through Output Table (Zero Fake Numbers) */}
+        {/* Stage-Specific Data Artifact Table */}
         <div className="space-y-2 pt-2">
           <div className="font-mono text-[11px] font-bold uppercase tracking-wider text-zinc-600 flex items-center gap-1.5">
             <BarChart3 className="w-3.5 h-3.5 text-sbb-red" />
             <span>
-              {isEn
-                ? 'ILLUSTRATIVE OUTPUT FROM STAGE 3 (QUALITATIVE ASSESSMENT — NO INVENTED SCORES)'
-                : 'BEISPIEL-ERGEBNIS AUS STUFE 3 (QUALITATIVE EINSCHÄTZUNG – OHNE ERFUNDENE ZAHLEN)'}
+              {activeStage === 1 &&
+                (isEn
+                  ? 'SAMPLE STAGE 1 ARTIFACT: RAW UNSTRUCTURED FEED & API STREAM'
+                  : 'BEISPIEL-ERGEBNIS STUFE 1: ROHER UNSTRUKTURIERTER FEED- & API-STROM')}
+              {activeStage === 2 &&
+                (isEn
+                  ? 'SAMPLE STAGE 2 ARTIFACT: NORMALIZED & TAGGED STRUCTURED RECORDS'
+                  : 'BEISPIEL-ERGEBNIS STUFE 2: NORMALISIERTE & GETAGGTE DATENSÄTZE')}
+              {activeStage === 3 &&
+                (isEn
+                  ? 'SAMPLE STAGE 3 ARTIFACT: QUALITATIVE PULL-THROUGH & ACTION MAP'
+                  : 'BEISPIEL-ERGEBNIS STUFE 3: QUALITATIVE DURCHDRINGUNG & HANDLUNGSBEDARF')}
             </span>
           </div>
 
           <div className="overflow-x-auto border border-sbb-aluminum">
-            <table className="w-full text-left border-collapse text-xs">
-              <thead>
-                <tr className="bg-sbb-cloud border-b border-sbb-aluminum font-mono text-[10px] uppercase text-zinc-700">
-                  <th className="p-3">{isEn ? 'Channel / Topic Area' : 'Kanal / Themenfeld'}</th>
-                  <th className="p-3">{isEn ? 'Message Pull-Through' : 'Botschafts-Durchdringung'}</th>
-                  <th className="p-3">{isEn ? 'Where Work Is Needed' : 'Wo Handlungsbedarf besteht'}</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-zinc-200 bg-white">
-                <tr>
-                  <td className="p-3 font-bold text-sbb-black">
-                    {isEn ? 'Central Owned Strategy Pages' : 'Zentrale Strategie-Seiten'}
-                  </td>
-                  <td className="p-3">
-                    <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-emerald-50 border border-emerald-300 font-mono text-[10px] font-bold text-emerald-900">
-                      <CheckCircle2 className="w-3 h-3 shrink-0" />
-                      {isEn ? 'Core Facts Present' : 'Kernfakten vorhanden'}
-                    </span>
-                  </td>
-                  <td className="p-3 text-zinc-700">
-                    {isEn
-                      ? 'Move key facts higher so AI sub-queries don’t grab vague opening paragraphs.'
-                      : 'Kernfakten weiter nach oben ziehen, damit KI-Teilabfragen nicht bei vagen Einleitungen stoppen.'}
-                  </td>
-                </tr>
-                <tr>
-                  <td className="p-3 font-bold text-sbb-black">
-                    {isEn ? 'Regional & Cantonal Briefings / Archived PDFs' : 'Regionale / Kantonale Briefings & Alt-PDFs'}
-                  </td>
-                  <td className="p-3">
-                    <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-red-50 border border-red-300 font-mono text-[10px] font-bold text-sbb-red">
-                      <AlertTriangle className="w-3 h-3 shrink-0" />
-                      {isEn ? 'Discrepancy Detected' : 'Abweichung erkannt'}
-                    </span>
-                  </td>
-                  <td className="p-3 text-zinc-700">
-                    {isEn
-                      ? 'Older regional PDF conflicts with current global narrative in AI search answers.'
-                      : 'Älteres regionales PDF widerspricht dem aktuellen globalen Narrativ in KI-Antworten.'}
-                  </td>
-                </tr>
-                <tr>
-                  <td className="p-3 font-bold text-sbb-black">
-                    {isEn ? 'Earned Media & Trade Coverage' : 'Earned Media & Fachpresse'}
-                  </td>
-                  <td className="p-3">
-                    <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-amber-50 border border-amber-300 font-mono text-[10px] font-bold text-amber-900">
-                      {isEn ? 'Partial Pull-Through' : 'Teilweise Durchdringung'}
-                    </span>
-                  </td>
-                  <td className="p-3 text-zinc-700">
-                    {isEn
-                      ? 'Media quotes global investment figures well, but omits regional context—needs tailored briefing inputs.'
-                      : 'Medien zitieren globale Investitionen, lassen aber regionalen Kontext weg – braucht zugeschnittene Briefing-Inputs.'}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+            {activeStage === 1 && (
+              <table className="w-full text-left border-collapse text-xs">
+                <thead>
+                  <tr className="bg-sbb-cloud border-b border-sbb-aluminum font-mono text-[10px] uppercase text-zinc-700">
+                    <th className="p-3">{isEn ? 'Source Stream' : 'Quellstrom'}</th>
+                    <th className="p-3">{isEn ? 'Raw Unstructured Excerpt' : 'Roher Textauszug'}</th>
+                    <th className="p-3">{isEn ? 'Why Raw Streams Need Stage 2' : 'Warum Stufe 2 nötig ist'}</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-zinc-200 bg-white">
+                  <tr>
+                    <td className="p-3 font-bold text-sbb-black">Factiva / Meltwater Wire</td>
+                    <td className="p-3 text-zinc-700 italic">
+                      {isEn
+                        ? '«...confirmed major expansion investments in international manufacturing capacity over the next five years...»'
+                        : '«...bestätigte umfangreiche Erweiterungsinvestitionen in internationale Produktionskapazitäten über die nächsten fünf Jahre...»'}
+                    </td>
+                    <td className="p-3 text-zinc-700">
+                      {isEn
+                        ? 'Arrives as thousands of untagged articles mixed with routine market noise.'
+                        : 'Trifft als Tausende ungetaggte Artikel im allgemeinen Nachrichtenrauschen ein.'}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="p-3 font-bold text-sbb-black">Public LLM API Response</td>
+                    <td className="p-3 text-zinc-700 italic">
+                      {isEn
+                        ? '«...expansion abroad... while a 2022 regional PDF references ongoing European site consolidation reviews...»'
+                        : '«...Ausbau im Ausland... während ein regionales PDF von 2022 laufende Standortprüfungen erwähnt...»'}
+                    </td>
+                    <td className="p-3 text-zinc-700">
+                      {isEn
+                        ? 'Combines multiple sources in prose without separating which claim came from which channel.'
+                        : 'Mischt mehrere Quellen im Fliesstext, ohne Herkunft und Aktualität sauber zu trennen.'}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="p-3 font-bold text-sbb-black">Talkwalker / Forum Stream</td>
+                    <td className="p-3 text-zinc-700 italic">
+                      {isEn
+                        ? '«Why does the global release highlight expansion while the local PDF talks about site reviews?»'
+                        : '«Warum spricht die globale Mitteilung von Ausbau, während ein lokales PDF Standortprüfungen nennt?»'}
+                    </td>
+                    <td className="p-3 text-zinc-700">
+                      {isEn
+                        ? 'Raw comments lack regional tagging and claim linkage until normalized.'
+                        : 'Rohkommentare haben ohne Aufbereitung weder Regions-Tag noch Bezug zur Kernaussage.'}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            )}
+
+            {activeStage === 2 && (
+              <table className="w-full text-left border-collapse text-xs">
+                <thead>
+                  <tr className="bg-sbb-cloud border-b border-sbb-aluminum font-mono text-[10px] uppercase text-zinc-700">
+                    <th className="p-3">{isEn ? 'Record Source & Date' : 'Quelle & Stand'}</th>
+                    <th className="p-3">{isEn ? 'Tagged Topic & Region' : 'Thema & Region'}</th>
+                    <th className="p-3">{isEn ? 'Extracted Claim & Status' : 'Extrahierte Aussage & Status'}</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-zinc-200 bg-white">
+                  <tr>
+                    <td className="p-3 font-bold text-sbb-black">
+                      {isEn ? 'Global Press Wire (Current)' : 'Globale Presse-Meldung (Aktuell)'}
+                    </td>
+                    <td className="p-3 font-mono text-[11px] text-zinc-700">
+                      {isEn ? 'Topic: Capacity · Scope: Global' : 'Thema: Kapazität · Raum: Global'}
+                    </td>
+                    <td className="p-3">
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-emerald-50 border border-emerald-300 font-mono text-[10px] font-bold text-emerald-900 mr-2">
+                        {isEn ? 'Current Global Narrative' : 'Aktuelles globales Narrativ'}
+                      </span>
+                      <span className="text-zinc-700">
+                        {isEn ? 'International capacity expansion' : 'Internationaler Kapazitätsausbau'}
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="p-3 font-bold text-sbb-black">
+                      {isEn ? 'Regional Briefing PDF (Indexed 2022)' : 'Regionales Briefing-PDF (Stand 2022)'}
+                    </td>
+                    <td className="p-3 font-mono text-[11px] text-zinc-700">
+                      {isEn ? 'Topic: Site Footprint · Region: Europe' : 'Thema: Standort · Region: Europa'}
+                    </td>
+                    <td className="p-3">
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-red-50 border border-red-300 font-mono text-[10px] font-bold text-sbb-red mr-2">
+                        {isEn ? 'Outdated Legacy File' : 'Veraltete Altdatei'}
+                      </span>
+                      <span className="text-zinc-700">
+                        {isEn ? 'References ongoing site consolidation review' : 'Nennt laufende Standortkonsolidierung'}
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="p-3 font-bold text-sbb-black">
+                      {isEn ? 'Forum Thread + LLM Answer (Current)' : 'Foren-Thread + KI-Antwort (Aktuell)'}
+                    </td>
+                    <td className="p-3 font-mono text-[11px] text-zinc-700">
+                      {isEn ? 'Topic: Local Hub · Region: Cantonal' : 'Thema: Lokalstandort · Region: Kantonal'}
+                    </td>
+                    <td className="p-3">
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-amber-50 border border-amber-300 font-mono text-[10px] font-bold text-amber-900 mr-2">
+                        {isEn ? 'Cross-Channel Contradiction' : 'Kanal-Widerspruch'}
+                      </span>
+                      <span className="text-zinc-700">
+                        {isEn ? 'Questions local commitment continuity' : 'Stellt lokale Verankerung infrage'}
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            )}
+
+            {activeStage === 3 && (
+              <table className="w-full text-left border-collapse text-xs">
+                <thead>
+                  <tr className="bg-sbb-cloud border-b border-sbb-aluminum font-mono text-[10px] uppercase text-zinc-700">
+                    <th className="p-3">{isEn ? 'Channel / Topic Area' : 'Kanal / Themenfeld'}</th>
+                    <th className="p-3">{isEn ? 'Message Pull-Through' : 'Botschafts-Durchdringung'}</th>
+                    <th className="p-3">{isEn ? 'Where Work Is Needed' : 'Wo Handlungsbedarf besteht'}</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-zinc-200 bg-white">
+                  <tr>
+                    <td className="p-3 font-bold text-sbb-black">
+                      {isEn ? 'Central Owned Strategy Pages' : 'Zentrale Strategie-Seiten'}
+                    </td>
+                    <td className="p-3">
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-emerald-50 border border-emerald-300 font-mono text-[10px] font-bold text-emerald-900">
+                        <CheckCircle2 className="w-3 h-3 shrink-0" />
+                        {isEn ? 'Core Facts Present' : 'Kernfakten vorhanden'}
+                      </span>
+                    </td>
+                    <td className="p-3 text-zinc-700">
+                      {isEn
+                        ? 'Move key facts higher so AI sub-queries don’t grab vague opening paragraphs.'
+                        : 'Kernfakten weiter nach oben ziehen, damit KI-Teilabfragen nicht bei vagen Einleitungen stoppen.'}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="p-3 font-bold text-sbb-black">
+                      {isEn ? 'Regional & Cantonal Briefings / Archived PDFs' : 'Regionale / Kantonale Briefings & Alt-PDFs'}
+                    </td>
+                    <td className="p-3">
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-red-50 border border-red-300 font-mono text-[10px] font-bold text-sbb-red">
+                        <AlertTriangle className="w-3 h-3 shrink-0" />
+                        {isEn ? 'Discrepancy Detected' : 'Abweichung erkannt'}
+                      </span>
+                    </td>
+                    <td className="p-3 text-zinc-700">
+                      {isEn
+                        ? 'Older regional PDF conflicts with current global narrative in AI search answers.'
+                        : 'Älteres regionales PDF widerspricht dem aktuellen globalen Narrativ in KI-Antworten.'}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="p-3 font-bold text-sbb-black">
+                      {isEn ? 'Earned Media & Trade Coverage' : 'Earned Media & Fachpresse'}
+                    </td>
+                    <td className="p-3">
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-amber-50 border border-amber-300 font-mono text-[10px] font-bold text-amber-900">
+                        {isEn ? 'Partial Pull-Through' : 'Teilweise Durchdringung'}
+                      </span>
+                    </td>
+                    <td className="p-3 text-zinc-700">
+                      {isEn
+                        ? 'Media quotes global investment figures well, but omits regional context—needs tailored briefing inputs.'
+                        : 'Medien zitieren globale Investitionen, lassen aber regionalen Kontext weg – braucht zugeschnittene Briefing-Inputs.'}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            )}
           </div>
         </div>
       </div>
