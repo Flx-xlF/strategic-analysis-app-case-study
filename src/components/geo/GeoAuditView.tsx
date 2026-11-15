@@ -1,477 +1,368 @@
 import React, { useState } from 'react';
 import { Language } from '../../fixtures/scenarios';
-import { WorldRegionId } from '../../fixtures/cockpitFixtures';
-import { getGeoData, HallucinationSpan, CentroidArticle } from '../../fixtures/geoFixtures';
+import { ActiveTab } from '../common/CommandHeader';
 import {
-  Bot,
-  Search,
-  AlertTriangle,
-  CheckCircle2,
-  BrainCircuit,
-  Check,
-  Copy,
-  ShieldCheck,
+  ArrowLeft,
   ArrowRight,
-  Filter
+  CheckCircle2,
+  GitBranch,
+  Layers,
+  XCircle
 } from 'lucide-react';
 
 interface Props {
-  scenarioId: string;
   lang: Language;
-  selectedRegion: WorldRegionId;
-  onSelectRegion: (reg: WorldRegionId) => void;
-  onNavigateTab?: (tab: 'cockpit' | 'geo' | 'trending' | 'cascade') => void;
+  onNavigateTab: (tab: ActiveTab) => void;
 }
 
-export const GeoAuditView: React.FC<Props> = ({
-  scenarioId,
-  lang,
-  selectedRegion,
-  onSelectRegion,
-  onNavigateTab
-}) => {
-  const data = getGeoData(lang, scenarioId);
-  const [copied, setCopied] = useState(false);
-  const [sourceMode, setSourceMode] = useState<'before' | 'after'>('before');
-  const [activeSpanIndex, setActiveSpanIndex] = useState<number | null>(1);
-  const isEn = lang === 'en';
-  const isBefore = sourceMode === 'before';
+type TargetContext = 'earned' | 'owned' | 'regional';
+type GeoPrincipleIndex = 0 | 1 | 2 | 3;
 
-  const handleCopyFactBlock = () => {
-    navigator.clipboard.writeText(data.geo_optimization_fix.structured_fact_block);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+export const GeoAuditView: React.FC<Props> = ({ lang, onNavigateTab }) => {
+  const [selectedContext, setSelectedContext] = useState<TargetContext>('earned');
+  const [selectedPrinciple, setSelectedPrinciple] = useState<GeoPrincipleIndex>(0);
+  const isEn = lang === 'en';
+
+  const contexts: Record<
+    TargetContext,
+    {
+      labelEn: string;
+      labelDe: string;
+      audienceEn: string;
+      audienceDe: string;
+      copyPasteFailEn: string;
+      copyPasteFailDe: string;
+      tailoredEn: string;
+      tailoredDe: string;
+      coreAnchorEn: string;
+      coreAnchorDe: string;
+    }
+  > = {
+    earned: {
+      labelEn: '1. Earned Media Response',
+      labelDe: '1. Earned Media / Presseantwort',
+      audienceEn: 'Journalists and editors looking for direct, quotable answers under tight deadlines.',
+      audienceDe: 'Journalistinnen und Redaktionen, die unter Zeitdruck direkte, zitierbare Fakten suchen.',
+      copyPasteFailEn:
+        '«We are committed to driving sustainable value across our integrated global portfolio while staying agile for stakeholders.» (Sounds like generic boilerplate—journalists ignore it or paraphrase skeptically.)',
+      copyPasteFailDe:
+        '«Wir setzen uns für nachhaltige Wertschöpfung in unserem integrierten globalen Portfolio ein und bleiben agil für Stakeholder.» (Klingt nach Standard-Floskel – Redaktionen ignorieren es.)',
+      tailoredEn:
+        '«Global capacity investments expand supply resilience, while core governance, strategic leadership, and long-term commitments at existing regional hubs remain unchanged.»',
+      tailoredDe:
+        '«Globale Kapazitätsinvestitionen stärken die Versorgungssicherheit, während zentrale Governance, strategische Führung und bestehende regionale Verpflichtungen unverändert bleiben.»',
+      coreAnchorEn: 'Core fact intact, phrased concisely for press citation.',
+      coreAnchorDe: 'Kernfakt bleibt identisch, prägnant formuliert als Pressestatements.'
+    },
+    owned: {
+      labelEn: '2. Owned Corporate Story',
+      labelDe: '2. Owned Corporate Story',
+      audienceEn: 'Stakeholders, candidates, partners, and AI search crawlers reading full corporate web pages.',
+      audienceDe: 'Stakeholder, Bewerbende, Partner und KI-Suchsysteme auf eigenen Unternehmensseiten.',
+      copyPasteFailEn:
+        'Pasting a short press quote verbatim without narrative context leaves readers wondering how global growth connects to local innovation.',
+      copyPasteFailDe:
+        'Ein reines Copy-Paste eines kurzen Pressezitats ohne Kontext erklärt nicht, wie globales Wachstum und lokale Innovation zusammenhängen.',
+      tailoredEn:
+        'Opens with a clear factual summary block (for immediate clarity and AI search extraction), followed by an editorial story showing how global scale and regional hubs reinforce each other.',
+      tailoredDe:
+        'Startet mit einer klaren Fakten-Zusammenfassung (für Leser und KI-Suche) und entfaltet dann die Geschichte, wie globale Grösse und regionale Standorte zusammenspielen.',
+      coreAnchorEn: 'Core fact intact, wrapped in an engaging editorial story with clear structure.',
+      coreAnchorDe: 'Kernfakt bleibt identisch, eingebettet in eine gut strukturierte Story.'
+    },
+    regional: {
+      labelEn: '3. Regional / Cantonal Briefing',
+      labelDe: '3. Regionales / Kantonales Briefing',
+      audienceEn: 'Cantonal authorities, local industry partners, and regional teams addressing local priorities.',
+      audienceDe: 'Kantonale Behörden, lokale Partner und regionale Teams mit konkreten Standortfragen.',
+      copyPasteFailEn:
+        'Pasting global HQ talking points without addressing regional workforce, infrastructure, or regulatory context feels disconnected from local reality.',
+      copyPasteFailDe:
+        'Globale Standardtextbausteine ohne Bezug zu lokalen Arbeitsplätzen oder Rahmenbedingungen wirken an der Realität vor Ort vorbei.',
+      tailoredEn:
+        'Translates the global commitment into concrete regional relevance—addressing local collaboration and site continuity directly while matching the exact global facts.',
+      tailoredDe:
+        'Übersetzt die globale Zusage in konkreten regionalen Bezug – geht direkt auf lokale Zusammenarbeit und Standortkontinuität ein, exakt abgestimmt mit den globalen Fakten.',
+      coreAnchorEn: 'Core fact intact, adapted organically to regional and cantonal context.',
+      coreAnchorDe: 'Kernfakt bleibt identisch, organisch an den regionalen Kontext angepasst.'
+    }
   };
 
-  const filteredCentroids =
-    selectedRegion === 'all'
-      ? data.active_cluster.centroid_articles
-      : data.active_cluster.centroid_articles.filter((a) => a.region === selectedRegion);
+  const activeCtx = contexts[selectedContext];
 
-  const displayedCentroids =
-    filteredCentroids.length > 0 ? filteredCentroids : data.active_cluster.centroid_articles;
+  const geoPrinciples = [
+    {
+      titleEn: '1. Answer-First Structure',
+      titleDe: '1. Kernaussage zuerst (Answer-First)',
+      ruleEn:
+        'AI sub-queries often pull only the opening lines of a page. Put the main conclusion and verified facts at the very top instead of hiding them after a long warm-up.',
+      ruleDe:
+        'KI-Teilabfragen ziehen oft nur die ersten Sätze einer Seite. Stellen Sie Schlussfolgerung und harte Fakten an den Anfang statt nach einer langen Einleitung.',
+      badEn:
+        '«In an increasingly dynamic global environment, our organization continuously evaluates long-term opportunities to serve communities better across regions. Against this backdrop, regional operations remain an important pillar...»',
+      badDe:
+        '«In einem zunehmend dynamischen globalen Umfeld prüft unsere Organisation laufend langfristige Chancen. Vor diesem Hintergrund bleiben regionale Standorte ein wichtiger Pfeiler...»',
+      goodEn:
+        '«Global manufacturing investments expand international capacity while headquarters, core governance, and regional R&D commitments remain anchored in place.»',
+      goodDe:
+        '«Globale Investitionen bauen internationale Kapazitäten aus, während Hauptsitz, zentrale Steuerung und regionale F&E-Zusagen fest verankert bleiben.»'
+    },
+    {
+      titleEn: '2. Self-Contained Passages',
+      titleDe: '2. Eigenständige Textabschnitte',
+      ruleEn:
+        'An AI engine pulls individual paragraphs into its context window without surrounding context. Avoid vague pronouns ("this", "there") so every key paragraph makes sense on its own.',
+      ruleDe:
+        'KI-Systeme ziehen einzelne Absätze ohne den umgebenden Text ins Kontextfenster. Vermeiden Sie vage Verweise («dies», «dort»), damit jeder Schlüsselabsatz allein verständlich ist.',
+      badEn:
+        '«As noted above, this will continue over the coming years and supports those teams in the same way.»',
+      badDe:
+        '«Wie oben erwähnt, wird dies in den nächsten Jahren fortgeführt und unterstützt diese Teams auf gleiche Weise.»',
+      goodEn:
+        '«The 2026–2030 Global Expansion Program adds new international production lines while keeping existing regional research hubs fully staffed and operational.»',
+      goodDe:
+        '«Das globale Ausbauprogramm 2026–2030 ergänzt internationale Produktionslinien, während bestehende regionale Forschungsstandorte voll besetzt und aktiv bleiben.»'
+    },
+    {
+      titleEn: '3. Consistent Facts, Organic Voice',
+      titleDe: '3. Konsistente Fakten, natürlicher Ton',
+      ruleEn:
+        'GEO does not require copying identical wording everywhere. Keep core facts, timelines, and commitments consistent across teams while letting tone match the channel naturally.',
+      ruleDe:
+        'GEO verlangt kein wortgleiches Copy-Paste. Halten Sie Kernfakten, Zeitpläne und Zusagen über alle Teams konsistent, während der Ton zum Kanal passt.',
+      badEn:
+        'Global website says "new sites start in Q2", while a regional briefing says "timeline under review", creating an apparent contradiction in AI answers.',
+      badDe:
+        'Globale Website nennt «Start in Q2», während ein regionales Briefing «Zeitplan in Prüfung» sagt – KI-Antworten melden einen Widerspruch.',
+      goodEn:
+        'All channels align on the same core timeline and scope, while the press note stays concise, the corporate story explains why it matters, and regional briefings focus on local impact.',
+      goodDe:
+        'Alle Kanäle nennen denselben Zeitrahmen und Umfang – die Medienmitteilung bleibt knapp, die Corporate Story erklärt den Nutzen, das Regional-Briefing den lokalen Effekt.'
+    },
+    {
+      titleEn: '4. Direct, Affirmative Framing',
+      titleDe: '4. Direkt & positiv formulieren',
+      ruleEn:
+        'When Outside-In monitoring flags a misunderstanding or rumour, lead with clear, affirmative facts about what the company does—instead of repeating the negative claim just to deny it.',
+      ruleDe:
+        'Wenn Outside-In ein Missverständnis erkennt, beginnen Sie mit klaren, positiven Fakten darüber, was das Unternehmen tut – statt die Unterstellung zur Verneinung zu wiederholen.',
+      badEn:
+        '«We are not abandoning European operations or cutting regional commitments.» (Search indexing still links the company name closely to "abandoning" and "cutting".)',
+      badDe:
+        '«Wir geben europäische Standorte nicht auf und bauen regionale Zusagen nicht ab.» (Suchsysteme verknüpfen den Namen trotzdem mit «aufgeben» und «abbauen».)',
+      goodEn:
+        '«European R&D hubs and regional operations remain a core part of our long-term strategy alongside international capacity growth.»',
+      goodDe:
+        '«Europäische F&E-Standorte und regionale Aktivitäten bleiben neben dem internationalen Ausbau ein fester Kern unserer Langfriststrategie.»'
+    }
+  ];
+
+  const activePrinciple = geoPrinciples[selectedPrinciple];
 
   return (
-    <div className="space-y-8">
-      {/* ═══ WAYFINDING HEADER ═══ */}
-      <div className="bg-white border border-sbb-aluminum p-6 sm:p-8">
-        <div className="flex flex-col md:flex-row md:items-center justify-between pb-5 mb-5 border-b border-zinc-100 gap-4">
-          <div>
-            <div className="flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-sbb-red uppercase mb-1.5">
-              <BrainCircuit className="w-4 h-4" />
-              <span>
-                {isEn
-                  ? 'STEP 2: INSPECT SOURCES & AI ANSWERS // MODULE 02'
-                  : 'SCHRITT 2: QUELLEN & KI-ANTWORTEN PRÜFEN // MODUL 02'}
-              </span>
-            </div>
-            <h1 className="text-2xl sm:text-3xl font-black text-sbb-black tracking-tight">
-              {isEn ? 'Topic Cluster & AI Search Answer Check' : 'Themen-Cluster & KI-Suchantwort-Check'}
-            </h1>
-            <p className="text-sm text-sbb-stone mt-1 max-w-3xl leading-relaxed">
-              {isEn
-                ? 'Shows the representative articles driving this topic and lets you test how replacing vague PR prose with clear opening facts changes AI summaries—without silencing external media.'
-                : 'Zeigt die prägenden Artikel dieses Themas und macht testbar, wie klare Fakten am Textanfang KI-Antworten stabilisieren – ohne externe Kritik auszublenden.'}
-            </p>
-          </div>
+    <div className="max-w-6xl mx-auto space-y-6 pb-8">
+      {/* Header Banner */}
+      <div className="bg-white border border-sbb-black p-5 sm:p-7 space-y-2 shadow-xs">
+        <div className="inline-flex items-center gap-2 px-2.5 py-1 bg-sbb-black text-white font-mono text-[11px] font-bold uppercase tracking-wider">
+          <span className="text-[#FFCC00]">02 // TOP-DOWN</span>
+          <span>{isEn ? 'GEO & CONTEXT TAILORING' : 'GEO & KONTEXT-ANPASSUNG'}</span>
         </div>
-
-        {/* Cluster Profile Strip */}
-        <div className="p-4 bg-sbb-cloud/60 border border-sbb-aluminum space-y-2">
-          <div className="flex flex-wrap items-center justify-between gap-2">
-            <div className="flex items-center gap-2">
-              <span className="px-2 py-0.5 bg-sbb-black text-white font-mono text-xs font-bold">
-                {data.active_cluster.cluster_id}
-              </span>
-              <h2 className="text-base font-bold text-sbb-black">{data.active_cluster.name}</h2>
-            </div>
-            <span className="text-xs font-mono text-sbb-stone">
-              {isEn ? 'Dominant Region: ' : 'Schwerpunkt: '}
-              <strong className="text-sbb-black">{data.active_cluster.dominant_region}</strong>
-            </span>
-          </div>
-          <div className="text-xs">
-            <span className="font-mono text-sbb-red uppercase tracking-wider font-bold">
-              {isEn ? 'Core Distortion Risk: ' : 'Zentrale Abweichung: '}
-            </span>
-            <span className="text-zinc-800">{data.active_cluster.target_pillar_gap}</span>
-          </div>
-        </div>
+        <h1 className="text-xl sm:text-2xl font-black text-sbb-black tracking-tight">
+          {isEn
+            ? 'Consistent narratives without copy-paste—plus plain-English GEO standards'
+            : 'Konsistente Narrative ohne stures Copy-Paste – plus verständliche GEO-Standards'}
+        </h1>
+        <p className="text-sm text-zinc-700 max-w-4xl leading-relaxed">
+          {isEn
+            ? 'In a matrixed organization, forcing every market and channel to paste identical text fails. AI helps analyze each context and tailor the narrative naturally while keeping core facts aligned and structured for AI answer engines (GEO).'
+            : 'In einer Matrix-Organisation scheitert der Zwang zu identischen Textbausteinen. KI hilft, den jeweiligen Kontext zu analysieren und das Narrativ natürlich anzupassen – bei konsequent gleichen Kernfakten und klarer Struktur für KI-Suchmaschinen (GEO).'}
+        </p>
       </div>
 
-      {/* ═══ STEP 01: REPRESENTATIVE ARTICLES IN THIS CLUSTER ═══ */}
-      <div className="space-y-3">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-          <div className="flex items-center gap-3">
-            <span className="w-7 h-7 bg-sbb-black text-white font-mono text-xs font-bold flex items-center justify-center">
-              01
-            </span>
-            <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-stone">
+      {/* ═══ PART A: CONTEXT TAILORING VS COPY-PASTE ═══ */}
+      <div className="bg-white border border-sbb-aluminum p-5 sm:p-7 space-y-5 shadow-xs">
+        <div className="space-y-1 pb-4 border-b border-zinc-200">
+          <div className="font-mono text-xs font-black uppercase text-emerald-800 flex items-center gap-1.5">
+            <GitBranch className="w-4 h-4" />
+            <span>
               {isEn
-                ? 'EXTERNAL ARTICLES ENTERING AI RETRIEVAL (UNCHANGED BY COMPANY EDITS)'
-                : 'EXTERNE ARTIKEL IN DER KI-SUCHE (NICHT VOM UNTERNEHMEN STEUERBAR)'}
+                ? 'PART A // CONTEXT-AWARE TAILORING VS. ROBOTIC COPY-PASTE'
+                : 'TEIL A // KONTEXT-ANPASSUNG STATT STUREM COPY-PASTE'}
             </span>
           </div>
+          <p className="text-xs sm:text-sm text-zinc-700">
+            {isEn
+              ? 'Switch between the 3 target channels below to see how one centrally administered narrative adapts organically to different audiences.'
+              : 'Wechseln Sie zwischen den 3 Zielkanälen, um zu sehen, wie sich ein zentrales Narrativ organisch an unterschiedliche Zielgruppen anpasst.'}
+          </p>
+        </div>
 
-          <div className="flex items-center gap-2 font-mono text-[10px] text-zinc-700 uppercase bg-white border border-sbb-aluminum px-3 py-1">
-            <Filter className="w-3 h-3 text-red-700" />
-            <span>{isEn ? 'Region Scope:' : 'Regionsfilter:'}</span>
-            <span className="font-bold text-sbb-black">
-              {selectedRegion.toUpperCase()} ({filteredCentroids.length}/{data.active_cluster.centroid_articles.length}{' '}
-              {isEn ? 'Local' : 'Lokal'})
-            </span>
-            {selectedRegion !== 'all' && (
-              <button
-                type="button"
-                onClick={() => onSelectRegion('all')}
-                className="ml-1 px-1.5 py-0.5 bg-sbb-cloud hover:bg-zinc-200 border border-zinc-300 text-sbb-black font-bold cursor-pointer transition-colors"
-              >
-                {isEn ? 'Reset to ALL' : 'Alle zeigen'}
-              </button>
-            )}
+        {/* Central Core Anchor */}
+        <div className="p-3.5 bg-sbb-cloud border-l-4 border-sbb-red border border-zinc-300 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div className="space-y-0.5">
+            <div className="font-mono text-[10px] font-black uppercase text-sbb-red">
+              {isEn ? '● CENTRALLY ADMINISTERED CORE NARRATIVE' : '● ZENTRAL VERWALTETES KERN-NARRATIV'}
+            </div>
+            <div className="text-xs sm:text-sm font-bold text-sbb-black">
+              {isEn
+                ? 'Global capacity investments grow supply resilience while headquarters governance and regional hub commitments stay anchored.'
+                : 'Globale Kapazitätsinvestitionen stärken die Versorgung, während zentrale Governance und regionale Standortzusagen verankert bleiben.'}
+            </div>
           </div>
         </div>
 
-        {/* Cross-border retrieval insight when local articles are sparse */}
-        {selectedRegion !== 'all' && filteredCentroids.length === 0 && (
-          <div className="p-3 bg-amber-50 border border-amber-300 text-xs text-amber-950 font-mono flex items-center gap-2">
-            <span className="w-2 h-2 bg-amber-600 shrink-0" />
-            <span>
-              {isEn
-                ? `Local coverage in ${selectedRegion.toUpperCase()} is sparse—AI search in this market pulls dominant international (EU/US) sources directly into local answers.`
-                : `Lokale Berichte in ${selectedRegion.toUpperCase()} sind rar – KI-Suchmaschinen ziehen in diesem Markt dominante internationale (EU/US) Quellen direkt in lokale Antworten.`}
-            </span>
-          </div>
-        )}
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {displayedCentroids.map((art: CentroidArticle) => {
-            const isAligned = art.cosine_to_target >= 0.65;
-
+        {/* 3 Target Context Tabs */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+          {(Object.keys(contexts) as TargetContext[]).map(ctxId => {
+            const ctx = contexts[ctxId];
+            const isActive = selectedContext === ctxId;
             return (
-              <div
-                key={art.id}
-                className="bg-white border border-sbb-aluminum p-5 flex flex-col justify-between shadow-sm"
+              <button
+                key={ctxId}
+                type="button"
+                onClick={() => setSelectedContext(ctxId)}
+                className={`p-3 border text-left font-mono text-xs font-bold transition-all cursor-pointer ${
+                  isActive
+                    ? 'bg-emerald-800 text-white border-emerald-900'
+                    : 'bg-sbb-cloud text-zinc-800 border-sbb-aluminum hover:bg-white hover:border-sbb-black'
+                }`}
               >
-                <div>
-                  <div className="flex items-center justify-between pb-2 mb-3 border-b border-zinc-100">
-                    <span className="text-[10px] font-mono font-bold text-zinc-500 uppercase">{art.outlet}</span>
-                    <span className="text-[9px] font-mono px-2 py-0.5 bg-zinc-100 text-zinc-700 border border-zinc-200">
-                      {art.tier}
-                    </span>
-                  </div>
-                  <h3 className="font-bold text-sm text-sbb-black leading-snug mb-2">«{art.headline}»</h3>
-                  <p className="text-xs text-zinc-600 leading-relaxed italic mb-4 border-l-2 border-zinc-300 pl-3">
-                    {art.excerpt}
-                  </p>
-                </div>
-
-                <div className="pt-3 border-t border-zinc-100 space-y-1 font-mono text-[10px]">
-                  <div className="flex justify-between items-center">
-                    <span className="text-zinc-500">{isEn ? 'Alignment:' : 'Passung:'}</span>
-                    <span
-                      className={`px-1.5 py-0.5 font-bold border ${
-                        isAligned
-                          ? 'bg-emerald-50 text-emerald-800 border-emerald-200'
-                          : 'bg-red-50 text-sbb-red border-red-200'
-                      }`}
-                    >
-                      {isAligned
-                        ? isEn
-                          ? 'Supports Core Fact'
-                          : 'Stützt Kernfakt'
-                        : isEn
-                        ? 'Introduces Distortion'
-                        : 'Führt Verzerrung ein'}
-                    </span>
-                  </div>
-                  <div className={`truncate ${isAligned ? 'text-emerald-800' : 'text-sbb-red'}`}>
-                    {art.violated_pillar}
-                  </div>
-                </div>
-              </div>
+                {isEn ? ctx.labelEn : ctx.labelDe}
+              </button>
             );
           })}
         </div>
-      </div>
 
-      {/* ═══ STEP 02: INTERACTIVE BEFORE / AFTER OWNED SOURCE & AI OUTPUT ═══ */}
-      <div className="space-y-3">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-          <div className="flex items-center gap-3">
-            <span className="w-7 h-7 bg-sbb-black text-white font-mono text-xs font-bold flex items-center justify-center">
-              02
-            </span>
-            <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-stone">
-              {isEn
-                ? 'TEST WHAT HAPPENS WHEN OWNED WEB COPY IS CLEANED UP'
-                : 'TESTEN, WAS PASSIERT, WENN EIGENE WEBSEITEN KLAR STRUKTURIERT SIND'}
-            </span>
+        {/* Side-by-side Comparison */}
+        <div className="space-y-3">
+          <div className="text-xs text-zinc-700 bg-[#F8F8F9] p-3 border border-zinc-200">
+            <strong className="text-sbb-black uppercase font-mono text-[10px] mr-2">
+              {isEn ? 'Target Audience & Context:' : 'Zielgruppe & Kontext:'}
+            </strong>
+            {isEn ? activeCtx.audienceEn : activeCtx.audienceDe}
           </div>
 
-          <div className="flex items-center gap-1 bg-sbb-cloud p-1 border border-sbb-aluminum self-start sm:self-auto">
-            <button
-              type="button"
-              aria-pressed={isBefore}
-              onClick={() => setSourceMode('before')}
-              className={`px-3 py-1.5 font-mono text-xs font-bold transition-colors cursor-pointer ${
-                isBefore ? 'bg-sbb-red text-white' : 'text-zinc-700 hover:text-sbb-black hover:bg-white'
-              }`}
-            >
-              {isEn ? 'Before: Vague PR Intro' : 'Vorher: Vage PR-Einleitung'}
-            </button>
-            <button
-              type="button"
-              aria-pressed={!isBefore}
-              onClick={() => setSourceMode('after')}
-              className={`px-3 py-1.5 font-mono text-xs font-bold transition-colors cursor-pointer ${
-                !isBefore ? 'bg-emerald-700 text-white' : 'text-zinc-700 hover:text-sbb-black hover:bg-white'
-              }`}
-            >
-              {isEn ? 'After: Clear Opening Facts' : 'Nachher: Klare Fakten zuerst'}
-            </button>
-          </div>
-        </div>
-
-        <div className="bg-white border border-sbb-aluminum p-6 sm:p-8 shadow-sm space-y-6">
-          {/* Stakeholder Query */}
-          <div className="bg-sbb-cloud/80 p-4 border border-sbb-aluminum flex items-center gap-3">
-            <Search className="w-5 h-5 text-sbb-red shrink-0" />
-            <div className="flex-1">
-              <div className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider font-bold">
-                {isEn ? 'STAKEHOLDER QUERY:' : 'STAKEHOLDER-SUCHANFRAGE:'}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            <div className="p-4 bg-red-50/40 border border-red-300 space-y-2">
+              <div className="font-mono text-[11px] font-bold uppercase text-sbb-red flex items-center gap-1.5">
+                <XCircle className="w-4 h-4 shrink-0" />
+                <span>{isEn ? 'Robotic Copy-Paste (Fails in Context)' : 'Stures Copy-Paste (Scheitert im Kontext)'}</span>
               </div>
-              <div className="text-base sm:text-lg font-bold text-sbb-black">«{data.stakeholder_query}»</div>
+              <p className="text-xs sm:text-sm text-red-950 leading-relaxed">
+                {isEn ? activeCtx.copyPasteFailEn : activeCtx.copyPasteFailDe}
+              </p>
+            </div>
+
+            <div className="p-4 bg-emerald-50/40 border-2 border-emerald-700 space-y-2">
+              <div className="font-mono text-[11px] font-bold uppercase text-emerald-900 flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-700" />
+                <span>{isEn ? 'AI Context-Tailored Narrative (Aligned Core)' : 'KI-Kontext-Anpassung (Konsistenter Kern)'}</span>
+              </div>
+              <p className="text-xs sm:text-sm text-emerald-950 leading-relaxed font-medium">
+                {isEn ? activeCtx.tailoredEn : activeCtx.tailoredDe}
+              </p>
+              <div className="pt-2 border-t border-emerald-200 font-mono text-[11px] text-emerald-900 font-bold">
+                ● {isEn ? activeCtx.coreAnchorEn : activeCtx.coreAnchorDe}
+              </div>
             </div>
           </div>
+        </div>
+      </div>
 
-          {/* Owned Company Page Input (Before vs After) */}
-          <div
-            className={`p-5 border ${
-              isBefore ? 'bg-red-50/30 border-red-200' : 'bg-emerald-50/30 border-emerald-300'
-            }`}
-          >
-            <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-              <span
-                className={`text-[10px] font-mono uppercase font-bold flex items-center gap-1.5 ${
-                  isBefore ? 'text-sbb-red' : 'text-emerald-800'
+      {/* ═══ PART B: 4 PRACTICAL GEO BEST PRACTICES FOR NON-TECHIES ═══ */}
+      <div className="bg-white border border-sbb-aluminum p-5 sm:p-7 space-y-5 shadow-xs">
+        <div className="space-y-2 pb-4 border-b border-zinc-200">
+          <div className="font-mono text-xs font-black uppercase text-sbb-black flex items-center gap-1.5">
+            <Layers className="w-4 h-4 text-sbb-red" />
+            <span>
+              {isEn
+                ? 'PART B // 4 PRACTICAL GEO BEST PRACTICES (EXPLAINED WITHOUT JARGON)'
+                : 'TEIL B // 4 PRAXISNAHE GEO-REGELN (OHNE FACHCHINESISCH)'}
+            </span>
+          </div>
+          <p className="text-xs sm:text-sm text-zinc-700">
+            {isEn
+              ? 'GEO (Generative Engine Optimization) isn’t about technical tricks—it’s about writing clear, structured facts so AI tools can accurately quote what you meant.'
+              : 'Bei GEO (Generative Engine Optimization) geht es nicht um Technik-Tricks, sondern um klar strukturierte Fakten, damit KI-Tools Ihre Aussage korrekt zitieren.'}
+          </p>
+        </div>
+
+        {/* 4 Rule Selector Tabs */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
+          {geoPrinciples.map((p, idx) => {
+            const isActive = selectedPrinciple === idx;
+            return (
+              <button
+                key={p.titleEn}
+                type="button"
+                onClick={() => setSelectedPrinciple(idx as GeoPrincipleIndex)}
+                className={`p-3 border text-left font-mono text-xs font-bold transition-all cursor-pointer ${
+                  isActive
+                    ? 'bg-sbb-black text-[#FFCC00] border-sbb-black'
+                    : 'bg-sbb-cloud text-zinc-800 border-sbb-aluminum hover:bg-white hover:border-sbb-black'
                 }`}
               >
-                {isBefore ? (
-                  <>
-                    <span className="w-2 h-2 bg-sbb-red" />
-                    <span>
-                      {isEn
-                        ? 'COMPANY PAGE INPUT: VAGUE PR PROSE (SKIPPED BY SEARCH)'
-                        : 'EIGENE SEITE: VAGE PR-PROSA (VON DER SUCHE ÜBERSPRUNGEN)'}
-                    </span>
-                  </>
-                ) : (
-                  <>
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-700" />
-                    <span>
-                      {isEn
-                        ? 'COMPANY PAGE INPUT: FRONT-LOADED CORE FACTS (CLEAN HTML)'
-                        : 'EIGENE SEITE: KLARE FAKTEN AM ANFANG (SAUBERES HTML)'}
-                    </span>
-                  </>
-                )}
-              </span>
+                {isEn ? p.titleEn : p.titleDe}
+              </button>
+            );
+          })}
+        </div>
 
-              {!isBefore && (
-                <button
-                  type="button"
-                  onClick={handleCopyFactBlock}
-                  className="px-3 py-1 bg-sbb-black hover:bg-zinc-800 text-white font-mono text-[10px] font-bold uppercase tracking-wider transition-all flex items-center gap-1.5 cursor-pointer"
-                >
-                  {copied ? (
-                    <>
-                      <Check className="w-3 h-3 text-emerald-400" />
-                      <span>{isEn ? 'Copied' : 'Kopiert'}</span>
-                    </>
-                  ) : (
-                    <>
-                      <Copy className="w-3 h-3 text-zinc-400" />
-                      <span>{isEn ? 'Copy Opening Facts' : 'Fakten kopieren'}</span>
-                    </>
-                  )}
-                </button>
-              )}
-            </div>
-
-            {isBefore ? (
-              <div className="text-xs sm:text-sm text-zinc-800 italic leading-relaxed font-serif p-4 bg-white border border-red-100">
-                {data.geo_optimization_fix.unstructured_pr_fluff}
-              </div>
-            ) : (
-              <pre className="text-xs sm:text-sm text-emerald-950 font-sans leading-relaxed p-4 bg-white border border-emerald-200 overflow-x-auto whitespace-pre-wrap">
-                {data.geo_optimization_fix.structured_fact_block}
-              </pre>
-            )}
+        {/* Rule Explanation + Before / After Passages */}
+        <div className="space-y-4">
+          <div className="p-3.5 bg-amber-50/70 border-l-4 border-[#FFCC00] border border-amber-200 text-xs sm:text-sm text-zinc-900 leading-relaxed">
+            <strong>{isEn ? 'Why this matters: ' : 'Warum das wichtig ist: '}</strong>
+            {isEn ? activePrinciple.ruleEn : activePrinciple.ruleDe}
           </div>
 
-          {/* Resulting AI Search Answer */}
-          {isBefore ? (
-            <div className="space-y-4">
-              <div className="flex items-center justify-between pb-2 border-b border-zinc-100">
-                <div className="flex items-center gap-2">
-                  <Bot className="w-4 h-4 text-sbb-black" />
-                  <span className="text-xs font-mono font-bold uppercase tracking-wider text-sbb-black">
-                    {isEn ? 'RESULTING AI ANSWER (WITH VAGUE OWNED COPY)' : 'KI-ANTWORT (MIT VAGER EIGENER SEITE)'}
-                  </span>
-                </div>
-                <span className="text-[10px] font-mono text-sbb-red bg-red-50 border border-red-200 px-2 py-0.5 font-bold">
-                  {isEn ? 'CLICK RED PASSAGE [1] OR [2]' : 'ROTE PASSAGE [1] ODER [2] ANKLICKEN'}
-                </span>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            <div className="p-4 bg-red-50/40 border border-red-300 space-y-2">
+              <div className="font-mono text-[11px] font-bold uppercase text-sbb-red flex items-center gap-1.5">
+                <XCircle className="w-4 h-4 shrink-0" />
+                <span>{isEn ? 'Unstructured Draft (Loses Pull-Through)' : 'Unstrukturierter Entwurf (Verliert Wirkung)'}</span>
               </div>
-
-              <div className="bg-zinc-50 border border-zinc-200 p-6 font-serif text-base sm:text-lg leading-relaxed text-zinc-900">
-                {(() => {
-                  let distortedCount = 0;
-                  return data.ai_synthesis_spans.map((span: HallucinationSpan, i: number) => {
-                    if (!span.isDistorted) {
-                      return <span key={i}>{span.text}</span>;
-                    }
-
-                    distortedCount++;
-                    const badgeIndex = distortedCount;
-                    const isSelected = activeSpanIndex === i;
-
-                    return (
-                      <button
-                        type="button"
-                        key={i}
-                        onClick={() => setActiveSpanIndex(i)}
-                        aria-pressed={isSelected}
-                        className={`cursor-pointer px-1.5 py-0.5 mx-0.5 transition-all inline text-left font-serif text-base sm:text-lg border ${
-                          isSelected
-                            ? 'bg-red-200 text-red-950 border-sbb-red ring-2 ring-sbb-red/40 underline font-medium shadow-xs'
-                            : 'bg-red-100 hover:bg-red-200 text-red-950 border-red-300'
-                        }`}
-                      >
-                        <span className="font-mono text-[10px] font-bold bg-sbb-red text-white px-1 py-0.2 mr-1 align-middle">
-                          [{badgeIndex}]
-                        </span>{' '}
-                        {span.text}
-                      </button>
-                    );
-                  });
-                })()}
-              </div>
-
-              {activeSpanIndex !== null && data.ai_synthesis_spans[activeSpanIndex]?.correction && (
-                <div className="p-4 bg-red-50/80 border-l-4 border-sbb-red flex items-start gap-3">
-                  <AlertTriangle className="w-4 h-4 text-sbb-red shrink-0 mt-0.5" />
-                  <div className="space-y-1">
-                    <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-sbb-red">
-                      {isEn ? 'WHAT THE AI GOT WRONG:' : 'WAS IN DIESER PASSAGE FALSCH IST:'}
-                    </div>
-                    <p className="text-xs text-red-950 font-sans leading-relaxed">
-                      {data.ai_synthesis_spans[activeSpanIndex].correction}
-                    </p>
-                  </div>
-                </div>
-              )}
-
-              <div className="pt-3 border-t border-zinc-100 grid grid-cols-1 md:grid-cols-2 gap-4">
-                {data.distortion_root_causes.map((rc, idx) => {
-                  const distortedIndices = data.ai_synthesis_spans
-                    .map((s, sIdx) => (s.isDistorted ? sIdx : -1))
-                    .filter((sIdx) => sIdx !== -1);
-                  const targetSpanIndex = distortedIndices[idx] ?? null;
-                  const isHighlighted = targetSpanIndex !== null && activeSpanIndex === targetSpanIndex;
-
-                  return (
-                    <button
-                      key={idx}
-                      type="button"
-                      onClick={() => {
-                        if (targetSpanIndex !== null) setActiveSpanIndex(targetSpanIndex);
-                      }}
-                      className={`p-4 text-left border transition-all cursor-pointer ${
-                        isHighlighted
-                          ? 'bg-red-50/70 border-sbb-red ring-1 ring-sbb-red/30'
-                          : 'bg-sbb-cloud/50 border-sbb-aluminum hover:border-sbb-black'
-                      }`}
-                    >
-                      <div className="text-xs font-mono font-bold text-sbb-black mb-1 flex items-center gap-1.5">
-                        <span className="px-1.5 py-0.5 bg-sbb-red text-white text-[10px] font-bold">
-                          [{idx + 1}]
-                        </span>
-                        <span>{rc.issue}</span>
-                      </div>
-                      <p className="text-xs text-zinc-700 leading-relaxed mb-2">{rc.description}</p>
-                      <div className="text-[10px] font-mono text-sbb-stone pt-2 border-t border-zinc-200">
-                        <span className="font-bold">{isEn ? 'Scraped source: ' : 'Gescrapte Quelle: '}</span>
-                        <span>{rc.source_scraped}</span>
-                      </div>
-                    </button>
-                  );
-                })}
-              </div>
+              <p className="text-xs sm:text-sm text-red-950 leading-relaxed">
+                {isEn ? activePrinciple.badEn : activePrinciple.badDe}
+              </p>
             </div>
-          ) : (
-            <div className="space-y-4">
-              <div className="flex items-center justify-between pb-2 border-b border-zinc-100">
-                <div className="flex items-center gap-2">
-                  <Bot className="w-4 h-4 text-emerald-700" />
-                  <span className="text-xs font-mono font-bold uppercase tracking-wider text-emerald-950">
-                    {isEn
-                      ? 'TYPICAL AI ANSWER (WITH FRONT-LOADED COMPANY FACTS)'
-                      : 'TYPISCHE KI-ANTWORT (MIT KLAREN FAKTEN AM ANFANG)'}
-                  </span>
-                </div>
-                <span className="text-[10px] font-mono text-emerald-800 bg-emerald-50 border border-emerald-200 px-2 py-0.5 font-bold">
-                  {isEn ? 'EXTERNAL DEBATE STILL INCLUDED' : 'EXTERNE DEBATTE BLEIBT SICHTBAR'}
-                </span>
-              </div>
 
-              <div className="bg-emerald-50/40 border border-emerald-300 p-6 font-serif text-base sm:text-lg leading-relaxed text-emerald-950">
-                {data.ai_synthesis_spans
-                  .filter((s) => !s.isDistorted)
-                  .map((s) => s.text)
-                  .join(' ')}{' '}
-                <span className="font-sans text-sm text-zinc-700 italic">
-                  {isEn
-                    ? '(External media and commentators continue to debate policy and pricing trade-offs, while verified company facts are cited accurately.)'
-                    : '(Externe Medien und Kommentatoren diskutieren weiter über Preis- und Politikfragen, während die geprüften Unternehmensfakten korrekt zitiert werden.)'}
-                </span>
+            <div className="p-4 bg-emerald-50/40 border-2 border-emerald-700 space-y-2">
+              <div className="font-mono text-[11px] font-bold uppercase text-emerald-900 flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-700" />
+                <span>{isEn ? 'GEO-Structured Draft (Clear for AI Search)' : 'GEO-strukturierter Entwurf (Klar für KI-Suche)'}</span>
               </div>
-
-              <div className="p-4 bg-emerald-700 text-white flex items-start gap-2.5 text-xs font-mono">
-                <ShieldCheck className="w-4 h-4 text-emerald-200 shrink-0 mt-0.5" />
-                <span>{data.geo_optimization_fix.verification_outcome}</span>
-              </div>
+              <p className="text-xs sm:text-sm text-emerald-950 leading-relaxed font-medium">
+                {isEn ? activePrinciple.goodEn : activePrinciple.goodDe}
+              </p>
             </div>
-          )}
+          </div>
         </div>
       </div>
 
-      {/* ═══ NEXT-STEP WORKFLOW BRIDGE (02 → 03) ═══ */}
-      {onNavigateTab && (
-        <div className="bg-sbb-black text-white border-l-4 border-sbb-red px-5 py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-          <div className="space-y-0.5">
-            <div className="text-[10px] font-mono text-[#FFCC00] uppercase tracking-widest font-bold">
-              {isEn ? 'NEXT STEP // MODULE 02 → MODULE 03' : 'NÄCHSTER SCHRITT // MODUL 02 → MODUL 03'}
-            </div>
-            <p className="text-xs sm:text-sm text-zinc-200">
-              {isEn
-                ? 'AI search gaps diagnosed. Apply approved Golden Sources and writing rules directly inside daily drafts.'
-                : 'KI-Lücken erkannt. Geprüfte Golden Sources und Schreibregeln jetzt direkt im Entwurf anwenden.'}
-            </p>
-          </div>
-          <button
-            onClick={() => {
-              onNavigateTab('trending');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-            className="px-4 py-2 bg-sbb-red hover:bg-red-700 text-white font-mono text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-2 cursor-pointer shrink-0 self-start sm:self-auto"
-          >
-            <span>{isEn ? 'Proceed to 03: Sources & Recipes' : 'Weiter zu 03: Quellen & Rezepte'}</span>
-            <ArrowRight className="w-4 h-4" />
-          </button>
-        </div>
-      )}
+      {/* Bottom Navigation */}
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-2">
+        <button
+          type="button"
+          onClick={() => onNavigateTab('cockpit')}
+          className="px-4 py-2.5 bg-white hover:bg-sbb-cloud border border-sbb-black font-mono text-xs font-bold uppercase tracking-wider text-sbb-black transition-colors flex items-center justify-center gap-2 cursor-pointer"
+        >
+          <ArrowLeft className="w-3.5 h-3.5" />
+          <span>{isEn ? 'Back: 01 Outside-In' : 'Zurück: 01 Outside-In'}</span>
+        </button>
+
+        <button
+          type="button"
+          onClick={() => onNavigateTab('trending')}
+          className="px-5 py-2.5 bg-sbb-red hover:bg-sbb-red-125 text-white font-mono text-xs font-black uppercase tracking-wider transition-colors flex items-center justify-center gap-2 cursor-pointer"
+        >
+          <span>
+            {isEn
+              ? 'Therefore: 03 Office Recipes & Human Role'
+              : 'Deshalb: 03 Office-Rezepte & Rolle des Menschen'}
+          </span>
+          <ArrowRight className="w-3.5 h-3.5" />
+        </button>
+      </div>
     </div>
   );
 };

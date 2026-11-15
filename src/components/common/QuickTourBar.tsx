@@ -110,7 +110,7 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
         whyItMatters:
           'AI is useful for testing a draft from different stakeholder angles beforehand—final editing, tone, and sign-off always stay with comms and legal teams.',
         tryThisLabel: 'Open Concept, Method & IT Guide',
-        targetTab: 'cascade',
+        targetTab: 'trending',
         targetRegion: 'all',
         openConceptGuide: false
       }
@@ -184,7 +184,7 @@ export const getTourSteps = (lang: Language): TourStepConfig[] => {
       whyItMatters:
         'KI hilft, Entwürfe vorab aus verschiedenen Blickwinkeln auf Schwachstellen zu testen – Feinschliff, Tonfall und Freigabe bleiben immer bei Kommunikation und Recht.',
       tryThisLabel: 'Konzept-, Methodik- & IT-Guide öffnen',
-      targetTab: 'cascade',
+      targetTab: 'trending',
       targetRegion: 'all',
       openConceptGuide: false
     }

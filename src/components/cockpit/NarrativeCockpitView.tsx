@@ -1,517 +1,466 @@
 import React, { useState } from 'react';
 import { Language } from '../../fixtures/scenarios';
-import { getCockpitData, CockpitData, WorldRegionId, RegionalSynthesisRow } from '../../fixtures/cockpitFixtures';
 import { ActiveTab } from '../common/CommandHeader';
-import { 
-  BarChart3, 
-  Filter, 
-  ArrowRight, 
-  Globe2, 
-  Bot, 
-  Newspaper, 
-  MessageSquare, 
-  Flame,
+import {
+  AlertTriangle,
+  ArrowLeft,
+  ArrowRight,
+  CheckCircle2,
+  Database,
+  Layers,
+  MessageSquare,
+  Newspaper,
+  FileText,
   Search,
-  ChevronDown,
-  ChevronUp
+  BarChart3
 } from 'lucide-react';
 
 interface Props {
-  scenarioId: string;
   lang: Language;
-  selectedRegion: WorldRegionId;
-  onSelectRegion: (reg: WorldRegionId) => void;
   onNavigateTab: (tab: ActiveTab) => void;
 }
 
-export const NarrativeCockpitView: React.FC<Props> = ({
-  scenarioId,
-  lang,
-  selectedRegion,
-  onSelectRegion,
-  onNavigateTab
-}) => {
-  const [showBaseline, setShowBaseline] = useState<boolean>(false);
-  const data: CockpitData = getCockpitData(lang, scenarioId);
+type ChannelId = 'earned' | 'owned' | 'regional' | 'forums';
+type PipelineStage = 1 | 2 | 3;
+
+export const NarrativeCockpitView: React.FC<Props> = ({ lang, onNavigateTab }) => {
+  const [selectedChannel, setSelectedChannel] = useState<ChannelId>('earned');
+  const [activeStage, setActiveStage] = useState<PipelineStage>(1);
   const isEn = lang === 'en';
 
-  const displayedRows = selectedRegion === 'all' 
-    ? data.regional_synthesis 
-    : data.regional_synthesis.filter(r => r.region_id === selectedRegion);
-
-  const getStatusBadge = (status: RegionalSynthesisRow['pull_through_status']) => {
-    switch (status) {
-      case 'ALIGNED':
-        return 'bg-emerald-50 text-emerald-800 border-emerald-300';
-      case 'MIXED':
-        return 'bg-amber-50 text-amber-800 border-amber-300';
-      case 'AT_RISK':
-        return 'bg-red-50 text-sbb-red border-red-300 font-bold';
-      case 'CRITICAL':
-        return 'bg-sbb-red text-white border-sbb-red font-bold';
+  const channels: Record<
+    ChannelId,
+    {
+      labelEn: string;
+      labelDe: string;
+      icon: React.ReactNode;
+      roleEn: string;
+      roleDe: string;
+      matrixReasonEn: string;
+      matrixReasonDe: string;
+      passageEn: string;
+      passageDe: string;
+      collisionEn: string;
+      collisionDe: string;
+    }
+  > = {
+    earned: {
+      labelEn: '1. Earned Media',
+      labelDe: '1. Earned Media (Presse)',
+      icon: <Newspaper className="w-3.5 h-3.5 shrink-0" />,
+      roleEn: 'Corporate media desk answering fast-moving journalist questions.',
+      roleDe: 'Medienstelle, die unter Zeitdruck auf journalistische Anfragen reagiert.',
+      matrixReasonEn:
+        'Journalists ask pointed questions about global investments or restructuring—so press quotes naturally emphasize global capital allocation.',
+      matrixReasonDe:
+        'Redaktionen stellen zugespitzte Fragen zu globalen Investitionen – Pressezitate betonen daher naturgemäss globale Kapitalallokation.',
+      passageEn:
+        '«The company confirmed major expansion investments in international manufacturing capacity over the next five years.»',
+      passageDe:
+        '«Das Unternehmen bestätigte umfangreiche Erweiterungsinvestitionen in internationale Produktionskapazitäten über die nächsten fünf Jahre.»',
+      collisionEn:
+        'When pulled without context alongside a regional briefing, AI engines often infer a shift away from local operations.',
+      collisionDe:
+        'Wird dieses Zitat ohne Kontext neben einem regionalen Briefing geladen, folgern KI-Systeme oft eine Verlagerung weg vom Heimatstandort.'
+    },
+    owned: {
+      labelEn: '2. Owned Stories & Pages',
+      labelDe: '2. Owned Stories & Seiten',
+      icon: <FileText className="w-3.5 h-3.5 shrink-0" />,
+      roleEn: 'Central editorial team publishing corporate strategy pages and executive posts.',
+      roleDe: 'Zentrale Redaktion für Corporate Stories, Strategie-Seiten und Executive-Kanäle.',
+      matrixReasonEn:
+        'Owned stories often open with broad, aspirational framing before mentioning concrete numbers or long-term commitments further down the page.',
+      matrixReasonDe:
+        'Owned Stories starten oft mit breiter, strategischer Einleitung, bevor konkrete Zahlen und Zusagen weiter unten folgen.',
+      passageEn:
+        '«Our long-term strategy focuses on building an agile global footprint positioned for future innovation across key markets.»',
+      passageDe:
+        '«Unsere langfristige Strategie setzt auf eine agile globale Aufstellung für künftige Innovationen in zentralen Märkten.»',
+      collisionEn:
+        'Because AI sub-queries extract short snippets, vague intros fail to anchor core facts—leaving room for third-party commentary to fill the gap.',
+      collisionDe:
+        'Da KI-Teilabfragen kurze Passagen ziehen, liefern vage Einleitungen keine harten Fakten – Drittkommentare füllen diese Lücke.'
+    },
+    regional: {
+      labelEn: '3. Regional / Cantonal & Legacy Files',
+      labelDe: '3. Regionale Briefings & Altdateien',
+      icon: <Layers className="w-3.5 h-3.5 shrink-0" />,
+      roleEn: 'Regional and cantonal teams briefing local authorities, plus older PDFs still indexed online.',
+      roleDe: 'Regionale und kantonale Teams im Austausch mit Behörden sowie ältere online abrufbare PDFs.',
+      matrixReasonEn:
+        'Regional teams tailor briefings to local regulatory or infrastructure priorities, and older PDFs remain public because nobody tracks every archived file across hubs.',
+      matrixReasonDe:
+        'Regionale Teams richten Briefings auf lokale Anliegen aus, und ältere PDFs bleiben online, weil niemand alle Archive über Standorte hinweg im Blick behält.',
+      passageEn:
+        '«2022 Regional Footprint Briefing (PDF): Review of European site consolidation options remains ongoing subject to local framework conditions.»',
+      passageDe:
+        '«Regionales Standort-Briefing 2022 (PDF): Die Prüfung europäischer Standortoptionen läuft abhängig von lokalen Rahmenbedingungen weiter.»',
+      collisionEn:
+        'An outdated PDF pulled in sub-query #7 directly contradicts current central messaging—diluting the company’s voice in the same answer.',
+      collisionDe:
+        'Ein veraltetes PDF in Teilabfrage Nr. 7 widerspricht der aktuellen zentralen Aussage direkt – die Unternehmensstimme wird in derselben Antwort verwässert.'
+    },
+    forums: {
+      labelEn: '4. Online Forums',
+      labelDe: '4. Online-Foren',
+      icon: <MessageSquare className="w-3.5 h-3.5 shrink-0" />,
+      roleEn: 'Open industry, investor, and employee discussion threads.',
+      roleDe: 'Öffentliche Branchen-, Investoren- und Community-Diskussionen.',
+      matrixReasonEn:
+        'Forum users compare press headlines with regional rumours in plain, direct language that AI answer engines frequently surface for nuance.',
+      matrixReasonDe:
+        'Forumnutzer vergleichen Schlagzeilen mit regionalen Gerüchten in direkter Alltagssprache, die KI-Suchmaschinen oft als Stimmungsbild heranziehen.',
+      passageEn:
+        '«Thread: Why does the US press release highlight big expansion while the local PDF talks about site reviews?»',
+      passageDe:
+        '«Diskussion: Warum spricht die US-Mitteilung von Ausbau, während ein lokales PDF Standortprüfungen erwähnt?»',
+      collisionEn:
+        'When company channels show discrepancies, forums amplify the tension—and AI models pull both the contradiction and the forum speculation into one summary.',
+      collisionDe:
+        'Zeigen eigene Kanäle Widersprüche, verstärken Foren diese Spannung – und KI-Modelle ziehen beides zusammen in eine Antwort.'
     }
   };
 
+  const activeChannel = channels[selectedChannel];
+
+  const stages = [
+    {
+      num: 1 as PipelineStage,
+      titleEn: '1. External Feeds & Public LLM APIs',
+      titleDe: '1. Externe Feeds & öffentliche LLM-APIs',
+      tools: 'Factiva, Meltwater, Talkwalker + Public LLM APIs',
+      summaryEn:
+        'Ingests continuous article streams across press, trade media, and social discussions, alongside repeated queries to public LLM APIs.',
+      summaryDe:
+        'Erfasst laufende Artikelströme aus Presse, Fachmedien und Social-Diskussionen sowie wiederholte Abfragen über öffentliche LLM-APIs.',
+      detailEn:
+        'In a global enterprise, you cannot build a standalone "shadow IT" scraper. The Outside-In branch connects to licensed media and social aggregators the company already uses (Factiva, Meltwater, Talkwalker) and public LLM APIs to capture both coverage and how AI search engines currently summarize the company.',
+      detailDe:
+        'In einem regulierten Unternehmen wird kein isoliertes «Shadow-IT»-Tool gebaut. Der Outside-In-Zweig nutzt bestehende lizenzierte Aggregatoren (Factiva, Meltwater, Talkwalker) und öffentliche LLM-APIs, um Medienströme und aktuelle KI-Antworten parallel zu erfassen.'
+    },
+    {
+      num: 2 as PipelineStage,
+      titleEn: '2. Digestion Into Structured Data',
+      titleDe: '2. Aufbereitung in strukturierte Daten',
+      tools: isEn ? 'Stream Normalization & Tagging' : 'Normalisierung & Strukturierung',
+      summaryEn:
+        'Transforms huge raw article and answer volumes into clean, structured records by topic, channel, region, and narrative claim.',
+      summaryDe:
+        'Überführt enorme Rohdatenmengen aus Artikeln und KI-Antworten in strukturierte Datensätze nach Thema, Kanal, Region und Kernaussage.',
+      detailEn:
+        'Licensed feeds produce huge amounts of raw text every day—far too much to read manually or paste straight into an LLM prompt. Before any analysis happens, the stream must be digested and transformed into structured data so patterns across central, regional, and cantonal markets become comparable.',
+      detailDe:
+        'Lizenzierte Feeds liefern täglich riesige Textmengen – viel zu viel zum manuellen Lesen oder für direkte LLM-Prompts. Deshalb werden die Ströme zuerst verdichtet und in strukturierte Daten überführt, damit Muster über zentrale, regionale und kantonale Märkte hinweg vergleichbar werden.'
+    },
+    {
+      num: 3 as PipelineStage,
+      titleEn: '3. Statistical & LLM Processing',
+      titleDe: '3. Statistische & LLM-Auswertung',
+      tools: isEn ? 'Pull-Through & Gap Identification' : 'Durchdringung & Handlungsbedarf',
+      summaryEn:
+        'Combines statistical filtering with LLM analysis to show where narratives come through and where work needs to be done.',
+      summaryDe:
+        'Kombiniert statistische Auswertung mit LLM-Analyse, um zu zeigen, wo Botschaften durchdringen und wo Handlungsbedarf besteht.',
+      detailEn:
+        'Statistics narrow the massive volume down to real shifts and recurring themes; LLMs inspect whether the company’s core narrative actually comes through in media and AI answers or gets distorted by missing context or discrepancies across teams. The output is clear priorities—not raw noise.',
+      detailDe:
+        'Statistik filtert aus dem Gesamtvolumen echte Verschiebungen und Häufungen heraus; LLMs prüfen anschliessend, ob das Kern-Narrativ in Medien und KI-Antworten durchdringt oder durch fehlenden Kontext und Team-Abweichungen verzerrt wird. Ergebnis sind klare Prioritäten statt Datenrauschen.'
+    }
+  ];
+
+  const currentStage = stages.find(s => s.num === activeStage) || stages[0];
+
   return (
-    <div className="space-y-8">
-      {/* ═══ WAYFINDING HEADER ═══ */}
-      <div className="bg-white border border-sbb-aluminum p-6 sm:p-8">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+    <div className="max-w-6xl mx-auto space-y-6 pb-8">
+      {/* Header Banner */}
+      <div className="bg-white border border-sbb-black p-5 sm:p-7 space-y-2 shadow-xs">
+        <div className="inline-flex items-center gap-2 px-2.5 py-1 bg-sbb-black text-white font-mono text-[11px] font-bold uppercase tracking-wider">
+          <span className="text-[#FFCC00]">01 // OUTSIDE-IN</span>
+          <span>{isEn ? 'AI SEARCH & FEED PIPELINE' : 'KI-SUCHE & FEED-PIPELINE'}</span>
+        </div>
+        <h1 className="text-xl sm:text-2xl font-black text-sbb-black tracking-tight">
+          {isEn
+            ? 'Why zero-click AI search exposes matrix discrepancies—and how external feeds become clear insights'
+            : 'Warum Zero-Click-KI-Suche Abweichungen in Matrix-Organisationen offenlegt – und wie Feeds zu klaren Erkenntnissen werden'}
+        </h1>
+        <p className="text-sm text-zinc-700 max-w-4xl leading-relaxed">
+          {isEn
+            ? 'In a complex matrixed company, central, commercial, regional, and cantonal teams write for different audiences on different timelines. Explore below how AI search merges those separate channels into one answer—and how the Outside-In IT layer turns massive feed volume into actionable priorities.'
+            : 'In einer komplexen Matrix-Organisation schreiben zentrale, kommerzielle, regionale und kantonale Teams für verschiedene Zielgruppen und zu unterschiedlichen Zeitpunkten. Unten sehen Sie, wie KI-Suche diese getrennten Kanäle in einer Antwort zusammenzieht – und wie die Outside-In-Ebene daraus klare Prioritäten ableitet.'}
+        </p>
+      </div>
+
+      {/* ═══ PART A: INTERACTIVE 5-11 SUB-QUERY CONTEXT WINDOW INSPECTOR ═══ */}
+      <div className="bg-white border border-sbb-aluminum p-5 sm:p-7 space-y-5 shadow-xs">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-4 border-b border-zinc-200">
           <div>
-            <div className="flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-sbb-red uppercase mb-1.5">
-              <BarChart3 className="w-4 h-4" />
-              <span>{isEn ? 'STEP 1: MONITOR COVERAGE & AI SEARCH // MODULE 01' : 'SCHRITT 1: MEDIEN & KI-SUCHE PRÜFEN // MODUL 01'}</span>
+            <div className="font-mono text-xs font-black uppercase text-sbb-red flex items-center gap-1.5">
+              <Search className="w-4 h-4" />
+              <span>
+                {isEn
+                  ? 'PART A // INSIDE THE 5–11 SUB-QUERY CONTEXT WINDOW'
+                  : 'TEIL A // IM KONTEXTFENSTER DER 5–11 TEILABFRAGEN'}
+              </span>
             </div>
-            <h1 className="text-2xl sm:text-3xl font-black text-sbb-black tracking-tight">
-              {isEn ? 'Regional Media & AI Search Cockpit' : 'Regionales Medien- & KI-Such-Cockpit'}
-            </h1>
-            <p className="text-sm text-sbb-stone mt-1 max-w-3xl leading-relaxed">
+            <p className="text-xs sm:text-sm text-zinc-700 mt-1">
               {isEn
-                ? 'Compresses incoming press, forum, and AI search streams into the few topics gaining momentum—showing where corporate arguments land and where regional contradictions weaken the signal.'
-                : 'Verdichtet eingehende Medien-, Foren- und KI-Suchströme auf die wenigen Themen mit Dynamik – und zeigt, wo Kernargumente ankommen oder wo regionale Widersprüche die Position schwächen.'}
+                ? 'Click each channel below to see why teams naturally frame topics differently—and what happens when an AI model pulls them all into one window at once.'
+                : 'Klicken Sie auf die einzelnen Kanäle, um zu sehen, warum Teams Themen naturgemäss unterschiedlich formulieren – und was passiert, wenn ein KI-Modell alles gleichzeitig lädt.'}
+            </p>
+          </div>
+        </div>
+
+        {/* Question + 5-11 Sub-query Strip */}
+        <div className="p-4 bg-sbb-cloud border border-sbb-black space-y-3">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <span className="font-mono text-[11px] font-bold uppercase text-sbb-stone">
+              {isEn ? '1 STAKEHOLDER QUESTION IN ZERO-CLICK AI SEARCH:' : '1 STAKEHOLDER-FRAGE IN DER ZERO-CLICK-KI-SUCHE:'}
+            </span>
+            <span className="px-2 py-0.5 bg-sbb-black text-[#FFCC00] font-mono text-[10px] font-bold uppercase self-start">
+              {isEn ? 'Decomposed into 5–11 parallel sub-queries' : 'Zerlegt in 5–11 parallele Teilabfragen'}
+            </span>
+          </div>
+          <div className="text-sm sm:text-base font-bold text-sbb-black">
+            {isEn
+              ? '«How is the company balancing global investment priorities with regional and local operations?»'
+              : '«Wie verbindet das Unternehmen globale Investitionsprioritäten mit regionalen und lokalen Standorten?»'}
+          </div>
+          <div className="flex flex-wrap gap-1.5 pt-1">
+            {(isEn
+              ? [
+                  'Query 1: global investment press coverage',
+                  'Query 2: corporate strategy page',
+                  'Query 3: regional & cantonal briefings',
+                  'Query 4: archived PDF footprint plans',
+                  'Query 5–8: forum & stakeholder reactions'
+                ]
+              : [
+                  'Abfrage 1: Presseberichte zu Investitionen',
+                  'Abfrage 2: Corporate-Strategy-Seite',
+                  'Abfrage 3: Regionale & kantonale Briefings',
+                  'Abfrage 4: Archivierte Standort-PDFs',
+                  'Abfrage 5–8: Foren & Reaktionen'
+                ]
+            ).map(q => (
+              <span key={q} className="px-2 py-1 bg-white border border-zinc-300 font-mono text-[10px] text-zinc-700">
+                {q}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Channel Switcher Tabs */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2">
+          {(Object.keys(channels) as ChannelId[]).map(chId => {
+            const ch = channels[chId];
+            const isActive = selectedChannel === chId;
+            return (
+              <button
+                key={chId}
+                type="button"
+                onClick={() => setSelectedChannel(chId)}
+                className={`p-3 border text-left font-mono text-xs font-bold transition-all cursor-pointer flex items-center gap-2 ${
+                  isActive
+                    ? 'bg-sbb-black text-white border-sbb-black'
+                    : 'bg-sbb-cloud text-zinc-800 border-sbb-aluminum hover:bg-white hover:border-sbb-black'
+                }`}
+              >
+                <span className={isActive ? 'text-[#FFCC00]' : 'text-sbb-red'}>{ch.icon}</span>
+                <span className="truncate">{isEn ? ch.labelEn : ch.labelDe}</span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Selected Channel Inspection Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+          <div className="p-4 bg-[#F8F8F9] border border-zinc-300 space-y-2">
+            <div className="font-mono text-[10px] font-black uppercase tracking-wider text-zinc-600">
+              {isEn ? '1. Matrix Role & Why It Diverges' : '1. Rolle in der Matrix & Abweichungs-Grund'}
+            </div>
+            <p className="text-xs font-bold text-sbb-black leading-snug">
+              {isEn ? activeChannel.roleEn : activeChannel.roleDe}
+            </p>
+            <p className="text-xs text-zinc-700 leading-relaxed">
+              {isEn ? activeChannel.matrixReasonEn : activeChannel.matrixReasonDe}
             </p>
           </div>
 
-          <div className="flex items-center gap-3 shrink-0">
-            <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-sbb-cloud border border-sbb-aluminum font-mono text-xs text-sbb-black font-bold">
-              <Globe2 className="w-4 h-4 text-sbb-red" />
-              <span>{isEn ? 'GRANULARITY: MARKETS / REGIONS / CANTONS' : 'GRANULARITÄT: MÄRKTE / REGIONEN / KANTONE'}</span>
-            </span>
+          <div className="p-4 bg-white border border-sbb-black space-y-2">
+            <div className="font-mono text-[10px] font-black uppercase tracking-wider text-sbb-black">
+              {isEn ? '2. Passage Pulled Into AI Context Window' : '2. Passage im KI-Kontextfenster'}
+            </div>
+            <p className="text-xs sm:text-sm font-medium text-sbb-black italic leading-relaxed bg-sbb-cloud p-3 border border-zinc-200">
+              {isEn ? activeChannel.passageEn : activeChannel.passageDe}
+            </p>
+          </div>
+
+          <div className="p-4 bg-red-50/40 border border-sbb-red space-y-2">
+            <div className="font-mono text-[10px] font-black uppercase tracking-wider text-sbb-red flex items-center gap-1.5">
+              <AlertTriangle className="w-3.5 h-3.5 shrink-0" />
+              <span>{isEn ? '3. Result When Cross-Referenced' : '3. Effekt beim KI-Abgleich'}</span>
+            </div>
+            <p className="text-xs sm:text-sm text-red-950 leading-relaxed font-medium">
+              {isEn ? activeChannel.collisionEn : activeChannel.collisionDe}
+            </p>
           </div>
         </div>
       </div>
 
-      {/* ═══ BLOCK 01 (EXECUTIVE DIAGNOSIS FIRST): WHY SURFACE SENTIMENT FAILS ═══ */}
-      <div className="space-y-3">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <span className="w-7 h-7 bg-sbb-red text-white font-mono text-xs font-bold flex items-center justify-center">
-              01
-            </span>
-            <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-red">
-              {isEn ? 'WHY SURFACE SENTIMENT SCORES MISS EMERGING RISKS' : 'WARUM OBERFLÄCHLICHES SENTIMENT RISIKEN ÜBERSIEHT'}
-            </span>
-          </div>
-          <span className="text-[10px] font-mono text-sbb-stone hidden sm:inline">
-            {data.timeframe}
-          </span>
-        </div>
-
-        <div className="bg-white border-2 border-sbb-black p-6 sm:p-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {/* Left: What commercial NLP tools report */}
-            <div className="p-5 bg-zinc-50 border border-zinc-200 space-y-3">
-              <div className="flex items-center justify-between pb-2 border-b border-zinc-200">
-                <span className="text-[10px] font-mono text-zinc-500 uppercase font-bold">
-                  {isEn ? 'STANDARD AUTOMATED SENTIMENT SCORE' : 'AUTOMATISCHER STANDARD-SENTIMENTWERT'}
-                </span>
-                <span className="text-[9px] font-mono px-2 py-0.5 bg-zinc-200 text-zinc-700">
-                  {data.surface_nlp_vs_forensic_reality.commercial_nlp_confidence}
-                </span>
-              </div>
-              <div className="text-xl font-black text-zinc-700">
-                {data.surface_nlp_vs_forensic_reality.commercial_nlp_sentiment}
-              </div>
-              <p className="text-xs text-zinc-600 leading-relaxed">
-                {data.surface_nlp_vs_forensic_reality.commercial_nlp_blindspot}
-              </p>
-            </div>
-
-            {/* Right: The statistical anomaly + strategic reality */}
-            <div className="p-5 bg-red-50/60 border border-red-200 space-y-3">
-              <div className="flex flex-wrap items-center justify-between pb-2 border-b border-red-200 gap-2">
-                <span className="text-[10px] font-mono text-red-700 uppercase font-bold flex items-center gap-1.5">
-                  <Flame className="w-3.5 h-3.5 text-red-700 shrink-0" />
-                  <span>
-                    {(() => {
-                      if (scenarioId === 'alpine_transit_crisis') {
-                        return isEn ? 'CRITICAL INFRASTRUCTURE & SAFETY SIGNAL' : 'KRITISCHES INFRASTRUKTUR- & SICHERHEITSSIGNAL';
-                      } else if (scenarioId === 'esg_investigation') {
-                        return isEn ? 'ESG SUPPLY CHAIN & LEGAL EXPOSURE' : 'ESG-LIEFERKETTEN- & REPUTATIONSRISIKO';
-                      } else if (scenarioId === 'health_data_breach') {
-                        return isEn ? 'DATA PRIVACY & REGULATORY SOVEREIGNTY RISK' : 'DATENSCHUTZ- & SOUVERÄNITÄTSRISIKO';
-                      }
-                      return isEn ? 'REAL REPUTATION & REIMBURSEMENT RISK' : 'ECHTES REPUTATIONS- & ERSTATTUNGSRISIKO';
-                    })()}
-                  </span>
-                </span>
-                <span className="text-[10px] font-mono px-2 py-0.5 bg-red-100 text-red-700 font-bold whitespace-nowrap shrink-0">
-                  {data.surface_nlp_vs_forensic_reality.statistical_proof_anchor}
-                </span>
-              </div>
-              <div className="text-lg font-black text-red-700">
-                {data.surface_nlp_vs_forensic_reality.forensic_reality_verdict}
-              </div>
-              <p className="text-xs text-zinc-800 leading-relaxed font-sans">
-                {data.surface_nlp_vs_forensic_reality.forensic_reality_subtext}
-              </p>
-            </div>
-          </div>
-
-          {/* Direct CTA bridge to Geo Audit & Way 2 (Top-Down Enablement) */}
-          <div className="mt-6 pt-5 border-t border-zinc-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div className="text-xs font-mono text-sbb-stone">
-              <span className="font-bold text-sbb-black">{isEn ? 'Next Step: ' : 'Nächster Schritt: '}</span>
-              <span>{isEn ? 'Inspect AI Search distortions in Module 02 or deploy Regional Playbook in Module 03.' : 'KI-Verzerrungen in Modul 02 prüfen oder Regional-Playbook in Modul 03 ausrollen.'}</span>
-            </div>
-
-            <div className="flex items-center gap-3 shrink-0">
-              <button
-                onClick={() => onNavigateTab('geo')}
-                className="px-4 py-2 bg-sbb-cloud hover:bg-zinc-200 border border-sbb-aluminum font-mono text-xs font-bold uppercase tracking-wider text-sbb-black transition-all cursor-pointer flex items-center gap-1.5"
-              >
-                <Search className="w-3.5 h-3.5 text-sbb-red" />
-                <span>{isEn ? 'Cluster & AI Audit (Mod 02)' : 'Cluster & KI-Audit (Mod 02)'}</span>
-              </button>
-
-              <button
-                onClick={() => onNavigateTab('trending')}
-                className="px-4 py-2 bg-sbb-black hover:bg-zinc-800 text-white font-mono text-xs font-bold uppercase tracking-wider transition-all cursor-pointer flex items-center gap-1.5"
-              >
-                <span>{isEn ? 'Open Regional Playbook (Mod 03)' : 'Regional-Playbook öffnen (Mod 03)'}</span>
-                <ArrowRight className="w-3.5 h-3.5 text-sbb-red" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* ═══ COMPACT COLLAPSIBLE BASELINE POSITION ANCHOR ═══ */}
-      <div className="bg-white border border-sbb-aluminum">
-        <button
-          type="button"
-          onClick={() => setShowBaseline(prev => !prev)}
-          className="w-full px-5 py-3 flex items-center justify-between text-left hover:bg-sbb-cloud/50 transition-colors cursor-pointer"
-        >
-          <div className="flex items-center gap-2 text-xs font-mono font-bold text-sbb-black uppercase tracking-wider">
-            <span className="w-2 h-2 bg-sbb-black" />
+      {/* ═══ PART B: THE OUTSIDE-IN DATA PIPELINE ═══ */}
+      <div className="bg-white border border-sbb-aluminum p-5 sm:p-7 space-y-5 shadow-xs">
+        <div className="space-y-1 pb-4 border-b border-zinc-200">
+          <div className="font-mono text-xs font-black uppercase text-sbb-red flex items-center gap-1.5">
+            <Database className="w-4 h-4" />
             <span>
               {isEn
-                ? `Approved Baseline Facts (${data.target_narratives.length} Pillars — What Coverage Is Measured Against)`
-                : `Freigegebene Grundposition (${data.target_narratives.length} Säulen — Massstab für den Abgleich)`}
+                ? 'PART B // ENTERPRISE OUTSIDE-IN LAYER: HOW VOLUME BECOMES ACTIONABLE'
+                : 'TEIL B // OUTSIDE-IN IT-EBENE: WIE AUS DATENMENGEN HANDLUNGSBEDARF WIRD'}
             </span>
           </div>
-          <span className="text-[10px] font-mono font-bold text-sbb-red flex items-center gap-1">
-            {showBaseline ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
-            <span>{showBaseline ? (isEn ? 'Hide' : 'Ausblenden') : (isEn ? 'Inspect' : 'Anzeigen')}</span>
-          </span>
-        </button>
-
-        {showBaseline && (
-          <div className="p-5 pt-2 border-t border-zinc-200 grid grid-cols-1 md:grid-cols-3 gap-4">
-            {data.target_narratives.map((pillar) => (
-              <div key={pillar.id} className="p-3.5 bg-sbb-cloud/50 border border-sbb-aluminum space-y-1.5">
-                <div className="text-[10px] font-mono font-bold text-sbb-red uppercase">
-                  {isEn ? `PILLAR ${pillar.pillar_number}` : `SÄULE ${pillar.pillar_number}`}
-                </div>
-                <div className="text-xs font-bold text-sbb-black">{pillar.title}</div>
-                <p className="text-[11px] text-zinc-700 leading-snug">{pillar.core_thesis}</p>
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-
-      {/* ═══ BLOCK 02: WORLD REGION SYNTHESIS MATRIX ═══ */}
-      <div className="space-y-3">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-          <div className="flex items-center gap-3">
-            <span className="w-7 h-7 bg-sbb-black text-white font-mono text-xs font-bold flex items-center justify-center">
-              02
-            </span>
-            <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-stone">
-              {isEn ? 'REGIONAL BREAKDOWN ACROSS MEDIA, FORUMS & AI SEARCH' : 'REGIONALER VERGLEICH: MEDIEN, FOREN & KI-SUCHE'}
-            </span>
-          </div>
-
-          <div className="flex items-center gap-2 font-mono text-[10px] text-sbb-stone uppercase bg-white border border-sbb-aluminum px-3 py-1">
-            <Filter className="w-3 h-3 text-sbb-red" />
-            <span>{isEn ? 'Header Region Scope:' : 'Regionsfilter (Header):'}</span>
-            <span className="font-bold text-sbb-black">{selectedRegion.toUpperCase()}</span>
-          </div>
-        </div>
-
-        {/* Dense Industrial Brutalist Matrix Table */}
-        <div className="bg-white border border-sbb-aluminum overflow-x-auto">
-          <table className="w-full text-left border-collapse">
-            <thead>
-              <tr className="bg-sbb-cloud/80 border-b border-sbb-aluminum text-[10px] font-mono uppercase text-sbb-stone">
-                <th className="p-4 font-bold">{isEn ? 'REGION & TOPIC' : 'REGION & THEMA'}</th>
-                <th className="p-4 font-bold">{isEn ? 'VOLUME & ALIGNMENT' : 'VOLUMEN & PASSUNG'}</th>
-                <th className="p-4 font-bold">{isEn ? 'PRESS & TRADE MEDIA' : 'LEIT- & FACHMEDIEN'}</th>
-                <th className="p-4 font-bold">{isEn ? 'FORUMS & SOCIAL MEDIA' : 'SOCIAL MEDIA & FOREN'}</th>
-                <th className="p-4 font-bold">{isEn ? 'AI SEARCH ANSWERS' : 'KI-SUCHANTWORTEN'}</th>
-                <th className="p-4 font-bold text-right">{isEn ? 'ACTIONS' : 'AKTION'}</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-zinc-200">
-              {displayedRows.map((row) => (
-                <tr 
-                  key={row.region_id}
-                  className="hover:bg-zinc-50/80 transition-colors group text-xs font-sans"
-                >
-                  {/* Col 1: Region */}
-                  <td className="p-4 align-top w-[220px]">
-                    <div className="font-bold text-sm text-sbb-black">{row.region_name}</div>
-                    <div className="text-[10px] font-mono text-sbb-stone mt-0.5">{row.regulatory_context}</div>
-                    <div className="mt-2">
-                      <span className={`inline-block px-2 py-0.5 text-[9px] font-mono uppercase border ${getStatusBadge(row.pull_through_status)}`}>
-                        {row.status_label}
-                      </span>
-                    </div>
-                  </td>
-
-                  {/* Col 2: Qualitative Signal Indicators */}
-                  <td className="p-4 align-top w-[220px] font-mono">
-                    <div className="space-y-2 text-[11px]">
-                      <div className="flex items-center justify-between gap-2">
-                        <span className="text-zinc-600">{isEn ? 'Volume:' : 'Volumen:'}</span>
-                        <span className={`px-1.5 py-0.5 text-[10px] font-bold border ${
-                          row.velocity_z_score >= 3.0
-                            ? 'bg-red-50 text-red-700 border-red-200'
-                            : row.velocity_z_score >= 2.0
-                            ? 'bg-amber-50 text-amber-800 border-amber-200'
-                            : 'bg-zinc-100 text-zinc-700 border-zinc-200'
-                        }`}>
-                          {row.velocity_z_score >= 3.0
-                            ? (isEn ? 'Unusual Surge' : 'Starker Anstieg')
-                            : row.velocity_z_score >= 2.0
-                            ? (isEn ? 'Elevated' : 'Erhöht')
-                            : (isEn ? 'Steady' : 'Ruhig')}
-                        </span>
-                      </div>
-                      <div className="flex items-center justify-between gap-2">
-                        <span className="text-zinc-600">{isEn ? 'Position Fit:' : 'Passung:'}</span>
-                        <span className={`px-1.5 py-0.5 text-[10px] font-bold border ${
-                          row.cosine_alignment < 0.45
-                            ? 'bg-red-50 text-red-700 border-red-200'
-                            : row.cosine_alignment > 0.7
-                            ? 'bg-emerald-50 text-emerald-800 border-emerald-200'
-                            : 'bg-amber-50 text-amber-800 border-amber-200'
-                        }`}>
-                          {row.cosine_alignment < 0.45
-                            ? (isEn ? 'Diverging' : 'Abweichend')
-                            : row.cosine_alignment > 0.7
-                            ? (isEn ? 'Aligned' : 'Stimmig')
-                            : (isEn ? 'Mixed' : 'Gemischt')}
-                        </span>
-                      </div>
-                      <p className="text-[11px] font-sans text-zinc-600 leading-snug pt-1 border-t border-zinc-100">
-                        {row.strategic_risk_summary}
-                      </p>
-                    </div>
-                  </td>
-
-                  {/* Col 3: Press & Trade Media */}
-                  <td className="p-4 align-top max-w-[260px]">
-                    <div className="flex items-center gap-1.5 text-[10px] font-mono font-bold text-zinc-500 uppercase mb-1">
-                      <Newspaper className="w-3.5 h-3.5 text-zinc-600" />
-                      <span>{isEn ? 'MAIN MEDIA ANGLE' : 'HAUPTTENOR MEDIEN'}</span>
-                    </div>
-                    <p className="text-zinc-800 leading-snug">
-                      {row.legacy_media_frame}
-                    </p>
-                  </td>
-
-                  {/* Col 4: Social Forums */}
-                  <td className="p-4 align-top max-w-[240px]">
-                    <div className="flex items-center gap-1.5 text-[10px] font-mono font-bold text-zinc-500 uppercase mb-1">
-                      <MessageSquare className="w-3.5 h-3.5 text-zinc-600" />
-                      <span>{isEn ? 'ONLINE DISCUSSION' : 'DISKUSSION IN FOREN'}</span>
-                    </div>
-                    <p className="text-zinc-800 leading-snug">
-                      {row.social_forum_frame}
-                    </p>
-                  </td>
-
-                  {/* Col 5: AI Answer Summary */}
-                  <td className="p-4 align-top max-w-[290px]">
-                    <div className="flex items-center justify-between text-[10px] font-mono font-bold uppercase mb-1.5">
-                      <span className="flex items-center gap-1 text-zinc-700">
-                        <Bot className="w-3.5 h-3.5 text-sbb-red" />
-                        <span>{isEn ? 'AI ANSWER SUMMARY' : 'KI-ZUSAMMENFASSUNG'}</span>
-                      </span>
-                      <span className={`px-1.5 py-0.5 border text-[10px] ${
-                        row.llm_hallucination_rate > 35 ? 'bg-red-50 text-red-700 border-red-200' : 'bg-emerald-50 text-emerald-800 border-emerald-200'
-                      }`}>
-                        {row.llm_hallucination_rate > 35
-                          ? (isEn ? 'Distortion Risk' : 'Verzerrungsrisiko')
-                          : (isEn ? 'Mostly Accurate' : 'Weitgehend korrekt')}
-                      </span>
-                    </div>
-                    <p className="text-zinc-800 leading-snug">
-                      {row.llm_synthesis_frame}
-                    </p>
-                  </td>
-
-                  {/* Col 6: Action */}
-                  <td className="p-4 align-top text-right whitespace-nowrap">
-                    <button
-                      onClick={() => {
-                        onSelectRegion(row.region_id);
-                        onNavigateTab('geo');
-                      }}
-                      className="px-3 py-1.5 bg-sbb-cloud hover:bg-zinc-200 border border-sbb-aluminum font-mono text-[10px] font-bold uppercase text-sbb-black transition-colors flex items-center gap-1 ml-auto cursor-pointer"
-                    >
-                      <span>{isEn ? 'Inspect Cluster' : 'Cluster prüfen'}</span>
-                      <ArrowRight className="w-3 h-3 text-sbb-red" />
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      {/* ═══ BLOCK 03: METHODOLOGY & BENCHMARK (DATA FUNNEL + TARGET NARRATIVE PILLARS) ═══ */}
-      <div className="space-y-6">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <span className="w-7 h-7 bg-sbb-black text-white font-mono text-xs font-bold flex items-center justify-center">
-              03
-            </span>
-            <span className="font-mono text-xs font-bold uppercase tracking-widest text-sbb-stone">
-              {isEn ? 'FILTERING PIPELINE & CORE NARRATIVE PILLARS' : 'FILTER-PIPELINE & KERNARGUMENTE'}
-            </span>
-          </div>
-          <span className="text-[10px] font-mono text-sbb-stone hidden sm:inline">
-            {isEn ? 'Approved Company Position' : 'Freigegebene Grundposition'}
-          </span>
-        </div>
-
-        {/* 4-Stage Statistical + LLM Filtering Pipeline Funnel */}
-        <div className="bg-white border border-sbb-aluminum p-6 space-y-3">
-          <div className="flex items-center justify-between text-[10px] font-mono uppercase tracking-wider text-sbb-stone font-bold">
-            <span>{isEn ? '4-STAGE FILTERING PIPELINE (LAST 72 HOURS)' : '4-STUFIGE FILTER-PIPELINE (LETZTE 72 STUNDEN)'}</span>
-            <span>{data.timeframe}</span>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-            {/* Step 1 */}
-            <div className="p-4 bg-sbb-cloud/60 border border-sbb-aluminum">
-              <div className="flex items-center justify-between text-[10px] font-mono text-sbb-stone mb-1 font-bold">
-                <span>01 // REMOVE DUPLICATES</span>
-                <span className="text-zinc-500">MinHash</span>
-              </div>
-              <div className="text-sm font-black text-sbb-black tracking-tight">
-                {isEn ? 'Collapse Wire Reprints' : 'Agentur-Dubletten bündeln'}
-              </div>
-              <p className="text-[11px] text-zinc-600 mt-1">
-                {isEn
-                  ? 'Groups syndicated copies so volume reflects distinct stories rather than wire echo.'
-                  : 'Fasst identische Agenturmeldungen zusammen, damit echte Themen sichtbar werden.'}
-              </p>
-            </div>
-
-            {/* Step 2 */}
-            <div className="p-4 bg-sbb-cloud/60 border border-sbb-aluminum">
-              <div className="flex items-center justify-between text-[10px] font-mono text-sbb-stone mb-1 font-bold">
-                <span>02 // GROUP BY TOPIC</span>
-                <span className="text-zinc-500">HDBSCAN</span>
-              </div>
-              <div className="text-sm font-black text-sbb-black tracking-tight">
-                {isEn ? 'Isolate Story Clusters' : 'Themen-Cluster trennen'}
-              </div>
-              <p className="text-[11px] text-zinc-600 mt-1">
-                {isEn
-                  ? 'Separates relevant policy and clinical debates from background off-topic chatter.'
-                  : 'Trennt relevante Fach- und Politikdebatten von themenfremdem Rauschen.'}
-              </p>
-            </div>
-
-            {/* Step 3 */}
-            <div className="p-4 bg-sbb-cloud/60 border border-sbb-aluminum">
-              <div className="flex items-center justify-between text-[10px] font-mono text-sbb-stone mb-1 font-bold">
-                <span>03 // SPOT VOLUME SPIKES</span>
-                <span className="text-sbb-red font-bold">z-Score + Cosine</span>
-              </div>
-              <div className="text-sm font-black text-sbb-red tracking-tight">
-                {isEn ? 'Flag Regional Surges' : 'Regionale Spikes melden'}
-              </div>
-              <p className="text-[11px] text-zinc-600 mt-1">
-                {data.pipeline.peak_anomaly_summary}
-              </p>
-            </div>
-
-            {/* Step 4 */}
-            <div className="p-4 bg-sbb-cloud/60 border border-sbb-aluminum">
-              <div className="flex items-center justify-between text-[10px] font-mono text-sbb-stone mb-1 font-bold">
-                <span>04 // AI READS KEY ARTICLES</span>
-                <span className="text-zinc-700 font-bold">LLM Pass</span>
-              </div>
-              <div className="text-sm font-black text-sbb-black tracking-tight">
-                {isEn ? 'Inspect Representative Texts' : 'Kernartikel prüfen'}
-              </div>
-              <p className="text-[11px] text-zinc-600 mt-1">
-                {isEn
-                  ? 'Instead of feeding raw article streams into an LLM, AI inspects only the core representative articles.'
-                  : 'Statt rohe Medienströme in ein LLM zu geben, prüft die KI nur die repräsentativsten Kernartikel.'}
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Target Corporate Narrative Pillars */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {data.target_narratives.map((pillar) => (
-            <div key={pillar.id} className="bg-white border border-sbb-aluminum p-6 flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between pb-2 border-b border-zinc-100">
-                  <span className="text-xs font-mono font-bold text-sbb-red">
-                    {isEn ? `PILLAR ${pillar.pillar_number}` : `SÄULE ${pillar.pillar_number}`}
-                  </span>
-                  <span className="text-[10px] font-mono text-zinc-500 truncate max-w-[200px]" title={pillar.target_vector_anchor}>
-                    {pillar.target_vector_anchor}
-                  </span>
-                </div>
-                <h3 className="font-bold text-base text-sbb-black mb-2">
-                  {pillar.title}
-                </h3>
-                <p className="text-xs text-zinc-700 leading-relaxed mb-4">
-                  {pillar.core_thesis}
-                </p>
-              </div>
-
-              <div className="pt-3 border-t border-zinc-100">
-                <div className="text-[10px] font-mono uppercase text-sbb-stone mb-1 font-bold">
-                  {isEn ? 'Mandatory Proof Points:' : 'Verbindliche Belege:'}
-                </div>
-                <ul className="space-y-1 text-[11px] text-zinc-600">
-                  {pillar.mandatory_proof_points.map((pt, idx) => (
-                    <li key={idx} className="flex items-start gap-1.5">
-                      <span className="text-sbb-red font-bold">›</span>
-                      <span>{pt}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* ═══ NEXT-STEP WORKFLOW BRIDGE (01 → 02) ═══ */}
-      <div className="bg-sbb-black text-white border-l-4 border-sbb-red px-5 py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-        <div className="space-y-1">
-          <div className="text-[10px] font-mono text-[#FFCC00] uppercase tracking-widest font-bold">
-            {isEn ? 'NEXT STEP IN WORKFLOW // MODULE 01 → MODULE 02' : 'NÄCHSTER PROZESSSCHRITT // MODUL 01 → MODUL 02'}
-          </div>
-          <p className="text-xs sm:text-sm text-zinc-200">
+          <p className="text-xs sm:text-sm text-zinc-700">
             {isEn
-              ? 'Statistical anomaly isolated. Inspect the representative cluster articles and audit how AI search engines synthesize or distort these facts.'
-              : 'Statistischer Spike isoliert. Prüfen Sie im nächsten Schritt die repräsentativen Cluster-Artikel und das KI-Antwort-Audit.'}
+              ? 'Click any stage in the pipeline to see how existing licensed feeds and public LLM APIs are processed before human teams act.'
+              : 'Klicken Sie auf eine Stufe, um zu sehen, wie lizenzierte Feeds und öffentliche LLM-APIs verarbeitet werden, bevor Teams handeln.'}
           </p>
         </div>
+
+        {/* 3 Stage Buttons */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          {stages.map(stage => {
+            const isActive = activeStage === stage.num;
+            return (
+              <button
+                key={stage.num}
+                type="button"
+                onClick={() => setActiveStage(stage.num)}
+                className={`p-4 border-2 text-left transition-all cursor-pointer flex flex-col justify-between gap-2 ${
+                  isActive
+                    ? 'border-sbb-red bg-red-50/30'
+                    : 'border-sbb-aluminum bg-sbb-cloud/60 hover:border-sbb-black hover:bg-white'
+                }`}
+              >
+                <div className="space-y-1">
+                  <div className={`font-mono text-xs font-black uppercase ${isActive ? 'text-sbb-red' : 'text-sbb-black'}`}>
+                    {isEn ? stage.titleEn : stage.titleDe}
+                  </div>
+                  <div className="font-mono text-[10px] font-bold text-zinc-600">{stage.tools}</div>
+                </div>
+                <p className="text-xs text-zinc-800 leading-relaxed">
+                  {isEn ? stage.summaryEn : stage.summaryDe}
+                </p>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Selected Stage Detail */}
+        <div className="p-4 sm:p-5 bg-sbb-black text-white border-l-4 border-[#FFCC00] space-y-2">
+          <div className="font-mono text-xs font-bold uppercase text-[#FFCC00]">
+            {isEn ? currentStage.titleEn : currentStage.titleDe} — {currentStage.tools}
+          </div>
+          <p className="text-xs sm:text-sm text-zinc-100 leading-relaxed">
+            {isEn ? currentStage.detailEn : currentStage.detailDe}
+          </p>
+        </div>
+
+        {/* Qualitative Pull-Through Output Table (Zero Fake Numbers) */}
+        <div className="space-y-2 pt-2">
+          <div className="font-mono text-[11px] font-bold uppercase tracking-wider text-zinc-600 flex items-center gap-1.5">
+            <BarChart3 className="w-3.5 h-3.5 text-sbb-red" />
+            <span>
+              {isEn
+                ? 'ILLUSTRATIVE OUTPUT FROM STAGE 3 (QUALITATIVE ASSESSMENT — NO INVENTED SCORES)'
+                : 'BEISPIEL-ERGEBNIS AUS STUFE 3 (QUALITATIVE EINSCHÄTZUNG – OHNE ERFUNDENE ZAHLEN)'}
+            </span>
+          </div>
+
+          <div className="overflow-x-auto border border-sbb-aluminum">
+            <table className="w-full text-left border-collapse text-xs">
+              <thead>
+                <tr className="bg-sbb-cloud border-b border-sbb-aluminum font-mono text-[10px] uppercase text-zinc-700">
+                  <th className="p-3">{isEn ? 'Channel / Topic Area' : 'Kanal / Themenfeld'}</th>
+                  <th className="p-3">{isEn ? 'Message Pull-Through' : 'Botschafts-Durchdringung'}</th>
+                  <th className="p-3">{isEn ? 'Where Work Is Needed' : 'Wo Handlungsbedarf besteht'}</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-zinc-200 bg-white">
+                <tr>
+                  <td className="p-3 font-bold text-sbb-black">
+                    {isEn ? 'Central Owned Strategy Pages' : 'Zentrale Strategie-Seiten'}
+                  </td>
+                  <td className="p-3">
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-emerald-50 border border-emerald-300 font-mono text-[10px] font-bold text-emerald-900">
+                      <CheckCircle2 className="w-3 h-3 shrink-0" />
+                      {isEn ? 'Core Facts Present' : 'Kernfakten vorhanden'}
+                    </span>
+                  </td>
+                  <td className="p-3 text-zinc-700">
+                    {isEn
+                      ? 'Move key facts higher so AI sub-queries don’t grab vague opening paragraphs.'
+                      : 'Kernfakten weiter nach oben ziehen, damit KI-Teilabfragen nicht bei vagen Einleitungen stoppen.'}
+                  </td>
+                </tr>
+                <tr>
+                  <td className="p-3 font-bold text-sbb-black">
+                    {isEn ? 'Regional & Cantonal Briefings / Archived PDFs' : 'Regionale / Kantonale Briefings & Alt-PDFs'}
+                  </td>
+                  <td className="p-3">
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-red-50 border border-red-300 font-mono text-[10px] font-bold text-sbb-red">
+                      <AlertTriangle className="w-3 h-3 shrink-0" />
+                      {isEn ? 'Discrepancy Detected' : 'Abweichung erkannt'}
+                    </span>
+                  </td>
+                  <td className="p-3 text-zinc-700">
+                    {isEn
+                      ? 'Older regional PDF conflicts with current global narrative in AI search answers.'
+                      : 'Älteres regionales PDF widerspricht dem aktuellen globalen Narrativ in KI-Antworten.'}
+                  </td>
+                </tr>
+                <tr>
+                  <td className="p-3 font-bold text-sbb-black">
+                    {isEn ? 'Earned Media & Trade Coverage' : 'Earned Media & Fachpresse'}
+                  </td>
+                  <td className="p-3">
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-amber-50 border border-amber-300 font-mono text-[10px] font-bold text-amber-900">
+                      {isEn ? 'Partial Pull-Through' : 'Teilweise Durchdringung'}
+                    </span>
+                  </td>
+                  <td className="p-3 text-zinc-700">
+                    {isEn
+                      ? 'Media quotes global investment figures well, but omits regional context—needs tailored briefing inputs.'
+                      : 'Medien zitieren globale Investitionen, lassen aber regionalen Kontext weg – braucht zugeschnittene Briefing-Inputs.'}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Navigation */}
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-2">
         <button
-          onClick={() => {
-            onNavigateTab('geo');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }}
-          className="px-4 py-2.5 bg-sbb-red hover:bg-red-700 text-white font-mono text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-2 cursor-pointer shrink-0 self-start sm:self-auto"
+          type="button"
+          onClick={() => onNavigateTab('overview')}
+          className="px-4 py-2.5 bg-white hover:bg-sbb-cloud border border-sbb-black font-mono text-xs font-bold uppercase tracking-wider text-sbb-black transition-colors flex items-center justify-center gap-2 cursor-pointer"
         >
-          <span>{isEn ? 'Proceed to 02: Cluster & AI Audit' : 'Weiter zu 02: Cluster & KI-Audit'}</span>
-          <ArrowRight className="w-4 h-4" />
+          <ArrowLeft className="w-3.5 h-3.5" />
+          <span>{isEn ? 'Back to 00 Overview' : 'Zurück zu 00 Überblick'}</span>
+        </button>
+
+        <button
+          type="button"
+          onClick={() => onNavigateTab('geo')}
+          className="px-5 py-2.5 bg-sbb-red hover:bg-sbb-red-125 text-white font-mono text-xs font-black uppercase tracking-wider transition-colors flex items-center justify-center gap-2 cursor-pointer"
+        >
+          <span>
+            {isEn
+              ? 'Therefore: 02 Top-Down GEO & Context Tailoring'
+              : 'Deshalb: 02 Top-Down GEO & Kontext-Anpassung'}
+          </span>
+          <ArrowRight className="w-3.5 h-3.5" />
         </button>
       </div>
     </div>

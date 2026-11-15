@@ -1,484 +1,335 @@
 import React, { useState } from 'react';
 import { Language } from '../../fixtures/scenarios';
-import { WorldRegionId } from '../../fixtures/cockpitFixtures';
+import { ActiveTab } from '../common/CommandHeader';
 import {
-  getTrendingData,
-  TrendingScenarioData,
-  ContentFormatId,
-  FormatBlueprint,
-  RegionalAdaptation,
-  SteeringMode,
-  getScenarioSourceRef,
-  getScenarioDiff,
-  getSteeredDraftContent
-} from '../../fixtures/trendingFixtures';
-import {
-  Check,
-  Copy,
+  AlertTriangle,
+  ArrowLeft,
+  CheckCircle2,
+  FileSpreadsheet,
   FileText,
-  HelpCircle,
-  Mic,
-  Share2,
-  Sparkles,
-  Database,
-  AlertOctagon,
-  Globe2,
-  Lock,
-  ArrowRight
+  Mail,
+  RefreshCw,
+  Users,
+  XCircle
 } from 'lucide-react';
 
 interface Props {
-  scenarioId: string;
   lang: Language;
-  selectedRegion: WorldRegionId;
-  onSelectRegion: (reg: WorldRegionId) => void;
-  onNavigateTab?: (tab: 'cockpit' | 'geo' | 'trending' | 'cascade') => void;
+  onNavigateTab: (tab: ActiveTab) => void;
 }
 
-export const TrendingFactoryView: React.FC<Props> = ({
-  scenarioId,
-  lang,
-  selectedRegion,
-  onNavigateTab
-}) => {
-  const data: TrendingScenarioData = getTrendingData(lang, scenarioId);
-  const [selectedFormat, setSelectedFormat] = useState<ContentFormatId>('hintergrund');
-  const [copied, setCopied] = useState(false);
-  const [showGovernanceDetails, setShowGovernanceDetails] = useState(false);
-  const [activeSteering, setActiveSteering] = useState<SteeringMode>(
-    scenarioId === 'rlt_access_debate' ? 'study_rigor' : 'plain'
-  );
-  const [showWordDiff, setShowWordDiff] = useState<boolean>(true);
+type ToolId = 'word' | 'excel' | 'outlook';
+
+export const TrendingFactoryView: React.FC<Props> = ({ lang, onNavigateTab }) => {
+  const [selectedTool, setSelectedTool] = useState<ToolId>('word');
   const isEn = lang === 'en';
 
-  React.useEffect(() => {
-    setActiveSteering(scenarioId === 'rlt_access_debate' ? 'study_rigor' : 'plain');
-  }, [scenarioId]);
-
-  const handleSelectFormat = (fmtId: ContentFormatId) => {
-    setSelectedFormat(fmtId);
-    if (fmtId === 'qa_brief') {
-      setActiveSteering('legal_boundary');
-    } else if (fmtId === 'social') {
-      setActiveSteering('plain');
-    } else if (fmtId === 'hintergrund' && scenarioId === 'rlt_access_debate') {
-      setActiveSteering('study_rigor');
+  const tools: Record<
+    ToolId,
+    {
+      name: string;
+      icon: React.ReactNode;
+      taskEn: string;
+      taskDe: string;
+      whyManualFailsEn: string;
+      whyManualFailsDe: string;
+      recipeActionEn: string;
+      recipeActionDe: string;
+      input1En: string;
+      input1De: string;
+      input2En: string;
+      input2De: string;
+      input3En: string;
+      input3De: string;
+      humanIterationEn: string;
+      humanIterationDe: string;
+    }
+  > = {
+    word: {
+      name: 'Word',
+      icon: <FileText className="w-4 h-4 shrink-0" />,
+      taskEn: 'Drafting an owned Corporate Story or regional stakeholder briefing.',
+      taskDe: 'Ausarbeiten einer Corporate Story oder eines regionalen Stakeholder-Briefings.',
+      whyManualFailsEn:
+        'When a story deadline is tight, writers rarely leave Word to search folders for a separate GEO rulebook PDF.',
+      whyManualFailsDe:
+        'Bei knappen Deadlines verlässt niemand Word, um in Ordnern nach einem separaten GEO-Handbuch-PDF zu suchen.',
+      recipeActionEn:
+        'Central Comms streams the narrative & GEO prompt recipe straight into a Word side-panel—checking structure and tone right beside the draft.',
+      recipeActionDe:
+        'Die zentrale Kommunikation streamt das Narrativ- & GEO-Prompt-Rezept direkt in eine Word-Seitenleiste neben dem Entwurf.',
+      input1En:
+        'Narrative adapted for an owned corporate story—keeping global commitments and regional anchors consistent.',
+      input1De:
+        'Narrativ zugeschnitten auf eine Corporate Story – mit abgestimmten globalen Zusagen und regionalen Ankern.',
+      input2En:
+        'Answer-first summary block + self-contained headings so AI sub-queries cite the main point accurately.',
+      input2De:
+        'Answer-First-Einstieg + eigenständige Absätze, damit KI-Teilabfragen den Kernpunkt exakt erfassen.',
+      input3En:
+        'Flag from Outside-In: "Older 2022 footprint PDFs still surface in search; make current timeline explicit."',
+      input3De:
+        'Hinweis aus Outside-In: «Ältere 2022er PDFs tauchen noch in der Suche auf – aktuellen Zeitplan explizit nennen.»',
+      humanIterationEn:
+        'The writer refines voice, adds real human stories and examples, aligns with regional stakeholders, and signs off.',
+      humanIterationDe:
+        'Das Team feilt an Tonalität, ergänzt konkrete Beispiele, stimmt sich mit regionalen Stakeholdern ab und gibt frei.'
+    },
+    excel: {
+      name: 'Excel',
+      icon: <FileSpreadsheet className="w-4 h-4 shrink-0" />,
+      taskEn: 'Maintaining integrated editorial plans and multi-market stakeholder Q&A matrices.',
+      taskDe: 'Pflege integrierter Redaktionspläne und länderübergreifender Q&A-Matrizen.',
+      whyManualFailsEn:
+        'In multi-tab spreadsheets shared across corporate, commercial, and regional teams, core facts quietly drift across rows.',
+      whyManualFailsDe:
+        'In grossen Tabellen über Corporate-, Commercial- und Regionalteams driften Kernaussagen leicht zwischen den Zeilen auseinander.',
+      recipeActionEn:
+        'Prompt recipes distributed inside Excel help teams structure Q&As for AI clarity and flag inconsistent facts across regional tabs.',
+      recipeActionDe:
+        'Direkt in Excel bereitgestellte Prompt-Rezepte helfen, Q&As klar für KI-Suche zu strukturieren und Widersprüche zwischen Tabs zu erkennen.',
+      input1En:
+        'Context-tailored Q&A rows tailored per target audience without losing alignment with the central core position.',
+      input1De:
+        'Auf Zielgruppen zugeschnittene Q&A-Einträge ohne Abweichung von der zentralen Kernposition.',
+      input2En:
+        'Concise, affirmative answer structure per cell so published FAQ pages don’t repeat rumour wording.',
+      input2De:
+        'Prägnante, positive Antwortstruktur je Zelle, damit spätere FAQs keine Gerüchte wiederholen.',
+      input3En:
+        'Flag from Outside-In: "Online forums are comparing Q2 global launch dates against un-updated regional tables."',
+      input3De:
+        'Hinweis aus Outside-In: «Foren vergleichen globale Q2-Daten mit nicht aktualisierten regionalen Tabellen.»',
+      humanIterationEn:
+        'Editorial leads decide prioritization across markets, resolve cross-functional dependencies, and approve final Q&As.',
+      humanIterationDe:
+        'Die Redaktionsleitung priorisiert Märkte, klärt funktionsübergreifende Abhängigkeiten und gibt die Q&As frei.'
+    },
+    outlook: {
+      name: 'Outlook',
+      icon: <Mail className="w-4 h-4 shrink-0" />,
+      taskEn: 'Replying quickly to an incoming media or regional stakeholder inquiry.',
+      taskDe: 'Schnelle Antwort auf eine eingehende Medien- oder Stakeholder-Anfrage.',
+      whyManualFailsEn:
+        'Email replies happen in minutes under high pressure—nobody opens a 30-page guideline document before replying.',
+      whyManualFailsDe:
+        'E-Mail-Antworten entstehen unter Zeitdruck in Minuten – niemand öffnet davor ein 30-seitiges Regelwerk.',
+      recipeActionEn:
+        'The prompt recipe appears right inside Outlook, assembling tailored core facts and Outside-In risk alerts next to the reply box.',
+      recipeActionDe:
+        'Das Prompt-Rezept erscheint direkt in Outlook und legt passende Kernfakten sowie Outside-In-Risiken neben das Antwortfeld.',
+      input1En:
+        'Concise, direct press-ready framing of the company narrative tailored specifically to the journalist’s question.',
+      input1De:
+        'Knappe, zitierfähige Einordnung des Kern-Narrativs, zugeschnitten auf die konkrete Medienfrage.',
+      input2En:
+        'Direct, self-contained two-sentence core statement placed first so quotes remain accurate if excerpted.',
+      input2De:
+        'Klare, eigenständige Zweisatz-Kernaussage am Anfang, damit Zitate auch gekürzt präzise bleiben.',
+      input3En:
+        'Flag from Outside-In: "Question echoes hostile framing from recent trade coverage—answer positively without repeating the accusation."',
+      input3De:
+        'Hinweis aus Outside-In: «Frage übernimmt kritisches Framing – positiv antworten, ohne den Vorwurf zu wiederholen.»',
+      humanIterationEn:
+        'The spokesperson reviews nuance, checks legal/business sensitivities, adapts tone to the journalist relationship, and sends.',
+      humanIterationDe:
+        'Die Sprecherin prüft Nuancen und rechtliche Grenzen, passt den Ton an den Kontakt an und versendet selbst.'
     }
   };
 
-  const activeAdaptation: RegionalAdaptation =
-    data.regional_adaptations[selectedRegion] ||
-    data.regional_adaptations.all ||
-    Object.values(data.regional_adaptations)[0];
-
-  const blueprint: FormatBlueprint =
-    activeAdaptation.blueprints[selectedFormat] || activeAdaptation.blueprints.hintergrund;
-
-  const sourceRef = getScenarioSourceRef(scenarioId);
-  const activeDiff = getScenarioDiff(lang, scenarioId, activeSteering);
-  const steeredDraft = getSteeredDraftContent(lang, scenarioId, activeSteering, blueprint.blueprint_content);
-
-  const formatTabs: Array<{
-    id: ContentFormatId;
-    label: string;
-    subtitle: string;
-    icon: React.ElementType;
-  }> = [
-    {
-      id: 'hintergrund',
-      label: isEn ? 'Website & Study Briefing' : 'Website & Studien-Briefing',
-      subtitle: isEn ? 'Owned Media & AI Search' : 'Owned Media & KI-Suche',
-      icon: FileText
-    },
-    {
-      id: 'social',
-      label: isEn ? 'Social & Community' : 'Social & Community',
-      subtitle: isEn ? 'Plain-Language Channels' : 'Klare Alltagssprache',
-      icon: Share2
-    },
-    {
-      id: 'talking_points',
-      label: isEn ? 'Executive Talking Points' : 'Talking Points Führung',
-      subtitle: isEn ? 'Leadership & Interviews' : 'Führung & Interviews',
-      icon: Mic
-    },
-    {
-      id: 'qa_brief',
-      label: isEn ? 'Press Q&A & Legal Check' : 'Medien-Q&A & Rechtscheck',
-      subtitle: isEn ? 'Media Desk & [Open / Verify]' : 'Medienstelle & [Offen / Prüfen]',
-      icon: HelpCircle
-    }
-  ];
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText(steeredDraft);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
+  const active = tools[selectedTool];
 
   return (
-    <div className="space-y-6">
-      {/* ═══ WAYFINDING HEADER & INTERNAL SOURCE GOVERNANCE BAR ═══ */}
-      <div className="bg-white border border-sbb-aluminum p-6 sm:p-8 space-y-5">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div>
-            <div className="flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-sbb-red uppercase mb-1.5">
-              <Sparkles className="w-4 h-4" />
+    <div className="max-w-6xl mx-auto space-y-6 pb-8">
+      {/* Header Banner */}
+      <div className="bg-white border border-sbb-black p-5 sm:p-7 space-y-2 shadow-xs">
+        <div className="inline-flex items-center gap-2 px-2.5 py-1 bg-sbb-black text-white font-mono text-[11px] font-bold uppercase tracking-wider">
+          <span className="text-[#FFCC00]">03 // ENABLEMENT & LIMITS</span>
+          <span>{isEn ? 'OFFICE RECIPES & HUMAN ITERATION' : 'OFFICE-REZEPTE & MENSCHLICHE ROLLE'}</span>
+        </div>
+        <h1 className="text-xl sm:text-2xl font-black text-sbb-black tracking-tight">
+          {isEn
+            ? 'Put prompt recipes inside Word, Excel & Outlook—and keep humans in the driver’s seat'
+            : 'Prompt-Rezepte direkt in Word, Excel & Outlook – und der Mensch behält die Steuerung'}
+        </h1>
+        <p className="text-sm text-zinc-700 max-w-4xl leading-relaxed">
+          {isEn
+            ? 'Lingering rulebook documents in folders get ignored when teams are in a hurry. Instead, Central Comms distributes prompt recipes through existing systems right into Word, Excel, and Outlook—delivering context without pretending an LLM can write a final statement in one shot.'
+            : 'Abgelegte Regel-Dokumente werden im hektischen Alltag übersehen. Stattdessen verteilt die zentrale Kommunikation Prompt-Rezepte über bestehende Systeme direkt in Word, Excel und Outlook – für sofortigen Nutzen, ohne ein fertiges Statement auf Knopfdruck zu versprechen.'}
+        </p>
+      </div>
+
+      {/* ═══ PART A: DAILY WORKPLACE TOOL SELECTOR ═══ */}
+      <div className="bg-white border border-sbb-aluminum p-5 sm:p-7 space-y-5 shadow-xs">
+        <div className="space-y-1 pb-4 border-b border-zinc-200">
+          <div className="font-mono text-xs font-black uppercase text-emerald-800">
+            {isEn
+              ? 'PART A // STREAMED RIGHT WHERE WORK HAPPENS (LOW FRICTION, IMMEDIATE BENEFIT)'
+              : 'TEIL A // DIREKT DORT, WO GEARBEITET WIRD (WENIG REIBUNG, SOFORTIGER NUTZEN)'}
+          </div>
+          <p className="text-xs sm:text-sm text-zinc-700">
+            {isEn
+              ? 'Select a daily workplace tool to see what Central Comms prompt recipes deliver inside it:'
+              : 'Wählen Sie ein tägliches Arbeitstool, um zu sehen, was die zentralen Prompt-Rezepte dort leisten:'}
+          </p>
+        </div>
+
+        {/* Tool Tabs: Word, Excel, Outlook */}
+        <div className="grid grid-cols-3 gap-2">
+          {(['word', 'excel', 'outlook'] as ToolId[]).map(toolId => {
+            const t = tools[toolId];
+            const isActive = selectedTool === toolId;
+            return (
+              <button
+                key={toolId}
+                type="button"
+                onClick={() => setSelectedTool(toolId)}
+                className={`p-3.5 border-2 font-mono text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center justify-center gap-2 ${
+                  isActive
+                    ? 'bg-sbb-black text-[#FFCC00] border-sbb-black'
+                    : 'bg-sbb-cloud text-sbb-black border-sbb-aluminum hover:bg-white hover:border-sbb-black'
+                }`}
+              >
+                {t.icon}
+                <span>{t.name}</span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Tool Comparison Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+          <div className="p-4 bg-[#F8F8F9] border border-zinc-300 space-y-1.5">
+            <div className="font-mono text-[10px] font-black uppercase text-zinc-600">
+              {isEn ? `Day-to-Day Task in ${active.name}` : `Typische Aufgabe in ${active.name}`}
+            </div>
+            <p className="text-xs sm:text-sm font-bold text-sbb-black leading-snug">
+              {isEn ? active.taskEn : active.taskDe}
+            </p>
+          </div>
+
+          <div className="p-4 bg-red-50/40 border border-red-300 space-y-1.5">
+            <div className="font-mono text-[10px] font-black uppercase text-sbb-red flex items-center gap-1.5">
+              <XCircle className="w-3.5 h-3.5 shrink-0" />
+              <span>{isEn ? 'Why Static Rulebooks Fail Here' : 'Warum statische Regelwerke scheitern'}</span>
+            </div>
+            <p className="text-xs sm:text-sm text-red-950 leading-relaxed">
+              {isEn ? active.whyManualFailsEn : active.whyManualFailsDe}
+            </p>
+          </div>
+
+          <div className="p-4 bg-emerald-50/40 border-2 border-emerald-700 space-y-1.5">
+            <div className="font-mono text-[10px] font-black uppercase text-emerald-900 flex items-center gap-1.5">
+              <CheckCircle2 className="w-3.5 h-3.5 shrink-0 text-emerald-700" />
+              <span>{isEn ? `Inside ${active.name} (Prompt Recipe)` : `Direkt in ${active.name} (Prompt-Rezept)`}</span>
+            </div>
+            <p className="text-xs sm:text-sm text-emerald-950 leading-relaxed font-medium">
+              {isEn ? active.recipeActionEn : active.recipeActionDe}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* ═══ PART B: REALISTIC LIMITATIONS — 3 INPUTS + HUMAN ITERATION ═══ */}
+      <div className="bg-white border border-sbb-aluminum p-5 sm:p-7 space-y-5 shadow-xs">
+        {/* Explicit Limitation Banner */}
+        <div className="p-4 bg-red-50 border-l-4 border-sbb-red border border-red-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div className="space-y-1">
+            <div className="font-mono text-xs font-black uppercase text-sbb-red flex items-center gap-1.5">
+              <AlertTriangle className="w-4 h-4 shrink-0" />
               <span>
                 {isEn
-                  ? 'STEP 3: APPROVED SOURCES & WORKFLOW RECIPES // MODULE 03'
-                  : 'SCHRITT 3: GEPRÜFTE QUELLEN & WORKFLOW-REZEPTE // MODUL 03'}
+                  ? 'PART B // HONEST LIMITATION: NO "ONE-SHOT, READY-TO-SEND" OUTPUT'
+                  : 'TEIL B // REALISTISCHE GRENZE: KEIN «ONE-SHOT, VERSANDFERTIGER» TEXT'}
               </span>
             </div>
-            <h1 className="text-2xl sm:text-3xl font-black text-sbb-black tracking-tight">
-              {isEn ? 'Approved Sources & In-Workflow Recipes' : 'Geprüfte Quellen & In-Workflow-Rezepte'}
-            </h1>
-            <p className="text-sm text-sbb-stone mt-1 max-w-3xl leading-relaxed">
+            <p className="text-xs sm:text-sm text-red-950 leading-relaxed">
               {isEn
-                ? 'Anchors verified core facts and shared writing rules directly inside daily drafting tools—adapting tone per channel while protecting technical precision and flagging legal gaps.'
-                : 'Verankert geprüfte Kernfakten und Schreibregeln direkt im Entwurfs-Werkzeug – passt den Ton je Kanal an, schützt Fachpräzision und markiert offene Rechtsfragen.'}
+                ? 'An LLM will never produce a finished, ready-to-send statement or corporate story in a single pass (at least for the time being). AI enforces the GEO framework and tailors the narratives; humans iterate.'
+                : 'Ein LLM wird (zumindest auf absehbare Zeit) niemals in einem einzigen Durchgang ein fertiges, versandbereites Statement oder eine fertige Story schreiben. Die KI sichert das GEO-Framework und schneidet Narrative zu; Menschen iterieren.'}
             </p>
           </div>
-
-          <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-sbb-cloud border border-sbb-aluminum font-mono text-xs text-sbb-black font-bold shrink-0 self-start md:self-auto">
-            <Lock className="w-3.5 h-3.5 text-sbb-red" />
-            <span>{sourceRef}</span>
-          </span>
         </div>
 
-        {/* Slim Internal Source Filter Bar (Zero fabricated file counts) */}
-        <div className="p-3.5 bg-sbb-cloud/60 border border-sbb-aluminum space-y-3">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-            <div className="flex flex-wrap items-center gap-2 text-xs font-mono">
-              <Database className="w-4 h-4 text-sbb-red shrink-0" />
-              <span className="font-bold uppercase text-sbb-black">
-                {isEn ? 'Source Governance:' : 'Quellen-Filter:'}
-              </span>
-              <span className="text-zinc-700">
-                <strong className="text-emerald-800">
-                  {isEn ? 'Active Approved Sources Indexed' : 'Aktive freigegebene Quellen geladen'}
-                </strong>
-                {' • '}
-                <strong className="text-sbb-red">
-                  {data.corpus_gate.legacy_conflicts_flagged}{' '}
-                  {isEn ? 'outdated regional files quarantined' : 'veraltete Länderdateien gesperrt'}
-                </strong>
-              </span>
-            </div>
-            <button
-              type="button"
-              onClick={() => setShowGovernanceDetails((prev) => !prev)}
-              className="text-[10px] font-mono font-bold text-sbb-black hover:text-sbb-red transition-colors cursor-pointer self-start sm:self-auto shrink-0"
-            >
-              {showGovernanceDetails
-                ? isEn
-                  ? '▲ Hide Quarantined Files'
-                  : '▲ Gesperrte Dateien ausblenden'
-                : isEn
-                ? '▼ Inspect Quarantined Files'
-                : '▼ Gesperrte Dateien prüfen'}
-            </button>
+        {/* 3 Concrete Inputs Packed for the Selected Tool */}
+        <div className="space-y-2">
+          <div className="font-mono text-[11px] font-bold uppercase tracking-wider text-zinc-600">
+            {isEn
+              ? `WHAT THE ${active.name.toUpperCase()} PROMPT RECIPE ACTUALLY HANDS THE COMMUNICATOR:`
+              : `WAS DAS ${active.name.toUpperCase()}-PROMPT-REZEPT KONKRET BEREITSTELLT:`}
           </div>
 
-          {showGovernanceDetails && data.corpus_gate.conflict_details?.length > 0 && (
-            <div className="pt-3 border-t border-zinc-200 space-y-2">
-              <div className="flex items-center gap-2 font-mono text-[10px] font-bold text-sbb-red uppercase">
-                <AlertOctagon className="w-3.5 h-3.5" />
-                <span>
-                  {isEn
-                    ? 'EXCLUDED FROM RECIPES (OUTDATED OR CONFLICTING FILES):'
-                    : 'FÜR REZEPTE GESPERRT (VERALTETE ODER WIDERSPRÜCHLICHE DATEIEN):'}
-                </span>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="p-4 bg-sbb-cloud border-l-4 border-emerald-700 border border-zinc-300 space-y-1.5">
+              <div className="font-mono text-[10px] font-black uppercase text-emerald-800">
+                {isEn ? 'Input 01 // Tailored Narrative' : 'Baustein 01 // Zugeschnittenes Narrativ'}
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                {data.corpus_gate.conflict_details.map((c, idx) => (
-                  <div key={idx} className="p-2.5 bg-white border border-red-200 text-[11px] space-y-0.5">
-                    <div className="font-mono font-bold text-sbb-black">
-                      {c.document_title}{' '}
-                      <span className="text-[10px] text-zinc-500 font-normal">({c.vault_location})</span>
-                    </div>
-                    <div className="text-zinc-700">{c.conflict_reason}</div>
-                    <div className="font-mono text-sbb-red font-bold">
-                      {isEn ? 'Action: ' : 'Massnahme: '}
-                      {c.action_required}
-                    </div>
-                  </div>
-                ))}
+              <p className="text-xs sm:text-sm text-sbb-black leading-relaxed">
+                {isEn ? active.input1En : active.input1De}
+              </p>
+            </div>
+
+            <div className="p-4 bg-sbb-cloud border-l-4 border-[#FFCC00] border border-zinc-300 space-y-1.5">
+              <div className="font-mono text-[10px] font-black uppercase text-zinc-700">
+                {isEn ? 'Input 02 // Structured GEO Frame' : 'Baustein 02 // Strukturiertes GEO-Framework'}
               </div>
+              <p className="text-xs sm:text-sm text-sbb-black leading-relaxed">
+                {isEn ? active.input2En : active.input2De}
+              </p>
             </div>
-          )}
-        </div>
-      </div>
 
-      {/* ═══ 2-COLUMN M365-STYLE WORKSPACE: GUARDRAILS (LEFT) + LIVE DRAFT (RIGHT) ═══ */}
-      <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 items-start">
-        {/* Left Rail: Central Guardrails & Rules */}
-        <div className="xl:col-span-4 bg-white border-2 border-sbb-black p-5 space-y-5">
-          <div className="pb-2.5 border-b border-zinc-200 flex items-center justify-between">
-            <span className="text-xs font-mono font-bold uppercase tracking-wider text-sbb-red">
-              {isEn ? 'CENTRAL GUARDRAILS' : 'ZENTRALE LEITPLANKEN'}
-            </span>
-            <span className="text-[10px] font-mono text-zinc-500">{sourceRef}</span>
-          </div>
-
-          <p className="text-xs sm:text-sm font-medium text-sbb-black leading-relaxed italic border-l-4 border-sbb-black pl-3.5 py-0.5">
-            «{data.global_core_thesis}»
-          </p>
-
-          <div className="space-y-2">
-            <div className="text-[10px] font-mono text-sbb-stone uppercase font-bold">
-              {isEn ? 'MANDATORY PROOF POINTS:' : 'VERBINDLICHE BELEGE:'}
+            <div className="p-4 bg-sbb-cloud border-l-4 border-sbb-red border border-zinc-300 space-y-1.5">
+              <div className="font-mono text-[10px] font-black uppercase text-sbb-red">
+                {isEn ? 'Input 03 // Outside-In Comm Risks' : 'Baustein 03 // Outside-In-Risiken'}
+              </div>
+              <p className="text-xs sm:text-sm text-sbb-black leading-relaxed">
+                {isEn ? active.input3En : active.input3De}
+              </p>
             </div>
-            <ul className="space-y-1.5 text-xs text-zinc-700">
-              {data.global_proof_points.map((pt, idx) => (
-                <li key={idx} className="flex items-start gap-2">
-                  <span className="text-emerald-700 font-bold">✓</span>
-                  <span>{pt}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="space-y-2">
-            <div className="text-[10px] font-mono text-sbb-red uppercase font-bold">
-              {isEn ? 'DO-NOT-SAY LIST:' : 'NO-GOS:'}
-            </div>
-            <ul className="space-y-1.5 text-xs text-red-950 bg-red-50/60 p-3 border border-red-200">
-              {data.global_guardrails.map((gr, idx) => (
-                <li key={idx} className="flex items-start gap-2">
-                  <span className="text-sbb-red font-bold">✗</span>
-                  <span>{gr}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="pt-3 border-t border-zinc-200 space-y-2">
-            <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-sbb-black">
-              {isEn ? '4 SHARED WRITING RULES:' : '4 SCHREIBREGELN:'}
-            </div>
-            <ol className="space-y-1 text-[11px] text-zinc-700 list-decimal list-inside">
-              <li>{isEn ? 'Lead with the main fact & numbers' : 'Kernaussage & Zahlen zuerst'}</li>
-              <li>{isEn ? 'Keep core facts aligned; adapt local voice' : 'Kernfakten gleich, Tonalität lokal'}</li>
-              <li>{isEn ? 'Never repeat an accusation to deny it' : 'Vorwürfe nicht zur Verneinung wiederholen'}</li>
-              <li>{isEn ? 'Answer directly, then cite approved facts' : 'Direkt antworten, dann Fakten nennen'}</li>
-            </ol>
           </div>
         </div>
 
-        {/* Right Workspace: Daily In-Workflow Draft Preview */}
-        <div className="xl:col-span-8 bg-white border border-sbb-aluminum">
-          {/* Format Selector Tabs */}
-          <div className="grid grid-cols-2 md:grid-cols-4 border-b border-sbb-aluminum bg-sbb-cloud/40">
-            {formatTabs.map((fmt) => {
-              const Icon = fmt.icon;
-              const isSelected = selectedFormat === fmt.id;
-
-              return (
-                <button
-                  key={fmt.id}
-                  onClick={() => handleSelectFormat(fmt.id)}
-                  className={`p-3.5 text-left border-r border-sbb-aluminum last:border-r-0 transition-all cursor-pointer ${
-                    isSelected ? 'bg-white border-b-2 border-b-sbb-red' : 'hover:bg-white/60 text-sbb-stone'
-                  }`}
-                >
-                  <div className="flex items-center gap-1.5 mb-0.5">
-                    <Icon className={`w-3.5 h-3.5 shrink-0 ${isSelected ? 'text-sbb-red' : 'text-zinc-400'}`} />
-                    <span
-                      className={`font-mono text-[11px] font-bold uppercase tracking-wider truncate ${
-                        isSelected ? 'text-sbb-black' : 'text-sbb-stone'
-                      }`}
-                    >
-                      {fmt.label}
-                    </span>
-                  </div>
-                  <div className="text-[10px] font-mono text-zinc-500 pl-5 truncate">{fmt.subtitle}</div>
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Active Region & Audience Strip */}
-          <div className="px-5 py-3 bg-zinc-50 border-b border-zinc-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <div>
-              <span className="font-mono text-[10px] uppercase text-sbb-stone font-bold mr-1.5">
-                {isEn ? 'Audience:' : 'Zielgruppe:'}
-              </span>
-              <span className="font-bold text-sbb-black">{blueprint.target_audience}</span>
-            </div>
-            <div className="flex items-center gap-1.5 font-mono text-[10px] text-sbb-stone">
-              <Globe2 className="w-3 h-3 text-sbb-red" />
-              <span className="font-bold text-sbb-black">
-                {selectedRegion.toUpperCase()} — {activeAdaptation.region_label}
+        {/* Human Iteration Final Step */}
+        <div className="p-5 bg-sbb-black text-white border-l-4 border-[#FFCC00] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="space-y-1.5">
+            <div className="font-mono text-xs font-black uppercase tracking-wider text-[#FFCC00] flex items-center gap-2">
+              <Users className="w-4 h-4 shrink-0" />
+              <span>
+                {isEn
+                  ? `HUMAN COMMUNICATOR ITERATION IN ${active.name.toUpperCase()}`
+                  : `MENSCHLICHE ITERATION IN ${active.name.toUpperCase()}`}
               </span>
             </div>
+            <p className="text-xs sm:text-sm text-zinc-200 leading-relaxed max-w-3xl">
+              {isEn ? active.humanIterationEn : active.humanIterationDe}
+            </p>
           </div>
-
-          {/* Live Steering Mode Selector + Draft Body */}
-          <div className="p-5 sm:p-6 space-y-4">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-              <div className="space-y-1">
-                <div className="text-[10px] font-mono font-bold uppercase text-sbb-stone">
-                  {isEn
-                    ? 'EDIT DEPTH MODE (TRANSFORMS DRAFT & DIFF BELOW):'
-                    : 'EINGRIFFSTIEFE (PASST ENTWURF & DIFF AN):'}
-                </div>
-                <div className="flex flex-wrap gap-1.5">
-                  {[
-                    {
-                      id: 'plain' as const,
-                      label: isEn ? '💬 Plain Language' : '💬 Alltagssprache'
-                    },
-                    {
-                      id: 'study_rigor' as const,
-                      label: isEn ? '🔬 Study & Technical Rigor' : '🔬 Studien- & Fachpräzision'
-                    },
-                    {
-                      id: 'legal_boundary' as const,
-                      label: isEn ? '⚖️ Legal & Q&A Boundary' : '⚖️ Rechtsgrenze & Q&A'
-                    }
-                  ].map((chip) => (
-                    <button
-                      key={chip.id}
-                      type="button"
-                      onClick={() => setActiveSteering(chip.id)}
-                      className={`px-3 py-1.5 font-mono text-[10px] font-bold border transition-colors cursor-pointer ${
-                        activeSteering === chip.id
-                          ? 'bg-sbb-black text-white border-sbb-black'
-                          : 'bg-white text-zinc-700 border-zinc-300 hover:border-sbb-black'
-                      }`}
-                    >
-                      {chip.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <div className="flex items-center gap-2 shrink-0 self-start sm:self-end">
-                <button
-                  type="button"
-                  onClick={() => setShowWordDiff((prev) => !prev)}
-                  className={`px-3 py-1.5 font-mono text-[10px] font-bold uppercase border transition-colors cursor-pointer ${
-                    showWordDiff
-                      ? 'bg-emerald-50 text-emerald-900 border-emerald-400'
-                      : 'bg-white text-zinc-700 border-zinc-300 hover:border-sbb-black'
-                  }`}
-                >
-                  {showWordDiff ? (isEn ? 'Hide Diff' : 'Diff aus') : isEn ? 'Show Diff' : 'Diff zeigen'}
-                </button>
-                <button
-                  type="button"
-                  onClick={handleCopy}
-                  className="px-3.5 py-1.5 bg-sbb-black hover:bg-zinc-800 text-white font-mono text-[10px] font-bold uppercase tracking-wider transition-all flex items-center gap-1.5 cursor-pointer"
-                >
-                  {copied ? (
-                    <>
-                      <Check className="w-3.5 h-3.5 text-emerald-400" />
-                      <span>{isEn ? 'Copied' : 'Kopiert'}</span>
-                    </>
-                  ) : (
-                    <>
-                      <Copy className="w-3.5 h-3.5 text-zinc-400" />
-                      <span>{isEn ? 'Copy Draft' : 'Entwurf kopieren'}</span>
-                    </>
-                  )}
-                </button>
-              </div>
-            </div>
-
-            {showWordDiff && (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 p-3 bg-zinc-50 border border-zinc-200 text-xs">
-                <div className="p-2.5 bg-red-50/60 border border-red-200 space-y-1">
-                  <div className="font-mono text-[10px] font-bold text-red-800 uppercase">
-                    {isEn ? 'REMOVED (RUSHED DRAFT TRAP):' : 'ENTFERNT (TYPISCHE FALLE):'}
-                  </div>
-                  <p className="text-red-900 line-through leading-snug">{activeDiff.removed}</p>
-                </div>
-
-                <div className="p-2.5 bg-emerald-50/70 border border-emerald-300 space-y-1">
-                  <div className="font-mono text-[10px] font-bold text-emerald-900 uppercase">
-                    {isEn ? `ANCHORED (${sourceRef}):` : `VERANKERT (${sourceRef}):`}
-                  </div>
-                  <p className="text-emerald-950 font-medium leading-snug">{activeDiff.added}</p>
-                </div>
-              </div>
-            )}
-
-            {/* Live Steered Draft Output */}
-            <div className="bg-sbb-cloud/40 p-5 sm:p-6 border-l-4 border-sbb-black text-sm text-sbb-black leading-relaxed space-y-3">
-              {steeredDraft.split('\n\n').map((block, bIdx) => {
-                const lines = block.split('\n');
-                const renderBold = (text: string) =>
-                  text.split('**').map((chunk, cIdx) =>
-                    cIdx % 2 === 1 ? (
-                      <strong key={cIdx} className="font-bold text-sbb-black">
-                        {chunk}
-                      </strong>
-                    ) : (
-                      chunk
-                    )
-                  );
-
-                return (
-                  <div key={bIdx} className="space-y-1.5">
-                    {lines.map((line, lIdx) => {
-                      const trimmed = line.trim();
-                      if (trimmed.startsWith('### ')) {
-                        return (
-                          <h5
-                            key={lIdx}
-                            className="font-mono text-xs font-black uppercase tracking-wider text-sbb-black pt-2 border-b border-zinc-200 pb-1"
-                          >
-                            {trimmed.replace(/^###\s+/, '').replace(/\*\*/g, '')}
-                          </h5>
-                        );
-                      }
-                      if (!trimmed) return null;
-                      return (
-                        <p key={lIdx} className="text-xs sm:text-sm text-zinc-900 leading-relaxed font-sans">
-                          {renderBold(line)}
-                        </p>
-                      );
-                    })}
-                  </div>
-                );
-              })}
-            </div>
-
-            <div className="text-[11px] font-mono text-zinc-600">
-              {isEn
-                ? 'Human Gate: Comms, Medical & Legal review wording and resolve any [Open / To verify] items before release.'
-                : 'Menschliche Freigabe: Kommunikation, Medizin & Recht prüfen den Text und klären offene Punkte vor Versand.'}
-            </div>
+          <div className="px-3 py-2 bg-zinc-900 border border-zinc-700 font-mono text-[11px] font-bold text-[#FFCC00] flex items-center gap-2 shrink-0 self-start sm:self-center">
+            <RefreshCw className="w-3.5 h-3.5" />
+            <span>{isEn ? 'Iterated with full context' : 'Mit vollem Kontext iteriert'}</span>
           </div>
         </div>
       </div>
 
-      {/* ═══ NEXT-STEP WORKFLOW BRIDGE (03 → 04) ═══ */}
-      {onNavigateTab && (
-        <div className="bg-sbb-black text-white border-l-4 border-sbb-red px-5 py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-          <div className="space-y-0.5">
-            <div className="text-[10px] font-mono text-[#FFCC00] uppercase tracking-widest font-bold">
-              {isEn ? 'NEXT STEP // MODULE 03 → MODULE 04' : 'NÄCHSTER SCHRITT // MODUL 03 → MODUL 04'}
-            </div>
-            <p className="text-xs sm:text-sm text-zinc-200">
-              {isEn
-                ? 'Draft grounded in approved facts. Now stress-test it against critical reactions and press inquiry traps.'
-                : 'Entwurf mit geprüften Fakten erstellt. Jetzt gegen kritische Reaktionen und Medienanfrage-Fallen testen.'}
-            </p>
-          </div>
-          <button
-            onClick={() => {
-              onNavigateTab('cascade');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-            className="px-4 py-2 bg-sbb-red hover:bg-red-700 text-white font-mono text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-2 cursor-pointer shrink-0 self-start sm:self-auto"
-          >
-            <span>{isEn ? 'Proceed to 04: Stress-Test & Inquiry' : 'Weiter zu 04: Stresstest & Anfrage'}</span>
-            <ArrowRight className="w-4 h-4" />
-          </button>
-        </div>
-      )}
+      {/* Bottom Navigation */}
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-2">
+        <button
+          type="button"
+          onClick={() => onNavigateTab('geo')}
+          className="px-4 py-2.5 bg-white hover:bg-sbb-cloud border border-sbb-black font-mono text-xs font-bold uppercase tracking-wider text-sbb-black transition-colors flex items-center justify-center gap-2 cursor-pointer"
+        >
+          <ArrowLeft className="w-3.5 h-3.5" />
+          <span>{isEn ? 'Back: 02 GEO & Tailoring' : 'Zurück: 02 GEO & Anpassung'}</span>
+        </button>
+
+        <button
+          type="button"
+          onClick={() => onNavigateTab('overview')}
+          className="px-5 py-2.5 bg-sbb-black hover:bg-zinc-800 text-[#FFCC00] font-mono text-xs font-black uppercase tracking-wider transition-colors flex items-center justify-center gap-2 cursor-pointer"
+        >
+          <span>{isEn ? 'Return to 00 Overview' : 'Zurück zu 00 Überblick'}</span>
+        </button>
+      </div>
     </div>
   );
 };

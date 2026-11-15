@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
-import { getScenarios, ScenarioMeta, Language } from './fixtures/scenarios';
-import { WorldRegionId } from './fixtures/cockpitFixtures';
+import { Language } from './fixtures/scenarios';
 import { CommandHeader, ActiveTab } from './components/common/CommandHeader';
-import { QuickTourBar, getTourSteps } from './components/common/QuickTourBar';
 import { ConceptMethodModal } from './components/common/ConceptMethodModal';
 import { NarrativeCockpitView } from './components/cockpit/NarrativeCockpitView';
 import { GeoAuditView } from './components/geo/GeoAuditView';
 import { TrendingFactoryView } from './components/trending/TrendingFactoryView';
-import { StressTestAndInquiryView } from './components/cascade/StressTestAndInquiryView';
 import { ConceptFlowView } from './components/overview/ConceptFlowView';
 
 const getInitialTab = (): ActiveTab => {
@@ -23,20 +20,7 @@ const getInitialTab = (): ActiveTab => {
 export const App: React.FC = () => {
   const [lang, setLang] = useState<Language>('en');
   const [activeTab, setActiveTab] = useState<ActiveTab>(getInitialTab);
-  const [selectedRegion, setSelectedRegion] = useState<WorldRegionId>('all');
   const [showConceptGuide, setShowConceptGuide] = useState<boolean>(false);
-  const [showQuickTour, setShowQuickTour] = useState<boolean>(false);
-  const [tourStep, setTourStep] = useState<number>(0);
-  
-  // Keep scenarios in sync with current language
-  const scenariosList = getScenarios(lang);
-  const [selectedScenarioId, setSelectedScenarioId] = useState<string>(scenariosList[0].id);
-
-  const selectedScenario = scenariosList.find(s => s.id === selectedScenarioId) || scenariosList[0];
-
-  const handleSelectScenario = (sc: ScenarioMeta) => {
-    setSelectedScenarioId(sc.id);
-  };
 
   const handleTabChange = (tab: ActiveTab) => {
     setActiveTab(tab);
@@ -53,36 +37,6 @@ export const App: React.FC = () => {
     }
   };
 
-  const handleSelectTourStep = (stepIndex: number) => {
-    const steps = getTourSteps(lang);
-    const target = steps[stepIndex];
-    if (!target) return;
-
-    setTourStep(stepIndex);
-    handleTabChange(target.targetTab);
-    if (target.targetRegion) {
-      setSelectedRegion(target.targetRegion);
-    }
-    if (typeof target.openConceptGuide === 'boolean') {
-      setShowConceptGuide(target.openConceptGuide);
-    }
-  };
-
-  const handleToggleQuickTour = () => {
-    if (activeTab === 'overview') {
-      setShowQuickTour(true);
-      handleSelectTourStep(0);
-      return;
-    }
-    setShowQuickTour(prev => {
-      const nextState = !prev;
-      if (nextState) {
-        handleSelectTourStep(0);
-      }
-      return nextState;
-    });
-  };
-
   const isEn = lang === 'en';
 
   return (
@@ -90,34 +44,10 @@ export const App: React.FC = () => {
       <CommandHeader
         activeTab={activeTab}
         setActiveTab={handleTabChange}
-        selectedScenario={selectedScenario}
-        scenariosList={scenariosList}
-        onSelectScenario={handleSelectScenario}
-        selectedRegion={selectedRegion}
-        onSelectRegion={setSelectedRegion}
         showConceptGuide={showConceptGuide}
         onToggleConceptGuide={() => setShowConceptGuide(prev => !prev)}
-        showQuickTour={showQuickTour}
-        onToggleQuickTour={handleToggleQuickTour}
-        currentTourStep={tourStep}
         lang={lang}
         setLang={setLang}
-      />
-
-      <QuickTourBar
-        isOpen={activeTab !== 'overview' && showQuickTour}
-        currentStep={tourStep}
-        onSelectStep={handleSelectTourStep}
-        onClose={() => {
-          setShowQuickTour(false);
-          setShowConceptGuide(false);
-        }}
-        lang={lang}
-        onSelectScenarioById={setSelectedScenarioId}
-        selectedScenarioId={selectedScenario.id}
-        showConceptGuide={showConceptGuide}
-        onToggleConceptGuide={() => setShowConceptGuide(prev => !prev)}
-        onSelectRegion={setSelectedRegion}
       />
 
       <ConceptMethodModal
@@ -130,10 +60,7 @@ export const App: React.FC = () => {
         lang={lang}
       />
 
-      {/* Main Workspace Stage (with bottom padding for docked product tour) */}
-      <main className={`flex-1 max-w-[1600px] w-full mx-auto px-4 sm:px-8 py-6 lg:py-8 transition-all ${
-        activeTab !== 'overview' && showQuickTour ? 'pb-36 lg:pb-32' : 'pb-12'
-      }`}>
+      <main className="flex-1 max-w-[1600px] w-full mx-auto px-4 sm:px-8 py-6 lg:py-8 pb-12">
         {activeTab === 'overview' && (
           <ConceptFlowView
             lang={lang}
@@ -144,54 +71,37 @@ export const App: React.FC = () => {
 
         {activeTab === 'cockpit' && (
           <NarrativeCockpitView
-            scenarioId={selectedScenario.id}
             lang={lang}
-            selectedRegion={selectedRegion}
-            onSelectRegion={setSelectedRegion}
             onNavigateTab={handleTabChange}
           />
         )}
 
         {activeTab === 'geo' && (
           <GeoAuditView
-            scenarioId={selectedScenario.id}
             lang={lang}
-            selectedRegion={selectedRegion}
-            onSelectRegion={setSelectedRegion}
             onNavigateTab={handleTabChange}
           />
         )}
 
         {activeTab === 'trending' && (
           <TrendingFactoryView
-            scenarioId={selectedScenario.id}
             lang={lang}
-            selectedRegion={selectedRegion}
-            onSelectRegion={setSelectedRegion}
             onNavigateTab={handleTabChange}
-          />
-        )}
-
-        {activeTab === 'cascade' && (
-          <StressTestAndInquiryView
-            scenarioId={selectedScenario.id}
-            lang={lang}
           />
         )}
       </main>
 
-      {/* Industrial Brutalist Footer */}
       <footer className="bg-white border-t border-sbb-aluminum px-4 sm:px-8 py-5 mt-12 text-xs type-mono text-zinc-700">
         <div className="max-w-[1600px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex flex-wrap items-center gap-3">
             <div className="w-2.5 h-2.5 bg-sbb-red shrink-0" />
-            <span className="font-bold text-sbb-black">TERRAIN // COMMS & AI SEARCH PROTOTYPE</span>
+            <span className="font-bold text-sbb-black">TERRAIN // COMMS & AI SEARCH CONCEPT</span>
             <span className="text-zinc-600">//</span>
-            <span>{isEn ? 'Client-Side Prototype' : 'Interaktiver Prototyp'}</span>
+            <span>{isEn ? 'Interactive Concept Walkthrough' : 'Interaktive Konzept-Darstellung'}</span>
           </div>
           <div className="flex flex-wrap items-center gap-6">
             <span className="text-zinc-600">
-              {isEn ? 'Outside-In Monitoring ↔ Top-Down Playbooks' : 'Outside-In Monitoring ↔ Top-Down Playbooks'}
+              {isEn ? 'Outside-In Audit ↔ Top-Down GEO & Recipes' : 'Outside-In Analyse ↔ Top-Down GEO & Rezepte'}
             </span>
             <a
               href="https://github.com/Flx-xlF/strategic-analysis-app-case-study"
@@ -199,7 +109,7 @@ export const App: React.FC = () => {
               rel="noreferrer"
               className="text-sbb-black font-bold hover:text-sbb-red transition-colors underline underline-offset-4"
             >
-              {isEn ? 'SOURCE CODE & ARCHITECTURE' : 'QUELLCODE & DOKUMENTATION'}
+              {isEn ? 'SOURCE CODE & DOCUMENTATION' : 'QUELLCODE & DOKUMENTATION'}
             </a>
           </div>
         </div>

@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import { 
-  Database, 
-  Layers, 
-  BrainCircuit, 
-  Server, 
-  X 
+import {
+  Database,
+  Layers,
+  BrainCircuit,
+  Server,
+  X
 } from 'lucide-react';
 import { Language } from '../../fixtures/scenarios';
 
@@ -30,11 +30,11 @@ export const ConceptMethodModal: React.FC<Props> = ({ isOpen, onClose, onOpenFlo
   const isEn = lang === 'en';
 
   return (
-    <div 
+    <div
       className="fixed inset-0 z-[60] bg-black/60 flex items-start justify-center p-3 sm:p-6 overflow-y-auto"
       onClick={onClose}
     >
-      <div 
+      <div
         className="bg-[#FAF9F5] border-2 border-sbb-black shadow-[8px_8px_0px_0px_rgba(0,0,0,0.8)] max-w-5xl w-full my-6 p-6 sm:p-8 space-y-6"
         onClick={(e) => e.stopPropagation()}
       >
@@ -58,11 +58,11 @@ export const ConceptMethodModal: React.FC<Props> = ({ isOpen, onClose, onOpenFlo
         <div className="p-4 bg-white border-l-4 border-sbb-red border border-zinc-200 text-xs sm:text-sm text-sbb-black leading-relaxed">
           {isEn ? (
             <>
-              <strong>THE PREMISE:</strong> Search and AI assistants pull press coverage, forum threads, company pages, and old PDFs into a single answer. When regional teams publish conflicting facts, mixed figures, or leave outdated PDFs online—even when phrasing naturally varies by market—models mix them into contradictions. This prototype pairs external monitoring (<strong>Outside-In: 01–02</strong>) with fact-anchored regional drafting and stress-testing (<strong>Top-Down: 03–04</strong>).
+              <strong>THE SHIFT:</strong> Zero-click AI search decomposes a single question into 5–11 parallel sub-queries, pulling passages from press coverage, forums, owned pages, and legacy files into one context window at once. Discrepancies across central, regional, or cantonal teams dilute the company’s voice when AI models cross-reference them.
             </>
           ) : (
             <>
-              <strong>DER ANSATZ:</strong> Suchmaschinen und KI-Assistenten ziehen Presseberichte, Foren, eigene Seiten und alte PDFs in einer einzigen Antwort zusammen. Wenn regionale Angaben bei Fakten und Zahlen auseinanderlaufen – oder veraltete PDFs online bleiben –, entstehen Widersprüche (selbst wenn Tonalität lokal variiert). Dieser Prototyp verbindet externes Monitoring (<strong>Outside-In: 01–02</strong>) mit faktenbasierten Entwürfen und Stresstests (<strong>Top-Down: 03–04</strong>).
+              <strong>DER WANDEL:</strong> Zero-Click-KI-Suche zerlegt eine einzelne Frage in 5 bis 11 parallele Teilabfragen und zieht Passagen aus Presseberichten, Foren, eigenen Seiten und Altdateien gleichzeitig in ein einziges Kontextfenster. Abweichungen zwischen zentralen, regionalen oder kantonalen Teams verwässern die Stimme des Unternehmens, sobald KI-Modelle sie abgleichen.
             </>
           )}
         </div>
@@ -71,28 +71,28 @@ export const ConceptMethodModal: React.FC<Props> = ({ isOpen, onClose, onOpenFlo
           {/* Column 1 */}
           <div className="space-y-2 border-r border-zinc-200 pr-4 last:border-r-0">
             <div className="font-mono font-bold text-sbb-black uppercase tracking-wider flex items-center gap-1.5">
-              <Database className="w-3.5 h-3.5 text-sbb-red" />
-              <span>{isEn ? '1. STATISTICAL FILTERING FIRST' : '1. STATISTIK VOR KI'}</span>
+              <Layers className="w-3.5 h-3.5 text-sbb-red" />
+              <span>{isEn ? '1. TWO-WAY APPROACH & GEO' : '1. ZWEI-WEGE-ANSATZ & GEO'}</span>
             </div>
             <p>
               {isEn ? (
                 <>
-                  <strong>External feeds:</strong> Raw weekly article streams are too large to feed straight into an LLM. A 4-stage pipeline (removing duplicate reprints via MinHash &rarr; grouping by topic via HDBSCAN &rarr; spotting volume spikes via <em>z</em>-score &rarr; checking alignment via cosine) narrows noise down to representative articles before an LLM inspects them.
+                  <strong>Outside-In &amp; Top-Down:</strong> Audits where narratives lose pull-through in media and AI search (<strong>Outside-In</strong>), and enforces centrally defined and administered narratives plus channel-adapted <strong>GEO</strong> standards across earned media and owned Corporate Stories (<strong>Top-Down</strong>).
                 </>
               ) : (
                 <>
-                  <strong>Externe Feeds:</strong> Laufende wöchentliche Medienströme lassen sich nicht sinnvoll direkt in ein LLM geben. Eine 4-stufige Pipeline (Dubletten entfernen via MinHash &rarr; Themen gruppieren via HDBSCAN &rarr; Volumen-Spikes via <em>z</em>-Score &rarr; Cosinus-Abgleich) filtert zuerst auf repräsentative Artikel.
+                  <strong>Outside-In &amp; Top-Down:</strong> Prüft, wo Botschaften in Medien und KI-Suche nicht durchdringen (<strong>Outside-In</strong>), und verankert zentral definierte und verwaltete Narrative sowie kanalangepasste <strong>GEO</strong>-Standards über Earned Media und eigene Corporate Stories hinweg (<strong>Top-Down</strong>).
                 </>
               )}
             </p>
             <p>
               {isEn ? (
                 <>
-                  <strong>Internal files &amp; old PDFs:</strong> Filters repositories to active, approved Golden Sources and flags superseded public PDFs in regional folders so outdated figures don’t surface in search.
+                  <strong>Context tailoring, not copy-paste:</strong> Avoiding discrepancies does not mean robotically copy-pasting key messages. AI analyzes the given context and tailors the narrative organically to that context.
                 </>
               ) : (
                 <>
-                  <strong>Interne Dateien &amp; Alt-PDFs:</strong> Filtert Ablagen auf aktive, freigegebene Golden Sources und markiert veraltete öffentliche PDFs, damit keine überholten Zahlen in der Suche landen.
+                  <strong>Kontext-Anpassung statt Copy-Paste:</strong> Widersprüche zu vermeiden heisst nicht, Kernbotschaften stur zu kopieren. KI analysiert den jeweiligen Kontext und schneidet das Narrativ passgenau darauf zu.
                 </>
               )}
             </p>
@@ -101,28 +101,28 @@ export const ConceptMethodModal: React.FC<Props> = ({ isOpen, onClose, onOpenFlo
           {/* Column 2 */}
           <div className="space-y-2 border-r border-zinc-200 pr-4 last:border-r-0">
             <div className="font-mono font-bold text-sbb-black uppercase tracking-wider flex items-center gap-1.5">
-              <Layers className="w-3.5 h-3.5 text-sbb-red" />
-              <span>{isEn ? '2. TWO-WAY WORKFLOW' : '2. ZWEI-WEGE-ABLAUF'}</span>
+              <Database className="w-3.5 h-3.5 text-sbb-red" />
+              <span>{isEn ? '2. OUTSIDE-IN IT LAYER' : '2. OUTSIDE-IN IT-EBENE'}</span>
             </div>
             <p>
               {isEn ? (
                 <>
-                  <strong>Outside-In (01–02):</strong> Spots where trade coverage or regional forums are spiking even when automated sentiment looks neutral, and checks what AI search engines actually synthesize from those sources.
+                  <strong>External feeds &amp; APIs:</strong> Connects to licensed media and social aggregators (<strong>Factiva, Meltwater, Talkwalker</strong>) plus public LLM APIs to ingest ongoing article streams.
                 </>
               ) : (
                 <>
-                  <strong>Outside-In (01–02):</strong> Zeigt, wo Fachmedien oder Foren eskalieren, obwohl Standard-Sentiment neutral wirkt, und prüft, was KI-Suchmaschinen aus diesen Quellen machen.
+                  <strong>Externe Feeds &amp; APIs:</strong> Anbindung an lizenzierte Medien- und Social-Aggregatoren (<strong>Factiva, Meltwater, Talkwalker</strong>) sowie öffentliche LLM-APIs zur Erfassung laufender Artikelströme.
                 </>
               )}
             </p>
             <p>
               {isEn ? (
                 <>
-                  <strong>Top-Down (03–04):</strong> Instead of lengthy static PDF manuals that teams skip under time pressure, approved Golden Sources and four writing rules load directly into 1-click recipes inside Outlook and Word—using full plain language for websites/social, a light touch for clinical studies to protect scientific accuracy, and before/after draft stress-tests.
+                  <strong>Digestion &amp; analysis:</strong> Because these feeds produce huge amounts of data, streams are digested and transformed into structured data, then processed statistically and by LLMs to identify where messages come through and where work needs to be done.
                 </>
               ) : (
                 <>
-                  <strong>Top-Down (03–04):</strong> Statt umfangreicher statischer PDF-Leitfäden fliessen geprüfte Golden Sources und vier Schreibregeln direkt in 1-Klick-Rezepte für Outlook und Word – mit klarer Alltagssprache für Website/Social, einem schonenden Modus für klinische Studien zum Schutz der wissenschaftlichen Präzision sowie Stresstests vor Freigabe.
+                  <strong>Aufbereitung &amp; Analyse:</strong> Da diese Ströme enorme Datenmengen erzeugen, werden sie in strukturierte Daten überführt und anschliessend statistisch sowie per LLM ausgewertet, um zu erkennen, wo Botschaften durchdringen und wo Handlungsbedarf besteht.
                 </>
               )}
             </p>
@@ -131,28 +131,28 @@ export const ConceptMethodModal: React.FC<Props> = ({ isOpen, onClose, onOpenFlo
           {/* Column 3 */}
           <div className="space-y-2 border-r border-zinc-200 pr-4 last:border-r-0">
             <div className="font-mono font-bold text-sbb-black uppercase tracking-wider flex items-center gap-1.5">
-              <BrainCircuit className="w-3.5 h-3.5 text-sbb-red" />
-              <span>{isEn ? '3. REALISTIC LIMITS OF AI' : '3. REALISTISCHE GRENZEN'}</span>
+              <Server className="w-3.5 h-3.5 text-sbb-red" />
+              <span>{isEn ? '3. TOP-DOWN IT LAYER' : '3. TOP-DOWN IT-EBENE'}</span>
             </div>
             <p>
               {isEn ? (
                 <>
-                  <strong>Structure beats metadata tricks:</strong> Adding <code>Schema.org</code> tags or <code>llms.txt</code> does not fix vague copy. Clear conclusions and concrete numbers in the opening paragraph—plus avoiding repeating critic accusations (which search engines index directly alongside the company name)—hold up across repeated test runs. Same facts, flexible voice: AI search evaluates semantic fact consistency, not identical sentences—so tailoring tone, format, and examples locally creates organic copy without hurting GEO.
+                  <strong>No unread rulebook files:</strong> Establishing coherent narratives and frameworks top-down cannot rely on lingering rulebook documents—in a busy environment, teams overlook them in a hurry.
                 </>
               ) : (
                 <>
-                  <strong>Struktur vor Metadaten-Tricks:</strong> <code>Schema.org</code> oder <code>llms.txt</code> retten keine vage Prosa. Klare Kernaussagen und Zahlen im ersten Absatz – sowie der Verzicht auf wiederholte Vorwürfe (die Suchmaschinen sonst direkt mit dem Unternehmensnamen verknüpfen) – bestehen über wiederholte Testläufe. Gleiche Fakten, flexibler Ton: KI-Suche prüft semantische Faktenkonsistenz statt identischer Sätze – lokale Tonalität schadet GEO nicht.
+                  <strong>Keine ungelesenen Regel-Dokumente:</strong> Kohärente Narrative und Frameworks lassen sich nicht über abgelegte Dokumente durchsetzen, da diese im hektischen Alltag leicht übersehen werden.
                 </>
               )}
             </p>
             <p>
               {isEn ? (
                 <>
-                  <strong>No one-shot answers:</strong> LLMs organize facts and simulate stakeholder pushback; comms and legal teams still edit, calibrate tone, and sign off.
+                  <strong>In-workflow prompt recipes:</strong> Central Comms administers key narratives and GEO frameworks, translates them into prompt recipes, and streams them through existing company systems right where work is done: inside <strong>Word, Excel, and Outlook</strong>—reducing friction so teams benefit immediately and actually use them.
                 </>
               ) : (
                 <>
-                  <strong>Keine One-Shot-Texte:</strong> LLMs ordnen Fakten und simulieren Gegenwind; Überarbeitung, Tonalität und Freigabe bleiben bei Kommunikation und Recht.
+                  <strong>Prompt-Rezepte direkt im Workflow:</strong> Die zentrale Kommunikation übersetzt Kern-Narrative und GEO-Frameworks in Prompt-Rezepte und verteilt sie über bestehende Systeme direkt in <strong>Word, Excel und Outlook</strong> – mit minimaler Reibung und sofortigem Nutzen.
                 </>
               )}
             </p>
@@ -161,39 +161,28 @@ export const ConceptMethodModal: React.FC<Props> = ({ isOpen, onClose, onOpenFlo
           {/* Column 4 */}
           <div className="space-y-2">
             <div className="font-mono font-bold text-sbb-black uppercase tracking-wider flex items-center gap-1.5">
-              <Server className="w-3.5 h-3.5 text-sbb-red" />
-              <span>{isEn ? '4. ENTERPRISE IT FIT' : '4. IT-EINBETTUNG'}</span>
+              <BrainCircuit className="w-3.5 h-3.5 text-sbb-red" />
+              <span>{isEn ? '4. LIMITATIONS & HUMANS' : '4. GRENZEN & MENSCH'}</span>
             </div>
             <p>
               {isEn ? (
                 <>
-                  <strong>Existing infrastructure:</strong> Designed to sit on corporate cloud infrastructure (Azure/AWS, Databricks) rather than as a separate tool silo.
+                  <strong>No &ldquo;one-shot, ready-to-send&rdquo; output:</strong> An LLM will never produce a finished, ready-to-send statement or corporate story in a single pass (at least for the time being). AI enforces the GEO framework and tailors the narratives; humans iterate.
                 </>
               ) : (
                 <>
-                  <strong>Bestehende Infrastruktur:</strong> Gedacht als Modul auf bestehender Cloud-Infrastruktur (Azure/AWS, Databricks) statt als separates Tool-Silo.
+                  <strong>Kein «One-Shot, versandfertiger» Output:</strong> Ein LLM liefert in einem einzelnen Durchgang kein fertiges, versandbereites Statement oder eine fertige Corporate Story. Die KI sichert das GEO-Framework und passt Narrative an; der Mensch iteriert.
                 </>
               )}
             </p>
             <p>
               {isEn ? (
                 <>
-                  <strong>Connectors &amp; In-Workflow Recipes:</strong> Read-only links to <strong>Veeva Vault</strong> and <strong>SharePoint</strong> pull approved Golden Sources directly into <strong>M365 Copilot (Outlook / Word)</strong> recipes. Publishes server-rendered HTML for search crawlers (<strong>OAI-SearchBot, PerplexityBot, Claude-SearchBot</strong>); external feeds via Factiva/Meltwater.
+                  <strong>Full context for iteration:</strong> The system’s real value is giving teams tailored versions of the company’s key narrative, a structured GEO framework, and the most important communication risks derived from the Outside-In branch, so human communicators can iterate the final text with full context.
                 </>
               ) : (
                 <>
-                  <strong>Schnittstellen &amp; Workflow-Rezepte:</strong> Lese-Anbindung an <strong>Veeva Vault</strong> &amp; <strong>SharePoint</strong> lädt geprüfte Golden Sources direkt in <strong>M365 Copilot (Outlook / Word)</strong>. Publiziert Server-Rendered HTML für Suchcrawler (<strong>OAI-SearchBot, PerplexityBot, Claude-SearchBot</strong>); externe Feeds über Factiva/Meltwater.
-                </>
-              )}
-            </p>
-            <p>
-              {isEn ? (
-                <>
-                  <strong>Private AI Gateway:</strong> LLM requests route through the internal Enterprise AI Gateway with zero data retention and GDPR/FADP/GxP compliance.
-                </>
-              ) : (
-                <>
-                  <strong>Privates AI Gateway:</strong> Alle LLM-Anfragen laufen über das interne Enterprise AI Gateway ohne Datenspeicherung (DSGVO/DSG/GxP).
+                  <strong>Voller Kontext für die Ausarbeitung:</strong> Der eigentliche Wert liegt darin, den Teams zugeschnittene Versionen des Kern-Narrativs, ein strukturiertes GEO-Framework und die wichtigsten Kommunikationsrisiken aus dem Outside-In-Zweig zu liefern, damit Kommunikatoren den finalen Text fundiert iterieren können.
                 </>
               )}
             </p>
@@ -207,7 +196,7 @@ export const ConceptMethodModal: React.FC<Props> = ({ isOpen, onClose, onOpenFlo
               onClick={onOpenFlowView}
               className="px-4 py-1.5 bg-[#FFCC00] hover:bg-amber-300 text-sbb-black border border-sbb-black font-mono text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer"
             >
-              {isEn ? '← Back to Concept Overview' : '← Zurück zum Konzept-Überblick'}
+              {isEn ? '← Back to Visual Overview' : '← Zurück zur Übersicht'}
             </button>
           ) : (
             <span />
