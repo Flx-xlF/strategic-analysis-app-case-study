@@ -481,14 +481,8 @@ export const TrendingFactoryView: React.FC<Props> = ({ lang, onNavigateTab }) =>
 
       {/* ═══ PERSONAL CLOSING EPILOGUE: OPEN CANVAS (NO BOXES) ═══ */}
       <section className="pt-10 pb-6 px-2 sm:px-4">
-        {/* Subtle Editorial Rule Separating the Case Study Boxes from the Human Epilogue */}
-        <div className="flex items-center gap-4 mb-8">
-          <div className="h-px flex-1 bg-zinc-300" />
-          <span className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-500">
-            {isEn ? 'Beyond the Prototype // Personal Epilogue' : 'Hinter dem Prototyp // Persönlicher Epilog'}
-          </span>
-          <div className="h-px flex-1 bg-zinc-300" />
-        </div>
+        {/* Clean, Unlabeled Hairline Divider Separating the Case Study Boxes from the Personal Note */}
+        <div className="h-px w-full bg-zinc-300 mb-8" />
 
         {animStep === 0 ? (
           /* STATE 0: Pre-Click CTA on the Open Gray Canvas */
@@ -516,17 +510,13 @@ export const TrendingFactoryView: React.FC<Props> = ({ lang, onNavigateTab }) =>
           <div className="max-w-4xl mx-auto space-y-6">
             {/* Act 1: The Struck-Through Cliché Directly on the Gray Background */}
             <div className="space-y-2">
-              <div className="relative inline-block max-w-full">
-                <p className="text-xs sm:text-sm font-mono text-zinc-400 italic">
+              <p className="text-xs sm:text-sm font-mono text-zinc-400 italic leading-relaxed">
+                <span className="terrain-inline-strike">
                   {isEn
                     ? '«Thank you for reviewing my application. As a passionate storyteller and AI enthusiast, I look forward to driving synergies…»'
                     : '«Vielen Dank für Ihr Interesse. Als leidenschaftlicher Storyteller und KI-Enthusiast freue ich mich auf Synergien…»'}
-                </p>
-                <span
-                  aria-hidden="true"
-                  className="terrain-strike-sweep absolute left-0 right-0 top-1/2 h-[2px] bg-sbb-red pointer-events-none"
-                />
-              </div>
+                </span>
+              </p>
 
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <span className="font-mono text-xs font-black uppercase tracking-wider text-sbb-red">
@@ -587,11 +577,11 @@ export const TrendingFactoryView: React.FC<Props> = ({ lang, onNavigateTab }) =>
                 )}
               </p>
 
-              <p className="pt-2 text-lg sm:text-2xl font-black text-sbb-black tracking-tight">
-                <span className="border-b-4 border-[#FFCC00] pb-0.5">
+              <p className="pt-2 border-l-4 border-[#FFCC00] pl-4 text-lg sm:text-2xl font-black text-sbb-black tracking-tight">
+                <span>
                   {isEn
-                    ? 'If that is the kind of unconventional thinking you want on your team—let’s go down this path together.'
-                    : 'Wenn Sie genau dieses unkonventionelle Denken im Team suchen: Lassen Sie uns diesen Weg gemeinsam gehen.'}
+                    ? 'If this is the kind of mindset and hands-on energy you want on your team—let’s go down this path together.'
+                    : 'Wenn Sie genau diese Haltung und Macher-Energie in Ihrem Team suchen – lassen Sie uns diesen Weg gemeinsam gehen.'}
                 </span>
                 <span className="terrain-cursor-blink inline-block ml-2 text-sbb-red" aria-hidden="true">
                   ▋
