@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Language } from '../../fixtures/scenarios';
 import { ActiveTab } from '../common/CommandHeader';
 import {
@@ -9,6 +9,7 @@ import {
   FileText,
   Mail,
   RefreshCw,
+  RotateCcw,
   Users,
   XCircle
 } from 'lucide-react';
@@ -22,7 +23,42 @@ type ToolId = 'docs' | 'browser' | 'email';
 
 export const TrendingFactoryView: React.FC<Props> = ({ lang, onNavigateTab }) => {
   const [selectedTool, setSelectedTool] = useState<ToolId>('docs');
+  const [animStep, setAnimStep] = useState<0 | 1 | 2>(0);
+  const hasTriggeredRef = useRef(false);
+  const closingCardRef = useRef<HTMLDivElement | null>(null);
+  const timersRef = useRef<number[]>([]);
   const isEn = lang === 'en';
+
+  const runRedlineSequence = useCallback(() => {
+    timersRef.current.forEach(t => window.clearTimeout(t));
+    timersRef.current = [];
+    setAnimStep(0);
+
+    const t1 = window.setTimeout(() => setAnimStep(1), 850);
+    const t2 = window.setTimeout(() => setAnimStep(2), 1500);
+    timersRef.current = [t1, t2];
+  }, []);
+
+  useEffect(() => {
+    const el = closingCardRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      entries => {
+        if (entries[0]?.isIntersecting && !hasTriggeredRef.current) {
+          hasTriggeredRef.current = true;
+          runRedlineSequence();
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(el);
+    return () => {
+      observer.disconnect();
+      timersRef.current.forEach(t => window.clearTimeout(t));
+    };
+  }, [runRedlineSequence]);
 
   const tools: Record<
     ToolId,
@@ -355,6 +391,111 @@ export const TrendingFactoryView: React.FC<Props> = ({ lang, onNavigateTab }) =>
             <p className="text-xs sm:text-sm text-zinc-200 leading-relaxed">
               {isEn ? active.humanIterationEn : active.humanIterationDe}
             </p>
+          </div>
+        </div>
+      </div>
+
+      {/* ═══ PERSONAL CLOSING SIGN-OFF: LIVE HUMAN REDLINE ═══ */}
+      <div
+        ref={closingCardRef}
+        className="bg-white border-2 border-sbb-black shadow-xs overflow-hidden"
+      >
+        {/* Top Bar: Generic "One-Shot AI" Draft Being Struck Through */}
+        <div className="bg-[#F8F8F9] border-b border-zinc-300 px-5 sm:px-7 py-4 space-y-2">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <span className="font-mono text-[10px] font-black uppercase tracking-wider text-zinc-500">
+              {isEn ? 'STAGE 01 // GENERIC ONE-SHOT AI DRAFT' : 'STUFE 01 // GENERISCHER ONE-SHOT-KI-ENTWURF'}
+            </span>
+            <div className="flex items-center gap-2">
+              {animStep >= 1 && (
+                <span className="px-2 py-0.5 bg-sbb-red text-white font-mono text-[10px] font-black uppercase tracking-wider">
+                  {isEn ? '✗ REJECTED BY HUMAN — CLICHÉ DETECTED' : '✗ VOM MENSCHEN VERWORFEN — FLOSKEL'}
+                </span>
+              )}
+              <button
+                type="button"
+                onClick={runRedlineSequence}
+                className="inline-flex items-center gap-1 px-2 py-0.5 bg-white border border-zinc-300 hover:border-sbb-black font-mono text-[10px] font-bold text-zinc-700 hover:text-sbb-black transition-colors cursor-pointer"
+                title={isEn ? 'Replay animation' : 'Animation wiederholen'}
+              >
+                <RotateCcw className="w-3 h-3" />
+                <span>{isEn ? 'Replay' : 'Replay'}</span>
+              </button>
+            </div>
+          </div>
+
+          <div className="relative inline-block max-w-full">
+            <p
+              className={`text-xs sm:text-sm font-mono transition-colors duration-300 ${
+                animStep >= 1 ? 'text-zinc-400' : 'text-zinc-700'
+              }`}
+            >
+              {isEn
+                ? '«Thank you for reviewing my application. As a passionate storyteller and AI enthusiast, I look forward to driving synergies…»'
+                : '«Vielen Dank für Ihr Interesse. Als leidenschaftlicher Storyteller und KI-Enthusiast freue ich mich auf Synergien…»'}
+            </p>
+            {animStep >= 1 && (
+              <span
+                aria-hidden="true"
+                className="terrain-strike-sweep absolute left-0 right-0 top-1/2 h-[2px] bg-sbb-red pointer-events-none"
+              />
+            )}
+          </div>
+        </div>
+
+        {/* Main Human Sign-Off Reveal */}
+        <div
+          className={`bg-sbb-black text-white border-l-4 border-[#FFCC00] transition-all duration-700 ease-out overflow-hidden ${
+            animStep >= 2
+              ? 'max-h-[700px] opacity-100 p-6 sm:p-8'
+              : 'max-h-0 opacity-0 px-6 sm:px-8 py-0'
+          }`}
+        >
+          <div className="space-y-4 max-w-4xl">
+            <div className="font-mono text-[11px] font-black uppercase tracking-widest text-[#FFCC00]">
+              {isEn
+                ? 'FINAL ITERATION // A PERSONAL NOTE TO THE RECRUITING TEAM'
+                : 'FINALE ITERATION // EINE PERSÖNLICHE NACHRICHT AN DAS RECRUITING-TEAM'}
+            </div>
+
+            <h2 className="text-lg sm:text-2xl font-black tracking-tight text-white leading-snug">
+              {isEn
+                ? 'Why build an interactive prototype instead of just describing a mindset in a cover letter?'
+                : 'Warum einen interaktiven Prototyp bauen, statt eine Haltung nur im Anschreiben zu beschreiben?'}
+            </h2>
+
+            <div className="space-y-3 text-sm sm:text-[15px] text-zinc-200 leading-relaxed">
+              <p className="font-bold text-white">
+                {isEn
+                  ? 'Because a good narrative shouldn’t just be claimed—it should be experienced.'
+                  : 'Weil man ein gutes Narrativ nicht nur behaupten, sondern erlebbar machen sollte.'}
+              </p>
+              <p>
+                {isEn ? (
+                  <>
+                    I care deeply about what makes an argument stick, how a story holds together across channels, and
+                    how AI can fundamentally move corporate communications forward when we pair enthusiasm with realism.
+                    I love exploring new <em>terrain</em>, testing ideas hands-on, and turning complex shifts into
+                    clear, workable systems.
+                  </>
+                ) : (
+                  <>
+                    Mich treibt an, was ein Argument wirklich tragfähig macht, wie eine Geschichte über Kanäle hinweg
+                    zusammenhält und wie KI die Unternehmenskommunikation grundlegend weiterbringt – wenn man
+                    Begeisterung mit Realismus verbindet. Ich erkunde gerne neues <em>Terrain</em>, probiere Ideen
+                    praktisch aus und übersetze komplexe Veränderungen in klare, tragfähige Lösungen.
+                  </>
+                )}
+              </p>
+              <p className="pt-1 text-[#FFCC00] font-bold text-sm sm:text-base">
+                {isEn
+                  ? 'If that is the kind of unconventional thinking you want on your team—let’s go down this path together.'
+                  : 'Wenn Sie genau dieses unkonventionelle Denken im Team suchen: Lassen Sie uns diesen Weg gemeinsam gehen.'}
+                <span className="terrain-cursor-blink inline-block ml-1.5 text-[#FFCC00]" aria-hidden="true">
+                  ▋
+                </span>
+              </p>
+            </div>
           </div>
         </div>
       </div>

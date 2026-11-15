@@ -121,8 +121,37 @@ textarea {
   }
 }
 
+@keyframes terrain-strike-sweep {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes terrain-cursor-blink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+.terrain-strike-sweep {
+  transform-origin: left center;
+  animation: terrain-strike-sweep 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.terrain-cursor-blink {
+  animation: terrain-cursor-blink 1s step-end infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .animate-pulse {
+  .animate-pulse,
+  .terrain-strike-sweep,
+  .terrain-cursor-blink {
     animation: none !important;
   }
 }
