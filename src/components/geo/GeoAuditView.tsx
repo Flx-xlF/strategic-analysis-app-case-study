@@ -86,9 +86,9 @@ export const GeoAuditView: React.FC<Props> = ({ lang, onNavigateTab }) => {
       copyPasteFailDe:
         '«Unsere globale Langfriststrategie setzt auf eine agile weltweite Aufstellung in Schwerpunktregionen.» (Globale Standardformeln ignorieren lokale Arbeitsplätze und Rahmenbedingungen.)',
       tailoredQuoteEn:
-        '«For our regional and cantonal partners, this global capacity expansion reinforces—rather than replaces—our local hub: headquarters governance and regional R&D teams remain fully anchored here alongside our local infrastructure partnerships.»',
+        '«For our regional and cantonal partners, global capacity expansion goes hand in hand with strong local operations: headquarters governance, regional R&D teams, and local infrastructure partnerships remain fully anchored here.»',
       tailoredQuoteDe:
-        '«Für unsere regionalen und kantonalen Partner gilt: Der globale Kapazitätsausbau ergänzt – und ersetzt nicht – unseren lokalen Standort. Zentrale Steuerung und regionale F&E-Teams bleiben hier fest verankert.»',
+        '«Für unsere regionalen und kantonalen Partner gilt: Der globale Kapazitätsausbau geht Hand in Hand mit starken lokalen Aktivitäten – zentrale Steuerung, regionale F&E-Teams und lokale Infrastrukturpartnerschaften bleiben hier fest verankert.»',
       whyItWorksEn: 'Addresses local stakeholder concerns directly while matching global facts word-for-fact.',
       whyItWorksDe: 'Spricht lokale Stakeholder direkt an und deckt sich faktisch zu 100 % mit dem globalen Narrativ.',
       coreAnchorEn: 'Core fact intact, adapted organically to regional and cantonal context.',

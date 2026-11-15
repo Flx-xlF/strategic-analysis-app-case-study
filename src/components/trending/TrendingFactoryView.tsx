@@ -95,9 +95,9 @@ export const TrendingFactoryView: React.FC<Props> = ({ lang, onNavigateTab }) =>
       recipeActionDe:
         'Direkt in Excel bereitgestellte Prompt-Rezepte helfen, Q&As klar für KI-Suche zu strukturieren und Widersprüche zwischen Tabs zu erkennen.',
       input1En:
-        'Tailored Q&A row (Regional Tab): «Global capacity expansion complements—rather than replaces—regional R&D commitments and local partner programs.»',
+        'Tailored Q&A row (Regional Tab): «Global capacity expansion strengthens our network alongside anchored regional R&D commitments and active local partner programs.»',
       input1De:
-        'Zugeschnittene Q&A-Zeile (Regional-Tab): «Der globale Kapazitätsausbau ergänzt – und ersetzt nicht – regionale F&E-Zusagen und lokale Partnerschaften.»',
+        'Zugeschnittene Q&A-Zeile (Regional-Tab): «Der globale Kapazitätsausbau stärkt unser Netzwerk Seite an Seite mit fest verankerten regionalen F&E-Zusagen und aktiven lokalen Partnerschaften.»',
       input2En:
         '1. Keep each Q&A cell under 3 clear sentences. 2. Align Q2 dates across Global, Commercial, and Regional tabs.',
       input2De:
