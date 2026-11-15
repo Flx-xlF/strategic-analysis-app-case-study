@@ -95,27 +95,26 @@ export const App: React.FC = () => {
         )}
       </main>
 
-      <footer className="bg-white border-t border-sbb-aluminum px-4 sm:px-8 py-5 mt-12 text-xs type-mono text-zinc-700">
-        <div className="max-w-[1600px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex flex-wrap items-center gap-3">
-            <div className="w-2.5 h-2.5 bg-sbb-red shrink-0" />
-            <span className="font-bold text-sbb-black">TERRAIN // COMMS & AI SEARCH CONCEPT</span>
-            <span className="text-zinc-600">//</span>
-            <span>{isEn ? 'Interactive Concept Walkthrough' : 'Interaktive Konzept-Darstellung'}</span>
-          </div>
-          <div className="flex flex-wrap items-center gap-6">
-            <span className="text-zinc-600">
-              {isEn ? 'Outside-In Audit ↔ Top-Down GEO & Recipes' : 'Outside-In Analyse ↔ Top-Down GEO & Rezepte'}
+      <footer className="bg-white border-t border-sbb-aluminum px-4 sm:px-8 py-4 mt-12 text-xs type-mono text-zinc-600">
+        <div className="max-w-[1600px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div className="flex items-center gap-2.5">
+            <div className="w-2 h-2 bg-sbb-red shrink-0" />
+            <span className="font-bold text-sbb-black">TERRAIN</span>
+            <span className="text-zinc-400">·</span>
+            <span>
+              {isEn
+                ? 'Interactive Concept Prototype'
+                : 'Interaktiver Konzept-Prototyp'}
             </span>
-            <a
-              href="https://github.com/Flx-xlF/strategic-analysis-app-case-study"
-              target="_blank"
-              rel="noreferrer"
-              className="text-sbb-black font-bold hover:text-sbb-red transition-colors underline underline-offset-4"
-            >
-              {isEn ? 'SOURCE CODE & DOCUMENTATION' : 'QUELLCODE & DOKUMENTATION'}
-            </a>
           </div>
+          <a
+            href="https://github.com/Flx-xlF/strategic-analysis-app-case-study"
+            target="_blank"
+            rel="noreferrer"
+            className="text-sbb-black font-bold hover:text-sbb-red transition-colors underline underline-offset-4"
+          >
+            {isEn ? 'GitHub Repository & Documentation ↗' : 'GitHub-Repository & Dokumentation ↗'}
+          </a>
         </div>
       </footer>
     </div>

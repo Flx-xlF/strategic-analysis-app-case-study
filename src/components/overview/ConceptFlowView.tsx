@@ -840,49 +840,31 @@ export const ConceptFlowView: React.FC<Props> = ({
 
       {/* ═══ BOTTOM ACTION BAR: ENTER INTERACTIVE WALKTHROUGH ═══ */}
       <div className="pt-6">
-        <div className="bg-white border-2 border-sbb-black p-5 sm:p-6 flex flex-col lg:flex-row lg:items-center justify-between gap-4 shadow-xs">
+        <div className="bg-white border-2 border-sbb-black p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-xs">
           <div className="space-y-1">
             <div className="font-mono text-xs font-bold uppercase tracking-wider text-sbb-black flex items-center gap-2">
               <Sparkles className="w-4 h-4 text-sbb-red" />
               <span>
                 {isEn
-                  ? 'Explore the Interactive Deep-Dive (Modules 01–03)'
-                  : 'Die interaktive Vertiefung erkunden (Module 01–03)'}
+                  ? 'Next Step: Interactive Concept Deep-Dive (Modules 01–03)'
+                  : 'Nächster Schritt: Interaktive Vertiefung (Module 01–03)'}
               </span>
             </div>
             <p className="text-xs text-zinc-600">
               {isEn
-                ? 'Start at 01 Outside-In or jump straight to Top-Down GEO (02) and Office Recipes (03).'
-                : 'Starten Sie bei 01 Outside-In oder springen Sie direkt zu Top-Down GEO (02) und Office-Rezepten (03).'}
+                ? 'Step through the interactive scenarios in order—starting with 01 Outside-In: AI Search & Feeds.'
+                : 'Gehen Sie die interaktiven Szenarien Schritt für Schritt durch – beginnend mit 01 Outside-In: KI-Suche & Feeds.'}
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-2.5 shrink-0">
-            <button
-              type="button"
-              onClick={() => onEnterWorkspace('geo')}
-              className="px-3 py-2 bg-white hover:bg-sbb-cloud border border-sbb-black font-mono text-xs font-bold uppercase tracking-wider text-sbb-black transition-colors cursor-pointer"
-            >
-              {isEn ? '02 GEO & Tailoring' : '02 GEO & Anpassung'}
-            </button>
-
-            <button
-              type="button"
-              onClick={() => onEnterWorkspace('trending')}
-              className="px-3 py-2 bg-white hover:bg-sbb-cloud border border-sbb-black font-mono text-xs font-bold uppercase tracking-wider text-sbb-black transition-colors cursor-pointer"
-            >
-              {isEn ? '03 Office Recipes' : '03 Office-Rezepte'}
-            </button>
-
-            <button
-              type="button"
-              onClick={() => onEnterWorkspace('cockpit')}
-              className="px-5 py-2.5 bg-sbb-red hover:bg-sbb-red-125 text-white font-mono text-xs font-black uppercase tracking-wider transition-colors flex items-center gap-1.5 cursor-pointer"
-            >
-              <span>{isEn ? 'Start: 01 Outside-In' : 'Start: 01 Outside-In'}</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </button>
-          </div>
+          <button
+            type="button"
+            onClick={() => onEnterWorkspace('cockpit')}
+            className="px-5 py-2.5 bg-sbb-red hover:bg-sbb-red-125 text-white font-mono text-xs font-black uppercase tracking-wider transition-colors flex items-center gap-2 cursor-pointer shrink-0"
+          >
+            <span>{isEn ? 'Start Interactive Demo (01 Outside-In)' : 'Interaktive Demo starten (01 Outside-In)'}</span>
+            <ArrowRight className="w-4 h-4" />
+          </button>
         </div>
       </div>
     </div>
