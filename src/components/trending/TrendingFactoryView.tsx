@@ -579,15 +579,18 @@ export const TrendingFactoryView: React.FC<Props> = ({ lang, onNavigateTab }) =>
                   <>
                     I care deeply about what makes an argument stick, how a story holds together across channels, and
                     how AI can fundamentally move corporate communications forward when we pair enthusiasm with realism.
-                    I love exploring new <em>terrain</em>, testing ideas hands-on, and turning complex shifts into
-                    clear, workable systems.
+                    Having navigated heavily matrixed organizations firsthand, I know that new ideas only gain traction
+                    when they work for central and regional teams alike—which is why I love exploring new <em>terrain</em>,
+                    testing concepts hands-on, and turning complex shifts into clear, workable systems.
                   </>
                 ) : (
                   <>
                     Mich treibt an, was ein Argument wirklich tragfähig macht, wie eine Geschichte über Kanäle hinweg
                     zusammenhält und wie KI die Unternehmenskommunikation grundlegend weiterbringt – wenn man
-                    Begeisterung mit Realismus verbindet. Ich erkunde gerne neues <em>Terrain</em>, probiere Ideen
-                    praktisch aus und übersetze komplexe Veränderungen in klare, tragfähige Lösungen.
+                    Begeisterung mit Realismus verbindet. Aus eigener Erfahrung in stark vernetzten
+                    Matrix-Organisationen weiss ich, dass neue Ansätze nur dann greifen, wenn sie für zentrale wie
+                    regionale Teams gleichermassen funktionieren. Genau deshalb erkunde ich gerne neues <em>Terrain</em>,
+                    probiere Ideen praktisch aus und übersetze komplexe Veränderungen in klare, tragfähige Lösungen.
                   </>
                 )}
               </p>
