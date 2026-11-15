@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Language } from './fixtures/scenarios';
 import { CommandHeader, ActiveTab } from './components/common/CommandHeader';
 import { ConceptMethodModal } from './components/common/ConceptMethodModal';
@@ -22,6 +22,14 @@ export const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<ActiveTab>(getInitialTab);
   const [showConceptGuide, setShowConceptGuide] = useState<boolean>(false);
 
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    }
+  }, [activeTab]);
+
   const handleTabChange = (tab: ActiveTab) => {
     setActiveTab(tab);
     if (typeof window !== 'undefined') {
@@ -33,7 +41,6 @@ export const App: React.FC = () => {
         url.searchParams.set('view', 'demo');
       }
       window.history.replaceState({}, '', url.toString());
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
