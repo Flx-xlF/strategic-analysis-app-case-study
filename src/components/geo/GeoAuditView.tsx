@@ -29,6 +29,8 @@ export const GeoAuditView: React.FC<Props> = ({ lang, onNavigateTab }) => {
     {
       labelEn: string;
       labelDe: string;
+      resolvesBadgeEn: string;
+      resolvesBadgeDe: string;
       audienceEn: string;
       audienceDe: string;
       copyPasteFailEn: string;
@@ -44,6 +46,8 @@ export const GeoAuditView: React.FC<Props> = ({ lang, onNavigateTab }) => {
     earned: {
       labelEn: '1. Earned Media Response',
       labelDe: '1. Earned Media / Presseantwort',
+      resolvesBadgeEn: 'Resolves [Q1] Gap',
+      resolvesBadgeDe: 'Löst [Q1]-Lücke',
       audienceEn: 'Journalists and editors looking for direct, quotable answers under tight deadlines.',
       audienceDe: 'Journalistinnen und Redaktionen, die unter Zeitdruck direkte, zitierbare Fakten suchen.',
       copyPasteFailEn:
@@ -62,6 +66,8 @@ export const GeoAuditView: React.FC<Props> = ({ lang, onNavigateTab }) => {
     owned: {
       labelEn: '2. Owned Corporate Story',
       labelDe: '2. Owned Corporate Story',
+      resolvesBadgeEn: 'Resolves [Q2] Gap',
+      resolvesBadgeDe: 'Löst [Q2]-Lücke',
       audienceEn: 'Stakeholders, candidates, partners, and AI search crawlers reading full corporate web pages.',
       audienceDe: 'Stakeholder, Bewerbende, Partner und KI-Suchsysteme auf eigenen Unternehmensseiten.',
       copyPasteFailEn:
@@ -80,6 +86,8 @@ export const GeoAuditView: React.FC<Props> = ({ lang, onNavigateTab }) => {
     regional: {
       labelEn: '3. Regional / Cantonal Briefing',
       labelDe: '3. Regionales / Kantonales Briefing',
+      resolvesBadgeEn: 'Resolves [Q3–4] Collision',
+      resolvesBadgeDe: 'Löst [Q3–4]-Widerspruch',
       audienceEn: 'Cantonal authorities, local industry partners, and regional teams addressing local priorities.',
       audienceDe: 'Kantonale Behörden, lokale Partner und regionale Teams mit konkreten Standortfragen.',
       copyPasteFailEn:
@@ -253,20 +261,25 @@ export const GeoAuditView: React.FC<Props> = ({ lang, onNavigateTab }) => {
                   key={ctxId}
                   type="button"
                   onClick={() => setSelectedContext(ctxId)}
-                  className={`p-3 text-left font-mono text-xs font-bold transition-all cursor-pointer flex items-center gap-2 border-t-4 ${
+                  className={`p-3 text-left font-mono text-xs font-bold transition-all cursor-pointer flex flex-col gap-1 border-t-4 ${
                     isActive
                       ? 'bg-sbb-black text-white border-t-[#FFCC00]'
                       : 'bg-white text-zinc-700 border-t-transparent hover:bg-sbb-cloud hover:text-sbb-black'
                   }`}
                 >
-                  <span
-                    className={`px-1.5 py-0.5 text-[10px] font-black shrink-0 ${
-                      isActive ? 'bg-[#FFCC00] text-sbb-black' : 'bg-zinc-200 text-sbb-black'
-                    }`}
-                  >
-                    CH 0{idx + 1}
+                  <div className="flex items-center gap-2">
+                    <span
+                      className={`px-1.5 py-0.5 text-[10px] font-black shrink-0 ${
+                        isActive ? 'bg-[#FFCC00] text-sbb-black' : 'bg-zinc-200 text-sbb-black'
+                      }`}
+                    >
+                      CH 0{idx + 1}
+                    </span>
+                    <span>{(isEn ? ctx.labelEn : ctx.labelDe).replace(/^\d+\.\s*/, '')}</span>
+                  </div>
+                  <span className={`text-[10px] ${isActive ? 'text-[#FFCC00]' : 'text-sbb-red'}`}>
+                    {isEn ? ctx.resolvesBadgeEn : ctx.resolvesBadgeDe}
                   </span>
-                  <span>{(isEn ? ctx.labelEn : ctx.labelDe).replace(/^\d+\.\s*/, '')}</span>
                 </button>
               );
             })}
@@ -316,6 +329,20 @@ export const GeoAuditView: React.FC<Props> = ({ lang, onNavigateTab }) => {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* ═══ CAUSAL BRIDGE: PART A (TAILORED NARRATIVE) -> PART B (GEO STRUCTURE) ═══ */}
+      <div className="flex flex-col items-center -my-2">
+        <div className="w-0.5 h-4 bg-sbb-black" />
+        <div className="px-4 py-2 bg-sbb-black text-white border-l-4 border-[#FFCC00] font-mono text-[11px] font-bold uppercase tracking-wider flex items-center gap-2 text-center shadow-xs max-w-3xl">
+          <ArrowDown className="w-4 h-4 text-[#FFCC00] shrink-0" />
+          <span>
+            {isEn
+              ? 'Part A tailors the narrative to each audience. How do we ensure AI sub-queries [Q1–Q8] extract and quote those facts accurately? → Apply the 4 GEO Best Practices (Part B)'
+              : 'Teil A passt das Narrativ an die Zielgruppe an. Wie stellen wir sicher, dass KI-Teilabfragen [Q1–Q8] diese Fakten korrekt zitieren? → Die 4 GEO-Prinzipien (Teil B)'}
+          </span>
+        </div>
+        <div className="w-0.5 h-4 bg-sbb-black" />
       </div>
 
       {/* ═══ PART B: 4 PRACTICAL GEO BEST PRACTICES FOR NON-TECHIES ═══ */}
@@ -407,6 +434,20 @@ export const GeoAuditView: React.FC<Props> = ({ lang, onNavigateTab }) => {
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Handoff Strip: How 02 (Tailored Narratives + GEO Rules) Reaches Busy Teams in 03 */}
+        <div className="p-3.5 bg-sbb-cloud border-l-4 border-sbb-black border border-zinc-300 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
+          <div>
+            <strong className="font-mono uppercase text-sbb-black block sm:inline mr-2">
+              {isEn ? 'NEXT HURDLE → MODULE 03:' : 'NÄCHSTE HÜRDE → MODUL 03:'}
+            </strong>
+            <span className="text-zinc-700">
+              {isEn
+                ? 'If these tailored narratives (Part A) and 4 GEO rules (Part B) sit in a static PDF rulebook, busy teams overlook them. Module 03 streams them—plus Module 01’s risk alerts—directly into daily tools as Prompt Recipes.'
+                : 'Liegen diese angepassten Narrative (Teil A) und 4 GEO-Regeln (Teil B) nur in einem statischen PDF, gehen sie im Alltag unter. Modul 03 bringt sie – zusammen mit den Risiken aus Modul 01 – direkt als Prompt-Rezepte in die täglichen Tools.'}
+            </span>
           </div>
         </div>
       </div>

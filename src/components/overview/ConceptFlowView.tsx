@@ -153,34 +153,34 @@ export const ConceptFlowView: React.FC<Props> = ({
               </div>
               {[
                 {
-                  titleEn: 'Earned Media & Press',
-                  titleDe: 'Earned Media & Presse',
-                  subEn: 'Articles & journalist quotes',
-                  subDe: 'Artikel & Medienzitate'
-                },
-                {
-                  titleEn: 'Online Forums',
-                  titleDe: 'Online-Foren',
-                  subEn: 'Public discussion threads',
-                  subDe: 'Öffentliche Diskussionen'
+                  titleEn: 'Earned Media (Newspapers & Wires)',
+                  titleDe: 'Earned Media (Zeitungen & Agenturen)',
+                  subEn: 'Daily & business press, wire quotes [Q1]',
+                  subDe: 'Tages-/Wirtschaftspresse & Agenturen [Q1]'
                 },
                 {
                   titleEn: 'Owned Stories & Pages',
-                  titleDe: 'Owned Stories & Websites',
-                  subEn: 'Corporate web & exec channels',
-                  subDe: 'Unternehmensseiten & Exec-Kanäle'
+                  titleDe: 'Owned Stories & Seiten',
+                  subEn: 'Corporate web & strategy pages [Q2]',
+                  subDe: 'Unternehmensseiten & Strategie-Texte [Q2]'
                 },
                 {
                   titleEn: 'Regional Briefings & Legacy Files',
                   titleDe: 'Regionale Briefings & Altdateien',
-                  subEn: 'Cantonal / regional documents',
-                  subDe: 'Kantonale / regionale Dokumente'
+                  subEn: 'Cantonal / regional PDFs [Q3–4]',
+                  subDe: 'Kantonale / regionale PDFs [Q3–4]'
+                },
+                {
+                  titleEn: 'Online Forums',
+                  titleDe: 'Online-Foren',
+                  subEn: 'Public discussion threads [Q5–8]',
+                  subDe: 'Öffentliche Diskussionen [Q5–8]'
                 }
               ].map((ch, idx) => (
                 <div
                   key={ch.titleEn}
                   className={`p-2.5 bg-white border text-xs flex items-center justify-between gap-2 ${
-                    idx === 3 ? 'border-sbb-red bg-red-50/30' : 'border-sbb-aluminum'
+                    idx === 2 ? 'border-sbb-red bg-red-50/30' : 'border-sbb-aluminum'
                   }`}
                 >
                   <div className="min-w-0">
@@ -533,7 +533,7 @@ export const ConceptFlowView: React.FC<Props> = ({
                   Factiva, Meltwater, Talkwalker + Public LLM APIs
                 </div>
                 <div className="text-[11px] text-zinc-600">
-                  {isEn ? 'Huge raw article streams' : 'Enorme Mengen an Rohartikeln'}
+                  {isEn ? 'Newspapers, wires, forums & AI answers' : 'Zeitungen, Agenturen, Foren & KI-Antworten'}
                 </div>
               </div>
 

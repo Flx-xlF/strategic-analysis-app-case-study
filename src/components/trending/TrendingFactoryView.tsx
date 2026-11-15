@@ -390,27 +390,42 @@ export const TrendingFactoryView: React.FC<Props> = ({ lang, onNavigateTab }) =>
 
           <div className="p-4 sm:p-5 space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="p-4 bg-white border-l-4 border-emerald-700 border border-zinc-300 space-y-1.5">
-                <div className="font-mono text-[10px] font-black uppercase text-emerald-800">
-                  {isEn ? 'Input 01 // Tailored Key Narrative' : 'Baustein 01 // Zugeschnittenes Kern-Narrativ'}
+              <div className="p-4 bg-white border-l-4 border-emerald-700 border border-zinc-300 space-y-2">
+                <div className="flex flex-wrap items-center justify-between gap-1.5">
+                  <span className="font-mono text-[10px] font-black uppercase text-emerald-800">
+                    {isEn ? 'Input 01 // Tailored Key Narrative' : 'Baustein 01 // Zugeschnittenes Kern-Narrativ'}
+                  </span>
+                  <span className="px-1.5 py-0.5 bg-emerald-50 border border-emerald-200 font-mono text-[9px] font-bold uppercase text-emerald-900">
+                    {isEn ? 'FROM 02 // PART A' : 'AUS 02 // TEIL A'}
+                  </span>
                 </div>
                 <p className="text-xs sm:text-sm text-sbb-black leading-relaxed italic">
                   {isEn ? active.input1En : active.input1De}
                 </p>
               </div>
 
-              <div className="p-4 bg-white border-l-4 border-[#FFCC00] border border-zinc-300 space-y-1.5">
-                <div className="font-mono text-[10px] font-black uppercase text-zinc-700">
-                  {isEn ? 'Input 02 // Structured GEO Framework' : 'Baustein 02 // Strukturiertes GEO-Framework'}
+              <div className="p-4 bg-white border-l-4 border-[#FFCC00] border border-zinc-300 space-y-2">
+                <div className="flex flex-wrap items-center justify-between gap-1.5">
+                  <span className="font-mono text-[10px] font-black uppercase text-zinc-700">
+                    {isEn ? 'Input 02 // Structured GEO Framework' : 'Baustein 02 // Strukturiertes GEO-Framework'}
+                  </span>
+                  <span className="px-1.5 py-0.5 bg-amber-50 border border-amber-200 font-mono text-[9px] font-bold uppercase text-zinc-900">
+                    {isEn ? 'FROM 02 // PART B' : 'AUS 02 // TEIL B'}
+                  </span>
                 </div>
                 <p className="text-xs sm:text-sm text-sbb-black leading-relaxed">
                   {isEn ? active.input2En : active.input2De}
                 </p>
               </div>
 
-              <div className="p-4 bg-white border-l-4 border-sbb-red border border-zinc-300 space-y-1.5">
-                <div className="font-mono text-[10px] font-black uppercase text-sbb-red">
-                  {isEn ? 'Input 03 // Outside-In Comm Risks' : 'Baustein 03 // Outside-In-Risiken'}
+              <div className="p-4 bg-white border-l-4 border-sbb-red border border-zinc-300 space-y-2">
+                <div className="flex flex-wrap items-center justify-between gap-1.5">
+                  <span className="font-mono text-[10px] font-black uppercase text-sbb-red">
+                    {isEn ? 'Input 03 // Outside-In Comm Risks' : 'Baustein 03 // Outside-In-Risiken'}
+                  </span>
+                  <span className="px-1.5 py-0.5 bg-red-50 border border-red-200 font-mono text-[9px] font-bold uppercase text-sbb-red">
+                    {isEn ? 'FROM 01 // OUTSIDE-IN' : 'AUS 01 // OUTSIDE-IN'}
+                  </span>
                 </div>
                 <p className="text-xs sm:text-sm text-sbb-black leading-relaxed">
                   {isEn ? active.input3En : active.input3De}
