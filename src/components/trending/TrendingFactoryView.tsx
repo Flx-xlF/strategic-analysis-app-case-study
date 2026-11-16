@@ -10,7 +10,6 @@ import {
   FileText,
   Mail,
   RefreshCw,
-  RotateCcw,
   Users,
   XCircle
 } from 'lucide-react';
@@ -533,24 +532,12 @@ export const TrendingFactoryView: React.FC<Props> = ({ lang, onNavigateTab }) =>
                 </span>
               </p>
 
-              <div className="flex flex-wrap items-center justify-between gap-2">
+              <div>
                 <span className="font-mono text-xs font-black uppercase tracking-wider text-sbb-red">
                   {isEn
                     ? '✗ Let’s skip the generic cover-letter clichés.'
                     : '✗ Überspringen wir die üblichen Bewerbungs-Floskeln.'}
                 </span>
-
-                {animStep >= 2 && (
-                  <button
-                    type="button"
-                    onClick={runRedlineSequence}
-                    className="inline-flex items-center gap-1 font-mono text-[11px] font-bold text-zinc-500 hover:text-sbb-black transition-colors cursor-pointer"
-                    title={isEn ? 'Replay animation' : 'Animation wiederholen'}
-                  >
-                    <RotateCcw className="w-3 h-3" />
-                    <span>{isEn ? 'Replay' : 'Replay'}</span>
-                  </button>
-                )}
               </div>
             </div>
 
