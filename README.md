@@ -26,7 +26,7 @@ Terrain explores how corporate communications can gain traction during this shif
 * **Top-Down:** Enforces centrally defined and administered narratives plus channel-adapted **GEO** standards across both earned media and owned Corporate Stories.
 
 > **What is GEO (Generative Engine Optimization)?**
-> Traditional SEO helps web pages rank as clickable links. **GEO** means structuring clear, verifiable facts into your texts (leading with the core conclusion, writing self-contained passages, and keeping core facts consistent) so AI answer engines accurately pick up and quote your message when generating an answer.
+> Traditional SEO optimizes individual web pages to rank as clickable links. **GEO** structures communications for how AI answer engines actually retrieve and synthesize information: writing answer-first, self-contained passages with explicit entities and timelines, aligning facts across earned and owned channels, and governing legacy archives so models quote your current position accurately.
 
 **Tailoring to context, not copy-pasting:** Avoiding discrepancies does *not* mean robotically copy-pasting key messages everywhere. It means using AI to analyze the specific channel and audience context and tailoring the central narrative organically so it fits a press inquiry, an owned story, or a regional briefing while keeping the underlying facts consistent.
 

@@ -288,15 +288,15 @@ export const ConceptFlowView: React.FC<Props> = ({
                 : 'Terrain zeigt, wie Unternehmenskommunikation in diesem Wandel wirksam bleibt: Es prüft, wo Kernbotschaften in Medien und KI-Suche nicht durchdringen (Outside-In), und verankert zentral definierte und gepflegte Narrative sowie kanalangepasste GEO-Standards über Earned Media und eigene Corporate Stories hinweg (Top-Down).'}
             </p>
 
-            {/* Plain-English GEO explanation box */}
+            {/* Grounded GEO explanation box */}
             <div className="p-3.5 bg-amber-50/70 border-l-4 border-[#FFCC00] border border-amber-200 space-y-1">
               <div className="font-mono text-[11px] font-black uppercase tracking-wider text-sbb-black">
-                {isEn ? 'What is GEO?' : 'Was bedeutet GEO?'}
+                {isEn ? 'What is GEO (Generative Engine Optimization)?' : 'Was bedeutet GEO (Generative Engine Optimization)?'}
               </div>
               <p className="text-xs sm:text-sm text-zinc-800 leading-relaxed">
                 {isEn
-                  ? 'Traditional SEO helps web pages rank as clickable links. GEO (Generative Engine Optimization) means structuring clear, verifiable facts into your texts so AI answer engines can accurately pick up, trust, and quote your message when generating an answer.'
-                  : 'Klassisches SEO bringt Webseiten als Links nach oben. GEO (Generative Engine Optimization) strukturiert klare, überprüfbare Fakten im Text so, dass KI-Antwortmaschinen die Botschaft beim Generieren einer Antwort korrekt erfassen und zitieren.'}
+                  ? 'Traditional SEO optimizes individual web pages to rank as clickable links. GEO structures communications for how AI answer engines actually retrieve and synthesize information: writing answer-first, self-contained passages with explicit entities and timelines, aligning facts across earned and owned channels, and governing legacy archives so models quote your current position accurately.'
+                  : 'Klassisches SEO optimiert einzelne Webseiten für Klick-Rankings. GEO strukturiert Kommunikation so, wie KI-Antwortmaschinen Informationen tatsächlich abrufen und synthetisieren: durch eigenständige Answer-First-Absätze mit klaren Entitäten und Zeitangaben, abgestimmte Fakten über Earned- und Owned-Kanäle hinweg sowie saubere Archiv-Hygiene.'}
               </p>
             </div>
 

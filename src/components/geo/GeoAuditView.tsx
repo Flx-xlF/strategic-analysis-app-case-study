@@ -109,76 +109,76 @@ export const GeoAuditView: React.FC<Props> = ({ lang, onNavigateTab }) => {
 
   const geoPrinciples = [
     {
-      titleEn: '1. Answer-First Structure',
-      titleDe: '1. Kernaussage zuerst (Answer-First)',
+      titleEn: '1. Answer-First & Heading Hierarchy',
+      titleDe: '1. Answer-First & klare Überschriften',
       ruleEn:
-        'AI sub-queries often pull only the opening lines of a page. Put the main conclusion and verified facts at the very top instead of hiding them after a long warm-up.',
+        'AI retrieval pipelines match sub-queries against section headings and extract the opening lines of a passage. If a page opens with a long narrative warm-up, the core fact gets cut off before entering the context window.',
       ruleDe:
-        'KI-Teilabfragen ziehen oft nur die ersten Sätze einer Seite. Stellen Sie Schlussfolgerung und harte Fakten an den Anfang statt nach einer langen Einleitung.',
+        'KI-Suchsysteme gleichen Teilabfragen mit Überschriften ab und extrahieren die ersten Sätze eines Abschnitts. Startet ein Text mit langem Vorlauf, wird der Kernfakt vor dem Kontextfenster abgeschnitten.',
       badEn:
         '«In an increasingly dynamic global environment, our organization continuously evaluates long-term opportunities to serve communities better across regions. Against this backdrop, regional operations remain an important pillar...»',
       badDe:
         '«In einem zunehmend dynamischen globalen Umfeld prüft unsere Organisation laufend langfristige Chancen. Vor diesem Hintergrund bleiben regionale Standorte ein wichtiger Pfeiler...»',
       goodEn:
-        '«Global manufacturing investments expand international capacity while headquarters, core governance, and regional R&D commitments remain anchored in place.»',
+        '«[2026–2030 Footprint Strategy] Global manufacturing investments expand international capacity from Q2 2026, while headquarters governance and regional R&D hubs remain anchored in place.»',
       goodDe:
-        '«Globale Investitionen bauen internationale Kapazitäten aus, während Hauptsitz, zentrale Steuerung und regionale F&E-Zusagen fest verankert bleiben.»',
-      takeawayEn: 'AI Takeaway: Opening lines carry the highest chance of being retrieved verbatim by a sub-query.',
-      takeawayDe: 'KI-Effekt: Die ersten Sätze haben die grösste Chance, direkt von einer Teilabfrage übernommen zu werden.'
+        '«[Standortstrategie 2026–2030] Globale Investitionen bauen internationale Kapazitäten ab Q2 2026 aus, während Hauptsitz-Governance und regionale F&E-Standorte fest verankert bleiben.»',
+      takeawayEn: 'Retrieval Mechanic [Fixes Q2]: Question-aligned headings + upfront conclusions maximize verbatim snippet extraction.',
+      takeawayDe: 'KI-Mechanik [Löst Q2]: Klare Überschriften + Kernaussage am Anfang sichern die direkte Snippet-Übernahme.'
     },
     {
-      titleEn: '2. Self-Contained Passages',
-      titleDe: '2. Eigenständige Textabschnitte',
+      titleEn: '2. Self-Contained Chunks & Entities',
+      titleDe: '2. Eigenständige Chunks & Entitäten',
       ruleEn:
-        'An AI engine pulls individual paragraphs into its context window without surrounding context. Avoid vague pronouns ("this", "there") so every key paragraph makes sense on its own.',
+        'RAG systems split documents into isolated chunks (paragraphs) and score them by explicit entity and metric density. Vague pronouns ("this program", "there") lose their meaning when a paragraph is retrieved without surrounding text.',
       ruleDe:
-        'KI-Systeme ziehen einzelne Absätze ohne den umgebenden Text ins Kontextfenster. Vermeiden Sie vage Verweise («dies», «dort»), damit jeder Schlüsselabsatz allein verständlich ist.',
+        'RAG-Systeme zerlegen Dokumente in isolierte Textblöcke (Chunks) und gewichten explizite Namen, Orte und Zahlen. Vage Verweise («dieses Programm», «dort») verlieren isoliert ihren Sinn.',
       badEn:
-        '«As noted above, this will continue over the coming years and supports those teams in the same way.»',
+        '«As noted above, this will continue over the coming years and supports those local teams in the same way.»',
       badDe:
-        '«Wie oben erwähnt, wird dies in den nächsten Jahren fortgeführt und unterstützt diese Teams auf gleiche Weise.»',
+        '«Wie oben erwähnt, wird dies in den nächsten Jahren fortgeführt und unterstützt diese lokalen Teams auf gleiche Weise.»',
       goodEn:
-        '«The 2026–2030 Global Expansion Program adds new international production lines while keeping existing regional research hubs fully staffed and operational.»',
+        '«The 2026–2030 Global Expansion Program adds international production lines while keeping Basel and regional European R&D hubs fully staffed and operational.»',
       goodDe:
-        '«Das globale Ausbauprogramm 2026–2030 ergänzt internationale Produktionslinien, während bestehende regionale Forschungsstandorte voll besetzt und aktiv bleiben.»',
-      takeawayEn: 'AI Takeaway: Self-contained facts survive excerpting even when surrounding paragraphs are skipped.',
-      takeawayDe: 'KI-Effekt: Eigenständige Aussagen bleiben auch dann korrekt, wenn umliegende Absätze abgeschnitten werden.'
+        '«Das globale Ausbauprogramm 2026–2030 ergänzt internationale Produktionslinien, während die regionalen europäischen F&E-Standorte voll besetzt und aktiv bleiben.»',
+      takeawayEn: 'Retrieval Mechanic: Naming explicit entities, locations, and timeframes in every key paragraph makes each chunk standalone-citable.',
+      takeawayDe: 'KI-Mechanik: Explizite Namen, Orte und Zeiträume in jedem Schlüsselabsatz machen jeden Chunk eigenständig zitierbar.'
     },
     {
-      titleEn: '3. Consistent Facts, Organic Voice',
-      titleDe: '3. Konsistente Fakten, natürlicher Ton',
+      titleEn: '3. Temporal Stamping & Archive Hygiene',
+      titleDe: '3. Zeitstempel & Archiv-Hygiene',
       ruleEn:
-        'GEO does not require copying identical wording everywhere. Keep core facts, timelines, and commitments consistent across teams while letting tone match the channel naturally.',
+        'AI search crawlers retrieve timelessly across indexed PDFs and sub-sites. If a 2022 regional PDF remains online without superseding metadata, models blend its outdated claims into 2026 answers.',
       ruleDe:
-        'GEO verlangt kein wortgleiches Copy-Paste. Halten Sie Kernfakten, Zeitpläne und Zusagen über alle Teams konsistent, während der Ton zum Kanal passt.',
+        'KI-Suchmaschinen durchsuchen auch ältere indexierte PDFs. Bleibt ein regionales PDF von 2022 ohne Aktualisierungsvermerk online, mischen Modelle veraltete Aussagen in Antworten von 2026.',
       badEn:
-        'Global page: «New lines launch in Q2.» vs. Regional brief: «European capacity timelines remain under review.» (Same topic, unaligned core facts.)',
+        'Current page: «New lines launch in Q2.» | Still indexed online: «2022 Regional Briefing PDF: European site consolidation review ongoing.» (No temporal hierarchy—AI reports a contradiction.)',
       badDe:
-        'Globale Seite: «Neue Linien starten in Q2.» vs. Regionales Briefing: «Zeitpläne bleiben in Prüfung.» (Gleiches Thema, unabgestimmte Kernfakten.)',
+        'Aktuelle Seite: «Neue Linien ab Q2.» | Weiterhin indexiert: «Regional-PDF 2022: Standortprüfung läuft.» (Keine zeitliche Einordnung – KI meldet einen Widerspruch.)',
       goodEn:
-        'Global page: «New international lines begin phased operation in Q2.» | Regional brief: «As global lines phase in from Q2, regional R&D teams continue on their established schedule.»',
+        '«[Updated 2026 — Supersedes 2022 Regional Review] With the 2022 review concluded, the 2026–2030 program anchors regional R&D hubs permanently alongside Q2 global line expansions.» (+ Archive/redirect 2022 PDF.)',
       goodDe:
-        'Globale Seite: «Neue internationale Linien starten gestaffelt ab Q2.» | Regionales Briefing: «Parallel zum globalen Start ab Q2 arbeiten regionale F&E-Teams nach festem Plan weiter.»',
-      takeawayEn: 'AI Takeaway: Aligned timelines and facts prevent cross-channel contradictions while letting tone stay organic.',
-      takeawayDe: 'KI-Effekt: Abgestimmte Fakten verhindern Widersprüche, während der Ton je Kanal natürlich bleibt.'
+        '«[Update 2026 – Ersetzt Standortprüfung 2022] Nach Abschluss der Prüfung von 2022 verankert das Programm 2026–2030 die regionalen F&E-Standorte dauerhaft neben dem Q2-Ausbau.» (+ 2022-PDF archivieren.)',
+      takeawayEn: 'Retrieval Mechanic [Fixes Q3–4]: Explicit dates, "supersedes" markers, and PDF archiving stop legacy files from polluting current answers.',
+      takeawayDe: 'KI-Mechanik [Löst Q3–4]: Explizite Jahreszahlen, Ablöse-Vermerke und PDF-Archivierung verhindern Widersprüche durch Altdateien.'
     },
     {
-      titleEn: '4. Direct, Affirmative Framing',
-      titleDe: '4. Direkt & positiv formulieren',
+      titleEn: '4. Affirmative Co-Occurrence Discipline',
+      titleDe: '4. Affirmative Fakten-Verankerung',
       ruleEn:
-        'When Outside-In monitoring flags a misunderstanding or rumour, lead with clear, affirmative facts about what the company does—instead of repeating the negative claim just to deny it.',
+        'LLMs build answers from statistical co-occurrence between your company name and nearby terms. Repeating a negative rumour just to deny it ("We are not closing regional hubs") strengthens that association in search indices and syntheses.',
       ruleDe:
-        'Wenn Outside-In ein Missverständnis erkennt, beginnen Sie mit klaren, positiven Fakten darüber, was das Unternehmen tut – statt die Unterstellung zur Verneinung zu wiederholen.',
+        'LLMs gewichten das gemeinsame Auftreten (Co-Occurrence) von Unternehmensnamen und Begriffen. Wer ein Gerücht zur Verneinung wiederholt («Wir schliessen keine Standorte»), verstärkt genau diese Verknüpfung.',
       badEn:
-        '«We are not abandoning European operations or cutting regional commitments.» (Search indexing still links the company name closely to "abandoning" and "cutting".)',
+        '«We are not abandoning European operations or cutting regional commitments.» (Search indices and sub-queries still link the company to "abandoning" and "cutting".)',
       badDe:
-        '«Wir geben europäische Standorte nicht auf und bauen regionale Zusagen nicht ab.» (Suchsysteme verknüpfen den Namen trotzdem mit «aufgeben» und «abbauen».)',
+        '«Wir geben europäische Standorte nicht auf und bauen regionale Zusagen nicht ab.» (Suchindizes verknüpfen das Unternehmen trotzdem mit «aufgeben» und «abbauen».)',
       goodEn:
-        '«European R&D hubs and regional operations remain a core part of our long-term strategy alongside international capacity growth.»',
+        '«European R&D hubs and regional operations remain a permanent core of our 2026–2030 strategy alongside international capacity growth.»',
       goodDe:
-        '«Europäische F&E-Standorte und regionale Aktivitäten bleiben neben dem internationalen Ausbau ein fester Kern unserer Langfriststrategie.»',
-      takeawayEn: 'AI Takeaway: Positive statements anchor what the company stands for without amplifying false accusations.',
-      takeawayDe: 'KI-Effekt: Positive Fakten verankern Ihre Aussage, ohne falsche Vorwürfe im Suchindex zu verstärken.'
+        '«Europäische F&E-Standorte und regionale Aktivitäten bilden neben dem internationalen Ausbau einen dauerhaften Kern unserer Strategie 2026–2030.»',
+      takeawayEn: 'Retrieval Mechanic [Fixes Q1 & Q5–8]: Affirmative entity-fact pairing anchors your position without amplifying false premises.',
+      takeawayDe: 'KI-Mechanik [Löst Q1 & Q5–8]: Positive Fakten-Verknüpfung verankert die eigene Position, ohne falsche Prämissen zu verstärken.'
     }
   ];
 
@@ -194,8 +194,8 @@ export const GeoAuditView: React.FC<Props> = ({ lang, onNavigateTab }) => {
         </div>
         <h1 className="text-xl sm:text-2xl font-black text-sbb-black tracking-tight">
           {isEn
-            ? 'Consistent narratives without copy-paste—plus plain-English GEO standards'
-            : 'Konsistente Narrative ohne stures Copy-Paste – plus verständliche GEO-Standards'}
+            ? 'Consistent narratives without copy-paste—paired with retrieval-ready GEO structure'
+            : 'Konsistente Narrative ohne stures Copy-Paste – kombiniert mit KI-gerechter GEO-Struktur'}
         </h1>
         <p className="text-sm text-zinc-700 max-w-4xl leading-relaxed">
           {isEn
@@ -352,14 +352,14 @@ export const GeoAuditView: React.FC<Props> = ({ lang, onNavigateTab }) => {
             <Layers className="w-4 h-4 text-sbb-red" />
             <span>
               {isEn
-                ? 'PART B // 4 PRACTICAL GEO BEST PRACTICES'
-                : 'TEIL B // 4 PRAXISNAHE GEO-PRINZIPIEN'}
+                ? 'PART B // 4 STRUCTURAL GEO PRINCIPLES (HOW AI RETRIEVAL ACTUALLY WORKS)'
+                : 'TEIL B // 4 STRUKTURELLE GEO-PRINZIPIEN (WIE KI-ABRUF FUNKTIONIERT)'}
             </span>
           </div>
           <p className="text-xs sm:text-sm text-zinc-700">
             {isEn
-              ? 'GEO (Generative Engine Optimization) isn’t about technical tricks—it’s about writing clear, structured facts so AI tools can accurately quote what you meant.'
-              : 'Bei GEO (Generative Engine Optimization) geht es nicht um Technik-Tricks, sondern um klar strukturierte Fakten, damit KI-Tools Ihre Aussage korrekt zitieren.'}
+              ? 'AI answer engines do not read web pages top-to-bottom like humans—they retrieve isolated text chunks across channels and archives, weighting explicit entities, dates, and co-occurring facts. Click each principle to see how GEO addresses those mechanics:'
+              : 'KI-Antwortmaschinen lesen Seiten nicht linear wie Menschen – sie ziehen isolierte Textblöcke (Chunks) über Kanäle und Archive hinweg und gewichten explizite Entitäten, Zeitstempel und Fakten. Klicken Sie auf die 4 Prinzipien:'}
           </p>
         </div>
 
