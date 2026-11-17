@@ -41,6 +41,8 @@ A production setup connects existing enterprise layers across two streams:
 1. **Outside-In Layer:** Connects to external feeds—licensed newspaper, media and social aggregators (**Factiva, Meltwater, Talkwalker**) plus public LLM APIs—to ingest ongoing article and answer streams. Because these produce huge amounts of data, the stream is digested into structured data and processed statistically and by LLMs to identify where messages come through and where work needs to be done.
 2. **Top-Down Layer:** Central Comms administers key narratives and GEO frameworks, translates them into **prompt recipes**, and streams them through existing company systems right where work is done: via **embedded assistants and add-ins (e.g. Microsoft Copilot in `Word`, `Outlook`, and `Teams`) as well as Web CMS browser extensions**. Keeping friction low and delivering immediate daily benefit ensures teams actually use them.
 
+> **Companion Working Tool:** For a shipped Manifest V3 browser extension implementing embedded multi-turn prompt recipes and inline word-level diffs directly inside M365 Copilot, Outlook, Teams, Gemini, ChatGPT, and Claude, see **[PromptDock](https://github.com/Flx-xlF/PromptDock)**.
+
 ---
 
 ## Realistic Limits: AI Frames the Context, Humans Iterate
